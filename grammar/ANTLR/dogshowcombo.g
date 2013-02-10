@@ -6,9 +6,8 @@ ring	:	RING_TITLE judge_block+;
 judge_block
 	:	JUDGE timeblock+;
 timeblock
-	:	TIME (BREED_RING|JUNIOR_RING)+;
-junior_ring
-	:	JUNIOR_RING+ EOF;
+	:	TIME (BREED_RING|JUNIOR_RING)+ EOF;
+//junior_ring	:	JUNIOR_RING+ EOF;
 	
 //test_breed_ring:	BREED_RING;
 /******************************
@@ -21,10 +20,12 @@ junior_ring
 /*
  Show Specific Vocabulary Fragments
 */
+fragment FRAG_BREED_NAME
+	:	(FRAG_BREED_NAME_SINGLE|FRAG_BREED_NAME_PLURAL);
 fragment FRAG_BREED_NAME_PLURAL
 	:	((FRAG_BREED_NAME_SINGLE|FRAG_BREED_NAME_ALT) 's');
 fragment FRAG_BREED_NAME_SUFFIX
-	:	('Sweepstakes Entries'|'Sweepstakes Entry'|'Veterans Sweepstakes Entries'|'Veterans'|'Dogs');//veteran dogs
+	:	(' Sweepstakes Entries'|' Sweepstakes Entry'|' Veterans Sweepstakes Entries'|' Veterans'|' Dogs');//veteran dogs
 fragment FRAG_BREED_NAME_ALT:	'Veteran';//used to handle BREED_RING with no breed count after
 fragment FRAG_BREED_NAME_SINGLE
 	:'Affenpinscher'|
@@ -266,15 +267,15 @@ JUDGE	:	FRAG_TITLE (WS WORD|PARENTHETICAL)+ WS PARENTHETICAL_INT;
 WS :(' ' |'\t' |'\n' |'\r' )+ {$channel=HIDDEN;} ;
 
 JUNIOR_RING:	INT WS FRAG_JUNIOR_CLASS;	
-
-BREED_RING :	INT WS (FRAG_BREED_NAME_SINGLE | (FRAG_BREED_NAME_PLURAL (WS FRAG_BREED_NAME_SUFFIX)+))
-		      |(FRAG_BREED_NAME_PLURAL WS BREED_COUNT);
+fragment BR 
+	:	INT WS FRAG_BREED_NAME;
+BREED_RING :	BR (BREED_COUNT)?;
 	
 	
 RING_TITLE  :   'RING' WS INT;
 
 	
-fragment BREED_COUNT  :   INT '-' INT '-' INT '-' INT;
+fragment BREED_COUNT  :  ' ' INT '-' INT '-' INT '-' INT;
 TIME    :   INT ':' INT WS? FRAG_TIME_LABEL;
 
 DATE    :   FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT;
