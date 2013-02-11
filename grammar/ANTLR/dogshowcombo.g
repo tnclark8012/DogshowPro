@@ -1,12 +1,26 @@
 grammar dogshowcombo;
-
+@parser::members {
+  private boolean ahead(String text) {
+  	System.out.println("Does " + input.toString() + " contain " + text + "?");
+	return input.toString().contains(text);
+  }
+}
+test_special:	special_ring+;
+test_breed
+	:	breed_ring+ EOF;
 start	:	ring+ EOF;
 ring	:	RING_TITLE judge_block+;
 
 judge_block
 	:	JUDGE timeblock+;
 timeblock
-	:	TIME (BREED_RING|JUNIOR_RING)+ EOF;
+	:	TIME (breed_ring|special_ring|junior_ring)+;
+	
+special_ring:   INT BREED_NAME SPECIAL_SUFFIX+;
+junior_ring:	INT JUNIOR_CLASS;
+breed_ring
+	:	INT BREED_NAME BREED_COUNT?;
+
 //junior_ring	:	JUNIOR_RING+ EOF;
 	
 //test_breed_ring:	BREED_RING;
@@ -20,15 +34,21 @@ timeblock
 /*
  Show Specific Vocabulary Fragments
 */
-fragment FRAG_BREED_NAME
-	:	(FRAG_BREED_NAME_SINGLE|FRAG_BREED_NAME_PLURAL);
+
+	
+BREED_NAME
+	:	(FRAG_BREED_NAME_SINGLE|FRAG_BREED_NAME_PLURAL|FRAG_BREED_NAME_ALT);
+
+SPECIAL_SUFFIX
+	:	(FRAG_BREED_NAME_SUFFIX WS);
+
 fragment FRAG_BREED_NAME_PLURAL
 	:	((FRAG_BREED_NAME_SINGLE|FRAG_BREED_NAME_ALT) 's');
 fragment FRAG_BREED_NAME_SUFFIX
-	:	(' Sweepstakes Entries'|' Sweepstakes Entry'|' Veterans Sweepstakes Entries'|' Veterans'|' Dogs');//veteran dogs
-fragment FRAG_BREED_NAME_ALT:	'Veteran';//used to handle BREED_RING with no breed count after
+	:	('Sweepstakes'|'Entry'|'Entries'|'Veterans'|'(Misc. Dog)'|'(Misc. Dogs)'|'(Misc. Bitch)'|'(Misc. Bitches)');//veteran dogs
+fragment FRAG_BREED_NAME_ALT:	'Veteran Dog';//used to handle BREED_RING with no breed count after
 fragment FRAG_BREED_NAME_SINGLE
-	:'Affenpinscher'|
+	:('Affenpinscher'|
 	'Afghan Hound'|
 	'Airedale Terrier'|
 	'Akita'|
@@ -130,6 +150,7 @@ fragment FRAG_BREED_NAME_SINGLE
 	'Komondor'|
 	'Kuvasz'|
 	'Labrador Retriever'|
+	'Lagotto Romagnolo'|
 	'Lakeland Terrier'|
 	'Leonberger'|
 	'Lhasa Apso'|
@@ -137,6 +158,7 @@ fragment FRAG_BREED_NAME_SINGLE
 	'Maltese'|
 	'Manchester Terrier'|
 	'Mastiff'|
+	'Miniature American Shepherd'|
 	'Miniature Bull Terrier'|
 	'Miniature Pinscher'|
 	'Miniature Schnauzer'|
@@ -170,7 +192,7 @@ fragment FRAG_BREED_NAME_SINGLE
 	'Rottweiler'|
 	'Russell Terrier'|
 	'Saint Bernard'|
-	'Saluki'|
+		'Saluki'|
 	'Samoyed'|
 	'Schipperke'|
 	'Scottish Deerhound'|
@@ -203,9 +225,9 @@ fragment FRAG_BREED_NAME_SINGLE
 	'Wire Fox Terrier'|
 	'Wirehaired Pointing Griffon'|
 	'Xoloitzcuintli'|
-	'Yorkshire Terrier';
+	'Yorkshire Terrier');
 	
-fragment FRAG_JUNIOR_CLASS
+JUNIOR_CLASS
 	:	'Master Class'|
 		'Open Senior'|
 		'Open Intermediate'|
@@ -264,19 +286,13 @@ fragment ATOM
 		
 JUDGE	:	FRAG_TITLE (WS WORD|PARENTHETICAL)+ WS PARENTHETICAL_INT;
 
-WS :(' ' |'\t' |'\n' |'\r' )+ {$channel=HIDDEN;} ;
-
-JUNIOR_RING:	INT WS FRAG_JUNIOR_CLASS;	
-fragment BR 
-	:	INT WS FRAG_BREED_NAME;
-BREED_RING :	BR (BREED_COUNT)?;
-	
+WS :(' ' |'\t' |'\n' |'\r' )+ {$channel=HIDDEN;} ;	
 	
 RING_TITLE  :   'RING' WS INT;
 
 	
-fragment BREED_COUNT  :  ' ' INT '-' INT '-' INT '-' INT;
-TIME    :   INT ':' INT WS? FRAG_TIME_LABEL;
+BREED_COUNT  :  INT '-' INT '-' INT '-' INT;
+TIME    :   INT ':' INT WS FRAG_TIME_LABEL;
 
 DATE    :   FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT;
 	
