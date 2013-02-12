@@ -7,15 +7,17 @@ grammar dogshowcombo;
 }
 test_special:	special_ring+;
 test_breed
-	:	breed_ring+ EOF;
+	:	breed_ring+;
 start	:	ring+ EOF;
 ring	:	RING_TITLE judge_block+;
 
 judge_block
 	:	JUDGE timeblock+;
+
+comment	:	STANDALONE_COMMENT|( (COMMENT|INT)+ '.');
+
 timeblock
-	:	TIME (breed_ring|special_ring|junior_ring)+;
-	
+	:	TIME (breed_ring|special_ring|junior_ring|comment)+;
 special_ring:   INT BREED_NAME SPECIAL_SUFFIX+;
 junior_ring:	INT JUNIOR_CLASS;
 breed_ring
@@ -39,7 +41,6 @@ breed_name
 /*
  Show Specific Vocabulary Fragments
 */
-
 JUNIOR_CLASS
 	:	'Master Class'|
 		'Open Senior'|
@@ -331,8 +332,6 @@ fragment FRAG_WEEK_DAY:   'Sunday'|'SUNDAY'|
 
 fragment ATOM
 	:	(WORD|INT);
-	
-
 
 
 
@@ -365,11 +364,16 @@ TIME    :   INT ':' INT WS FRAG_TIME_LABEL;
 DATE    :   FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT;
 	
 ELLIPSIS:	'.' '.'+;
+
 INT :'0'..'9' + ;
-WORD  : ('a'..'z'|'A'..'Z'|FRAG_SPEC_CHAR|FRAG_SPEC_WORD_CHAR)+ END_PUNCTUATION?;
+STANDALONE_COMMENT
+	:	'LUNCH';
+COMMENT	:	(BREED_NAME|WORD)+;
+//SENTENCE:	(ATOM|PARENTHETICAL) (WS (WORD|INT|PARENTHETICAL))* END_PUNCTUATION;
+fragment WORD  : ('a'..'z'|'A'..'Z'|FRAG_SPEC_CHAR|FRAG_SPEC_WORD_CHAR)+;
 
 
-PARENTHETICAL
+fragment PARENTHETICAL
 	:	FRAG_PAREN_LEFT ((WORD|INT) WS?)+ FRAG_PAREN_RIGHT;
 
 PARENTHETICAL_INT
