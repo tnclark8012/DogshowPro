@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Comments in rings are allowed.
 T__37=37
 ATOM=4
 BREED_COUNT=5
@@ -34,6 +37,7 @@ TIME=34
 WORD=35
 WS=36
 '.'=37
+<<<<<<< HEAD
 =======
 ATOM=4
 BREED_COUNT=5
@@ -96,3 +100,5 @@ TIME=32
 WORD=33
 WS=34
 >>>>>>> All breed names in simple judging program matched!
+=======
+>>>>>>> Comments in rings are allowed.
