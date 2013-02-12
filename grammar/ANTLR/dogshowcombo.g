@@ -57,7 +57,12 @@ timeblock
 special_ring:   INT BREED_NAME SPECIAL_SUFFIX+;
 junior_ring:	INT JUNIOR_CLASS;
 breed_ring
-	:	INT BREED_NAME BREED_COUNT?;
+	:	INT BREED_NAME BREED_NAME_SUFFIX? BREED_COUNT?;
+breed_name
+	:	BREED_NAME BREED_NAME_SUFFIX;
+
+
+
 
 //junior_ring	:	JUNIOR_RING+ EOF;
 >>>>>>> Sweeps, Singles, Veterans Parse!
@@ -393,18 +398,62 @@ fragment FRAG_BREED_NAME_SINGLE
     'Yorkshire Terrier');
 =======
 
-	
+JUNIOR_CLASS
+	:	'Master Class'|
+		'Open Senior'|
+		'Open Intermediate'|
+		'Open Junior'|
+		'Novice Senior'|
+		'Novice Junior'|
+		'Novice Itermediate';
+		
 BREED_NAME
-	:	(FRAG_BREED_NAME_SINGLE|FRAG_BREED_NAME_PLURAL|FRAG_BREED_NAME_ALT);
+	:	(FRAG_BREED_NAME_SINGLE|FRAG_BREED_NAME_ALT) 's'? WS? ('(' FRAG_BREED_NAME_CATEGORY ')' WS? FRAG_BREED_NAME_CATEGORY_SUFFIX? )? BREED_NAME_SUFFIX?;
 
 SPECIAL_SUFFIX
-	:	(FRAG_BREED_NAME_SUFFIX);
+	:	(FRAG_BREED_NAME_SPECIAL_SUFFIX);//Could be more matching, so keep BREED_NAME_SPECIAL_SUFFIX a fragment
+	
+BREED_NAME_SUFFIX
+	:	'(Misc. Dog)'|'(Misc. Dogs)'|'(Misc. Bitch)'|'(Misc. Bitches)';
 
-fragment FRAG_BREED_NAME_PLURAL
-	:	((FRAG_BREED_NAME_SINGLE|FRAG_BREED_NAME_ALT) 's');
-fragment FRAG_BREED_NAME_SUFFIX
-	:	('Sweepstakes'|'Entry'|'Entries'|'Veterans'|'(Misc. Dog)'|'(Misc. Dogs)'|'(Misc. Bitch)'|'(Misc. Bitches)');//veteran dogs
+fragment FRAG_BREED_NAME_SPECIAL_SUFFIX
+	:	('Sweepstakes'|'Entry'|'Entries'|'Veterans');
 fragment FRAG_BREED_NAME_ALT:	'Veteran Dog';//used to handle BREED_RING with no breed count after
+fragment FRAG_BREED_NAME_CATEGORY_SUFFIX
+	:	'Ascob'|'Parti-Color';//Spaniels (Cocker) Ascob
+fragment FRAG_BREED_NAME_CATEGORY //Breed's that are listed under categories rather than full name. Ex: Spaniels (Cocker)
+	:	
+		'13 Inch'|//beagles
+		'15 Inch'|//beagles
+		'Boykin'|//spaniels
+		'Cocker'|//spaniels (cocker) ascob
+		'English'|//setters
+		'English Cocker'|//spaniels
+		'English Springer'|//spaniels
+		'Field'|//spaniels
+		'German Shorthaired'|//pointer
+		'Golden'|//retriever
+		'Gordon'|//setters
+		'Irish'|//Setters
+		'Labrador'|//Retriever
+		'Long Coat'|//chihuahuas
+		'Longhaired'|//dachshunds
+		'Miniature'|//poodles
+		'Rough'|//Collie
+		'Smooth'|//Collie,dachshund,fox terriers
+		'Smooth Coat'|//chihuahuas
+		'Standard'|//poodle, manchester terrier
+		'Toy'|//poodles
+		'White'|//bull terrier
+		'Wirehaired'//Dachshund
+		
+		
+		
+		
+		
+		;
+
+//Dog breed names in singular form
 fragment FRAG_BREED_NAME_SINGLE
 	:('Affenpinscher'|
 	'Afghan Hound'|
@@ -431,7 +480,9 @@ fragment FRAG_BREED_NAME_SINGLE
 	'Belgian Tervuren'|
 	'Bernese Mountain Dog'|
 	'Bichon Frise'|
+	'Bichons Frise'|//odd plural
 	'Black and Tan Coonhound'|
+	'Black & Tan Coonhound'|
 	'Black Russian Terrier'|
 	'Bloodhound'|
 	'Bluetick Coonhound'|
@@ -469,6 +520,7 @@ fragment FRAG_BREED_NAME_SINGLE
 	'Dandie Dinmont Terrier'|
 	'Doberman Pinscher'|
 	'Dogue de Bordeaux'|
+	'Dogues de Bordeaux'|//odd plural
 	'English Cocker Spaniel'|
 	'English Foxhound'|
 	'English Setter'|
@@ -479,6 +531,7 @@ fragment FRAG_BREED_NAME_SINGLE
 	'Finnish Lapphund'|
 	'Finnish Spitz'|
 	'Flat-Coated Retriever'|
+	'Fox Terrier'|
 	'French Bulldog'|
 	'German Pinscher'|
 	'German Shepherd Dog'|
@@ -504,6 +557,7 @@ fragment FRAG_BREED_NAME_SINGLE
 	'Italian Greyhound'|
 	'Japanese Chin'|
 	'Keeshond'|
+	'Keeshonden'|//odd singular
 	'Kerry Blue Terrier'|
 	'Komondor'|
 	'Kuvasz'|
@@ -513,6 +567,7 @@ fragment FRAG_BREED_NAME_SINGLE
 	'Leonberger'|
 	'Lhasa Apso'|
 	'Löwchen'|
+	'Lowchen'|
 	'Maltese'|
 	'Manchester Terrier'|
 	'Mastiff'|
@@ -541,29 +596,34 @@ fragment FRAG_BREED_NAME_SINGLE
 	'Polish Lowland Sheepdog'|
 	'Pomeranian'|
 	'Poodle'|
+	'Portuguese Podengo Pequenos'|
 	'Portuguese Water Dog'|
 	'Pug'|
 	'Puli'|
+	'Pulik'|
 	'Pyrenean Shepherd'|
 	'Redbone Coonhound'|
+	'Retrievers'|//labrador
 	'Rhodesian Ridgeback'|
 	'Rottweiler'|
 	'Russell Terrier'|
 	'Saint Bernard'|
-		'Saluki'|
+	'Saluki'|
 	'Samoyed'|
 	'Schipperke'|
 	'Scottish Deerhound'|
 	'Scottish Terrier'|
 	'Sealyham Terrier'|
+	'Setters'|
 	'Shetland Sheepdog'|
 	'Shiba Inu'|
 	'Shih Tzu'|
 	'Siberian Husky'|
+	'Siberian Huskies'|//odd plural
 	'Silky Terrier'|
 	'Skye Terrier'|
-	'Smooth Fox Terrier'|
 	'Soft Coated Wheaten Terrier'|
+	'Spaniels'|
 	'Spinone Italiano'|
 	'Staffordshire Bull Terrier'|
 	'Standard Schnauzer'|
@@ -584,6 +644,7 @@ fragment FRAG_BREED_NAME_SINGLE
 	'Wirehaired Pointing Griffon'|
 	'Xoloitzcuintli'|
 	'Yorkshire Terrier');
+<<<<<<< HEAD
 	
 JUNIOR_CLASS
 	:	'Master Class'|
@@ -594,6 +655,8 @@ JUNIOR_CLASS
 		'Novice Junior'|
 		'Novice Itermediate';
 >>>>>>> Sweeps, Singles, Veterans Parse!
+=======
+>>>>>>> All breed names in simple judging program matched!
 
 fragment FRAG_MONTH   :   'January'|'JANUARY'|
              'February'|'FEBRUARY'|
@@ -645,6 +708,29 @@ fragment ATOM
 
 <<<<<<< HEAD
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+/********************************
+*
+*	Tokens
+*
+**********************************/		
+BREED_COUNT  :  INT '-' INT '-' INT '-' INT;
+JUDGE	:	FRAG_TITLE (WS WORD|PARENTHETICAL)+ WS PARENTHETICAL_INT;
+>>>>>>> All breed names in simple judging program matched!
 
 =======
 WS :(' ' |'\t' |'\n' |'\r' )+ {$channel=HIDDEN;} ;	
@@ -652,7 +738,7 @@ WS :(' ' |'\t' |'\n' |'\r' )+ {$channel=HIDDEN;} ;
 RING_TITLE  :   'RING' WS INT;
 
 	
-BREED_COUNT  :  INT '-' INT '-' INT '-' INT;
+
 TIME    :   INT ':' INT WS FRAG_TIME_LABEL;
 >>>>>>> Sweeps, Singles, Veterans Parse!
 
