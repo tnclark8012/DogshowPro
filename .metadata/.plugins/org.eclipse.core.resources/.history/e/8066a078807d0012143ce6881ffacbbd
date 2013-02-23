@@ -1,0 +1,7 @@
+package dev.tclark.dogshow.grammar;
+
+public class Snippet {
+	{"Rings":[{"RingTitle":"RING 1","JudgeBlocks":[{"JudgeName":"MS KARI HILL (44)","Blocks":[{"time":"12:00 pm","BreedRings":[{}]}]}]}]}
+	
+}
+

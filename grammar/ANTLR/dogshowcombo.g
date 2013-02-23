@@ -8,14 +8,15 @@ grammar dogshowcombo;
 test_special:	special_ring+;
 test_breed
 	:	breed_ring+;
-start	:	ring+ EOF;
+start	returns [String s]: {$s = "show";}	(ring {$s+="r";})+ EOF;
 ring	:	RING_TITLE judge_block+;
 
 judge_block
 	:	JUDGE timeblock+;
 
-comment	:	STANDALONE_COMMENT|( (COMMENT|INT)+ '.');
-
+comment	:	STANDALONE_COMMENT|( (COMMENT|INT)+);
+test_judge_name
+	:	JUDGE_NAME;
 timeblock
 	:	TIME (breed_ring|special_ring|junior_ring|comment)+;
 special_ring:   INT BREED_NAME SPECIAL_SUFFIX+;
@@ -351,6 +352,8 @@ fragment ATOM
 *
 **********************************/		
 BREED_COUNT  :  INT '-' INT '-' INT '-' INT;
+JUDGE_NAME
+	:	FRAG_TITLE (WS 'A'..'Z' 'a'..'z'+)+;
 JUDGE	:	FRAG_TITLE (WS WORD|PARENTHETICAL)+ WS PARENTHETICAL_INT;
 
 WS :(' ' |'\t' |'\n' |'\r' )+ {$channel=HIDDEN;} ;	
@@ -368,7 +371,7 @@ ELLIPSIS:	'.' '.'+;
 INT :'0'..'9' + ;
 STANDALONE_COMMENT
 	:	'LUNCH';
-COMMENT	:	(BREED_NAME|WORD)+;
+COMMENT	:	(BREED_NAME|WORD|PARENTHETICAL)+;
 //SENTENCE:	(ATOM|PARENTHETICAL) (WS (WORD|INT|PARENTHETICAL))* END_PUNCTUATION;
 fragment WORD  : ('a'..'z'|'A'..'Z'|FRAG_SPEC_CHAR|FRAG_SPEC_WORD_CHAR)+;
 

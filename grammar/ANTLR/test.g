@@ -1,24 +1,47 @@
 grammar test;
-
+@header {
+package dev.tclark.dogshow.grammar;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+}
+@members {
+JsonObject ring;
+}
+@lexer::header {package dev.tclark.dogshow.grammar;}
 test_special:	special_ring+;
 test_breed
-	:	breed_ring+;
-start	:	comment ring+ EOF;
-ring	:	RING_TITLE judge_block+ {System.out.println("Found new ring: " + $RING_TITLE.text + "\n" +  $text);};
+	:	breed_ring+ EOF;
+start	
+returns [JsonObject json]
+@init {json = new JsonObject(); JsonArray array = new JsonArray(); System.out.println("starting...");}
+	:	comment (myRing=ring{array.add($myRing.json);})+ {json.add("Rings", array);}EOF;
+ring
+returns [JsonObject json]
+@init {json = new JsonObject(); JsonArray array = new JsonArray(); System.out.println("Starting ring...");}
+	:	RING_TITLE{json.addProperty("RingTitle", $RING_TITLE.text);} (judgeBlock=judge_block{array.add($judgeBlock.json);})+ {System.out.println("Found new ring: " + $RING_TITLE.text); json.add("JudgeBlocks", array);};
+
+timeblock 
+returns [JsonObject json]
+@init {json = new JsonObject(); JsonArray array = new JsonArray();}
+	:	TIME{json.addProperty("time", $TIME.text);} ( comment? (breedRing=breed_ring{array.add($breedRing.json);}|specialRing=special_ring{array.add($specialRing.json);}|juniorRing=junior_ring{array.add($juniorRing.json);})+) {json.add("BreedRings", array);System.out.println("Timeblock JSON: " + json );};
 judge_block
-	:	JUDGE_NAME timeblock+;
+returns [JsonObject json]
+@init {json = new JsonObject(); JsonArray array = new JsonArray();}
+	:	JUDGE_NAME{json.addProperty("JudgeName",$JUDGE_NAME.text);} (block=timeblock{array.add($block.json);})+ {json.add("Blocks", array);};
 
-comment	:	(TIME|COMMENT|INT|JUDGE_NAME|DATE|PHONE_NUMBER|ELLIPSIS)+;
+comment	:	(TIME|COMMENT|INT|JUDGE_NAME|DATE|PHONE_NUMBER|ELLIPSIS)+ {System.out.println("Done with comment");};
 
-timeblock
-	:	TIME ((breed_ring|special_ring|junior_ring)=>(comment? breed_ring|special_ring|junior_ring)+);
-special_ring:   INT BREED_NAME SPECIAL_SUFFIX+;
-junior_ring:	INT JUNIOR_CLASS;
-breed_ring
-	:	INT BREED_NAME BREED_NAME_SUFFIX? BREED_COUNT?;
+special_ring returns [JsonObject json]
+@init {json = new JsonObject(); String suff = ""; System.out.println("Found a special ring");}
+	:   INT{json.addProperty("Count", $INT.text); } BREED_NAME{json.addProperty("Breed", $BREED_NAME.text); } {suff=null;}(SPECIAL_SUFFIX{suff+=$SPECIAL_SUFFIX.text;})+ {json.addProperty("SpecialType",suff);};
+junior_ring returns [JsonObject json]
+@init {json = new JsonObject();}
+	:	INT {json.addProperty("Count", $INT.text); } JUNIOR_CLASS{json.addProperty("ClassName", $JUNIOR_CLASS.text); };
+breed_ring returns [JsonObject json]
+@init {json = new JsonObject();String str = null;}
+	:	INT{json.addProperty("Count", $INT.text); } {str = "";}BREED_NAME{str += $BREED_NAME.text;} (BREED_NAME_SUFFIX {str+= $BREED_NAME_SUFFIX.text;})? (BREED_COUNT{json.addProperty("BreedCount", $BREED_COUNT.text);})? {System.out.println("BreedRing JSON: " + json);};
 breed_name
 	:	BREED_NAME BREED_NAME_SUFFIX;
-	
 JUNIOR_CLASS
 	:	'Master Class'|
 		'Open Senior'|
@@ -27,12 +50,13 @@ JUNIOR_CLASS
 		'Novice Senior'|
 		'Novice Junior'|
 		'Novice Itermediate';
-		
+test_pug:	BREED_NAME BREED_COUNT EOF;
 BREED_NAME
-	:	(FRAG_BREED_NAME_SINGLE|FRAG_BREED_NAME_ALT) 's'? WS? ('(' FRAG_BREED_NAME_CATEGORY ')' WS? FRAG_BREED_NAME_CATEGORY_SUFFIX? )? BREED_NAME_SUFFIX?;
+	:	(FRAG_BREED_NAME_SINGLE);
+//(FRAG_BREED_NAME_SINGLE|FRAG_BREED_NAME_ALT) 's'? WS? ('(' FRAG_BREED_NAME_CATEGORY ')' WS? FRAG_BREED_NAME_CATEGORY_SUFFIX? )? BREED_NAME_SUFFIX?;
 
 SPECIAL_SUFFIX
-	:	(FRAG_BREED_NAME_SPECIAL_SUFFIX);//Could be more matching, so keep BREED_NAME_SPECIAL_SUFFIX a fragment
+	:	(FRAG_BREED_NAME_SPECIAL_SUFFIX );//Could be more matching, so keep BREED_NAME_SPECIAL_SUFFIX a fragment
 	
 BREED_NAME_SUFFIX
 	:	'(Misc. Dog)'|'(Misc. Dogs)'|'(Misc. Bitch)'|'(Misc. Bitches)';
@@ -329,7 +353,7 @@ fragment ATOM
 **********************************/		
 BREED_COUNT  :  INT '-' INT '-' INT '-' INT;
 JUDGE_NAME: FRAG_TITLE ' ' PROPER_NAME (PARENTHETICAL_NAME ' ' PROPER_NAME)* PARENTHETICAL_INT?;
-JUDGE_ADDRESS: JUDGE_NAME ELLIPSIS;
+//JUDGE_ADDRESS: JUDGE_NAME ELLIPSIS;
 
 WS :(' ' |'\t' |'\n' |'\r' )+ {$channel=HIDDEN;} ;		
 RING_TITLE  :   ('GROUP RING')|('RING' WS INT);
