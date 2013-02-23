@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="C:\Program Files (x86)\Java\jre1.6.0_26" version="1.6.0_26">
+<bootpath>
+<entry path="C:\Program Files (x86)\Java\jre1.6.0_26\lib\resources.jar"/>
+<entry path="C:\Program Files (x86)\Java\jre1.6.0_26\lib\rt.jar"/>
+<entry path="C:\Program Files (x86)\Java\jre1.6.0_26\lib\sunrsasign.jar"/>
+<entry path="C:\Program Files (x86)\Java\jre1.6.0_26\lib\jsse.jar"/>
+<entry path="C:\Program Files (x86)\Java\jre1.6.0_26\lib\jce.jar"/>
+<entry path="C:\Program Files (x86)\Java\jre1.6.0_26\lib\charsets.jar"/>
+<entry path="C:\Program Files (x86)\Java\jre1.6.0_26\lib\modules\jdk.boot.jar"/>
+<entry path="C:\Program Files (x86)\Java\jre1.6.0_26\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Program Files (x86)\Java\jre1.6.0_26\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Program Files (x86)\Java\jre1.6.0_26\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>

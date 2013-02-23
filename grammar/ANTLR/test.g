@@ -1,4 +1,5 @@
 grammar test;
+<<<<<<< HEAD
 
 @header {
 package dev.tclark.dogshow.grammar;
@@ -51,6 +52,51 @@ breed_name
 /*
  Show Specific Vocabulary Fragments
 */
+=======
+@header {
+package dev.tclark.dogshow.grammar;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+}
+@members {
+JsonObject ring;
+}
+@lexer::header {package dev.tclark.dogshow.grammar;}
+test_special:	special_ring+;
+test_breed
+	:	breed_ring+ EOF;
+start	
+returns [JsonObject json]
+@init {json = new JsonObject(); JsonArray array = new JsonArray(); System.out.println("starting...");}
+	:	comment (myRing=ring{array.add($myRing.json);})+ {json.add("Rings", array);}EOF;
+ring
+returns [JsonObject json]
+@init {json = new JsonObject(); JsonArray array = new JsonArray(); System.out.println("Starting ring...");}
+	:	RING_TITLE{json.addProperty("RingTitle", $RING_TITLE.text);} (judgeBlock=judge_block{array.add($judgeBlock.json);})+ {System.out.println("Found new ring: " + $RING_TITLE.text); json.add("JudgeBlocks", array);};
+
+timeblock 
+returns [JsonObject json]
+@init {json = new JsonObject(); JsonArray array = new JsonArray();}
+	:	TIME{json.addProperty("time", $TIME.text);} ( comment? (breedRing=breed_ring{array.add($breedRing.json);}|specialRing=special_ring{array.add($specialRing.json);}|juniorRing=junior_ring{array.add($juniorRing.json);})+) {json.add("BreedRings", array);System.out.println("Timeblock JSON: " + json );};
+judge_block
+returns [JsonObject json]
+@init {json = new JsonObject(); JsonArray array = new JsonArray();}
+	:	JUDGE_NAME{json.addProperty("JudgeName",$JUDGE_NAME.text);} (block=timeblock{array.add($block.json);})+ {json.add("Blocks", array);};
+
+comment	:	(TIME|COMMENT|INT|JUDGE_NAME|DATE|PHONE_NUMBER|ELLIPSIS)+ {System.out.println("Done with comment");};
+
+special_ring returns [JsonObject json]
+@init {json = new JsonObject(); String suff = ""; System.out.println("Found a special ring");}
+	:   INT{json.addProperty("Count", $INT.text); } BREED_NAME{json.addProperty("Breed", $BREED_NAME.text); } {suff=null;}(SPECIAL_SUFFIX{suff+=$SPECIAL_SUFFIX.text;})+ {json.addProperty("SpecialType",suff);};
+junior_ring returns [JsonObject json]
+@init {json = new JsonObject();}
+	:	INT {json.addProperty("Count", $INT.text); } JUNIOR_CLASS{json.addProperty("ClassName", $JUNIOR_CLASS.text); };
+breed_ring returns [JsonObject json]
+@init {json = new JsonObject();String str = null;}
+	:	INT{json.addProperty("Count", $INT.text); } {str = "";}BREED_NAME{str += $BREED_NAME.text;} (BREED_NAME_SUFFIX {str+= $BREED_NAME_SUFFIX.text;})? (BREED_COUNT{json.addProperty("BreedCount", $BREED_COUNT.text);})? {System.out.println("BreedRing JSON: " + json);};
+breed_name
+	:	BREED_NAME BREED_NAME_SUFFIX;
+>>>>>>> 1c12b21f2f3d41571e10b6ace813083e99947ceb
 JUNIOR_CLASS
 	:	'Master Class'|
 		'Open Senior'|
@@ -59,12 +105,22 @@ JUNIOR_CLASS
 		'Novice Senior'|
 		'Novice Junior'|
 		'Novice Itermediate';
+<<<<<<< HEAD
 		
 BREED_NAME
 	:	(FRAG_BREED_NAME_SINGLE|FRAG_BREED_NAME_ALT) 's'? WS? ('(' FRAG_BREED_NAME_CATEGORY ')' WS? FRAG_BREED_NAME_CATEGORY_SUFFIX? )? BREED_NAME_SUFFIX?;
 
 SPECIAL_SUFFIX
 	:	(FRAG_BREED_NAME_SPECIAL_SUFFIX);//Could be more matching, so keep BREED_NAME_SPECIAL_SUFFIX a fragment
+=======
+test_pug:	BREED_NAME BREED_COUNT EOF;
+BREED_NAME
+	:	(FRAG_BREED_NAME_SINGLE);
+//(FRAG_BREED_NAME_SINGLE|FRAG_BREED_NAME_ALT) 's'? WS? ('(' FRAG_BREED_NAME_CATEGORY ')' WS? FRAG_BREED_NAME_CATEGORY_SUFFIX? )? BREED_NAME_SUFFIX?;
+
+SPECIAL_SUFFIX
+	:	(FRAG_BREED_NAME_SPECIAL_SUFFIX );//Could be more matching, so keep BREED_NAME_SPECIAL_SUFFIX a fragment
+>>>>>>> 1c12b21f2f3d41571e10b6ace813083e99947ceb
 	
 BREED_NAME_SUFFIX
 	:	'(Misc. Dog)'|'(Misc. Dogs)'|'(Misc. Bitch)'|'(Misc. Bitches)';
@@ -314,11 +370,18 @@ fragment FRAG_MONTH   :   'January'|'JANUARY'|
 fragment FRAG_PAREN_LEFT	:	('('.);
 fragment FRAG_PAREN_RIGHT	:	')';
 fragment END_PUNCTUATION	:   	'!'|'?'|'.';
+<<<<<<< HEAD
 fragment FRAG_RING		:	'RING'|'Ring';
 fragment FRAG_SPEC_CHAR		:	','|'_'|'-'|';'|':'|'\'';
 
 fragment FRAG_SPEC_WORD_CHAR
 	:	'&';
+=======
+fragment FRAG_SPEC_CHAR		:	','|'_'|'-'|';'|':'|'\''|'.'|'!'|'’';
+
+fragment FRAG_SPEC_WORD_CHAR
+	:	'&'|'-';
+>>>>>>> 1c12b21f2f3d41571e10b6ace813083e99947ceb
 
 fragment FRAG_TIME_LABEL
     :   'am'|'pm';
@@ -362,6 +425,7 @@ fragment ATOM
 **********************************/		
 BREED_COUNT  :  INT '-' INT '-' INT '-' INT;
 JUDGE_NAME: FRAG_TITLE ' ' PROPER_NAME (PARENTHETICAL_NAME ' ' PROPER_NAME)* PARENTHETICAL_INT?;
+<<<<<<< HEAD
 
 WS :(' ' |'\t' |'\n' |'\r' )+ {$channel=HIDDEN;} ;	
 	
@@ -369,12 +433,21 @@ RING_TITLE  :   'RING' WS INT;
 
 PHONE_NUMBER
 	:	'(' '0'..'9''0'..'9''0'..'9' ')' WS? '0'..'9' '0'..'9' '0'..'9' '-' '0'..'9' '0'..'9' '0'..'9' '0'..'9';
+=======
+//JUDGE_ADDRESS: JUDGE_NAME ELLIPSIS;
+
+WS :(' ' |'\t' |'\n' |'\r' )+ {$channel=HIDDEN;} ;		
+RING_TITLE  :   ('GROUP RING')|('RING' WS INT);
+
+	
+>>>>>>> 1c12b21f2f3d41571e10b6ace813083e99947ceb
 
 TIME    :   INT ':' INT WS FRAG_TIME_LABEL;
 
 DATE    :   FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT;
 	
 ELLIPSIS:	'.' '.'+;
+<<<<<<< HEAD
 
 INT :'0'..'9' + ;
 STANDALONE_COMMENT
@@ -382,10 +455,24 @@ STANDALONE_COMMENT
 COMMENT	:	(WORD|PARENTHETICAL|INT)+;
 fragment WORD  : ('a'..'z'|'A'..'Z'|FRAG_SPEC_CHAR|FRAG_SPEC_WORD_CHAR)+;
 //SENTENCE:	(ATOM|PARENTHETICAL) (WS (WORD|INT|PARENTHETICAL))* END_PUNCTUATION;
+=======
+PHONE_NUMBER
+	:	'(' '0'..'9''0'..'9''0'..'9' ')' WS? '0'..'9' '0'..'9' '0'..'9' '-' '0'..'9' '0'..'9' '0'..'9' '0'..'9';
+INT :'0'..'9'+;
+STANDALONE_COMMENT
+	:	'LUNCH';
+COMMENT	:	(PROPER_NAME|WORD|PARENTHETICAL|INT)+;
+//SENTENCE:	(ATOM|PARENTHETICAL) (WS (WORD|INT|PARENTHETICAL))* END_PUNCTUATION;
+fragment WORD  : ('a'..'z'|'A'..'Z'|FRAG_SPEC_CHAR|FRAG_SPEC_WORD_CHAR)+;
+>>>>>>> 1c12b21f2f3d41571e10b6ace813083e99947ceb
 fragment PARENTHETICAL_NAME: '(' PROPER_NAME ')';
 fragment PARENTHETICAL
 	:	FRAG_PAREN_LEFT ((WORD|INT) WS?)+ FRAG_PAREN_RIGHT FRAG_SPEC_CHAR?;
 fragment FRAG_PROPER_NAME: ('A'..'Z' ('a'..'z'|'A'..'Z')*);
 fragment PROPER_NAME: FRAG_PROPER_NAME ' '? (FRAG_PROPER_NAME ' '?)*;
 PARENTHETICAL_INT
+<<<<<<< HEAD
 	:	'(' WS? '0'..'9'+ WS? ')';
+=======
+	:	'(' INT ')';
+>>>>>>> 1c12b21f2f3d41571e10b6ace813083e99947ceb

@@ -31,7 +31,11 @@ public class Main {
 	public static void main(String[] args) throws IOException,
 			org.antlr.runtime.RecognitionException, IllegalArgumentException,
 			IllegalAccessException {
+<<<<<<< HEAD
 		String file = "testcase/testparse";
+=======
+		String file = "C:\\dog-show-workspace\\grammar\\eclipse\\testcase\\testparse";
+>>>>>>> 1c12b21f2f3d41571e10b6ace813083e99947ceb
 		CharStream cs = new ANTLRFileStream(file);
 		testLexer lexer1 = new testLexer(cs);
 		CommonTokenStream tokens2 = new CommonTokenStream(lexer1);
@@ -39,10 +43,16 @@ public class Main {
 		String result;
 		result = "asd"; 
 				JsonObject res = null;
+<<<<<<< HEAD
 //				res = 
 				//		parser.start();
 				//printTokens(file);
 		parser.start();
+=======
+				res = parser.start();
+				printTokens(file);
+//		parser.start();
+>>>>>>> 1c12b21f2f3d41571e10b6ace813083e99947ceb
 //		System.out.println();
 //		System.out.println();
 //		System.out.println();
