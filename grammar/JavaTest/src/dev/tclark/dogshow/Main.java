@@ -13,8 +13,6 @@ import org.antlr.runtime.Token;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-
-import dev.tclark.dogshow.grammar.dogshowlex;
 import dev.tclark.dogshow.grammar.testLexer;
 import dev.tclark.dogshow.grammar.testParser;
 
@@ -41,8 +39,8 @@ public class Main {
                 JsonObject res = null;
 //              res = 
                 //      parser.start();
-                //printTokens(file);
-        parser.start();
+       printTokens(file);
+       // parser.start();
 //      System.out.println();
 //      System.out.println();
 //      System.out.println();
@@ -61,8 +59,8 @@ public class Main {
     public static void printTokens(String file) throws IOException, IllegalArgumentException, IllegalAccessException
     {
         CharStream cs = new ANTLRFileStream(file);
-        dogshowlex lexer = new dogshowlex(cs);
-        Class<dogshowlex> testLexClass = dogshowlex.class;
+        testLexer lexer = new testLexer(cs);
+        Class<testLexer> testLexClass = testLexer.class;
         Field[] fields = testLexClass.getFields();
         List<Field> ids = new ArrayList<Field>();
         Map<Integer, String> tokenMap = new HashMap<Integer, String>();
@@ -89,10 +87,10 @@ public class Main {
         System.out.println();
         while (true) {
             Token token = lexer.nextToken();
-            if (token.getType() == dogshowlex.EOF) {
+            if (token.getType() == testLexer.EOF) {
                 break;
             } else {
-                if (token.getType() != dogshowlex.WS) {
+                if (token.getType() != testLexer.WS) {
                     System.out.println(tokenMap.get(token.getType()) + ": "
                             + token.getText());
                 }

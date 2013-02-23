@@ -1,7 +1,11 @@
 grammar test;
-
+options{
+backtrack=true;
+}
 @header {
 package dev.tclark.dogshow.grammar;
+//import com.google.gson.JsonArray;
+//import com.google.gson.JsonObject;
 }
 @lexer::header {
 package dev.tclark.dogshow.grammar;
@@ -15,9 +19,11 @@ package dev.tclark.dogshow.grammar;
 test_special:   special_ring+;
 test_breed
     :   breed_ring;
-start   :   big_comment+ ring+ big_comment* EOF;
-ring    :   RING_TITLE judge_block+;
-
+start   :   (big_comment+ (ring)=>ring*)+  EOF;
+ring    :   RING_TITLE inner_ring;
+inner_ring
+	:  (group_block)=>group_block
+	    |judge_block+;
 judge_block
     :   JUDGE_NAME timeblock+;
 big_comment
@@ -27,9 +33,14 @@ comment :   (COMMENT|INT|JUDGE_NAME|DATE|PHONE_NUMBER|ELLIPSIS);
 ring_comment
     :   STANDALONE_COMMENT;
 
-timeblock   :   TIME (special_ring|junior_ring|breed_ring|comment)* (special_ring|junior_ring|breed_ring|ring_comment);
+timeblock   :   TIME (special_ring|junior_ring|(breed_ring)=>breed_ring|comment)* (special_ring|junior_ring|breed_ring|ring_comment);
 special_ring:   INT BREED_NAME SPECIAL_SUFFIX+;
 junior_ring:    INT JUNIOR_CLASS;
+
+group_ring
+	:	 GROUP_RING;
+group_block
+	:	TIME STANDALONE_COMMENT group_ring+;
 breed_ring
     :   INT BREED_NAME BREED_NAME_SUFFIX? BREED_COUNT?;
 breed_name
@@ -105,7 +116,18 @@ fragment FRAG_BREED_NAME_CATEGORY //Breed's that are listed under categories rat
         
         
         ;
-
+fragment FRAG_GROUP_NAME
+	:	'HERDING GROUP'|
+		'TERRIER GROUP'|
+		'NON-SPORTING GROUP'|
+		'SPORTING GROUP'|
+		'TOY GROUP'|
+		'HOUND GROUP'|
+		'WORKING GROUP'|
+		'BEST IN SHOW';
+		
+GROUP_RING
+	:	FRAG_GROUP_NAME ' - ' JUDGE_NAME;
 //Dog breed names in singular form
 fragment FRAG_BREED_NAME_SINGLE
     :('Affenpinscher'|
@@ -365,7 +387,7 @@ JUDGE_NAME: FRAG_TITLE ' ' PROPER_NAME (PARENTHETICAL_NAME ' ' PROPER_NAME)* PAR
 
 WS :(' ' |'\t' |'\n' |'\r' )+ {$channel=HIDDEN;} ;  
     
-RING_TITLE  :   'RING' WS INT;
+RING_TITLE  :   'GROUP RING'|('RING' WS INT);
 
 PHONE_NUMBER
     :   '(' '0'..'9''0'..'9''0'..'9' ')' WS? '0'..'9' '0'..'9' '0'..'9' '-' '0'..'9' '0'..'9' '0'..'9' '0'..'9';
@@ -378,7 +400,7 @@ ELLIPSIS:   '.' '.'+;
 
 INT :'0'..'9' + ;
 STANDALONE_COMMENT
-    :   'LUNCH';
+    :   'LUNCH'|'VARIETY GROUP JUDGING';
 COMMENT :   (WORD|PARENTHETICAL|INT)+;
 fragment WORD  : ('a'..'z'|'A'..'Z'|FRAG_SPEC_CHAR|FRAG_SPEC_WORD_CHAR)+;
 //SENTENCE: (ATOM|PARENTHETICAL) (WS (WORD|INT|PARENTHETICAL))* END_PUNCTUATION;
