@@ -1,9 +1,14 @@
+package dev.tclark.dogshow.grammar;
 // $ANTLR 3.5 C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g 2013-02-20 23:20:27
 
-import org.antlr.runtime.*;
-import java.util.Stack;
-import java.util.List;
-import java.util.ArrayList;
+import org.antlr.runtime.BitSet;
+import org.antlr.runtime.EarlyExitException;
+import org.antlr.runtime.MismatchedSetException;
+import org.antlr.runtime.NoViableAltException;
+import org.antlr.runtime.Parser;
+import org.antlr.runtime.RecognitionException;
+import org.antlr.runtime.RecognizerSharedState;
+import org.antlr.runtime.TokenStream;
 
 @SuppressWarnings("all")
 public class dogshowcomboParser extends Parser {
@@ -82,7 +87,7 @@ public class dogshowcomboParser extends Parser {
 
 	// $ANTLR start "test_special"
 	// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:8:1: test_special : ( special_ring )+ ;
-	public final void test_special() throws  {
+	public final void test_special()  {
 		try {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:8:13: ( ( special_ring )+ )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:8:15: ( special_ring )+
@@ -133,7 +138,7 @@ public class dogshowcomboParser extends Parser {
 
 	// $ANTLR start "test_breed"
 	// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:9:1: test_breed : ( breed_ring )+ ;
-	public final void test_breed() throws  {
+	public final void test_breed()  {
 		try {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:10:2: ( ( breed_ring )+ )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:10:4: ( breed_ring )+
@@ -171,6 +176,7 @@ public class dogshowcomboParser extends Parser {
 
 		}
 		catch (RecognitionException re) {
+			System.err.println("here1");
 			reportError(re);
 			recover(input,re);
 		}
@@ -184,7 +190,7 @@ public class dogshowcomboParser extends Parser {
 
 	// $ANTLR start "start"
 	// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:11:1: start returns [String s] : ( ring )+ EOF ;
-	public final String start() throws  {
+	public final String start()  {
 		String s = null;
 
 
@@ -228,6 +234,7 @@ public class dogshowcomboParser extends Parser {
 
 		}
 		catch (RecognitionException re) {
+			System.err.println("000000000000000000WHY");
 			reportError(re);
 			recover(input,re);
 		}
@@ -242,7 +249,7 @@ public class dogshowcomboParser extends Parser {
 
 	// $ANTLR start "ring"
 	// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:12:1: ring : RING_TITLE ( judge_block )+ ;
-	public final void ring() throws  {
+	public final void ring()  {
 		try {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:12:6: ( RING_TITLE ( judge_block )+ )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:12:8: RING_TITLE ( judge_block )+
@@ -281,6 +288,7 @@ public class dogshowcomboParser extends Parser {
 
 		}
 		catch (RecognitionException re) {
+			System.err.println("here1");
 			reportError(re);
 			recover(input,re);
 		}
@@ -294,7 +302,7 @@ public class dogshowcomboParser extends Parser {
 
 	// $ANTLR start "judge_block"
 	// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:14:1: judge_block : JUDGE ( timeblock )+ ;
-	public final void judge_block() throws  {
+	public final void judge_block()  {
 		try {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:15:2: ( JUDGE ( timeblock )+ )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:15:4: JUDGE ( timeblock )+
@@ -333,6 +341,7 @@ public class dogshowcomboParser extends Parser {
 
 		}
 		catch (RecognitionException re) {
+			System.err.println("here1");
 			reportError(re);
 			recover(input,re);
 		}
@@ -346,7 +355,7 @@ public class dogshowcomboParser extends Parser {
 
 	// $ANTLR start "comment"
 	// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:17:1: comment : ( STANDALONE_COMMENT | ( ( COMMENT | INT )+ '.' ) );
-	public final void comment() throws  {
+	public final void comment()  {
 		try {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:17:9: ( STANDALONE_COMMENT | ( ( COMMENT | INT )+ '.' ) )
 			int alt7=2;
@@ -419,6 +428,7 @@ public class dogshowcomboParser extends Parser {
 			}
 		}
 		catch (RecognitionException re) {
+			System.err.println("here1");
 			reportError(re);
 			recover(input,re);
 		}
@@ -432,7 +442,7 @@ public class dogshowcomboParser extends Parser {
 
 	// $ANTLR start "timeblock"
 	// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:19:1: timeblock : TIME ( breed_ring | special_ring | junior_ring | comment )+ ;
-	public final void timeblock() throws  {
+	public final void timeblock()  {
 		try {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:20:2: ( TIME ( breed_ring | special_ring | junior_ring | comment )+ )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:20:4: TIME ( breed_ring | special_ring | junior_ring | comment )+
@@ -526,6 +536,7 @@ public class dogshowcomboParser extends Parser {
 
 		}
 		catch (RecognitionException re) {
+			System.err.println("here1");
 			reportError(re);
 			recover(input,re);
 		}
@@ -539,7 +550,7 @@ public class dogshowcomboParser extends Parser {
 
 	// $ANTLR start "special_ring"
 	// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:21:1: special_ring : INT BREED_NAME ( SPECIAL_SUFFIX )+ ;
-	public final void special_ring() throws  {
+	public final void special_ring()  {
 		try {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:21:13: ( INT BREED_NAME ( SPECIAL_SUFFIX )+ )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:21:17: INT BREED_NAME ( SPECIAL_SUFFIX )+
@@ -576,6 +587,7 @@ public class dogshowcomboParser extends Parser {
 
 		}
 		catch (RecognitionException re) {
+			System.err.println("MEEEEE");
 			reportError(re);
 			recover(input,re);
 		}
@@ -589,7 +601,7 @@ public class dogshowcomboParser extends Parser {
 
 	// $ANTLR start "junior_ring"
 	// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:22:1: junior_ring : INT JUNIOR_CLASS ;
-	public final void junior_ring() throws  {
+	public final void junior_ring()  {
 		try {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:22:12: ( INT JUNIOR_CLASS )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:22:14: INT JUNIOR_CLASS
@@ -600,6 +612,7 @@ public class dogshowcomboParser extends Parser {
 
 		}
 		catch (RecognitionException re) {
+			System.err.println("MEEEEE");
 			reportError(re);
 			recover(input,re);
 		}
@@ -613,7 +626,7 @@ public class dogshowcomboParser extends Parser {
 
 	// $ANTLR start "breed_ring"
 	// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:23:1: breed_ring : INT BREED_NAME ( BREED_NAME_SUFFIX )? ( BREED_COUNT )? ;
-	public final void breed_ring() throws  {
+	public final void breed_ring()  {
 		try {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:24:2: ( INT BREED_NAME ( BREED_NAME_SUFFIX )? ( BREED_COUNT )? )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:24:4: INT BREED_NAME ( BREED_NAME_SUFFIX )? ( BREED_COUNT )?
@@ -669,7 +682,7 @@ public class dogshowcomboParser extends Parser {
 
 	// $ANTLR start "breed_name"
 	// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:25:1: breed_name : BREED_NAME BREED_NAME_SUFFIX ;
-	public final void breed_name() throws  {
+	public final void breed_name()  {
 		try {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:26:2: ( BREED_NAME BREED_NAME_SUFFIX )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:26:4: BREED_NAME BREED_NAME_SUFFIX

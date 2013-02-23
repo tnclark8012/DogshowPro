@@ -1,4 +1,11 @@
-grammar dogshowcombo;
+grammar test;
+
+@header {
+package dev.tclark.dogshow.grammar;
+}
+@lexer::header {
+package dev.tclark.dogshow.grammar;
+}
 @parser::members {
   private boolean ahead(String text) {
   	System.out.println("Does " + input.toString() + " contain " + text + "?");
@@ -7,18 +14,20 @@ grammar dogshowcombo;
 }
 test_special:	special_ring+;
 test_breed
-	:	breed_ring+;
-start	returns [String s]: {$s = "show";}	(ring {$s+="r";})+ EOF;
+	:	breed_ring;
+start	:	big_comment+ ring+ big_comment* EOF;
 ring	:	RING_TITLE judge_block+;
 
 judge_block
-	:	JUDGE timeblock+;
+	:	JUDGE_NAME timeblock+;
+big_comment
+	:	(comment|TIME|BREED_NAME);
+comment	:	(COMMENT|INT|JUDGE_NAME|DATE|PHONE_NUMBER|ELLIPSIS);
 
-comment	:	STANDALONE_COMMENT|( (COMMENT|INT)+);
-test_judge_name
-	:	JUDGE_NAME;
-timeblock
-	:	TIME (breed_ring|special_ring|junior_ring|comment)+;
+ring_comment
+	:	STANDALONE_COMMENT;
+
+timeblock	:	TIME (special_ring|junior_ring|breed_ring|comment)* (special_ring|junior_ring|breed_ring|ring_comment);
 special_ring:   INT BREED_NAME SPECIAL_SUFFIX+;
 junior_ring:	INT JUNIOR_CLASS;
 breed_ring
@@ -352,15 +361,14 @@ fragment ATOM
 *
 **********************************/		
 BREED_COUNT  :  INT '-' INT '-' INT '-' INT;
-JUDGE_NAME
-	:	FRAG_TITLE (WS 'A'..'Z' 'a'..'z'+)+;
-JUDGE	:	FRAG_TITLE (WS WORD|PARENTHETICAL)+ WS PARENTHETICAL_INT;
+JUDGE_NAME: FRAG_TITLE ' ' PROPER_NAME (PARENTHETICAL_NAME ' ' PROPER_NAME)* PARENTHETICAL_INT?;
 
 WS :(' ' |'\t' |'\n' |'\r' )+ {$channel=HIDDEN;} ;	
 	
 RING_TITLE  :   'RING' WS INT;
 
-	
+PHONE_NUMBER
+	:	'(' '0'..'9''0'..'9''0'..'9' ')' WS? '0'..'9' '0'..'9' '0'..'9' '-' '0'..'9' '0'..'9' '0'..'9' '0'..'9';
 
 TIME    :   INT ':' INT WS FRAG_TIME_LABEL;
 
@@ -371,13 +379,13 @@ ELLIPSIS:	'.' '.'+;
 INT :'0'..'9' + ;
 STANDALONE_COMMENT
 	:	'LUNCH';
-COMMENT	:	(BREED_NAME|WORD|PARENTHETICAL)+;
-//SENTENCE:	(ATOM|PARENTHETICAL) (WS (WORD|INT|PARENTHETICAL))* END_PUNCTUATION;
+COMMENT	:	(WORD|PARENTHETICAL|INT)+;
 fragment WORD  : ('a'..'z'|'A'..'Z'|FRAG_SPEC_CHAR|FRAG_SPEC_WORD_CHAR)+;
-
-
+//SENTENCE:	(ATOM|PARENTHETICAL) (WS (WORD|INT|PARENTHETICAL))* END_PUNCTUATION;
+fragment PARENTHETICAL_NAME: '(' PROPER_NAME ')';
 fragment PARENTHETICAL
-	:	FRAG_PAREN_LEFT ((WORD|INT) WS?)+ FRAG_PAREN_RIGHT;
-
+	:	FRAG_PAREN_LEFT ((WORD|INT) WS?)+ FRAG_PAREN_RIGHT FRAG_SPEC_CHAR?;
+fragment FRAG_PROPER_NAME: ('A'..'Z' ('a'..'z'|'A'..'Z')*);
+fragment PROPER_NAME: FRAG_PROPER_NAME ' '? (FRAG_PROPER_NAME ' '?)*;
 PARENTHETICAL_INT
-	:	'(' WS? '0'..'9'+ WS? ')';	
+	:	'(' WS? '0'..'9'+ WS? ')';

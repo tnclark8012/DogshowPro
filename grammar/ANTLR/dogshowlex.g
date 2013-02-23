@@ -1,37 +1,5 @@
-grammar dogshowcombo;
-@parser::members {
-  private boolean ahead(String text) {
-  	System.out.println("Does " + input.toString() + " contain " + text + "?");
-	return input.toString().contains(text);
-  }
-}
-test_special:	special_ring+;
-test_breed
-	:	breed_ring+;
-start	returns [String s]: {$s = "show";}	(ring {$s+="r";})+ EOF;
-ring	:	RING_TITLE judge_block+;
+lexer grammar dogshowlex;
 
-judge_block
-	:	JUDGE timeblock+;
-
-comment	:	STANDALONE_COMMENT|( (COMMENT|INT)+);
-test_judge_name
-	:	JUDGE_NAME;
-timeblock
-	:	TIME (breed_ring|special_ring|junior_ring|comment)+;
-special_ring:   INT BREED_NAME SPECIAL_SUFFIX+;
-junior_ring:	INT JUNIOR_CLASS;
-breed_ring
-	:	INT BREED_NAME BREED_NAME_SUFFIX? BREED_COUNT?;
-breed_name
-	:	BREED_NAME BREED_NAME_SUFFIX;
-
-
-
-
-//junior_ring	:	JUNIOR_RING+ EOF;
-	
-//test_breed_ring:	BREED_RING;
 /******************************
 *
 *
@@ -305,11 +273,10 @@ fragment FRAG_MONTH   :   'January'|'JANUARY'|
 fragment FRAG_PAREN_LEFT	:	('('.);
 fragment FRAG_PAREN_RIGHT	:	')';
 fragment END_PUNCTUATION	:   	'!'|'?'|'.';
-fragment FRAG_RING		:	'RING'|'Ring';
-fragment FRAG_SPEC_CHAR		:	','|'_'|'-'|';'|':'|'\'';
+fragment FRAG_SPEC_CHAR		:	','|'_'|'-'|';'|':'|'\''|'.'|'!'|'’';
 
 fragment FRAG_SPEC_WORD_CHAR
-	:	'&';
+	:	'&'|'-';
 
 fragment FRAG_TIME_LABEL
     :   'am'|'pm';
@@ -352,12 +319,10 @@ fragment ATOM
 *
 **********************************/		
 BREED_COUNT  :  INT '-' INT '-' INT '-' INT;
-JUDGE_NAME
-	:	FRAG_TITLE (WS 'A'..'Z' 'a'..'z'+)+;
-JUDGE	:	FRAG_TITLE (WS WORD|PARENTHETICAL)+ WS PARENTHETICAL_INT;
+JUDGE_NAME: FRAG_TITLE ' ' PROPER_NAME (PARENTHETICAL_NAME ' ' PROPER_NAME)* PARENTHETICAL_INT?;
+JUDGE_ADDRESS: JUDGE_NAME ELLIPSIS;
 
-WS :(' ' |'\t' |'\n' |'\r' )+ {$channel=HIDDEN;} ;	
-	
+WS :(' ' |'\t' |'\n' |'\r' )+ {$channel=HIDDEN;} ;		
 RING_TITLE  :   'RING' WS INT;
 
 	
@@ -367,17 +332,18 @@ TIME    :   INT ':' INT WS FRAG_TIME_LABEL;
 DATE    :   FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT;
 	
 ELLIPSIS:	'.' '.'+;
-
-INT :'0'..'9' + ;
+PHONE_NUMBER
+	:	'(' '0'..'9''0'..'9''0'..'9' ')' WS? '0'..'9' '0'..'9' '0'..'9' '-' '0'..'9' '0'..'9' '0'..'9' '0'..'9';
+INT :'0'..'9'+;
 STANDALONE_COMMENT
 	:	'LUNCH';
-COMMENT	:	(BREED_NAME|WORD|PARENTHETICAL)+;
+COMMENT	:	(FRAG_PROPER_NAME|WORD|PARENTHETICAL|INT)+;
 //SENTENCE:	(ATOM|PARENTHETICAL) (WS (WORD|INT|PARENTHETICAL))* END_PUNCTUATION;
 fragment WORD  : ('a'..'z'|'A'..'Z'|FRAG_SPEC_CHAR|FRAG_SPEC_WORD_CHAR)+;
-
-
+fragment PARENTHETICAL_NAME: '(' PROPER_NAME ')';
 fragment PARENTHETICAL
-	:	FRAG_PAREN_LEFT ((WORD|INT) WS?)+ FRAG_PAREN_RIGHT;
-
+	:	FRAG_PAREN_LEFT ((WORD|INT) WS?)+ FRAG_PAREN_RIGHT FRAG_SPEC_CHAR?;
+fragment FRAG_PROPER_NAME: ('A'..'Z' ('a'..'z'|'A'..'Z')*);
+fragment PROPER_NAME: FRAG_PROPER_NAME ' '? (FRAG_PROPER_NAME ' '?)*;
 PARENTHETICAL_INT
-	:	'(' WS? '0'..'9'+ WS? ')';	
+	:	'(' INT ')';

@@ -1,3 +1,4 @@
+package dev.tclark.dogshow.grammar;
 // $ANTLR 3.5 C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g 2013-02-20 23:20:34
 
 import org.antlr.runtime.*;
