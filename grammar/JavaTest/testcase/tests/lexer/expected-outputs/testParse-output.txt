@@ -1,0 +1,4420 @@
+8: JUDGING
+42:  
+8: PROGRAMS
+42: 
+
+8: ALL
+42:  
+8: BREED
+42:  
+8: DOG
+42:  
+8: SHOWS
+42: 
+
+8: SINCE
+42:  
+29: 1949
+42: 
+
+8: Licensed
+42:  
+8: by
+42:  
+8: the
+42:  
+8: merican
+42:  
+8: Kennel
+42:  
+8: Club
+42: 
+
+9: SATURDAY, FEBRUARY 9, 2013
+42:  
+8: -
+42:  
+29: 2013112801
+42:  
+42:  
+8: Pages
+42:  
+8: 5-6
+42: 
+
+9: SUNDAY, FEBRUARY 10, 2013
+42:  
+8: -
+42:  
+29: 2013112802
+42:  
+42:  
+8: Pages
+42:  
+8: 7-8
+42: 
+
+8: THE
+42:  
+8: SHOW
+42:  
+8: CHAIRMAN
+42:  
+8: AND
+42:  
+8: MEMBERS
+42:  
+8: OF
+42:  
+8: THE
+42:  
+8: JUDGES
+42:  
+8: SELECTION
+42:  
+
+8: COMMITTEE
+42:   
+8: WILL
+42:  
+8: NOT
+42:  
+8: EXHIBIT
+42:  
+8: DOGS
+42:  
+8: AT
+42:  
+8: THESE
+42:  
+8: SHOWS
+42: 
+
+8: The
+42:  
+8: Horse
+42:  
+8: Shoe
+42:  
+8: Arena
+42:  
+42:  
+8: Midland
+42:  
+8: County
+42:  
+8: Multipurpose
+42:  
+8: Facility
+42: 
+
+29: 2514
+42:  
+8: Arena
+42:  
+8: Trail
+42:  
+42:  
+8: Midland,
+42:  
+8: Texas
+42:  
+29: 79701
+42: 
+
+8: www
+8: idlandhorseshoe
+8: om
+42:  
+42:  
+35: (432) 682-1300
+42: 
+
+8: SHOW
+42:  
+8: HOURS
+42:  
+42:  
+40: 6:00 am
+42:  
+8: to
+42:  
+40: 6:00 pm
+42: 
+
+8: THESE
+42:  
+8: SHOWS
+42:  
+8: WILL
+42:  
+8: BE
+42:  
+8: HELD
+42:  
+8: INDOORS
+42: 
+
+8: CLIMATE
+42:  
+8: CONTROLLED
+42:  
+8: -
+42:  
+8: CONCRETE
+42:  
+8: FLOOR
+42:  
+8: -
+42:  
+8: UNBENCHED
+42: 
+
+8: RESERVED
+42:  
+8: GROOMING
+42:  
+8: SPACE
+42:  
+8: AVAILABLE
+42: 
+
+8: FRIDAY
+42:  
+8: EVENING
+42:  
+42:  
+8: B-MATCH
+42: 
+
+8: SATURDAY
+42:  
+42:  
+8: COSTUME
+42:  
+8: CONTEST
+42:  
+8: AFTER
+42:  
+42: 
+
+9: SUNDAY, FEBRUARY 10, 2013
+42:  
+42:  
+8: PUBLIC
+42:  
+8: TOUR
+42: 
+
+8: THESE
+42:  
+8: SHOWS
+42:  
+8: ARE
+42:  
+8: BEING
+42:  
+8: HELD
+42:  
+8: UNDER
+42:  
+
+8: AMERICAN
+42:  
+8: KENNEL
+42:  
+8: CLUB
+42:  
+
+8: RULES
+42:  
+8: AND
+42:  
+8: REGULATIONS
+42: 
+
+8: JACK
+42:  
+8: ONOFRIO
+42:  
+8: DOG
+42:  
+8: SHOWS,
+42:  
+8: L
+42: 
+
+8: 2ROUTES
+42:  
+8: TO
+42:  
+8: THE
+42:  
+8: SHOW
+42: 
+
+8: EASY
+42:  
+8: ACCESS
+42:  
+8: FROM
+42:  
+8: INTERSTATE
+42:  
+29: 20
+42: 
+
+8: WESTBOUND
+42: 
+
+8: Take
+42:  
+8: Exit
+42:  
+29: 135
+8: The
+42:  
+8: Horseshoe
+42:  
+8: will
+42:  
+8: be
+42:  
+8: on
+42:  
+8: the
+42:  
+8: right
+42: 
+
+8: EASTBOUND
+42: 
+
+8: Take
+42:  
+8: Exit
+42:  
+29: 135
+42:  
+8: (Cotton Flat Rd),
+42:  
+8: cross
+42:  
+8: over
+42:  
+8: the
+42:  
+8: Interstate
+42:  
+8: &
+42:  
+8: turn
+42:  
+8: right
+42:  
+8: on
+42:  
+8: the
+42:  
+8: Service
+42:  
+8: Road
+8: The
+42: 
+
+8: Horseshoe
+42:  
+8: will
+42:  
+8: be
+42:  
+8: on
+42:  
+8: the
+42:  
+8: left
+42: 
+
+8: HORSESHOE
+42:  
+8: ARENA
+42: 
+
+29: 2514
+42:  
+8: Arena
+42:  
+8: Trail
+42: 
+
+8: Midland,
+42:  
+8: TX
+42:  
+29: 79701
+42: 
+
+35: (432) 682-1300
+42: 
+
+8: 3NEW
+42:  
+8: EXHIBITOR
+42:  
+8: BRIEFING
+42: 
+
+8: A
+42:  
+8: new
+42:  
+8: Exhibitor
+42:  
+8: Briefing
+42:  
+8: will
+42:  
+8: be
+42:  
+8: held
+42:  
+29: 30
+42:  
+8: minutes
+42:  
+8: prior
+42:  
+8: to
+42:  
+8: the
+42:  
+8: published
+42:  
+8: start
+42:  
+8: of
+42: 
+
+8: judging
+42:  
+8: on
+42:  
+8: Saturday
+8: The
+42:  
+8: briefing
+42:  
+8: location
+42:  
+8: will
+42:  
+8: be
+42:  
+8: posted
+42:  
+8: at
+42:  
+8: the
+42:  
+8: Superintendent
+8: s
+42: 
+
+8: table
+8: Spectators
+42:  
+8: are
+42:  
+8: welcome
+42:  
+8: to
+42:  
+8: attend
+42: 
+
+8: SHOW
+42:  
+8: VETERINARIAN
+42: 
+
+8: (ON CALL)
+42: 
+
+8: Animal
+42:  
+8: Clinic
+42:  
+8: at
+42:  
+8: Mission
+42:  
+8: Square
+42: 
+
+29: 4400
+42:  
+8: N
+42:  
+8: Big
+42:  
+8: Springs
+42:  
+8: St
+42: 
+
+8: Midland
+42:  
+8: TX
+42:  
+29: 79705
+42: 
+
+35: (432) 687-4118
+42: 
+
+8: SHOW
+42:  
+8: VETERINARIAN
+42: 
+
+8: (EMERGENCY CLINIC)
+42: 
+
+8: Permian
+42:  
+8: Basin
+42:  
+8: Emergency
+42:  
+8: Veterinary
+42:  
+8: Clinic
+42: 
+
+29: 13628
+42:  
+8: W
+42:  
+8: Hwy
+42:  
+29: 80
+42:  
+8: East
+42: 
+
+8: Odessa
+42:  
+8: TX
+42:  
+29: 79765
+42: 
+
+35: (432) 561-8301
+42: 
+
+8: DIRECTIONS
+42:  
+8: TO
+42:  
+8: ANIMAL
+42:  
+8: CLINIC
+42:  
+8: AT
+42:  
+8: MISSION
+42:  
+8: SQUARE:
+42:  
+8: Go
+42:  
+8: East
+42:  
+8: on
+42:  
+8: Frontage
+42:  
+8: Rd
+42:  
+8: to
+42:  
+8: Big
+42:  
+8: Springs
+42:  
+8: St
+42: 
+
+8: Go
+42:  
+8: North
+42:  
+8: approximately
+42:  
+29: 5
+42:  
+8: miles
+8: Vet
+42:  
+8: is
+42:  
+8: in
+42:  
+8: shopping
+42:  
+8: center
+42:  
+8: on
+42:  
+8: right
+42: 
+
+8: DIRECTIONS
+42:  
+8: TO
+42:  
+8: PERMIAN
+42:  
+8: BASIN
+42:  
+8: EMERGENCY
+42:  
+8: VETERINARY
+42:  
+8: CLINIC:
+42:  
+8: From
+42:  
+8: the
+42:  
+8: Horseshoe
+42:  
+8: Arena,
+42: 
+
+8: turn
+42:  
+8: west
+42:  
+8: onto
+42:  
+8: North
+42:  
+8: Service
+42:  
+8: Rd
+42:  
+8: I-20
+8: Proceed
+42:  
+8: to
+42:  
+8: the
+42:  
+8: Midkiff
+42:  
+8: Rd
+42:  
+8: on
+42:  
+8: Ramp
+8: Proceed
+42:  
+8: west
+42:  
+8: on
+42:  
+8: IH-20
+42:  
+8: to
+42: 
+
+8: FM-1788
+42:  
+8: (Airport Exit)
+8: Turn
+42:  
+8: north
+42:  
+8: on
+42:  
+8: FM
+42:  
+29: 1788
+42:  
+8: over
+42:  
+8: the
+42:  
+8: first
+42:  
+8: overpass
+8: Immediately
+42:  
+8: turn
+42:  
+8: left
+42:  
+8: onto
+42:  
+8: the
+42: 
+
+8: North
+42:  
+8: Service
+42:  
+8: Rd
+42:  
+8: of
+42:  
+8: Business
+42:  
+8: IH-20,
+42:  
+8: proceed
+42:  
+29: 3
+42:  
+8: miles
+8: Emergency
+42:  
+8: Clinic
+42:  
+8: is
+42:  
+8: on
+42:  
+8: the
+42:  
+8: right
+42: 
+
+8: HOURS
+42:  
+8: FOR
+42:  
+8: EMERGENCY
+42:  
+8: CLINIC:
+42:  
+
+40: 6:30 pm
+42:  
+8: -
+42:  
+40: 11:00 pm
+42:  
+8: Monday
+42:  
+8: -
+42:  
+8: Friday
+42: 
+
+40: 1:30 pm
+42:  
+8: Saturday
+42:  
+8: until
+42:  
+40: 11:00 pm
+42:  
+8: Sunday
+42: 
+
+8: JUDGES
+42: 
+
+30: Mr John F Booth
+10: .........................................................................
+29: 12106
+42:  
+8: White
+42:  
+8: Birch
+42:  
+8: St,
+42:  
+8: San
+42:  
+8: Antonio
+42:  
+8: TX
+42:  
+29: 78245
+42: 
+
+30: Mr Robert L Boothe
+10: ...........................................................................................
+8: PO
+42:  
+8: Box
+42:  
+8: 1664,
+42:  
+8: Midland
+42:  
+8: TX
+42:  
+29: 79702
+42: 
+
+30: Mr Danny J Bussard
+10: ...................................................................
+29: 12106
+42:  
+8: White
+42:  
+8: Birch
+42:  
+8: St,
+42:  
+8: San
+42:  
+8: Antonio
+42:  
+8: TX
+42:  
+29: 78245
+42: 
+
+30: Mrs Paula Hartinger 
+10: ..........................................................................
+29: 3548
+42:  
+8: Centurion
+42:  
+8: Dr,
+42:  
+8: Cincinnati
+42:  
+8: OH
+42:  
+29: 45211
+42: 
+
+30: Mr Roger R Hartinger 
+10: .......................................................................
+29: 3548
+42:  
+8: Centurion
+42:  
+8: Dr,
+42:  
+8: Cincinnati
+42:  
+8: OH
+42:  
+29: 45211
+42: 
+
+30: Mrs Alice Inman
+10: ..........................................................................................
+8: PO
+42:  
+8: Box
+42:  
+8: 1449,
+42:  
+8: Weatherford
+42:  
+8: TX
+42:  
+29: 76086
+42: 
+
+30: Ms Laurie King Telfair
+10: ................................................................
+29: 1033
+42:  
+8: Meadow
+42:  
+8: Creek
+42:  
+8: Dr,
+42:  
+8: Lancaster
+42:  
+8: TX
+42:  
+29: 75146
+42: 
+
+8: 4JUDGING
+42:  
+8: PROGRAM
+42:  
+8: BY
+42:  
+8: ALPHABETICAL
+42:  
+8: ORDER
+42: 
+
+8: SAT
+42:  
+8: SUN
+42: 
+
+8: BREED
+42:  
+8: IME
+42:  
+8: IME
+42: 
+
+8: AFFENPIN
+42:  
+29: 1
+42:  
+40: 11:40 am
+42:  
+29: 3
+42:  
+40: 3:15 pm
+42: 
+
+8: AFGHAN
+42:  
+29: 3
+42:  
+40: 2:00 pm
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: ALAS
+42:  
+8: MAL
+42:  
+29: 3
+42:  
+40: 10:45 am
+42:  
+29: 2
+42:  
+40: 10:30 am
+42: 
+
+8: AM
+42:  
+8: STAFF
+42:  
+29: 3
+42:  
+40: 2:00 pm
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: ANATOLIAN
+42:  
+8: SHEP
+42:  
+29: 3
+42:  
+40: 3:00 pm
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: AUST
+42:  
+8: SHEP
+42:  
+29: 1
+42:  
+40: 9:30 am
+42:  
+29: 1
+42:  
+40: 9:40 am
+42: 
+
+8: AUSTR
+42:  
+8: CATTDOG
+42:  
+29: 1
+42:  
+40: 8:30 am
+42:  
+29: 1
+42:  
+40: 9:40 am
+42: 
+
+8: B
+42:  
+8: &
+42:  
+8: T
+42:  
+8: COONHND
+42:  
+29: 3
+42:  
+40: 9:45 am
+42:  
+29: 2
+42:  
+40: 10:30 am
+42: 
+
+8: BASENJI
+42:  
+29: 1
+42:  
+40: 10:50 am
+42: 
+
+8: BASSET
+42:  
+29: 3
+42:  
+40: 12:55 pm
+42:  
+29: 1
+42:  
+40: 10:50 am
+42: 
+
+8: BEAGLE-13
+42:  
+8: IN
+42:  
+29: 1
+42:  
+40: 10:30 am
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: BEAGLE-15
+42:  
+8: IN
+42:  
+29: 3
+42:  
+40: 10:45 am
+42:  
+29: 2
+42:  
+40: 1:10 pm
+42: 
+
+8: BEL
+42:  
+8: TERV
+42:  
+29: 1
+42:  
+40: 8:30 am
+42:  
+29: 1
+42:  
+40: 9:40 am
+42: 
+
+8: BICHON
+42:  
+29: 2
+42:  
+40: 11:05 am
+42:  
+29: 3
+42:  
+40: 11:20 am
+42: 
+
+8: BLOODHND
+42:  
+29: 1
+42:  
+40: 10:30 am
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: BORDER
+42:  
+8: COLL
+42:  
+29: 1
+42:  
+40: 9:30 am
+42:  
+29: 1
+42:  
+40: 9:40 am
+42: 
+
+8: BORZOI
+42:  
+29: 3
+42:  
+40: 2:00 pm
+42:  
+29: 1
+42:  
+40: 10:50 am
+42: 
+
+8: BOSTON
+42:  
+8: TERR
+42:  
+29: 2
+42:  
+40: 8:30 am
+42:  
+29: 3
+42:  
+40: 8:30 am
+42: 
+
+8: BOXER
+42:  
+29: 3
+42:  
+40: 9:45 am
+42:  
+29: 2
+42:  
+40: 9:30 am
+42: 
+
+8: BOYKIN
+42:  
+29: 1
+42:  
+40: 10:30 am
+42:  
+29: 2
+42:  
+40: 9:30 am
+42: 
+
+8: BRIARD
+42:  
+29: 1
+42:  
+40: 9:30 am
+42:  
+29: 1
+42:  
+40: 10:50 am
+42: 
+
+8: BRUSS
+42:  
+8: GRIF
+42:  
+29: 2
+42:  
+40: 1:00 pm
+42:  
+29: 3
+42:  
+40: 2:15 pm
+42: 
+
+8: BULL
+42:  
+8: TER
+42:  
+8: WHITE
+42:  
+29: 3
+42:  
+40: 2:00 pm
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: BULLDOG
+42:  
+29: 2
+42:  
+40: 8:30 am
+42:  
+29: 3
+42:  
+40: 8:30 am
+42: 
+
+8: BULLMASTIFF
+42:  
+29: 3
+42:  
+40: 8:30 am
+42:  
+29: 2
+42:  
+40: 8:30 am
+42: 
+
+8: CAIRN
+42:  
+8: TERR
+42:  
+29: 3
+42:  
+40: 12:55 pm
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: CANE
+42:  
+8: CORSO
+42:  
+29: 3
+42:  
+40: 9:45 am
+42:  
+29: 2
+42:  
+40: 8:30 am
+42: 
+
+8: CARD
+42:  
+8: WELSH
+42:  
+8: CORG
+42:  
+29: 1
+42:  
+40: 8:30 am
+42:  
+29: 1
+42:  
+40: 8:30 am
+42: 
+
+8: CAV
+42:  
+8: KING
+42:  
+8: CH
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42:  
+29: 3
+42:  
+40: 3:15 pm
+42: 
+
+8: CHIHUA
+42:  
+8: LONG
+42:  
+29: 2
+42:  
+40: 9:50 am
+42:  
+29: 3
+42:  
+40: 9:50 am
+42: 
+
+8: CHIHUA
+42:  
+8: SMOOTH
+42:  
+29: 2
+42:  
+40: 9:50 am
+42:  
+29: 3
+42:  
+40: 9:50 am
+42: 
+
+8: CHIN
+42:  
+8: CREST
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42:  
+29: 3
+42:  
+40: 3:15 pm
+42: 
+
+8: CHIN
+42:  
+8: SHAR-PEI
+42:  
+29: 2
+42:  
+40: 8:30 am
+42:  
+29: 3
+42:  
+40: 8:30 am
+42: 
+
+8: CHOW
+42:  
+29: 2
+42:  
+40: 11:05 am
+42:  
+29: 3
+42:  
+40: 11:20 am
+42: 
+
+8: CKR
+42:  
+8: SPN
+42:  
+8: ASCOB
+42:  
+29: 1
+42:  
+40: 10:30 am
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: CKR
+42:  
+8: SPN
+42:  
+8: PARTI
+42:  
+29: 3
+42:  
+40: 12:55 pm
+42:  
+29: 2
+42:  
+40: 1:10 pm
+42: 
+
+8: COLL
+42:  
+8: ROUGH
+42:  
+29: 1
+42:  
+40: 9:30 am
+42:  
+29: 1
+42:  
+40: 10:50 am
+42: 
+
+8: COLL
+42:  
+8: SMOOTH
+42:  
+29: 1
+42:  
+40: 9:30 am
+42:  
+29: 1
+42:  
+40: 10:50 am
+42: 
+
+8: DACH
+42:  
+8: LONG
+42:  
+29: 3
+42:  
+40: 10:45 am
+42:  
+29: 1
+42:  
+40: 8:30 am
+42: 
+
+8: DACH
+42:  
+8: SMOOTH
+42:  
+29: 3
+42:  
+40: 10:45 am
+42:  
+29: 1
+42:  
+40: 8:30 am
+42: 
+
+8: DACH
+42:  
+8: WIRE
+42:  
+29: 3
+42:  
+40: 10:45 am
+42:  
+29: 1
+42:  
+40: 8:30 am
+42: 
+
+8: DALMATIAN
+42:  
+29: 2
+42:  
+40: 11:05 am
+42:  
+29: 1
+42:  
+40: 12:00 pm
+42: 
+
+8: DOBERMAN
+42:  
+29: 3
+42:  
+40: 8:30 am
+42:  
+29: 2
+42:  
+40: 8:30 am
+42: 
+
+8: DOGUES
+42:  
+8: DE
+42:  
+8: BOR
+42:  
+29: 3
+42:  
+40: 2:00 pm
+42:  
+29: 1
+42:  
+40: 12:00 pm
+42: 
+
+8: ENG
+42:  
+8: SETT
+42:  
+29: 1
+42:  
+40: 10:30 am
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: ENG
+42:  
+8: SPRINGER
+42:  
+29: 1
+42:  
+40: 10:30 am
+42:  
+29: 2
+42:  
+40: 1:10 pm
+42: 
+
+8: ENGLISH
+42:  
+8: COCKER
+42:  
+29: 1
+42:  
+40: 10:30 am
+42:  
+29: 2
+42:  
+40: 1:10 pm
+42: 
+
+8: FIELD
+42:  
+8: SPN
+42:  
+29: 3
+42:  
+40: 3:00 pm
+42:  
+29: 2
+42:  
+40: 1:10 pm
+42: 
+
+8: FINNISH
+42:  
+8: SPITZ
+42:  
+29: 2
+42:  
+40: 11:05 am
+42:  
+29: 3
+42:  
+40: 11:20 am
+42: 
+
+8: FOX
+42:  
+8: TER
+42:  
+8: SMOOTH
+42:  
+29: 3
+42:  
+40: 12:55 pm
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: FRENCH
+42:  
+8: BULL
+42:  
+29: 2
+42:  
+40: 8:30 am
+42:  
+29: 3
+42:  
+40: 8:30 am
+42: 
+
+8: GERM
+42:  
+8: SHEPHERD
+42:  
+29: 1
+42:  
+40: 9:30 am
+42:  
+29: 1
+42:  
+40: 10:50 am
+42: 
+
+8: GERM
+42:  
+8: SHT
+42:  
+8: PNT
+42:  
+29: 3
+42:  
+40: 9:45 am
+42:  
+29: 2
+42:  
+40: 9:30 am
+42: 
+
+8: GIANT
+42:  
+8: SCHN
+42:  
+29: 3
+42:  
+40: 3:00 pm
+42:  
+29: 2
+42:  
+40: 10:30 am
+42: 
+
+8: GOLD
+42:  
+8: RET
+42:  
+29: 3
+42:  
+40: 3:00 pm
+42:  
+29: 2
+42:  
+40: 10:30 am
+42: 
+
+8: GORD
+42:  
+8: SETT
+42:  
+29: 1
+42:  
+40: 10:30 am
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: SAT
+42:  
+8: SUN
+42: 
+
+8: BREED
+42:  
+8: IME
+42:  
+8: IME
+42: 
+
+8: GREAT
+42:  
+8: DANE
+42:  
+29: 3
+42:  
+40: 8:30 am
+42:  
+29: 2
+42:  
+40: 8:30 am
+42: 
+
+8: GREYHND
+42:  
+29: 1
+42:  
+40: 10:30 am
+42:  
+29: 1
+42:  
+40: 10:50 am
+42: 
+
+8: GRT
+42:  
+8: PYRENEES
+42:  
+29: 3
+42:  
+40: 3:00 pm
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: HARRIER
+42:  
+29: 1
+42:  
+40: 10:30 am
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: HAVANESE
+42:  
+29: 1
+42:  
+40: 11:40 am
+42:  
+29: 3
+42:  
+40: 2:15 pm
+42: 
+
+8: IRISH
+42:  
+8: SETT
+42:  
+29: 1
+42:  
+40: 10:30 am
+42:  
+29: 2
+42:  
+40: 1:10 pm
+42: 
+
+8: IRISH
+42:  
+8: WOLFHND
+42:  
+29: 1
+42:  
+40: 10:30 am
+42:  
+29: 1
+42:  
+40: 10:50 am
+42: 
+
+8: ITAL
+42:  
+8: GRYHND
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42:  
+29: 3
+42:  
+40: 9:50 am
+42: 
+
+8: JAP
+42:  
+8: CHIN
+42:  
+29: 2
+42:  
+40: 3:20 pm
+42:  
+29: 3
+42:  
+40: 1:10 pm
+42: 
+
+8: JR
+42:  
+8: SHOW
+42:  
+8: OP
+42:  
+8: SR
+42:  
+29: 1
+42:  
+40: 9:30 am
+42:  
+29: 1
+42:  
+40: 10:50 am
+42: 
+
+8: KEESHOND
+42:  
+29: 2
+42:  
+40: 1:00 pm
+42:  
+29: 1
+42:  
+40: 12:00 pm
+42: 
+
+8: LABRADOR
+42:  
+29: 3
+42:  
+40: 8:30 am
+42:  
+29: 2
+42:  
+40: 9:30 am
+42: 
+
+8: LAGOTTO
+42:  
+8: ROM
+42:  
+29: 1
+42:  
+40: 8:30 am
+42:  
+29: 1
+42:  
+40: 9:40 am
+42: 
+
+8: LEONBERGER
+42:  
+29: 3
+42:  
+40: 2:00 pm
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: LHASA
+42:  
+29: 2
+42:  
+40: 11:05 am
+42:  
+29: 1
+42:  
+40: 12:00 pm
+42: 
+
+8: LOWCHEN
+42:  
+29: 2
+42:  
+40: 11:05 am
+42:  
+29: 1
+42:  
+40: 12:00 pm
+42: 
+
+8: MALTESE
+42:  
+29: 2
+42:  
+40: 3:20 pm
+42:  
+29: 3
+42:  
+40: 2:15 pm
+42: 
+
+8: MANCH
+42:  
+8: TERR-STD
+42:  
+29: 3
+42:  
+40: 12:55 pm
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: MASTIFF
+42:  
+29: 3
+42:  
+40: 8:30 am
+42:  
+29: 2
+42:  
+40: 8:30 am
+42: 
+
+8: MIN
+42:  
+8: AM
+42:  
+8: SHEPHERD
+42:  
+29: 1
+42:  
+40: 8:30 am
+42:  
+29: 1
+42:  
+40: 9:40 am
+42: 
+
+8: MIN
+42:  
+8: SCHN
+42:  
+29: 3
+42:  
+40: 12:55 pm
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: NEAP
+42:  
+8: MASTIFF
+42:  
+29: 3
+42:  
+40: 3:00 pm
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: NEWF
+42:  
+29: 3
+42:  
+40: 3:00 pm
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: NOR
+42:  
+8: ELK
+42:  
+8: HND
+42:  
+29: 1
+42:  
+40: 10:30 am
+42:  
+29: 2
+42:  
+40: 10:30 am
+42: 
+
+8: OLD
+42:  
+8: ENGLISH
+42:  
+8: SHP
+42:  
+29: 1
+42:  
+40: 9:30 am
+42:  
+29: 1
+42:  
+40: 10:50 am
+42: 
+
+8: PAPILLON
+42:  
+29: 2
+42:  
+40: 1:00 pm
+42:  
+29: 3
+42:  
+40: 3:15 pm
+42: 
+
+8: PEMB
+42:  
+8: WELSH
+42:  
+8: CORG
+42:  
+29: 1
+42:  
+40: 8:30 am
+42:  
+29: 1
+42:  
+40: 8:30 am
+42: 
+
+8: PHARAOH
+42:  
+8: HND
+42:  
+29: 3
+42:  
+40: 9:45 am
+42:  
+29: 2
+42:  
+40: 10:30 am
+42: 
+
+8: POINTER
+42:  
+29: 1
+42:  
+40: 10:30 am
+42:  
+29: 2
+42:  
+40: 8:30 am
+42: 
+
+8: POM
+42:  
+29: 2
+42:  
+40: 3:20 pm
+42:  
+29: 3
+42:  
+40: 1:10 pm
+42: 
+
+8: POOD
+42:  
+8: MIN
+42:  
+29: 2
+42:  
+40: 1:00 pm
+42:  
+29: 3
+42:  
+40: 11:20 am
+42: 
+
+8: POOD
+42:  
+42:  
+40: 11:40 am
+42:  
+29: 3
+42:  
+40: 3:15 pm
+42: 
+
+8: PORT
+42:  
+8: PODE
+42:  
+8: PEQU
+42:  
+29: 3
+42:  
+40: 10:45 am
+42:  
+29: 2
+42:  
+40: 1:10 pm
+42: 
+
+8: PUG
+42:  
+29: 2
+42:  
+40: 8:30 am
+42:  
+29: 3
+42:  
+40: 8:30 am
+42: 
+
+8: PULIK
+42:  
+29: 1
+42:  
+40: 8:30 am
+42:  
+29: 1
+42:  
+40: 10:50 am
+42: 
+
+8: RHORIDGE
+42:  
+29: 3
+42:  
+40: 9:45 am
+42:  
+29: 2
+42:  
+40: 10:30 am
+42: 
+
+8: ROTTWEILER
+42:  
+29: 3
+42:  
+40: 8:30 am
+42:  
+29: 2
+42:  
+40: 8:30 am
+42: 
+
+8: RUSSELL
+42:  
+8: TERR
+42:  
+29: 3
+42:  
+40: 12:55 pm
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: SALUKI
+42:  
+29: 1
+42:  
+40: 10:30 am
+42:  
+29: 1
+42:  
+40: 10:50 am
+42: 
+
+8: SAMOYED
+42:  
+29: 3
+42:  
+40: 3:00 pm
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: SCHIPPERKE
+42:  
+29: 2
+42:  
+40: 1:00 pm
+42:  
+29: 3
+42:  
+40: 11:20 am
+42: 
+
+8: SHETLD
+42:  
+8: SHEEP
+42:  
+29: 1
+42:  
+40: 8:30 am
+42:  
+29: 1
+42:  
+40: 9:40 am
+42: 
+
+8: SHIH
+42:  
+8: TZU
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42:  
+29: 3
+42:  
+40: 2:15 pm
+42: 
+
+8: SIB
+42:  
+8: HUSKY
+42:  
+29: 3
+42:  
+40: 3:00 pm
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: SOFT-CTD
+42:  
+8: WHEAT
+42:  
+29: 3
+42:  
+40: 2:00 pm
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: TIB
+42:  
+8: MASTIFF
+42:  
+29: 3
+42:  
+40: 10:45 am
+42:  
+29: 2
+42:  
+40: 10:30 am
+42: 
+
+8: TIB
+42:  
+8: SPAN
+42:  
+29: 2
+42:  
+40: 1:00 pm
+42:  
+29: 3
+42:  
+40: 2:15 pm
+42: 
+
+8: TIB
+42:  
+8: TERR
+42:  
+29: 2
+42:  
+40: 11:05 am
+42:  
+29: 1
+42:  
+40: 12:00 pm
+42: 
+
+8: OX
+42:  
+29: 2
+42:  
+40: 9:50 am
+42:  
+29: 3
+42:  
+40: 1:10 pm
+42: 
+
+8: WEIM
+42:  
+29: 1
+42:  
+40: 10:30 am
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: WELSH
+42:  
+8: TER
+42:  
+29: 3
+42:  
+40: 12:55 pm
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: WEST
+42:  
+8: HIGHLND
+42:  
+29: 3
+42:  
+40: 12:55 pm
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42: 
+
+8: WHIPPET
+42:  
+29: 3
+42:  
+40: 12:55 pm
+42:  
+29: 2
+42:  
+40: 1:10 pm
+42: 
+
+8: YORKSH
+42:  
+8: TERR
+42:  
+29: 2
+42:  
+40: 2:10 pm
+42:  
+29: 3
+42:  
+40: 3:15 pm
+42: 
+
+37: RING 1
+42: 
+
+30: MRS ALICE INMAN (49)
+42: 
+
+40: 8:30 am
+42: 
+
+29: 5
+42:  
+6: Pembroke Welsh Corgis 
+5: 2-1-1-1
+42: 
+
+29: 5
+42:  
+6: Cardigan Welsh Corgis 
+5: 0-3-1-1
+42: 
+
+29: 2
+42:  
+6: Shetland Sheepdogs 
+5: 0-1-0-1
+42: 
+
+29: 2
+42:  
+6: Pulik 
+5: 0-1-0-1
+42: 
+
+29: 2
+42:  
+6: Miniature American Shepherds (Misc. Dogs)
+42: 
+
+29: 1
+42:  
+6: Lagotto Romagnolo (Misc. Bitch)
+42: 
+
+29: 6
+42:  
+6: Australian Cattle Dogs 
+5: 1-1-3-1
+42: 
+
+29: 2
+42:  
+6: Belgian Tervuren 
+5: 0-1-0-1
+42: 
+
+40: 9:30 am
+42: 
+
+29: 1
+42:  
+6: German Shepherd Dogs 
+5: 1-0-0-0
+42: 
+
+29: 8
+42:  
+6: Australian Shepherds 
+5: 4-1-2-1
+42: 
+
+29: 6
+42:  
+6: Border Collies 
+5: 2-1-3-0
+42: 
+
+29: 4
+42:  
+6: Briards 
+5: 0-2-1-1
+42: 
+
+29: 2
+42:  
+6: Old English Sheepdogs 
+5: 0-0-1-1
+42: 
+
+29: 1
+42:  
+6: Collies (Smooth) 
+5: 1-0-0-0
+42: 
+
+29: 1
+42:  
+6: Collies (Rough) 
+5: 1-0-0-0
+42: 
+
+29: 1
+42:  
+31: Open Senior
+42: 
+
+37: RING 1
+42: 
+
+30: MR ROBERT L BOOTHE (29)
+42: 
+
+40: 10:30 am
+42: 
+
+29: 2
+42:  
+6: Pointers 
+5: 0-1-1-0
+42: 
+
+29: 2
+42:  
+6: Setters (Irish) 
+5: 0-0-2-0
+42: 
+
+29: 2
+42:  
+6: Spaniels (English Springer) 
+5: 1-1-0-0
+42: 
+
+29: 7
+42:  
+6: Spaniels (Boykin) 
+5: 1-4-1-1
+42: 
+
+29: 2
+42:  
+6: Greyhounds 
+5: 0-1-1-0
+42: 
+
+29: 2
+42:  
+6: Norwegian Elkhounds 
+5: 1-1-0-0
+42: 
+
+29: 1
+42:  
+6: Setters (Gordon) 
+5: 0-1-0-0
+42: 
+
+29: 1
+42:  
+6: Irish Wolfhounds 
+5: 1-0-0-0
+42: 
+
+29: 1
+42:  
+6: Salukis 
+5: 1-0-0-0
+42: 
+
+29: 1
+42:  
+6: Harriers 
+5: 0-0-0-1
+42: 
+
+29: 1
+42:  
+6: Bloodhounds 
+5: 0-0-1-0
+42: 
+
+29: 1
+42:  
+6: Weimaraners 
+5: 0-1-0-0
+42: 
+
+29: 1
+42:  
+6: Setters (English) 
+5: 0-0-1-0
+42: 
+
+29: 2
+42:  
+6: Spaniels (English Cocker) 
+5: 1-0-0-1
+42: 
+
+29: 2
+42:  
+6: Spaniels (Cocker) Ascob
+42:  
+5: 2-0-0-0
+42: 
+
+29: 1
+42:  
+6: Beagles (13 Inch) 
+5: 0-0-1-0
+42: 
+
+37: RING 1
+42: 
+
+30: MR DANNY J BUSSARD (10)
+42: 
+
+40: 11:40 am
+42: 
+
+29: 8
+42:  
+6: Havanese 
+5: 4-2-2-0
+42: 
+
+29: 1
+42:  
+6: Affenpinschers 
+5: 1-0-0-0
+42: 
+
+29: 1
+42:  
+6: Poodles (Toy) 
+5: 0-1-0-0
+42: 
+
+37: RING 2
+42: 
+
+30: MRS PAULA HARTINGER (175)
+42: 
+
+40: 8:30 am
+42: 
+
+29: 6
+42:  
+6: Bulldogs 
+5: 2-3-1-0
+42: 
+
+29: 4
+42:  
+6: Chinese Shar-Pei 
+5: 0-3-1-0
+42: 
+
+29: 4
+42:  
+6: Pugs 
+5: 1-2-1-0
+42: 
+
+29: 8
+42:  
+6: Boston Terriers 
+5: 0-4-3-1
+42: 
+
+29: 12
+42:  
+6: French Bulldogs 
+5: 3-8-0-1
+42: 
+
+40: 9:50 am
+42: 
+
+29: 8
+42:  
+6: Chihuahuas (Smooth Coat) 
+5: 3-3-0-2
+42: 
+
+29: 3
+42:  
+6: Toy Fox Terriers 
+5: 2-1-0-0
+42: 
+
+29: 20
+42:  
+6: Chihuahuas (Long Coat) 
+5: 7-8-4-1
+42: 
+
+40: 11:05 am
+42: 
+
+29: 2
+42:  
+6: Tibetan Terriers 
+5: 0-1-1-0
+42: 
+
+29: 2
+42:  
+6: Lowchen 
+5: 2-0-0-0
+42: 
+
+29: 3
+42:  
+6: Lhasa Apsos 
+5: 0-2-0-1
+42: 
+
+29: 5
+42:  
+6: Bichons Frises 
+5: 1-3-0-1
+42: 
+
+29: 4
+42:  
+6: Finnish Spitz 
+5: 1-2-1-0
+42: 
+
+29: 2
+42:  
+6: Dalmatians 
+5: 1-0-1-0
+42: 
+
+29: 4
+42:  
+6: Chow Chows 
+5: 3-0-1-0
+42: 
+
+40: 12:00 pm
+42: 
+
+39: LUNCH
+42: 
+
+40: 1:00 pm
+42: 
+
+29: 1
+42:  
+6: Keeshonden 
+5: 0-0-1-0
+42: 
+
+29: 4
+42:  
+6: Poodles (Miniature) 
+5: 0-3-0-1
+42: 
+
+29: 4
+42:  
+6: Schipperkes 
+5: 1-2-1-0
+42: 
+
+29: 1
+42:  
+6: Tibetan Spaniels 
+5: 0-1-0-0
+42: 
+
+29: 12
+42:  
+6: Papillons 
+5: 4-6-2-0
+42: 
+
+29: 7
+42:  
+6: Brussels Griffons 
+5: 2-4-1-0
+42: 
+
+40: 2:10 pm
+42: 
+
+29: 3
+42:  
+6: Cavalier King Charles Spaniels 
+5: 2-1-0-0
+42: 
+
+29: 8
+42:  
+6: Chinese Cresteds 
+5: 3-4-1-0
+42: 
+
+29: 3
+42:  
+6: Shih Tzu 
+5: 2-1-0-0
+42: 
+
+29: 8
+42:  
+6: Italian Greyhounds 
+5: 0-5-2-1
+42: 
+
+29: 7
+42:  
+6: Yorkshire Terriers 
+5: 3-3-0-1
+42: 
+
+40: 3:20 pm
+42: 
+
+29: 13
+42:  
+6: Pomeranians 
+5: 5-5-3-0
+42: 
+
+29: 6
+42:  
+6: Maltese 
+5: 3-2-0-1
+42: 
+
+29: 11
+42:  
+6: Japanese Chin 
+5: 3-6-1-1
+42: 
+
+8: JUDGING
+42:  
+8: PROGRAM
+42: 
+
+8: The
+42:  
+8: number
+42:  
+8: before
+42:  
+8: each
+42:  
+8: Breed
+42:  
+8: (Variety)
+42:  
+8: indicates
+42:  
+8: the
+42:  
+8: number
+42:  
+8: of
+42:  
+8: dogs
+42:  
+8: entered
+42:  
+8: in
+42:  
+8: that
+42:  
+8: Breed
+42:  
+8: (Variety)
+8: The
+42:  
+8: num-
+42: 
+
+8: bers
+42:  
+8: following
+42:  
+8: each
+42:  
+8: Breed
+42:  
+8: (Variety)
+42:  
+8: indicates
+42:  
+8: the
+42:  
+8: number
+42:  
+8: of
+42:  
+8: Regular
+42:  
+8: Class
+42:  
+8: Dogs,
+42:  
+8: Regular
+42:  
+8: Class
+42:  
+8: Bitches,
+42:  
+8: Best
+42:  
+8: of
+42: 
+
+8: Breed
+42:  
+8: (Variety)
+42:  
+8: (Dogs-Bitches)
+42: 
+
+8: OFFICIAL
+42:  
+8: NOTICE:
+42:  
+8: Additional
+42:  
+8: Judges
+42: 
+
+8: Reference
+42:  
+8: Chapter
+42:  
+8: 7,
+42:  
+8: Section
+42:  
+29: 13
+42:  
+8: of
+42:  
+8: AKC
+42:  
+8: Rules:
+42:  
+8: Owner
+42:  
+8: has
+42:  
+8: the
+42:  
+8: right
+42:  
+8: to
+42:  
+8: withdraw
+42:  
+8: his
+42:  
+8: entry
+42:  
+8: and
+42:  
+8: have
+42:  
+8: his
+42:  
+8: entry
+42:  
+8: fee
+42: 
+
+8: refunded
+42:  
+8: provided
+42:  
+8: notification
+42:  
+8: of
+42:  
+8: his
+42:  
+8: withdrawal
+42:  
+8: is
+42:  
+8: received
+42:  
+8: no
+42:  
+8: later
+42:  
+8: than
+42:  
+8: one
+42:  
+8: half-hour
+42:  
+8: prior
+42:  
+8: to
+42:  
+8: the
+42:  
+8: start
+42:  
+8: of
+42:  
+8: any
+42: 
+
+8: regular
+42:  
+8: conformation
+42:  
+8: judging
+42: 
+
+30: Mr Robert L Boothe 
+8: will
+42:  
+8: judge
+42:  
+8: Pointers,
+42:  
+6: Setters (English)
+8: ,
+42:  
+6: Setters (Gordon)
+8: ,
+42:  
+6: Setters (Irish)
+8: ,
+42:  
+6: Spaniels (Boykin)
+8: ,
+42: 
+
+6: Spaniels (Cocker) Ascob
+8: ,
+42:  
+6: Spaniels (English Cocker)
+8: ,
+42:  
+6: Spaniels (English Springer)
+8: ,
+42:  
+8: Weimaraners,
+42:  
+6: Beagles (13 Inch)
+8: ,
+42: 
+
+8: Bloodhounds,
+42:  
+8: Greyhounds,
+42:  
+8: Harriers,
+42:  
+6: Irish Wolfhounds
+8: ,
+42:  
+6: Norwegian Elkhounds 
+8: &
+42:  
+6: Salukis 
+8: in
+42:  
+8: place
+42:  
+8: of
+42:  
+30: Mr Roger R
+42: 
+
+8: Hartinger
+30: Mr Danny J Bussard 
+8: will
+42:  
+8: judge
+42:  
+6: Poodles (Toy) 
+8: in
+42:  
+8: place
+42:  
+8: of
+42:  
+30: Mrs Paula Hartinger
+42: 
+
+8: There
+42:  
+8: are
+42:  
+29: 437
+42:  
+8: dogs
+42:  
+8: entered
+42:  
+8: in
+42:  
+8: this
+42:  
+8: show
+42:  
+8: with
+42:  
+8: a
+42:  
+8: total
+42:  
+8: of
+42:  
+29: 438
+42:  
+8: entries
+42: 
+
+29: 5
+42: 
+
+9: SATURDAY, FEBRUARY 9, 2013
+42: 
+
+37: RING 3
+42: 
+
+30: MR ROGER R HARTINGER (175)
+42: 
+
+40: 8:30 am
+42: 
+
+29: 2
+42:  
+6: Bullmastiffs 
+5: 0-1-1-0
+42: 
+
+29: 3
+42:  
+6: Great Danes 
+5: 1-2-0-0
+42: 
+
+29: 9
+42:  
+6: Doberman Pinschers 
+5: 3-2-2-2
+42: 
+
+29: 3
+42:  
+6: Rottweilers 
+5: 1-1-0-1
+42: 
+
+29: 4
+42:  
+6: Mastiffs 
+5: 0-3-0-1
+42: 
+
+29: 10
+42:  
+6: Retrievers (Labrador) 
+5: 5-2-2-1
+42: 
+
+40: 9:45 am
+42: 
+
+29: 7
+42:  
+6: Pointers (German Shorthaired) 
+5: 2-2-1-2
+42: 
+
+29: 3
+42:  
+6: Cane Corso 
+5: 1-1-1-0
+42: 
+
+29: 2
+42:  
+6: Boxers 
+5: 1-0-0-1
+42: 
+
+29: 4
+42:  
+6: Rhodesian Ridgebacks 
+5: 1-2-0-1
+42: 
+
+29: 4
+42:  
+6: Black & Tan Coonhounds 
+5: 0-0-2-2
+42: 
+
+29: 5
+42:  
+6: Pharaoh Hounds 
+5: 3-0-1-1
+42: 
+
+40: 10:45 am
+42: 
+
+29: 2
+42:  
+6: Tibetan Mastiffs 
+5: 0-1-1-0
+42: 
+
+29: 3
+42:  
+6: Alaskan Malamutes 
+5: 1-1-1-0
+42: 
+
+29: 5
+42:  
+6: Dachshunds (Longhaired) 
+5: 2-3-0-0
+42: 
+
+29: 3
+42:  
+6: Beagles (15 Inch) 
+5: 0-0-2-1
+42: 
+
+29: 7
+42:  
+6: Dachshunds (Wirehaired) 
+5: 3-3-1-0
+42: 
+
+29: 3
+42:  
+6: Portuguese Podengo Pequenos 
+5: 3-0-0-0
+42: 
+
+29: 7
+42:  
+6: Dachshunds (Smooth) 
+5: 2-2-2-1
+42: 
+
+40: 11:55 am
+42: 
+
+39: LUNCH
+42: 
+
+40: 12:55 pm
+42: 
+
+29: 2
+42:  
+6: Basset Hounds 
+5: 0-0-1-1
+42: 
+
+29: 6
+42:  
+6: Whippets 
+5: 2-1-2-1
+42: 
+
+29: 3
+42:  
+6: Fox Terriers (Smooth) 
+5: 0-0-1-2
+42: 
+
+29: 2
+42:  
+6: West Highland White Terriers 
+5: 0-2-0-0
+42: 
+
+29: 1
+42:  
+6: Miniature Schnauzers 
+5: 0-0-1-0
+42: 
+
+29: 1
+42:  
+6: Welsh Terriers 
+5: 0-0-0-1
+42: 
+
+29: 2
+42:  
+6: Cairn Terriers 
+5: 0-2-0-0
+42: 
+
+29: 3
+42:  
+6: Russell Terriers 
+5: 1-2-0-0
+42: 
+
+29: 1
+42:  
+6: Manchester Terriers (Standard) 
+5: 0-0-1-0
+42: 
+
+29: 6
+42:  
+6: Spaniels (Cocker) Parti-Color
+42:  
+5: 2-1-2-1
+42: 
+
+40: 2:00 pm
+42: 
+
+29: 6
+42:  
+6: Soft Coated Wheaten Terriers 
+5: 2-2-2-0
+42: 
+
+29: 1
+42:  
+6: American Staffordshire Terriers 
+5: 1-0-0-0
+42: 
+
+29: 1
+42:  
+6: Bull Terriers (White) 
+5: 1-0-0-0
+42: 
+
+29: 4
+42:  
+6: Afghan Hounds 
+5: 0-3-0-1
+42: 
+
+29: 11
+42:  
+6: Borzois 
+5: 4-4-3-0
+42: 
+
+29: 1
+42:  
+6: Dogues de Bordeaux 
+5: 0-0-0-1
+42: 
+
+29: 1
+42:  
+6: Leonbergers 
+5: 0-0-1-0
+42: 
+
+40: 3:00 pm
+42: 
+
+29: 1
+42:  
+6: Anatolian Shepherd Dogs 
+5: 0-0-1-0
+42: 
+
+29: 10
+42:  
+6: Siberian Huskies 
+5: 3-4-1-2
+42: 
+
+29: 1
+42:  
+6: Newfoundlands 
+5: 1-0-0-0
+42: 
+
+29: 2
+42:  
+6: Samoyeds 
+5: 0-0-1-1
+42: 
+
+29: 2
+42:  
+6: Giant Schnauzers 
+5: 0-1-0-1
+42: 
+
+29: 1
+42:  
+6: Neapolitan Mastiffs 
+5: 1-0-0-0
+42: 
+
+29: 1
+42:  
+6: Great Pyrenees 
+5: 1-0-0-0
+42: 
+
+29: 2
+42:  
+6: Spaniels (Field) 
+5: 0-0-0-2
+42: 
+
+29: 17
+42:  
+6: Retrievers (Golden) 
+5: 5-6-5-1
+42: 
+
+37: GROUP RING
+42: 
+
+40: 4:30 pm
+42: 
+
+39: VARIETY GROUP JUDGING
+42: 
+
+28: TERRIER GROUP - MRS PAULA HARTINGER
+42: 
+
+28: NON-SPORTING GROUP - MR ROGER R HARTINGER
+42: 
+
+28: WORKING GROUP - MRS PAULA HARTINGER
+42: 
+
+28: TOY GROUP - MR ROGER R HARTINGER
+42: 
+
+28: HOUND GROUP - MRS PAULA HARTINGER
+42: 
+
+28: HERDING GROUP - MRS ALICE INMAN
+42: 
+
+28: SPORTING GROUP - MRS PAULA HARTINGER
+42: 
+
+28: BEST IN SHOW - MR ROGER R HARTINGER
+42: 
+
+8: Unless
+42:  
+8: otherwise
+42:  
+8: announced
+42:  
+8: by
+42:  
+40: 4:00 pm
+42: 
+
+29: 6
+42: 
+
+9: SATURDAY, FEBRUARY 9, 2013
+42: 
+
+29: 7
+42: 
+
+37: RING 1
+42: 
+
+30: MS LAURIE KING TELFAIR (86)
+42: 
+
+40: 8:30 am
+42: 
+
+29: 7
+42:  
+6: Dachshunds (Smooth) 
+5: 2-2-2-1
+42: 
+
+29: 5
+42:  
+6: Pembroke Welsh Corgis 
+5: 2-1-1-1
+42: 
+
+29: 5
+42:  
+6: Dachshunds (Longhaired) 
+5: 2-3-0-0
+42: 
+
+29: 5
+42:  
+6: Cardigan Welsh Corgis 
+5: 0-3-1-1
+42: 
+
+29: 7
+42:  
+6: Dachshunds (Wirehaired) 
+5: 3-3-1-0
+42: 
+
+40: 9:40 am
+42: 
+
+29: 2
+42:  
+6: Shetland Sheepdogs 
+5: 0-1-0-1
+42: 
+
+29: 2
+42:  
+6: Miniature American Shepherds (Misc. Dogs)
+42: 
+
+29: 1
+42:  
+6: Lagotto Romagnolo (Misc. Bitch)
+42: 
+
+29: 6
+42:  
+6: Australian Cattle Dogs 
+5: 1-1-3-1
+42: 
+
+29: 10
+42:  
+6: Australian Shepherds 
+5: 4-3-2-1
+42: 
+
+29: 2
+42:  
+6: Belgian Tervuren 
+5: 0-1-0-1
+42: 
+
+29: 6
+42:  
+6: Border Collies 
+5: 2-1-3-0
+42: 
+
+40: 10:50 am
+42: 
+
+29: 4
+42:  
+6: Briards 
+5: 0-2-1-1
+42: 
+
+29: 1
+42:  
+6: Collies (Rough) 
+5: 1-0-0-0
+42: 
+
+29: 11
+42:  
+6: Borzois 
+5: 4-4-3-0
+42: 
+
+29: 2
+42:  
+6: Old English Sheepdogs 
+5: 0-0-1-1
+42: 
+
+29: 1
+42:  
+6: German Shepherd Dogs 
+5: 1-0-0-0
+42: 
+
+29: 1
+42:  
+6: Collies (Smooth) 
+5: 1-0-0-0
+42: 
+
+29: 1
+42:  
+6: Irish Wolfhounds 
+5: 1-0-0-0
+42: 
+
+29: 1
+42:  
+6: Salukis 
+5: 1-0-0-0
+42: 
+
+29: 1
+42:  
+6: Greyhounds 
+5: 0-1-0-0
+42: 
+
+29: 2
+42:  
+6: Basset Hounds 
+5: 0-0-1-1
+42: 
+
+29: 1
+42:  
+6: Basenjis 
+5: 1-0-0-0
+42: 
+
+29: 1
+42:  
+6: Pulik 
+5: 0-0-0-1
+42: 
+
+29: 1
+42:  
+31: Open Senior
+42: 
+
+37: RING 1
+42: 
+
+30: MR JOHN F BOOTH (11)
+42: 
+
+40: 12:00 pm
+42: 
+
+29: 3
+42:  
+6: Lhasa Apsos 
+5: 0-2-0-1
+42: 
+
+29: 2
+42:  
+6: Lowchen 
+5: 2-0-0-0
+42: 
+
+29: 2
+42:  
+6: Tibetan Terriers 
+5: 0-1-1-0
+42: 
+
+29: 2
+42:  
+6: Dalmatians 
+5: 1-0-1-0
+42: 
+
+29: 1
+42:  
+6: Keeshonden 
+5: 0-0-1-0
+42: 
+
+29: 1
+42:  
+6: Dogues de Bordeaux 
+5: 0-0-0-1
+42: 
+
+37: RING 2
+42: 
+
+30: MRS PAULA HARTINGER (167)
+42: 
+
+40: 8:30 am
+42: 
+
+29: 2
+42:  
+6: Pointers 
+5: 0-1-1-0
+42: 
+
+29: 2
+42:  
+6: Bullmastiffs 
+5: 0-1-1-0
+42: 
+
+29: 3
+42:  
+6: Rottweilers 
+5: 1-1-0-1
+42: 
+
+29: 2
+42:  
+6: Great Danes 
+5: 1-1-0-0
+42: 
+
+29: 4
+42:  
+6: Mastiffs 
+5: 0-3-0-1
+42: 
+
+29: 9
+42:  
+6: Doberman Pinschers 
+5: 3-2-2-2
+42: 
+
+29: 3
+42:  
+6: Cane Corso 
+5: 1-1-1-0
+42: 
+
+40: 9:30 am
+42: 
+
+29: 2
+42:  
+6: Boxers 
+5: 1-0-0-1
+42: 
+
+29: 7
+42:  
+6: Pointers (German Shorthaired) 
+5: 2-2-1-2
+42: 
+
+29: 10
+42:  
+6: Retrievers (Labrador) 
+5: 5-2-2-1
+42: 
+
+29: 7
+42:  
+6: Spaniels (Boykin) 
+5: 1-4-1-1
+42: 
+
+40: 10:30 am
+42: 
+
+29: 4
+42:  
+6: Black & Tan Coonhounds 
+5: 0-0-2-2
+42: 
+
+29: 5
+42:  
+6: Pharaoh Hounds 
+5: 3-0-1-1
+42: 
+
+29: 5
+42:  
+6: Rhodesian Ridgebacks 
+5: 1-2-1-1
+42: 
+
+29: 3
+42:  
+6: Norwegian Elkhounds 
+5: 1-2-0-0
+42: 
+
+29: 3
+42:  
+6: Alaskan Malamutes 
+5: 1-1-1-0
+42: 
+
+29: 2
+42:  
+6: Tibetan Mastiffs 
+5: 0-1-1-0
+42: 
+
+29: 2
+42:  
+6: Giant Schnauzers 
+5: 0-1-0-1
+42: 
+
+29: 17
+42:  
+6: Retrievers (Golden) 
+5: 5-6-5-1
+42: 
+
+40: 12:10 pm
+42: 
+
+39: LUNCH
+42: 
+
+40: 1:10 pm
+42: 
+
+29: 2
+42:  
+6: Spaniels (Field) 
+5: 0-0-0-2
+42: 
+
+29: 2
+42:  
+6: Setters (Irish) 
+5: 0-0-2-0
+42: 
+
+29: 2
+42:  
+6: Spaniels (English Springer) 
+5: 1-1-0-0
+42: 
+
+29: 2
+42:  
+6: Spaniels (English Cocker) 
+5: 1-0-0-1
+42: 
+
+29: 6
+42:  
+6: Spaniels (Cocker) Parti-Color
+42:  
+5: 2-1-2-1
+42: 
+
+29: 3
+42:  
+6: Portuguese Podengo Pequenos 
+5: 3-0-0-0
+42: 
+
+29: 5
+42:  
+6: Whippets 
+5: 2-0-2-1
+42: 
+
+29: 3
+42:  
+6: Beagles (15 Inch) 
+5: 0-0-2-1
+42: 
+
+40: 2:10 pm
+42: 
+
+29: 3
+42:  
+6: Fox Terriers (Smooth) 
+5: 0-0-1-2
+42: 
+
+29: 2
+42:  
+6: Cairn Terriers 
+5: 0-2-0-0
+42: 
+
+29: 2
+42:  
+6: West Highland White Terriers 
+5: 0-2-0-0
+42: 
+
+29: 3
+42:  
+6: Russell Terriers 
+5: 1-2-0-0
+42: 
+
+29: 1
+42:  
+6: Welsh Terriers 
+5: 0-0-0-1
+42: 
+
+29: 1
+42:  
+6: Miniature Schnauzers 
+5: 0-0-1-0
+42: 
+
+29: 1
+42:  
+6: Manchester Terriers (Standard) 
+5: 0-0-1-0
+42: 
+
+29: 2
+42:  
+6: Spaniels (Cocker) Ascob
+42:  
+5: 2-0-0-0
+42: 
+
+29: 1
+42:  
+6: Beagles (13 Inch) 
+5: 0-0-1-0
+42: 
+
+29: 1
+42:  
+6: Setters (English) 
+5: 0-0-1-0
+42: 
+
+29: 1
+42:  
+6: Weimaraners 
+5: 0-1-0-0
+42: 
+
+29: 1
+42:  
+6: Setters (Gordon) 
+5: 0-1-0-0
+42: 
+
+29: 6
+42:  
+6: Soft Coated Wheaten Terriers 
+5: 2-2-2-0
+42: 
+
+29: 1
+42:  
+6: Bull Terriers (White) 
+5: 1-0-0-0
+42: 
+
+29: 1
+42:  
+6: American Staffordshire Terriers 
+5: 1-0-0-0
+42: 
+
+29: 4
+42:  
+6: Afghan Hounds 
+5: 0-3-0-1
+42: 
+
+8: JUDGING
+42:  
+8: PROGRAM
+42: 
+
+8: The
+42:  
+8: number
+42:  
+8: before
+42:  
+8: each
+42:  
+8: Breed
+42:  
+8: (Variety)
+42:  
+8: indicates
+42:  
+8: the
+42:  
+8: number
+42:  
+8: of
+42:  
+8: dogs
+42:  
+8: entered
+42:  
+8: in
+42:  
+8: that
+42:  
+8: Breed
+42:  
+8: (Variety)
+8: The
+42:  
+8: num-
+42: 
+
+8: bers
+42:  
+8: following
+42:  
+8: each
+42:  
+8: Breed
+42:  
+8: (Variety)
+42:  
+8: indicates
+42:  
+8: the
+42:  
+8: number
+42:  
+8: of
+42:  
+8: Regular
+42:  
+8: Class
+42:  
+8: Dogs,
+42:  
+8: Regular
+42:  
+8: Class
+42:  
+8: Bitches,
+42:  
+8: Best
+42:  
+8: of
+42: 
+
+8: Breed
+42:  
+8: (Variety)
+42:  
+8: (Dogs-Bitches)
+42: 
+
+8: OFFICIAL
+42:  
+8: NOTICE:
+42:  
+8: Additional
+42:  
+8: Judges
+42: 
+
+8: Reference
+42:  
+8: Chapter
+42:  
+8: 7,
+42:  
+8: Section
+42:  
+29: 13
+42:  
+8: of
+42:  
+8: AKC
+42:  
+8: Rules:
+42:  
+8: Owner
+42:  
+8: has
+42:  
+8: the
+42:  
+8: right
+42:  
+8: to
+42:  
+8: withdraw
+42:  
+8: his
+42:  
+8: entry
+42:  
+8: and
+42:  
+8: have
+42:  
+8: his
+42:  
+8: entry
+42:  
+8: fee
+42: 
+
+8: refunded
+42:  
+8: provided
+42:  
+8: notification
+42:  
+8: of
+42:  
+8: his
+42:  
+8: withdrawal
+42:  
+8: is
+42:  
+8: received
+42:  
+8: no
+42:  
+8: later
+42:  
+8: than
+42:  
+8: one
+42:  
+8: half-hour
+42:  
+8: prior
+42:  
+8: to
+42:  
+8: the
+42:  
+8: start
+42:  
+8: of
+42:  
+8: any
+42: 
+
+8: regular
+42:  
+8: conformation
+42:  
+8: judging
+42: 
+
+30: Mr John F Booth 
+8: will
+42:  
+8: judge
+42:  
+8: Dalmatians,
+42:  
+8: Keeshonden,
+42:  
+6: Lhasa Apsos
+8: ,
+42:  
+6: Lowchen 
+8: &
+42:  
+6: Tibetan Terriers 
+8: and
+42:  
+30: Ms Laurie
+42: 
+
+8: King
+42:  
+8: Telfair
+42:  
+8: will
+42:  
+8: judge
+42:  
+6: Australian Cattle Dogs
+8: ,
+42:  
+6: Australian Shepherds
+8: ,
+42:  
+6: Belgian Tervuren
+8: ,
+42:  
+6: Border Collies
+8: ,
+42:  
+8: Briards,
+42: 
+
+6: Cardigan Welsh Corgis
+8: ,
+42:  
+6: Collies (Rough)
+8: ,
+42:  
+6: Collies (Smooth)
+8: ,
+42:  
+6: German Shepherd Dogs
+8: ,
+42:  
+6: Old English Sheepdogs
+8: ,
+42: 
+
+6: Pembroke Welsh Corgis
+8: ,
+42:  
+6: Pulik 
+8: &
+42:  
+6: Shetland Sheepdogs 
+8: in
+42:  
+8: place
+42:  
+8: of
+42:  
+30: Mr Roger R Hartinger
+42: 
+
+8: There
+42:  
+8: are
+42:  
+29: 438
+42:  
+8: dogs
+42:  
+8: entered
+42:  
+8: in
+42:  
+8: this
+42:  
+8: show
+42:  
+8: with
+42:  
+8: a
+42:  
+8: total
+42:  
+8: of
+42:  
+29: 439
+42:  
+8: entries
+42: 
+
+9: SUNDAY, FEBRUARY 10, 2013
+42: 
+
+29: 8
+42: 
+
+29: 1
+42:  
+6: Harriers 
+5: 0-0-0-1
+42: 
+
+29: 1
+42:  
+6: Bloodhounds 
+5: 0-0-1-0
+42: 
+
+29: 2
+42:  
+6: Samoyeds 
+5: 0-0-1-1
+42: 
+
+29: 1
+42:  
+6: Leonbergers 
+5: 0-0-1-0
+42: 
+
+29: 1
+42:  
+6: Anatolian Shepherd Dogs 
+5: 0-0-1-0
+42: 
+
+29: 1
+42:  
+6: Newfoundlands 
+5: 1-0-0-0
+42: 
+
+29: 1
+42:  
+6: Great Pyrenees 
+5: 1-0-0-0
+42: 
+
+29: 1
+42:  
+6: Neapolitan Mastiffs 
+5: 1-0-0-0
+42: 
+
+29: 10
+42:  
+6: Siberian Huskies 
+5: 3-4-1-2
+42: 
+
+37: RING 3
+42: 
+
+30: MR ROGER R HARTINGER (175)
+42: 
+
+40: 8:30 am
+42: 
+
+29: 6
+42:  
+6: Bulldogs 
+5: 2-3-1-0
+42: 
+
+29: 4
+42:  
+6: Chinese Shar-Pei 
+5: 0-3-1-0
+42: 
+
+29: 4
+42:  
+6: Pugs 
+5: 1-2-1-0
+42: 
+
+29: 8
+42:  
+6: Boston Terriers 
+5: 0-4-3-1
+42: 
+
+29: 12
+42:  
+6: French Bulldogs 
+5: 3-8-0-1
+42: 
+
+40: 9:50 am
+42: 
+
+29: 8
+42:  
+6: Chihuahuas (Smooth Coat) 
+5: 3-3-0-2
+42: 
+
+29: 8
+42:  
+6: Italian Greyhounds 
+5: 0-5-2-1
+42: 
+
+29: 20
+42:  
+6: Chihuahuas (Long Coat) 
+5: 7-8-4-1
+42: 
+
+40: 11:20 am
+42: 
+
+29: 4
+42:  
+6: Poodles (Miniature) 
+5: 0-3-0-1
+42: 
+
+29: 4
+42:  
+6: Schipperkes 
+5: 1-2-1-0
+42: 
+
+29: 5
+42:  
+6: Bichons Frises 
+5: 1-3-0-1
+42: 
+
+29: 4
+42:  
+6: Finnish Spitz 
+5: 1-2-1-0
+42: 
+
+29: 4
+42:  
+6: Chow Chows 
+5: 3-0-1-0
+42: 
+
+40: 12:10 pm
+42: 
+
+39: LUNCH
+42: 
+
+40: 1:10 pm
+42: 
+
+29: 3
+42:  
+6: Toy Fox Terriers 
+5: 2-1-0-0
+42: 
+
+29: 11
+42:  
+6: Japanese Chin 
+5: 3-6-1-1
+42: 
+
+29: 13
+42:  
+6: Pomeranians 
+5: 5-5-3-0
+42: 
+
+40: 2:15 pm
+42: 
+
+29: 1
+42:  
+6: Tibetan Spaniels 
+5: 0-1-0-0
+42: 
+
+29: 3
+42:  
+6: Shih Tzu 
+5: 2-1-0-0
+42: 
+
+29: 7
+42:  
+6: Brussels Griffons 
+5: 2-4-1-0
+42: 
+
+29: 8
+42:  
+6: Havanese 
+5: 4-2-2-0
+42: 
+
+29: 6
+42:  
+6: Maltese 
+5: 3-2-0-1
+42: 
+
+40: 3:15 pm
+42: 
+
+29: 3
+42:  
+6: Cavalier King Charles Spaniels 
+5: 2-1-0-0
+42: 
+
+29: 8
+42:  
+6: Chinese Cresteds 
+5: 3-4-1-0
+42: 
+
+29: 7
+42:  
+6: Yorkshire Terriers 
+5: 3-3-0-1
+42: 
+
+29: 12
+42:  
+6: Papillons 
+5: 4-6-2-0
+42: 
+
+29: 1
+42:  
+6: Affenpinschers 
+5: 1-0-0-0
+42: 
+
+29: 1
+42:  
+6: Poodles (Toy) 
+5: 0-1-0-0
+42: 
+
+37: GROUP RING
+42: 
+
+40: 4:15 pm
+42: 
+
+39: VARIETY GROUP JUDGING
+42: 
+
+28: HERDING GROUP - MRS PAULA HARTINGER
+42: 
+
+28: TERRIER GROUP - MR ROGER R HARTINGER
+42: 
+
+28: NON-SPORTING GROUP - MRS PAULA HARTINGER
+42: 
+
+28: SPORTING GROUP - MR ROGER R HARTINGER
+42: 
+
+28: TOY GROUP - MRS PAULA HARTINGER
+42: 
+
+28: HOUND GROUP - MR ROGER R HARTINGER
+42: 
+
+28: WORKING GROUP - MR ROGER R HARTINGER
+42: 
+
+28: BEST IN SHOW - MRS PAULA HARTINGER
+42: 
+
+8: Unless
+42:  
+8: otherwise
+42:  
+8: announced
+42:  
+8: by
+42:  
+40: 3:45 pm
+42: 
+
+9: SUNDAY, FEBRUARY 10, 2013
+-1: <EOF>
