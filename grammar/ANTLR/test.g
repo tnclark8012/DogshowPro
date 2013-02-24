@@ -6,6 +6,7 @@ backtrack=true;
 package dev.tclark.dogshow.grammar;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 }
 @lexer::header {
 package dev.tclark.dogshow.grammar;
@@ -25,34 +26,39 @@ start   returns [JsonObject json]
 
 ring	returns [JsonObject json]
 		@init {json = new JsonObject();System.out.println("ring...");}
-		:   RING_TITLE{json.addProperty("Title", $RING_TITLE.text);}inner_ring;
-inner_ring
-	:  (group_block)=>group_block
+		:   RING_TITLE{json.addProperty("Title", $RING_TITLE.text);} mRing=inner_ring{json.add("Ring", mRing);};
+inner_ring returns [JsonObject json]
+	@init{json = new JsonObject();}
+	:  (group_block)=>mGroupBlock=group_block{json.add("GroupRing", mGroupBlock);}
 	    |judge_block+;
 judge_block
     :   JUDGE_NAME timeblock+;
 	
 big_comment returns [String str]
-			@init {str = null;System.out.println("big_comment...");}
-			:   (mComment=comment{str = mComment.str;}|TIME{str=$TIME.text;}|BREED_NAME{str=$BREED_NAME.text;});
+		@init {str = null;System.out.println("big_comment...");}
+		:   (mComment=comment{str = mComment;}|TIME{str=$TIME.text;}|BREED_NAME{str=$BREED_NAME.text;});
 comment returns [String str]
 		@init {str = null;}
 		:   (COMMENT{str=$COMMENT.text;}|INT{str=$INT.text;}|JUDGE_NAME{str=$JUDGE_NAME.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|ELLIPSIS{str=$ELLIPSIS.text;});
-timeblock_comment
-	:	(COMMENT|INT|JUDGE_NAME|PHONE_NUMBER|ELLIPSIS|TIME|BREED_NAME);//no date
+timeblock_comment returns [String str]
+		@init {str = null;}
+	:	(COMMENT{str=$COMMENT.text;}|INT{str=$INT.text;}|JUDGE_NAME{str=$JUDGE_NAME.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|TIME{str=$TIME.text;}|BREED_NAME{str=$BREED_NAME.text;});//no date
 ring_comment
     :   STANDALONE_COMMENT;
 
-timeblock   :   TIME inner_timeblock ((options {greedy=false;}:timeblock_comment)* DATE INT inner_timeblock)?;
+timeblock returns [JsonObject json] 
+	@init {json = new JsonObject(); String comment = "";}	
+	:   TIME{json.addProperty("Time", $TIME.text);} inner_timeblock ((options {greedy=false;}:mComment=timeblock_comment{comment+=$mComment.str;})* {json.addProperty("Comment", comment);} DATE{json.addProperty("Date", $DATE.text);} INT inner_timeblock)?;
 inner_timeblock
 	:	(special_ring|junior_ring|(breed_ring)=>breed_ring)* (special_ring|junior_ring|breed_ring|ring_comment);
 special_ring:   INT BREED_NAME SPECIAL_SUFFIX+;
 junior_ring:    INT JUNIOR_CLASS;
 
-group_ring
-	:	 GROUP_RING;
-group_block
-	:	TIME STANDALONE_COMMENT group_ring+;
+group_ring returns [String str]
+	:	 GROUP_RING{str=$GROUP_RING.text;};
+group_block returns [JsonObject json]
+	@init {json = new JsonObject(); JsonArray rings = new JsonArray();}
+	:	TIME{json.addProperty("TIME", $TIME.text);} STANDALONE_COMMENT (mRing=group_ring {rings.add(new JsonPrimitive(mRing));})+ {json.add("Rings", rings);};
 breed_ring
     :   INT BREED_NAME BREED_NAME_SUFFIX? BREED_COUNT?;
 breed_name
