@@ -29,11 +29,14 @@ judge_block
 big_comment
     :   (comment|TIME|BREED_NAME);
 comment :   (COMMENT|INT|JUDGE_NAME|DATE|PHONE_NUMBER|ELLIPSIS);
-
+timeblock_comment
+	:	(COMMENT|INT|JUDGE_NAME|PHONE_NUMBER|ELLIPSIS|TIME|BREED_NAME);//no date
 ring_comment
     :   STANDALONE_COMMENT;
 
-timeblock   :   TIME (special_ring|junior_ring|(breed_ring)=>breed_ring|comment)* (special_ring|junior_ring|breed_ring|ring_comment);
+timeblock   :   TIME inner_timeblock ((options {greedy=false;}:timeblock_comment)* DATE INT inner_timeblock)?;
+inner_timeblock
+	:	(special_ring|junior_ring|(breed_ring)=>breed_ring)* (special_ring|junior_ring|breed_ring|ring_comment);
 special_ring:   INT BREED_NAME SPECIAL_SUFFIX+;
 junior_ring:    INT JUNIOR_CLASS;
 
