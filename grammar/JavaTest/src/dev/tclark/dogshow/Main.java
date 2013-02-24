@@ -37,8 +37,7 @@ public class Main {
         String result;
         result = "asd"; 
                 JsonObject res = null;
-//              res = 
-                //      parser.start();
+              res =     parser.start();
        printTokens(file);
        // parser.start();
 //      System.out.println();

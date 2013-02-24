@@ -4,8 +4,8 @@ backtrack=true;
 }
 @header {
 package dev.tclark.dogshow.grammar;
-//import com.google.gson.JsonArray;
-//import com.google.gson.JsonObject;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 }
 @lexer::header {
 package dev.tclark.dogshow.grammar;
@@ -19,16 +19,25 @@ package dev.tclark.dogshow.grammar;
 test_special:   special_ring+;
 test_breed
     :   breed_ring;
-start   :   (big_comment+ (ring)=>ring*)+  EOF;
-ring    :   RING_TITLE inner_ring;
+start   returns [JsonObject json]
+		@init {json = new JsonObject(); String comments = ""; JsonArray ringArray = new JsonArray(); System.out.println("starting...");}
+		:((mComment=big_comment{comments+=$mComment.str;})+ {json.addProperty("Comment", comments);}((ring)=>mRing=ring{ringArray.add($mRing.json);})*)+ {json.add("Rings", ringArray);} EOF;
+
+ring	returns [JsonObject json]
+		@init {json = new JsonObject();System.out.println("ring...");}
+		:   RING_TITLE{json.addProperty("Title", $RING_TITLE.text);}inner_ring;
 inner_ring
 	:  (group_block)=>group_block
 	    |judge_block+;
 judge_block
     :   JUDGE_NAME timeblock+;
-big_comment
-    :   (comment|TIME|BREED_NAME);
-comment :   (COMMENT|INT|JUDGE_NAME|DATE|PHONE_NUMBER|ELLIPSIS);
+	
+big_comment returns [String str]
+			@init {str = null;System.out.println("big_comment...");}
+			:   (mComment=comment{str = mComment.str;}|TIME{str=$TIME.text;}|BREED_NAME{str=$BREED_NAME.text;});
+comment returns [String str]
+		@init {str = null;}
+		:   (COMMENT{str=$COMMENT.text;}|INT{str=$INT.text;}|JUDGE_NAME{str=$JUDGE_NAME.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|ELLIPSIS{str=$ELLIPSIS.text;});
 timeblock_comment
 	:	(COMMENT|INT|JUDGE_NAME|PHONE_NUMBER|ELLIPSIS|TIME|BREED_NAME);//no date
 ring_comment
