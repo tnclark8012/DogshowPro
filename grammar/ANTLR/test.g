@@ -28,11 +28,12 @@ ring	returns [JsonObject json]
 		@init {json = new JsonObject();System.out.println("ring...");}
 		:   RING_TITLE{json.addProperty("Title", $RING_TITLE.text);} mRing=inner_ring{json.add("Ring", mRing);};
 inner_ring returns [JsonObject json]
-	@init{json = new JsonObject();}
+	@init{json = new JsonObject();JsonArray judgeBlocks = new JsonArray();}
 	:  (group_block)=>mGroupBlock=group_block{json.add("GroupRing", mGroupBlock);}
-	    |judge_block+;
-judge_block
-    :   JUDGE_NAME timeblock+;
+	    |((mJudgeBlock=judge_block{judgeBlocks.add(mJudgeBlock);})+ {json.add("JudgeBlocks", judgeBlocks);});
+judge_block returns [JsonObject json]
+	@init{json = new JsonObject(); JsonArray array = new JsonArray();}
+    :   JUDGE_NAME{json.addProperty("Judge", $JUDGE_NAME.text);} (mBlock=timeblock{array.add(mBlock);})+ {json.add("TimeBlocks", array);};
 	
 big_comment returns [String str]
 		@init {str = null;System.out.println("big_comment...");}
@@ -43,26 +44,30 @@ comment returns [String str]
 timeblock_comment returns [String str]
 		@init {str = null;}
 	:	(COMMENT{str=$COMMENT.text;}|INT{str=$INT.text;}|JUDGE_NAME{str=$JUDGE_NAME.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|TIME{str=$TIME.text;}|BREED_NAME{str=$BREED_NAME.text;});//no date
-ring_comment
-    :   STANDALONE_COMMENT;
+ring_comment returns [String str]
+    :   STANDALONE_COMMENT{str=$STANDALONE_COMMENT.text;};
 
 timeblock returns [JsonObject json] 
-	@init {json = new JsonObject(); String comment = "";}	
-	:   TIME{json.addProperty("Time", $TIME.text);} inner_timeblock ((options {greedy=false;}:mComment=timeblock_comment{comment+=$mComment.str;})* {json.addProperty("Comment", comment);} DATE{json.addProperty("Date", $DATE.text);} INT inner_timeblock)?;
-inner_timeblock
-	:	(special_ring|junior_ring|(breed_ring)=>breed_ring)* (special_ring|junior_ring|breed_ring|ring_comment);
-special_ring:   INT BREED_NAME SPECIAL_SUFFIX+;
-junior_ring:    INT JUNIOR_CLASS;
+	@init {json = new JsonObject(); String comment = ""; int blockCounter = 0;}	
+	:   TIME{json.addProperty("Time", $TIME.text);} mInnerBlock1=inner_timeblock{json.add("Block"+(blockCounter++), mInnerBlock1);} ((options {greedy=false;}:mComment=timeblock_comment{comment+=$mComment.str;})* {json.addProperty("Comment", comment);} DATE{json.addProperty("Date", $DATE.text);} INT mInnerBlock2=inner_timeblock{json.add("Block"+(blockCounter++), mInnerBlock2);})?;
+inner_timeblock returns [JsonArray array]
+	@init {array = new JsonArray();}
+	:	(mSpecialRing=special_ring{array.add(mSpecialRing);}|mJuniorRing=junior_ring{array.add(mJuniorRing);}|(breed_ring)=>mBreedRing=breed_ring{array.add(mBreedRing);})* (mSpecialRing=special_ring{array.add(mSpecialRing);}|mJuniorRing=junior_ring{array.add(mJuniorRing);}|mBreedRing=breed_ring{array.add(mBreedRing);}|mComment=ring_comment{array.add(new JsonPrimitive(mComment));});
+special_ring returns [JsonObject json]
+	@init {json = new JsonObject(); String breedName = "";}
+	:   INT{json.addProperty("Count", $INT.text);} BREED_NAME{breedName+=$BREED_NAME.text;} (SPECIAL_SUFFIX{breedName+= " " +$SPECIAL_SUFFIX.text;})+ {json.addProperty("BreedName", breedName);};
+junior_ring returns [JsonObject json]
+	@init{json = new JsonObject();}
+	:    INT{json.addProperty("Count", $INT.text);} JUNIOR_CLASS{json.addProperty("ClassName", $JUNIOR_CLASS.text);};
 
 group_ring returns [String str]
 	:	 GROUP_RING{str=$GROUP_RING.text;};
 group_block returns [JsonObject json]
 	@init {json = new JsonObject(); JsonArray rings = new JsonArray();}
 	:	TIME{json.addProperty("TIME", $TIME.text);} STANDALONE_COMMENT (mRing=group_ring {rings.add(new JsonPrimitive(mRing));})+ {json.add("Rings", rings);};
-breed_ring
-    :   INT BREED_NAME BREED_NAME_SUFFIX? BREED_COUNT?;
-breed_name
-    :   BREED_NAME BREED_NAME_SUFFIX;
+breed_ring returns [JsonObject json]
+	@init{json = new JsonObject();String breedName = "";}
+    :   INT{json.addProperty("Count", $INT.text);} BREED_NAME{breedName+=$BREED_NAME.text;} (BREED_NAME_SUFFIX{breedName += " " + $BREED_NAME_SUFFIX.text;})? {json.addProperty("BreedName", breedName);} (BREED_COUNT{json.addProperty("BreedCount", $BREED_COUNT.text);})?;
 
 
 
