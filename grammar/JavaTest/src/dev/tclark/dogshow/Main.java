@@ -29,7 +29,7 @@ public class Main {
     public static void main(String[] args) throws IOException,
             org.antlr.runtime.RecognitionException, IllegalArgumentException,
             IllegalAccessException {
-        String file = "testcase/testparse";
+        String file = "testcase/TRIN1JP.txt";
         CharStream cs = new ANTLRFileStream(file);
         testLexer lexer1 = new testLexer(cs);
         CommonTokenStream tokens2 = new CommonTokenStream(lexer1);
