@@ -1,4 +1,4 @@
-// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2013-02-23 21:46:57
+// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2013-02-26 13:44:20
 
 package dev.tclark.dogshow.grammar;
 import com.google.gson.JsonArray;
@@ -168,7 +168,7 @@ public class testParser extends Parser {
 
 
 	// $ANTLR start "start"
-	// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:23:1: start returns [JsonObject json] : ( (mComment= big_comment )+ ( ( ring )=>mRing= ring )* )+ EOF ;
+	// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:23:1: start returns [JsonObject json] : ( ( options {greedy=false; } :mComment= big_comment )+ ( ( ring )=>mRing= ring )+ )+ EOF ;
 	public final JsonObject start() throws RecognitionException {
 		JsonObject json = null;
 
@@ -178,107 +178,41 @@ public class testParser extends Parser {
 
 		json = new JsonObject(); String comments = ""; JsonArray ringArray = new JsonArray(); System.out.println("starting...");
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:25:3: ( ( (mComment= big_comment )+ ( ( ring )=>mRing= ring )* )+ EOF )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:25:4: ( (mComment= big_comment )+ ( ( ring )=>mRing= ring )* )+ EOF
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:25:3: ( ( ( options {greedy=false; } :mComment= big_comment )+ ( ( ring )=>mRing= ring )+ )+ EOF )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:25:4: ( ( options {greedy=false; } :mComment= big_comment )+ ( ( ring )=>mRing= ring )+ )+ EOF
 			{
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:25:4: ( (mComment= big_comment )+ ( ( ring )=>mRing= ring )* )+
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:25:4: ( ( options {greedy=false; } :mComment= big_comment )+ ( ( ring )=>mRing= ring )+ )+
 			int cnt4=0;
 			loop4:
 			do {
 				int alt4=2;
 				int LA4_0 = input.LA(1);
-				if ( (LA4_0==BREED_NAME||(LA4_0 >= COMMENT && LA4_0 <= ELLIPSIS)||(LA4_0 >= INT && LA4_0 <= JUDGE_NAME)||LA4_0==PHONE_NUMBER||LA4_0==TIME) ) {
+				if ( (LA4_0==BREED_NAME||(LA4_0 >= DATE && LA4_0 <= ELLIPSIS)||(LA4_0 >= INT && LA4_0 <= JUDGE_NAME)||LA4_0==PHONE_NUMBER||LA4_0==TIME) ) {
 					alt4=1;
 				}
 
 				switch (alt4) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:25:5: (mComment= big_comment )+ ( ( ring )=>mRing= ring )*
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:25:5: ( options {greedy=false; } :mComment= big_comment )+ ( ( ring )=>mRing= ring )+
 					{
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:25:5: (mComment= big_comment )+
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:25:5: ( options {greedy=false; } :mComment= big_comment )+
 					int cnt2=0;
 					loop2:
 					do {
 						int alt2=2;
-						switch ( input.LA(1) ) {
-						case COMMENT:
-							{
-							int LA2_2 = input.LA(2);
-							if ( (synpred2_test()) ) {
-								alt2=1;
-							}
-
-							}
-							break;
-						case INT:
-							{
-							int LA2_3 = input.LA(2);
-							if ( (synpred2_test()) ) {
-								alt2=1;
-							}
-
-							}
-							break;
-						case JUDGE_NAME:
-							{
-							int LA2_4 = input.LA(2);
-							if ( (synpred2_test()) ) {
-								alt2=1;
-							}
-
-							}
-							break;
-						case DATE:
-							{
-							int LA2_5 = input.LA(2);
-							if ( (synpred2_test()) ) {
-								alt2=1;
-							}
-
-							}
-							break;
-						case PHONE_NUMBER:
-							{
-							int LA2_6 = input.LA(2);
-							if ( (synpred2_test()) ) {
-								alt2=1;
-							}
-
-							}
-							break;
-						case ELLIPSIS:
-							{
-							int LA2_7 = input.LA(2);
-							if ( (synpred2_test()) ) {
-								alt2=1;
-							}
-
-							}
-							break;
-						case TIME:
-							{
-							int LA2_8 = input.LA(2);
-							if ( (synpred2_test()) ) {
-								alt2=1;
-							}
-
-							}
-							break;
-						case BREED_NAME:
-							{
-							int LA2_9 = input.LA(2);
-							if ( (synpred2_test()) ) {
-								alt2=1;
-							}
-
-							}
-							break;
+						int LA2_0 = input.LA(1);
+						if ( (LA2_0==RING_TITLE) ) {
+							alt2=2;
 						}
+						else if ( (LA2_0==BREED_NAME||(LA2_0 >= DATE && LA2_0 <= ELLIPSIS)||(LA2_0 >= INT && LA2_0 <= JUDGE_NAME)||LA2_0==PHONE_NUMBER||LA2_0==TIME) ) {
+							alt2=1;
+						}
+
 						switch (alt2) {
 						case 1 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:25:6: mComment= big_comment
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:25:30: mComment= big_comment
 							{
-							pushFollow(FOLLOW_big_comment_in_start79);
+							pushFollow(FOLLOW_big_comment_in_start86);
 							mComment=big_comment();
 							state._fsp--;
 							if (state.failed) return json;
@@ -297,7 +231,8 @@ public class testParser extends Parser {
 					} while (true);
 
 					if ( state.backtracking==0 ) {json.addProperty("Comment", comments);}
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:25:95: ( ( ring )=>mRing= ring )*
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:25:119: ( ( ring )=>mRing= ring )+
+					int cnt3=0;
 					loop3:
 					do {
 						int alt3=2;
@@ -308,9 +243,9 @@ public class testParser extends Parser {
 
 						switch (alt3) {
 						case 1 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:25:96: ( ring )=>mRing= ring
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:25:120: ( ring )=>mRing= ring
 							{
-							pushFollow(FOLLOW_ring_in_start92);
+							pushFollow(FOLLOW_ring_in_start99);
 							mRing=ring();
 							state._fsp--;
 							if (state.failed) return json;
@@ -319,8 +254,13 @@ public class testParser extends Parser {
 							break;
 
 						default :
-							break loop3;
+							if ( cnt3 >= 1 ) break loop3;
+							if (state.backtracking>0) {state.failed=true; return json;}
+								EarlyExitException eee =
+									new EarlyExitException(3, input);
+								throw eee;
 						}
+						cnt3++;
 					} while (true);
 
 					}
@@ -337,7 +277,7 @@ public class testParser extends Parser {
 			} while (true);
 
 			if ( state.backtracking==0 ) {json.add("Rings", ringArray);}
-			match(input,EOF,FOLLOW_EOF_in_start101); if (state.failed) return json;
+			match(input,EOF,FOLLOW_EOF_in_start108); if (state.failed) return json;
 			}
 
 		}
@@ -368,9 +308,9 @@ public class testParser extends Parser {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:29:3: ( RING_TITLE mRing= inner_ring )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:29:7: RING_TITLE mRing= inner_ring
 			{
-			RING_TITLE1=(Token)match(input,RING_TITLE,FOLLOW_RING_TITLE_in_ring124); if (state.failed) return json;
-			if ( state.backtracking==0 ) {json.addProperty("Title", (RING_TITLE1!=null?RING_TITLE1.getText():null));}
-			pushFollow(FOLLOW_inner_ring_in_ring129);
+			RING_TITLE1=(Token)match(input,RING_TITLE,FOLLOW_RING_TITLE_in_ring131); if (state.failed) return json;
+			if ( state.backtracking==0 ) {json.addProperty("Title", (RING_TITLE1!=null?RING_TITLE1.getText():null)); System.out.println("Ring title found");}
+			pushFollow(FOLLOW_inner_ring_in_ring136);
 			mRing=inner_ring();
 			state._fsp--;
 			if (state.failed) return json;
@@ -421,7 +361,7 @@ public class testParser extends Parser {
 				case 1 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:32:5: ( group_block )=>mGroupBlock= group_block
 					{
-					pushFollow(FOLLOW_group_block_in_inner_ring154);
+					pushFollow(FOLLOW_group_block_in_inner_ring161);
 					mGroupBlock=group_block();
 					state._fsp--;
 					if (state.failed) return json;
@@ -470,7 +410,7 @@ public class testParser extends Parser {
 						case 1 :
 							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:33:9: mJudgeBlock= judge_block
 							{
-							pushFollow(FOLLOW_judge_block_in_inner_ring167);
+							pushFollow(FOLLOW_judge_block_in_inner_ring174);
 							mJudgeBlock=judge_block();
 							state._fsp--;
 							if (state.failed) return json;
@@ -523,7 +463,7 @@ public class testParser extends Parser {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:36:5: ( JUDGE_NAME (mBlock= timeblock )+ )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:36:9: JUDGE_NAME (mBlock= timeblock )+
 			{
-			JUDGE_NAME2=(Token)match(input,JUDGE_NAME,FOLLOW_JUDGE_NAME_in_judge_block195); if (state.failed) return json;
+			JUDGE_NAME2=(Token)match(input,JUDGE_NAME,FOLLOW_JUDGE_NAME_in_judge_block202); if (state.failed) return json;
 			if ( state.backtracking==0 ) {json.addProperty("Judge", (JUDGE_NAME2!=null?JUDGE_NAME2.getText():null));}
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:36:66: (mBlock= timeblock )+
 			int cnt7=0;
@@ -557,7 +497,7 @@ public class testParser extends Parser {
 				case 1 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:36:67: mBlock= timeblock
 					{
-					pushFollow(FOLLOW_timeblock_in_judge_block201);
+					pushFollow(FOLLOW_timeblock_in_judge_block208);
 					mBlock=timeblock();
 					state._fsp--;
 					if (state.failed) return json;
@@ -610,7 +550,6 @@ public class testParser extends Parser {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:40:7: (mComment= comment | TIME | BREED_NAME )
 			int alt8=3;
 			switch ( input.LA(1) ) {
-			case COMMENT:
 			case DATE:
 			case ELLIPSIS:
 			case INT:
@@ -640,7 +579,7 @@ public class testParser extends Parser {
 				case 1 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:40:8: mComment= comment
 					{
-					pushFollow(FOLLOW_comment_in_big_comment233);
+					pushFollow(FOLLOW_comment_in_big_comment240);
 					mComment=comment();
 					state._fsp--;
 					if (state.failed) return str;
@@ -650,14 +589,14 @@ public class testParser extends Parser {
 				case 2 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:40:42: TIME
 					{
-					TIME3=(Token)match(input,TIME,FOLLOW_TIME_in_big_comment236); if (state.failed) return str;
+					TIME3=(Token)match(input,TIME,FOLLOW_TIME_in_big_comment243); if (state.failed) return str;
 					if ( state.backtracking==0 ) {str=(TIME3!=null?TIME3.getText():null);}
 					}
 					break;
 				case 3 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:40:64: BREED_NAME
 					{
-					BREED_NAME4=(Token)match(input,BREED_NAME,FOLLOW_BREED_NAME_in_big_comment239); if (state.failed) return str;
+					BREED_NAME4=(Token)match(input,BREED_NAME,FOLLOW_BREED_NAME_in_big_comment246); if (state.failed) return str;
 					if ( state.backtracking==0 ) {str=(BREED_NAME4!=null?BREED_NAME4.getText():null);}
 					}
 					break;
@@ -681,54 +620,48 @@ public class testParser extends Parser {
 
 
 	// $ANTLR start "comment"
-	// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:41:1: comment returns [String str] : ( COMMENT | INT | JUDGE_NAME | DATE | PHONE_NUMBER | ELLIPSIS ) ;
+	// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:41:1: comment returns [String str] : ( INT | JUDGE_NAME | DATE | PHONE_NUMBER | ELLIPSIS ) ;
 	public final String comment() throws RecognitionException {
 		String str = null;
 
 
-		Token COMMENT5=null;
-		Token INT6=null;
-		Token JUDGE_NAME7=null;
-		Token DATE8=null;
-		Token PHONE_NUMBER9=null;
-		Token ELLIPSIS10=null;
+		Token INT5=null;
+		Token JUDGE_NAME6=null;
+		Token DATE7=null;
+		Token PHONE_NUMBER8=null;
+		Token ELLIPSIS9=null;
 
 		str = null;
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:43:3: ( ( COMMENT | INT | JUDGE_NAME | DATE | PHONE_NUMBER | ELLIPSIS ) )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:43:7: ( COMMENT | INT | JUDGE_NAME | DATE | PHONE_NUMBER | ELLIPSIS )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:43:3: ( ( INT | JUDGE_NAME | DATE | PHONE_NUMBER | ELLIPSIS ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:43:7: ( INT | JUDGE_NAME | DATE | PHONE_NUMBER | ELLIPSIS )
 			{
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:43:7: ( COMMENT | INT | JUDGE_NAME | DATE | PHONE_NUMBER | ELLIPSIS )
-			int alt9=6;
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:43:7: ( INT | JUDGE_NAME | DATE | PHONE_NUMBER | ELLIPSIS )
+			int alt9=5;
 			switch ( input.LA(1) ) {
-			case COMMENT:
+			case INT:
 				{
 				alt9=1;
 				}
 				break;
-			case INT:
+			case JUDGE_NAME:
 				{
 				alt9=2;
 				}
 				break;
-			case JUDGE_NAME:
+			case DATE:
 				{
 				alt9=3;
 				}
 				break;
-			case DATE:
+			case PHONE_NUMBER:
 				{
 				alt9=4;
 				}
 				break;
-			case PHONE_NUMBER:
-				{
-				alt9=5;
-				}
-				break;
 			case ELLIPSIS:
 				{
-				alt9=6;
+				alt9=5;
 				}
 				break;
 			default:
@@ -739,45 +672,38 @@ public class testParser extends Parser {
 			}
 			switch (alt9) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:43:8: COMMENT
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:43:8: INT
 					{
-					COMMENT5=(Token)match(input,COMMENT,FOLLOW_COMMENT_in_comment264); if (state.failed) return str;
-					if ( state.backtracking==0 ) {str=(COMMENT5!=null?COMMENT5.getText():null);}
+					INT5=(Token)match(input,INT,FOLLOW_INT_in_comment271); if (state.failed) return str;
+					if ( state.backtracking==0 ) {str=(INT5!=null?INT5.getText():null);}
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:43:36: INT
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:43:28: JUDGE_NAME
 					{
-					INT6=(Token)match(input,INT,FOLLOW_INT_in_comment267); if (state.failed) return str;
-					if ( state.backtracking==0 ) {str=(INT6!=null?INT6.getText():null);}
+					JUDGE_NAME6=(Token)match(input,JUDGE_NAME,FOLLOW_JUDGE_NAME_in_comment274); if (state.failed) return str;
+					if ( state.backtracking==0 ) {str=(JUDGE_NAME6!=null?JUDGE_NAME6.getText():null);}
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:43:56: JUDGE_NAME
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:43:62: DATE
 					{
-					JUDGE_NAME7=(Token)match(input,JUDGE_NAME,FOLLOW_JUDGE_NAME_in_comment270); if (state.failed) return str;
-					if ( state.backtracking==0 ) {str=(JUDGE_NAME7!=null?JUDGE_NAME7.getText():null);}
+					DATE7=(Token)match(input,DATE,FOLLOW_DATE_in_comment277); if (state.failed) return str;
+					if ( state.backtracking==0 ) {str=(DATE7!=null?DATE7.getText():null);}
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:43:90: DATE
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:43:84: PHONE_NUMBER
 					{
-					DATE8=(Token)match(input,DATE,FOLLOW_DATE_in_comment273); if (state.failed) return str;
-					if ( state.backtracking==0 ) {str=(DATE8!=null?DATE8.getText():null);}
+					PHONE_NUMBER8=(Token)match(input,PHONE_NUMBER,FOLLOW_PHONE_NUMBER_in_comment280); if (state.failed) return str;
+					if ( state.backtracking==0 ) {str=(PHONE_NUMBER8!=null?PHONE_NUMBER8.getText():null);}
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:43:112: PHONE_NUMBER
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:43:122: ELLIPSIS
 					{
-					PHONE_NUMBER9=(Token)match(input,PHONE_NUMBER,FOLLOW_PHONE_NUMBER_in_comment276); if (state.failed) return str;
-					if ( state.backtracking==0 ) {str=(PHONE_NUMBER9!=null?PHONE_NUMBER9.getText():null);}
-					}
-					break;
-				case 6 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:43:150: ELLIPSIS
-					{
-					ELLIPSIS10=(Token)match(input,ELLIPSIS,FOLLOW_ELLIPSIS_in_comment279); if (state.failed) return str;
-					if ( state.backtracking==0 ) {str=(ELLIPSIS10!=null?ELLIPSIS10.getText():null);}
+					ELLIPSIS9=(Token)match(input,ELLIPSIS,FOLLOW_ELLIPSIS_in_comment283); if (state.failed) return str;
+					if ( state.backtracking==0 ) {str=(ELLIPSIS9!=null?ELLIPSIS9.getText():null);}
 					}
 					break;
 
@@ -805,13 +731,13 @@ public class testParser extends Parser {
 		String str = null;
 
 
-		Token COMMENT11=null;
-		Token INT12=null;
-		Token JUDGE_NAME13=null;
-		Token PHONE_NUMBER14=null;
-		Token ELLIPSIS15=null;
-		Token TIME16=null;
-		Token BREED_NAME17=null;
+		Token COMMENT10=null;
+		Token INT11=null;
+		Token JUDGE_NAME12=null;
+		Token PHONE_NUMBER13=null;
+		Token ELLIPSIS14=null;
+		Token TIME15=null;
+		Token BREED_NAME16=null;
 
 		str = null;
 		try {
@@ -866,50 +792,50 @@ public class testParser extends Parser {
 				case 1 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:46:5: COMMENT
 					{
-					COMMENT11=(Token)match(input,COMMENT,FOLLOW_COMMENT_in_timeblock_comment301); if (state.failed) return str;
-					if ( state.backtracking==0 ) {str=(COMMENT11!=null?COMMENT11.getText():null);}
+					COMMENT10=(Token)match(input,COMMENT,FOLLOW_COMMENT_in_timeblock_comment305); if (state.failed) return str;
+					if ( state.backtracking==0 ) {str=(COMMENT10!=null?COMMENT10.getText():null);}
 					}
 					break;
 				case 2 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:46:33: INT
 					{
-					INT12=(Token)match(input,INT,FOLLOW_INT_in_timeblock_comment304); if (state.failed) return str;
-					if ( state.backtracking==0 ) {str=(INT12!=null?INT12.getText():null);}
+					INT11=(Token)match(input,INT,FOLLOW_INT_in_timeblock_comment308); if (state.failed) return str;
+					if ( state.backtracking==0 ) {str=(INT11!=null?INT11.getText():null);}
 					}
 					break;
 				case 3 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:46:53: JUDGE_NAME
 					{
-					JUDGE_NAME13=(Token)match(input,JUDGE_NAME,FOLLOW_JUDGE_NAME_in_timeblock_comment307); if (state.failed) return str;
-					if ( state.backtracking==0 ) {str=(JUDGE_NAME13!=null?JUDGE_NAME13.getText():null);}
+					JUDGE_NAME12=(Token)match(input,JUDGE_NAME,FOLLOW_JUDGE_NAME_in_timeblock_comment311); if (state.failed) return str;
+					if ( state.backtracking==0 ) {str=(JUDGE_NAME12!=null?JUDGE_NAME12.getText():null);}
 					}
 					break;
 				case 4 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:46:87: PHONE_NUMBER
 					{
-					PHONE_NUMBER14=(Token)match(input,PHONE_NUMBER,FOLLOW_PHONE_NUMBER_in_timeblock_comment310); if (state.failed) return str;
-					if ( state.backtracking==0 ) {str=(PHONE_NUMBER14!=null?PHONE_NUMBER14.getText():null);}
+					PHONE_NUMBER13=(Token)match(input,PHONE_NUMBER,FOLLOW_PHONE_NUMBER_in_timeblock_comment314); if (state.failed) return str;
+					if ( state.backtracking==0 ) {str=(PHONE_NUMBER13!=null?PHONE_NUMBER13.getText():null);}
 					}
 					break;
 				case 5 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:46:125: ELLIPSIS
 					{
-					ELLIPSIS15=(Token)match(input,ELLIPSIS,FOLLOW_ELLIPSIS_in_timeblock_comment313); if (state.failed) return str;
-					if ( state.backtracking==0 ) {str=(ELLIPSIS15!=null?ELLIPSIS15.getText():null);}
+					ELLIPSIS14=(Token)match(input,ELLIPSIS,FOLLOW_ELLIPSIS_in_timeblock_comment317); if (state.failed) return str;
+					if ( state.backtracking==0 ) {str=(ELLIPSIS14!=null?ELLIPSIS14.getText():null);}
 					}
 					break;
 				case 6 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:46:155: TIME
 					{
-					TIME16=(Token)match(input,TIME,FOLLOW_TIME_in_timeblock_comment316); if (state.failed) return str;
-					if ( state.backtracking==0 ) {str=(TIME16!=null?TIME16.getText():null);}
+					TIME15=(Token)match(input,TIME,FOLLOW_TIME_in_timeblock_comment320); if (state.failed) return str;
+					if ( state.backtracking==0 ) {str=(TIME15!=null?TIME15.getText():null);}
 					}
 					break;
 				case 7 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:46:177: BREED_NAME
 					{
-					BREED_NAME17=(Token)match(input,BREED_NAME,FOLLOW_BREED_NAME_in_timeblock_comment319); if (state.failed) return str;
-					if ( state.backtracking==0 ) {str=(BREED_NAME17!=null?BREED_NAME17.getText():null);}
+					BREED_NAME16=(Token)match(input,BREED_NAME,FOLLOW_BREED_NAME_in_timeblock_comment323); if (state.failed) return str;
+					if ( state.backtracking==0 ) {str=(BREED_NAME16!=null?BREED_NAME16.getText():null);}
 					}
 					break;
 
@@ -937,14 +863,14 @@ public class testParser extends Parser {
 		String str = null;
 
 
-		Token STANDALONE_COMMENT18=null;
+		Token STANDALONE_COMMENT17=null;
 
 		try {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:48:5: ( STANDALONE_COMMENT )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:48:9: STANDALONE_COMMENT
 			{
-			STANDALONE_COMMENT18=(Token)match(input,STANDALONE_COMMENT,FOLLOW_STANDALONE_COMMENT_in_ring_comment338); if (state.failed) return str;
-			if ( state.backtracking==0 ) {str=(STANDALONE_COMMENT18!=null?STANDALONE_COMMENT18.getText():null);}
+			STANDALONE_COMMENT17=(Token)match(input,STANDALONE_COMMENT,FOLLOW_STANDALONE_COMMENT_in_ring_comment342); if (state.failed) return str;
+			if ( state.backtracking==0 ) {str=(STANDALONE_COMMENT17!=null?STANDALONE_COMMENT17.getText():null);}
 			}
 
 		}
@@ -967,8 +893,8 @@ public class testParser extends Parser {
 		JsonObject json = null;
 
 
-		Token TIME19=null;
-		Token DATE20=null;
+		Token TIME18=null;
+		Token DATE19=null;
 		JsonArray mInnerBlock1 =null;
 		String mComment =null;
 		JsonArray mInnerBlock2 =null;
@@ -978,9 +904,9 @@ public class testParser extends Parser {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:52:2: ( TIME mInnerBlock1= inner_timeblock ( ( options {greedy=false; } :mComment= timeblock_comment )* DATE INT mInnerBlock2= inner_timeblock )? )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:52:6: TIME mInnerBlock1= inner_timeblock ( ( options {greedy=false; } :mComment= timeblock_comment )* DATE INT mInnerBlock2= inner_timeblock )?
 			{
-			TIME19=(Token)match(input,TIME,FOLLOW_TIME_in_timeblock362); if (state.failed) return json;
-			if ( state.backtracking==0 ) {json.addProperty("Time", (TIME19!=null?TIME19.getText():null));}
-			pushFollow(FOLLOW_inner_timeblock_in_timeblock367);
+			TIME18=(Token)match(input,TIME,FOLLOW_TIME_in_timeblock366); if (state.failed) return json;
+			if ( state.backtracking==0 ) {json.addProperty("Time", (TIME18!=null?TIME18.getText():null));}
+			pushFollow(FOLLOW_inner_timeblock_in_timeblock371);
 			mInnerBlock1=inner_timeblock();
 			state._fsp--;
 			if (state.failed) return json;
@@ -1008,7 +934,7 @@ public class testParser extends Parser {
 						case 1 :
 							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:52:156: mComment= timeblock_comment
 							{
-							pushFollow(FOLLOW_timeblock_comment_in_timeblock381);
+							pushFollow(FOLLOW_timeblock_comment_in_timeblock385);
 							mComment=timeblock_comment();
 							state._fsp--;
 							if (state.failed) return json;
@@ -1022,10 +948,10 @@ public class testParser extends Parser {
 					} while (true);
 
 					if ( state.backtracking==0 ) {json.addProperty("Comment", comment);}
-					DATE20=(Token)match(input,DATE,FOLLOW_DATE_in_timeblock388); if (state.failed) return json;
-					if ( state.backtracking==0 ) {json.addProperty("Date", (DATE20!=null?DATE20.getText():null));}
-					match(input,INT,FOLLOW_INT_in_timeblock391); if (state.failed) return json;
-					pushFollow(FOLLOW_inner_timeblock_in_timeblock395);
+					DATE19=(Token)match(input,DATE,FOLLOW_DATE_in_timeblock392); if (state.failed) return json;
+					if ( state.backtracking==0 ) {json.addProperty("Date", (DATE19!=null?DATE19.getText():null));}
+					match(input,INT,FOLLOW_INT_in_timeblock395); if (state.failed) return json;
+					pushFollow(FOLLOW_inner_timeblock_in_timeblock399);
 					mInnerBlock2=inner_timeblock();
 					state._fsp--;
 					if (state.failed) return json;
@@ -1076,7 +1002,7 @@ public class testParser extends Parser {
 				case 1 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:55:5: mSpecialRing= special_ring
 					{
-					pushFollow(FOLLOW_special_ring_in_inner_timeblock419);
+					pushFollow(FOLLOW_special_ring_in_inner_timeblock423);
 					mSpecialRing=special_ring();
 					state._fsp--;
 					if (state.failed) return array;
@@ -1086,7 +1012,7 @@ public class testParser extends Parser {
 				case 2 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:55:57: mJuniorRing= junior_ring
 					{
-					pushFollow(FOLLOW_junior_ring_in_inner_timeblock424);
+					pushFollow(FOLLOW_junior_ring_in_inner_timeblock428);
 					mJuniorRing=junior_ring();
 					state._fsp--;
 					if (state.failed) return array;
@@ -1096,7 +1022,7 @@ public class testParser extends Parser {
 				case 3 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:55:106: ( breed_ring )=>mBreedRing= breed_ring
 					{
-					pushFollow(FOLLOW_breed_ring_in_inner_timeblock433);
+					pushFollow(FOLLOW_breed_ring_in_inner_timeblock437);
 					mBreedRing=breed_ring();
 					state._fsp--;
 					if (state.failed) return array;
@@ -1165,7 +1091,7 @@ public class testParser extends Parser {
 				case 1 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:55:169: mSpecialRing= special_ring
 					{
-					pushFollow(FOLLOW_special_ring_in_inner_timeblock441);
+					pushFollow(FOLLOW_special_ring_in_inner_timeblock445);
 					mSpecialRing=special_ring();
 					state._fsp--;
 					if (state.failed) return array;
@@ -1175,7 +1101,7 @@ public class testParser extends Parser {
 				case 2 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:55:221: mJuniorRing= junior_ring
 					{
-					pushFollow(FOLLOW_junior_ring_in_inner_timeblock446);
+					pushFollow(FOLLOW_junior_ring_in_inner_timeblock450);
 					mJuniorRing=junior_ring();
 					state._fsp--;
 					if (state.failed) return array;
@@ -1185,7 +1111,7 @@ public class testParser extends Parser {
 				case 3 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:55:270: mBreedRing= breed_ring
 					{
-					pushFollow(FOLLOW_breed_ring_in_inner_timeblock451);
+					pushFollow(FOLLOW_breed_ring_in_inner_timeblock455);
 					mBreedRing=breed_ring();
 					state._fsp--;
 					if (state.failed) return array;
@@ -1195,7 +1121,7 @@ public class testParser extends Parser {
 				case 4 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:55:316: mComment= ring_comment
 					{
-					pushFollow(FOLLOW_ring_comment_in_inner_timeblock456);
+					pushFollow(FOLLOW_ring_comment_in_inner_timeblock460);
 					mComment=ring_comment();
 					state._fsp--;
 					if (state.failed) return array;
@@ -1227,19 +1153,19 @@ public class testParser extends Parser {
 		JsonObject json = null;
 
 
-		Token INT21=null;
-		Token BREED_NAME22=null;
-		Token SPECIAL_SUFFIX23=null;
+		Token INT20=null;
+		Token BREED_NAME21=null;
+		Token SPECIAL_SUFFIX22=null;
 
 		json = new JsonObject(); String breedName = "";
 		try {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:58:2: ( INT BREED_NAME ( SPECIAL_SUFFIX )+ )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:58:6: INT BREED_NAME ( SPECIAL_SUFFIX )+
 			{
-			INT21=(Token)match(input,INT,FOLLOW_INT_in_special_ring478); if (state.failed) return json;
-			if ( state.backtracking==0 ) {json.addProperty("Count", (INT21!=null?INT21.getText():null));}
-			BREED_NAME22=(Token)match(input,BREED_NAME,FOLLOW_BREED_NAME_in_special_ring481); if (state.failed) return json;
-			if ( state.backtracking==0 ) {breedName+=(BREED_NAME22!=null?BREED_NAME22.getText():null);}
+			INT20=(Token)match(input,INT,FOLLOW_INT_in_special_ring482); if (state.failed) return json;
+			if ( state.backtracking==0 ) {json.addProperty("Count", (INT20!=null?INT20.getText():null));}
+			BREED_NAME21=(Token)match(input,BREED_NAME,FOLLOW_BREED_NAME_in_special_ring485); if (state.failed) return json;
+			if ( state.backtracking==0 ) {breedName+=(BREED_NAME21!=null?BREED_NAME21.getText():null);}
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:58:90: ( SPECIAL_SUFFIX )+
 			int cnt15=0;
 			loop15:
@@ -1254,8 +1180,8 @@ public class testParser extends Parser {
 				case 1 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:58:91: SPECIAL_SUFFIX
 					{
-					SPECIAL_SUFFIX23=(Token)match(input,SPECIAL_SUFFIX,FOLLOW_SPECIAL_SUFFIX_in_special_ring485); if (state.failed) return json;
-					if ( state.backtracking==0 ) {breedName+= " " +(SPECIAL_SUFFIX23!=null?SPECIAL_SUFFIX23.getText():null);}
+					SPECIAL_SUFFIX22=(Token)match(input,SPECIAL_SUFFIX,FOLLOW_SPECIAL_SUFFIX_in_special_ring489); if (state.failed) return json;
+					if ( state.backtracking==0 ) {breedName+= " " +(SPECIAL_SUFFIX22!=null?SPECIAL_SUFFIX22.getText():null);}
 					}
 					break;
 
@@ -1292,18 +1218,18 @@ public class testParser extends Parser {
 		JsonObject json = null;
 
 
-		Token INT24=null;
-		Token JUNIOR_CLASS25=null;
+		Token INT23=null;
+		Token JUNIOR_CLASS24=null;
 
 		json = new JsonObject();
 		try {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:61:2: ( INT JUNIOR_CLASS )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:61:7: INT JUNIOR_CLASS
 			{
-			INT24=(Token)match(input,INT,FOLLOW_INT_in_junior_ring510); if (state.failed) return json;
-			if ( state.backtracking==0 ) {json.addProperty("Count", (INT24!=null?INT24.getText():null));}
-			JUNIOR_CLASS25=(Token)match(input,JUNIOR_CLASS,FOLLOW_JUNIOR_CLASS_in_junior_ring513); if (state.failed) return json;
-			if ( state.backtracking==0 ) {json.addProperty("ClassName", (JUNIOR_CLASS25!=null?JUNIOR_CLASS25.getText():null));}
+			INT23=(Token)match(input,INT,FOLLOW_INT_in_junior_ring514); if (state.failed) return json;
+			if ( state.backtracking==0 ) {json.addProperty("Count", (INT23!=null?INT23.getText():null));}
+			JUNIOR_CLASS24=(Token)match(input,JUNIOR_CLASS,FOLLOW_JUNIOR_CLASS_in_junior_ring517); if (state.failed) return json;
+			if ( state.backtracking==0 ) {json.addProperty("ClassName", (JUNIOR_CLASS24!=null?JUNIOR_CLASS24.getText():null));}
 			}
 
 		}
@@ -1326,14 +1252,14 @@ public class testParser extends Parser {
 		String str = null;
 
 
-		Token GROUP_RING26=null;
+		Token GROUP_RING25=null;
 
 		try {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:64:2: ( GROUP_RING )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:64:5: GROUP_RING
 			{
-			GROUP_RING26=(Token)match(input,GROUP_RING,FOLLOW_GROUP_RING_in_group_ring528); if (state.failed) return str;
-			if ( state.backtracking==0 ) {str=(GROUP_RING26!=null?GROUP_RING26.getText():null);}
+			GROUP_RING25=(Token)match(input,GROUP_RING,FOLLOW_GROUP_RING_in_group_ring532); if (state.failed) return str;
+			if ( state.backtracking==0 ) {str=(GROUP_RING25!=null?GROUP_RING25.getText():null);}
 			}
 
 		}
@@ -1356,7 +1282,7 @@ public class testParser extends Parser {
 		JsonObject json = null;
 
 
-		Token TIME27=null;
+		Token TIME26=null;
 		String mRing =null;
 
 		json = new JsonObject(); JsonArray rings = new JsonArray();
@@ -1364,9 +1290,9 @@ public class testParser extends Parser {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:67:2: ( TIME STANDALONE_COMMENT (mRing= group_ring )+ )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:67:4: TIME STANDALONE_COMMENT (mRing= group_ring )+
 			{
-			TIME27=(Token)match(input,TIME,FOLLOW_TIME_in_group_block547); if (state.failed) return json;
-			if ( state.backtracking==0 ) {json.addProperty("TIME", (TIME27!=null?TIME27.getText():null));}
-			match(input,STANDALONE_COMMENT,FOLLOW_STANDALONE_COMMENT_in_group_block550); if (state.failed) return json;
+			TIME26=(Token)match(input,TIME,FOLLOW_TIME_in_group_block551); if (state.failed) return json;
+			if ( state.backtracking==0 ) {json.addProperty("TIME", (TIME26!=null?TIME26.getText():null));}
+			match(input,STANDALONE_COMMENT,FOLLOW_STANDALONE_COMMENT_in_group_block554); if (state.failed) return json;
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:67:67: (mRing= group_ring )+
 			int cnt16=0;
 			loop16:
@@ -1381,7 +1307,7 @@ public class testParser extends Parser {
 				case 1 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:67:68: mRing= group_ring
 					{
-					pushFollow(FOLLOW_group_ring_in_group_block555);
+					pushFollow(FOLLOW_group_ring_in_group_block559);
 					mRing=group_ring();
 					state._fsp--;
 					if (state.failed) return json;
@@ -1422,20 +1348,20 @@ public class testParser extends Parser {
 		JsonObject json = null;
 
 
-		Token INT28=null;
-		Token BREED_NAME29=null;
-		Token BREED_NAME_SUFFIX30=null;
-		Token BREED_COUNT31=null;
+		Token INT27=null;
+		Token BREED_NAME28=null;
+		Token BREED_NAME_SUFFIX29=null;
+		Token BREED_COUNT30=null;
 
 		json = new JsonObject();String breedName = "";
 		try {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:70:5: ( INT BREED_NAME ( BREED_NAME_SUFFIX )? ( BREED_COUNT )? )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:70:9: INT BREED_NAME ( BREED_NAME_SUFFIX )? ( BREED_COUNT )?
 			{
-			INT28=(Token)match(input,INT,FOLLOW_INT_in_breed_ring583); if (state.failed) return json;
-			if ( state.backtracking==0 ) {json.addProperty("Count", (INT28!=null?INT28.getText():null));}
-			BREED_NAME29=(Token)match(input,BREED_NAME,FOLLOW_BREED_NAME_in_breed_ring586); if (state.failed) return json;
-			if ( state.backtracking==0 ) {breedName+=(BREED_NAME29!=null?BREED_NAME29.getText():null);}
+			INT27=(Token)match(input,INT,FOLLOW_INT_in_breed_ring587); if (state.failed) return json;
+			if ( state.backtracking==0 ) {json.addProperty("Count", (INT27!=null?INT27.getText():null));}
+			BREED_NAME28=(Token)match(input,BREED_NAME,FOLLOW_BREED_NAME_in_breed_ring590); if (state.failed) return json;
+			if ( state.backtracking==0 ) {breedName+=(BREED_NAME28!=null?BREED_NAME28.getText():null);}
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:70:93: ( BREED_NAME_SUFFIX )?
 			int alt17=2;
 			int LA17_0 = input.LA(1);
@@ -1446,8 +1372,8 @@ public class testParser extends Parser {
 				case 1 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:70:94: BREED_NAME_SUFFIX
 					{
-					BREED_NAME_SUFFIX30=(Token)match(input,BREED_NAME_SUFFIX,FOLLOW_BREED_NAME_SUFFIX_in_breed_ring590); if (state.failed) return json;
-					if ( state.backtracking==0 ) {breedName += " " + (BREED_NAME_SUFFIX30!=null?BREED_NAME_SUFFIX30.getText():null);}
+					BREED_NAME_SUFFIX29=(Token)match(input,BREED_NAME_SUFFIX,FOLLOW_BREED_NAME_SUFFIX_in_breed_ring594); if (state.failed) return json;
+					if ( state.backtracking==0 ) {breedName += " " + (BREED_NAME_SUFFIX29!=null?BREED_NAME_SUFFIX29.getText():null);}
 					}
 					break;
 
@@ -1464,8 +1390,8 @@ public class testParser extends Parser {
 				case 1 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:70:204: BREED_COUNT
 					{
-					BREED_COUNT31=(Token)match(input,BREED_COUNT,FOLLOW_BREED_COUNT_in_breed_ring598); if (state.failed) return json;
-					if ( state.backtracking==0 ) {json.addProperty("BreedCount", (BREED_COUNT31!=null?BREED_COUNT31.getText():null));}
+					BREED_COUNT30=(Token)match(input,BREED_COUNT,FOLLOW_BREED_COUNT_in_breed_ring602); if (state.failed) return json;
+					if ( state.backtracking==0 ) {json.addProperty("BreedCount", (BREED_COUNT30!=null?BREED_COUNT30.getText():null));}
 					}
 					break;
 
@@ -1485,28 +1411,12 @@ public class testParser extends Parser {
 	}
 	// $ANTLR end "breed_ring"
 
-	// $ANTLR start synpred2_test
-	public final void synpred2_test_fragment() throws RecognitionException {
-		String mComment =null;
-
-		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:25:6: (mComment= big_comment )
-		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:25:6: mComment= big_comment
-		{
-		pushFollow(FOLLOW_big_comment_in_synpred2_test79);
-		mComment=big_comment();
-		state._fsp--;
-		if (state.failed) return ;
-		}
-
-	}
-	// $ANTLR end synpred2_test
-
 	// $ANTLR start synpred3_test
 	public final void synpred3_test_fragment() throws RecognitionException {
-		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:25:96: ( ring )
-		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:25:97: ring
+		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:25:120: ( ring )
+		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:25:121: ring
 		{
-		pushFollow(FOLLOW_ring_in_synpred3_test87);
+		pushFollow(FOLLOW_ring_in_synpred3_test94);
 		ring();
 		state._fsp--;
 		if (state.failed) return ;
@@ -1520,7 +1430,7 @@ public class testParser extends Parser {
 		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:32:5: ( group_block )
 		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:32:6: group_block
 		{
-		pushFollow(FOLLOW_group_block_in_synpred5_test149);
+		pushFollow(FOLLOW_group_block_in_synpred5_test156);
 		group_block();
 		state._fsp--;
 		if (state.failed) return ;
@@ -1536,7 +1446,7 @@ public class testParser extends Parser {
 		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:33:9: (mJudgeBlock= judge_block )
 		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:33:9: mJudgeBlock= judge_block
 		{
-		pushFollow(FOLLOW_judge_block_in_synpred6_test167);
+		pushFollow(FOLLOW_judge_block_in_synpred6_test174);
 		mJudgeBlock=judge_block();
 		state._fsp--;
 		if (state.failed) return ;
@@ -1552,7 +1462,7 @@ public class testParser extends Parser {
 		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:36:67: (mBlock= timeblock )
 		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:36:67: mBlock= timeblock
 		{
-		pushFollow(FOLLOW_timeblock_in_synpred7_test201);
+		pushFollow(FOLLOW_timeblock_in_synpred7_test208);
 		mBlock=timeblock();
 		state._fsp--;
 		if (state.failed) return ;
@@ -1561,8 +1471,8 @@ public class testParser extends Parser {
 	}
 	// $ANTLR end synpred7_test
 
-	// $ANTLR start synpred22_test
-	public final void synpred22_test_fragment() throws RecognitionException {
+	// $ANTLR start synpred21_test
+	public final void synpred21_test_fragment() throws RecognitionException {
 		String mComment =null;
 		JsonArray mInnerBlock2 =null;
 
@@ -1585,7 +1495,7 @@ public class testParser extends Parser {
 			case 1 :
 				// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:52:156: mComment= timeblock_comment
 				{
-				pushFollow(FOLLOW_timeblock_comment_in_synpred22_test381);
+				pushFollow(FOLLOW_timeblock_comment_in_synpred21_test385);
 				mComment=timeblock_comment();
 				state._fsp--;
 				if (state.failed) return ;
@@ -1597,10 +1507,26 @@ public class testParser extends Parser {
 			}
 		} while (true);
 
-		match(input,DATE,FOLLOW_DATE_in_synpred22_test388); if (state.failed) return ;
-		match(input,INT,FOLLOW_INT_in_synpred22_test391); if (state.failed) return ;
-		pushFollow(FOLLOW_inner_timeblock_in_synpred22_test395);
+		match(input,DATE,FOLLOW_DATE_in_synpred21_test392); if (state.failed) return ;
+		match(input,INT,FOLLOW_INT_in_synpred21_test395); if (state.failed) return ;
+		pushFollow(FOLLOW_inner_timeblock_in_synpred21_test399);
 		mInnerBlock2=inner_timeblock();
+		state._fsp--;
+		if (state.failed) return ;
+		}
+
+	}
+	// $ANTLR end synpred21_test
+
+	// $ANTLR start synpred22_test
+	public final void synpred22_test_fragment() throws RecognitionException {
+		JsonObject mSpecialRing =null;
+
+		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:55:5: (mSpecialRing= special_ring )
+		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:55:5: mSpecialRing= special_ring
+		{
+		pushFollow(FOLLOW_special_ring_in_synpred22_test423);
+		mSpecialRing=special_ring();
 		state._fsp--;
 		if (state.failed) return ;
 		}
@@ -1610,13 +1536,13 @@ public class testParser extends Parser {
 
 	// $ANTLR start synpred23_test
 	public final void synpred23_test_fragment() throws RecognitionException {
-		JsonObject mSpecialRing =null;
+		JsonObject mJuniorRing =null;
 
-		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:55:5: (mSpecialRing= special_ring )
-		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:55:5: mSpecialRing= special_ring
+		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:55:57: (mJuniorRing= junior_ring )
+		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:55:57: mJuniorRing= junior_ring
 		{
-		pushFollow(FOLLOW_special_ring_in_synpred23_test419);
-		mSpecialRing=special_ring();
+		pushFollow(FOLLOW_junior_ring_in_synpred23_test428);
+		mJuniorRing=junior_ring();
 		state._fsp--;
 		if (state.failed) return ;
 		}
@@ -1626,13 +1552,11 @@ public class testParser extends Parser {
 
 	// $ANTLR start synpred24_test
 	public final void synpred24_test_fragment() throws RecognitionException {
-		JsonObject mJuniorRing =null;
-
-		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:55:57: (mJuniorRing= junior_ring )
-		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:55:57: mJuniorRing= junior_ring
+		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:55:106: ( breed_ring )
+		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:55:107: breed_ring
 		{
-		pushFollow(FOLLOW_junior_ring_in_synpred24_test424);
-		mJuniorRing=junior_ring();
+		pushFollow(FOLLOW_breed_ring_in_synpred24_test432);
+		breed_ring();
 		state._fsp--;
 		if (state.failed) return ;
 		}
@@ -1640,55 +1564,13 @@ public class testParser extends Parser {
 	}
 	// $ANTLR end synpred24_test
 
-	// $ANTLR start synpred25_test
-	public final void synpred25_test_fragment() throws RecognitionException {
-		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:55:106: ( breed_ring )
-		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:55:107: breed_ring
-		{
-		pushFollow(FOLLOW_breed_ring_in_synpred25_test428);
-		breed_ring();
-		state._fsp--;
-		if (state.failed) return ;
-		}
-
-	}
-	// $ANTLR end synpred25_test
-
 	// Delegated rules
 
-	public final boolean synpred25_test() {
-		state.backtracking++;
-		int start = input.mark();
-		try {
-			synpred25_test_fragment(); // can never throw exception
-		} catch (RecognitionException re) {
-			System.err.println("impossible: "+re);
-		}
-		boolean success = !state.failed;
-		input.rewind(start);
-		state.backtracking--;
-		state.failed=false;
-		return success;
-	}
 	public final boolean synpred23_test() {
 		state.backtracking++;
 		int start = input.mark();
 		try {
 			synpred23_test_fragment(); // can never throw exception
-		} catch (RecognitionException re) {
-			System.err.println("impossible: "+re);
-		}
-		boolean success = !state.failed;
-		input.rewind(start);
-		state.backtracking--;
-		state.failed=false;
-		return success;
-	}
-	public final boolean synpred2_test() {
-		state.backtracking++;
-		int start = input.mark();
-		try {
-			synpred2_test_fragment(); // can never throw exception
 		} catch (RecognitionException re) {
 			System.err.println("impossible: "+re);
 		}
@@ -1768,6 +1650,20 @@ public class testParser extends Parser {
 		state.failed=false;
 		return success;
 	}
+	public final boolean synpred21_test() {
+		state.backtracking++;
+		int start = input.mark();
+		try {
+			synpred21_test_fragment(); // can never throw exception
+		} catch (RecognitionException re) {
+			System.err.println("impossible: "+re);
+		}
+		boolean success = !state.failed;
+		input.rewind(start);
+		state.backtracking--;
+		state.failed=false;
+		return success;
+	}
 	public final boolean synpred3_test() {
 		state.backtracking++;
 		int start = input.mark();
@@ -1787,22 +1683,21 @@ public class testParser extends Parser {
 	protected DFA12 dfa12 = new DFA12(this);
 	protected DFA13 dfa13 = new DFA13(this);
 	static final String DFA12_eotS =
-		"\25\uffff";
+		"\24\uffff";
 	static final String DFA12_eofS =
-		"\11\11\1\uffff\6\11\1\uffff\1\11\3\uffff";
+		"\1\11\23\uffff";
 	static final String DFA12_minS =
-		"\11\6\1\uffff\6\6\1\0\1\6\1\uffff\2\0";
+		"\1\6\1\uffff\7\6\1\uffff\6\6\1\0\1\6\2\0";
 	static final String DFA12_maxS =
-		"\11\50\1\uffff\6\50\1\0\1\50\1\uffff\2\0";
+		"\1\50\1\uffff\7\50\1\uffff\6\50\1\0\1\50\2\0";
 	static final String DFA12_acceptS =
-		"\11\uffff\1\2\10\uffff\1\1\2\uffff";
+		"\1\uffff\1\1\7\uffff\1\2\12\uffff";
 	static final String DFA12_specialS =
-		"\20\uffff\1\0\2\uffff\1\1\1\2}>";
+		"\20\uffff\1\2\1\uffff\1\1\1\0}>";
 	static final String[] DFA12_transitionS = {
 			"\1\7\1\uffff\1\1\1\10\1\5\22\uffff\1\2\1\3\4\uffff\1\4\1\uffff\1\11\2"+
 			"\uffff\1\6",
-			"\1\7\1\uffff\1\1\1\10\1\5\22\uffff\1\2\1\12\4\uffff\1\4\1\uffff\1\11"+
-			"\2\uffff\1\13",
+			"",
 			"\1\7\1\uffff\1\1\1\10\1\5\22\uffff\1\2\1\12\4\uffff\1\4\1\uffff\1\11"+
 			"\2\uffff\1\13",
 			"\1\7\1\uffff\1\1\1\10\1\5\22\uffff\1\2\1\12\4\uffff\1\4\1\uffff\1\11"+
@@ -1815,7 +1710,7 @@ public class testParser extends Parser {
 			"\1\uffff\1\11\1\13",
 			"\1\7\1\uffff\1\1\1\10\1\5\22\uffff\1\2\1\12\4\uffff\1\4\1\uffff\1\11"+
 			"\2\uffff\1\13",
-			"\1\11\1\uffff\3\11\22\uffff\1\16\1\11\4\uffff\1\11\1\uffff\1\11\2\uffff"+
+			"\1\11\2\uffff\2\11\22\uffff\1\16\1\11\4\uffff\1\11\1\uffff\1\11\2\uffff"+
 			"\1\11",
 			"",
 			"\1\7\1\uffff\1\1\1\10\1\5\22\uffff\1\2\1\12\4\uffff\1\4\1\uffff\1\11"+
@@ -1826,14 +1721,13 @@ public class testParser extends Parser {
 			"\1\uffff\1\11\1\13",
 			"\1\20\1\uffff\1\1\1\10\1\5\22\uffff\1\2\1\12\1\11\3\uffff\1\4\1\uffff"+
 			"\1\11\2\uffff\1\13",
-			"\1\11\1\uffff\3\11\22\uffff\1\21\1\11\4\uffff\1\11\1\uffff\1\11\1\uffff"+
-			"\1\22\1\11",
-			"\1\23\1\uffff\1\1\1\10\1\5\22\uffff\1\2\1\12\1\11\3\uffff\1\4\1\uffff"+
+			"\1\11\2\uffff\2\11\22\uffff\1\21\1\11\4\uffff\1\11\1\uffff\1\11\1\uffff"+
+			"\1\1\1\11",
+			"\1\22\1\uffff\1\1\1\10\1\5\22\uffff\1\2\1\12\1\11\3\uffff\1\4\1\uffff"+
 			"\1\11\2\uffff\1\13",
 			"\1\uffff",
-			"\1\24\1\uffff\3\11\22\uffff\2\11\1\22\3\uffff\1\11\1\uffff\1\11\2\uffff"+
+			"\1\23\2\uffff\2\11\22\uffff\2\11\1\1\3\uffff\1\11\1\uffff\1\11\2\uffff"+
 			"\1\11",
-			"",
 			"\1\uffff",
 			"\1\uffff"
 	};
@@ -1877,41 +1771,41 @@ public class testParser extends Parser {
 			int _s = s;
 			switch ( s ) {
 					case 0 : 
-						int LA12_16 = input.LA(1);
-						 
-						int index12_16 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (synpred22_test()) ) {s = 18;}
-						else if ( (true) ) {s = 9;}
-						 
-						input.seek(index12_16);
-						if ( s>=0 ) return s;
-						break;
-
-					case 1 : 
 						int LA12_19 = input.LA(1);
 						 
 						int index12_19 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (synpred22_test()) ) {s = 18;}
+						if ( (synpred21_test()) ) {s = 1;}
 						else if ( (true) ) {s = 9;}
 						 
 						input.seek(index12_19);
 						if ( s>=0 ) return s;
 						break;
 
-					case 2 : 
-						int LA12_20 = input.LA(1);
+					case 1 : 
+						int LA12_18 = input.LA(1);
 						 
-						int index12_20 = input.index();
+						int index12_18 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (synpred22_test()) ) {s = 18;}
+						if ( (synpred21_test()) ) {s = 1;}
 						else if ( (true) ) {s = 9;}
 						 
-						input.seek(index12_20);
+						input.seek(index12_18);
+						if ( s>=0 ) return s;
+						break;
+
+					case 2 : 
+						int LA12_16 = input.LA(1);
+						 
+						int index12_16 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (synpred21_test()) ) {s = 1;}
+						else if ( (true) ) {s = 9;}
+						 
+						input.seek(index12_16);
 						if ( s>=0 ) return s;
 						break;
 			}
@@ -1926,7 +1820,7 @@ public class testParser extends Parser {
 	static final String DFA13_eotS =
 		"\22\uffff";
 	static final String DFA13_eofS =
-		"\3\uffff\6\2\1\uffff\1\2\1\uffff\1\2\5\uffff";
+		"\3\uffff\5\2\12\uffff";
 	static final String DFA13_minS =
 		"\1\35\1\6\1\uffff\1\5\2\6\1\5\2\6\1\uffff\1\6\1\uffff\1\6\1\uffff\1\0"+
 		"\1\uffff\2\0";
@@ -1936,7 +1830,7 @@ public class testParser extends Parser {
 	static final String DFA13_acceptS =
 		"\2\uffff\1\4\6\uffff\1\3\1\uffff\1\2\1\uffff\1\1\1\uffff\1\3\2\uffff";
 	static final String DFA13_specialS =
-		"\3\uffff\1\3\2\uffff\1\1\1\4\1\5\5\uffff\1\6\1\uffff\1\2\1\0}>";
+		"\3\uffff\1\6\2\uffff\1\2\1\3\1\0\5\uffff\1\4\1\uffff\1\5\1\1}>";
 	static final String[] DFA13_transitionS = {
 			"\1\1\11\uffff\1\2",
 			"\1\3\30\uffff\1\4",
@@ -2005,19 +1899,33 @@ public class testParser extends Parser {
 			int _s = s;
 			switch ( s ) {
 					case 0 : 
+						int LA13_8 = input.LA(1);
+						 
+						int index13_8 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((LA13_8 >= COMMENT && LA13_8 <= ELLIPSIS)||(LA13_8 >= INT && LA13_8 <= JUDGE_NAME)||LA13_8==PHONE_NUMBER||LA13_8==RING_TITLE||LA13_8==TIME) ) {s = 2;}
+						else if ( (LA13_8==BREED_NAME) ) {s = 14;}
+						else if ( (LA13_8==JUNIOR_CLASS) && (synpred24_test())) {s = 15;}
+						 
+						input.seek(index13_8);
+						if ( s>=0 ) return s;
+						break;
+
+					case 1 : 
 						int LA13_17 = input.LA(1);
 						 
 						int index13_17 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (synpred23_test()) ) {s = 13;}
+						if ( (synpred22_test()) ) {s = 13;}
 						else if ( (true) ) {s = 2;}
 						 
 						input.seek(index13_17);
 						if ( s>=0 ) return s;
 						break;
 
-					case 1 : 
+					case 2 : 
 						int LA13_6 = input.LA(1);
 						 
 						int index13_6 = input.index();
@@ -2026,26 +1934,53 @@ public class testParser extends Parser {
 						if ( (LA13_6==BREED_COUNT) ) {s = 7;}
 						else if ( (LA13_6==EOF||LA13_6==BREED_NAME||(LA13_6 >= COMMENT && LA13_6 <= ELLIPSIS)||LA13_6==JUDGE_NAME||LA13_6==PHONE_NUMBER||LA13_6==RING_TITLE||LA13_6==TIME) ) {s = 2;}
 						else if ( (LA13_6==INT) ) {s = 8;}
-						else if ( (LA13_6==STANDALONE_COMMENT) && (synpred25_test())) {s = 9;}
+						else if ( (LA13_6==STANDALONE_COMMENT) && (synpred24_test())) {s = 9;}
 						 
 						input.seek(index13_6);
 						if ( s>=0 ) return s;
 						break;
 
-					case 2 : 
+					case 3 : 
+						int LA13_7 = input.LA(1);
+						 
+						int index13_7 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA13_7==EOF||LA13_7==BREED_NAME||(LA13_7 >= COMMENT && LA13_7 <= ELLIPSIS)||LA13_7==JUDGE_NAME||LA13_7==PHONE_NUMBER||LA13_7==RING_TITLE||LA13_7==TIME) ) {s = 2;}
+						else if ( (LA13_7==INT) ) {s = 8;}
+						else if ( (LA13_7==STANDALONE_COMMENT) && (synpred24_test())) {s = 9;}
+						 
+						input.seek(index13_7);
+						if ( s>=0 ) return s;
+						break;
+
+					case 4 : 
+						int LA13_14 = input.LA(1);
+						 
+						int index13_14 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (synpred24_test()) ) {s = 15;}
+						else if ( (true) ) {s = 2;}
+						 
+						input.seek(index13_14);
+						if ( s>=0 ) return s;
+						break;
+
+					case 5 : 
 						int LA13_16 = input.LA(1);
 						 
 						int index13_16 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (synpred24_test()) ) {s = 11;}
+						if ( (synpred23_test()) ) {s = 11;}
 						else if ( (true) ) {s = 2;}
 						 
 						input.seek(index13_16);
 						if ( s>=0 ) return s;
 						break;
 
-					case 3 : 
+					case 6 : 
 						int LA13_3 = input.LA(1);
 						 
 						int index13_3 = input.index();
@@ -2056,50 +1991,9 @@ public class testParser extends Parser {
 						else if ( (LA13_3==BREED_COUNT) ) {s = 7;}
 						else if ( (LA13_3==EOF||LA13_3==BREED_NAME||(LA13_3 >= COMMENT && LA13_3 <= ELLIPSIS)||LA13_3==JUDGE_NAME||LA13_3==PHONE_NUMBER||LA13_3==RING_TITLE||LA13_3==TIME) ) {s = 2;}
 						else if ( (LA13_3==INT) ) {s = 8;}
-						else if ( (LA13_3==STANDALONE_COMMENT) && (synpred25_test())) {s = 9;}
+						else if ( (LA13_3==STANDALONE_COMMENT) && (synpred24_test())) {s = 9;}
 						 
 						input.seek(index13_3);
-						if ( s>=0 ) return s;
-						break;
-
-					case 4 : 
-						int LA13_7 = input.LA(1);
-						 
-						int index13_7 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA13_7==EOF||LA13_7==BREED_NAME||(LA13_7 >= COMMENT && LA13_7 <= ELLIPSIS)||LA13_7==JUDGE_NAME||LA13_7==PHONE_NUMBER||LA13_7==RING_TITLE||LA13_7==TIME) ) {s = 2;}
-						else if ( (LA13_7==INT) ) {s = 8;}
-						else if ( (LA13_7==STANDALONE_COMMENT) && (synpred25_test())) {s = 9;}
-						 
-						input.seek(index13_7);
-						if ( s>=0 ) return s;
-						break;
-
-					case 5 : 
-						int LA13_8 = input.LA(1);
-						 
-						int index13_8 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA13_8==EOF||(LA13_8 >= COMMENT && LA13_8 <= ELLIPSIS)||(LA13_8 >= INT && LA13_8 <= JUDGE_NAME)||LA13_8==PHONE_NUMBER||LA13_8==RING_TITLE||LA13_8==TIME) ) {s = 2;}
-						else if ( (LA13_8==BREED_NAME) ) {s = 14;}
-						else if ( (LA13_8==JUNIOR_CLASS) && (synpred25_test())) {s = 15;}
-						 
-						input.seek(index13_8);
-						if ( s>=0 ) return s;
-						break;
-
-					case 6 : 
-						int LA13_14 = input.LA(1);
-						 
-						int index13_14 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (synpred25_test()) ) {s = 15;}
-						else if ( (true) ) {s = 2;}
-						 
-						input.seek(index13_14);
 						if ( s>=0 ) return s;
 						break;
 			}
@@ -2113,68 +2007,66 @@ public class testParser extends Parser {
 
 	public static final BitSet FOLLOW_special_ring_in_test_special40 = new BitSet(new long[]{0x0000000020000002L});
 	public static final BitSet FOLLOW_breed_ring_in_test_breed54 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_big_comment_in_start79 = new BitSet(new long[]{0x0000012860000740L});
-	public static final BitSet FOLLOW_ring_in_start92 = new BitSet(new long[]{0x0000012860000740L});
-	public static final BitSet FOLLOW_EOF_in_start101 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RING_TITLE_in_ring124 = new BitSet(new long[]{0x0000010040000000L});
-	public static final BitSet FOLLOW_inner_ring_in_ring129 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_group_block_in_inner_ring154 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_judge_block_in_inner_ring167 = new BitSet(new long[]{0x0000000040000002L});
-	public static final BitSet FOLLOW_JUDGE_NAME_in_judge_block195 = new BitSet(new long[]{0x0000010000000000L});
-	public static final BitSet FOLLOW_timeblock_in_judge_block201 = new BitSet(new long[]{0x0000010000000002L});
-	public static final BitSet FOLLOW_comment_in_big_comment233 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TIME_in_big_comment236 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BREED_NAME_in_big_comment239 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_COMMENT_in_comment264 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_INT_in_comment267 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_JUDGE_NAME_in_comment270 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_DATE_in_comment273 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_PHONE_NUMBER_in_comment276 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ELLIPSIS_in_comment279 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_COMMENT_in_timeblock_comment301 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_INT_in_timeblock_comment304 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_JUDGE_NAME_in_timeblock_comment307 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_PHONE_NUMBER_in_timeblock_comment310 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ELLIPSIS_in_timeblock_comment313 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TIME_in_timeblock_comment316 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BREED_NAME_in_timeblock_comment319 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_STANDALONE_COMMENT_in_ring_comment338 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TIME_in_timeblock362 = new BitSet(new long[]{0x0000008020000000L});
-	public static final BitSet FOLLOW_inner_timeblock_in_timeblock367 = new BitSet(new long[]{0x0000010860000742L});
-	public static final BitSet FOLLOW_timeblock_comment_in_timeblock381 = new BitSet(new long[]{0x0000010860000740L});
-	public static final BitSet FOLLOW_DATE_in_timeblock388 = new BitSet(new long[]{0x0000000020000000L});
-	public static final BitSet FOLLOW_INT_in_timeblock391 = new BitSet(new long[]{0x0000008020000000L});
-	public static final BitSet FOLLOW_inner_timeblock_in_timeblock395 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_special_ring_in_inner_timeblock419 = new BitSet(new long[]{0x0000008020000000L});
-	public static final BitSet FOLLOW_junior_ring_in_inner_timeblock424 = new BitSet(new long[]{0x0000008020000000L});
-	public static final BitSet FOLLOW_breed_ring_in_inner_timeblock433 = new BitSet(new long[]{0x0000008020000000L});
-	public static final BitSet FOLLOW_special_ring_in_inner_timeblock441 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_junior_ring_in_inner_timeblock446 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_breed_ring_in_inner_timeblock451 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ring_comment_in_inner_timeblock456 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_INT_in_special_ring478 = new BitSet(new long[]{0x0000000000000040L});
-	public static final BitSet FOLLOW_BREED_NAME_in_special_ring481 = new BitSet(new long[]{0x0000004000000000L});
-	public static final BitSet FOLLOW_SPECIAL_SUFFIX_in_special_ring485 = new BitSet(new long[]{0x0000004000000002L});
-	public static final BitSet FOLLOW_INT_in_junior_ring510 = new BitSet(new long[]{0x0000000080000000L});
-	public static final BitSet FOLLOW_JUNIOR_CLASS_in_junior_ring513 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_GROUP_RING_in_group_ring528 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TIME_in_group_block547 = new BitSet(new long[]{0x0000008000000000L});
-	public static final BitSet FOLLOW_STANDALONE_COMMENT_in_group_block550 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_group_ring_in_group_block555 = new BitSet(new long[]{0x0000000010000002L});
-	public static final BitSet FOLLOW_INT_in_breed_ring583 = new BitSet(new long[]{0x0000000000000040L});
-	public static final BitSet FOLLOW_BREED_NAME_in_breed_ring586 = new BitSet(new long[]{0x00000000000000A2L});
-	public static final BitSet FOLLOW_BREED_NAME_SUFFIX_in_breed_ring590 = new BitSet(new long[]{0x0000000000000022L});
-	public static final BitSet FOLLOW_BREED_COUNT_in_breed_ring598 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_big_comment_in_synpred2_test79 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ring_in_synpred3_test87 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_group_block_in_synpred5_test149 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_judge_block_in_synpred6_test167 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_timeblock_in_synpred7_test201 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_timeblock_comment_in_synpred22_test381 = new BitSet(new long[]{0x0000010860000740L});
-	public static final BitSet FOLLOW_DATE_in_synpred22_test388 = new BitSet(new long[]{0x0000000020000000L});
-	public static final BitSet FOLLOW_INT_in_synpred22_test391 = new BitSet(new long[]{0x0000008020000000L});
-	public static final BitSet FOLLOW_inner_timeblock_in_synpred22_test395 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_special_ring_in_synpred23_test419 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_junior_ring_in_synpred24_test424 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_breed_ring_in_synpred25_test428 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_big_comment_in_start86 = new BitSet(new long[]{0x0000012860000640L});
+	public static final BitSet FOLLOW_ring_in_start99 = new BitSet(new long[]{0x0000012860000640L});
+	public static final BitSet FOLLOW_EOF_in_start108 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RING_TITLE_in_ring131 = new BitSet(new long[]{0x0000010040000000L});
+	public static final BitSet FOLLOW_inner_ring_in_ring136 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_group_block_in_inner_ring161 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_judge_block_in_inner_ring174 = new BitSet(new long[]{0x0000000040000002L});
+	public static final BitSet FOLLOW_JUDGE_NAME_in_judge_block202 = new BitSet(new long[]{0x0000010000000000L});
+	public static final BitSet FOLLOW_timeblock_in_judge_block208 = new BitSet(new long[]{0x0000010000000002L});
+	public static final BitSet FOLLOW_comment_in_big_comment240 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TIME_in_big_comment243 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BREED_NAME_in_big_comment246 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INT_in_comment271 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_JUDGE_NAME_in_comment274 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_DATE_in_comment277 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_PHONE_NUMBER_in_comment280 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ELLIPSIS_in_comment283 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_COMMENT_in_timeblock_comment305 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INT_in_timeblock_comment308 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_JUDGE_NAME_in_timeblock_comment311 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_PHONE_NUMBER_in_timeblock_comment314 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ELLIPSIS_in_timeblock_comment317 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TIME_in_timeblock_comment320 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BREED_NAME_in_timeblock_comment323 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_STANDALONE_COMMENT_in_ring_comment342 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TIME_in_timeblock366 = new BitSet(new long[]{0x0000008020000000L});
+	public static final BitSet FOLLOW_inner_timeblock_in_timeblock371 = new BitSet(new long[]{0x0000010860000742L});
+	public static final BitSet FOLLOW_timeblock_comment_in_timeblock385 = new BitSet(new long[]{0x0000010860000740L});
+	public static final BitSet FOLLOW_DATE_in_timeblock392 = new BitSet(new long[]{0x0000000020000000L});
+	public static final BitSet FOLLOW_INT_in_timeblock395 = new BitSet(new long[]{0x0000008020000000L});
+	public static final BitSet FOLLOW_inner_timeblock_in_timeblock399 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_special_ring_in_inner_timeblock423 = new BitSet(new long[]{0x0000008020000000L});
+	public static final BitSet FOLLOW_junior_ring_in_inner_timeblock428 = new BitSet(new long[]{0x0000008020000000L});
+	public static final BitSet FOLLOW_breed_ring_in_inner_timeblock437 = new BitSet(new long[]{0x0000008020000000L});
+	public static final BitSet FOLLOW_special_ring_in_inner_timeblock445 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_junior_ring_in_inner_timeblock450 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_breed_ring_in_inner_timeblock455 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ring_comment_in_inner_timeblock460 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INT_in_special_ring482 = new BitSet(new long[]{0x0000000000000040L});
+	public static final BitSet FOLLOW_BREED_NAME_in_special_ring485 = new BitSet(new long[]{0x0000004000000000L});
+	public static final BitSet FOLLOW_SPECIAL_SUFFIX_in_special_ring489 = new BitSet(new long[]{0x0000004000000002L});
+	public static final BitSet FOLLOW_INT_in_junior_ring514 = new BitSet(new long[]{0x0000000080000000L});
+	public static final BitSet FOLLOW_JUNIOR_CLASS_in_junior_ring517 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_GROUP_RING_in_group_ring532 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TIME_in_group_block551 = new BitSet(new long[]{0x0000008000000000L});
+	public static final BitSet FOLLOW_STANDALONE_COMMENT_in_group_block554 = new BitSet(new long[]{0x0000000010000000L});
+	public static final BitSet FOLLOW_group_ring_in_group_block559 = new BitSet(new long[]{0x0000000010000002L});
+	public static final BitSet FOLLOW_INT_in_breed_ring587 = new BitSet(new long[]{0x0000000000000040L});
+	public static final BitSet FOLLOW_BREED_NAME_in_breed_ring590 = new BitSet(new long[]{0x00000000000000A2L});
+	public static final BitSet FOLLOW_BREED_NAME_SUFFIX_in_breed_ring594 = new BitSet(new long[]{0x0000000000000022L});
+	public static final BitSet FOLLOW_BREED_COUNT_in_breed_ring602 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ring_in_synpred3_test94 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_group_block_in_synpred5_test156 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_judge_block_in_synpred6_test174 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_timeblock_in_synpred7_test208 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_timeblock_comment_in_synpred21_test385 = new BitSet(new long[]{0x0000010860000740L});
+	public static final BitSet FOLLOW_DATE_in_synpred21_test392 = new BitSet(new long[]{0x0000000020000000L});
+	public static final BitSet FOLLOW_INT_in_synpred21_test395 = new BitSet(new long[]{0x0000008020000000L});
+	public static final BitSet FOLLOW_inner_timeblock_in_synpred21_test399 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_special_ring_in_synpred22_test423 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_junior_ring_in_synpred23_test428 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_breed_ring_in_synpred24_test432 = new BitSet(new long[]{0x0000000000000002L});
 }

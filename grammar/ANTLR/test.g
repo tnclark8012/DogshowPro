@@ -41,6 +41,7 @@ big_comment returns [String str]
 comment returns [String str]
 		@init {str = null;}
 		:   (COMMENT{str=$COMMENT.text;}|INT{str=$INT.text;}|JUDGE_NAME{str=$JUDGE_NAME.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|ELLIPSIS{str=$ELLIPSIS.text;});
+		
 timeblock_comment returns [String str]
 		@init {str = null;}
 	:	(COMMENT{str=$COMMENT.text;}|INT{str=$INT.text;}|JUDGE_NAME{str=$JUDGE_NAME.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|TIME{str=$TIME.text;}|BREED_NAME{str=$BREED_NAME.text;});//no date
@@ -92,7 +93,7 @@ JUNIOR_CLASS
         'Open Junior'|
         'Novice Senior'|
         'Novice Junior'|
-        'Novice Itermediate';
+        'Novice Intermediate';
         
 BREED_NAME
     :   (FRAG_BREED_NAME_SINGLE|FRAG_BREED_NAME_ALT) 's'? WS? ('(' FRAG_BREED_NAME_CATEGORY ')' WS? FRAG_BREED_NAME_CATEGORY_SUFFIX? )? BREED_NAME_SUFFIX?;
@@ -105,33 +106,44 @@ BREED_NAME_SUFFIX
 
 fragment FRAG_BREED_NAME_SPECIAL_SUFFIX
     :   ('Sweepstakes'|'Entry'|'Entries'|'Veterans');
-fragment FRAG_BREED_NAME_ALT:   'Veteran Dog';//used to handle BREED_RING with no breed count after
+fragment FRAG_BREED_NAME_ALT:   'Veteran Dog'|'Veteran Bitch';//used to handle BREED_RING with no breed count after
 fragment FRAG_BREED_NAME_CATEGORY_SUFFIX
-    :   'Ascob'|'Parti-Color';//Spaniels (Cocker) Ascob
+    :   'Ascob'|'Parti-Color'|'Black';//Spaniels (Cocker) Ascob
 fragment FRAG_BREED_NAME_CATEGORY //Breed's that are listed under categories rather than full name. Ex: Spaniels (Cocker)
     :   
         '13 Inch'|//beagles
         '15 Inch'|//beagles
         'Boykin'|//spaniels
+        'B & P C'|
+        'Chesapeake Bay'|
+        'Clumber'|
         'Cocker'|//spaniels (cocker) ascob
+        'Colored'|
+        'Curly-Coated'|
         'English'|//setters
         'English Cocker'|//spaniels
         'English Springer'|//spaniels
         'Field'|//spaniels
+        'Flat-Coated'|
         'German Shorthaired'|//pointer
+        'German Wirehaired'|
         'Golden'|//retriever
         'Gordon'|//setters
         'Irish'|//Setters
+        'K C & R'|
         'Labrador'|//Retriever
         'Long Coat'|//chihuahuas
         'Longhaired'|//dachshunds
         'Miniature'|//poodles
+        'Nova Scotia Duck Tolling'|
         'Rough'|//Collie
         'Smooth'|//Collie,dachshund,fox terriers
         'Smooth Coat'|//chihuahuas
         'Standard'|//poodle, manchester terrier
+        'Sussex'|
         'Toy'|//poodles
         'White'|//bull terrier
+        'Wire'|
         'Wirehaired'//Dachshund
         
         
@@ -208,6 +220,7 @@ fragment FRAG_BREED_NAME_SINGLE
     'Chihuahua'|
     'Chinese Crested'|
     'Chinese Shar-Pei'|
+    'Cirneco dell’Etna'|
     'Chow Chow'|
     'Clumber Spaniel'|
     'Cocker Spaniel'|
@@ -360,7 +373,7 @@ fragment FRAG_PAREN_LEFT    :   ('('.);
 fragment FRAG_PAREN_RIGHT   :   ')';
 fragment END_PUNCTUATION    :       '!'|'?'|'.';
 fragment FRAG_RING      :   'RING'|'Ring';
-fragment FRAG_SPEC_CHAR     :   ','|'_'|'-'|';'|':'|'\'';
+fragment FRAG_SPEC_CHAR     :   ','|'_'|'-'|';'|':'|'\''|'’';
 
 fragment FRAG_SPEC_WORD_CHAR
     :   '&';
