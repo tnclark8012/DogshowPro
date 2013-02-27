@@ -8,6 +8,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="libs/antlr-4.0-complete.jar"/>
-	<classpathentry kind="lib" path="libs/antlr-runtime-3.0.jar"/>
+	<classpathentry kind="lib" path="libs/antlr-runtime-3.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -36,15 +36,15 @@ judge_block returns [JsonObject json]
     :   JUDGE_NAME{json.addProperty("Judge", $JUDGE_NAME.text);} (mBlock=timeblock{array.add(mBlock);})+ {json.add("TimeBlocks", array);};
 	
 big_comment returns [String str]
-		@init {str = null;System.out.println("big_comment...");}
-		:   (mComment=comment{str = mComment;}|TIME{str=$TIME.text;}|BREED_NAME{str=$BREED_NAME.text;});
+		@init {str = null;}
+		:   (mComment=comment{str = mComment;}|TIME{str=$TIME.text;}|BREED_NAME{str=$BREED_NAME.text;}|SPECIAL_SUFFIX{str=$SPECIAL_SUFFIX.text;}|GROUP_RING{str=$GROUP_RING.text;});
 comment returns [String str]
 		@init {str = null;}
 		:   (COMMENT{str=$COMMENT.text;}|INT{str=$INT.text;}|JUDGE_NAME{str=$JUDGE_NAME.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|ELLIPSIS{str=$ELLIPSIS.text;});
 		
 timeblock_comment returns [String str]
 		@init {str = null;}
-	:	(COMMENT{str=$COMMENT.text;}|INT{str=$INT.text;}|JUDGE_NAME{str=$JUDGE_NAME.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|TIME{str=$TIME.text;}|BREED_NAME{str=$BREED_NAME.text;});//no date
+	:	(COMMENT{str=$COMMENT.text;}|INT{str=$INT.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|TIME{str=$TIME.text;}|BREED_NAME{str=$BREED_NAME.text;});//no date
 ring_comment returns [String str]
     :   STANDALONE_COMMENT{str=$STANDALONE_COMMENT.text;};
 
@@ -65,7 +65,7 @@ group_ring returns [String str]
 	:	 GROUP_RING{str=$GROUP_RING.text;};
 group_block returns [JsonObject json]
 	@init {json = new JsonObject(); JsonArray rings = new JsonArray();}
-	:	TIME{json.addProperty("TIME", $TIME.text);} STANDALONE_COMMENT (mRing=group_ring {rings.add(new JsonPrimitive(mRing));})+ {json.add("Rings", rings);};
+	:	TIME{json.addProperty("TIME", $TIME.text);} STANDALONE_COMMENT? (mRing=group_ring {rings.add(new JsonPrimitive(mRing));})+ {json.add("Rings", rings);};
 breed_ring returns [JsonObject json]
 	@init{json = new JsonObject();String breedName = "";}
     :   INT{json.addProperty("Count", $INT.text);} BREED_NAME{breedName+=$BREED_NAME.text;} (BREED_NAME_SUFFIX{breedName += " " + $BREED_NAME_SUFFIX.text;})? {json.addProperty("BreedName", breedName);} (BREED_COUNT{json.addProperty("BreedCount", $BREED_COUNT.text);})?;
@@ -161,8 +161,14 @@ fragment FRAG_GROUP_NAME
 		'WORKING GROUP'|
 		'BEST IN SHOW';
 		
+fragment FRAG_SPECIAL_GROUP_NAME
+	:	
+		'VETERAN SWEEPSTAKES GROUP'|
+		'SWEEPSTAKES GROUP'|
+		'Toy Variety Group';
+		
 GROUP_RING
-	:	FRAG_GROUP_NAME ' - ' JUDGE_NAME;
+	:	(FRAG_GROUP_NAME ' - ' JUDGE_NAME)|FRAG_SPECIAL_GROUP_NAME;
 //Dog breed names in singular form
 fragment FRAG_BREED_NAME_SINGLE
     :('Affenpinscher'|
@@ -301,6 +307,7 @@ fragment FRAG_BREED_NAME_SINGLE
     'Pekingese'|
     'Pembroke Welsh Corgi'|
     'Petit Basset Griffon Vendéen'|
+    'Petits Bassets Griffons Vendeen'|
     'Pharaoh Hound'|
     'Plott'|
     'Pointer'|
@@ -386,7 +393,8 @@ fragment FRAG_TITLE
         'MRS'|'Mrs'|
         'MS'|'Ms'|
         'MISS'|'Miss'
-        |'DR';
+        |'DR'|'Dr'|
+        'COL'|'Col';
     
 
 fragment FRAG_WEEK_DAY:   'Sunday'|'SUNDAY'|
@@ -437,7 +445,7 @@ ELLIPSIS:   '.' '.'+;
 INT :'0'..'9' + ;
 STANDALONE_COMMENT
     :   'LUNCH'|'VARIETY GROUP JUDGING';
-COMMENT :   (WORD|PARENTHETICAL|INT)+;
+COMMENT :   (WORD|PARENTHETICAL|INT)+;//Sometimes they mention sweepstakes in comment
 fragment WORD  : ('a'..'z'|'A'..'Z'|FRAG_SPEC_CHAR|FRAG_SPEC_WORD_CHAR)+;
 //SENTENCE: (ATOM|PARENTHETICAL) (WS (WORD|INT|PARENTHETICAL))* END_PUNCTUATION;
 fragment PARENTHETICAL_NAME: '(' PROPER_NAME ')';

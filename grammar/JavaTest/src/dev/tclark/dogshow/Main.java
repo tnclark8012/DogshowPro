@@ -29,17 +29,18 @@ public class Main {
     public static void main(String[] args) throws IOException,
             org.antlr.runtime.RecognitionException, IllegalArgumentException,
             IllegalAccessException {
-        String file = "testcase/TRIN1JP.txt";
+    	
+        String file = "testcase/SACS1JP.txt";
         CharStream cs = new ANTLRFileStream(file);
         testLexer lexer1 = new testLexer(cs);
         CommonTokenStream tokens2 = new CommonTokenStream(lexer1);
         testParser parser = new testParser( tokens2 );
         String result;
         result = "asd"; 
-                JsonObject res = null;
-              res =     parser.start();
-       printTokens(file);
-       // parser.start();
+        JsonObject res = null;
+        res = parser.start();
+//       printTokens(file);
+//        parser.start();
 //      System.out.println();
 //      System.out.println();
 //      System.out.println();
