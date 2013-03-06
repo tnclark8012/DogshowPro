@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="cadet_blue2">#8EE5EE</color>
+    <color name="cadet_blue3">#0EBFE9</color>
+    <color name="list_item_activated">#0EBFE9</color>
+    <color name="list_divider_bottom">#FFFFFF</color>
+    <color name="list_divider_top">#C0C0C0</color>
+    <color name="transparent">#80FFFFFF</color>
+	<color name="white">#FFFFFF</color>
+</resources>

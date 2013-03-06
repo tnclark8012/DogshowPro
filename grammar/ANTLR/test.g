@@ -207,6 +207,7 @@ fragment FRAG_BREED_NAME_SINGLE
     'Borzoi'|
     'Boston Terrier'|
     'Bouvier des Flandres'|
+    'Bouviers des Flanders'|
     'Boxer'|
     'Boykin Spaniel'|
     'Brace'|

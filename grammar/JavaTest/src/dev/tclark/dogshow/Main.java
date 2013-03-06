@@ -30,7 +30,7 @@ public class Main {
             org.antlr.runtime.RecognitionException, IllegalArgumentException,
             IllegalAccessException {
     	
-        String file = "testcase/SACS1JP.txt";
+        String file = "testcase/SACS1JP-mod.txt";
         CharStream cs = new ANTLRFileStream(file);
         testLexer lexer1 = new testLexer(cs);
         CommonTokenStream tokens2 = new CommonTokenStream(lexer1);
