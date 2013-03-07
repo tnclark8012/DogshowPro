@@ -1,4 +1,4 @@
-// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2013-03-07 00:14:34
+// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2013-03-07 00:19:12
 
 package dev.tclark.dogshow.grammar;
 import com.google.gson.JsonArray;
@@ -72,16 +72,16 @@ public class testParser extends DebugParser {
 
 
 public static final String[] ruleNames = new String[] {
-	"invalidRule", "synpred28_test", "synpred4_test", "synpred26_test", "big_comment", 
-    "judge_block", "group_ring", "synpred21_test", "synpred11_test", "timeblock", 
-    "test_breed", "synpred17_test", "synpred27_test", "synpred29_test", 
-    "synpred23_test", "synpred25_test", "synpred9_test", "start", "synpred7_test", 
-    "ring", "synpred18_test", "inner_timeblock", "synpred16_test", "junior_ring", 
-    "ring_comment", "synpred1_test", "synpred10_test", "test_special", "synpred2_test", 
-    "synpred14_test", "comment", "synpred20_test", "synpred12_test", "group_block", 
-    "special_ring", "synpred15_test", "synpred6_test", "synpred8_test", 
-    "inner_ring", "synpred19_test", "synpred3_test", "synpred5_test", "synpred22_test", 
-    "synpred13_test", "synpred24_test", "breed_ring"
+	"invalidRule", "synpred17_test", "synpred23_test", "big_comment", "start", 
+    "test_special", "comment", "synpred25_test", "synpred5_test", "synpred16_test", 
+    "synpred8_test", "synpred20_test", "synpred1_test", "synpred22_test", 
+    "breed_ring", "synpred19_test", "inner_ring", "synpred27_test", "synpred14_test", 
+    "ring_comment", "synpred29_test", "synpred28_test", "judge_block", "synpred7_test", 
+    "synpred3_test", "synpred12_test", "synpred6_test", "ring", "synpred2_test", 
+    "group_block", "synpred10_test", "synpred4_test", "timeblock", "synpred9_test", 
+    "synpred15_test", "group_ring", "synpred21_test", "synpred24_test", 
+    "synpred30_test", "synpred13_test", "special_ring", "inner_timeblock", 
+    "test_breed", "synpred26_test", "synpred18_test", "junior_ring", "synpred11_test"
 };
 
 public static final boolean[] decisionCanBacktrack = new boolean[] {
@@ -291,7 +291,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 				try { dbg.enterDecision(2, decisionCanBacktrack[2]);
 
 				int LA2_0 = input.LA(1);
-				if ( (LA2_0==BREED_NAME||(LA2_0 >= COMMENT && LA2_0 <= ELLIPSIS)||(LA2_0 >= GROUP_RING && LA2_0 <= INT)||LA2_0==PARENTHETICAL||LA2_0==SPECIAL_SUFFIX||LA2_0==TIME) ) {
+				if ( (LA2_0==BREED_NAME||(LA2_0 >= COMMENT && LA2_0 <= ELLIPSIS)||(LA2_0 >= GROUP_RING && LA2_0 <= INT)||LA2_0==PARENTHETICAL||LA2_0==PHONE_NUMBER||LA2_0==SPECIAL_SUFFIX||LA2_0==TIME) ) {
 					alt2=1;
 				}
 
@@ -725,15 +725,16 @@ protected boolean evalPredicate(boolean result, String predicate) {
 
 
 	// $ANTLR start "big_comment"
-	// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:44:1: big_comment returns [String str] : (mComment= comment | TIME | BREED_NAME | SPECIAL_SUFFIX | GROUP_RING ) ;
+	// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:44:1: big_comment returns [String str] : (mComment= comment | TIME | PHONE_NUMBER | BREED_NAME | SPECIAL_SUFFIX | GROUP_RING ) ;
 	public final String big_comment() throws RecognitionException {
 		String str = null;
 
 
 		Token TIME3=null;
-		Token BREED_NAME4=null;
-		Token SPECIAL_SUFFIX5=null;
-		Token GROUP_RING6=null;
+		Token PHONE_NUMBER4=null;
+		Token BREED_NAME5=null;
+		Token SPECIAL_SUFFIX6=null;
+		Token GROUP_RING7=null;
 		String mComment =null;
 
 		str = null;
@@ -743,14 +744,14 @@ protected boolean evalPredicate(boolean result, String predicate) {
 		dbg.location(44, 0);
 
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:46:3: ( (mComment= comment | TIME | BREED_NAME | SPECIAL_SUFFIX | GROUP_RING ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:46:3: ( (mComment= comment | TIME | PHONE_NUMBER | BREED_NAME | SPECIAL_SUFFIX | GROUP_RING ) )
 			dbg.enterAlt(1);
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:46:7: (mComment= comment | TIME | BREED_NAME | SPECIAL_SUFFIX | GROUP_RING )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:46:7: (mComment= comment | TIME | PHONE_NUMBER | BREED_NAME | SPECIAL_SUFFIX | GROUP_RING )
 			{
 			dbg.location(46,7);
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:46:7: (mComment= comment | TIME | BREED_NAME | SPECIAL_SUFFIX | GROUP_RING )
-			int alt8=5;
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:46:7: (mComment= comment | TIME | PHONE_NUMBER | BREED_NAME | SPECIAL_SUFFIX | GROUP_RING )
+			int alt8=6;
 			try { dbg.enterSubRule(8);
 			try { dbg.enterDecision(8, decisionCanBacktrack[8]);
 
@@ -788,19 +789,24 @@ protected boolean evalPredicate(boolean result, String predicate) {
 				alt8=1;
 				}
 				break;
-			case BREED_NAME:
+			case PHONE_NUMBER:
 				{
 				alt8=3;
 				}
 				break;
-			case SPECIAL_SUFFIX:
+			case BREED_NAME:
 				{
 				alt8=4;
 				}
 				break;
-			case GROUP_RING:
+			case SPECIAL_SUFFIX:
 				{
 				alt8=5;
+				}
+				break;
+			case GROUP_RING:
+				{
+				alt8=6;
 				}
 				break;
 			default:
@@ -839,31 +845,41 @@ protected boolean evalPredicate(boolean result, String predicate) {
 				case 3 :
 					dbg.enterAlt(3);
 
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:46:64: BREED_NAME
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:46:64: PHONE_NUMBER
 					{
 					dbg.location(46,64);
-					BREED_NAME4=(Token)match(input,BREED_NAME,FOLLOW_BREED_NAME_in_big_comment251); if (state.failed) return str;dbg.location(46,74);
-					if ( state.backtracking==0 ) {str=(BREED_NAME4!=null?BREED_NAME4.getText():null);}
+					PHONE_NUMBER4=(Token)match(input,PHONE_NUMBER,FOLLOW_PHONE_NUMBER_in_big_comment251); if (state.failed) return str;dbg.location(46,76);
+					if ( state.backtracking==0 ) {str=(PHONE_NUMBER4!=null?PHONE_NUMBER4.getText():null);}
 					}
 					break;
 				case 4 :
 					dbg.enterAlt(4);
 
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:46:98: SPECIAL_SUFFIX
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:46:102: BREED_NAME
 					{
-					dbg.location(46,98);
-					SPECIAL_SUFFIX5=(Token)match(input,SPECIAL_SUFFIX,FOLLOW_SPECIAL_SUFFIX_in_big_comment254); if (state.failed) return str;dbg.location(46,112);
-					if ( state.backtracking==0 ) {str=(SPECIAL_SUFFIX5!=null?SPECIAL_SUFFIX5.getText():null);}
+					dbg.location(46,102);
+					BREED_NAME5=(Token)match(input,BREED_NAME,FOLLOW_BREED_NAME_in_big_comment254); if (state.failed) return str;dbg.location(46,112);
+					if ( state.backtracking==0 ) {str=(BREED_NAME5!=null?BREED_NAME5.getText():null);}
 					}
 					break;
 				case 5 :
 					dbg.enterAlt(5);
 
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:46:140: GROUP_RING
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:46:136: SPECIAL_SUFFIX
 					{
-					dbg.location(46,140);
-					GROUP_RING6=(Token)match(input,GROUP_RING,FOLLOW_GROUP_RING_in_big_comment257); if (state.failed) return str;dbg.location(46,150);
-					if ( state.backtracking==0 ) {str=(GROUP_RING6!=null?GROUP_RING6.getText():null);}
+					dbg.location(46,136);
+					SPECIAL_SUFFIX6=(Token)match(input,SPECIAL_SUFFIX,FOLLOW_SPECIAL_SUFFIX_in_big_comment257); if (state.failed) return str;dbg.location(46,150);
+					if ( state.backtracking==0 ) {str=(SPECIAL_SUFFIX6!=null?SPECIAL_SUFFIX6.getText():null);}
+					}
+					break;
+				case 6 :
+					dbg.enterAlt(6);
+
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:46:178: GROUP_RING
+					{
+					dbg.location(46,178);
+					GROUP_RING7=(Token)match(input,GROUP_RING,FOLLOW_GROUP_RING_in_big_comment260); if (state.failed) return str;dbg.location(46,188);
+					if ( state.backtracking==0 ) {str=(GROUP_RING7!=null?GROUP_RING7.getText():null);}
 					}
 					break;
 
@@ -880,7 +896,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(46, 173);
+		dbg.location(46, 211);
 
 		}
 		finally {
@@ -901,7 +917,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 		String str = null;
 
 
-		Token COMMENT7=null;
+		Token COMMENT8=null;
 
 		str=null;
 		try { dbg.enterRule(getGrammarFileName(), "comment");
@@ -968,7 +984,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:50:6: TIME
 					{
 					dbg.location(50,6);
-					match(input,TIME,FOLLOW_TIME_in_comment280); if (state.failed) return str;
+					match(input,TIME,FOLLOW_TIME_in_comment283); if (state.failed) return str;
 					}
 					break;
 				case 2 :
@@ -977,8 +993,8 @@ protected boolean evalPredicate(boolean result, String predicate) {
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:50:11: COMMENT
 					{
 					dbg.location(50,11);
-					COMMENT7=(Token)match(input,COMMENT,FOLLOW_COMMENT_in_comment282); if (state.failed) return str;dbg.location(50,18);
-					if ( state.backtracking==0 ) {str=(COMMENT7!=null?COMMENT7.getText():null);}
+					COMMENT8=(Token)match(input,COMMENT,FOLLOW_COMMENT_in_comment285); if (state.failed) return str;dbg.location(50,18);
+					if ( state.backtracking==0 ) {str=(COMMENT8!=null?COMMENT8.getText():null);}
 					}
 					break;
 				case 3 :
@@ -987,7 +1003,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:50:39: PARENTHETICAL
 					{
 					dbg.location(50,39);
-					match(input,PARENTHETICAL,FOLLOW_PARENTHETICAL_in_comment285); if (state.failed) return str;
+					match(input,PARENTHETICAL,FOLLOW_PARENTHETICAL_in_comment288); if (state.failed) return str;
 					}
 					break;
 				case 4 :
@@ -996,7 +1012,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:50:53: INT
 					{
 					dbg.location(50,53);
-					match(input,INT,FOLLOW_INT_in_comment287); if (state.failed) return str;
+					match(input,INT,FOLLOW_INT_in_comment290); if (state.failed) return str;
 					}
 					break;
 				case 5 :
@@ -1005,7 +1021,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:50:57: ELLIPSIS
 					{
 					dbg.location(50,57);
-					match(input,ELLIPSIS,FOLLOW_ELLIPSIS_in_comment289); if (state.failed) return str;
+					match(input,ELLIPSIS,FOLLOW_ELLIPSIS_in_comment292); if (state.failed) return str;
 					}
 					break;
 				case 6 :
@@ -1014,7 +1030,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:50:66: DATE
 					{
 					dbg.location(50,66);
-					match(input,DATE,FOLLOW_DATE_in_comment291); if (state.failed) return str;
+					match(input,DATE,FOLLOW_DATE_in_comment294); if (state.failed) return str;
 					}
 					break;
 
@@ -1052,7 +1068,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 		String str = null;
 
 
-		Token STANDALONE_COMMENT8=null;
+		Token STANDALONE_COMMENT9=null;
 
 		try { dbg.enterRule(getGrammarFileName(), "ring_comment");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
@@ -1066,8 +1082,8 @@ protected boolean evalPredicate(boolean result, String predicate) {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:59:9: STANDALONE_COMMENT
 			{
 			dbg.location(59,9);
-			STANDALONE_COMMENT8=(Token)match(input,STANDALONE_COMMENT,FOLLOW_STANDALONE_COMMENT_in_ring_comment318); if (state.failed) return str;dbg.location(59,27);
-			if ( state.backtracking==0 ) {str=(STANDALONE_COMMENT8!=null?STANDALONE_COMMENT8.getText():null);}
+			STANDALONE_COMMENT9=(Token)match(input,STANDALONE_COMMENT,FOLLOW_STANDALONE_COMMENT_in_ring_comment321); if (state.failed) return str;dbg.location(59,27);
+			if ( state.backtracking==0 ) {str=(STANDALONE_COMMENT9!=null?STANDALONE_COMMENT9.getText():null);}
 			}
 
 		}
@@ -1099,7 +1115,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 		JsonObject json = null;
 
 
-		Token TIME9=null;
+		Token TIME10=null;
 		JsonArray mInnerBlock1 =null;
 		String mComment =null;
 
@@ -1116,8 +1132,8 @@ protected boolean evalPredicate(boolean result, String predicate) {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:63:4: TIME (mInnerBlock1= inner_timeblock (mComment= comment )* )*
 			{
 			dbg.location(63,4);
-			TIME9=(Token)match(input,TIME,FOLLOW_TIME_in_timeblock340); if (state.failed) return json;dbg.location(63,8);
-			if ( state.backtracking==0 ) {json.addProperty("Time", (TIME9!=null?TIME9.getText():null));}dbg.location(63,48);
+			TIME10=(Token)match(input,TIME,FOLLOW_TIME_in_timeblock343); if (state.failed) return json;dbg.location(63,8);
+			if ( state.backtracking==0 ) {json.addProperty("Time", (TIME10!=null?TIME10.getText():null));}dbg.location(63,48);
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:63:48: (mInnerBlock1= inner_timeblock (mComment= comment )* )*
 			try { dbg.enterSubRule(11);
 
@@ -1140,7 +1156,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:63:49: mInnerBlock1= inner_timeblock (mComment= comment )*
 					{
 					dbg.location(63,61);
-					pushFollow(FOLLOW_inner_timeblock_in_timeblock346);
+					pushFollow(FOLLOW_inner_timeblock_in_timeblock349);
 					mInnerBlock1=inner_timeblock();
 					state._fsp--;
 					if (state.failed) return json;dbg.location(63,77);
@@ -1157,7 +1173,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 						case TIME:
 							{
 							int LA10_2 = input.LA(2);
-							if ( (synpred18_test()) ) {
+							if ( (synpred19_test()) ) {
 								alt10=1;
 							}
 
@@ -1190,7 +1206,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:63:130: mComment= comment
 							{
 							dbg.location(63,138);
-							pushFollow(FOLLOW_comment_in_timeblock352);
+							pushFollow(FOLLOW_comment_in_timeblock355);
 							mComment=comment();
 							state._fsp--;
 							if (state.failed) return json;dbg.location(63,146);
@@ -1273,20 +1289,20 @@ protected boolean evalPredicate(boolean result, String predicate) {
 				int LA12_0 = input.LA(1);
 				if ( (LA12_0==INT) ) {
 					int LA12_2 = input.LA(2);
-					if ( (synpred20_test()) ) {
+					if ( (synpred21_test()) ) {
 						alt12=1;
 					}
-					else if ( (synpred21_test()) ) {
+					else if ( (synpred22_test()) ) {
 						alt12=2;
 					}
-					else if ( (synpred23_test()) ) {
+					else if ( (synpred24_test()) ) {
 						alt12=3;
 					}
 
 				}
 				else if ( (LA12_0==STANDALONE_COMMENT) ) {
 					int LA12_3 = input.LA(2);
-					if ( (synpred24_test()) ) {
+					if ( (synpred25_test()) ) {
 						alt12=4;
 					}
 
@@ -1301,7 +1317,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:67:5: mSpecialRing= special_ring
 					{
 					dbg.location(67,17);
-					pushFollow(FOLLOW_special_ring_in_inner_timeblock380);
+					pushFollow(FOLLOW_special_ring_in_inner_timeblock383);
 					mSpecialRing=special_ring();
 					state._fsp--;
 					if (state.failed) return array;dbg.location(67,30);
@@ -1314,7 +1330,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:67:57: mJuniorRing= junior_ring
 					{
 					dbg.location(67,68);
-					pushFollow(FOLLOW_junior_ring_in_inner_timeblock385);
+					pushFollow(FOLLOW_junior_ring_in_inner_timeblock388);
 					mJuniorRing=junior_ring();
 					state._fsp--;
 					if (state.failed) return array;dbg.location(67,80);
@@ -1333,7 +1349,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:67:107: ( breed_ring )=>mBreedRing= breed_ring
 					{
 					dbg.location(67,131);
-					pushFollow(FOLLOW_breed_ring_in_inner_timeblock395);
+					pushFollow(FOLLOW_breed_ring_in_inner_timeblock398);
 					mBreedRing=breed_ring();
 					state._fsp--;
 					if (state.failed) return array;dbg.location(67,142);
@@ -1348,7 +1364,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:67:168: ring_comment
 					{
 					dbg.location(67,168);
-					pushFollow(FOLLOW_ring_comment_in_inner_timeblock399);
+					pushFollow(FOLLOW_ring_comment_in_inner_timeblock402);
 					ring_comment();
 					state._fsp--;
 					if (state.failed) return array;
@@ -1399,9 +1415,9 @@ protected boolean evalPredicate(boolean result, String predicate) {
 		JsonObject json = null;
 
 
-		Token INT10=null;
-		Token BREED_NAME11=null;
-		Token SPECIAL_SUFFIX12=null;
+		Token INT11=null;
+		Token BREED_NAME12=null;
+		Token SPECIAL_SUFFIX13=null;
 
 		json = new JsonObject(); String breedName = "";
 		try { dbg.enterRule(getGrammarFileName(), "special_ring");
@@ -1416,10 +1432,10 @@ protected boolean evalPredicate(boolean result, String predicate) {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:70:6: INT BREED_NAME ( SPECIAL_SUFFIX )+
 			{
 			dbg.location(70,6);
-			INT10=(Token)match(input,INT,FOLLOW_INT_in_special_ring421); if (state.failed) return json;dbg.location(70,9);
-			if ( state.backtracking==0 ) {json.addProperty("Count", (INT10!=null?INT10.getText():null));}dbg.location(70,49);
-			BREED_NAME11=(Token)match(input,BREED_NAME,FOLLOW_BREED_NAME_in_special_ring424); if (state.failed) return json;dbg.location(70,59);
-			if ( state.backtracking==0 ) {breedName+=(BREED_NAME11!=null?BREED_NAME11.getText():null);}dbg.location(70,90);
+			INT11=(Token)match(input,INT,FOLLOW_INT_in_special_ring424); if (state.failed) return json;dbg.location(70,9);
+			if ( state.backtracking==0 ) {json.addProperty("Count", (INT11!=null?INT11.getText():null));}dbg.location(70,49);
+			BREED_NAME12=(Token)match(input,BREED_NAME,FOLLOW_BREED_NAME_in_special_ring427); if (state.failed) return json;dbg.location(70,59);
+			if ( state.backtracking==0 ) {breedName+=(BREED_NAME12!=null?BREED_NAME12.getText():null);}dbg.location(70,90);
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:70:90: ( SPECIAL_SUFFIX )+
 			int cnt13=0;
 			try { dbg.enterSubRule(13);
@@ -1443,8 +1459,8 @@ protected boolean evalPredicate(boolean result, String predicate) {
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:70:91: SPECIAL_SUFFIX
 					{
 					dbg.location(70,91);
-					SPECIAL_SUFFIX12=(Token)match(input,SPECIAL_SUFFIX,FOLLOW_SPECIAL_SUFFIX_in_special_ring428); if (state.failed) return json;dbg.location(70,105);
-					if ( state.backtracking==0 ) {breedName+= " " +(SPECIAL_SUFFIX12!=null?SPECIAL_SUFFIX12.getText():null);}
+					SPECIAL_SUFFIX13=(Token)match(input,SPECIAL_SUFFIX,FOLLOW_SPECIAL_SUFFIX_in_special_ring431); if (state.failed) return json;dbg.location(70,105);
+					if ( state.backtracking==0 ) {breedName+= " " +(SPECIAL_SUFFIX13!=null?SPECIAL_SUFFIX13.getText():null);}
 					}
 					break;
 
@@ -1493,8 +1509,8 @@ protected boolean evalPredicate(boolean result, String predicate) {
 		JsonObject json = null;
 
 
-		Token INT13=null;
-		Token JUNIOR_CLASS14=null;
+		Token INT14=null;
+		Token JUNIOR_CLASS15=null;
 
 		json = new JsonObject();
 		try { dbg.enterRule(getGrammarFileName(), "junior_ring");
@@ -1509,10 +1525,10 @@ protected boolean evalPredicate(boolean result, String predicate) {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:73:7: INT JUNIOR_CLASS
 			{
 			dbg.location(73,7);
-			INT13=(Token)match(input,INT,FOLLOW_INT_in_junior_ring453); if (state.failed) return json;dbg.location(73,10);
-			if ( state.backtracking==0 ) {json.addProperty("Count", (INT13!=null?INT13.getText():null));}dbg.location(73,50);
-			JUNIOR_CLASS14=(Token)match(input,JUNIOR_CLASS,FOLLOW_JUNIOR_CLASS_in_junior_ring456); if (state.failed) return json;dbg.location(73,62);
-			if ( state.backtracking==0 ) {json.addProperty("ClassName", (JUNIOR_CLASS14!=null?JUNIOR_CLASS14.getText():null));}
+			INT14=(Token)match(input,INT,FOLLOW_INT_in_junior_ring456); if (state.failed) return json;dbg.location(73,10);
+			if ( state.backtracking==0 ) {json.addProperty("Count", (INT14!=null?INT14.getText():null));}dbg.location(73,50);
+			JUNIOR_CLASS15=(Token)match(input,JUNIOR_CLASS,FOLLOW_JUNIOR_CLASS_in_junior_ring459); if (state.failed) return json;dbg.location(73,62);
+			if ( state.backtracking==0 ) {json.addProperty("ClassName", (JUNIOR_CLASS15!=null?JUNIOR_CLASS15.getText():null));}
 			}
 
 		}
@@ -1544,7 +1560,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 		String str = null;
 
 
-		Token GROUP_RING15=null;
+		Token GROUP_RING16=null;
 
 		try { dbg.enterRule(getGrammarFileName(), "group_ring");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
@@ -1558,8 +1574,8 @@ protected boolean evalPredicate(boolean result, String predicate) {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:76:5: GROUP_RING
 			{
 			dbg.location(76,5);
-			GROUP_RING15=(Token)match(input,GROUP_RING,FOLLOW_GROUP_RING_in_group_ring471); if (state.failed) return str;dbg.location(76,15);
-			if ( state.backtracking==0 ) {str=(GROUP_RING15!=null?GROUP_RING15.getText():null);}
+			GROUP_RING16=(Token)match(input,GROUP_RING,FOLLOW_GROUP_RING_in_group_ring474); if (state.failed) return str;dbg.location(76,15);
+			if ( state.backtracking==0 ) {str=(GROUP_RING16!=null?GROUP_RING16.getText():null);}
 			}
 
 		}
@@ -1591,7 +1607,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 		JsonObject json = null;
 
 
-		Token TIME16=null;
+		Token TIME17=null;
 		String mRing =null;
 
 		json = new JsonObject(); JsonArray rings = new JsonArray();
@@ -1607,8 +1623,8 @@ protected boolean evalPredicate(boolean result, String predicate) {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:79:4: TIME ( STANDALONE_COMMENT )? (mRing= group_ring )+
 			{
 			dbg.location(79,4);
-			TIME16=(Token)match(input,TIME,FOLLOW_TIME_in_group_block490); if (state.failed) return json;dbg.location(79,8);
-			if ( state.backtracking==0 ) {json.addProperty("TIME", (TIME16!=null?TIME16.getText():null));}dbg.location(79,48);
+			TIME17=(Token)match(input,TIME,FOLLOW_TIME_in_group_block493); if (state.failed) return json;dbg.location(79,8);
+			if ( state.backtracking==0 ) {json.addProperty("TIME", (TIME17!=null?TIME17.getText():null));}dbg.location(79,48);
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:79:48: ( STANDALONE_COMMENT )?
 			int alt14=2;
 			try { dbg.enterSubRule(14);
@@ -1627,7 +1643,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:79:48: STANDALONE_COMMENT
 					{
 					dbg.location(79,48);
-					match(input,STANDALONE_COMMENT,FOLLOW_STANDALONE_COMMENT_in_group_block493); if (state.failed) return json;
+					match(input,STANDALONE_COMMENT,FOLLOW_STANDALONE_COMMENT_in_group_block496); if (state.failed) return json;
 					}
 					break;
 
@@ -1657,7 +1673,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:79:69: mRing= group_ring
 					{
 					dbg.location(79,74);
-					pushFollow(FOLLOW_group_ring_in_group_block499);
+					pushFollow(FOLLOW_group_ring_in_group_block502);
 					mRing=group_ring();
 					state._fsp--;
 					if (state.failed) return json;dbg.location(79,86);
@@ -1710,10 +1726,10 @@ protected boolean evalPredicate(boolean result, String predicate) {
 		JsonObject json = null;
 
 
-		Token INT17=null;
-		Token BREED_NAME18=null;
-		Token BREED_NAME_SUFFIX19=null;
-		Token BREED_COUNT20=null;
+		Token INT18=null;
+		Token BREED_NAME19=null;
+		Token BREED_NAME_SUFFIX20=null;
+		Token BREED_COUNT21=null;
 
 		json = new JsonObject();String breedName = "";
 		try { dbg.enterRule(getGrammarFileName(), "breed_ring");
@@ -1728,10 +1744,10 @@ protected boolean evalPredicate(boolean result, String predicate) {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:82:9: INT BREED_NAME ( BREED_NAME_SUFFIX )? ( BREED_COUNT )?
 			{
 			dbg.location(82,9);
-			INT17=(Token)match(input,INT,FOLLOW_INT_in_breed_ring527); if (state.failed) return json;dbg.location(82,12);
-			if ( state.backtracking==0 ) {json.addProperty("Count", (INT17!=null?INT17.getText():null));}dbg.location(82,52);
-			BREED_NAME18=(Token)match(input,BREED_NAME,FOLLOW_BREED_NAME_in_breed_ring530); if (state.failed) return json;dbg.location(82,62);
-			if ( state.backtracking==0 ) {breedName+=(BREED_NAME18!=null?BREED_NAME18.getText():null);}dbg.location(82,93);
+			INT18=(Token)match(input,INT,FOLLOW_INT_in_breed_ring530); if (state.failed) return json;dbg.location(82,12);
+			if ( state.backtracking==0 ) {json.addProperty("Count", (INT18!=null?INT18.getText():null));}dbg.location(82,52);
+			BREED_NAME19=(Token)match(input,BREED_NAME,FOLLOW_BREED_NAME_in_breed_ring533); if (state.failed) return json;dbg.location(82,62);
+			if ( state.backtracking==0 ) {breedName+=(BREED_NAME19!=null?BREED_NAME19.getText():null);}dbg.location(82,93);
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:82:93: ( BREED_NAME_SUFFIX )?
 			int alt16=2;
 			try { dbg.enterSubRule(16);
@@ -1750,8 +1766,8 @@ protected boolean evalPredicate(boolean result, String predicate) {
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:82:94: BREED_NAME_SUFFIX
 					{
 					dbg.location(82,94);
-					BREED_NAME_SUFFIX19=(Token)match(input,BREED_NAME_SUFFIX,FOLLOW_BREED_NAME_SUFFIX_in_breed_ring534); if (state.failed) return json;dbg.location(82,111);
-					if ( state.backtracking==0 ) {breedName += " " + (BREED_NAME_SUFFIX19!=null?BREED_NAME_SUFFIX19.getText():null);}
+					BREED_NAME_SUFFIX20=(Token)match(input,BREED_NAME_SUFFIX,FOLLOW_BREED_NAME_SUFFIX_in_breed_ring537); if (state.failed) return json;dbg.location(82,111);
+					if ( state.backtracking==0 ) {breedName += " " + (BREED_NAME_SUFFIX20!=null?BREED_NAME_SUFFIX20.getText():null);}
 					}
 					break;
 
@@ -1777,8 +1793,8 @@ protected boolean evalPredicate(boolean result, String predicate) {
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:82:204: BREED_COUNT
 					{
 					dbg.location(82,204);
-					BREED_COUNT20=(Token)match(input,BREED_COUNT,FOLLOW_BREED_COUNT_in_breed_ring542); if (state.failed) return json;dbg.location(82,215);
-					if ( state.backtracking==0 ) {json.addProperty("BreedCount", (BREED_COUNT20!=null?BREED_COUNT20.getText():null));}
+					BREED_COUNT21=(Token)match(input,BREED_COUNT,FOLLOW_BREED_COUNT_in_breed_ring545); if (state.failed) return json;dbg.location(82,215);
+					if ( state.backtracking==0 ) {json.addProperty("BreedCount", (BREED_COUNT21!=null?BREED_COUNT21.getText():null));}
 					}
 					break;
 
@@ -1858,8 +1874,8 @@ protected boolean evalPredicate(boolean result, String predicate) {
 	}
 	// $ANTLR end synpred10_test
 
-	// $ANTLR start synpred18_test
-	public final void synpred18_test_fragment() throws RecognitionException {
+	// $ANTLR start synpred19_test
+	public final void synpred19_test_fragment() throws RecognitionException {
 		String mComment =null;
 
 		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:63:130: (mComment= comment )
@@ -1868,17 +1884,17 @@ protected boolean evalPredicate(boolean result, String predicate) {
 		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:63:130: mComment= comment
 		{
 		dbg.location(63,138);
-		pushFollow(FOLLOW_comment_in_synpred18_test352);
+		pushFollow(FOLLOW_comment_in_synpred19_test355);
 		mComment=comment();
 		state._fsp--;
 		if (state.failed) return ;
 		}
 
 	}
-	// $ANTLR end synpred18_test
+	// $ANTLR end synpred19_test
 
-	// $ANTLR start synpred20_test
-	public final void synpred20_test_fragment() throws RecognitionException {
+	// $ANTLR start synpred21_test
+	public final void synpred21_test_fragment() throws RecognitionException {
 		JsonObject mSpecialRing =null;
 
 		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:67:5: (mSpecialRing= special_ring )
@@ -1887,17 +1903,17 @@ protected boolean evalPredicate(boolean result, String predicate) {
 		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:67:5: mSpecialRing= special_ring
 		{
 		dbg.location(67,17);
-		pushFollow(FOLLOW_special_ring_in_synpred20_test380);
+		pushFollow(FOLLOW_special_ring_in_synpred21_test383);
 		mSpecialRing=special_ring();
 		state._fsp--;
 		if (state.failed) return ;
 		}
 
 	}
-	// $ANTLR end synpred20_test
+	// $ANTLR end synpred21_test
 
-	// $ANTLR start synpred21_test
-	public final void synpred21_test_fragment() throws RecognitionException {
+	// $ANTLR start synpred22_test
+	public final void synpred22_test_fragment() throws RecognitionException {
 		JsonObject mJuniorRing =null;
 
 		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:67:57: (mJuniorRing= junior_ring )
@@ -1906,17 +1922,17 @@ protected boolean evalPredicate(boolean result, String predicate) {
 		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:67:57: mJuniorRing= junior_ring
 		{
 		dbg.location(67,68);
-		pushFollow(FOLLOW_junior_ring_in_synpred21_test385);
+		pushFollow(FOLLOW_junior_ring_in_synpred22_test388);
 		mJuniorRing=junior_ring();
 		state._fsp--;
 		if (state.failed) return ;
 		}
 
 	}
-	// $ANTLR end synpred21_test
+	// $ANTLR end synpred22_test
 
-	// $ANTLR start synpred23_test
-	public final void synpred23_test_fragment() throws RecognitionException {
+	// $ANTLR start synpred24_test
+	public final void synpred24_test_fragment() throws RecognitionException {
 		JsonObject mBreedRing =null;
 
 		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:67:106: ( ( ( breed_ring )=>mBreedRing= breed_ring ) )
@@ -1931,7 +1947,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:67:107: ( breed_ring )=>mBreedRing= breed_ring
 		{
 		dbg.location(67,131);
-		pushFollow(FOLLOW_breed_ring_in_synpred23_test395);
+		pushFollow(FOLLOW_breed_ring_in_synpred24_test398);
 		mBreedRing=breed_ring();
 		state._fsp--;
 		if (state.failed) return ;
@@ -1940,24 +1956,24 @@ protected boolean evalPredicate(boolean result, String predicate) {
 		}
 
 	}
-	// $ANTLR end synpred23_test
+	// $ANTLR end synpred24_test
 
-	// $ANTLR start synpred24_test
-	public final void synpred24_test_fragment() throws RecognitionException {
+	// $ANTLR start synpred25_test
+	public final void synpred25_test_fragment() throws RecognitionException {
 		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:67:168: ( ring_comment )
 		dbg.enterAlt(1);
 
 		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:67:168: ring_comment
 		{
 		dbg.location(67,168);
-		pushFollow(FOLLOW_ring_comment_in_synpred24_test399);
+		pushFollow(FOLLOW_ring_comment_in_synpred25_test402);
 		ring_comment();
 		state._fsp--;
 		if (state.failed) return ;
 		}
 
 	}
-	// $ANTLR end synpred24_test
+	// $ANTLR end synpred25_test
 
 	// Delegated rules
 
@@ -1993,12 +2009,12 @@ protected boolean evalPredicate(boolean result, String predicate) {
 		state.failed=false;
 		return success;
 	}
-	public final boolean synpred23_test() {
+	public final boolean synpred25_test() {
 		state.backtracking++;
 		dbg.beginBacktrack(state.backtracking);
 		int start = input.mark();
 		try {
-			synpred23_test_fragment(); // can never throw exception
+			synpred25_test_fragment(); // can never throw exception
 		} catch (RecognitionException re) {
 			System.err.println("impossible: "+re);
 		}
@@ -2025,12 +2041,28 @@ protected boolean evalPredicate(boolean result, String predicate) {
 		state.failed=false;
 		return success;
 	}
-	public final boolean synpred20_test() {
+	public final boolean synpred22_test() {
 		state.backtracking++;
 		dbg.beginBacktrack(state.backtracking);
 		int start = input.mark();
 		try {
-			synpred20_test_fragment(); // can never throw exception
+			synpred22_test_fragment(); // can never throw exception
+		} catch (RecognitionException re) {
+			System.err.println("impossible: "+re);
+		}
+		boolean success = !state.failed;
+		input.rewind(start);
+		dbg.endBacktrack(state.backtracking, success);
+		state.backtracking--;
+		state.failed=false;
+		return success;
+	}
+	public final boolean synpred19_test() {
+		state.backtracking++;
+		dbg.beginBacktrack(state.backtracking);
+		int start = input.mark();
+		try {
+			synpred19_test_fragment(); // can never throw exception
 		} catch (RecognitionException re) {
 			System.err.println("impossible: "+re);
 		}
@@ -2047,22 +2079,6 @@ protected boolean evalPredicate(boolean result, String predicate) {
 		int start = input.mark();
 		try {
 			synpred21_test_fragment(); // can never throw exception
-		} catch (RecognitionException re) {
-			System.err.println("impossible: "+re);
-		}
-		boolean success = !state.failed;
-		input.rewind(start);
-		dbg.endBacktrack(state.backtracking, success);
-		state.backtracking--;
-		state.failed=false;
-		return success;
-	}
-	public final boolean synpred18_test() {
-		state.backtracking++;
-		dbg.beginBacktrack(state.backtracking);
-		int start = input.mark();
-		try {
-			synpred18_test_fragment(); // can never throw exception
 		} catch (RecognitionException re) {
 			System.err.println("impossible: "+re);
 		}
@@ -2094,7 +2110,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 
 	public static final BitSet FOLLOW_special_ring_in_test_special47 = new BitSet(new long[]{0x0000000040000002L});
 	public static final BitSet FOLLOW_breed_ring_in_test_breed61 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_big_comment_in_start85 = new BitSet(new long[]{0x000002C260000740L});
+	public static final BitSet FOLLOW_big_comment_in_start85 = new BitSet(new long[]{0x000002D260000740L});
 	public static final BitSet FOLLOW_ring_in_start98 = new BitSet(new long[]{0x0000004000000000L});
 	public static final BitSet FOLLOW_EOF_in_start105 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_RING_TITLE_in_ring131 = new BitSet(new long[]{0x0000020080000000L});
@@ -2106,42 +2122,43 @@ protected boolean evalPredicate(boolean result, String predicate) {
 	public static final BitSet FOLLOW_timeblock_in_judge_block213 = new BitSet(new long[]{0x0000020000000002L});
 	public static final BitSet FOLLOW_comment_in_big_comment245 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_TIME_in_big_comment248 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BREED_NAME_in_big_comment251 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_SPECIAL_SUFFIX_in_big_comment254 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_GROUP_RING_in_big_comment257 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TIME_in_comment280 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_COMMENT_in_comment282 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_PARENTHETICAL_in_comment285 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_INT_in_comment287 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ELLIPSIS_in_comment289 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_DATE_in_comment291 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_STANDALONE_COMMENT_in_ring_comment318 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TIME_in_timeblock340 = new BitSet(new long[]{0x0000010040000002L});
-	public static final BitSet FOLLOW_inner_timeblock_in_timeblock346 = new BitSet(new long[]{0x0000030240000702L});
-	public static final BitSet FOLLOW_comment_in_timeblock352 = new BitSet(new long[]{0x0000030240000702L});
-	public static final BitSet FOLLOW_special_ring_in_inner_timeblock380 = new BitSet(new long[]{0x0000010040000002L});
-	public static final BitSet FOLLOW_junior_ring_in_inner_timeblock385 = new BitSet(new long[]{0x0000010040000002L});
-	public static final BitSet FOLLOW_breed_ring_in_inner_timeblock395 = new BitSet(new long[]{0x0000010040000002L});
-	public static final BitSet FOLLOW_ring_comment_in_inner_timeblock399 = new BitSet(new long[]{0x0000010040000002L});
-	public static final BitSet FOLLOW_INT_in_special_ring421 = new BitSet(new long[]{0x0000000000000040L});
-	public static final BitSet FOLLOW_BREED_NAME_in_special_ring424 = new BitSet(new long[]{0x0000008000000000L});
-	public static final BitSet FOLLOW_SPECIAL_SUFFIX_in_special_ring428 = new BitSet(new long[]{0x0000008000000002L});
-	public static final BitSet FOLLOW_INT_in_junior_ring453 = new BitSet(new long[]{0x0000000100000000L});
-	public static final BitSet FOLLOW_JUNIOR_CLASS_in_junior_ring456 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_GROUP_RING_in_group_ring471 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TIME_in_group_block490 = new BitSet(new long[]{0x0000010020000000L});
-	public static final BitSet FOLLOW_STANDALONE_COMMENT_in_group_block493 = new BitSet(new long[]{0x0000000020000000L});
-	public static final BitSet FOLLOW_group_ring_in_group_block499 = new BitSet(new long[]{0x0000000020000002L});
-	public static final BitSet FOLLOW_INT_in_breed_ring527 = new BitSet(new long[]{0x0000000000000040L});
-	public static final BitSet FOLLOW_BREED_NAME_in_breed_ring530 = new BitSet(new long[]{0x00000000000000A2L});
-	public static final BitSet FOLLOW_BREED_NAME_SUFFIX_in_breed_ring534 = new BitSet(new long[]{0x0000000000000022L});
-	public static final BitSet FOLLOW_BREED_COUNT_in_breed_ring542 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_PHONE_NUMBER_in_big_comment251 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BREED_NAME_in_big_comment254 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_SPECIAL_SUFFIX_in_big_comment257 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_GROUP_RING_in_big_comment260 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TIME_in_comment283 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_COMMENT_in_comment285 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_PARENTHETICAL_in_comment288 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INT_in_comment290 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ELLIPSIS_in_comment292 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_DATE_in_comment294 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_STANDALONE_COMMENT_in_ring_comment321 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TIME_in_timeblock343 = new BitSet(new long[]{0x0000010040000002L});
+	public static final BitSet FOLLOW_inner_timeblock_in_timeblock349 = new BitSet(new long[]{0x0000030240000702L});
+	public static final BitSet FOLLOW_comment_in_timeblock355 = new BitSet(new long[]{0x0000030240000702L});
+	public static final BitSet FOLLOW_special_ring_in_inner_timeblock383 = new BitSet(new long[]{0x0000010040000002L});
+	public static final BitSet FOLLOW_junior_ring_in_inner_timeblock388 = new BitSet(new long[]{0x0000010040000002L});
+	public static final BitSet FOLLOW_breed_ring_in_inner_timeblock398 = new BitSet(new long[]{0x0000010040000002L});
+	public static final BitSet FOLLOW_ring_comment_in_inner_timeblock402 = new BitSet(new long[]{0x0000010040000002L});
+	public static final BitSet FOLLOW_INT_in_special_ring424 = new BitSet(new long[]{0x0000000000000040L});
+	public static final BitSet FOLLOW_BREED_NAME_in_special_ring427 = new BitSet(new long[]{0x0000008000000000L});
+	public static final BitSet FOLLOW_SPECIAL_SUFFIX_in_special_ring431 = new BitSet(new long[]{0x0000008000000002L});
+	public static final BitSet FOLLOW_INT_in_junior_ring456 = new BitSet(new long[]{0x0000000100000000L});
+	public static final BitSet FOLLOW_JUNIOR_CLASS_in_junior_ring459 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_GROUP_RING_in_group_ring474 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TIME_in_group_block493 = new BitSet(new long[]{0x0000010020000000L});
+	public static final BitSet FOLLOW_STANDALONE_COMMENT_in_group_block496 = new BitSet(new long[]{0x0000000020000000L});
+	public static final BitSet FOLLOW_group_ring_in_group_block502 = new BitSet(new long[]{0x0000000020000002L});
+	public static final BitSet FOLLOW_INT_in_breed_ring530 = new BitSet(new long[]{0x0000000000000040L});
+	public static final BitSet FOLLOW_BREED_NAME_in_breed_ring533 = new BitSet(new long[]{0x00000000000000A2L});
+	public static final BitSet FOLLOW_BREED_NAME_SUFFIX_in_breed_ring537 = new BitSet(new long[]{0x0000000000000022L});
+	public static final BitSet FOLLOW_BREED_COUNT_in_breed_ring545 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_ring_in_synpred3_test93 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_comment_in_synpred9_test245 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_TIME_in_synpred10_test248 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_comment_in_synpred18_test352 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_special_ring_in_synpred20_test380 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_junior_ring_in_synpred21_test385 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_breed_ring_in_synpred23_test395 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ring_comment_in_synpred24_test399 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_comment_in_synpred19_test355 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_special_ring_in_synpred21_test383 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_junior_ring_in_synpred22_test388 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_breed_ring_in_synpred24_test398 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ring_comment_in_synpred25_test402 = new BitSet(new long[]{0x0000000000000002L});
 }
