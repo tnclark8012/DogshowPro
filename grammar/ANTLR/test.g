@@ -35,7 +35,7 @@ ring	returns [JsonObject json]
 		:   RING_TITLE{json.addProperty("Title", $RING_TITLE.text);} mRing=inner_ring{json.add("Ring", mRing);};
 inner_ring returns [JsonObject json]
 	@init{json = new JsonObject();JsonArray judgeBlocks = new JsonArray();}
-	:  (group_block)=>mGroupBlock=group_block{json.add("GroupRing", mGroupBlock);}
+	:  ((group_block)=>mGroupBlock=group_block{json.add("GroupRing", mGroupBlock);} comment*)
 	    |((mJudgeBlock=judge_block{judgeBlocks.add(mJudgeBlock);})+ {json.add("JudgeBlocks", judgeBlocks);});
 judge_block returns [JsonObject json]
 	@init{json = new JsonObject(); JsonArray array = new JsonArray();}
@@ -44,23 +44,27 @@ judge_block returns [JsonObject json]
 big_comment returns [String str]
 		@init {str = null;}
 		:   (mComment=comment{str = mComment;}|TIME{str=$TIME.text;}|BREED_NAME{str=$BREED_NAME.text;}|SPECIAL_SUFFIX{str=$SPECIAL_SUFFIX.text;}|GROUP_RING{str=$GROUP_RING.text;});
+
 comment returns [String str]
-		@init {str = null;}
-		:   (COMMENT{str=$COMMENT.text;}|INT{str=$INT.text;}|DATE{str=$DATE.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|ELLIPSIS{str=$ELLIPSIS.text;});
+		@init{str=null;}
+		: (TIME|COMMENT{str=$COMMENT.text;}|PARENTHETICAL|INT|ELLIPSIS|DATE);
+//comment returns [String str]
+//		@init {str = null;}
+//		:   (COMMENT{str=$COMMENT.text;}|INT{str=$INT.text;}|DATE{str=$DATE.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|ELLIPSIS{str=$ELLIPSIS.text;});
 		
-timeblock_comment returns [String str]
-		@init {str = null;}
-	:	(COMMENT{str=$COMMENT.text;}|INT{str=$INT.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|TIME{str=$TIME.text;}|BREED_NAME{str=$BREED_NAME.text;});//no date
+//timeblock_comment returns [String str]
+//		@init {str = null;}
+//	:	(COMMENT{str=$COMMENT.text;}|INT{str=$INT.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;});//no date
 ring_comment returns [String str]
     :   STANDALONE_COMMENT{str=$STANDALONE_COMMENT.text;};
 
 timeblock returns [JsonObject json] 
 	@init {json = new JsonObject(); String comment = ""; int blockCounter = 0;}	
-	: TIME{json.addProperty("Time", $TIME.text);} (mInnerBlock1=inner_timeblock{json.add("Block"+(blockCounter++), mInnerBlock1);} mComment=timeblock_comment{comment+=$mComment.str;})*;
+	: TIME{json.addProperty("Time", $TIME.text);} (mInnerBlock1=inner_timeblock{json.add("Block"+(blockCounter++), mInnerBlock1);} (mComment=comment{comment+=$mComment.str;})*)*;
 	//:   TIME{json.addProperty("Time", $TIME.text);} mInnerBlock1=inner_timeblock{json.add("Block"+(blockCounter++), mInnerBlock1);} ((options {greedy=false;}:mComment=timeblock_comment{comment+=$mComment.str;})* {json.addProperty("Comment", comment);} DATE{json.addProperty("Date", $DATE.text);} INT mInnerBlock2=inner_timeblock{json.add("Block"+(blockCounter++), mInnerBlock2);})?;
 inner_timeblock returns [JsonArray array]
 	@init {array = new JsonArray();}
-	:	(mSpecialRing=special_ring{array.add(mSpecialRing);}|mJuniorRing=junior_ring{array.add(mJuniorRing);}|(breed_ring)=>mBreedRing=breed_ring{array.add(mBreedRing);})* (mSpecialRing=special_ring{array.add(mSpecialRing);}|mJuniorRing=junior_ring{array.add(mJuniorRing);}|mBreedRing=breed_ring{array.add(mBreedRing);}|mComment=ring_comment{array.add(new JsonPrimitive(mComment));});
+	:	(mSpecialRing=special_ring{array.add(mSpecialRing);}|mJuniorRing=junior_ring{array.add(mJuniorRing);}|((breed_ring)=>mBreedRing=breed_ring{array.add(mBreedRing);})|ring_comment)+;//|mComment=ring_comment{array.add(new JsonPrimitive(mComment));});
 special_ring returns [JsonObject json]
 	@init {json = new JsonObject(); String breedName = "";}
 	:   INT{json.addProperty("Count", $INT.text);} BREED_NAME{breedName+=$BREED_NAME.text;} (SPECIAL_SUFFIX{breedName+= " " +$SPECIAL_SUFFIX.text;})+ {json.addProperty("BreedName", breedName);};
