@@ -1,4 +1,4 @@
-// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2013-03-07 18:44:55
+// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2013-03-07 23:11:47
 
 package dev.tclark.dogshow.grammar;
 import com.google.gson.JsonArray;
@@ -70,18 +70,18 @@ public class testParser extends DebugParser {
 
 
 public static final String[] ruleNames = new String[] {
-	"invalidRule", "synpred9_test", "ring_comment", "special_ring", "inner_ring", 
-    "judge_name", "synpred13_test", "synpred25_test", "synpred31_test", 
-    "judge_block", "synpred11_test", "synpred33_test", "start", "group_block", 
-    "synpred22_test", "synpred4_test", "synpred32_test", "junior_ring", 
-    "synpred1_test", "synpred15_test", "synpred7_test", "synpred5_test", 
-    "synpred29_test", "synpred14_test", "comment", "synpred24_test", "synpred23_test", 
-    "synpred19_test", "synpred30_test", "synpred26_test", "test_breed", 
-    "synpred8_test", "synpred16_test", "synpred17_test", "big_comment", 
-    "ring", "synpred28_test", "synpred21_test", "synpred3_test", "synpred20_test", 
-    "test_special", "inner_timeblock", "synpred10_test", "synpred18_test", 
-    "synpred6_test", "timeblock", "synpred12_test", "breed_ring", "synpred2_test", 
-    "synpred27_test", "group_ring"
+	"invalidRule", "synpred17_test", "synpred27_test", "group_block", "special_ring", 
+    "synpred13_test", "synpred20_test", "test_special", "synpred19_test", 
+    "synpred32_test", "synpred24_test", "breed_ring", "synpred10_test", 
+    "synpred15_test", "synpred18_test", "synpred1_test", "synpred3_test", 
+    "start", "synpred21_test", "ring_comment", "synpred22_test", "synpred23_test", 
+    "synpred26_test", "synpred28_test", "junior_ring", "synpred5_test", 
+    "comment", "synpred11_test", "judge_name", "synpred16_test", "synpred9_test", 
+    "synpred7_test", "synpred4_test", "inner_timeblock", "synpred30_test", 
+    "big_comment", "synpred14_test", "timeblock", "group_ring", "ring", 
+    "test_breed", "synpred25_test", "synpred8_test", "synpred12_test", "synpred6_test", 
+    "judge_block", "inner_ring", "synpred29_test", "synpred2_test", "synpred33_test", 
+    "synpred31_test"
 };
 
 public static final boolean[] decisionCanBacktrack = new boolean[] {
@@ -1063,7 +1063,7 @@ protected boolean evalPredicate(boolean result, String predicate) {
 
 		Token COMMENT10=null;
 
-		str=null;
+		str="";
 		try { dbg.enterRule(getGrammarFileName(), "comment");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();

@@ -48,7 +48,7 @@ big_comment returns [String str]
 		:   (mComment=comment{str = mComment;}|TIME{str=$TIME.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|BREED_NAME{str=$BREED_NAME.text;}|SPECIAL_SUFFIX{str=$SPECIAL_SUFFIX.text;}|GROUP_RING{str=$GROUP_RING.text;});
 
 comment returns [String str]
-		@init{str=null;}
+		@init{str="";}
 		: (TIME|COMMENT{str=$COMMENT.text;}|PARENTHETICAL|INT|ELLIPSIS|DATE);
 //comment returns [String str]
 //		@init {str = null;}
@@ -175,6 +175,7 @@ fragment FRAG_BREED_NAME_SINGLE
     'Dalmatian'|
     'Dandie Dinmont Terrier'|
     'Doberman Pinscher'|
+    'Dogo Argentine'|
     'Dogue de Bordeaux'|
     'Dogues de Bordeaux'|//odd plural
     'English Cocker Spaniel'|
@@ -217,6 +218,7 @@ fragment FRAG_BREED_NAME_SINGLE
     'Kerry Blue Terrier'|
     'Komondor'|
     'Kuvasz'|
+    'Kuvaszok'|
     'Labrador Retriever'|
     'Lagotto Romagnolo'|
     'Lakeland Terrier'|
@@ -259,6 +261,7 @@ fragment FRAG_BREED_NAME_SINGLE
     'Puli'|
     'Pulik'|
     'Pyrenean Shepherd'|
+    'Rat Terrier'|
     'Redbone Coonhound'|
     'Retrievers'|//labrador
     'Rhodesian Ridgeback'|
@@ -282,6 +285,7 @@ fragment FRAG_BREED_NAME_SINGLE
     'Soft Coated Wheaten Terrier'|
     'Spaniels'|
     'Spinone Italiano'|
+    'Spinoni Italiani'|
     'Staffordshire Bull Terrier'|
     'Standard Schnauzer'|
     'Sussex Spaniel'|
@@ -367,7 +371,7 @@ fragment FRAG_GROUP_NAME
 		'TOY GROUP'|
 		'HOUND GROUP'|
 		'WORKING GROUP'|
-		'BEST IN SHOW'{allowGroup=false;});
+		('BEST IN SHOW'{allowGroup=false;}));
 		
 fragment FRAG_SPECIAL_GROUP_NAME
 	:	
@@ -433,7 +437,7 @@ fragment FRAG_WEEK_DAY:   'Sunday'|'SUNDAY'|
 STANDALONE_COMMENT
     :   'LUNCH'|'VARIETY GROUP JUDGING';  
 BREED_COUNT  :  INT '-' INT '-' INT '-' INT;
-JUDGE_NAME: {allowJudge}?=>(FRAG_TITLE ' ' FRAG_PROPER_NAME (' ' (PARENTHETICAL_NAME|FRAG_PROPER_NAME))* (' '? PARENTHETICAL_INT?));
+JUDGE_NAME: {allowJudge}?=>(FRAG_TITLE WS FRAG_PROPER_NAME (WS (PARENTHETICAL_NAME|FRAG_PROPER_NAME))* (WS? PARENTHETICAL_INT?));
 //JUDGE_NAME: FRAG_PROPER_NAME (' ' (PARENTHETICAL_NAME|FRAG_PROPER_NAME))* (' ' PARENTHETICAL_INT)?;
 
 WS :(' ' |'\t' |'\n' |'\r' )+ {$channel=HIDDEN;} ;  
@@ -455,15 +459,12 @@ PARENTHETICAL
     :   '(' (WORD|INT|FRAG_PROPER_NAME) (WS (WORD|INT|FRAG_PROPER_NAME))* ')';
 fragment FRAG_PROPER_NAME: ('A'..'Z' ('a'..'z'|'A'..'Z'|FRAG_SPEC_CHAR|FRAG_SPEC_WORD_CHAR)*)END_PUNCTUATION?;
 
-
-//fragment PROPER_NAME: FRAG_PROPER_NAME;// (WS FRAG_PROPER_NAME)*;
 PARENTHETICAL_INT
     :   '(' WS? INT WS? ')';
 fragment WORD  : ('a'..'z'|FRAG_SPEC_CHAR|FRAG_SPEC_WORD_CHAR)+ END_PUNCTUATION?;
 COMMENT :   ((FRAG_PROPER_NAME|WORD|PARENTHETICAL|INT|ELLIPSIS){allowBreed=false; allowGroup=false;allowJudge=false;})+;//Sometimes they mention sweepstakes in comment
 fragment END_WORD
 	:	WORD END_PUNCTUATION;
-//SENTENCE: (ATOM|PARENTHETICAL) (WS (WORD|INT|PARENTHETICAL))* END_PUNCTUATION;
 fragment PARENTHETICAL_NAME: '(' FRAG_PROPER_NAME ')';
 
 FallThrough
