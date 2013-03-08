@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2013-03-11 21:02:48
+=======
+// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2013-03-08 01:38:19
+>>>>>>> regenerated ANTLR files
 
 package dev.tclark.dogshow.grammar;
 import com.google.gson.JsonArray;

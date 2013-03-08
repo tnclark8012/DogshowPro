@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2013-03-11 21:02:50
+=======
+// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2013-03-08 01:38:20
+>>>>>>> regenerated ANTLR files
 
 package dev.tclark.dogshow.grammar;
 
@@ -4367,7 +4371,11 @@ public class testLexer extends Lexer {
 		try {
 			int _type = STANDALONE_COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:445:5: ( 'LUNCH' | 'VARIETY GROUP JUDGING' )
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:5: ( 'LUNCH' | 'VARIETY GROUP JUDGING' )
+>>>>>>> regenerated ANTLR files
 			int alt23=2;
 			int LA23_0 = input.LA(1);
 			if ( (LA23_0=='L') ) {
@@ -4383,14 +4391,22 @@ public class testLexer extends Lexer {
 			}
 			switch (alt23) {
 				case 1 :
+<<<<<<< HEAD
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:445:9: 'LUNCH'
+=======
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:9: 'LUNCH'
+>>>>>>> regenerated ANTLR files
 					{
 					match("LUNCH"); 
 
 					}
 					break;
 				case 2 :
+<<<<<<< HEAD
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:445:17: 'VARIETY GROUP JUDGING'
+=======
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:17: 'VARIETY GROUP JUDGING'
+>>>>>>> regenerated ANTLR files
 					{
 					match("VARIETY GROUP JUDGING"); 
 
@@ -4412,8 +4428,13 @@ public class testLexer extends Lexer {
 		try {
 			int _type = BREED_COUNT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:441:14: ( INT '-' INT '-' INT '-' INT )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:441:17: INT '-' INT '-' INT '-' INT
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:438:14: ( INT '-' INT '-' INT '-' INT )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:438:17: INT '-' INT '-' INT '-' INT
+>>>>>>> regenerated ANTLR files
 			{
 			mINT(); 
 
@@ -4442,14 +4463,24 @@ public class testLexer extends Lexer {
 		try {
 			int _type = JUDGE_NAME;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:11: ({...}? => ( FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )* ( ( WS )? ( PARENTHETICAL_INT )? ) ) )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:13: {...}? => ( FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )* ( ( WS )? ( PARENTHETICAL_INT )? ) )
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:11: ({...}? => ( FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )* ( ( WS )? ( PARENTHETICAL_INT )? ) ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:13: {...}? => ( FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )* ( ( WS )? ( PARENTHETICAL_INT )? ) )
+>>>>>>> regenerated ANTLR files
 			{
 			if ( !((allowJudge)) ) {
 				throw new FailedPredicateException(input, "JUDGE_NAME", "allowJudge");
 			}
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:28: ( FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )* ( ( WS )? ( PARENTHETICAL_INT )? ) )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:29: FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )* ( ( WS )? ( PARENTHETICAL_INT )? )
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:28: ( FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )* ( ( WS )? ( PARENTHETICAL_INT )? ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:29: FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )* ( ( WS )? ( PARENTHETICAL_INT )? )
+>>>>>>> regenerated ANTLR files
 			{
 			mFRAG_TITLE(); 
 
@@ -4457,7 +4488,11 @@ public class testLexer extends Lexer {
 
 			mFRAG_PROPER_NAME(); 
 
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:60: ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )*
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:60: ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )*
+>>>>>>> regenerated ANTLR files
 			loop25:
 			do {
 				int alt25=2;
@@ -4479,10 +4514,17 @@ public class testLexer extends Lexer {
 
 				switch (alt25) {
 				case 1 :
+<<<<<<< HEAD
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:61: ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME )
 					{
 					match(' '); 
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:65: ( PARENTHETICAL_NAME | FRAG_PROPER_NAME )
+=======
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:61: ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME )
+					{
+					match(' '); 
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:65: ( PARENTHETICAL_NAME | FRAG_PROPER_NAME )
+>>>>>>> regenerated ANTLR files
 					int alt24=2;
 					int LA24_0 = input.LA(1);
 					if ( (LA24_0=='(') ) {
@@ -4498,14 +4540,22 @@ public class testLexer extends Lexer {
 					}
 					switch (alt24) {
 						case 1 :
+<<<<<<< HEAD
 							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:66: PARENTHETICAL_NAME
+=======
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:66: PARENTHETICAL_NAME
+>>>>>>> regenerated ANTLR files
 							{
 							mPARENTHETICAL_NAME(); 
 
 							}
 							break;
 						case 2 :
+<<<<<<< HEAD
 							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:85: FRAG_PROPER_NAME
+=======
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:85: FRAG_PROPER_NAME
+>>>>>>> regenerated ANTLR files
 							{
 							mFRAG_PROPER_NAME(); 
 
@@ -4522,10 +4572,17 @@ public class testLexer extends Lexer {
 				}
 			} while (true);
 
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:105: ( ( WS )? ( PARENTHETICAL_INT )? )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:106: ( WS )? ( PARENTHETICAL_INT )?
 			{
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:106: ( WS )?
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:105: ( ( WS )? ( PARENTHETICAL_INT )? )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:106: ( WS )? ( PARENTHETICAL_INT )?
+			{
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:106: ( WS )?
+>>>>>>> regenerated ANTLR files
 			int alt26=2;
 			int LA26_0 = input.LA(1);
 			if ( ((LA26_0 >= '\t' && LA26_0 <= '\n')||LA26_0=='\r'||LA26_0==' ') ) {
@@ -4533,7 +4590,11 @@ public class testLexer extends Lexer {
 			}
 			switch (alt26) {
 				case 1 :
+<<<<<<< HEAD
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:106: WS
+=======
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:106: WS
+>>>>>>> regenerated ANTLR files
 					{
 					mWS(); 
 
@@ -4542,7 +4603,11 @@ public class testLexer extends Lexer {
 
 			}
 
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:110: ( PARENTHETICAL_INT )?
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:110: ( PARENTHETICAL_INT )?
+>>>>>>> regenerated ANTLR files
 			int alt27=2;
 			int LA27_0 = input.LA(1);
 			if ( (LA27_0=='(') ) {
@@ -4550,7 +4615,11 @@ public class testLexer extends Lexer {
 			}
 			switch (alt27) {
 				case 1 :
+<<<<<<< HEAD
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:110: PARENTHETICAL_INT
+=======
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:110: PARENTHETICAL_INT
+>>>>>>> regenerated ANTLR files
 					{
 					mPARENTHETICAL_INT(); 
 
@@ -4579,10 +4648,17 @@ public class testLexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:445:4: ( ( ' ' | '\\t' | '\\n' | '\\r' )+ )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:445:5: ( ' ' | '\\t' | '\\n' | '\\r' )+
 			{
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:445:5: ( ' ' | '\\t' | '\\n' | '\\r' )+
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:4: ( ( ' ' | '\\t' | '\\n' | '\\r' )+ )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:5: ( ' ' | '\\t' | '\\n' | '\\r' )+
+			{
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:5: ( ' ' | '\\t' | '\\n' | '\\r' )+
+>>>>>>> regenerated ANTLR files
 			int cnt28=0;
 			loop28:
 			do {
@@ -4633,10 +4709,17 @@ public class testLexer extends Lexer {
 		try {
 			int _type = RING_TITLE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:447:13: ( ( 'GROUP RING' | ( 'RING' WS INT ) ) )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:447:17: ( 'GROUP RING' | ( 'RING' WS INT ) )
 			{
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:447:17: ( 'GROUP RING' | ( 'RING' WS INT ) )
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:444:13: ( ( 'GROUP RING' | ( 'RING' WS INT ) ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:444:17: ( 'GROUP RING' | ( 'RING' WS INT ) )
+			{
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:444:17: ( 'GROUP RING' | ( 'RING' WS INT ) )
+>>>>>>> regenerated ANTLR files
 			int alt29=2;
 			int LA29_0 = input.LA(1);
 			if ( (LA29_0=='G') ) {
@@ -4652,7 +4735,11 @@ public class testLexer extends Lexer {
 			}
 			switch (alt29) {
 				case 1 :
+<<<<<<< HEAD
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:447:18: 'GROUP RING'
+=======
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:444:18: 'GROUP RING'
+>>>>>>> regenerated ANTLR files
 					{
 					match("GROUP RING"); 
 
@@ -4660,10 +4747,17 @@ public class testLexer extends Lexer {
 					}
 					break;
 				case 2 :
+<<<<<<< HEAD
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:447:49: ( 'RING' WS INT )
 					{
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:447:49: ( 'RING' WS INT )
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:447:50: 'RING' WS INT
+=======
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:444:49: ( 'RING' WS INT )
+					{
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:444:49: ( 'RING' WS INT )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:444:50: 'RING' WS INT
+>>>>>>> regenerated ANTLR files
 					{
 					match("RING"); 
 
@@ -4695,15 +4789,24 @@ public class testLexer extends Lexer {
 		try {
 			int _type = PHONE_NUMBER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:450:5: ( '(' '0' .. '9' '0' .. '9' '0' .. '9' ')' ( WS )? '0' .. '9' '0' .. '9' '0' .. '9' '-' '0' .. '9' '0' .. '9' '0' .. '9' '0' .. '9' )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:450:9: '(' '0' .. '9' '0' .. '9' '0' .. '9' ')' ( WS )? '0' .. '9' '0' .. '9' '0' .. '9' '-' '0' .. '9' '0' .. '9' '0' .. '9' '0' .. '9'
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:447:5: ( '(' '0' .. '9' '0' .. '9' '0' .. '9' ')' ( WS )? '0' .. '9' '0' .. '9' '0' .. '9' '-' '0' .. '9' '0' .. '9' '0' .. '9' '0' .. '9' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:447:9: '(' '0' .. '9' '0' .. '9' '0' .. '9' ')' ( WS )? '0' .. '9' '0' .. '9' '0' .. '9' '-' '0' .. '9' '0' .. '9' '0' .. '9' '0' .. '9'
+>>>>>>> regenerated ANTLR files
 			{
 			match('('); 
 			matchRange('0','9'); 
 			matchRange('0','9'); 
 			matchRange('0','9'); 
 			match(')'); 
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:450:42: ( WS )?
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:447:42: ( WS )?
+>>>>>>> regenerated ANTLR files
 			int alt30=2;
 			int LA30_0 = input.LA(1);
 			if ( ((LA30_0 >= '\t' && LA30_0 <= '\n')||LA30_0=='\r'||LA30_0==' ') ) {
@@ -4711,7 +4814,11 @@ public class testLexer extends Lexer {
 			}
 			switch (alt30) {
 				case 1 :
+<<<<<<< HEAD
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:450:42: WS
+=======
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:447:42: WS
+>>>>>>> regenerated ANTLR files
 					{
 					mWS(); 
 
@@ -4744,8 +4851,13 @@ public class testLexer extends Lexer {
 		try {
 			int _type = TIME;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:452:9: ( INT ':' INT WS FRAG_TIME_LABEL )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:452:13: INT ':' INT WS FRAG_TIME_LABEL
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:449:9: ( INT ':' INT WS FRAG_TIME_LABEL )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:449:13: INT ':' INT WS FRAG_TIME_LABEL
+>>>>>>> regenerated ANTLR files
 			{
 			mINT(); 
 
@@ -4773,8 +4885,13 @@ public class testLexer extends Lexer {
 		try {
 			int _type = DATE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:454:9: ( FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:454:13: FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:451:9: ( FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:451:13: FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT
+>>>>>>> regenerated ANTLR files
 			{
 			mFRAG_WEEK_DAY(); 
 
@@ -4809,10 +4926,17 @@ public class testLexer extends Lexer {
 		try {
 			int _type = ELLIPSIS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:456:9: ( ( '.' )+ )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:456:13: ( '.' )+
 			{
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:456:13: ( '.' )+
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:453:9: ( ( '.' )+ )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:453:13: ( '.' )+
+			{
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:453:13: ( '.' )+
+>>>>>>> regenerated ANTLR files
 			int cnt31=0;
 			loop31:
 			do {
@@ -4824,7 +4948,11 @@ public class testLexer extends Lexer {
 
 				switch (alt31) {
 				case 1 :
+<<<<<<< HEAD
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:456:13: '.'
+=======
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:453:13: '.'
+>>>>>>> regenerated ANTLR files
 					{
 					match('.'); 
 					}
@@ -4855,10 +4983,17 @@ public class testLexer extends Lexer {
 		try {
 			int _type = INT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:458:5: ( ( '0' .. '9' )+ )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:458:6: ( '0' .. '9' )+
 			{
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:458:6: ( '0' .. '9' )+
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:455:5: ( ( '0' .. '9' )+ )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:455:6: ( '0' .. '9' )+
+			{
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:455:6: ( '0' .. '9' )+
+>>>>>>> regenerated ANTLR files
 			int cnt32=0;
 			loop32:
 			do {
@@ -4908,11 +5043,19 @@ public class testLexer extends Lexer {
 		try {
 			int _type = PARENTHETICAL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:461:5: ( '(' ( WORD | INT | FRAG_PROPER_NAME ) ( WS ( WORD | INT | FRAG_PROPER_NAME ) )* ')' )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:461:9: '(' ( WORD | INT | FRAG_PROPER_NAME ) ( WS ( WORD | INT | FRAG_PROPER_NAME ) )* ')'
 			{
 			match('('); 
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:461:13: ( WORD | INT | FRAG_PROPER_NAME )
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:458:5: ( '(' ( WORD | INT | FRAG_PROPER_NAME ) ( WS ( WORD | INT | FRAG_PROPER_NAME ) )* ')' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:458:9: '(' ( WORD | INT | FRAG_PROPER_NAME ) ( WS ( WORD | INT | FRAG_PROPER_NAME ) )* ')'
+			{
+			match('('); 
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:458:13: ( WORD | INT | FRAG_PROPER_NAME )
+>>>>>>> regenerated ANTLR files
 			int alt33=3;
 			switch ( input.LA(1) ) {
 			case '&':
@@ -5004,21 +5147,33 @@ public class testLexer extends Lexer {
 			}
 			switch (alt33) {
 				case 1 :
+<<<<<<< HEAD
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:461:14: WORD
+=======
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:458:14: WORD
+>>>>>>> regenerated ANTLR files
 					{
 					mWORD(); 
 
 					}
 					break;
 				case 2 :
+<<<<<<< HEAD
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:461:19: INT
+=======
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:458:19: INT
+>>>>>>> regenerated ANTLR files
 					{
 					mINT(); 
 
 					}
 					break;
 				case 3 :
+<<<<<<< HEAD
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:461:23: FRAG_PROPER_NAME
+=======
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:458:23: FRAG_PROPER_NAME
+>>>>>>> regenerated ANTLR files
 					{
 					mFRAG_PROPER_NAME(); 
 
@@ -5027,7 +5182,11 @@ public class testLexer extends Lexer {
 
 			}
 
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:461:41: ( WS ( WORD | INT | FRAG_PROPER_NAME ) )*
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:458:41: ( WS ( WORD | INT | FRAG_PROPER_NAME ) )*
+>>>>>>> regenerated ANTLR files
 			loop35:
 			do {
 				int alt35=2;
@@ -5038,11 +5197,19 @@ public class testLexer extends Lexer {
 
 				switch (alt35) {
 				case 1 :
+<<<<<<< HEAD
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:461:42: WS ( WORD | INT | FRAG_PROPER_NAME )
 					{
 					mWS(); 
 
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:461:45: ( WORD | INT | FRAG_PROPER_NAME )
+=======
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:458:42: WS ( WORD | INT | FRAG_PROPER_NAME )
+					{
+					mWS(); 
+
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:458:45: ( WORD | INT | FRAG_PROPER_NAME )
+>>>>>>> regenerated ANTLR files
 					int alt34=3;
 					switch ( input.LA(1) ) {
 					case '&':
@@ -5134,21 +5301,33 @@ public class testLexer extends Lexer {
 					}
 					switch (alt34) {
 						case 1 :
+<<<<<<< HEAD
 							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:461:46: WORD
+=======
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:458:46: WORD
+>>>>>>> regenerated ANTLR files
 							{
 							mWORD(); 
 
 							}
 							break;
 						case 2 :
+<<<<<<< HEAD
 							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:461:51: INT
+=======
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:458:51: INT
+>>>>>>> regenerated ANTLR files
 							{
 							mINT(); 
 
 							}
 							break;
 						case 3 :
+<<<<<<< HEAD
 							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:461:55: FRAG_PROPER_NAME
+=======
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:458:55: FRAG_PROPER_NAME
+>>>>>>> regenerated ANTLR files
 							{
 							mFRAG_PROPER_NAME(); 
 
@@ -5180,6 +5359,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_PROPER_NAME"
 	public final void mFRAG_PROPER_NAME() throws RecognitionException {
 		try {
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:26: ( ( 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )* ) ( END_PUNCTUATION )? )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:28: ( 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )* ) ( END_PUNCTUATION )?
 			{
@@ -5188,6 +5368,16 @@ public class testLexer extends Lexer {
 			{
 			matchRange('A','Z'); 
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:38: ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )*
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:459:26: ( ( 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )* ) ( END_PUNCTUATION )? )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:459:28: ( 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )* ) ( END_PUNCTUATION )?
+			{
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:459:28: ( 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )* )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:459:29: 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )*
+			{
+			matchRange('A','Z'); 
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:459:38: ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )*
+>>>>>>> regenerated ANTLR files
 			loop36:
 			do {
 				int alt36=2;
@@ -5218,7 +5408,11 @@ public class testLexer extends Lexer {
 
 			}
 
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:94: ( END_PUNCTUATION )?
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:459:94: ( END_PUNCTUATION )?
+>>>>>>> regenerated ANTLR files
 			int alt37=2;
 			int LA37_0 = input.LA(1);
 			if ( (LA37_0=='!'||LA37_0=='.'||LA37_0=='?') ) {
@@ -5255,11 +5449,19 @@ public class testLexer extends Lexer {
 		try {
 			int _type = PARENTHETICAL_INT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:465:5: ( '(' ( WS )? INT ( WS )? ')' )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:465:9: '(' ( WS )? INT ( WS )? ')'
 			{
 			match('('); 
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:465:13: ( WS )?
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:5: ( '(' ( WS )? INT ( WS )? ')' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:9: '(' ( WS )? INT ( WS )? ')'
+			{
+			match('('); 
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:13: ( WS )?
+>>>>>>> regenerated ANTLR files
 			int alt38=2;
 			int LA38_0 = input.LA(1);
 			if ( ((LA38_0 >= '\t' && LA38_0 <= '\n')||LA38_0=='\r'||LA38_0==' ') ) {
@@ -5267,7 +5469,11 @@ public class testLexer extends Lexer {
 			}
 			switch (alt38) {
 				case 1 :
+<<<<<<< HEAD
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:465:13: WS
+=======
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:13: WS
+>>>>>>> regenerated ANTLR files
 					{
 					mWS(); 
 
@@ -5278,7 +5484,11 @@ public class testLexer extends Lexer {
 
 			mINT(); 
 
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:465:21: ( WS )?
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:21: ( WS )?
+>>>>>>> regenerated ANTLR files
 			int alt39=2;
 			int LA39_0 = input.LA(1);
 			if ( ((LA39_0 >= '\t' && LA39_0 <= '\n')||LA39_0=='\r'||LA39_0==' ') ) {
@@ -5286,7 +5496,11 @@ public class testLexer extends Lexer {
 			}
 			switch (alt39) {
 				case 1 :
+<<<<<<< HEAD
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:465:21: WS
+=======
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:21: WS
+>>>>>>> regenerated ANTLR files
 					{
 					mWS(); 
 
@@ -5310,10 +5524,17 @@ public class testLexer extends Lexer {
 	// $ANTLR start "WORD"
 	public final void mWORD() throws RecognitionException {
 		try {
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:16: ( ( 'a' .. 'z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )+ ( END_PUNCTUATION )? )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:18: ( 'a' .. 'z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )+ ( END_PUNCTUATION )?
 			{
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:18: ( 'a' .. 'z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )+
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:463:16: ( ( 'a' .. 'z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )+ ( END_PUNCTUATION )? )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:463:18: ( 'a' .. 'z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )+ ( END_PUNCTUATION )?
+			{
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:463:18: ( 'a' .. 'z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )+
+>>>>>>> regenerated ANTLR files
 			int cnt40=0;
 			loop40:
 			do {
@@ -5347,7 +5568,11 @@ public class testLexer extends Lexer {
 				cnt40++;
 			} while (true);
 
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:65: ( END_PUNCTUATION )?
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:463:65: ( END_PUNCTUATION )?
+>>>>>>> regenerated ANTLR files
 			int alt41=2;
 			int LA41_0 = input.LA(1);
 			if ( (LA41_0=='!'||LA41_0=='.'||LA41_0=='?') ) {
@@ -5384,10 +5609,17 @@ public class testLexer extends Lexer {
 		try {
 			int _type = COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:467:9: ( ( ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS ) )+ )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:467:13: ( ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS ) )+
 			{
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:467:13: ( ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS ) )+
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:464:9: ( ( ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS ) )+ )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:464:13: ( ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS ) )+
+			{
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:464:13: ( ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS ) )+
+>>>>>>> regenerated ANTLR files
 			int cnt43=0;
 			loop43:
 			do {
@@ -5399,9 +5631,15 @@ public class testLexer extends Lexer {
 
 				switch (alt43) {
 				case 1 :
+<<<<<<< HEAD
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:467:14: ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS )
 					{
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:467:14: ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS )
+=======
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:464:14: ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS )
+					{
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:464:14: ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS )
+>>>>>>> regenerated ANTLR files
 					int alt42=5;
 					switch ( input.LA(1) ) {
 					case 'A':
@@ -5503,35 +5741,55 @@ public class testLexer extends Lexer {
 					}
 					switch (alt42) {
 						case 1 :
+<<<<<<< HEAD
 							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:467:15: FRAG_PROPER_NAME
+=======
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:464:15: FRAG_PROPER_NAME
+>>>>>>> regenerated ANTLR files
 							{
 							mFRAG_PROPER_NAME(); 
 
 							}
 							break;
 						case 2 :
+<<<<<<< HEAD
 							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:467:32: WORD
+=======
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:464:32: WORD
+>>>>>>> regenerated ANTLR files
 							{
 							mWORD(); 
 
 							}
 							break;
 						case 3 :
+<<<<<<< HEAD
 							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:467:37: PARENTHETICAL
+=======
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:464:37: PARENTHETICAL
+>>>>>>> regenerated ANTLR files
 							{
 							mPARENTHETICAL(); 
 
 							}
 							break;
 						case 4 :
+<<<<<<< HEAD
 							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:467:51: INT
+=======
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:464:51: INT
+>>>>>>> regenerated ANTLR files
 							{
 							mINT(); 
 
 							}
 							break;
 						case 5 :
+<<<<<<< HEAD
 							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:467:55: ELLIPSIS
+=======
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:464:55: ELLIPSIS
+>>>>>>> regenerated ANTLR files
 							{
 							mELLIPSIS(); 
 
@@ -5567,8 +5825,13 @@ public class testLexer extends Lexer {
 	// $ANTLR start "END_WORD"
 	public final void mEND_WORD() throws RecognitionException {
 		try {
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:469:2: ( WORD END_PUNCTUATION )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:469:4: WORD END_PUNCTUATION
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:2: ( WORD END_PUNCTUATION )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:4: WORD END_PUNCTUATION
+>>>>>>> regenerated ANTLR files
 			{
 			mWORD(); 
 
@@ -5586,8 +5849,13 @@ public class testLexer extends Lexer {
 	// $ANTLR start "PARENTHETICAL_NAME"
 	public final void mPARENTHETICAL_NAME() throws RecognitionException {
 		try {
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:470:28: ( '(' FRAG_PROPER_NAME ')' )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:470:30: '(' FRAG_PROPER_NAME ')'
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:467:28: ( '(' FRAG_PROPER_NAME ')' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:467:30: '(' FRAG_PROPER_NAME ')'
+>>>>>>> regenerated ANTLR files
 			{
 			match('('); 
 			mFRAG_PROPER_NAME(); 
@@ -5607,8 +5875,13 @@ public class testLexer extends Lexer {
 		try {
 			int _type = FallThrough;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:476:3: ( . )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:476:6: .
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:473:3: ( . )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:473:6: .
+>>>>>>> regenerated ANTLR files
 			{
 			matchAny(); 
 			_channel=HIDDEN;
