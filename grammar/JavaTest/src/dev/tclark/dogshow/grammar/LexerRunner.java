@@ -13,98 +13,85 @@ import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.Token;
 import org.junit.Assert;
+
 /**
- * TODO refactor to allow passing PrintStreams for out/err instead of relying on System
+ * TODO refactor to allow passing PrintStreams for out/err instead of relying on
+ * System
+ * 
  * @author Taylor
- *
+ * 
  */
-public class LexerRunner {
-	private PrintStream origSystemErr;
-	private PrintStream origSystemOut;
+public class LexerRunner extends GrammarRunner {
+
 	private testLexer lexer;
 	private String initializedFile = null;
+
 	public LexerRunner() {
-        lexer = new testLexer();
+		lexer = new testLexer();
 	}
-	
+
 	public LexerRunner(String inputFile) {
-        lexer = new testLexer();
-        initializedFile = inputFile;
+		lexer = new testLexer();
+		initializedFile = inputFile;
 	}
-	
-	public CommonTokenStream getTokenStream(String inputFile) throws IOException
-	{
-		
+
+	public CommonTokenStream getTokenStream(String inputFile)
+			throws IOException {
+
 		CharStream cs = new ANTLRFileStream(inputFile);
 		lexer.setCharStream(cs);
 		return new CommonTokenStream(lexer);
 	}
-	
-	public CommonTokenStream getTokenStream() throws IOException
-	{
+
+	public CommonTokenStream getTokenStream() throws IOException {
 		Assert.assertNotNull("Must initialize input file!", initializedFile);
 		return getTokenStream(initializedFile);
 	}
-	
-	public void printTokens() throws IllegalArgumentException, IOException, IllegalAccessException
-	{
-		Assert.assertNotNull("Must initialize runner with input file", initializedFile);
+
+	public void printTokens() throws IllegalArgumentException, IOException,
+			IllegalAccessException {
+		Assert.assertNotNull("Must initialize runner with input file",
+				initializedFile);
 		this.printTokens(initializedFile);
 	}
-	
-	public void printTokens(PrintStream outStream) throws IllegalArgumentException, IOException, IllegalAccessException
-	{
-		Assert.assertNotNull("Must initialize runner with input file", initializedFile);
-		setSystemOut(outStream);
+
+	public void printTokens(PrintStream outStream)
+			throws IllegalArgumentException, IOException,
+			IllegalAccessException {
+		Assert.assertNotNull("Must initialize runner with input file",
+				initializedFile);
+		setOutputStream(outStream);
 		this.printTokens(initializedFile);
 	}
-	
-	public void printTokens(PrintStream outstream, PrintStream errStream) throws IllegalArgumentException, IOException, IllegalAccessException
-	{
-		setSystemErr(errStream);
+
+	public void printTokens(PrintStream outstream, PrintStream errStream)
+			throws IllegalArgumentException, IOException,
+			IllegalAccessException {
+		setErrStream(errStream);
 		printTokens(outstream);
 	}
+
 	public void printTokens(String inputFile, PrintStream outStream)
 			throws IOException, IllegalArgumentException,
 			IllegalAccessException {
-		setSystemOut(outStream);
+		setOutputStream(outStream);
 		printTokens(inputFile);
-		resetSystemStreams();
+		resetStreams();
 
 	}
 
 	public void printTokens(String inputFile, PrintStream outStream,
 			PrintStream errStream) throws IOException,
 			IllegalArgumentException, IllegalAccessException {
-			setSystemErr(errStream);
+		setErrStream(errStream);
 		printTokens(inputFile, outStream);
-	}
-	private void setSystemOut(PrintStream newStream)
-	{
-		origSystemOut = System.out;
-		System.setOut(newStream);
-	}
-	private void setSystemErr(PrintStream newStream)
-	{
-		origSystemErr = System.err;
-		System.setErr(newStream);
-	}
-	private void resetSystemStreams() {
-		if (origSystemOut != null) {
-			System.setOut(origSystemOut);
-			origSystemOut = null;
-		}
-		if (origSystemErr != null) {
-			System.setErr(origSystemErr);
-			origSystemErr = null;
-		}
 	}
 
 	public void printTokens(String inputFile) throws IOException,
 			IllegalArgumentException, IllegalAccessException {
 		CharStream cs = new ANTLRFileStream(inputFile);
 		lexer.setCharStream(cs);
-		
+
 		Class<testLexer> testLexClass = testLexer.class;
 		Field[] fields = testLexClass.getFields();
 		List<Field> ids = new ArrayList<Field>();

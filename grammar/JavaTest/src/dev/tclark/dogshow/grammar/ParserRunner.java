@@ -1,6 +1,7 @@
 package dev.tclark.dogshow.grammar;
 
 import java.io.IOException;
+import java.io.PrintStream;
 
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
@@ -11,7 +12,7 @@ import com.google.gson.JsonObject;
  * @author Taylor
  *
  */
-public class ParserRunner {
+public class ParserRunner extends GrammarRunner{
 	private LexerRunner lexer;
 
 	public ParserRunner(LexerRunner lexer){
@@ -30,4 +31,19 @@ public class ParserRunner {
 		JsonObject json = parseStart(inputFile);
 		System.out.println(json);
 	}
+
+	public JsonObject parseStart(String inputFile, PrintStream outputStream) throws IOException, RecognitionException {
+		setOutputStream(outputStream);
+		JsonObject result = parseStart(inputFile);
+		resetStreams();
+		return result;
+	}
+	
+	public JsonObject parseStart(String inputFile, PrintStream outputStream, PrintStream errStream) throws IOException, RecognitionException
+	{
+		setErrStream(errStream);
+		return parseStart(inputFile, outputStream);
+	}
+	
+	
 }
