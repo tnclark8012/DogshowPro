@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // $ANTLR 3.5 C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g 2013-02-20 23:20:34
+=======
+// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g 2013-02-11 21:15:37
+>>>>>>> origin/master
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -120,9 +124,14 @@ public class dogshowcomboLexer extends Lexer {
 								default:
 									int nvaeMark = input.mark();
 									try {
+<<<<<<< HEAD
 										for (int nvaeConsume = 0; nvaeConsume < 6 - 1; nvaeConsume++) {
 											input.consume();
 										}
+=======
+										for (int nvaeConsume = 0; nvaeConsume < 6 - 1; nvaeConsume++)
+											input.consume();
+>>>>>>> origin/master
 										NoViableAltException nvae =
 											new NoViableAltException("", 1, 10, input);
 										throw nvae;
@@ -131,6 +140,7 @@ public class dogshowcomboLexer extends Lexer {
 									}
 								}
 							}
+<<<<<<< HEAD
 
 							else {
 								int nvaeMark = input.mark();
@@ -138,6 +148,13 @@ public class dogshowcomboLexer extends Lexer {
 									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++) {
 										input.consume();
 									}
+=======
+							else {
+								int nvaeMark = input.mark();
+								try {
+									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++)
+										input.consume();
+>>>>>>> origin/master
 									NoViableAltException nvae =
 										new NoViableAltException("", 1, 8, input);
 									throw nvae;
@@ -145,6 +162,7 @@ public class dogshowcomboLexer extends Lexer {
 									input.rewind(nvaeMark);
 								}
 							}
+<<<<<<< HEAD
 
 						}
 
@@ -154,6 +172,14 @@ public class dogshowcomboLexer extends Lexer {
 								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
 									input.consume();
 								}
+=======
+						}
+						else {
+							int nvaeMark = input.mark();
+							try {
+								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++)
+									input.consume();
+>>>>>>> origin/master
 								NoViableAltException nvae =
 									new NoViableAltException("", 1, 6, input);
 								throw nvae;
@@ -161,6 +187,7 @@ public class dogshowcomboLexer extends Lexer {
 								input.rewind(nvaeMark);
 							}
 						}
+<<<<<<< HEAD
 
 					}
 
@@ -170,6 +197,14 @@ public class dogshowcomboLexer extends Lexer {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
 								input.consume();
 							}
+=======
+					}
+					else {
+						int nvaeMark = input.mark();
+						try {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++)
+								input.consume();
+>>>>>>> origin/master
 							NoViableAltException nvae =
 								new NoViableAltException("", 1, 4, input);
 							throw nvae;
@@ -177,9 +212,13 @@ public class dogshowcomboLexer extends Lexer {
 							input.rewind(nvaeMark);
 						}
 					}
+<<<<<<< HEAD
 
 				}
 
+=======
+				}
+>>>>>>> origin/master
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -191,7 +230,10 @@ public class dogshowcomboLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				}
 				break;
 			case 'N':
@@ -227,9 +269,14 @@ public class dogshowcomboLexer extends Lexer {
 										default:
 											int nvaeMark = input.mark();
 											try {
+<<<<<<< HEAD
 												for (int nvaeConsume = 0; nvaeConsume < 8 - 1; nvaeConsume++) {
 													input.consume();
 												}
+=======
+												for (int nvaeConsume = 0; nvaeConsume < 8 - 1; nvaeConsume++)
+													input.consume();
+>>>>>>> origin/master
 												NoViableAltException nvae =
 													new NoViableAltException("", 1, 16, input);
 												throw nvae;
@@ -238,6 +285,7 @@ public class dogshowcomboLexer extends Lexer {
 											}
 										}
 									}
+<<<<<<< HEAD
 
 									else {
 										int nvaeMark = input.mark();
@@ -245,6 +293,13 @@ public class dogshowcomboLexer extends Lexer {
 											for (int nvaeConsume = 0; nvaeConsume < 7 - 1; nvaeConsume++) {
 												input.consume();
 											}
+=======
+									else {
+										int nvaeMark = input.mark();
+										try {
+											for (int nvaeConsume = 0; nvaeConsume < 7 - 1; nvaeConsume++)
+												input.consume();
+>>>>>>> origin/master
 											NoViableAltException nvae =
 												new NoViableAltException("", 1, 15, input);
 											throw nvae;
@@ -252,6 +307,7 @@ public class dogshowcomboLexer extends Lexer {
 											input.rewind(nvaeMark);
 										}
 									}
+<<<<<<< HEAD
 
 								}
 
@@ -261,6 +317,14 @@ public class dogshowcomboLexer extends Lexer {
 										for (int nvaeConsume = 0; nvaeConsume < 6 - 1; nvaeConsume++) {
 											input.consume();
 										}
+=======
+								}
+								else {
+									int nvaeMark = input.mark();
+									try {
+										for (int nvaeConsume = 0; nvaeConsume < 6 - 1; nvaeConsume++)
+											input.consume();
+>>>>>>> origin/master
 										NoViableAltException nvae =
 											new NoViableAltException("", 1, 11, input);
 										throw nvae;
@@ -268,6 +332,7 @@ public class dogshowcomboLexer extends Lexer {
 										input.rewind(nvaeMark);
 									}
 								}
+<<<<<<< HEAD
 
 							}
 
@@ -277,6 +342,14 @@ public class dogshowcomboLexer extends Lexer {
 									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++) {
 										input.consume();
 									}
+=======
+							}
+							else {
+								int nvaeMark = input.mark();
+								try {
+									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++)
+										input.consume();
+>>>>>>> origin/master
 									NoViableAltException nvae =
 										new NoViableAltException("", 1, 9, input);
 									throw nvae;
@@ -284,6 +357,7 @@ public class dogshowcomboLexer extends Lexer {
 									input.rewind(nvaeMark);
 								}
 							}
+<<<<<<< HEAD
 
 						}
 
@@ -293,6 +367,14 @@ public class dogshowcomboLexer extends Lexer {
 								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
 									input.consume();
 								}
+=======
+						}
+						else {
+							int nvaeMark = input.mark();
+							try {
+								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++)
+									input.consume();
+>>>>>>> origin/master
 								NoViableAltException nvae =
 									new NoViableAltException("", 1, 7, input);
 								throw nvae;
@@ -300,6 +382,7 @@ public class dogshowcomboLexer extends Lexer {
 								input.rewind(nvaeMark);
 							}
 						}
+<<<<<<< HEAD
 
 					}
 
@@ -309,6 +392,14 @@ public class dogshowcomboLexer extends Lexer {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
 								input.consume();
 							}
+=======
+					}
+					else {
+						int nvaeMark = input.mark();
+						try {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++)
+								input.consume();
+>>>>>>> origin/master
 							NoViableAltException nvae =
 								new NoViableAltException("", 1, 5, input);
 							throw nvae;
@@ -316,9 +407,13 @@ public class dogshowcomboLexer extends Lexer {
 							input.rewind(nvaeMark);
 						}
 					}
+<<<<<<< HEAD
 
 				}
 
+=======
+				}
+>>>>>>> origin/master
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -330,7 +425,10 @@ public class dogshowcomboLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				}
 				break;
 			default:
@@ -421,7 +519,10 @@ public class dogshowcomboLexer extends Lexer {
 				else if ( (LA2_2=='e') ) {
 					alt2=2;
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -433,15 +534,22 @@ public class dogshowcomboLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
+<<<<<<< HEAD
 
 			}
 
+=======
+			}
+>>>>>>> origin/master
 			else {
 				NoViableAltException nvae =
 					new NoViableAltException("", 2, 0, input);
 				throw nvae;
 			}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 			switch (alt2) {
 				case 1 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:54:5: FRAG_BREED_NAME_SINGLE
@@ -646,6 +754,7 @@ public class dogshowcomboLexer extends Lexer {
 													else if ( (LA9_12=='s') ) {
 														alt9=2;
 													}
+<<<<<<< HEAD
 
 													else {
 														int nvaeMark = input.mark();
@@ -653,6 +762,13 @@ public class dogshowcomboLexer extends Lexer {
 															for (int nvaeConsume = 0; nvaeConsume < 11 - 1; nvaeConsume++) {
 																input.consume();
 															}
+=======
+													else {
+														int nvaeMark = input.mark();
+														try {
+															for (int nvaeConsume = 0; nvaeConsume < 11 - 1; nvaeConsume++)
+																input.consume();
+>>>>>>> origin/master
 															NoViableAltException nvae =
 																new NoViableAltException("", 9, 12, input);
 															throw nvae;
@@ -660,6 +776,7 @@ public class dogshowcomboLexer extends Lexer {
 															input.rewind(nvaeMark);
 														}
 													}
+<<<<<<< HEAD
 
 												}
 
@@ -669,6 +786,14 @@ public class dogshowcomboLexer extends Lexer {
 														for (int nvaeConsume = 0; nvaeConsume < 10 - 1; nvaeConsume++) {
 															input.consume();
 														}
+=======
+												}
+												else {
+													int nvaeMark = input.mark();
+													try {
+														for (int nvaeConsume = 0; nvaeConsume < 10 - 1; nvaeConsume++)
+															input.consume();
+>>>>>>> origin/master
 														NoViableAltException nvae =
 															new NoViableAltException("", 9, 10, input);
 														throw nvae;
@@ -676,6 +801,7 @@ public class dogshowcomboLexer extends Lexer {
 														input.rewind(nvaeMark);
 													}
 												}
+<<<<<<< HEAD
 
 											}
 
@@ -685,6 +811,14 @@ public class dogshowcomboLexer extends Lexer {
 													for (int nvaeConsume = 0; nvaeConsume < 9 - 1; nvaeConsume++) {
 														input.consume();
 													}
+=======
+											}
+											else {
+												int nvaeMark = input.mark();
+												try {
+													for (int nvaeConsume = 0; nvaeConsume < 9 - 1; nvaeConsume++)
+														input.consume();
+>>>>>>> origin/master
 													NoViableAltException nvae =
 														new NoViableAltException("", 9, 8, input);
 													throw nvae;
@@ -692,7 +826,10 @@ public class dogshowcomboLexer extends Lexer {
 													input.rewind(nvaeMark);
 												}
 											}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 										}
 										else if ( (LA9_7=='B') ) {
 											int LA9_9 = input.LA(9);
@@ -710,6 +847,7 @@ public class dogshowcomboLexer extends Lexer {
 															else if ( (LA9_17=='e') ) {
 																alt9=4;
 															}
+<<<<<<< HEAD
 
 															else {
 																int nvaeMark = input.mark();
@@ -717,6 +855,13 @@ public class dogshowcomboLexer extends Lexer {
 																	for (int nvaeConsume = 0; nvaeConsume < 13 - 1; nvaeConsume++) {
 																		input.consume();
 																	}
+=======
+															else {
+																int nvaeMark = input.mark();
+																try {
+																	for (int nvaeConsume = 0; nvaeConsume < 13 - 1; nvaeConsume++)
+																		input.consume();
+>>>>>>> origin/master
 																	NoViableAltException nvae =
 																		new NoViableAltException("", 9, 17, input);
 																	throw nvae;
@@ -724,6 +869,7 @@ public class dogshowcomboLexer extends Lexer {
 																	input.rewind(nvaeMark);
 																}
 															}
+<<<<<<< HEAD
 
 														}
 
@@ -733,6 +879,14 @@ public class dogshowcomboLexer extends Lexer {
 																for (int nvaeConsume = 0; nvaeConsume < 12 - 1; nvaeConsume++) {
 																	input.consume();
 																}
+=======
+														}
+														else {
+															int nvaeMark = input.mark();
+															try {
+																for (int nvaeConsume = 0; nvaeConsume < 12 - 1; nvaeConsume++)
+																	input.consume();
+>>>>>>> origin/master
 																NoViableAltException nvae =
 																	new NoViableAltException("", 9, 16, input);
 																throw nvae;
@@ -740,6 +894,7 @@ public class dogshowcomboLexer extends Lexer {
 																input.rewind(nvaeMark);
 															}
 														}
+<<<<<<< HEAD
 
 													}
 
@@ -749,6 +904,14 @@ public class dogshowcomboLexer extends Lexer {
 															for (int nvaeConsume = 0; nvaeConsume < 11 - 1; nvaeConsume++) {
 																input.consume();
 															}
+=======
+													}
+													else {
+														int nvaeMark = input.mark();
+														try {
+															for (int nvaeConsume = 0; nvaeConsume < 11 - 1; nvaeConsume++)
+																input.consume();
+>>>>>>> origin/master
 															NoViableAltException nvae =
 																new NoViableAltException("", 9, 13, input);
 															throw nvae;
@@ -756,6 +919,7 @@ public class dogshowcomboLexer extends Lexer {
 															input.rewind(nvaeMark);
 														}
 													}
+<<<<<<< HEAD
 
 												}
 
@@ -765,6 +929,14 @@ public class dogshowcomboLexer extends Lexer {
 														for (int nvaeConsume = 0; nvaeConsume < 10 - 1; nvaeConsume++) {
 															input.consume();
 														}
+=======
+												}
+												else {
+													int nvaeMark = input.mark();
+													try {
+														for (int nvaeConsume = 0; nvaeConsume < 10 - 1; nvaeConsume++)
+															input.consume();
+>>>>>>> origin/master
 														NoViableAltException nvae =
 															new NoViableAltException("", 9, 11, input);
 														throw nvae;
@@ -772,6 +944,7 @@ public class dogshowcomboLexer extends Lexer {
 														input.rewind(nvaeMark);
 													}
 												}
+<<<<<<< HEAD
 
 											}
 
@@ -781,6 +954,14 @@ public class dogshowcomboLexer extends Lexer {
 													for (int nvaeConsume = 0; nvaeConsume < 9 - 1; nvaeConsume++) {
 														input.consume();
 													}
+=======
+											}
+											else {
+												int nvaeMark = input.mark();
+												try {
+													for (int nvaeConsume = 0; nvaeConsume < 9 - 1; nvaeConsume++)
+														input.consume();
+>>>>>>> origin/master
 													NoViableAltException nvae =
 														new NoViableAltException("", 9, 9, input);
 													throw nvae;
@@ -788,6 +969,7 @@ public class dogshowcomboLexer extends Lexer {
 													input.rewind(nvaeMark);
 												}
 											}
+<<<<<<< HEAD
 
 										}
 
@@ -797,6 +979,14 @@ public class dogshowcomboLexer extends Lexer {
 												for (int nvaeConsume = 0; nvaeConsume < 8 - 1; nvaeConsume++) {
 													input.consume();
 												}
+=======
+										}
+										else {
+											int nvaeMark = input.mark();
+											try {
+												for (int nvaeConsume = 0; nvaeConsume < 8 - 1; nvaeConsume++)
+													input.consume();
+>>>>>>> origin/master
 												NoViableAltException nvae =
 													new NoViableAltException("", 9, 7, input);
 												throw nvae;
@@ -804,6 +994,7 @@ public class dogshowcomboLexer extends Lexer {
 												input.rewind(nvaeMark);
 											}
 										}
+<<<<<<< HEAD
 
 									}
 
@@ -813,6 +1004,14 @@ public class dogshowcomboLexer extends Lexer {
 											for (int nvaeConsume = 0; nvaeConsume < 7 - 1; nvaeConsume++) {
 												input.consume();
 											}
+=======
+									}
+									else {
+										int nvaeMark = input.mark();
+										try {
+											for (int nvaeConsume = 0; nvaeConsume < 7 - 1; nvaeConsume++)
+												input.consume();
+>>>>>>> origin/master
 											NoViableAltException nvae =
 												new NoViableAltException("", 9, 6, input);
 											throw nvae;
@@ -820,6 +1019,7 @@ public class dogshowcomboLexer extends Lexer {
 											input.rewind(nvaeMark);
 										}
 									}
+<<<<<<< HEAD
 
 								}
 
@@ -829,6 +1029,14 @@ public class dogshowcomboLexer extends Lexer {
 										for (int nvaeConsume = 0; nvaeConsume < 6 - 1; nvaeConsume++) {
 											input.consume();
 										}
+=======
+								}
+								else {
+									int nvaeMark = input.mark();
+									try {
+										for (int nvaeConsume = 0; nvaeConsume < 6 - 1; nvaeConsume++)
+											input.consume();
+>>>>>>> origin/master
 										NoViableAltException nvae =
 											new NoViableAltException("", 9, 5, input);
 										throw nvae;
@@ -836,6 +1044,7 @@ public class dogshowcomboLexer extends Lexer {
 										input.rewind(nvaeMark);
 									}
 								}
+<<<<<<< HEAD
 
 							}
 
@@ -845,6 +1054,14 @@ public class dogshowcomboLexer extends Lexer {
 									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++) {
 										input.consume();
 									}
+=======
+							}
+							else {
+								int nvaeMark = input.mark();
+								try {
+									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++)
+										input.consume();
+>>>>>>> origin/master
 									NoViableAltException nvae =
 										new NoViableAltException("", 9, 4, input);
 									throw nvae;
@@ -852,6 +1069,7 @@ public class dogshowcomboLexer extends Lexer {
 									input.rewind(nvaeMark);
 								}
 							}
+<<<<<<< HEAD
 
 						}
 
@@ -861,6 +1079,14 @@ public class dogshowcomboLexer extends Lexer {
 								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
 									input.consume();
 								}
+=======
+						}
+						else {
+							int nvaeMark = input.mark();
+							try {
+								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++)
+									input.consume();
+>>>>>>> origin/master
 								NoViableAltException nvae =
 									new NoViableAltException("", 9, 3, input);
 								throw nvae;
@@ -868,6 +1094,7 @@ public class dogshowcomboLexer extends Lexer {
 								input.rewind(nvaeMark);
 							}
 						}
+<<<<<<< HEAD
 
 					}
 
@@ -877,6 +1104,14 @@ public class dogshowcomboLexer extends Lexer {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
 								input.consume();
 							}
+=======
+					}
+					else {
+						int nvaeMark = input.mark();
+						try {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++)
+								input.consume();
+>>>>>>> origin/master
 							NoViableAltException nvae =
 								new NoViableAltException("", 9, 2, input);
 							throw nvae;
@@ -884,9 +1119,13 @@ public class dogshowcomboLexer extends Lexer {
 							input.rewind(nvaeMark);
 						}
 					}
+<<<<<<< HEAD
 
 				}
 
+=======
+				}
+>>>>>>> origin/master
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -898,15 +1137,22 @@ public class dogshowcomboLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
+<<<<<<< HEAD
 
 			}
 
+=======
+			}
+>>>>>>> origin/master
 			else {
 				NoViableAltException nvae =
 					new NoViableAltException("", 9, 0, input);
 				throw nvae;
 			}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 			switch (alt9) {
 				case 1 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:60:4: '(Misc. Dog)'
@@ -976,6 +1222,7 @@ public class dogshowcomboLexer extends Lexer {
 							else if ( (LA10_6=='i') ) {
 								alt10=3;
 							}
+<<<<<<< HEAD
 
 							else {
 								int nvaeMark = input.mark();
@@ -983,6 +1230,13 @@ public class dogshowcomboLexer extends Lexer {
 									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++) {
 										input.consume();
 									}
+=======
+							else {
+								int nvaeMark = input.mark();
+								try {
+									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++)
+										input.consume();
+>>>>>>> origin/master
 									NoViableAltException nvae =
 										new NoViableAltException("", 10, 6, input);
 									throw nvae;
@@ -990,6 +1244,7 @@ public class dogshowcomboLexer extends Lexer {
 									input.rewind(nvaeMark);
 								}
 							}
+<<<<<<< HEAD
 
 						}
 
@@ -999,6 +1254,14 @@ public class dogshowcomboLexer extends Lexer {
 								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
 									input.consume();
 								}
+=======
+						}
+						else {
+							int nvaeMark = input.mark();
+							try {
+								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++)
+									input.consume();
+>>>>>>> origin/master
 								NoViableAltException nvae =
 									new NoViableAltException("", 10, 5, input);
 								throw nvae;
@@ -1006,6 +1269,7 @@ public class dogshowcomboLexer extends Lexer {
 								input.rewind(nvaeMark);
 							}
 						}
+<<<<<<< HEAD
 
 					}
 
@@ -1015,6 +1279,14 @@ public class dogshowcomboLexer extends Lexer {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
 								input.consume();
 							}
+=======
+					}
+					else {
+						int nvaeMark = input.mark();
+						try {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++)
+								input.consume();
+>>>>>>> origin/master
 							NoViableAltException nvae =
 								new NoViableAltException("", 10, 4, input);
 							throw nvae;
@@ -1022,9 +1294,13 @@ public class dogshowcomboLexer extends Lexer {
 							input.rewind(nvaeMark);
 						}
 					}
+<<<<<<< HEAD
 
 				}
 
+=======
+				}
+>>>>>>> origin/master
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -1036,7 +1312,10 @@ public class dogshowcomboLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				}
 				break;
 			case 'V':
@@ -1119,13 +1398,19 @@ public class dogshowcomboLexer extends Lexer {
 			else if ( (LA11_0=='P') ) {
 				alt11=2;
 			}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 			else {
 				NoViableAltException nvae =
 					new NoViableAltException("", 11, 0, input);
 				throw nvae;
 			}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 			switch (alt11) {
 				case 1 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:66:4: 'Ascob'
@@ -1165,7 +1450,10 @@ public class dogshowcomboLexer extends Lexer {
 				else if ( (LA12_1=='5') ) {
 					alt12=2;
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -1177,7 +1465,10 @@ public class dogshowcomboLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				}
 				break;
 			case 'B':
@@ -1213,6 +1504,7 @@ public class dogshowcomboLexer extends Lexer {
 											else if ( (LA12_42=='S') ) {
 												alt12=7;
 											}
+<<<<<<< HEAD
 
 											else {
 												int nvaeMark = input.mark();
@@ -1220,6 +1512,13 @@ public class dogshowcomboLexer extends Lexer {
 													for (int nvaeConsume = 0; nvaeConsume < 9 - 1; nvaeConsume++) {
 														input.consume();
 													}
+=======
+											else {
+												int nvaeMark = input.mark();
+												try {
+													for (int nvaeConsume = 0; nvaeConsume < 9 - 1; nvaeConsume++)
+														input.consume();
+>>>>>>> origin/master
 													NoViableAltException nvae =
 														new NoViableAltException("", 12, 42, input);
 													throw nvae;
@@ -1227,6 +1526,7 @@ public class dogshowcomboLexer extends Lexer {
 													input.rewind(nvaeMark);
 												}
 											}
+<<<<<<< HEAD
 
 										}
 
@@ -1242,6 +1542,18 @@ public class dogshowcomboLexer extends Lexer {
 											for (int nvaeConsume = 0; nvaeConsume < 7 - 1; nvaeConsume++) {
 												input.consume();
 											}
+=======
+										}
+										else {
+											alt12=5;
+										}
+									}
+									else {
+										int nvaeMark = input.mark();
+										try {
+											for (int nvaeConsume = 0; nvaeConsume < 7 - 1; nvaeConsume++)
+												input.consume();
+>>>>>>> origin/master
 											NoViableAltException nvae =
 												new NoViableAltException("", 12, 37, input);
 											throw nvae;
@@ -1249,6 +1561,7 @@ public class dogshowcomboLexer extends Lexer {
 											input.rewind(nvaeMark);
 										}
 									}
+<<<<<<< HEAD
 
 								}
 
@@ -1258,6 +1571,14 @@ public class dogshowcomboLexer extends Lexer {
 										for (int nvaeConsume = 0; nvaeConsume < 6 - 1; nvaeConsume++) {
 											input.consume();
 										}
+=======
+								}
+								else {
+									int nvaeMark = input.mark();
+									try {
+										for (int nvaeConsume = 0; nvaeConsume < 6 - 1; nvaeConsume++)
+											input.consume();
+>>>>>>> origin/master
 										NoViableAltException nvae =
 											new NoViableAltException("", 12, 33, input);
 										throw nvae;
@@ -1265,6 +1586,7 @@ public class dogshowcomboLexer extends Lexer {
 										input.rewind(nvaeMark);
 									}
 								}
+<<<<<<< HEAD
 
 							}
 
@@ -1274,6 +1596,14 @@ public class dogshowcomboLexer extends Lexer {
 									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++) {
 										input.consume();
 									}
+=======
+							}
+							else {
+								int nvaeMark = input.mark();
+								try {
+									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++)
+										input.consume();
+>>>>>>> origin/master
 									NoViableAltException nvae =
 										new NoViableAltException("", 12, 30, input);
 									throw nvae;
@@ -1281,6 +1611,7 @@ public class dogshowcomboLexer extends Lexer {
 									input.rewind(nvaeMark);
 								}
 							}
+<<<<<<< HEAD
 
 						}
 
@@ -1290,6 +1621,14 @@ public class dogshowcomboLexer extends Lexer {
 								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
 									input.consume();
 								}
+=======
+						}
+						else {
+							int nvaeMark = input.mark();
+							try {
+								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++)
+									input.consume();
+>>>>>>> origin/master
 								NoViableAltException nvae =
 									new NoViableAltException("", 12, 25, input);
 								throw nvae;
@@ -1297,6 +1636,7 @@ public class dogshowcomboLexer extends Lexer {
 								input.rewind(nvaeMark);
 							}
 						}
+<<<<<<< HEAD
 
 					}
 
@@ -1306,6 +1646,14 @@ public class dogshowcomboLexer extends Lexer {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
 								input.consume();
 							}
+=======
+					}
+					else {
+						int nvaeMark = input.mark();
+						try {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++)
+								input.consume();
+>>>>>>> origin/master
 							NoViableAltException nvae =
 								new NoViableAltException("", 12, 16, input);
 							throw nvae;
@@ -1313,9 +1661,13 @@ public class dogshowcomboLexer extends Lexer {
 							input.rewind(nvaeMark);
 						}
 					}
+<<<<<<< HEAD
 
 				}
 
+=======
+				}
+>>>>>>> origin/master
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -1327,7 +1679,10 @@ public class dogshowcomboLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				}
 				break;
 			case 'F':
@@ -1349,6 +1704,7 @@ public class dogshowcomboLexer extends Lexer {
 					else if ( (LA12_18=='r') ) {
 						alt12=11;
 					}
+<<<<<<< HEAD
 
 					else {
 						int nvaeMark = input.mark();
@@ -1356,6 +1712,13 @@ public class dogshowcomboLexer extends Lexer {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
 								input.consume();
 							}
+=======
+					else {
+						int nvaeMark = input.mark();
+						try {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++)
+								input.consume();
+>>>>>>> origin/master
 							NoViableAltException nvae =
 								new NoViableAltException("", 12, 18, input);
 							throw nvae;
@@ -1363,9 +1726,13 @@ public class dogshowcomboLexer extends Lexer {
 							input.rewind(nvaeMark);
 						}
 					}
+<<<<<<< HEAD
 
 				}
 
+=======
+				}
+>>>>>>> origin/master
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -1377,7 +1744,10 @@ public class dogshowcomboLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				}
 				break;
 			case 'I':
@@ -1403,6 +1773,7 @@ public class dogshowcomboLexer extends Lexer {
 							else if ( (LA12_31=='h') ) {
 								alt12=15;
 							}
+<<<<<<< HEAD
 
 							else {
 								int nvaeMark = input.mark();
@@ -1410,6 +1781,13 @@ public class dogshowcomboLexer extends Lexer {
 									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++) {
 										input.consume();
 									}
+=======
+							else {
+								int nvaeMark = input.mark();
+								try {
+									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++)
+										input.consume();
+>>>>>>> origin/master
 									NoViableAltException nvae =
 										new NoViableAltException("", 12, 31, input);
 									throw nvae;
@@ -1417,6 +1795,7 @@ public class dogshowcomboLexer extends Lexer {
 									input.rewind(nvaeMark);
 								}
 							}
+<<<<<<< HEAD
 
 						}
 
@@ -1426,6 +1805,14 @@ public class dogshowcomboLexer extends Lexer {
 								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
 									input.consume();
 								}
+=======
+						}
+						else {
+							int nvaeMark = input.mark();
+							try {
+								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++)
+									input.consume();
+>>>>>>> origin/master
 								NoViableAltException nvae =
 									new NoViableAltException("", 12, 28, input);
 								throw nvae;
@@ -1433,6 +1820,7 @@ public class dogshowcomboLexer extends Lexer {
 								input.rewind(nvaeMark);
 							}
 						}
+<<<<<<< HEAD
 
 					}
 
@@ -1442,6 +1830,14 @@ public class dogshowcomboLexer extends Lexer {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
 								input.consume();
 							}
+=======
+					}
+					else {
+						int nvaeMark = input.mark();
+						try {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++)
+								input.consume();
+>>>>>>> origin/master
 							NoViableAltException nvae =
 								new NoViableAltException("", 12, 20, input);
 							throw nvae;
@@ -1449,9 +1845,13 @@ public class dogshowcomboLexer extends Lexer {
 							input.rewind(nvaeMark);
 						}
 					}
+<<<<<<< HEAD
 
 				}
 
+=======
+				}
+>>>>>>> origin/master
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -1463,7 +1863,10 @@ public class dogshowcomboLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				}
 				break;
 			case 'M':
@@ -1492,6 +1895,7 @@ public class dogshowcomboLexer extends Lexer {
 									if ( (LA12_38==' ') ) {
 										alt12=19;
 									}
+<<<<<<< HEAD
 
 									else {
 										alt12=18;
@@ -1505,6 +1909,17 @@ public class dogshowcomboLexer extends Lexer {
 										for (int nvaeConsume = 0; nvaeConsume < 6 - 1; nvaeConsume++) {
 											input.consume();
 										}
+=======
+									else {
+										alt12=18;
+									}
+								}
+								else {
+									int nvaeMark = input.mark();
+									try {
+										for (int nvaeConsume = 0; nvaeConsume < 6 - 1; nvaeConsume++)
+											input.consume();
+>>>>>>> origin/master
 										NoViableAltException nvae =
 											new NoViableAltException("", 12, 36, input);
 										throw nvae;
@@ -1512,6 +1927,7 @@ public class dogshowcomboLexer extends Lexer {
 										input.rewind(nvaeMark);
 									}
 								}
+<<<<<<< HEAD
 
 							}
 
@@ -1521,6 +1937,14 @@ public class dogshowcomboLexer extends Lexer {
 									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++) {
 										input.consume();
 									}
+=======
+							}
+							else {
+								int nvaeMark = input.mark();
+								try {
+									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++)
+										input.consume();
+>>>>>>> origin/master
 									NoViableAltException nvae =
 										new NoViableAltException("", 12, 32, input);
 									throw nvae;
@@ -1528,6 +1952,7 @@ public class dogshowcomboLexer extends Lexer {
 									input.rewind(nvaeMark);
 								}
 							}
+<<<<<<< HEAD
 
 						}
 
@@ -1537,6 +1962,14 @@ public class dogshowcomboLexer extends Lexer {
 								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
 									input.consume();
 								}
+=======
+						}
+						else {
+							int nvaeMark = input.mark();
+							try {
+								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++)
+									input.consume();
+>>>>>>> origin/master
 								NoViableAltException nvae =
 									new NoViableAltException("", 12, 29, input);
 								throw nvae;
@@ -1544,6 +1977,7 @@ public class dogshowcomboLexer extends Lexer {
 								input.rewind(nvaeMark);
 							}
 						}
+<<<<<<< HEAD
 
 					}
 
@@ -1553,6 +1987,14 @@ public class dogshowcomboLexer extends Lexer {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
 								input.consume();
 							}
+=======
+					}
+					else {
+						int nvaeMark = input.mark();
+						try {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++)
+								input.consume();
+>>>>>>> origin/master
 							NoViableAltException nvae =
 								new NoViableAltException("", 12, 21, input);
 							throw nvae;
@@ -1560,12 +2002,18 @@ public class dogshowcomboLexer extends Lexer {
 							input.rewind(nvaeMark);
 						}
 					}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				}
 				else if ( (LA12_11=='t') ) {
 					alt12=20;
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -1577,7 +2025,10 @@ public class dogshowcomboLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				}
 				break;
 			case 'T':
@@ -1594,7 +2045,10 @@ public class dogshowcomboLexer extends Lexer {
 				else if ( (LA12_13=='i') ) {
 					alt12=23;
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -1606,7 +2060,10 @@ public class dogshowcomboLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				}
 				break;
 			default:
@@ -3158,6 +3615,7 @@ public class dogshowcomboLexer extends Lexer {
 					else if ( (LA14_11=='l') ) {
 						alt14=13;
 					}
+<<<<<<< HEAD
 
 					else {
 						int nvaeMark = input.mark();
@@ -3165,6 +3623,13 @@ public class dogshowcomboLexer extends Lexer {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
 								input.consume();
 							}
+=======
+					else {
+						int nvaeMark = input.mark();
+						try {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++)
+								input.consume();
+>>>>>>> origin/master
 							NoViableAltException nvae =
 								new NoViableAltException("", 14, 11, input);
 							throw nvae;
@@ -3172,7 +3637,10 @@ public class dogshowcomboLexer extends Lexer {
 							input.rewind(nvaeMark);
 						}
 					}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 					}
 					break;
 				case 'U':
@@ -3184,6 +3652,7 @@ public class dogshowcomboLexer extends Lexer {
 					else if ( (LA14_12=='L') ) {
 						alt14=14;
 					}
+<<<<<<< HEAD
 
 					else {
 						int nvaeMark = input.mark();
@@ -3191,6 +3660,13 @@ public class dogshowcomboLexer extends Lexer {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
 								input.consume();
 							}
+=======
+					else {
+						int nvaeMark = input.mark();
+						try {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++)
+								input.consume();
+>>>>>>> origin/master
 							NoViableAltException nvae =
 								new NoViableAltException("", 14, 12, input);
 							throw nvae;
@@ -3198,7 +3674,10 @@ public class dogshowcomboLexer extends Lexer {
 							input.rewind(nvaeMark);
 						}
 					}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 					}
 					break;
 				default:
@@ -3223,7 +3702,10 @@ public class dogshowcomboLexer extends Lexer {
 				else if ( (LA14_2=='E') ) {
 					alt14=4;
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -3235,7 +3717,10 @@ public class dogshowcomboLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				}
 				break;
 			case 'M':
@@ -3249,6 +3734,7 @@ public class dogshowcomboLexer extends Lexer {
 					else if ( (LA14_15=='y') ) {
 						alt14=9;
 					}
+<<<<<<< HEAD
 
 					else {
 						int nvaeMark = input.mark();
@@ -3256,6 +3742,13 @@ public class dogshowcomboLexer extends Lexer {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
 								input.consume();
 							}
+=======
+					else {
+						int nvaeMark = input.mark();
+						try {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++)
+								input.consume();
+>>>>>>> origin/master
 							NoViableAltException nvae =
 								new NoViableAltException("", 14, 15, input);
 							throw nvae;
@@ -3263,7 +3756,10 @@ public class dogshowcomboLexer extends Lexer {
 							input.rewind(nvaeMark);
 						}
 					}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				}
 				else if ( (LA14_3=='A') ) {
 					int LA14_16 = input.LA(3);
@@ -3273,6 +3769,7 @@ public class dogshowcomboLexer extends Lexer {
 					else if ( (LA14_16=='Y') ) {
 						alt14=10;
 					}
+<<<<<<< HEAD
 
 					else {
 						int nvaeMark = input.mark();
@@ -3280,6 +3777,13 @@ public class dogshowcomboLexer extends Lexer {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
 								input.consume();
 							}
+=======
+					else {
+						int nvaeMark = input.mark();
+						try {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++)
+								input.consume();
+>>>>>>> origin/master
 							NoViableAltException nvae =
 								new NoViableAltException("", 14, 16, input);
 							throw nvae;
@@ -3287,9 +3791,13 @@ public class dogshowcomboLexer extends Lexer {
 							input.rewind(nvaeMark);
 						}
 					}
+<<<<<<< HEAD
 
 				}
 
+=======
+				}
+>>>>>>> origin/master
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -3301,7 +3809,10 @@ public class dogshowcomboLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				}
 				break;
 			case 'A':
@@ -3349,7 +3860,10 @@ public class dogshowcomboLexer extends Lexer {
 				else if ( (LA14_5=='E') ) {
 					alt14=18;
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -3361,7 +3875,10 @@ public class dogshowcomboLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				}
 				break;
 			case 'O':
@@ -3373,7 +3890,10 @@ public class dogshowcomboLexer extends Lexer {
 				else if ( (LA14_6=='C') ) {
 					alt14=20;
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -3385,7 +3905,10 @@ public class dogshowcomboLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				}
 				break;
 			case 'N':
@@ -3397,7 +3920,10 @@ public class dogshowcomboLexer extends Lexer {
 				else if ( (LA14_7=='O') ) {
 					alt14=22;
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -3409,7 +3935,10 @@ public class dogshowcomboLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				}
 				break;
 			case 'D':
@@ -3421,7 +3950,10 @@ public class dogshowcomboLexer extends Lexer {
 				else if ( (LA14_8=='E') ) {
 					alt14=24;
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -3433,7 +3965,10 @@ public class dogshowcomboLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				}
 				break;
 			default:
@@ -3694,7 +4229,10 @@ public class dogshowcomboLexer extends Lexer {
 				else if ( (LA15_1=='i') ) {
 					alt15=2;
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -3706,15 +4244,22 @@ public class dogshowcomboLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
+<<<<<<< HEAD
 
 			}
 
+=======
+			}
+>>>>>>> origin/master
 			else {
 				NoViableAltException nvae =
 					new NoViableAltException("", 15, 0, input);
 				throw nvae;
 			}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 			switch (alt15) {
 				case 1 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:307:23: 'RING'
@@ -3790,13 +4335,19 @@ public class dogshowcomboLexer extends Lexer {
 			else if ( (LA16_0=='p') ) {
 				alt16=2;
 			}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 			else {
 				NoViableAltException nvae =
 					new NoViableAltException("", 16, 0, input);
 				throw nvae;
 			}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 			switch (alt16) {
 				case 1 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:314:9: 'am'
@@ -3835,11 +4386,17 @@ public class dogshowcomboLexer extends Lexer {
 					if ( (LA17_3=='S') ) {
 						alt17=3;
 					}
+<<<<<<< HEAD
 
 					else {
 						alt17=1;
 					}
 
+=======
+					else {
+						alt17=1;
+					}
+>>>>>>> origin/master
 					}
 					break;
 				case 'r':
@@ -3848,11 +4405,17 @@ public class dogshowcomboLexer extends Lexer {
 					if ( (LA17_4=='s') ) {
 						alt17=4;
 					}
+<<<<<<< HEAD
 
 					else {
 						alt17=2;
 					}
 
+=======
+					else {
+						alt17=2;
+					}
+>>>>>>> origin/master
 					}
 					break;
 				case 'S':
@@ -3890,13 +4453,19 @@ public class dogshowcomboLexer extends Lexer {
 			else if ( (LA17_0=='D') ) {
 				alt17=9;
 			}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 			else {
 				NoViableAltException nvae =
 					new NoViableAltException("", 17, 0, input);
 				throw nvae;
 			}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 			switch (alt17) {
 				case 1 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:317:4: 'MR'
@@ -4021,7 +4590,10 @@ public class dogshowcomboLexer extends Lexer {
 				else if ( (LA18_2=='O') ) {
 					alt18=4;
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -4033,7 +4605,10 @@ public class dogshowcomboLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				}
 				break;
 			case 'T':
@@ -4081,7 +4656,10 @@ public class dogshowcomboLexer extends Lexer {
 				else if ( (LA18_4=='E') ) {
 					alt18=8;
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -4093,7 +4671,10 @@ public class dogshowcomboLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				}
 				break;
 			case 'F':
@@ -4105,7 +4686,10 @@ public class dogshowcomboLexer extends Lexer {
 				else if ( (LA18_5=='R') ) {
 					alt18=12;
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -4117,7 +4701,10 @@ public class dogshowcomboLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 				}
 				break;
 			default:
@@ -4248,13 +4835,19 @@ public class dogshowcomboLexer extends Lexer {
 			else if ( ((LA19_0 >= '0' && LA19_0 <= '9')) ) {
 				alt19=2;
 			}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 			else {
 				NoViableAltException nvae =
 					new NoViableAltException("", 19, 0, input);
 				throw nvae;
 			}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 			switch (alt19) {
 				case 1 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:334:5: WORD
@@ -4325,7 +4918,11 @@ public class dogshowcomboLexer extends Lexer {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:354:20: ( WS WORD | PARENTHETICAL )+
 			int cnt20=0;
 			loop20:
+<<<<<<< HEAD
 			while (true) {
+=======
+			do {
+>>>>>>> origin/master
 				int alt20=3;
 				alt20 = dfa20.predict(input);
 				switch (alt20) {
@@ -4348,11 +4945,20 @@ public class dogshowcomboLexer extends Lexer {
 
 				default :
 					if ( cnt20 >= 1 ) break loop20;
+<<<<<<< HEAD
 					EarlyExitException eee = new EarlyExitException(20, input);
 					throw eee;
 				}
 				cnt20++;
 			}
+=======
+						EarlyExitException eee =
+							new EarlyExitException(20, input);
+						throw eee;
+				}
+				cnt20++;
+			} while (true);
+>>>>>>> origin/master
 
 			mWS(); 
 
@@ -4380,7 +4986,11 @@ public class dogshowcomboLexer extends Lexer {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:356:5: ( ' ' | '\\t' | '\\n' | '\\r' )+
 			int cnt21=0;
 			loop21:
+<<<<<<< HEAD
 			while (true) {
+=======
+			do {
+>>>>>>> origin/master
 				int alt21=2;
 				int LA21_0 = input.LA(1);
 				if ( ((LA21_0 >= '\t' && LA21_0 <= '\n')||LA21_0=='\r'||LA21_0==' ') ) {
@@ -4404,11 +5014,20 @@ public class dogshowcomboLexer extends Lexer {
 
 				default :
 					if ( cnt21 >= 1 ) break loop21;
+<<<<<<< HEAD
 					EarlyExitException eee = new EarlyExitException(21, input);
 					throw eee;
 				}
 				cnt21++;
 			}
+=======
+						EarlyExitException eee =
+							new EarlyExitException(21, input);
+						throw eee;
+				}
+				cnt21++;
+			} while (true);
+>>>>>>> origin/master
 
 			_channel=HIDDEN;
 			}
@@ -4522,7 +5141,11 @@ public class dogshowcomboLexer extends Lexer {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:366:15: ( '.' )+
 			int cnt22=0;
 			loop22:
+<<<<<<< HEAD
 			while (true) {
+=======
+			do {
+>>>>>>> origin/master
 				int alt22=2;
 				int LA22_0 = input.LA(1);
 				if ( (LA22_0=='.') ) {
@@ -4539,11 +5162,20 @@ public class dogshowcomboLexer extends Lexer {
 
 				default :
 					if ( cnt22 >= 1 ) break loop22;
+<<<<<<< HEAD
 					EarlyExitException eee = new EarlyExitException(22, input);
 					throw eee;
 				}
 				cnt22++;
 			}
+=======
+						EarlyExitException eee =
+							new EarlyExitException(22, input);
+						throw eee;
+				}
+				cnt22++;
+			} while (true);
+>>>>>>> origin/master
 
 			}
 
@@ -4567,7 +5199,11 @@ public class dogshowcomboLexer extends Lexer {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:368:6: ( '0' .. '9' )+
 			int cnt23=0;
 			loop23:
+<<<<<<< HEAD
 			while (true) {
+=======
+			do {
+>>>>>>> origin/master
 				int alt23=2;
 				int LA23_0 = input.LA(1);
 				if ( ((LA23_0 >= '0' && LA23_0 <= '9')) ) {
@@ -4591,11 +5227,20 @@ public class dogshowcomboLexer extends Lexer {
 
 				default :
 					if ( cnt23 >= 1 ) break loop23;
+<<<<<<< HEAD
 					EarlyExitException eee = new EarlyExitException(23, input);
 					throw eee;
 				}
 				cnt23++;
 			}
+=======
+						EarlyExitException eee =
+							new EarlyExitException(23, input);
+						throw eee;
+				}
+				cnt23++;
+			} while (true);
+>>>>>>> origin/master
 
 			}
 
@@ -4634,6 +5279,7 @@ public class dogshowcomboLexer extends Lexer {
 		try {
 			int _type = COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
+<<<<<<< HEAD
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:371:9: ( ( BREED_NAME | WORD | PARENTHETICAL )+ )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:371:11: ( BREED_NAME | WORD | PARENTHETICAL )+
 			{
@@ -4653,11 +5299,30 @@ public class dogshowcomboLexer extends Lexer {
 					break;
 				case 2 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:371:23: WORD
+=======
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:371:9: ( ( WORD )+ )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:371:11: ( WORD )+
+			{
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:371:11: ( WORD )+
+			int cnt24=0;
+			loop24:
+			do {
+				int alt24=2;
+				int LA24_0 = input.LA(1);
+				if ( ((LA24_0 >= '&' && LA24_0 <= '\'')||(LA24_0 >= ',' && LA24_0 <= '-')||(LA24_0 >= ':' && LA24_0 <= ';')||(LA24_0 >= 'A' && LA24_0 <= 'Z')||LA24_0=='_'||(LA24_0 >= 'a' && LA24_0 <= 'z')) ) {
+					alt24=1;
+				}
+
+				switch (alt24) {
+				case 1 :
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:371:11: WORD
+>>>>>>> origin/master
 					{
 					mWORD(); 
 
 					}
 					break;
+<<<<<<< HEAD
 				case 3 :
 					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:371:28: PARENTHETICAL
 					{
@@ -4673,6 +5338,17 @@ public class dogshowcomboLexer extends Lexer {
 				}
 				cnt24++;
 			}
+=======
+
+				default :
+					if ( cnt24 >= 1 ) break loop24;
+						EarlyExitException eee =
+							new EarlyExitException(24, input);
+						throw eee;
+				}
+				cnt24++;
+			} while (true);
+>>>>>>> origin/master
 
 			}
 
@@ -4694,7 +5370,11 @@ public class dogshowcomboLexer extends Lexer {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:373:18: ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )+
 			int cnt25=0;
 			loop25:
+<<<<<<< HEAD
 			while (true) {
+=======
+			do {
+>>>>>>> origin/master
 				int alt25=2;
 				int LA25_0 = input.LA(1);
 				if ( ((LA25_0 >= '&' && LA25_0 <= '\'')||(LA25_0 >= ',' && LA25_0 <= '-')||(LA25_0 >= ':' && LA25_0 <= ';')||(LA25_0 >= 'A' && LA25_0 <= 'Z')||LA25_0=='_'||(LA25_0 >= 'a' && LA25_0 <= 'z')) ) {
@@ -4718,11 +5398,20 @@ public class dogshowcomboLexer extends Lexer {
 
 				default :
 					if ( cnt25 >= 1 ) break loop25;
+<<<<<<< HEAD
 					EarlyExitException eee = new EarlyExitException(25, input);
 					throw eee;
 				}
 				cnt25++;
 			}
+=======
+						EarlyExitException eee =
+							new EarlyExitException(25, input);
+						throw eee;
+				}
+				cnt25++;
+			} while (true);
+>>>>>>> origin/master
 
 			}
 
@@ -4744,7 +5433,11 @@ public class dogshowcomboLexer extends Lexer {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:377:20: ( ( WORD | INT ) ( WS )? )+
 			int cnt28=0;
 			loop28:
+<<<<<<< HEAD
 			while (true) {
+=======
+			do {
+>>>>>>> origin/master
 				int alt28=2;
 				int LA28_0 = input.LA(1);
 				if ( ((LA28_0 >= '&' && LA28_0 <= '\'')||(LA28_0 >= ',' && LA28_0 <= '-')||(LA28_0 >= '0' && LA28_0 <= ';')||(LA28_0 >= 'A' && LA28_0 <= 'Z')||LA28_0=='_'||(LA28_0 >= 'a' && LA28_0 <= 'z')) ) {
@@ -4764,13 +5457,19 @@ public class dogshowcomboLexer extends Lexer {
 					else if ( ((LA26_0 >= '0' && LA26_0 <= '9')) ) {
 						alt26=2;
 					}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 					else {
 						NoViableAltException nvae =
 							new NoViableAltException("", 26, 0, input);
 						throw nvae;
 					}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 					switch (alt26) {
 						case 1 :
 							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:377:22: WORD
@@ -4811,11 +5510,20 @@ public class dogshowcomboLexer extends Lexer {
 
 				default :
 					if ( cnt28 >= 1 ) break loop28;
+<<<<<<< HEAD
 					EarlyExitException eee = new EarlyExitException(28, input);
 					throw eee;
 				}
 				cnt28++;
 			}
+=======
+						EarlyExitException eee =
+							new EarlyExitException(28, input);
+						throw eee;
+				}
+				cnt28++;
+			} while (true);
+>>>>>>> origin/master
 
 			mFRAG_PAREN_RIGHT(); 
 
@@ -4857,7 +5565,11 @@ public class dogshowcomboLexer extends Lexer {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:380:12: ( '0' .. '9' )+
 			int cnt30=0;
 			loop30:
+<<<<<<< HEAD
 			while (true) {
+=======
+			do {
+>>>>>>> origin/master
 				int alt30=2;
 				int LA30_0 = input.LA(1);
 				if ( ((LA30_0 >= '0' && LA30_0 <= '9')) ) {
@@ -4881,11 +5593,20 @@ public class dogshowcomboLexer extends Lexer {
 
 				default :
 					if ( cnt30 >= 1 ) break loop30;
+<<<<<<< HEAD
 					EarlyExitException eee = new EarlyExitException(30, input);
 					throw eee;
 				}
 				cnt30++;
 			}
+=======
+						EarlyExitException eee =
+							new EarlyExitException(30, input);
+						throw eee;
+				}
+				cnt30++;
+			} while (true);
+>>>>>>> origin/master
 
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\dogshowcombo.g:380:22: ( WS )?
 			int alt31=2;
@@ -5041,7 +5762,10 @@ public class dogshowcomboLexer extends Lexer {
 
 	protected DFA13 dfa13 = new DFA13(this);
 	protected DFA20 dfa20 = new DFA20(this);
+<<<<<<< HEAD
 	protected DFA24 dfa24 = new DFA24(this);
+=======
+>>>>>>> origin/master
 	protected DFA32 dfa32 = new DFA32(this);
 	static final String DFA13_eotS =
 		"\u00e3\uffff\1\u0103\146\uffff\1\u0160\102\uffff";
@@ -5548,7 +6272,11 @@ public class dogshowcomboLexer extends Lexer {
 		}
 	}
 
+<<<<<<< HEAD
 	protected class DFA13 extends DFA {
+=======
+	class DFA13 extends DFA {
+>>>>>>> origin/master
 
 		public DFA13(BaseRecognizer recognizer) {
 			this.recognizer = recognizer;
@@ -5604,7 +6332,11 @@ public class dogshowcomboLexer extends Lexer {
 		}
 	}
 
+<<<<<<< HEAD
 	protected class DFA20 extends DFA {
+=======
+	class DFA20 extends DFA {
+>>>>>>> origin/master
 
 		public DFA20(BaseRecognizer recognizer) {
 			this.recognizer = recognizer;
@@ -5623,6 +6355,7 @@ public class dogshowcomboLexer extends Lexer {
 		}
 	}
 
+<<<<<<< HEAD
 	static final String DFA24_eotS =
 		"\1\1\1\uffff\27\31\2\uffff\54\31\1\uffff\u0086\31\1\uffff\u008b\31\1\uffff"+
 		"\50\31\1\uffff\24\31\1\uffff\1\31\1\uffff\103\31\1\uffff\57\31\1\uffff"+
@@ -7154,6 +7887,185 @@ public class dogshowcomboLexer extends Lexer {
 		"\163\uffff\1\4\42\uffff\1\16\117\uffff\1\5\u00b2\uffff\1\13\u0661\uffff";
 	static final String DFA32_specialS =
 		"\31\uffff\1\0\171\uffff\1\3\u010f\uffff\1\1\u0380\uffff\1\2\u053d\uffff}>";
+=======
+	static final String DFA32_eotS =
+		"\1\uffff\1\35\27\34\1\uffff\1\u0088\4\uffff\74\34\1\uffff\52\34\5\uffff"+
+		"\6\34\1\uffff\143\34\1\133\u00a0\34\2\133\70\34\1\uffff\12\34\1\133\24"+
+		"\34\1\133\1\34\1\133\30\34\1\u02a0\36\34\1\u02ba\6\34\1\133\5\34\1\133"+
+		"\6\34\1\uffff\75\34\1\133\11\34\1\133\3\34\1\133\14\34\1\133\10\34\1\uffff"+
+		"\23\34\1\133\5\34\1\uffff\10\34\1\133\7\34\1\133\30\34\1\133\10\34\2\133"+
+		"\17\34\1\133\13\34\1\133\15\34\1\u02a0\4\34\1\133\12\34\1\133\4\34\1\133"+
+		"\10\34\1\133\4\34\1\133\22\34\1\133\6\34\1\uffff\15\34\1\133\15\34\1\133"+
+		"\2\34\2\133\3\34\1\133\16\34\1\133\6\34\1\u02a0\17\34\1\133\4\34\1\133"+
+		"\1\34\2\133\2\34\1\133\3\34\1\133\17\34\1\133\5\34\1\133\5\34\3\133\1"+
+		"\34\3\133\2\34\1\133\4\34\1\133\4\34\1\u02a0\1\34\1\133\4\34\1\133\2\34"+
+		"\1\133";
+	static final String DFA32_eofS =
+		"\u03e8\uffff";
+	static final String DFA32_minS =
+		"\1\11\1\56\1\111\1\154\1\145\1\146\2\141\1\122\1\156\1\122\1\145\1\141"+
+		"\1\142\1\141\1\145\1\125\1\141\1\111\1\101\1\110\1\145\1\105\2\157\1\11"+
+		"\1\55\4\uffff\1\154\1\156\4\11\1\123\1\156\1\116\1\145\1\144\1\164\1\162"+
+		"\1\141\1\146\1\162\1\151\1\141\1\145\1\141\2\163\1\141\1\143\1\141\1\162"+
+		"\1\141\1\154\1\151\1\163\1\145\1\165\1\143\1\162\1\143\1\142\1\11\1\147"+
+		"\1\145\1\141\1\170\1\145\1\111\1\162\1\141\1\145\1\154\1\145\1\162\1\151"+
+		"\1\145\1\151\1\141\1\160\1\145\1\155\1\166\1\142\1\157\1\141\1\uffff\1"+
+		"\167\1\116\1\160\1\153\1\141\1\157\1\151\1\147\1\162\1\144\1\157\1\164"+
+		"\1\163\1\116\1\151\1\150\1\141\1\145\1\142\1\171\1\146\2\141\1\156\1\145"+
+		"\1\116\1\124\1\142\1\171\2\145\1\105\1\165\1\125\1\172\1\164\1\144\1\151"+
+		"\1\162\1\104\1\154\1\162\5\uffff\2\164\1\143\1\151\1\163\1\11\1\uffff"+
+		"\1\11\1\123\1\144\1\104\1\156\1\40\1\145\1\141\1\146\1\160\1\146\1\145"+
+		"\1\150\1\145\1\164\1\163\1\162\2\164\1\145\1\147\1\154\1\147\1\156\1\150"+
+		"\1\143\1\157\1\145\1\144\1\164\1\166\1\145\1\153\1\143\1\141\1\163\1\154"+
+		"\1\162\1\141\1\144\1\141\1\153\1\163\1\150\1\167\1\155\1\153\2\154\1\150"+
+		"\1\155\1\144\1\145\1\165\3\154\1\156\1\164\1\40\1\156\1\144\1\104\1\155"+
+		"\2\156\2\144\1\141\1\162\1\141\1\172\1\154\1\163\1\154\1\141\1\163\1\162"+
+		"\1\157\1\141\1\162\1\157\1\145\1\156\1\163\1\143\1\103\1\151\1\163\1\151"+
+		"\1\142\1\151\1\162\1\164\1\156\1\151\1\145\1\144\1\164\1\46\1\151\1\145"+
+		"\1\142\1\162\1\144\1\164\1\163\1\107\1\156\1\165\1\157\1\165\1\151\1\164"+
+		"\1\154\2\164\1\142\1\145\1\153\1\145\1\164\2\156\1\146\1\163\2\144\1\104"+
+		"\1\125\1\145\1\40\1\145\1\163\1\123\1\162\1\122\1\163\1\145\1\155\1\163"+
+		"\1\164\1\156\1\160\1\145\1\116\1\157\1\153\2\145\1\150\1\141\2\11\1\141"+
+		"\1\101\1\40\1\162\1\143\1\40\1\157\1\145\2\157\1\156\1\141\1\144\1\141"+
+		"\1\153\1\151\1\157\1\162\1\156\1\145\1\154\1\144\1\143\2\151\1\145\1\157"+
+		"\1\153\1\144\1\164\1\145\2\157\1\151\1\162\1\151\1\145\1\162\1\164\1\163"+
+		"\1\40\1\156\1\141\1\40\1\151\1\154\1\171\1\141\1\165\1\145\1\40\1\142"+
+		"\1\145\1\151\1\171\1\163\1\141\1\151\1\162\1\145\1\151\1\145\1\151\1\144"+
+		"\1\151\1\55\1\143\1\141\1\101\1\141\1\164\1\40\1\145\1\157\1\164\1\150"+
+		"\1\151\1\156\2\141\1\150\1\151\1\156\1\150\1\171\1\156\1\163\1\141\1\164"+
+		"\1\154\1\142\1\141\1\150\1\110\1\154\1\157\1\156\1\162\1\164\1\141\2\164"+
+		"\1\163\1\162\1\154\1\165\2\46\1\156\1\157\1\151\1\145\1\167\1\145\1\11"+
+		"\1\164\1\153\1\171\1\162\1\160\1\164\1\171\1\145\1\154\1\141\1\40\1\162"+
+		"\1\171\2\40\1\151\1\157\1\146\1\144\1\145\1\141\1\151\1\160\1\101\1\122"+
+		"\1\164\1\151\1\144\1\104\1\163\1\123\1\154\1\162\1\141\1\150\1\40\1\145"+
+		"\1\160\1\40\1\105\1\151\1\163\1\162\1\146\1\163\1\145\1\164\1\171\1\131"+
+		"\1\uffff\1\150\1\145\1\154\1\147\1\143\1\154\1\165\1\160\1\156\1\141\1"+
+		"\46\1\141\1\143\1\154\1\141\1\152\1\164\3\145\1\156\1\141\1\163\1\156"+
+		"\1\40\1\150\1\151\1\162\1\151\1\156\1\145\1\46\1\156\1\46\1\144\1\141"+
+		"\1\145\1\157\1\141\1\40\1\156\1\147\1\151\1\40\1\160\1\141\1\163\1\145"+
+		"\1\162\1\145\1\55\1\150\1\164\1\145\1\155\1\40\1\163\1\142\1\46\1\145"+
+		"\1\40\1\163\1\103\1\150\1\171\1\131\1\156\1\40\2\156\1\40\1\157\2\145"+
+		"\2\156\1\40\1\141\1\145\1\157\1\40\1\144\1\172\1\144\1\164\1\141\1\145"+
+		"\1\40\1\145\1\46\1\154\1\156\1\147\1\157\1\40\1\157\1\46\1\145\1\150\1"+
+		"\141\1\145\1\147\1\46\1\145\1\156\1\145\1\163\1\145\1\154\1\uffff\1\40"+
+		"\1\151\1\145\1\144\1\160\1\151\1\150\1\162\1\141\1\40\1\151\1\40\1\145"+
+		"\1\156\1\157\1\141\1\170\1\171\2\163\1\131\1\104\1\141\1\156\1\141\1\101"+
+		"\1\144\1\104\2\141\1\162\1\40\1\163\1\145\1\141\1\123\1\164\1\150\1\40"+
+		"\1\146\1\145\1\163\1\165\2\54\1\157\1\40\1\153\1\151\1\150\1\151\1\156"+
+		"\1\151\1\40\1\154\1\156\1\141\1\151\1\154\1\151\1\40\1\46\1\144\1\162"+
+		"\1\147\1\156\1\145\1\40\1\157\1\143\1\40\1\46\1\40\1\162\1\40\1\46\1\156"+
+		"\1\154\1\147\1\163\1\40\1\141\2\145\1\150\1\145\1\162\1\40\1\46\1\103"+
+		"\1\165\1\151\1\40\1\141\1\40\1\150\1\165\1\uffff\1\163\1\150\1\157\1\40"+
+		"\2\54\3\40\1\162\1\165\1\162\1\163\1\40\1\144\1\156\1\163\1\156\1\157"+
+		"\1\46\2\157\1\156\1\162\1\156\1\uffff\1\157\1\40\1\145\1\153\1\150\1\162"+
+		"\1\40\1\156\1\46\1\165\1\141\1\145\1\166\2\151\1\154\1\46\1\144\1\141"+
+		"\1\145\1\163\1\141\1\163\1\156\1\141\1\154\1\145\2\162\1\40\1\54\1\150"+
+		"\1\164\1\54\1\101\1\156\1\147\1\171\1\131\1\141\1\101\1\46\1\156\1\141"+
+		"\1\144\1\164\1\151\1\104\1\172\1\151\2\46\1\164\1\162\1\11\1\165\1\40"+
+		"\1\141\1\40\1\164\1\144\1\156\1\145\1\40\1\156\1\141\1\151\1\46\1\40\1"+
+		"\157\1\164\3\40\1\165\1\153\1\40\1\171\1\163\1\46\1\164\1\156\1\162\1"+
+		"\141\1\165\2\40\1\157\1\156\1\141\1\156\1\40\1\143\1\46\1\40\1\141\1\40"+
+		"\1\156\1\46\1\145\1\151\1\40\1\145\1\144\2\162\1\40\1\144\1\147\1\46\1"+
+		"\156\1\163\1\145\1\40\1\46\1\151\1\145\1\156\1\40\1\145\1\141\1\154\1"+
+		"\40\1\46\1\171\1\162\1\150\1\155\1\46\1\144\1\156\1\163\1\40\2\144\1\40"+
+		"\1\141\1\131\2\40\2\54\1\171\1\131\1\40\1\156\1\141\1\46\1\162\1\101\1"+
+		"\143\1\162\2\145\1\uffff\2\156\1\141\1\154\1\163\2\40\1\156\1\141\1\156"+
+		"\1\157\1\156\1\40\1\46\1\40\1\151\2\40\1\153\2\141\1\144\1\156\1\40\1"+
+		"\150\1\164\1\144\1\46\1\143\1\40\2\46\2\40\1\145\1\46\1\145\1\40\1\141"+
+		"\1\163\1\40\1\162\1\156\1\145\1\54\1\153\4\40\1\46\1\163\1\40\1\153\3"+
+		"\54\1\46\1\145\1\171\1\145\1\131\1\165\1\145\1\162\1\40\1\144\1\40\1\156"+
+		"\1\141\1\143\1\40\1\156\1\46\1\156\1\144\1\146\1\145\1\46\1\164\2\46\2"+
+		"\145\1\46\1\40\1\156\1\162\1\46\1\156\1\145\1\163\1\40\1\162\1\145\1\150"+
+		"\1\145\1\162\1\54\1\144\1\54\1\151\2\40\1\46\1\40\1\156\1\150\2\40\1\46"+
+		"\1\146\1\40\1\145\1\162\1\144\3\46\1\40\3\46\1\151\1\163\1\46\1\40\1\156"+
+		"\1\144\1\145\1\46\1\144\2\40\1\162\1\46\1\164\1\46\1\162\1\40\1\145\1"+
+		"\154\1\46\1\40\1\151\1\46";
+	static final String DFA32_maxS =
+		"\1\172\1\56\1\163\1\164\1\157\3\165\1\157\1\156\2\162\1\141\1\164\1\141"+
+		"\1\165\1\u00f6\1\171\1\165\1\167\1\165\2\151\2\157\1\115\1\72\4\uffff"+
+		"\2\163\1\123\1\163\2\50\1\123\1\156\1\116\1\145\1\144\1\164\1\166\1\167"+
+		"\1\147\1\162\1\151\1\141\1\145\1\141\2\163\1\162\1\143\1\165\1\171\1\165"+
+		"\1\154\1\166\1\163\1\157\1\165\1\154\1\162\1\156\1\147\1\50\1\164\1\156"+
+		"\1\141\1\170\1\151\1\111\1\162\1\141\1\145\1\162\1\145\1\166\1\151\1\145"+
+		"\1\151\1\141\1\160\1\162\1\155\1\166\1\153\1\157\1\141\1\uffff\1\167\1"+
+		"\116\1\162\1\164\1\141\1\157\1\162\1\154\1\162\1\164\1\157\1\164\1\163"+
+		"\1\116\1\164\1\157\1\164\1\151\1\154\1\171\1\146\1\151\1\141\1\163\1\145"+
+		"\1\116\1\124\1\142\1\171\2\145\1\105\1\165\1\125\1\172\1\164\1\163\1\151"+
+		"\1\162\1\104\1\154\1\162\5\uffff\2\164\1\143\1\151\1\163\1\50\1\uffff"+
+		"\1\50\1\123\1\144\1\104\1\156\1\40\1\145\1\151\1\167\1\160\1\146\1\145"+
+		"\1\150\1\145\1\164\1\163\1\162\2\164\1\163\1\165\1\154\1\147\1\156\1\150"+
+		"\1\143\1\157\1\145\1\172\1\164\1\166\1\145\1\153\1\143\1\164\1\163\1\154"+
+		"\1\162\1\145\1\144\1\141\1\153\1\163\1\156\1\167\1\155\1\153\2\154\1\150"+
+		"\1\155\1\144\1\145\1\165\1\154\1\162\1\154\1\156\1\164\1\40\1\156\1\144"+
+		"\1\104\1\155\2\156\2\144\1\171\1\162\1\141\1\172\1\154\1\163\1\154\1\141"+
+		"\1\163\1\162\1\157\1\141\1\162\1\157\1\145\1\156\1\163\1\143\1\103\1\151"+
+		"\1\163\1\151\1\142\1\151\1\162\1\164\1\156\1\151\1\145\1\144\1\164\1\172"+
+		"\1\151\1\145\1\142\1\162\1\144\1\164\1\163\1\107\1\156\1\165\1\157\1\165"+
+		"\1\151\1\164\1\154\2\164\1\150\1\145\1\153\1\145\1\164\3\156\1\163\1\144"+
+		"\1\145\1\104\1\125\1\145\1\40\1\145\1\163\1\123\1\162\1\122\1\163\1\145"+
+		"\1\155\1\163\1\164\1\156\1\160\1\145\1\116\1\157\1\153\1\151\1\145\1\150"+
+		"\1\141\2\50\1\141\1\101\1\40\1\162\1\143\1\40\1\157\1\151\2\157\1\156"+
+		"\1\141\1\144\1\141\1\153\1\151\1\157\1\162\1\156\1\145\1\154\1\144\1\143"+
+		"\2\151\1\145\1\157\1\153\1\144\1\164\1\145\2\157\1\151\1\162\1\151\1\145"+
+		"\1\162\1\164\1\163\1\155\1\156\1\141\1\40\1\151\1\154\1\171\1\141\1\165"+
+		"\1\145\1\40\1\142\1\145\1\151\1\171\1\163\1\141\1\151\1\162\1\145\1\151"+
+		"\1\145\1\171\1\144\1\151\1\55\1\143\1\141\1\101\1\141\1\164\1\40\1\145"+
+		"\1\157\1\164\1\150\1\151\1\156\2\141\1\150\1\151\1\156\1\150\1\171\1\156"+
+		"\1\163\1\141\1\164\1\154\1\142\1\141\1\150\1\110\1\154\1\157\1\156\1\162"+
+		"\1\164\1\141\2\164\1\163\1\162\1\154\1\165\2\172\1\156\1\157\1\151\1\145"+
+		"\1\167\1\145\1\40\1\164\1\153\1\171\1\162\1\160\1\164\1\171\1\145\1\154"+
+		"\1\141\1\40\1\162\1\171\2\40\1\151\1\157\1\146\1\144\1\145\1\141\1\151"+
+		"\1\160\1\101\1\122\1\164\1\151\1\144\1\104\1\163\1\123\1\154\1\162\1\141"+
+		"\1\150\1\40\1\145\1\160\1\150\1\105\1\151\1\163\1\162\1\146\1\163\1\145"+
+		"\1\164\1\171\1\131\1\uffff\1\150\1\145\1\154\1\147\1\143\1\154\1\165\1"+
+		"\160\1\156\1\141\1\172\1\141\1\143\1\154\1\141\1\152\1\164\3\145\1\156"+
+		"\1\141\1\163\1\156\1\40\1\150\1\151\1\162\1\151\1\156\1\145\1\172\1\156"+
+		"\1\172\1\144\1\141\1\145\1\157\1\141\1\40\1\156\1\147\1\151\1\40\1\160"+
+		"\1\141\1\163\1\145\1\162\1\145\1\55\1\150\1\164\1\145\1\155\2\163\1\142"+
+		"\1\172\1\145\1\40\1\163\1\103\1\150\1\171\1\131\1\156\1\40\2\156\1\145"+
+		"\1\157\2\145\2\156\1\40\1\141\1\145\1\157\1\40\1\144\1\172\1\144\1\164"+
+		"\1\141\1\145\1\40\1\145\1\172\1\154\1\156\1\147\1\157\1\40\1\157\1\172"+
+		"\1\145\1\150\1\141\1\145\1\147\1\172\1\145\1\156\1\145\1\163\1\145\1\154"+
+		"\1\uffff\1\40\1\151\1\145\1\144\1\160\1\151\1\150\1\162\1\141\1\40\1\151"+
+		"\1\40\1\145\1\156\1\157\1\141\1\170\1\171\2\163\1\131\1\104\1\141\1\156"+
+		"\1\141\1\101\1\144\1\104\2\141\1\162\1\40\1\163\1\145\1\141\1\123\1\164"+
+		"\1\150\1\40\1\146\1\145\1\163\1\165\2\54\1\157\1\40\1\153\1\151\1\150"+
+		"\1\151\1\156\1\151\1\40\1\154\1\156\1\141\1\151\1\154\1\151\1\40\1\172"+
+		"\1\144\1\162\1\147\1\156\1\145\1\163\1\157\1\143\1\40\1\172\1\40\1\162"+
+		"\1\40\1\172\1\156\1\154\1\147\1\163\1\40\1\141\2\145\1\150\1\145\1\162"+
+		"\1\40\1\172\1\103\1\165\1\151\1\40\1\141\1\40\1\150\1\165\1\uffff\1\163"+
+		"\1\150\1\157\1\40\2\54\3\40\1\162\1\165\1\162\1\163\1\40\1\144\1\156\1"+
+		"\163\1\156\1\157\1\172\2\157\1\156\1\162\1\156\1\uffff\1\157\1\40\1\145"+
+		"\1\153\1\150\1\162\1\40\1\156\1\172\1\165\1\141\1\145\1\166\2\151\1\154"+
+		"\1\172\1\144\1\141\1\145\1\163\1\141\1\163\1\156\1\141\1\154\1\145\2\162"+
+		"\1\40\1\54\1\150\1\164\1\54\1\101\1\156\1\147\1\171\1\131\1\141\1\101"+
+		"\1\172\1\156\1\141\1\144\1\164\1\151\1\104\1\172\1\151\2\172\1\164\1\162"+
+		"\1\40\1\165\1\40\1\141\1\40\1\164\1\144\1\156\1\145\1\40\1\156\1\141\1"+
+		"\151\1\172\1\40\1\157\1\164\3\40\1\165\1\153\1\40\1\171\1\163\1\172\1"+
+		"\164\1\156\1\162\1\141\1\165\2\40\1\157\1\156\1\141\1\156\1\40\1\143\1"+
+		"\172\1\40\1\141\1\40\1\156\1\172\1\145\1\151\1\40\1\145\1\144\2\162\1"+
+		"\40\1\144\1\147\1\172\1\156\1\163\1\145\1\40\1\172\1\151\1\145\1\156\1"+
+		"\40\1\145\1\141\1\154\1\40\1\172\1\171\1\162\1\150\1\155\1\172\1\144\1"+
+		"\156\1\163\1\40\2\144\1\40\1\141\1\131\2\40\2\54\1\171\1\131\1\163\1\156"+
+		"\1\141\1\172\1\162\1\101\1\143\1\162\2\145\1\uffff\2\156\1\141\1\154\1"+
+		"\163\2\40\1\156\1\141\1\156\1\157\1\156\1\40\1\172\1\40\1\151\2\40\1\153"+
+		"\2\141\1\144\1\156\1\40\1\150\1\164\1\144\1\172\1\143\1\40\2\172\2\40"+
+		"\1\145\1\172\1\145\1\40\1\141\1\163\1\40\1\162\1\156\1\145\1\54\1\153"+
+		"\4\40\1\172\1\163\1\40\1\153\3\54\1\172\1\145\1\171\1\145\1\131\1\165"+
+		"\1\145\1\162\1\40\1\144\1\40\1\156\1\141\1\143\1\40\1\156\1\172\1\156"+
+		"\1\144\1\146\1\145\1\172\1\164\2\172\2\145\1\172\1\40\1\156\1\162\1\172"+
+		"\1\156\1\145\1\163\1\40\1\162\1\145\1\150\1\145\1\162\1\54\1\144\1\54"+
+		"\1\151\2\40\1\172\1\40\1\156\1\150\2\40\1\172\1\146\1\40\1\145\1\162\1"+
+		"\144\3\172\1\40\3\172\1\151\1\163\1\172\1\40\1\156\1\144\1\145\1\172\1"+
+		"\144\2\40\1\162\1\172\1\164\1\172\1\162\1\40\1\145\1\154\1\172\1\40\1"+
+		"\151\1\172";
+	static final String DFA32_acceptS =
+		"\33\uffff\1\10\1\17\1\1\1\14\74\uffff\1\3\52\uffff\1\5\1\20\1\15\1\6\1"+
+		"\12\6\uffff\1\7\u013e\uffff\1\2\155\uffff\1\11\141\uffff\1\4\31\uffff"+
+		"\1\16\u009a\uffff\1\13\u0092\uffff";
+	static final String DFA32_specialS =
+		"\u03e8\uffff}>";
+>>>>>>> origin/master
 	static final String[] DFA32_transitionS = {
 			"\2\33\2\uffff\1\33\22\uffff\1\33\5\uffff\2\34\1\31\3\uffff\2\34\1\1\1"+
 			"\uffff\12\32\2\34\5\uffff\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1"+
@@ -7191,13 +8103,20 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u0083\37\uffff\1\u0080\2\uffff\1\u0081\1\u0082",
 			"\1\u0084",
 			"\1\u0085",
+<<<<<<< HEAD
 			"\11\34\2\u0087\2\34\1\u0087\22\34\1\u0087\17\34\12\u0088\23\34\1\u0086"+
 			"\uffb2\34",
 			"\1\u008a\2\uffff\12\32\1\u008b",
+=======
+			"\2\u0087\2\uffff\1\u0087\22\uffff\1\u0087\17\uffff\12\u0087\23\uffff"+
+			"\1\u0086",
+			"\1\u0089\2\uffff\12\32\1\u008a",
+>>>>>>> origin/master
 			"",
 			"",
 			"",
 			"",
+<<<<<<< HEAD
 			"\1\u008d\1\uffff\1\u008e\4\uffff\1\u008c",
 			"\1\u008f\4\uffff\1\u0090",
 			"\2\u0092\2\uffff\1\u0092\22\uffff\1\u0092\7\uffff\1\u0093\52\uffff\1"+
@@ -7206,20 +8125,41 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u0094",
 			"\2\u0092\2\uffff\1\u0092\22\uffff\1\u0092\7\uffff\1\u0093",
 			"\2\u0092\2\uffff\1\u0092\22\uffff\1\u0092\7\uffff\1\u0093",
+=======
+			"\1\u008c\1\uffff\1\u008d\4\uffff\1\u008b",
+			"\1\u008e\4\uffff\1\u008f",
+			"\2\u0091\2\uffff\1\u0091\22\uffff\1\u0091\7\uffff\1\u0091\52\uffff\1"+
+			"\u0090",
+			"\2\u0091\2\uffff\1\u0091\22\uffff\1\u0091\7\uffff\1\u0091\112\uffff"+
+			"\1\u0092",
+			"\2\u0091\2\uffff\1\u0091\22\uffff\1\u0091\7\uffff\1\u0091",
+			"\2\u0091\2\uffff\1\u0091\22\uffff\1\u0091\7\uffff\1\u0091",
+			"\1\u0093",
+			"\1\u0094",
+>>>>>>> origin/master
 			"\1\u0095",
 			"\1\u0096",
 			"\1\u0097",
 			"\1\u0098",
+<<<<<<< HEAD
 			"\1\u0099",
 			"\1\u009a",
 			"\1\u009c\3\uffff\1\u009b",
 			"\1\u009d\25\uffff\1\u009e",
 			"\1\u009f\1\u00a0",
+=======
+			"\1\u009a\3\uffff\1\u0099",
+			"\1\u009b\25\uffff\1\u009c",
+			"\1\u009d\1\u009e",
+			"\1\u009f",
+			"\1\u00a0",
+>>>>>>> origin/master
 			"\1\u00a1",
 			"\1\u00a2",
 			"\1\u00a3",
 			"\1\u00a4",
 			"\1\u00a5",
+<<<<<<< HEAD
 			"\1\u00a6",
 			"\1\u00a7",
 			"\1\u00a8\2\uffff\1\u00a9\7\uffff\1\u00aa\5\uffff\1\u00ab",
@@ -7285,6 +8225,74 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u010f\7\uffff\1\u0110",
 			"\1\u0111",
 			"\1\u0113\4\uffff\1\u0112",
+=======
+			"\1\u00a6\2\uffff\1\u00a7\7\uffff\1\u00a8\5\uffff\1\u00a9",
+			"\1\u00aa",
+			"\1\u00ab\15\uffff\1\u00ac\5\uffff\1\u00ad",
+			"\1\u00ae\1\u00af\1\uffff\1\u00b0\2\uffff\1\u00b1\1\u00b2",
+			"\1\u00b3\7\uffff\1\u00b4\13\uffff\1\u00b5",
+			"\1\u00b6",
+			"\1\u00b7\4\uffff\1\u00b8\3\uffff\1\u00b9\3\uffff\1\u00ba",
+			"\1\u00bb",
+			"\1\u00bc\3\uffff\1\u00bd\5\uffff\1\u00be",
+			"\1\u00bf",
+			"\1\u00c0\10\uffff\1\u00c1",
+			"\1\u00c2",
+			"\1\u00c3\10\uffff\1\u00c4\1\uffff\1\u00c5",
+			"\1\u00c6\4\uffff\1\u00c7",
+			"\2\u0091\2\uffff\1\u0091\22\uffff\1\u0091\7\uffff\1\u0091",
+			"\1\u00c8\14\uffff\1\u00c9",
+			"\1\u00ca\10\uffff\1\u00cb",
+			"\1\u00cc",
+			"\1\u00cd",
+			"\1\u00ce\3\uffff\1\u00cf",
+			"\1\u00d0",
+			"\1\u00d1",
+			"\1\u00d2",
+			"\1\u00d3",
+			"\1\u00d4\5\uffff\1\u00d5",
+			"\1\u00d6",
+			"\1\u00d7\3\uffff\1\u00d8",
+			"\1\u00d9",
+			"\1\u00da",
+			"\1\u00db",
+			"\1\u00dc",
+			"\1\u00dd",
+			"\1\u00de\14\uffff\1\u00df",
+			"\1\u00e0",
+			"\1\u00e1",
+			"\1\u00e2\4\uffff\1\u00e3\3\uffff\1\u00e4",
+			"\1\u00e5",
+			"\1\u00e6",
+			"",
+			"\1\u00e7",
+			"\1\u00e8",
+			"\1\u00e9\1\uffff\1\u00ea",
+			"\1\u00eb\1\uffff\1\u00ec\6\uffff\1\u00ed",
+			"\1\u00ee",
+			"\1\u00ef",
+			"\1\u00f0\2\uffff\1\u00f1\1\u00f2\1\uffff\1\u00f3\2\uffff\1\u00f4",
+			"\1\u00f5\4\uffff\1\u00f6",
+			"\1\u00f7",
+			"\1\u00f8\17\uffff\1\u00f9",
+			"\1\u00fa",
+			"\1\u00fb",
+			"\1\u00fc",
+			"\1\u00fd",
+			"\1\u00fe\2\uffff\1\u00ff\1\u0100\6\uffff\1\u0101",
+			"\1\u0102\6\uffff\1\u0103",
+			"\1\u0104\22\uffff\1\u0105",
+			"\1\u0106\3\uffff\1\u0107",
+			"\1\u0108\11\uffff\1\u0109",
+			"\1\u010a",
+			"\1\u010b",
+			"\1\u010c\7\uffff\1\u010d",
+			"\1\u010e",
+			"\1\u0110\4\uffff\1\u010f",
+			"\1\u0111",
+			"\1\u0112",
+			"\1\u0113",
+>>>>>>> origin/master
 			"\1\u0114",
 			"\1\u0115",
 			"\1\u0116",
@@ -7294,6 +8302,7 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u011a",
 			"\1\u011b",
 			"\1\u011c",
+<<<<<<< HEAD
 			"\1\u011d",
 			"\1\u011e",
 			"\1\u011f",
@@ -7324,10 +8333,40 @@ public class dogshowcomboLexer extends Lexer {
 			"\2\u0092\2\uffff\1\u0092\22\uffff\1\u0092\7\uffff\1\u0093",
 			"\1\u0132",
 			"\1\u0133",
+=======
+			"\1\u0120\4\uffff\1\u011d\2\uffff\1\u011e\6\uffff\1\u011f",
+			"\1\u0121",
+			"\1\u0122",
+			"\1\u0123",
+			"\1\u0124",
+			"\1\u0125",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"\1\u0126",
+			"\1\u0127",
+			"\1\u0128",
+			"\1\u0129",
+			"\1\u012a",
+			"\2\u0091\2\uffff\1\u0091\22\uffff\1\u0091\7\uffff\1\u0091",
+			"",
+			"\2\u0091\2\uffff\1\u0091\22\uffff\1\u0091\7\uffff\1\u0091",
+			"\1\u012b",
+			"\1\u012c",
+			"\1\u012d",
+			"\1\u012e",
+			"\1\133",
+			"\1\u012f",
+			"\1\u0131\7\uffff\1\u0130",
+			"\1\u0132\20\uffff\1\u0133",
+>>>>>>> origin/master
 			"\1\u0134",
 			"\1\u0135",
 			"\1\u0136",
 			"\1\u0137",
+<<<<<<< HEAD
 			"\1\u0139\7\uffff\1\u0138",
 			"\1\u013a\20\uffff\1\u013b",
 			"\1\u013c",
@@ -7343,11 +8382,30 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u0146\15\uffff\1\u0147",
 			"\1\u0148\12\uffff\1\u0149\2\uffff\1\u014a",
 			"\1\u014b",
+=======
+			"\1\u0138",
+			"\1\u0139",
+			"\1\u013a",
+			"\1\u013b",
+			"\1\u013c",
+			"\1\u013d",
+			"\1\u013e\15\uffff\1\u013f",
+			"\1\u0140\12\uffff\1\u0141\2\uffff\1\u0142",
+			"\1\u0143",
+			"\1\u0144",
+			"\1\u0145",
+			"\1\u0146",
+			"\1\u0147",
+			"\1\u0148",
+			"\1\u0149",
+			"\1\u014a\25\uffff\1\u014b",
+>>>>>>> origin/master
 			"\1\u014c",
 			"\1\u014d",
 			"\1\u014e",
 			"\1\u014f",
 			"\1\u0150",
+<<<<<<< HEAD
 			"\1\u0151",
 			"\1\u0152\25\uffff\1\u0153",
 			"\1\u0154",
@@ -7360,10 +8418,25 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u015c",
 			"\1\u015d",
 			"\1\u015e\3\uffff\1\u015f",
+=======
+			"\1\u0151\22\uffff\1\u0152",
+			"\1\u0153",
+			"\1\u0154",
+			"\1\u0155",
+			"\1\u0156\3\uffff\1\u0157",
+			"\1\u0158",
+			"\1\u0159",
+			"\1\u015a",
+			"\1\u015b",
+			"\1\u015c\5\uffff\1\u015d",
+			"\1\u015e",
+			"\1\u015f",
+>>>>>>> origin/master
 			"\1\u0160",
 			"\1\u0161",
 			"\1\u0162",
 			"\1\u0163",
+<<<<<<< HEAD
 			"\1\u0164\5\uffff\1\u0165",
 			"\1\u0166",
 			"\1\u0167",
@@ -7382,6 +8455,27 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u0175",
 			"\1\u0176",
 			"\1\u0177",
+=======
+			"\1\u0164",
+			"\1\u0165",
+			"\1\u0166",
+			"\1\u0167",
+			"\1\u0168",
+			"\1\u0169\5\uffff\1\u016a",
+			"\1\u016b",
+			"\1\u016c",
+			"\1\u016d",
+			"\1\133",
+			"\1\u016e",
+			"\1\u016f",
+			"\1\u0170",
+			"\1\u0171",
+			"\1\u0172",
+			"\1\u0173",
+			"\1\u0174",
+			"\1\u0175",
+			"\1\u0176\27\uffff\1\u0177",
+>>>>>>> origin/master
 			"\1\u0178",
 			"\1\u0179",
 			"\1\u017a",
@@ -7389,7 +8483,12 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u017c",
 			"\1\u017d",
 			"\1\u017e",
+<<<<<<< HEAD
 			"\1\u017f\27\uffff\1\u0180",
+=======
+			"\1\u017f",
+			"\1\u0180",
+>>>>>>> origin/master
 			"\1\u0181",
 			"\1\u0182",
 			"\1\u0183",
@@ -7411,7 +8510,12 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u0193",
 			"\1\u0194",
 			"\1\u0195",
+<<<<<<< HEAD
 			"\1\u0196",
+=======
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+>>>>>>> origin/master
 			"\1\u0197",
 			"\1\u0198",
 			"\1\u0199",
@@ -7421,21 +8525,33 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u019d",
 			"\1\u019e",
 			"\1\u019f",
+<<<<<<< HEAD
 			"\2\u01a2\2\uffff\1\u01a2\22\uffff\1\u01a2\5\uffff\2\34\1\u01a3\3\uffff"+
 			"\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff\22\34\1\u01a1"+
 			"\7\34",
+=======
+			"\1\u01a0",
+			"\1\u01a1",
+			"\1\u01a2",
+			"\1\u01a3",
+>>>>>>> origin/master
 			"\1\u01a4",
 			"\1\u01a5",
 			"\1\u01a6",
 			"\1\u01a7",
+<<<<<<< HEAD
 			"\1\u01a8",
 			"\1\u01a9",
+=======
+			"\1\u01a8\5\uffff\1\u01a9",
+>>>>>>> origin/master
 			"\1\u01aa",
 			"\1\u01ab",
 			"\1\u01ac",
 			"\1\u01ad",
 			"\1\u01ae",
 			"\1\u01af",
+<<<<<<< HEAD
 			"\1\u01b0",
 			"\1\u01b1",
 			"\1\u01b2",
@@ -7444,30 +8560,59 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u01b5\5\uffff\1\u01b6",
 			"\1\u01b7",
 			"\1\u01b8",
+=======
+			"\1\u01b0\7\uffff\1\u01b1",
+			"\1\u01b2",
+			"\1\u01b3",
+			"\1\u01b4\1\u01b5",
+			"\1\u01b6",
+			"\1\u01b7",
+			"\1\u01b8",
+			"\1\133",
+>>>>>>> origin/master
 			"\1\u01b9",
 			"\1\u01ba",
 			"\1\u01bb",
 			"\1\u01bc",
+<<<<<<< HEAD
 			"\1\u01bd\7\uffff\1\u01be",
 			"\1\u01bf",
 			"\1\u01c0",
 			"\1\u01c1\1\u01c2",
+=======
+			"\1\u01bd",
+			"\1\u01be",
+			"\1\u01bf",
+			"\1\u01c0",
+			"\1\u01c1",
+			"\1\u01c2",
+>>>>>>> origin/master
 			"\1\u01c3",
 			"\1\u01c4",
 			"\1\u01c5",
 			"\1\u01c6",
 			"\1\u01c7",
 			"\1\u01c8",
+<<<<<<< HEAD
 			"\1\u01c9",
 			"\1\u01ca",
 			"\1\u01cb",
 			"\1\u01cc",
 			"\1\u01cd",
+=======
+			"\1\u01c9\3\uffff\1\u01ca",
+			"\1\u01cb",
+			"\1\u01cc",
+			"\1\u01cd",
+			"\2\u0091\2\uffff\1\u0091\22\uffff\1\u0091\7\uffff\1\u0091",
+			"\2\u0091\2\uffff\1\u0091\22\uffff\1\u0091\7\uffff\1\u0091",
+>>>>>>> origin/master
 			"\1\u01ce",
 			"\1\u01cf",
 			"\1\u01d0",
 			"\1\u01d1",
 			"\1\u01d2",
+<<<<<<< HEAD
 			"\1\u01d3",
 			"\1\u01d4",
 			"\1\u01d5",
@@ -7487,6 +8632,22 @@ public class dogshowcomboLexer extends Lexer {
 			"\2\u01df\4\uffff\2\u01df\2\uffff\12\u01e0\2\u01df\5\uffff\32\u01df\4"+
 			"\uffff\1\u01df\1\uffff\32\u01df",
 			"\2\u0092\2\uffff\1\u0092\22\uffff\1\u0092\7\uffff\1\u0093",
+=======
+			"\1\133",
+			"\1\u01d3",
+			"\1\u01d4\3\uffff\1\u01d5",
+			"\1\u01d6",
+			"\1\u01d7",
+			"\1\u01d8",
+			"\1\u01d9",
+			"\1\u01da",
+			"\1\u01db",
+			"\1\u01dc",
+			"\1\u01dd",
+			"\1\u01de",
+			"\1\u01df",
+			"\1\u01e0",
+>>>>>>> origin/master
 			"\1\u01e1",
 			"\1\u01e2",
 			"\1\u01e3",
@@ -7495,7 +8656,12 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u01e6",
 			"\1\u01e7",
 			"\1\u01e8",
+<<<<<<< HEAD
 			"\1\u01e9\3\uffff\1\u01ea",
+=======
+			"\1\u01e9",
+			"\1\u01ea",
+>>>>>>> origin/master
 			"\1\u01eb",
 			"\1\u01ec",
 			"\1\u01ed",
@@ -7507,16 +8673,27 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u01f3",
 			"\1\u01f4",
 			"\1\u01f5",
+<<<<<<< HEAD
 			"\1\u01f6",
 			"\1\u01f7",
 			"\1\u01f8",
 			"\1\u01f9",
+=======
+			"\1\133\103\uffff\1\u01f6\10\uffff\1\u01f7",
+			"\1\u01f8",
+			"\1\u01f9",
+			"\1\133",
+>>>>>>> origin/master
 			"\1\u01fa",
 			"\1\u01fb",
 			"\1\u01fc",
 			"\1\u01fd",
 			"\1\u01fe",
 			"\1\u01ff",
+<<<<<<< HEAD
+=======
+			"\1\133",
+>>>>>>> origin/master
 			"\1\u0200",
 			"\1\u0201",
 			"\1\u0202",
@@ -7528,7 +8705,12 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u0208",
 			"\1\u0209",
 			"\1\u020a",
+<<<<<<< HEAD
 			"\1\u020b\103\uffff\1\u020c\10\uffff\1\u020d",
+=======
+			"\1\u020c\17\uffff\1\u020b",
+			"\1\u020d",
+>>>>>>> origin/master
 			"\1\u020e",
 			"\1\u020f",
 			"\1\u0210",
@@ -7536,6 +8718,10 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u0212",
 			"\1\u0213",
 			"\1\u0214",
+<<<<<<< HEAD
+=======
+			"\1\133",
+>>>>>>> origin/master
 			"\1\u0215",
 			"\1\u0216",
 			"\1\u0217",
@@ -7550,7 +8736,12 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u0220",
 			"\1\u0221",
 			"\1\u0222",
+<<<<<<< HEAD
 			"\1\u0224\17\uffff\1\u0223",
+=======
+			"\1\u0223",
+			"\1\u0224",
+>>>>>>> origin/master
 			"\1\u0225",
 			"\1\u0226",
 			"\1\u0227",
@@ -7569,14 +8760,25 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u0234",
 			"\1\u0235",
 			"\1\u0236",
+<<<<<<< HEAD
 			"\1\u0237",
+=======
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\32\34",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\12\34\1\u0237\7\34\1\u0196\7\34",
+>>>>>>> origin/master
 			"\1\u0238",
 			"\1\u0239",
 			"\1\u023a",
 			"\1\u023b",
 			"\1\u023c",
 			"\1\u023d",
+<<<<<<< HEAD
 			"\1\u023e",
+=======
+			"\2\u023e\2\uffff\1\u023e\22\uffff\1\u023e",
+>>>>>>> origin/master
 			"\1\u023f",
 			"\1\u0240",
 			"\1\u0241",
@@ -7587,8 +8789,16 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u0246",
 			"\1\u0247",
 			"\1\u0248",
+<<<<<<< HEAD
 			"\1\u0249",
 			"\1\u024a",
+=======
+			"\1\133",
+			"\1\u0249",
+			"\1\u024a",
+			"\1\133",
+			"\1\133",
+>>>>>>> origin/master
 			"\1\u024b",
 			"\1\u024c",
 			"\1\u024d",
@@ -7596,6 +8806,7 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u024f",
 			"\1\u0250",
 			"\1\u0251",
+<<<<<<< HEAD
 			"",
 			"\2\u01a2\2\uffff\1\u01a2\22\uffff\1\u01a2\5\uffff\2\34\1\u01a3\3\uffff"+
 			"\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
@@ -7609,16 +8820,43 @@ public class dogshowcomboLexer extends Lexer {
 			"\7\34\1\u01a1\7\34",
 			"\1\u0260",
 			"\1\u0261",
+=======
+			"\1\u0252",
+			"\1\u0253",
+			"\1\u0254",
+			"\1\u0255",
+			"\1\u0256",
+			"\1\u0257",
+			"\1\u0258",
+			"\1\u0259",
+			"\1\u025a",
+			"\1\u025b",
+			"\1\u025c",
+			"\1\u025d",
+			"\1\u025e",
+			"\1\133",
+			"\1\u025f",
+			"\1\u0260",
+			"\1\133\107\uffff\1\u0261",
+>>>>>>> origin/master
 			"\1\u0262",
 			"\1\u0263",
 			"\1\u0264",
 			"\1\u0265",
+<<<<<<< HEAD
 			"\2\u0266\2\uffff\1\u0266\22\uffff\1\u0266",
+=======
+			"\1\u0266",
+>>>>>>> origin/master
 			"\1\u0267",
 			"\1\u0268",
 			"\1\u0269",
 			"\1\u026a",
 			"\1\u026b",
+<<<<<<< HEAD
+=======
+			"",
+>>>>>>> origin/master
 			"\1\u026c",
 			"\1\u026d",
 			"\1\u026e",
@@ -7629,6 +8867,11 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u0273",
 			"\1\u0274",
 			"\1\u0275",
+<<<<<<< HEAD
+=======
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+>>>>>>> origin/master
 			"\1\u0276",
 			"\1\u0277",
 			"\1\u0278",
@@ -7642,17 +8885,30 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u0280",
 			"\1\u0281",
 			"\1\u0282",
+<<<<<<< HEAD
+=======
+			"\1\133",
+>>>>>>> origin/master
 			"\1\u0283",
 			"\1\u0284",
 			"\1\u0285",
 			"\1\u0286",
 			"\1\u0287",
 			"\1\u0288",
+<<<<<<< HEAD
 			"\1\u0289",
+=======
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\u0289",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+>>>>>>> origin/master
 			"\1\u028a",
 			"\1\u028b",
 			"\1\u028c",
 			"\1\u028d",
+<<<<<<< HEAD
 			"\1\u028e\107\uffff\1\u028f",
 			"\1\u0290",
 			"\1\u0291",
@@ -7663,11 +8919,22 @@ public class dogshowcomboLexer extends Lexer {
 			"\2\u01d8\2\uffff\1\u01d8\22\uffff\1\u01d8\5\uffff\2\34\1\uffff\1\u01d9"+
 			"\2\uffff\2\34\2\uffff\14\34\5\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
 			"",
+=======
+			"\1\u028e",
+			"\1\133",
+			"\1\u028f",
+			"\1\u0290",
+			"\1\u0291",
+			"\1\133",
+			"\1\u0292",
+			"\1\u0293",
+>>>>>>> origin/master
 			"\1\u0294",
 			"\1\u0295",
 			"\1\u0296",
 			"\1\u0297",
 			"\1\u0298",
+<<<<<<< HEAD
 			"\2\u0299\2\uffff\1\u0299\22\uffff\1\u0299\5\uffff\2\u01df\1\uffff\1"+
 			"\u029a\2\uffff\2\u01df\2\uffff\12\u01e0\2\u01df\5\uffff\32\u01df\4\uffff"+
 			"\1\u01df\1\uffff\32\u01df",
@@ -7682,32 +8949,61 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u029f",
 			"\1\u02a0",
 			"\1\u02a1",
+=======
+			"\1\u0299",
+			"\1\u029a",
+			"\1\u029b",
+			"\1\u029c",
+			"\1\133\122\uffff\1\u029d",
+			"\1\u029e",
+			"\1\u029f",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\32\34",
+			"\1\u02a1",
+			"\1\133",
+>>>>>>> origin/master
 			"\1\u02a2",
 			"\1\u02a3",
 			"\1\u02a4",
 			"\1\u02a5",
 			"\1\u02a6",
 			"\1\u02a7",
+<<<<<<< HEAD
 			"\1\u02a8",
 			"\2\u01a2\2\uffff\1\u01a2\22\uffff\1\u01a2\5\uffff\2\34\1\u01a3\3\uffff"+
 			"\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff\22\34\1\u01a1"+
 			"\7\34",
 			"\1\u02a9",
 			"\1\u02aa",
+=======
+			"\1\133",
+			"\1\u02a8",
+			"\1\u02a9",
+			"\1\133\104\uffff\1\u02aa",
+>>>>>>> origin/master
 			"\1\u02ab",
 			"\1\u02ac",
 			"\1\u02ad",
 			"\1\u02ae",
 			"\1\u02af",
+<<<<<<< HEAD
 			"\1\u02b0",
 			"\1\u02b1",
 			"\1\u02b2",
+=======
+			"\1\133",
+			"\1\u02b0",
+			"\1\u02b1",
+			"\1\u02b2",
+			"\1\133",
+>>>>>>> origin/master
 			"\1\u02b3",
 			"\1\u02b4",
 			"\1\u02b5",
 			"\1\u02b6",
 			"\1\u02b7",
 			"\1\u02b8",
+<<<<<<< HEAD
 			"\1\u02b9",
 			"\1\u02ba",
 			"\1\u02bb",
@@ -7721,17 +9017,41 @@ public class dogshowcomboLexer extends Lexer {
 			"\7\34",
 			"\1\u02be",
 			"\1\u02bf",
+=======
+			"\1\133",
+			"\1\u02b9",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\32\34",
+			"\1\u02bb",
+			"\1\u02bc",
+			"\1\u02bd",
+			"\1\u02be",
+			"\1\133",
+			"\1\u02bf",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+>>>>>>> origin/master
 			"\1\u02c0",
 			"\1\u02c1",
 			"\1\u02c2",
 			"\1\u02c3",
 			"\1\u02c4",
+<<<<<<< HEAD
+=======
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+>>>>>>> origin/master
 			"\1\u02c5",
 			"\1\u02c6",
 			"\1\u02c7",
 			"\1\u02c8",
 			"\1\u02c9",
 			"\1\u02ca",
+<<<<<<< HEAD
+=======
+			"",
+			"\1\133",
+>>>>>>> origin/master
 			"\1\u02cb",
 			"\1\u02cc",
 			"\1\u02cd",
@@ -7740,6 +9060,7 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u02d0",
 			"\1\u02d1",
 			"\1\u02d2",
+<<<<<<< HEAD
 			"\1\u02d3",
 			"\1\u02d4",
 			"\1\u02d5",
@@ -7748,6 +9069,18 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u02d9",
 			"\3\34\3\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
 			"\32\34",
+=======
+			"\1\133",
+			"\1\u02d3",
+			"\1\133",
+			"\1\u02d4",
+			"\1\u02d5",
+			"\1\u02d6",
+			"\1\u02d7",
+			"\1\u02d8",
+			"\1\u02d9",
+			"\1\u02da",
+>>>>>>> origin/master
 			"\1\u02db",
 			"\1\u02dc",
 			"\1\u02dd",
@@ -7760,35 +9093,65 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u02e4",
 			"\1\u02e5",
 			"\1\u02e6",
+<<<<<<< HEAD
 			"\1\u02e7",
 			"\1\u02e8\104\uffff\1\u02e9",
 			"\1\u02ea",
 			"\1\u02eb",
 			"\1\u02ec",
+=======
+			"\1\133",
+			"\1\u02e7",
+			"\1\u02e8",
+			"\1\u02e9",
+			"\1\u02ea",
+			"\1\u02eb",
+			"\1\u02ec",
+			"\1\u01d0",
+>>>>>>> origin/master
 			"\1\u02ed",
 			"\1\u02ee",
 			"\1\u02ef",
 			"\1\u02f0",
 			"\1\u02f1",
+<<<<<<< HEAD
 			"\1\u02f2",
+=======
+			"\1\u02f1",
+			"\1\u02f2",
+			"\1\u01d0",
+>>>>>>> origin/master
 			"\1\u02f3",
 			"\1\u02f4",
 			"\1\u02f5",
 			"\1\u02f6",
 			"\1\u02f7",
 			"\1\u02f8",
+<<<<<<< HEAD
+=======
+			"\1\133",
+>>>>>>> origin/master
 			"\1\u02f9",
 			"\1\u02fa",
 			"\1\u02fb",
 			"\1\u02fc",
+<<<<<<< HEAD
 			"\3\34\3\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
 			"\32\34",
 			"\1\u02fe",
+=======
+			"\1\u02fd",
+			"\1\u02fe",
+			"\1\133",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+>>>>>>> origin/master
 			"\1\u02ff",
 			"\1\u0300",
 			"\1\u0301",
 			"\1\u0302",
 			"\1\u0303",
+<<<<<<< HEAD
 			"\2\u01a2\2\uffff\1\u01a2\22\uffff\1\u01a2\5\uffff\2\34\1\u01a3\3\uffff"+
 			"\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff\22\34\1\u01a1"+
 			"\7\34",
@@ -7826,27 +9189,96 @@ public class dogshowcomboLexer extends Lexer {
 			"\2\u01a2\2\uffff\1\u01a2\22\uffff\1\u01a2\5\uffff\2\34\1\u01a3\3\uffff"+
 			"\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff\22\34\1\u01a1"+
 			"\7\34",
+=======
+			"\1\133\122\uffff\1\u0304",
+			"\1\u0305",
+			"\1\u0306",
+			"\1\133",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\133",
+			"\1\u0307",
+			"\1\133",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\u0308",
+			"\1\u0309",
+			"\1\u030a",
+			"\1\u030b",
+			"\1\133",
+			"\1\u030c",
+			"\1\u030d",
+			"\1\u030e",
+			"\1\u030f",
+			"\1\u0310",
+			"\1\u0311",
+			"\1\133",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\u0312",
+			"\1\u0313",
+			"\1\u0314",
+			"\1\133",
+			"\1\u0315",
+			"\1\133",
+			"\1\u0316",
+			"\1\u0317",
+			"",
+			"\1\u0318",
+			"\1\u0319",
+			"\1\u031a",
+			"\1\133",
+			"\1\u02f1",
+			"\1\u02f1",
+			"\1\133",
+			"\1\133",
+			"\1\133",
+>>>>>>> origin/master
 			"\1\u031b",
 			"\1\u031c",
 			"\1\u031d",
 			"\1\u031e",
+<<<<<<< HEAD
 			"\1\u031f",
 			"\1\u0320",
 			"",
 			"\1\u0321",
 			"\1\u0322",
 			"\1\u0323",
+=======
+			"\1\133",
+			"\1\u031f",
+			"\1\u0320",
+			"\1\u0321",
+			"\1\u0322",
+			"\1\u0323",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+>>>>>>> origin/master
 			"\1\u0324",
 			"\1\u0325",
 			"\1\u0326",
 			"\1\u0327",
 			"\1\u0328",
+<<<<<<< HEAD
 			"\1\u0329",
+=======
+			"",
+			"\1\u0329",
+			"\1\133",
+>>>>>>> origin/master
 			"\1\u032a",
 			"\1\u032b",
 			"\1\u032c",
 			"\1\u032d",
+<<<<<<< HEAD
 			"\1\u032e",
+=======
+			"\1\133",
+			"\1\u032e",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+>>>>>>> origin/master
 			"\1\u032f",
 			"\1\u0330",
 			"\1\u0331",
@@ -7854,6 +9286,11 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u0333",
 			"\1\u0334",
 			"\1\u0335",
+<<<<<<< HEAD
+=======
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+>>>>>>> origin/master
 			"\1\u0336",
 			"\1\u0337",
 			"\1\u0338",
@@ -7866,8 +9303,16 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u033f",
 			"\1\u0340",
 			"\1\u0341",
+<<<<<<< HEAD
 			"\1\u0342",
 			"\1\u0343",
+=======
+			"\1\133",
+			"\1\u02f1",
+			"\1\u0342",
+			"\1\u0343",
+			"\1\u02f1",
+>>>>>>> origin/master
 			"\1\u0344",
 			"\1\u0345",
 			"\1\u0346",
@@ -7875,15 +9320,24 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u0348",
 			"\1\u0349",
 			"\1\u034a",
+<<<<<<< HEAD
 			"\1\u034b",
 			"\1\u034c",
 			"\2\34\2\uffff\1\34\22\uffff\1\34\5\uffff\2\34\1\uffff\1\34\2\uffff\2"+
 			"\34\1\u034d\1\uffff\14\34\5\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
 			"\1\u01e3",
+=======
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\u034b",
+			"\1\u034c",
+			"\1\u034d",
+>>>>>>> origin/master
 			"\1\u034e",
 			"\1\u034f",
 			"\1\u0350",
 			"\1\u0351",
+<<<<<<< HEAD
 			"\2\u0299\2\uffff\1\u0299\22\uffff\1\u0299\5\uffff\2\u01df\1\uffff\1"+
 			"\u029a\2\uffff\2\u01df\2\uffff\12\u01e0\2\u01df\5\uffff\32\u01df\4\uffff"+
 			"\1\u01df\1\uffff\32\u01df",
@@ -7896,10 +9350,25 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u0355",
 			"\1\u0356",
 			"\1\u0357",
+=======
+			"\1\u0352",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\u0353",
+			"\1\u0354",
+			"\2\u0355\2\uffff\1\u0355\22\uffff\1\u0355",
+			"\1\u0356",
+			"\1\133",
+			"\1\u0357",
+			"\1\133",
+>>>>>>> origin/master
 			"\1\u0358",
 			"\1\u0359",
 			"\1\u035a",
 			"\1\u035b",
+<<<<<<< HEAD
 			"\1\u035c",
 			"\1\u035d",
 			"\1\u035e",
@@ -7912,10 +9381,32 @@ public class dogshowcomboLexer extends Lexer {
 			"\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff\22\34\1\u01a1"+
 			"\7\34",
 			"\1\u0364",
+=======
+			"\1\133",
+			"\1\u035c",
+			"\1\u035d",
+			"\1\u035e",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\133",
+			"\1\u035f",
+			"\1\u0360",
+			"\1\133",
+			"\1\133",
+			"\1\133",
+			"\1\u0361",
+			"\1\u0362",
+			"\1\133",
+			"\1\u0363",
+			"\1\u0364",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+>>>>>>> origin/master
 			"\1\u0365",
 			"\1\u0366",
 			"\1\u0367",
 			"\1\u0368",
+<<<<<<< HEAD
 			"\1\u0369\122\uffff\1\u036a",
 			"\1\u036c\53\uffff\1\u036d\16\uffff\1\u036b",
 			"\1\u036e",
@@ -7968,18 +9459,105 @@ public class dogshowcomboLexer extends Lexer {
 			"\1\u0393",
 			"\1\u0352",
 			"\1\u0352",
+=======
+			"\1\u0369",
+			"\1\133",
+			"\1\133",
+			"\1\u036a",
+			"\1\u036b",
+			"\1\u036c",
+			"\1\u036d",
+			"\1\133",
+			"\1\u036e",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\32\34",
+			"\1\133",
+			"\1\u036f",
+			"\1\133",
+			"\1\u0370",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\u0371",
+			"\1\u0372",
+			"\1\133",
+			"\1\u0373",
+			"\1\u0374",
+			"\1\u0375",
+			"\1\u0376",
+			"\1\133",
+			"\1\u0377",
+			"\1\u0378",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\u0379",
+			"\1\u037a",
+			"\1\u037b",
+			"\1\133",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\u037c",
+			"\1\u037d",
+			"\1\u037e",
+			"\1\133",
+			"\1\u037f",
+			"\1\u0380",
+			"\1\u0381",
+			"\1\133",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\u0382",
+			"\1\u0383",
+			"\1\u0384",
+			"\1\u0385",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\u0386",
+			"\1\u0387",
+			"\1\u0388",
+			"\1\133",
+			"\1\u0389",
+			"\1\u038a",
+			"\1\133",
+			"\1\u038b",
+			"\1\u038c",
+			"\1\133",
+			"\1\133",
+			"\1\u02f1",
+			"\1\u02f1",
+			"\1\u038d",
+			"\1\u038e",
+			"\1\133\122\uffff\1\u038f",
+			"\1\u0390",
+			"\1\u0391",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\u0392",
+			"\1\u0393",
+>>>>>>> origin/master
 			"\1\u0394",
 			"\1\u0395",
 			"\1\u0396",
 			"\1\u0397",
+<<<<<<< HEAD
 			"\1\u0398",
 			"\1\u0399\13\uffff\1\u039a",
 			"\1\u039b",
 			"\1\u039c",
+=======
+			"",
+			"\1\u0398",
+			"\1\u0399",
+			"\1\u039a",
+			"\1\u039b",
+			"\1\u039c",
+			"\1\133",
+			"\1\133",
+>>>>>>> origin/master
 			"\1\u039d",
 			"\1\u039e",
 			"\1\u039f",
 			"\1\u03a0",
+<<<<<<< HEAD
 			"\1\u03a1\1\u03a2\1\u03a3\2\uffff\1\u03a4",
 			"\1\u03a5",
 			"\1\u03a6",
@@ -8061,11 +9639,109 @@ public class dogshowcomboLexer extends Lexer {
 			"\2\34\2\uffff\1\34\22\uffff\1\34\5\uffff\2\34\1\uffff\1\34\2\uffff\2"+
 			"\34\2\uffff\14\34\5\uffff\32\34\4\uffff\1\34\1\uffff\21\34\1\u03ce\10"+
 			"\34",
+=======
+			"\1\u03a1",
+			"\1\133",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\133",
+			"\1\u03a2",
+			"\1\133",
+			"\1\133",
+			"\1\u03a3",
+			"\1\u03a4",
+			"\1\u03a5",
+			"\1\u03a6",
+			"\1\u03a7",
+			"\1\133",
+			"\1\u03a8",
+			"\1\u03a9",
+			"\1\u03aa",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\u03ab",
+			"\1\133",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\4\34\1\u03ac\15\34\1\u0196\7\34",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\133",
+			"\1\133",
+			"\1\u03ad",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\u03ae",
+			"\1\133",
+			"\1\u03af",
+			"\1\u03b0",
+			"\1\133",
+			"\1\u03b1",
+			"\1\u03b2",
+			"\1\u03b3",
+			"\1\u02f1",
+			"\1\u03b4",
+			"\1\133",
+			"\1\133",
+			"\1\133",
+			"\1\133",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\u03b5",
+			"\1\133",
+			"\1\u03b6",
+			"\1\u02f1",
+			"\1\u02f1",
+			"\1\u02f1",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\32\34",
+			"\1\u03b7",
+			"\1\u03b8",
+			"\1\u03b9",
+			"\1\u03ba",
+			"\1\u03bb",
+			"\1\u03bc",
+			"\1\u03bd",
+			"\1\133",
+			"\1\u03be",
+			"\1\133",
+			"\1\u03bf",
+			"\1\u03c0",
+			"\1\u03c1",
+			"\1\133",
+			"\1\u03c2",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\u03c3",
+			"\1\u03c4",
+			"\1\u03c5",
+			"\1\u03c6",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\u03c7",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\u03c8",
+			"\1\u03c9",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\133",
+			"\1\u03ca",
+			"\1\u03cb",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\u03cc",
+			"\1\u03cd",
+			"\1\u03ce",
+			"\1\133",
+>>>>>>> origin/master
 			"\1\u03cf",
 			"\1\u03d0",
 			"\1\u03d1",
 			"\1\u03d2",
 			"\1\u03d3",
+<<<<<<< HEAD
 			"\1\u03d4",
 			"\1\u03d5",
 			"\2\u01a2\2\uffff\1\u01a2\22\uffff\1\u01a2\5\uffff\2\34\1\u01a3\3\uffff"+
@@ -10512,6 +12188,70 @@ public class dogshowcomboLexer extends Lexer {
 			"\2\u01a2\2\uffff\1\u01a2\22\uffff\1\u01a2\5\uffff\2\34\1\u01a3\3\uffff"+
 			"\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff\22\34\1\u01a1"+
 			"\7\34"
+=======
+			"\1\u02f1",
+			"\1\u03d4",
+			"\1\u02f1",
+			"\1\u03d5",
+			"\1\133",
+			"\1\133",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\133",
+			"\1\u03d6",
+			"\1\u03d7",
+			"\1\133",
+			"\1\133",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\u03d8",
+			"\1\133",
+			"\1\u03d9",
+			"\1\u03da",
+			"\1\u03db",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\133",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\u03dc",
+			"\1\u03dd",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\133",
+			"\1\u03de",
+			"\1\u03df",
+			"\1\u03e0",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\u03e1",
+			"\1\133",
+			"\1\133",
+			"\1\u03e2",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\32\34",
+			"\1\u03e3",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\u03e4",
+			"\1\133",
+			"\1\u03e5",
+			"\1\u03e6",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34",
+			"\1\133",
+			"\1\u03e7",
+			"\2\34\4\uffff\2\34\14\uffff\2\34\5\uffff\32\34\4\uffff\1\34\1\uffff"+
+			"\22\34\1\u0196\7\34"
+>>>>>>> origin/master
 	};
 
 	static final short[] DFA32_eot = DFA.unpackEncodedString(DFA32_eotS);
@@ -10530,7 +12270,11 @@ public class dogshowcomboLexer extends Lexer {
 		}
 	}
 
+<<<<<<< HEAD
 	protected class DFA32 extends DFA {
+=======
+	class DFA32 extends DFA {
+>>>>>>> origin/master
 
 		public DFA32(BaseRecognizer recognizer) {
 			this.recognizer = recognizer;
@@ -10547,6 +12291,7 @@ public class dogshowcomboLexer extends Lexer {
 		public String getDescription() {
 			return "1:1: Tokens : ( T__37 | JUNIOR_CLASS | BREED_NAME | SPECIAL_SUFFIX | BREED_NAME_SUFFIX | BREED_COUNT | JUDGE | WS | RING_TITLE | TIME | DATE | ELLIPSIS | INT | STANDALONE_COMMENT | COMMENT | PARENTHETICAL_INT );";
 		}
+<<<<<<< HEAD
 		@Override
 		public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
 			IntStream input = _input;
@@ -10602,6 +12347,8 @@ public class dogshowcomboLexer extends Lexer {
 			error(nvae);
 			throw nvae;
 		}
+=======
+>>>>>>> origin/master
 	}
 
 }

@@ -1,4 +1,4 @@
-grammar test;
+grammar dogshowcombo;
 options{
 backtrack=true;
 }
@@ -11,6 +11,11 @@ import com.google.gson.JsonPrimitive;
 @lexer::header {
 package dev.tclark.dogshow.grammar;
 }
+@lexer::members{
+boolean allowBreed = false;
+boolean allowGroup = false;
+boolean allowJudge = false;
+}
 @parser::members {
   private boolean ahead(String text) {
     System.out.println("Does " + input.toString() + " contain " + text + "?");
@@ -22,41 +27,49 @@ test_breed
     :   breed_ring;
 start   returns [JsonObject json]
 		@init {json = new JsonObject(); String comments = ""; JsonArray ringArray = new JsonArray(); System.out.println("starting...");}
-		:((mComment=big_comment{comments+=$mComment.str;})+ {json.addProperty("Comment", comments);}((ring)=>mRing=ring{ringArray.add($mRing.json);})*)+ {json.add("Rings", ringArray);} EOF;
+		:(mComment=big_comment{comments+=$mComment.str;})+ {json.addProperty("Comment", comments);}((ring)=>mRing=ring{ringArray.add($mRing.json);})+ {json.add("Rings", ringArray);} EOF;
+		//:((mComment=big_comment{comments+=$mComment.str;})+ {json.addProperty("Comment", comments);}((ring)=>mRing=ring{ringArray.add($mRing.json);})*)+ {json.add("Rings", ringArray);} EOF;
 
 ring	returns [JsonObject json]
 		@init {json = new JsonObject();System.out.println("ring...");}
 		:   RING_TITLE{json.addProperty("Title", $RING_TITLE.text);} mRing=inner_ring{json.add("Ring", mRing);};
 inner_ring returns [JsonObject json]
 	@init{json = new JsonObject();JsonArray judgeBlocks = new JsonArray();}
-	:  (group_block)=>mGroupBlock=group_block{json.add("GroupRing", mGroupBlock);}
+	:  ((group_block)=>mGroupBlock=group_block{json.add("GroupRing", mGroupBlock);} comment*)
 	    |((mJudgeBlock=judge_block{judgeBlocks.add(mJudgeBlock);})+ {json.add("JudgeBlocks", judgeBlocks);});
 judge_block returns [JsonObject json]
 	@init{json = new JsonObject(); JsonArray array = new JsonArray();}
-    :   JUDGE_NAME{json.addProperty("Judge", $JUDGE_NAME.text);} (mBlock=timeblock{array.add(mBlock);})+ {json.add("TimeBlocks", array);};
-	
+    :   mName=judge_name{json.addProperty("Judge", mName);} (mBlock=timeblock{array.add(mBlock);})+ {json.add("TimeBlocks", array);};
+judge_name returns [String str]
+	@init {str = "";}
+	:	(JUDGE_NAME{str=$JUDGE_NAME.text;})|((COMMENT{str += $COMMENT.text;})+ PARENTHETICAL{str += $PARENTHETICAL.text;}); 
 big_comment returns [String str]
-		@init {str = null;}
-		:   (mComment=comment{str = mComment;}|TIME{str=$TIME.text;}|BREED_NAME{str=$BREED_NAME.text;}|SPECIAL_SUFFIX{str=$SPECIAL_SUFFIX.text;}|GROUP_RING{str=$GROUP_RING.text;});
+		@init {str = "";}
+		:   (mComment=comment{str = mComment;}|TIME{str=$TIME.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|BREED_NAME{str=$BREED_NAME.text;}|SPECIAL_SUFFIX{str=$SPECIAL_SUFFIX.text;}|GROUP_RING{str=$GROUP_RING.text;});
+
 comment returns [String str]
-		@init {str = null;}
-		:   (COMMENT{str=$COMMENT.text;}|INT{str=$INT.text;}|JUDGE_NAME{str=$JUDGE_NAME.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|ELLIPSIS{str=$ELLIPSIS.text;});
+		@init{str="";}
+		: (TIME|COMMENT{str=$COMMENT.text;}|PARENTHETICAL|INT|ELLIPSIS|DATE);
+//comment returns [String str]
+//		@init {str = null;}
+//		:   (COMMENT{str=$COMMENT.text;}|INT{str=$INT.text;}|DATE{str=$DATE.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|ELLIPSIS{str=$ELLIPSIS.text;});
 		
-timeblock_comment returns [String str]
-		@init {str = null;}
-	:	(COMMENT{str=$COMMENT.text;}|INT{str=$INT.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|TIME{str=$TIME.text;}|BREED_NAME{str=$BREED_NAME.text;});//no date
+//timeblock_comment returns [String str]
+//		@init {str = null;}
+//	:	(COMMENT{str=$COMMENT.text;}|INT{str=$INT.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;});//no date
 ring_comment returns [String str]
     :   STANDALONE_COMMENT{str=$STANDALONE_COMMENT.text;};
 
 timeblock returns [JsonObject json] 
 	@init {json = new JsonObject(); String comment = ""; int blockCounter = 0;}	
-	:   TIME{json.addProperty("Time", $TIME.text);} mInnerBlock1=inner_timeblock{json.add("Block"+(blockCounter++), mInnerBlock1);} ((options {greedy=false;}:mComment=timeblock_comment{comment+=$mComment.str;})* {json.addProperty("Comment", comment);} DATE{json.addProperty("Date", $DATE.text);} INT mInnerBlock2=inner_timeblock{json.add("Block"+(blockCounter++), mInnerBlock2);})?;
+	: (TIME{json.addProperty("Time", $TIME.text);}) (mInnerBlock1=inner_timeblock{json.add("Block"+(blockCounter++), mInnerBlock1);} (mComment=comment{comment+=$mComment.str;})*)*;
+	//:   TIME{json.addProperty("Time", $TIME.text);} mInnerBlock1=inner_timeblock{json.add("Block"+(blockCounter++), mInnerBlock1);} ((options {greedy=false;}:mComment=timeblock_comment{comment+=$mComment.str;})* {json.addProperty("Comment", comment);} DATE{json.addProperty("Date", $DATE.text);} INT mInnerBlock2=inner_timeblock{json.add("Block"+(blockCounter++), mInnerBlock2);})?;
 inner_timeblock returns [JsonArray array]
 	@init {array = new JsonArray();}
-	:	(mSpecialRing=special_ring{array.add(mSpecialRing);}|mJuniorRing=junior_ring{array.add(mJuniorRing);}|(breed_ring)=>mBreedRing=breed_ring{array.add(mBreedRing);})* (mSpecialRing=special_ring{array.add(mSpecialRing);}|mJuniorRing=junior_ring{array.add(mJuniorRing);}|mBreedRing=breed_ring{array.add(mBreedRing);}|mComment=ring_comment{array.add(new JsonPrimitive(mComment));});
+	:	(mSpecialRing=special_ring{array.add(mSpecialRing);}|mJuniorRing=junior_ring{array.add(mJuniorRing);}|((breed_ring)=>mBreedRing=breed_ring{array.add(mBreedRing);})|ring_comment)+;//|mComment=ring_comment{array.add(new JsonPrimitive(mComment));});
 special_ring returns [JsonObject json]
 	@init {json = new JsonObject(); String breedName = "";}
-	:   INT{json.addProperty("Count", $INT.text);} BREED_NAME{breedName+=$BREED_NAME.text;} (SPECIAL_SUFFIX{breedName+= " " +$SPECIAL_SUFFIX.text;})+ {json.addProperty("BreedName", breedName);};
+	:   INT{json.addProperty("Count", $INT.text);} (BREED_NAME{breedName+=$BREED_NAME.text;})? (SPECIAL_SUFFIX{breedName+= " " +$SPECIAL_SUFFIX.text;})+ {json.addProperty("BreedName", breedName);};
 junior_ring returns [JsonObject json]
 	@init{json = new JsonObject();}
 	:    INT{json.addProperty("Count", $INT.text);} JUNIOR_CLASS{json.addProperty("ClassName", $JUNIOR_CLASS.text);};
@@ -95,83 +108,8 @@ JUNIOR_CLASS
         'Novice Junior'|
         'Novice Intermediate';
         
-BREED_NAME
-    :   (FRAG_BREED_NAME_SINGLE|FRAG_BREED_NAME_ALT) 's'? WS? ('(' FRAG_BREED_NAME_CATEGORY ')' WS? FRAG_BREED_NAME_CATEGORY_SUFFIX? )? BREED_NAME_SUFFIX?;
-
-SPECIAL_SUFFIX
-    :   (FRAG_BREED_NAME_SPECIAL_SUFFIX);//Could be more matching, so keep BREED_NAME_SPECIAL_SUFFIX a fragment
-    
-BREED_NAME_SUFFIX
-    :   '(Misc. Dog)'|'(Misc. Dogs)'|'(Misc. Bitch)'|'(Misc. Bitches)';
-
-fragment FRAG_BREED_NAME_SPECIAL_SUFFIX
-    :   ('Sweepstakes'|'Entry'|'Entries'|'Veterans');
-fragment FRAG_BREED_NAME_ALT:   'Veteran Dog'|'Veteran Bitch'|'Veteran Bitche';//used to handle BREED_RING with no breed count after
-fragment FRAG_BREED_NAME_CATEGORY_SUFFIX
-    :   'Ascob'|'Parti-Color'|'Black';//Spaniels (Cocker) Ascob
-fragment FRAG_BREED_NAME_CATEGORY //Breed's that are listed under categories rather than full name. Ex: Spaniels (Cocker)
-    :   
-        '13 Inch'|//beagles
-        '15 Inch'|//beagles
-        'Boykin'|//spaniels
-        'B & P C'|
-        'Chesapeake Bay'|
-        'Clumber'|
-        'Cocker'|//spaniels (cocker) ascob
-        'Colored'|
-        'Curly-Coated'|
-        'English'|//setters
-        'English Cocker'|//spaniels
-        'English Springer'|//spaniels
-        'Field'|//spaniels
-        'Flat-Coated'|
-        'German Shorthaired'|//pointer
-        'German Wirehaired'|
-        'Golden'|//retriever
-        'Gordon'|//setters
-        'Irish'|//Setters
-        'K C & R'|
-        'Labrador'|//Retriever
-        'Long Coat'|//chihuahuas
-        'Longhaired'|//dachshunds
-        'Miniature'|//poodles
-        'Nova Scotia Duck Tolling'|
-        'Rough'|//Collie
-        'Smooth'|//Collie,dachshund,fox terriers
-        'Smooth Coat'|//chihuahuas
-        'Standard'|//poodle, manchester terrier
-        'Sussex'|
-        'Toy'|//poodles
-        'White'|//bull terrier
-        'Wire'|
-        'Wirehaired'//Dachshund
-        
-        
-        
-        
-        
-        ;
-fragment FRAG_GROUP_NAME
-	:	'HERDING GROUP'|
-		'TERRIER GROUP'|
-		'NON-SPORTING GROUP'|
-		'SPORTING GROUP'|
-		'TOY GROUP'|
-		'HOUND GROUP'|
-		'WORKING GROUP'|
-		'BEST IN SHOW';
-		
-fragment FRAG_SPECIAL_GROUP_NAME
-	:	
-		'VETERAN SWEEPSTAKES GROUP'|
-		'SWEEPSTAKES GROUP'|
-		'Toy Variety Group';
-		
-GROUP_RING
-	:	(FRAG_GROUP_NAME ' - ' JUDGE_NAME)|FRAG_SPECIAL_GROUP_NAME;
-//Dog breed names in singular form
 fragment FRAG_BREED_NAME_SINGLE
-    :('Affenpinscher'|
+    : {allowBreed}?=> ('Affenpinscher'|
     'Afghan Hound'|
     'Airedale Terrier'|
     'Akita'|
@@ -237,6 +175,7 @@ fragment FRAG_BREED_NAME_SINGLE
     'Dalmatian'|
     'Dandie Dinmont Terrier'|
     'Doberman Pinscher'|
+    'Dogo Argentine'|
     'Dogue de Bordeaux'|
     'Dogues de Bordeaux'|//odd plural
     'English Cocker Spaniel'|
@@ -279,6 +218,7 @@ fragment FRAG_BREED_NAME_SINGLE
     'Kerry Blue Terrier'|
     'Komondor'|
     'Kuvasz'|
+    'Kuvaszok'|
     'Labrador Retriever'|
     'Lagotto Romagnolo'|
     'Lakeland Terrier'|
@@ -321,6 +261,7 @@ fragment FRAG_BREED_NAME_SINGLE
     'Puli'|
     'Pulik'|
     'Pyrenean Shepherd'|
+    'Rat Terrier'|
     'Redbone Coonhound'|
     'Retrievers'|//labrador
     'Rhodesian Ridgeback'|
@@ -344,6 +285,7 @@ fragment FRAG_BREED_NAME_SINGLE
     'Soft Coated Wheaten Terrier'|
     'Spaniels'|
     'Spinone Italiano'|
+    'Spinoni Italiani'|
     'Staffordshire Bull Terrier'|
     'Standard Schnauzer'|
     'Sussex Spaniel'|
@@ -363,6 +305,84 @@ fragment FRAG_BREED_NAME_SINGLE
     'Wirehaired Pointing Griffon'|
     'Xoloitzcuintli'|
     'Yorkshire Terrier');
+        
+BREED_NAME
+    : {allowBreed}?=>(FRAG_BREED_NAME_SINGLE|FRAG_BREED_NAME_ALT) 's'? WS? ('(' FRAG_BREED_NAME_CATEGORY ')' WS? FRAG_BREED_NAME_CATEGORY_SUFFIX? )? BREED_NAME_SUFFIX?;
+
+SPECIAL_SUFFIX
+    :   (FRAG_BREED_NAME_SPECIAL_SUFFIX);//Could be more matching, so keep BREED_NAME_SPECIAL_SUFFIX a fragment
+    
+BREED_NAME_SUFFIX
+    :   '(Misc. Dog)'|'(Misc. Dogs)'|'(Misc. Bitch)'|'(Misc. Bitches)';
+
+fragment FRAG_BREED_NAME_SPECIAL_SUFFIX
+    :   ('Sweepstakes'|'Entry'|'Entries'|'Veterans');
+fragment FRAG_BREED_NAME_ALT:   'Veteran Dog'|'Veteran Bitch'|'Veteran Bitche';//used to handle BREED_RING with no breed count after
+fragment FRAG_BREED_NAME_CATEGORY_SUFFIX
+    :   'Ascob'|'Parti-Color'|'Black';//Spaniels (Cocker) Ascob
+fragment FRAG_BREED_NAME_CATEGORY //Breed's that are listed under categories rather than full name. Ex: Spaniels (Cocker)
+    :   
+        '13 Inch'|//beagles
+        '15 Inch'|//beagles
+        'Boykin'|//spaniels
+        'B & P C'|
+        'Chesapeake Bay'|
+        'Clumber'|
+        'Cocker'|//spaniels (cocker) ascob
+        'Colored'|
+        'Curly-Coated'|
+        'English'|//setters
+        'English Cocker'|//spaniels
+        'English Springer'|//spaniels
+        'Field'|//spaniels
+        'Flat-Coated'|
+        'German Shorthaired'|//pointer
+        'German Wirehaired'|
+        'Golden'|//retriever
+        'Gordon'|//setters
+        'Irish'|//Setters
+        'K C & R'|
+        'Labrador'|//Retriever
+        'Long Coat'|//chihuahuas
+        'Longhaired'|//dachshunds
+        'Miniature'|//poodles
+        'Nova Scotia Duck Tolling'|
+        'Rough'|//Collie
+        'Smooth'|//Collie,dachshund,fox terriers
+        'Smooth Coat'|//chihuahuas
+        'Standard'|//poodle, manchester terrier
+        'Sussex'|
+        'Toy'|//poodles
+        'Welsh Springer'|//spaniel
+        'White'|//bull terrier
+        'Wire'|
+        'Wirehaired'//Dachshund
+        
+        
+        
+        
+        
+        ;
+fragment FRAG_GROUP_NAME
+	:{allowGroup}?=>(	'HERDING GROUP'|
+		'TERRIER GROUP'|
+		'NON-SPORTING GROUP'|
+		'SPORTING GROUP'|
+		'TOY GROUP'|
+		'HOUND GROUP'|
+		'WORKING GROUP'|
+		('BEST IN SHOW'{allowGroup=false;}));
+		
+fragment FRAG_SPECIAL_GROUP_NAME
+	:	
+		'VETERAN SWEEPSTAKES GROUP'|
+		'SWEEPSTAKES GROUP'|
+		'REGULAR VARIETY GROUP'|
+		'Toy Variety Group';
+		
+GROUP_RING
+	:	(FRAG_GROUP_NAME ' - ' JUDGE_NAME)|FRAG_SPECIAL_GROUP_NAME;
+//Dog breed names in singular form
 
 fragment FRAG_MONTH   :   'January'|'JANUARY'|
              'February'|'FEBRUARY'|
@@ -377,8 +397,6 @@ fragment FRAG_MONTH   :   'January'|'JANUARY'|
              'November'|'NOVEMBER'|
              'December'|'DECEMBER';
              
-fragment FRAG_PAREN_LEFT    :   ('('.);
-fragment FRAG_PAREN_RIGHT   :   ')';
 fragment END_PUNCTUATION    :       '!'|'?'|'.';
 fragment FRAG_RING      :   'RING'|'Ring';
 fragment FRAG_SPEC_CHAR     :   ','|'_'|'-'|';'|':'|'\''|'’';
@@ -407,18 +425,6 @@ fragment FRAG_WEEK_DAY:   'Sunday'|'SUNDAY'|
         'Saturday'|'SATURDAY';
 
 
-fragment ATOM
-    :   (WORD|INT);
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -426,33 +432,43 @@ fragment ATOM
 *
 *   Tokens
 *
-**********************************/     
+**********************************/   
+STANDALONE_COMMENT
+    :   'LUNCH'|'VARIETY GROUP JUDGING';  
 BREED_COUNT  :  INT '-' INT '-' INT '-' INT;
-JUDGE_NAME: FRAG_TITLE ' ' PROPER_NAME (PARENTHETICAL_NAME ' ' PROPER_NAME)* PARENTHETICAL_INT?;
+JUDGE_NAME: {allowJudge}?=>(FRAG_TITLE WS FRAG_PROPER_NAME (' ' (PARENTHETICAL_NAME|FRAG_PROPER_NAME))* (WS? PARENTHETICAL_INT?));
+//JUDGE_NAME: FRAG_PROPER_NAME (' ' (PARENTHETICAL_NAME|FRAG_PROPER_NAME))* (' ' PARENTHETICAL_INT)?;
 
 WS :(' ' |'\t' |'\n' |'\r' )+ {$channel=HIDDEN;} ;  
     
-RING_TITLE  :   'GROUP RING'|('RING' WS INT);
+RING_TITLE  :   ('GROUP RING'{allowGroup=true;}|('RING' WS INT)){allowJudge=true;};
 
 PHONE_NUMBER
     :   '(' '0'..'9''0'..'9''0'..'9' ')' WS? '0'..'9' '0'..'9' '0'..'9' '-' '0'..'9' '0'..'9' '0'..'9' '0'..'9';
 
-TIME    :   INT ':' INT WS FRAG_TIME_LABEL;
+TIME    :   INT ':' INT WS FRAG_TIME_LABEL{allowBreed=true;};
 
-DATE    :   FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT;
+DATE    :   FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT {allowBreed=true;};
     
-ELLIPSIS:   '.' '.'+;
+ELLIPSIS:   '.'+;
 
 INT :'0'..'9' + ;
-STANDALONE_COMMENT
-    :   'LUNCH'|'VARIETY GROUP JUDGING';
-COMMENT :   (WORD|PARENTHETICAL|INT)+;//Sometimes they mention sweepstakes in comment
-fragment WORD  : ('a'..'z'|'A'..'Z'|FRAG_SPEC_CHAR|FRAG_SPEC_WORD_CHAR)+;
-//SENTENCE: (ATOM|PARENTHETICAL) (WS (WORD|INT|PARENTHETICAL))* END_PUNCTUATION;
-fragment PARENTHETICAL_NAME: '(' PROPER_NAME ')';
-fragment PARENTHETICAL
-    :   FRAG_PAREN_LEFT ((WORD|INT) WS?)+ FRAG_PAREN_RIGHT FRAG_SPEC_CHAR?;
-fragment FRAG_PROPER_NAME: ('A'..'Z' ('a'..'z'|'A'..'Z')*);
-fragment PROPER_NAME: FRAG_PROPER_NAME ' '? (FRAG_PROPER_NAME ' '?)*;
+
+PARENTHETICAL
+    :   '(' (WORD|INT|FRAG_PROPER_NAME) (WS (WORD|INT|FRAG_PROPER_NAME))* ')';
+fragment FRAG_PROPER_NAME: ('A'..'Z' ('a'..'z'|'A'..'Z'|FRAG_SPEC_CHAR|FRAG_SPEC_WORD_CHAR)*)END_PUNCTUATION?;
+
 PARENTHETICAL_INT
-    :   '(' WS? '0'..'9'+ WS? ')';
+    :   '(' WS? INT WS? ')';
+fragment WORD  : ('a'..'z'|FRAG_SPEC_CHAR|FRAG_SPEC_WORD_CHAR)+ END_PUNCTUATION?;
+COMMENT :   ((FRAG_PROPER_NAME|WORD|PARENTHETICAL|INT|ELLIPSIS){allowBreed=false; allowGroup=false;allowJudge=false;})+;//Sometimes they mention sweepstakes in comment
+fragment END_WORD
+	:	WORD END_PUNCTUATION;
+fragment PARENTHETICAL_NAME: '(' FRAG_PROPER_NAME ')';
+
+FallThrough
+@after{
+  System.err.println("Ooops! " + getText() + " fell through");
+}
+  :  . // match any char not matched by Number, Id or Space
+  {$channel=HIDDEN;};
