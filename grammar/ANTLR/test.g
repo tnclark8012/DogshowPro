@@ -39,10 +39,12 @@ inner_ring returns [JsonObject json]
 	    |((mJudgeBlock=judge_block{judgeBlocks.add(mJudgeBlock);})+ {json.add("JudgeBlocks", judgeBlocks);});
 judge_block returns [JsonObject json]
 	@init{json = new JsonObject(); JsonArray array = new JsonArray();}
-    :   JUDGE_NAME{json.addProperty("Judge", $JUDGE_NAME.text);} (mBlock=timeblock{array.add(mBlock);})+ {json.add("TimeBlocks", array);};
-	
+    :   mName=judge_name{json.addProperty("Judge", mName);} (mBlock=timeblock{array.add(mBlock);})+ {json.add("TimeBlocks", array);};
+judge_name returns [String str]
+	@init {str = "";}
+	:	(JUDGE_NAME{str=$JUDGE_NAME.text;});//|((COMMENT{str += $COMMENT.text;})+ PARENTHETICAL{str += $PARENTHETICAL.text;}); 
 big_comment returns [String str]
-		@init {str = null;}
+		@init {str = "";}
 		:   (mComment=comment{str = mComment;}|TIME{str=$TIME.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|BREED_NAME{str=$BREED_NAME.text;}|SPECIAL_SUFFIX{str=$SPECIAL_SUFFIX.text;}|GROUP_RING{str=$GROUP_RING.text;});
 
 comment returns [String str]
@@ -60,14 +62,14 @@ ring_comment returns [String str]
 
 timeblock returns [JsonObject json] 
 	@init {json = new JsonObject(); String comment = ""; int blockCounter = 0;}	
-	: TIME{json.addProperty("Time", $TIME.text);} (mInnerBlock1=inner_timeblock{json.add("Block"+(blockCounter++), mInnerBlock1);} (mComment=comment{comment+=$mComment.str;})*)*;
+	: (TIME{json.addProperty("Time", $TIME.text);}) (mInnerBlock1=inner_timeblock{json.add("Block"+(blockCounter++), mInnerBlock1);} (mComment=comment{comment+=$mComment.str;})*)*;
 	//:   TIME{json.addProperty("Time", $TIME.text);} mInnerBlock1=inner_timeblock{json.add("Block"+(blockCounter++), mInnerBlock1);} ((options {greedy=false;}:mComment=timeblock_comment{comment+=$mComment.str;})* {json.addProperty("Comment", comment);} DATE{json.addProperty("Date", $DATE.text);} INT mInnerBlock2=inner_timeblock{json.add("Block"+(blockCounter++), mInnerBlock2);})?;
 inner_timeblock returns [JsonArray array]
 	@init {array = new JsonArray();}
 	:	(mSpecialRing=special_ring{array.add(mSpecialRing);}|mJuniorRing=junior_ring{array.add(mJuniorRing);}|((breed_ring)=>mBreedRing=breed_ring{array.add(mBreedRing);})|ring_comment)+;//|mComment=ring_comment{array.add(new JsonPrimitive(mComment));});
 special_ring returns [JsonObject json]
 	@init {json = new JsonObject(); String breedName = "";}
-	:   INT{json.addProperty("Count", $INT.text);} BREED_NAME{breedName+=$BREED_NAME.text;} (SPECIAL_SUFFIX{breedName+= " " +$SPECIAL_SUFFIX.text;})+ {json.addProperty("BreedName", breedName);};
+	:   INT{json.addProperty("Count", $INT.text);} (BREED_NAME{breedName+=$BREED_NAME.text;})? (SPECIAL_SUFFIX{breedName+= " " +$SPECIAL_SUFFIX.text;})+ {json.addProperty("BreedName", breedName);};
 junior_ring returns [JsonObject json]
 	@init{json = new JsonObject();}
 	:    INT{json.addProperty("Count", $INT.text);} JUNIOR_CLASS{json.addProperty("ClassName", $JUNIOR_CLASS.text);};
@@ -419,17 +421,6 @@ fragment FRAG_WEEK_DAY:   'Sunday'|'SUNDAY'|
         'Saturday'|'SATURDAY';
 
 
-fragment ATOM
-    :   (WORD|INT);
-
-
-
-
-
-
-
-
-
 
 
 
@@ -438,9 +429,12 @@ fragment ATOM
 *
 *   Tokens
 *
-**********************************/     
+**********************************/   
+STANDALONE_COMMENT
+    :   'LUNCH'|'VARIETY GROUP JUDGING';  
 BREED_COUNT  :  INT '-' INT '-' INT '-' INT;
-JUDGE_NAME: {allowJudge}?=>(FRAG_TITLE ' ' PROPER_NAME (' ' (PARENTHETICAL_NAME|PROPER_NAME))* (' '? PARENTHETICAL_INT?));
+JUDGE_NAME: {allowJudge}?=>(FRAG_TITLE ' ' FRAG_PROPER_NAME (' ' (PARENTHETICAL_NAME|FRAG_PROPER_NAME))* (' '? PARENTHETICAL_INT?));
+//JUDGE_NAME: FRAG_PROPER_NAME (' ' (PARENTHETICAL_NAME|FRAG_PROPER_NAME))* (' ' PARENTHETICAL_INT)?;
 
 WS :(' ' |'\t' |'\n' |'\r' )+ {$channel=HIDDEN;} ;  
     
@@ -456,14 +450,13 @@ DATE    :   FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT {allowBreed=true;}
 ELLIPSIS:   '.'+;
 
 INT :'0'..'9' + ;
-STANDALONE_COMMENT
-    :   'LUNCH'|'VARIETY GROUP JUDGING';
+
 PARENTHETICAL
     :   '(' (WORD|INT|FRAG_PROPER_NAME) (WS (WORD|INT|FRAG_PROPER_NAME))* ')';
 fragment FRAG_PROPER_NAME: ('A'..'Z' ('a'..'z'|'A'..'Z'|FRAG_SPEC_CHAR|FRAG_SPEC_WORD_CHAR)*)END_PUNCTUATION?;
 
 
-fragment PROPER_NAME: FRAG_PROPER_NAME;// (WS FRAG_PROPER_NAME)*;
+//fragment PROPER_NAME: FRAG_PROPER_NAME;// (WS FRAG_PROPER_NAME)*;
 PARENTHETICAL_INT
     :   '(' WS? INT WS? ')';
 fragment WORD  : ('a'..'z'|FRAG_SPEC_CHAR|FRAG_SPEC_WORD_CHAR)+ END_PUNCTUATION?;
@@ -471,7 +464,7 @@ COMMENT :   ((FRAG_PROPER_NAME|WORD|PARENTHETICAL|INT|ELLIPSIS){allowBreed=false
 fragment END_WORD
 	:	WORD END_PUNCTUATION;
 //SENTENCE: (ATOM|PARENTHETICAL) (WS (WORD|INT|PARENTHETICAL))* END_PUNCTUATION;
-fragment PARENTHETICAL_NAME: '(' PROPER_NAME ')';
+fragment PARENTHETICAL_NAME: '(' FRAG_PROPER_NAME ')';
 
 FallThrough
 @after{

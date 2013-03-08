@@ -23,7 +23,7 @@ public class Main {
             IllegalAccessException {
     	String [] programs = {"testparse", "TRIN1JP.txt", "PLUM1JP.txt", "SACS1JP.txt"};
     	
-    	String program = programs[0];
+    	String program = programs[3];
         String file = "testcase/"+program;
         //System.setOut(new PrintStream(new File("testcase/tests/lexer/expected-outputs", program + ".output" )));
         LexerRunner lexerRunner = new LexerRunner();
@@ -31,9 +31,9 @@ public class Main {
         
         
         ParserRunner parserRunner = new ParserRunner(lexerRunner);
-        JsonObject result = parserRunner.parseStart(file);
-        System.out.println();
-        System.out.println("I AM THE PARSER RESULT: ");
-        System.out.println(result);
+          JsonObject result = parserRunner.parseStart(file);
+//        System.out.println();
+//        System.out.println("I AM THE PARSER RESULT: ");
+//        System.out.println(result);
     }
 }
