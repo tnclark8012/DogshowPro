@@ -18,6 +18,14 @@
 		<servlet-name>Handler</servlet-name>
 		<url-pattern>/handler</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>Show</servlet-name>
+		<servlet-class>dev.tclark.dogshow.ShowServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Show</servlet-name>
+		<url-pattern>/show</url-pattern>
+	</servlet-mapping>
  <servlet>
   <servlet-name>SystemServiceServlet</servlet-name>
   <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
