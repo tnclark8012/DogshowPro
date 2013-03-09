@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/layout_background" >
+
+    <RelativeLayout
+        android:id="@+id/dog_view_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height"
+        android:background="@color/header_color" >
+
+        <RelativeLayout
+            android:id="@+id/dog_view_image"
+            android:layout_width="@dimen/header_icon_width"
+            android:layout_height="fill_parent"
+            android:background="@drawable/dog"
+            android:maxHeight="@dimen/element_section_height_normal"
+            android:maxWidth="@dimen/header_icon_width" />
+
+        <TextView
+            android:id="@+id/dog_view_name"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignBottom="@+id/dog_view_image"
+            android:layout_marginLeft="@dimen/element_spacing_normal"
+            android:layout_toRightOf="@+id/dog_view_image"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:text="Lotta"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/header_title" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/accent_bar" >
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/dog_view_contents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dog_view_header"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin" >
+
+        <RelativeLayout
+            android:id="@+id/dog_view_section_breed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/dog_view_section_breed_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="BREED"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/accent_1" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/dog_view_section_breed_label"
+                android:background="@drawable/accent_bar" >
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/dog_view_section_breed_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dog_view_section_breed"
+            android:layout_marginTop="@dimen/element_margin_normal"
+            android:text="Papillon"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <RelativeLayout
+            android:id="@+id/dog_view_section_points"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dog_view_section_breed_text"
+            android:layout_marginTop="@dimen/element_margin_normal" >
+
+            <TextView
+                android:id="@+id/dog_view_section_points_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="POINTS"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/accent_1" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/dog_view_section_points_label"
+                android:background="@drawable/accent_bar" >
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/dog_view_section_points_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dog_view_section_points"
+            android:layout_marginTop="@dimen/element_margin_normal"
+            android:text="10 points (20 needed)"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <RelativeLayout
+            android:id="@+id/points_bezel"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/dog_view_section_points_text"
+            android:layout_marginTop="@dimen/element_spacing_normal"
+            android:background="@drawable/bezel_border" />
+
+        <TextView
+            android:id="@+id/dog_view_section_majors_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/points_bezel"
+            android:layout_marginTop="@dimen/element_margin_normal"
+            android:text="0 majors (2 needed)"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <RelativeLayout
+            android:id="@+id/dog_view_section_owner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/element_margin_normal"
+            android:layout_below="@+id/dog_view_section_majors_text" >
+
+            <TextView
+                android:id="@+id/dog_view_section_owner_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="OWNER"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/accent_1" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/dog_view_section_owner_label"
+                android:background="@drawable/accent_bar" >
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/dog_view_section_owner_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dog_view_section_owner"
+            android:layout_marginTop="@dimen/element_margin_normal"
+            android:text="Taylor Clark"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <QuickContactBadge
+            android:id="@+id/dog_view_owner_contact_badge"
+            android:layout_width="@dimen/element_height_normal"
+            android:layout_height="@dimen/element_height_normal"
+            android:layout_toRightOf="@+id/dog_view_section_owner_text" 
+            android:layout_below="@+id/dog_view_section_owner"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
