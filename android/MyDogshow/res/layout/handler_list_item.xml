@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
     android:background="@drawable/list_selector" >
-<!-- 
+ 
     <ImageView
         android:id="@+id/handler_icon"
         android:layout_width="wrap_content"
@@ -13,7 +13,7 @@
         android:layout_marginLeft="6dip"
         android:contentDescription="@string/img_description_handler"
         android:focusable="false"
-        android:src="@drawable/ic_action_refresh" />
+        android:src="@drawable/ic_default_handler" />
  
     <TextView
         android:id="@+id/handler_name"
@@ -24,7 +24,8 @@
         android:layout_toRightOf="@+id/handler_icon"
         android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge" />
--->
+
+<!-- 
 <TextView
         android:id="@+id/handler_name"
         android:layout_width="wrap_content"
@@ -33,4 +34,5 @@
         android:layout_marginLeft="6dp"
         android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+-->
 </RelativeLayout>
