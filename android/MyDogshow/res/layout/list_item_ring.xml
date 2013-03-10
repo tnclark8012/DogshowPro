@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:background="@drawable/list_selector" >
+
+    <RelativeLayout
+        android:id="@+id/list_item_ring_time_container"
+        android:layout_width="70dp"
+        android:layout_height="fill_parent"
+        android:background="#AAAAAA" >
+            <TextView
+                android:id="@+id/list_item_ring_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_horizontal"
+                android:textSize="@dimen/text_medium"
+                android:text="12:00\nam" />
+    </RelativeLayout>
+    <RelativeLayout 
+        android:id="@+id/list_item_ring_details_container"
+        android:layout_height="fill_parent"
+        android:layout_width="wrap_content"
+        android:layout_toRightOf="@+id/list_item_ring_time_container"
+        android:layout_marginLeft="@dimen/element_margin_normal"
+        android:gravity="center_vertical">
+        <TextView
+                android:id="@+id/list_item_ring_breed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_medium"
+                android:text="Papillons" />
+        <TextView
+                android:id="@+id/list_item_ring_names"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_below="@+id/list_item_ring_breed"
+                android:textSize="@dimen/text_small"
+                android:textColor="#777777"
+                android:text="Lotta, Michael" />
+        <TextView
+                android:id="@+id/list_item_ring_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#777777"
+                android:layout_marginLeft="2dp"
+                android:layout_below="@+id/list_item_ring_names"
+                android:textSize="@dimen/text_small"
+                android:text="Ring 2 (11:45 am)" />
+    </RelativeLayout>
+</RelativeLayout>

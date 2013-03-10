@@ -4,7 +4,7 @@
     <style name="NoParent" />
 
     <!-- Root styles that vary by API level -->
-    <style name="FrameworkRoot.Theme" parent="Theme.Sherlock.Light.DarkActionBar">
+    <style name="FrameworkRoot.Theme" parent="Theme.Sherlock.Light">
 
         <!-- API 11+ (compatibility) -->
         <item name="buttonBarStyle">@style/Compat.ButtonBar</item>
@@ -16,16 +16,16 @@
         <item name="listPreferredItemHeightSmall">@dimen/compat_list_preferred_item_height_small</item>
     </style>
 
-    <style name="FrameworkRoot.ActionBar" parent="Widget.Sherlock.Light.ActionBar.Solid.Inverse" />
+    <style name="FrameworkRoot.ActionBar" parent="Widget.Sherlock.Light.ActionBar.Solid" />
 
     <style name="FrameworkRoot.ActionBar.TitleText" parent="TextAppearance.Sherlock.Widget.ActionBar.Title.Inverse" />
+<!-- 
+    <style name="FrameworkRoot.ActionBar.TabBar" parent="Widget.Sherlock.Light.ActionBar.TabBar" />
 
-    <style name="FrameworkRoot.ActionBar.TabBar" parent="Widget.Sherlock.Light.ActionBar.TabBar.Inverse" />
+    <style name="FrameworkRoot.ActionBar.TabText" parent="Widget.Sherlock.Light.ActionBar.TabText" />
 
-    <style name="FrameworkRoot.ActionBar.TabText" parent="Widget.Sherlock.Light.ActionBar.TabText.Inverse" />
-
-    <style name="FrameworkRoot.ActionBar.TabView" parent="Widget.Sherlock.Light.ActionBar.TabView.Inverse" />
-
+    <style name="FrameworkRoot.ActionBar.TabView" parent="Widget.Sherlock.Light.ActionBar.TabView" />
+ -->
     <!-- Immediate parent theme to specify base values for custom attributes -->
     <style name="Theme.Base" parent="FrameworkRoot.Theme"></style>
 

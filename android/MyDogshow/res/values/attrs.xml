@@ -1,4 +1,9 @@
-<!--
+<resources>
+
+        <declare-styleable name="TypefacedTextView">
+            <attr name="typeface" format="string" />
+        </declare-styleable>
+    <!--
   Copyright 2012 Google Inc.
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,9 +17,7 @@
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   See the License for the specific language governing permissions and
   limitations under the License.
-  -->
-<resources>
-
+    -->
     <declare-styleable name="BaseTheme">
         <attr name="textHeaderMaxLines" format="integer" />
         <attr name="trackAbstractMaxLines" format="integer" />
@@ -24,12 +27,11 @@
         <attr name="buttonBarStyle" format="reference" />
         <attr name="buttonBarButtonStyle" format="reference" />
         <!-- provided by ActionBarSherlock -->
-        <!--<attr name="indeterminateProgressStyle" format="reference" />-->
-        <!--<attr name="listPreferredItemPaddingLeft" format="reference" />-->
-        <!--<attr name="listPreferredItemPaddingRight" format="reference" />-->
-        <!--<attr name="listPreferredItemHeightSmall" format="reference" />-->
+        <!-- <attr name="indeterminateProgressStyle" format="reference" /> -->
+        <!-- <attr name="listPreferredItemPaddingLeft" format="reference" /> -->
+        <!-- <attr name="listPreferredItemPaddingRight" format="reference" /> -->
+        <!-- <attr name="listPreferredItemHeightSmall" format="reference" /> -->
     </declare-styleable>
-
     <declare-styleable name="BezelImageView">
         <attr name="maskDrawable" format="reference" />
         <attr name="borderDrawable" format="reference" />

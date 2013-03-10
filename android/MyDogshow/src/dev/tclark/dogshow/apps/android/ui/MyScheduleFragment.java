@@ -20,9 +20,15 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
 import com.actionbarsherlock.app.SherlockListFragment;
 import com.actionbarsherlock.view.ActionMode;
+
+import dev.tclark.dogshow.apps.android.R;
 
 public class MyScheduleFragment extends SherlockListFragment implements
         LoaderManager.LoaderCallbacks<Cursor>,
@@ -30,6 +36,13 @@ public class MyScheduleFragment extends SherlockListFragment implements
 
     private static final String TAG =MyScheduleFragment.class.getSimpleName();
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    		Bundle savedInstanceState) {
+    	View view = inflater.inflate(R.layout.fragment_schedule_list, container, false);
+    	getListView().setAdapter(new ArrayAdapter<String>(view.getContext(), 0));
+    	return view;
+    }
 	@Override
 	public boolean onCreateActionMode(ActionMode mode,
 			com.actionbarsherlock.view.Menu menu) {
