@@ -16,9 +16,19 @@
             android:layout_height="fill_parent"
             android:background="@drawable/dog"
             android:maxHeight="@dimen/element_section_height_normal"
-            android:maxWidth="@dimen/header_icon_width" />
+            android:maxWidth="@dimen/header_icon_width">
 
-        <TextView
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/accent_1" >
+            </RelativeLayout>
+
+            </RelativeLayout>
+
+        <dev.tclark.dogshow.apps.android.widget.TypefacedTextView
+                xmlns:ttv="http://schemas.android.com/apk/res/dev.tclark.dogshow.apps.android"
             android:id="@+id/dog_view_name"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
@@ -28,14 +38,15 @@
             android:ems="10"
             android:gravity="center_vertical"
             android:text="Lotta"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/header_title" />
+            android:textSize="@dimen/text_large"
+            android:textColor="@color/header_title" 
+            ttv:typeface="Roboto-Medium.ttf"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="2dp"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/accent_bar" >
+            android:background="@color/accent_1" >
         </RelativeLayout>
     </RelativeLayout>
 
@@ -54,30 +65,35 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
-            <TextView
+            <dev.tclark.dogshow.apps.android.widget.TypefacedTextView
+                xmlns:ttv="http://schemas.android.com/apk/res/dev.tclark.dogshow.apps.android"
                 android:id="@+id/dog_view_section_breed_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="BREED"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/accent_1" />
+                android:layout_marginLeft="@dimen/element_spacing_normal"
+                android:textColor="@color/accent_1"
+                android:textSize="@dimen/text_small"
+                ttv:typeface="Roboto-Bold.ttf" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/dog_view_section_breed_label"
                 android:background="@drawable/accent_bar" >
             </RelativeLayout>
         </RelativeLayout>
 
-        <TextView
+        <dev.tclark.dogshow.apps.android.widget.TypefacedTextView
+            android:textSize="@dimen/text_medium"
             android:id="@+id/dog_view_section_breed_text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/element_inner_height"
+            android:layout_marginLeft="@dimen/element_spacing_normal"
             android:layout_below="@+id/dog_view_section_breed"
             android:layout_marginTop="@dimen/element_margin_normal"
             android:text="Papillon"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+             />
 
         <RelativeLayout
             android:id="@+id/dog_view_section_points"
@@ -86,88 +102,99 @@
             android:layout_below="@+id/dog_view_section_breed_text"
             android:layout_marginTop="@dimen/element_margin_normal" >
 
-            <TextView
+            <dev.tclark.dogshow.apps.android.widget.TypefacedTextView
+                xmlns:ttv="http://schemas.android.com/apk/res/dev.tclark.dogshow.apps.android"
                 android:id="@+id/dog_view_section_points_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/element_spacing_normal"
                 android:text="POINTS"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/accent_1" />
+                android:textColor="@color/accent_1"
+                android:textSize="@dimen/text_small"
+                ttv:typeface="Roboto-Bold.ttf" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/dog_view_section_points_label"
                 android:background="@drawable/accent_bar" >
             </RelativeLayout>
         </RelativeLayout>
 
-        <TextView
+        <dev.tclark.dogshow.apps.android.widget.TypefacedTextView
+            android:textSize="@dimen/text_medium"
             android:id="@+id/dog_view_section_points_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/element_spacing_normal"
             android:layout_below="@+id/dog_view_section_points"
             android:layout_marginTop="@dimen/element_margin_normal"
-            android:text="10 points (20 needed)"
+            android:text="10 points (15 needed)"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <RelativeLayout
             android:id="@+id/points_bezel"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/dog_view_section_points_text"
             android:layout_marginTop="@dimen/element_spacing_normal"
-            android:background="@drawable/bezel_border" />
+            android:layout_marginBottom="@dimen/element_spacing_normal"
+            android:background="@drawable/list_divider" />
 
-        <TextView
+        <dev.tclark.dogshow.apps.android.widget.TypefacedTextView
+            android:textSize="@dimen/text_medium"
             android:id="@+id/dog_view_section_majors_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/points_bezel"
-            android:layout_marginTop="@dimen/element_margin_normal"
             android:text="0 majors (2 needed)"
+            android:layout_marginLeft="@dimen/element_spacing_normal"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <RelativeLayout
             android:id="@+id/dog_view_section_owner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/element_margin_normal"
-            android:layout_below="@+id/dog_view_section_majors_text" >
+            android:layout_below="@+id/dog_view_section_majors_text"
+            android:layout_marginTop="@dimen/element_margin_normal" >
 
-            <TextView
+            <dev.tclark.dogshow.apps.android.widget.TypefacedTextView
+                xmlns:ttv="http://schemas.android.com/apk/res/dev.tclark.dogshow.apps.android"
                 android:id="@+id/dog_view_section_owner_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="OWNER"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/accent_1" />
+                android:layout_marginLeft="@dimen/element_spacing_normal"
+                android:textColor="@color/accent_1"
+                android:textSize="@dimen/text_small"
+                ttv:typeface="Roboto-Bold.ttf" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/dog_view_section_owner_label"
                 android:background="@drawable/accent_bar" >
             </RelativeLayout>
         </RelativeLayout>
 
-        <TextView
+        <dev.tclark.dogshow.apps.android.widget.TypefacedTextView
+            android:textSize="@dimen/text_medium"
             android:id="@+id/dog_view_section_owner_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/dog_view_section_owner"
             android:layout_marginTop="@dimen/element_margin_normal"
             android:text="Taylor Clark"
+            android:layout_marginLeft="@dimen/element_spacing_normal"
             android:textAppearance="?android:attr/textAppearanceMedium" />
-        
+
         <QuickContactBadge
             android:id="@+id/dog_view_owner_contact_badge"
             android:layout_width="@dimen/element_height_normal"
             android:layout_height="@dimen/element_height_normal"
-            android:layout_toRightOf="@+id/dog_view_section_owner_text" 
+            android:layout_alignParentRight="true"
             android:layout_below="@+id/dog_view_section_owner"
-            android:layout_alignParentRight="true"/>
-
+            android:layout_toRightOf="@+id/dog_view_section_owner_text" />
     </RelativeLayout>
 
 </RelativeLayout>

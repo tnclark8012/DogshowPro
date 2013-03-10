@@ -48,7 +48,7 @@ public class HomeActivity extends BaseActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        startActivity(new Intent(this, DogActivity.class));
+        startActivity(new Intent(this, ScheduleActivity.class));
     }
 }
 

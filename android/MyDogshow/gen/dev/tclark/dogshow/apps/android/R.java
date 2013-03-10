@@ -141,7 +141,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int activatableItemBackground=0x7f010063;
+        public static final int activatableItemBackground=0x7f010064;
         /**  Drawable used as a background for activated items. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -174,16 +174,16 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int borderDrawable=0x7f010067;
+        public static final int borderDrawable=0x7f010068;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int buttonBarButtonStyle=0x7f010065;
+        public static final int buttonBarButtonStyle=0x7f010066;
         /**  backward-compatibility 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int buttonBarStyle=0x7f010064;
+        public static final int buttonBarStyle=0x7f010065;
         /**  Small Button style. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -381,7 +381,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int maskDrawable=0x7f010066;
+        public static final int maskDrawable=0x7f010067;
         /**  The type of navigation to use. 
          <p>Must be one of the following constant values.</p>
 <table>
@@ -591,7 +591,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int textHeaderMaxLines=0x7f010061;
+        public static final int textHeaderMaxLines=0x7f010062;
         /**  Specifies title text used for navigationMode="normal" 
          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
@@ -612,7 +612,15 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int trackAbstractMaxLines=0x7f010062;
+        public static final int trackAbstractMaxLines=0x7f010063;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int typeface=0x7f010061;
         /**  Default vertical divider between menu items. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -722,22 +730,24 @@ containing a value of this type.
         public static final int abs__bright_foreground_inverse_holo_dark=0x7f060006;
         public static final int abs__bright_foreground_inverse_holo_light=0x7f060007;
         public static final int abs__holo_blue_light=0x7f060008;
-        public static final int abs__primary_text_disable_only_holo_dark=0x7f060015;
-        public static final int abs__primary_text_disable_only_holo_light=0x7f060016;
-        public static final int abs__primary_text_holo_dark=0x7f060017;
-        public static final int abs__primary_text_holo_light=0x7f060018;
-        public static final int accent_1=0x7f060009;
-        public static final int cadet_blue2=0x7f06000b;
-        public static final int cadet_blue3=0x7f06000c;
-        public static final int header_color=0x7f06000a;
-        public static final int header_title=0x7f060012;
-        public static final int layout_background=0x7f060014;
-        public static final int light_blue=0x7f060013;
-        public static final int list_divider_bottom=0x7f06000e;
-        public static final int list_divider_top=0x7f06000f;
-        public static final int list_item_activated=0x7f06000d;
-        public static final int transparent=0x7f060010;
-        public static final int white=0x7f060011;
+        public static final int abs__primary_text_disable_only_holo_dark=0x7f060017;
+        public static final int abs__primary_text_disable_only_holo_light=0x7f060018;
+        public static final int abs__primary_text_holo_dark=0x7f060019;
+        public static final int abs__primary_text_holo_light=0x7f06001a;
+        public static final int accent_1=0x7f06000a;
+        public static final int accent_2=0x7f06000b;
+        public static final int action_bar_color=0x7f060009;
+        public static final int cadet_blue2=0x7f06000d;
+        public static final int cadet_blue3=0x7f06000e;
+        public static final int header_color=0x7f06000c;
+        public static final int header_title=0x7f060014;
+        public static final int layout_background=0x7f060016;
+        public static final int light_blue=0x7f060015;
+        public static final int list_divider_bottom=0x7f060010;
+        public static final int list_divider_top=0x7f060011;
+        public static final int list_item_activated=0x7f06000f;
+        public static final int transparent=0x7f060012;
+        public static final int white=0x7f060013;
     }
     public static final class dimen {
         /**  Default height of an action bar. 
@@ -861,20 +871,25 @@ containing a value of this type.
          */
         public static final int activity_horizontal_margin=0x7f070014;
         public static final int activity_vertical_margin=0x7f070015;
-        public static final int avatar_width_normal=0x7f07001e;
         public static final int compat_list_preferred_item_height_small=0x7f070013;
         /**  Backward-compatibility values 
          */
         public static final int compat_list_preferred_item_padding_left=0x7f070011;
         public static final int compat_list_preferred_item_padding_right=0x7f070012;
+        public static final int dog_edit_spinner_height=0x7f07001c;
         public static final int element_height_normal=0x7f070019;
+        public static final int element_inner_height=0x7f07001b;
         public static final int element_margin_normal=0x7f070018;
         public static final int element_padding_normal=0x7f07001a;
-        public static final int element_section_height_normal=0x7f07001b;
+        public static final int element_section_height_normal=0x7f07001d;
         public static final int element_spacing_normal=0x7f070017;
-        public static final int header_height=0x7f07001c;
-        public static final int header_icon_width=0x7f07001d;
+        public static final int element_width_normal=0x7f070020;
+        public static final int header_height=0x7f07001e;
+        public static final int header_icon_width=0x7f07001f;
         public static final int page_margin_width=0x7f070016;
+        public static final int text_large=0x7f070023;
+        public static final int text_medium=0x7f070022;
+        public static final int text_small=0x7f070021;
     }
     public static final class drawable {
         public static final int abs__ab_bottom_solid_dark_holo=0x7f020000;
@@ -1068,56 +1083,74 @@ containing a value of this type.
         public static final int abs__title=0x7f04001b;
         public static final int abs__titleDivider=0x7f04001c;
         public static final int abs__up=0x7f04000b;
-        public static final int choose_account_intro=0x7f040051;
+        public static final int choose_account_intro=0x7f040058;
         public static final int disableHome=0x7f040009;
+        public static final int dog_edit_contents=0x7f040039;
         public static final int dog_edit_header=0x7f040036;
         public static final int dog_edit_image=0x7f040037;
-        public static final int dog_edit_label_breed=0x7f04003a;
         public static final int dog_edit_name=0x7f040038;
-        public static final int dog_edit_owner_contact_badge=0x7f04003d;
-        public static final int dog_edit_section_breed=0x7f040039;
-        public static final int dog_edit_section_owner=0x7f04003c;
-        public static final int dog_view_contents=0x7f040041;
-        public static final int dog_view_header=0x7f04003e;
-        public static final int dog_view_image=0x7f04003f;
-        public static final int dog_view_name=0x7f040040;
-        public static final int dog_view_owner_contact_badge=0x7f04004d;
-        public static final int dog_view_section_breed=0x7f040042;
-        public static final int dog_view_section_breed_label=0x7f040043;
-        public static final int dog_view_section_breed_text=0x7f040044;
-        public static final int dog_view_section_majors_text=0x7f040049;
-        public static final int dog_view_section_owner=0x7f04004a;
-        public static final int dog_view_section_owner_label=0x7f04004b;
-        public static final int dog_view_section_owner_text=0x7f04004c;
-        public static final int dog_view_section_points=0x7f040045;
-        public static final int dog_view_section_points_label=0x7f040046;
-        public static final int dog_view_section_points_text=0x7f040047;
+        public static final int dog_edit_owner_contact_badge=0x7f040045;
+        public static final int dog_edit_section_breed=0x7f04003a;
+        public static final int dog_edit_section_breed_label=0x7f04003b;
+        public static final int dog_edit_section_breed_text=0x7f04003c;
+        public static final int dog_edit_section_majors_text=0x7f040041;
+        public static final int dog_edit_section_owner=0x7f040042;
+        public static final int dog_edit_section_owner_label=0x7f040043;
+        public static final int dog_edit_section_owner_text=0x7f040044;
+        public static final int dog_edit_section_points=0x7f04003d;
+        public static final int dog_edit_section_points_label=0x7f04003e;
+        public static final int dog_edit_section_points_text=0x7f04003f;
+        public static final int dog_view_contents=0x7f040049;
+        public static final int dog_view_header=0x7f040046;
+        public static final int dog_view_image=0x7f040047;
+        public static final int dog_view_name=0x7f040048;
+        public static final int dog_view_owner_contact_badge=0x7f040054;
+        public static final int dog_view_section_breed=0x7f04004a;
+        public static final int dog_view_section_breed_label=0x7f04004b;
+        public static final int dog_view_section_breed_text=0x7f04004c;
+        public static final int dog_view_section_majors_text=0x7f040050;
+        public static final int dog_view_section_owner=0x7f040051;
+        public static final int dog_view_section_owner_label=0x7f040052;
+        public static final int dog_view_section_owner_text=0x7f040053;
+        public static final int dog_view_section_points=0x7f04004d;
+        public static final int dog_view_section_points_label=0x7f04004e;
+        public static final int dog_view_section_points_text=0x7f04004f;
         public static final int edit_query=0x7f040027;
         public static final int fragment_container=0x7f040033;
-        public static final int handler_dog_list=0x7f04004e;
-        public static final int handler_icon=0x7f040054;
-        public static final int handler_name=0x7f040055;
+        public static final int handler_dog_list=0x7f040055;
+        public static final int handler_icon=0x7f04005d;
+        public static final int handler_name=0x7f04005e;
         public static final int homeAsUp=0x7f040006;
-        public static final int imageButton1=0x7f04004f;
-        public static final int input_handler_name=0x7f040050;
+        public static final int imageButton1=0x7f040056;
+        public static final int input_handler_name=0x7f040057;
         public static final int listMode=0x7f040002;
-        public static final int menu_about=0x7f04005a;
-        public static final int menu_add_account=0x7f040056;
-        public static final int menu_add_handler=0x7f040057;
-        public static final int menu_edit_handler=0x7f040058;
-        public static final int menu_refresh=0x7f040059;
-        public static final int menu_sign_out=0x7f04005b;
+        public static final int list_item_ring_breed=0x7f040062;
+        public static final int list_item_ring_details_container=0x7f040061;
+        public static final int list_item_ring_names=0x7f040063;
+        public static final int list_item_ring_start=0x7f040064;
+        public static final int list_item_ring_time=0x7f040060;
+        public static final int list_item_ring_time_container=0x7f04005f;
+        public static final int menu_about=0x7f04006c;
+        public static final int menu_add_account=0x7f040065;
+        public static final int menu_add_handler=0x7f040069;
+        public static final int menu_dog_edit_cancel=0x7f040067;
+        public static final int menu_dog_edit_save=0x7f040066;
+        public static final int menu_edit_dog=0x7f040068;
+        public static final int menu_edit_handler=0x7f04006a;
+        public static final int menu_refresh=0x7f04006b;
+        public static final int menu_sign_out=0x7f04006d;
         public static final int normal=0x7f040001;
         public static final int pager=0x7f040034;
-        public static final int points_bezel=0x7f040048;
-        public static final int retry_button=0x7f040053;
+        public static final int points_bezel=0x7f040040;
+        public static final int retry_button=0x7f04005a;
         public static final int root_container=0x7f040035;
+        public static final int schedule_next=0x7f04005b;
+        public static final int schedule_ring=0x7f04005c;
         public static final int showCustom=0x7f040008;
         public static final int showHome=0x7f040005;
         public static final int showTitle=0x7f040007;
-        public static final int spinner1=0x7f04003b;
         public static final int tabMode=0x7f040003;
-        public static final int taking_a_while_panel=0x7f040052;
+        public static final int taking_a_while_panel=0x7f040059;
         public static final int useLogo=0x7f040004;
         public static final int wrap_content=0x7f040000;
     }
@@ -1152,24 +1185,33 @@ containing a value of this type.
         public static final int activity_handler=0x7f030018;
         public static final int activity_handlers=0x7f030019;
         public static final int activity_home=0x7f03001a;
-        public static final int activity_singlepane_empty=0x7f03001b;
-        public static final int empty_waiting_for_sync=0x7f03001c;
-        public static final int fragment_dog_edit=0x7f03001d;
-        public static final int fragment_dog_view=0x7f03001e;
-        public static final int fragment_handler=0x7f03001f;
-        public static final int fragment_handler_add=0x7f030020;
-        public static final int fragment_handler_edit=0x7f030021;
-        public static final int fragment_list_with_empty_container=0x7f030022;
-        public static final int fragment_login_choose_account=0x7f030023;
-        public static final int fragment_login_loading=0x7f030024;
-        public static final int handler_list_item=0x7f030025;
-        public static final int sherlock_spinner_dropdown_item=0x7f030026;
-        public static final int sherlock_spinner_item=0x7f030027;
+        public static final int activity_schedule=0x7f03001b;
+        public static final int activity_singlepane_empty=0x7f03001c;
+        public static final int empty_waiting_for_sync=0x7f03001d;
+        public static final int fragment_dog_edit=0x7f03001e;
+        public static final int fragment_dog_view=0x7f03001f;
+        public static final int fragment_handler=0x7f030020;
+        public static final int fragment_handler_add=0x7f030021;
+        public static final int fragment_handler_edit=0x7f030022;
+        public static final int fragment_list_with_empty_container=0x7f030023;
+        public static final int fragment_login_choose_account=0x7f030024;
+        public static final int fragment_login_loading=0x7f030025;
+        public static final int fragment_schedule_list=0x7f030026;
+        public static final int handler_list_item=0x7f030027;
+        public static final int list_item_ring=0x7f030028;
+        public static final int sherlock_spinner_dropdown_item=0x7f030029;
+        public static final int sherlock_spinner_item=0x7f03002a;
     }
     public static final class menu {
-        public static final int add_account=0x7f0b0000;
-        public static final int handler=0x7f0b0001;
-        public static final int home=0x7f0b0002;
+        public static final int add_account=0x7f0c0000;
+        public static final int dog_edit=0x7f0c0001;
+        public static final int dog_view=0x7f0c0002;
+        public static final int handler=0x7f0c0003;
+        public static final int home=0x7f0c0004;
+    }
+    public static final class plurals {
+        public static final int template_majors=0x7f0b0001;
+        public static final int template_points=0x7f0b0000;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1238,9 +1280,9 @@ containing a value of this type.
     public static final class style {
         /**  Action bar 
          */
-        public static final int ActionBar=0x7f0a0068;
-        public static final int ActionBar_Home=0x7f0a0067;
-        public static final int ActionBar_TitleText=0x7f0a0069;
+        public static final int ActionBar=0x7f0a0065;
+        public static final int ActionBar_Home=0x7f0a0064;
+        public static final int ActionBar_TitleText=0x7f0a0066;
         /** 
         Base application theme for API 11+. This theme completely replaces
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
@@ -1253,7 +1295,7 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f0a006a;
+        public static final int AppBaseTheme=0x7f0a0067;
         /**  Polyfill for ?android:buttonBarStyle 
          */
         public static final int Compat_ButtonBar=0x7f0a0059;
@@ -1266,9 +1308,6 @@ containing a value of this type.
         public static final int DialogWindowTitle_Sherlock=0x7f0a0036;
         public static final int DialogWindowTitle_Sherlock_Light=0x7f0a0037;
         public static final int FrameworkRoot_ActionBar=0x7f0a005e;
-        public static final int FrameworkRoot_ActionBar_TabBar=0x7f0a0060;
-        public static final int FrameworkRoot_ActionBar_TabText=0x7f0a0061;
-        public static final int FrameworkRoot_ActionBar_TabView=0x7f0a0062;
         public static final int FrameworkRoot_ActionBar_TitleText=0x7f0a005f;
         /**  Root styles that vary by API level 
          */
@@ -1309,9 +1348,16 @@ containing a value of this type.
         public static final int TextAppearance_Sherlock_Widget_PopupMenu_Large=0x7f0a0042;
         public static final int TextAppearance_Sherlock_Widget_PopupMenu_Small=0x7f0a0044;
         public static final int TextAppearance_Sherlock_Widget_TextView_SpinnerItem=0x7f0a0046;
-        /**  Immediate parent theme to specify base values for custom attributes 
+        /**  
+    <style name="FrameworkRoot.ActionBar.TabBar" parent="Widget.Sherlock.Light.ActionBar.TabBar" />
+
+    <style name="FrameworkRoot.ActionBar.TabText" parent="Widget.Sherlock.Light.ActionBar.TabText" />
+
+    <style name="FrameworkRoot.ActionBar.TabView" parent="Widget.Sherlock.Light.ActionBar.TabView" />
+ 
+ Immediate parent theme to specify base values for custom attributes 
          */
-        public static final int Theme_Base=0x7f0a0063;
+        public static final int Theme_Base=0x7f0a0060;
         /**  Base themes for the app 
  
         <item name="android:actionBarTabStyle">@style/ActionBar.TabView</item>
@@ -1322,11 +1368,11 @@ containing a value of this type.
         <item name="actionBarTabTextStyle">@style/ActionBar.TabText</item>
          
          */
-        public static final int Theme_Dogshow=0x7f0a0064;
-        public static final int Theme_Dogshow_GreyBackground=0x7f0a0065;
+        public static final int Theme_Dogshow=0x7f0a0061;
+        public static final int Theme_Dogshow_GreyBackground=0x7f0a0062;
         /**  Home 
          */
-        public static final int Theme_Dogshow_Home=0x7f0a0066;
+        public static final int Theme_Dogshow_Home=0x7f0a0063;
         public static final int Theme_Sherlock=0x7f0a0052;
         public static final int Theme_Sherlock_Dialog=0x7f0a0057;
         public static final int Theme_Sherlock_Light=0x7f0a0053;
@@ -1383,11 +1429,26 @@ containing a value of this type.
         public static final int Widget_Sherlock_TextView_SpinnerItem=0x7f0a0032;
     }
     public static final class styleable {
-        /**  provided by ActionBarSherlock 
-<attr name="indeterminateProgressStyle" format="reference" />
-<attr name="listPreferredItemPaddingLeft" format="reference" />
-<attr name="listPreferredItemPaddingRight" format="reference" />
-<attr name="listPreferredItemHeightSmall" format="reference" />
+        /** 
+  Copyright 2012 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+    
+ provided by ActionBarSherlock 
+ <attr name="indeterminateProgressStyle" format="reference" /> 
+ <attr name="listPreferredItemPaddingLeft" format="reference" /> 
+ <attr name="listPreferredItemPaddingRight" format="reference" /> 
+ <attr name="listPreferredItemHeightSmall" format="reference" /> 
            <p>Includes the following attributes:</p>
            <table>
            <colgroup align="left" />
@@ -1406,8 +1467,8 @@ containing a value of this type.
            @see #BaseTheme_trackAbstractMaxLines
          */
         public static final int[] BaseTheme = {
-            0x7f010061, 0x7f010062, 0x7f010063, 0x7f010064,
-            0x7f010065
+            0x7f010062, 0x7f010063, 0x7f010064, 0x7f010065,
+            0x7f010066
         };
         /**
           <p>This symbol is the offset where the {@link dev.tclark.dogshow.apps.android.R.attr#activatableItemBackground}
@@ -1482,7 +1543,7 @@ containing a value of this type.
            @see #BezelImageView_maskDrawable
          */
         public static final int[] BezelImageView = {
-            0x7f010066, 0x7f010067
+            0x7f010067, 0x7f010068
         };
         /**
           <p>This symbol is the offset where the {@link dev.tclark.dogshow.apps.android.R.attr#borderDrawable}
@@ -3635,5 +3696,32 @@ containing a value of this type.
           @attr name android:android_focusable
         */
         public static final int SherlockView_android_focusable = 0;
+        /** Attributes that can be used with a TypefacedTextView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #TypefacedTextView_typeface dev.tclark.dogshow.apps.android:typeface}</code></td><td></td></tr>
+           </table>
+           @see #TypefacedTextView_typeface
+         */
+        public static final int[] TypefacedTextView = {
+            0x7f010061
+        };
+        /**
+          <p>This symbol is the offset where the {@link dev.tclark.dogshow.apps.android.R.attr#typeface}
+          attribute's value can be found in the {@link #TypefacedTextView} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:typeface
+        */
+        public static final int TypefacedTextView_typeface = 0;
     };
 }

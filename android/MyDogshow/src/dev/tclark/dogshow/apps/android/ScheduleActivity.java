@@ -120,7 +120,7 @@ public class ScheduleActivity extends BaseActivity implements
 
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-        mViewPager.setCurrentItem(tab.getPosition());
+//        mViewPager.setCurrentItem(tab.getPosition());
     }
 
     @Override
@@ -197,14 +197,14 @@ public class ScheduleActivity extends BaseActivity implements
 
         @Override
         public Fragment getItem(int position) {
-            switch (position) {
-                case 0:
+//            switch (position) {
+//                case 0:
                     return (mMyScheduleFragment = new MyScheduleFragment());
-
-                case 1:
-                    return (mExploreFragment = new ExploreFragment());
-            }
-            return null;
+//
+//                case 1:
+//                    return (mExploreFragment = new ExploreFragment());
+//            }
+//            return null;
         }
 
         @Override
