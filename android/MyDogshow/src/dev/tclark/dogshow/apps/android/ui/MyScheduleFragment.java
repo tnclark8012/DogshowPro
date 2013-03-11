@@ -40,8 +40,15 @@ public class MyScheduleFragment extends SherlockListFragment implements
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
     		Bundle savedInstanceState) {
     	View view = inflater.inflate(R.layout.fragment_schedule_list, container, false);
-    	getListView().setAdapter(new ArrayAdapter<String>(view.getContext(), 0));
+    	
     	return view;
+    }
+    
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+    	// TODO Auto-generated method stub
+    	super.onActivityCreated(savedInstanceState);
+//    	getListView().setAdapter(new ArrayAdapter<String>(getActivity(), 0));
     }
 	@Override
 	public boolean onCreateActionMode(ActionMode mode,

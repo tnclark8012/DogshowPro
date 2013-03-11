@@ -10,8 +10,8 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
-import dev.tclark.dogshow.apps.android.HomeActivity;
 import dev.tclark.dogshow.apps.android.R;
+import dev.tclark.dogshow.apps.android.ui.HomeActivity;
 
 
 /**

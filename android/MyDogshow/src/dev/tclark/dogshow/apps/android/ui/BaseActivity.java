@@ -24,8 +24,6 @@ import android.support.v4.app.NavUtils;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
 
-import dev.tclark.dogshow.apps.android.HandlerActivity;
-import dev.tclark.dogshow.apps.android.ScheduleActivity;
 import dev.tclark.dogshow.apps.android.util.AccountUtils;
 
 /**
@@ -40,7 +38,8 @@ public abstract class BaseActivity extends SherlockFragmentActivity {
 		// activity
 		// and show the authentication screen.
 			if (!AccountUtils.isAuthenticated(this)) {
-				AccountUtils.startAuthenticationFlow(this, new Intent(this, DogActivity.class));
+//				new Intent(this, DogActivity.class)
+				AccountUtils.startAuthenticationFlow(this, null);
 				finish();
 			}
 
@@ -51,9 +50,9 @@ public abstract class BaseActivity extends SherlockFragmentActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case android.R.id.home:
-//			if (this instanceof HomeActivity) {
-//				return false;
-//			}
+			if (this instanceof HomeActivity) {
+				return false;
+			}
 
 			NavUtils.navigateUpFromSameTask(this);
 			return true;

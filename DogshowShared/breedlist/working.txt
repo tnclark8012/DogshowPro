@@ -1,0 +1,29 @@
+WORKING
+Akita
+Alaskan Malamute
+Anatolian Shepherd Dog
+Bernese Mountain Dog
+Black Russian Terrier
+Boxer
+Bullmastiff
+Cane Corso 
+Doberman Pinscher
+Dogue de Bordeaux
+German Pinscher
+Giant Schnauzer
+Great Dane
+Great Pyrenees
+Greater Swiss Mountain Dog
+Komondor
+Kuvasz
+Mastiff
+Leonberger
+Neapolitan Mastiff
+Newfoundland
+Portuguese Water Dog
+Rottweiler
+Saint Bernard
+Samoyed
+Siberian Husky
+Standard Schnauzer
+Tibetan Mastiff
