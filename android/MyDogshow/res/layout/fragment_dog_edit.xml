@@ -85,13 +85,17 @@
             </RelativeLayout>
         </RelativeLayout>
 
-        <Spinner
+        <dev.tclark.dogshow.apps.android.widget.TypefacedTextView
             android:id="@+id/dog_edit_section_breed_text"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dog_edit_spinner_height"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/dog_edit_section_breed"
-            android:layout_marginTop="@dimen/element_spacing_normal"
-            android:inputType="textCapWords"
+            android:layout_marginTop="@dimen/element_tv_spinner_margin_top_normal"
+            android:layout_marginBottom="@dimen/element_tv_spinner_margin_bottom_normal"
+            android:clickable="true"
+            android:background="@drawable/spinner_default_holo_light"
+            android:layout_marginLeft="@dimen/element_padding_normal" 
+            android:text="Papillon"
             android:textSize="@dimen/text_medium" />
 
         <RelativeLayout

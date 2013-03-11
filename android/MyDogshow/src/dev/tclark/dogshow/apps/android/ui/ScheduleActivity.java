@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.tclark.dogshow.apps.android;
+package dev.tclark.dogshow.apps.android.ui;
 
 import static dev.tclark.dogshow.apps.android.util.LogUtils.LOGD;
 import android.accounts.Account;
@@ -34,9 +34,12 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
 import dev.tclark.dogshow.apps.android.R;
-import dev.tclark.dogshow.apps.android.ui.BaseActivity;
-import dev.tclark.dogshow.apps.android.ui.ExploreFragment;
-import dev.tclark.dogshow.apps.android.ui.MyScheduleFragment;
+import dev.tclark.dogshow.apps.android.R.dimen;
+import dev.tclark.dogshow.apps.android.R.drawable;
+import dev.tclark.dogshow.apps.android.R.id;
+import dev.tclark.dogshow.apps.android.R.layout;
+import dev.tclark.dogshow.apps.android.R.menu;
+import dev.tclark.dogshow.apps.android.R.string;
 import dev.tclark.dogshow.apps.android.util.AccountUtils;
 /**
  * The landing screen for the app, once the user has logged in.
@@ -70,7 +73,7 @@ public class ScheduleActivity extends BaseActivity implements
         if (isFinishing()) {
             return;
         }
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_schedule);
         FragmentManager fm = getSupportFragmentManager();
 
         mViewPager = (ViewPager) findViewById(R.id.pager);
@@ -98,7 +101,7 @@ public class ScheduleActivity extends BaseActivity implements
             homeScreenLabel = getString(R.string.title_my_schedule);
 
         }
-        getSupportActionBar().setHomeButtonEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         // Sync data on load
         if (savedInstanceState == null) {

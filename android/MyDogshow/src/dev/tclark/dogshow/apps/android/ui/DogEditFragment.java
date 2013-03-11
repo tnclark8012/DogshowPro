@@ -1,11 +1,13 @@
 package dev.tclark.dogshow.apps.android.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.view.Menu;
@@ -13,12 +15,13 @@ import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
 import dev.tclark.dogshow.apps.android.R;
+import dev.tnclark8012.dogshow.shared.Breeds;
 
-public class DogEditFragment extends SherlockFragment {
+public class DogEditFragment extends SherlockFragment implements
+		OnClickListener {
 	private Menu mMenu;
-	private static final String[] BREEDS = { "Papillon", "Shetland Sheepdog",
-			"Akita", "Saluki", "Retriever (Golden)" };
 	private static ArrayAdapter<String> mBreedAdapter;
+	private TextView mBreedTextView;
 
 	public interface Callback {
 		public void onSave();
@@ -38,12 +41,9 @@ public class DogEditFragment extends SherlockFragment {
 		getSherlockActivity().getSupportActionBar().setTitle("Edit Dog");
 		View view = inflater.inflate(R.layout.fragment_dog_edit, container,
 				false);
-		mBreedAdapter = new ArrayAdapter<String>(getSherlockActivity(),
-				android.R.layout.simple_spinner_item, BREEDS);
-		Spinner breedsView = (Spinner) view
+		mBreedTextView = (TextView) view
 				.findViewById(R.id.dog_edit_section_breed_text);
-		mBreedAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		breedsView.setAdapter(mBreedAdapter);
+		mBreedTextView.setOnClickListener(this);
 		return view;
 	}
 
@@ -67,5 +67,23 @@ public class DogEditFragment extends SherlockFragment {
 
 	private void save() {
 
+	}
+
+	@Override
+	public void onClick(View v) {
+		Intent selectIntent = new Intent(getActivity(),
+				BreedSelectActivity.class);
+		startActivityForResult(selectIntent,
+				BreedSelectActivity.REQUEST_CODE_BREED_SELECT);
+	}
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (data != null
+				&& data.hasExtra(BreedSelectActivity.EXTRA_BREED_GROUP)) {
+			Breeds breed = (Breeds) data
+					.getSerializableExtra(BreedSelectActivity.EXTRA_BREED_GROUP);
+			mBreedTextView.setText(breed.getPrimaryName());
+		}
 	}
 }

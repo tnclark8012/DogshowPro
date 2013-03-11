@@ -5,6 +5,8 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="page_margin_width">16dp</dimen>
     <dimen name="element_spacing_normal">8dp</dimen>
+    <dimen name="element_tv_spinner_margin_top_normal">9dp</dimen>
+    <dimen name="element_tv_spinner_margin_bottom_normal">3dp</dimen>
 	<dimen name="element_margin_normal">16dp</dimen>
 	<dimen name="element_height_normal">48dp</dimen>
 	<dimen name="element_padding_normal">4dp</dimen>

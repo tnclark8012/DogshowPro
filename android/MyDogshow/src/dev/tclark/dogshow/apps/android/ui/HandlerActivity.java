@@ -1,7 +1,5 @@
-package dev.tclark.dogshow.apps.android;
+package dev.tclark.dogshow.apps.android.ui;
 
-import dev.tclark.dogshow.apps.android.ui.HandlerListFragment;
-import dev.tclark.dogshow.apps.android.ui.SimpleSinglePaneActivity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 

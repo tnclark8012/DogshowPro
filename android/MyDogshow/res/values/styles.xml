@@ -1,5 +1,17 @@
 <resources>
 
+    <style name="DashboardButton">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:drawablePadding">2dp</item>
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/accent_2</item>
+        <item name="android:background">@null</item>
+    </style>
+
     <!-- Empty parent idiom -->
     <style name="NoParent" />
 
@@ -19,13 +31,13 @@
     <style name="FrameworkRoot.ActionBar" parent="Widget.Sherlock.Light.ActionBar.Solid" />
 
     <style name="FrameworkRoot.ActionBar.TitleText" parent="TextAppearance.Sherlock.Widget.ActionBar.Title.Inverse" />
-<!-- 
+    <!--
     <style name="FrameworkRoot.ActionBar.TabBar" parent="Widget.Sherlock.Light.ActionBar.TabBar" />
 
     <style name="FrameworkRoot.ActionBar.TabText" parent="Widget.Sherlock.Light.ActionBar.TabText" />
 
-    <style name="FrameworkRoot.ActionBar.TabView" parent="Widget.Sherlock.Light.ActionBar.TabView" />
- -->
+    <style name="FrameworkRoot.ActionBar.TabView" parent="Widget.Sherlock.Light.ActionBar.TabView" />
+    -->
     <!-- Immediate parent theme to specify base values for custom attributes -->
     <style name="Theme.Base" parent="FrameworkRoot.Theme"></style>
 
@@ -36,14 +48,14 @@
         <item name="windowContentOverlay">@drawable/actionbar_shadow</item>
         <item name="android:actionBarStyle">@style/ActionBar</item>
         <item name="actionBarStyle">@style/ActionBar</item>
-        <!-- 
+        <!--
         <item name="android:actionBarTabStyle">@style/ActionBar.TabView</item>
         <item name="actionBarTabStyle">@style/ActionBar.TabView</item>
         <item name="android:actionBarTabBarStyle">@style/ActionBar.TabBar</item>
         <item name="actionBarTabBarStyle">@style/ActionBar.TabBar</item>
         <item name="android:actionBarTabTextStyle">@style/ActionBar.TabText</item>
-        <item name="actionBarTabTextStyle">@style/ActionBar.TabText</item>
-         -->
+        <item name="actionBarTabTextStyle">@style/ActionBar.TabText</item>
+        -->
     </style>
 
     <style name="Theme.Dogshow.GreyBackground" parent="Theme.Dogshow">
@@ -88,7 +100,7 @@
 
     <style name="ActionBar.TabView" parent="FrameworkRoot.ActionBar.TabView">
         <item name="android:background">@drawable/tab_white_ab</item>
-    </style>
+    </style>
     -->
 
 </resources>
