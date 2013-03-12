@@ -49,7 +49,7 @@ big_comment returns [String str]
 
 comment returns [String str]
 		@init{str="";}
-		: (TIME|COMMENT{str=$COMMENT.text;}|PARENTHETICAL|INT|ELLIPSIS|DATE);
+		: (TIME|COMMENT{str=$COMMENT.text;}|PARENTHETICAL|INT|ELLIPSIS|DATE|PHONE_NUMBER);
 //comment returns [String str]
 //		@init {str = null;}
 //		:   (COMMENT{str=$COMMENT.text;}|INT{str=$INT.text;}|DATE{str=$DATE.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|ELLIPSIS{str=$ELLIPSIS.text;});
@@ -132,6 +132,7 @@ fragment FRAG_BREED_NAME_SINGLE
     'Belgian Malinois'|
     'Belgian Sheepdog'|
     'Belgian Tervuren'|
+    'Berger Picard'|
     'Bernese Mountain Dog'|
     'Bichon Frise'|
     'Bichons Frise'|//odd plural
@@ -341,6 +342,7 @@ fragment FRAG_BREED_NAME_CATEGORY //Breed's that are listed under categories rat
         'Golden'|//retriever
         'Gordon'|//setters
         'Irish'|//Setters
+        'Irish Water'|//spaniels
         'K C & R'|
         'Labrador'|//Retriever
         'Long Coat'|//chihuahuas
