@@ -26,7 +26,7 @@ public class Main {
 			String line = null;
 			String breedEnumFormat = "%s(BreedGroup.%s, \"%s\"),";
 			List<String> breedNameEnums = new LinkedList<String>();
-			breedNameEnums.add(groupNameEnum);
+			breedNameEnums.add(groupName);
 			System.out.println("//****BEGIN " + groupName + "****");
 			while ((line = reader.readLine()) != null) {
 				String name = line;
@@ -45,7 +45,7 @@ public class Main {
 		System.out.println();
 		System.out.println();
 		System.out.println();
-		String groupEnumTemplate = "%s(%s,%s),";
+		String groupEnumTemplate = "%s(\"%s\",%s),";
 		String currentBreedSet = "";
 		for (String groupEnum : groupBreedMap.keySet()) {
 			String delim = "";

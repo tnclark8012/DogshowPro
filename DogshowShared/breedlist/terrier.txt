@@ -1,4 +1,4 @@
-TERRIER
+Terrier
 Airedale Terrier
 American Staffordshire Terrier
 Australian Terrier
