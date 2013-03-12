@@ -1,7 +1,5 @@
 package dev.tclark.dogshow;
-import java.io.File;
 import java.io.IOException;
-import java.io.PrintStream;
 
 import com.google.gson.JsonObject;
 
@@ -21,9 +19,9 @@ public class Main {
     public static void main(String[] args) throws IOException,
             org.antlr.runtime.RecognitionException, IllegalArgumentException,
             IllegalAccessException {
-    	String [] programs = {"testparse", "TRIN1JP.txt", "PLUM1JP.txt", "SACS1JP.txt"};
+    	String [] programs = {"testparse", "TRIN1JP.txt", "PLUM1JP.txt", "SACS1JP.txt", "LEAV1JP.txt"};
     	
-    	String program = programs[3];
+    	String program = programs[4];
         String file = "testcase/examples/"+program;
         //System.setOut(new PrintStream(new File("testcase/tests/lexer/expected-outputs", program + ".output" )));
         LexerRunner lexerRunner = new LexerRunner(file);
