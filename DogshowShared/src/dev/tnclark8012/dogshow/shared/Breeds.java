@@ -127,7 +127,7 @@ public enum Breeds {
 	TREEING_WALKER_COONHOUND(BreedGroup.MISCELLANEOUS, "Treeing Walker Coonhound"),
 	WIREHAIRED_VIZSLA(BreedGroup.MISCELLANEOUS, "Wirehaired Vizsla"),
 	//****END MISCELLANEOUS****
-	//****BEGIN NON_SPORTING****
+	//****BEGIN NON-SPORTING****
 	AMERICAN_ESKIMO_DOG(BreedGroup.NON_SPORTING, "American Eskimo Dog"),
 	BICHON_FRISE(BreedGroup.NON_SPORTING, "Bichon Frise"),
 	BOSTON_TERRIER(BreedGroup.NON_SPORTING, "Boston Terrier"),
@@ -146,9 +146,9 @@ public enum Breeds {
 	SCHIPPERKE(BreedGroup.NON_SPORTING, "Schipperke"),
 	SHIBA_INU(BreedGroup.NON_SPORTING, "Shiba Inu"),
 	TIBETAN_SPANIEL(BreedGroup.NON_SPORTING, "Tibetan Spaniel"),
-	TIBETAN_TERRIER_(BreedGroup.NON_SPORTING, "Tibetan Terrier "),
+	TIBETAN_TERRIER(BreedGroup.NON_SPORTING, "Tibetan Terrier"),
 	XOLOITZCUINTLI(BreedGroup.NON_SPORTING, "Xoloitzcuintli"),
-	//****END NON_SPORTING****
+	//****END NON-SPORTING****
 	//****BEGIN SPORTING****
 	AMERICAN_WATER_SPANIEL(BreedGroup.SPORTING, "American Water Spaniel"),
 	BOYKIN_SPANIEL(BreedGroup.SPORTING, "Boykin Spaniel"),
