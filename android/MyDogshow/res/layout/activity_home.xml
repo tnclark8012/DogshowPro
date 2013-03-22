@@ -10,6 +10,6 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_width="fill_parent"
-        android:name="dev.tclark.dogshow.apps.android.ui.DashboardFragment" ></fragment>
+        android:name="dev.tnclark8012.dogshow.apps.android.ui.DashboardFragment" ></fragment>
 
 </LinearLayout>

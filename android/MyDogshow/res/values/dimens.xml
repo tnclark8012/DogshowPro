@@ -11,11 +11,12 @@
 	<dimen name="element_height_normal">48dp</dimen>
 	<dimen name="element_padding_normal">4dp</dimen>
 	<dimen name="element_inner_height">27dp</dimen>
+	<dimen name="element_width_normal">48dp</dimen>
 	<dimen name="dog_edit_spinner_height">43dp</dimen>
 	<dimen name="element_section_height_normal">48dp</dimen>
 	<dimen name="header_height">72dp</dimen>
+	<dimen name="header_icon_height">72dp</dimen>
 	<dimen name="header_icon_width">124dp</dimen>
-	<dimen name="element_width_normal">48dp</dimen>
 	<dimen name="text_small">14sp</dimen>
 	<dimen name="text_medium">18sp</dimen>
 	<dimen name="text_large">22sp</dimen>

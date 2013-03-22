@@ -13,28 +13,28 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<dev.tclark.dogshow.apps.android.widget.DashboardLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<dev.tnclark8012.dogshow.apps.android.widget.DashboardLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/layout_background" >
 
-    <dev.tclark.dogshow.apps.android.widget.TypefacedButton
+    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedButton
         android:id="@+id/schedule"
         style="@style/DashboardButton"
         android:drawableTop="@drawable/ic_dummy"
         android:text="@string/dashboard_schedule" />
 
-    <dev.tclark.dogshow.apps.android.widget.TypefacedButton
+    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedButton
         android:id="@+id/doghouse"
         style="@style/DashboardButton"
         android:clickable="true"
         android:drawableTop="@drawable/ic_dummy"
         android:text="@string/dashboard_doghouse" />
 
-    <dev.tclark.dogshow.apps.android.widget.TypefacedButton
+    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedButton
         android:id="@+id/handlers"
         style="@style/DashboardButton"
         android:drawableTop="@drawable/ic_dummy"
         android:text="@string/dashboard_handlers" />
 
-</dev.tclark.dogshow.apps.android.widget.DashboardLayout>
+</dev.tnclark8012.dogshow.apps.android.widget.DashboardLayout>
