@@ -32,9 +32,9 @@
             android:layout_height="fill_parent"
             >
 
-            <dev.tclark.dogshow.apps.android.widget.TypefacedTextView
+            <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
                 android:layout_marginTop="@dimen/element_spacing_normal"
-                xmlns:ttv="http://schemas.android.com/apk/res/dev.tclark.dogshow.apps.android"
+                xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
                 android:id="@+id/schedule_next"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -45,8 +45,8 @@
                 android:textSize="@dimen/text_large"
                 ttv:typeface="Roboto-Medium.ttf" />
 
-            <dev.tclark.dogshow.apps.android.widget.TypefacedTextView
-                xmlns:ttv="http://schemas.android.com/apk/res/dev.tclark.dogshow.apps.android"
+            <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+                xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
                 android:id="@+id/schedule_ring"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

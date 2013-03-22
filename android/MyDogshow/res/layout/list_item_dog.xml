@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:background="@drawable/list_selector"
+    android:paddingTop="@dimen/element_spacing_normal"
+    android:paddingLeft="@dimen/element_spacing_normal"
+    android:orientation="vertical" >
+<RelativeLayout 
+    android:id="@+id/list_item_dog_thumb"
+    android:layout_width="@dimen/element_width_normal"
+    android:layout_height="@dimen/element_height_normal"
+    android:contentDescription="dog image"
+    android:background="@drawable/dog"/>
+    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+     android:layout_width="wrap_content"
+     android:id="@+id/list_item_dog_name"
+     android:layout_height="wrap_content"
+     android:layout_marginLeft="@dimen/element_margin_normal"
+     android:layout_toRightOf="@+id/list_item_dog_thumb"
+     android:textSize="@dimen/text_large"
+     android:textColor="@color/accent_1"
+     android:text="[Name]"/>
+    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+     android:layout_width="wrap_content"
+     android:id="@+id/list_item_dog_breed"
+     android:layout_below="@+id/list_item_dog_name"
+     android:layout_marginLeft="@dimen/element_margin_normal"
+     android:layout_height="wrap_content"
+     android:layout_toRightOf="@+id/list_item_dog_thumb"
+     android:text="[breed]"/>
+
+
+</RelativeLayout>
