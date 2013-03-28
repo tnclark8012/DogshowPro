@@ -30,7 +30,7 @@ public class DashboardFragment extends SherlockFragment
 		// **********************************
 		// Attach the button event handlers
 		// *********************************
-		root.findViewById(R.id.schedule).setOnClickListener(new View.OnClickListener()
+		root.findViewById(R.id.dashboard_schedule).setOnClickListener(new View.OnClickListener()
 		{
 			public void onClick(View view)
 			{
@@ -42,7 +42,7 @@ public class DashboardFragment extends SherlockFragment
 
 		});
 
-		root.findViewById(R.id.doghouse).setOnClickListener(new View.OnClickListener()
+		root.findViewById(R.id.dashboard_doghouse).setOnClickListener(new View.OnClickListener()
 		{
 			public void onClick(View view)
 			{
@@ -53,11 +53,20 @@ public class DashboardFragment extends SherlockFragment
 
 		});
 
-		root.findViewById(R.id.handlers).setOnClickListener(new View.OnClickListener()
+		root.findViewById(R.id.dashboard_handlers).setOnClickListener(new View.OnClickListener()
 		{
 			public void onClick(View view)
 			{
 					Intent intent = new Intent(getActivity(), HandlerActivity.class);
+					startActivity(intent);
+			}
+
+		});
+		root.findViewById(R.id.dashboard_find_show).setOnClickListener(new View.OnClickListener()
+		{
+			public void onClick(View view)
+			{
+					Intent intent = new Intent(getActivity(), FindShowActivity.class);
 					startActivity(intent);
 			}
 

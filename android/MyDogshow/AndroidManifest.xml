@@ -107,6 +107,11 @@
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.HomeActivity" />
         </activity>
+        <activity android:name=".ui.FindShowActivity"
+            android:label="Find Show">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.HomeActivity" />
+        </activity>
         
         <provider
             android:name=".provider.DogshowProvider"

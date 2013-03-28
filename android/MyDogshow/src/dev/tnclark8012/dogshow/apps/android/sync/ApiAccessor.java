@@ -1,14 +1,6 @@
 package dev.tnclark8012.dogshow.apps.android.sync;
 
 public interface ApiAccessor {
-	/**
-	 * TODO
-	 * Kennel Name: password. Have to OK by creator of Kennel?
-	 * 	Gives back kennel ID
-	 * 
-	 * 
-	 * 
-	 */
 	
 	/**
 	 * long showId
