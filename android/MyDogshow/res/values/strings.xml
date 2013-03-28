@@ -21,6 +21,7 @@
     <string name="menu_select_all">Select All</string>
     <string name="menu_select_none">Select None</string>
 	<string name="menu_delete">Delete</string>
+	<string name="template_ring_number">Ring %1$d</string>
 	<plurals name="template_points">
         <item quantity="one">%d point (15 needed)</item>
         <item quantity="other">%d points (15 needed)</item>

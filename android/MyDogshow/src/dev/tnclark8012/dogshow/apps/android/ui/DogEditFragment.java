@@ -22,6 +22,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -32,18 +34,20 @@ import com.actionbarsherlock.view.MenuItem;
 
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
 import dev.tnclark8012.dogshow.apps.android.sync.SyncHelper;
 import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
 import dev.tnclark8012.dogshow.shared.Breeds;
 
 public class DogEditFragment extends SherlockFragment implements
-		LoaderManager.LoaderCallbacks<Cursor>, OnClickListener {
+		LoaderManager.LoaderCallbacks<Cursor>, OnClickListener,
+		OnCheckedChangeListener {
 	private static final String TAG = DogEditFragment.class.getSimpleName();
-	private String mDogId;
+	private String mDogId = "-1";
 	private Uri mDogUri;
 	private String mCallName;
 	private String mBreedName;
-	private String mSex = "0";
+	private int mSexId;
 	private String mOwnerId = "0";
 	private String mPoints;
 	private String mMajors;
@@ -56,6 +60,7 @@ public class DogEditFragment extends SherlockFragment implements
 	private TextView mViewPoints;
 	private TextView mViewMajors;
 	private TextView mViewOwner;
+	private RadioGroup mViewSex;
 
 	private String mImagePath;
 
@@ -69,6 +74,8 @@ public class DogEditFragment extends SherlockFragment implements
 	private final int TAG_BREED = 0;
 	private final int TAG_IMAGE = 1;
 	public final int REQUEST_CODE_IMAGE = 2;
+	private boolean createNew = false;
+	public static final String INTENT_EXTRA_NEW_DOG = "dev.tnclark8012.dogshow.apps.android.extra.NEW_DOG";
 
 	public interface Callbacks {
 		public void onSave();
@@ -80,19 +87,23 @@ public class DogEditFragment extends SherlockFragment implements
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);
+
 		final Intent intent = BaseActivity
 				.fragmentArgumentsToIntent(getArguments());
-		mDogUri = intent.getData();
+		if (intent.getBooleanExtra(INTENT_EXTRA_NEW_DOG, false)) {
+			createNew = true;
+		} else {
+			mDogUri = intent.getData();
 
-		if (mDogUri == null) {
-			return;
+			if (mDogUri == null) {
+				return;
+			}
+
+			mDogId = DogshowContract.Dogs.getDogId(mDogUri);
+
+			LoaderManager manager = getLoaderManager();
+			manager.restartLoader(DogQuery._TOKEN, null, this);
 		}
-
-		mDogId = DogshowContract.Dogs.getDogId(mDogUri);
-
-		LoaderManager manager = getLoaderManager();
-		manager.restartLoader(DogQuery._TOKEN, null, this);
-
 	};
 
 	@Override
@@ -111,12 +122,14 @@ public class DogEditFragment extends SherlockFragment implements
 				.findViewById(R.id.dog_edit_section_points_text);
 		mViewOwner = (TextView) mRootView
 				.findViewById(R.id.dog_edit_section_owner_text);
+		mViewSex = (RadioGroup) mRootView.findViewById(R.id.dog_edit_sex_radio);
 
 		getSherlockActivity().getSupportActionBar().setTitle("Edit Dog");
 		mViewBreed.setTag(TAG_BREED);
 		mViewBreed.setOnClickListener(this);
 		mViewImage.setTag(TAG_IMAGE);
 		mViewImage.setOnClickListener(this);
+		mViewSex.setOnCheckedChangeListener(this);
 		return mRootView;
 	}
 
@@ -143,30 +156,32 @@ public class DogEditFragment extends SherlockFragment implements
 
 	private void onDogQueryComplete(Cursor cursor) {
 		cursor.moveToFirst();
-		Log.v(TAG, "onDogQueryComplete() called from thread " + Thread.currentThread().getName());
+		Log.v(TAG, "onDogQueryComplete() called from thread "
+				+ Thread.currentThread().getName());
 		mBreedName = cursor.getString(DogQuery.DOG_BREED);
 		mCallName = cursor.getString(DogQuery.DOG_CALL_NAME);
 		mMajors = String.valueOf(cursor.getInt(DogQuery.DOG_MAJORS));
 		mPoints = String.valueOf(cursor.getInt(DogQuery.DOG_POINTS));
+		mViewBreed.setText(mBreedName);
+		mViewName.setText(mCallName);
+		mSexId = getRadioIdFromSex(cursor.getInt(DogQuery.DOG_SEX));
+		mViewSex.check(mSexId);
 		String imagePath = cursor.getString(DogQuery.DOG_IMAGE_PATH);
-		if( imagePath != null )
-		{
+		if (imagePath != null) {
 			mImagePath = imagePath;
 			Resources res = getResources();
 			int height = res.getDimensionPixelSize(R.dimen.header_icon_height);
 			int width = res.getDimensionPixelSize(R.dimen.header_icon_width);
-			//TODO fix deprecation with sdk check
-			//TODO move to AsyncTask
-			BitmapDrawable image = new BitmapDrawable(res, UIUtils.loadBitmap(imagePath, width, height));
-			mViewImage.setBackgroundDrawable(image);//setBackgroundDrawable(Drawable.createFromPath(imagePath));
-//			mViewImage.setBackgroundDrawable(Drawable.createFromPath(imagePath));
-		}
-		else
-		{
+			// TODO fix deprecation with sdk check
+			// TODO move to AsyncTask
+			BitmapDrawable image = new BitmapDrawable(res, UIUtils.loadBitmap(
+					imagePath, width, height));
+			mViewImage.setBackgroundDrawable(image);// setBackgroundDrawable(Drawable.createFromPath(imagePath));
+			// mViewImage.setBackgroundDrawable(Drawable.createFromPath(imagePath));
+		} else {
 			mViewImage.setBackgroundResource(R.drawable.dog);
 		}
-		mViewBreed.setText(mBreedName);
-		mViewName.setText(mCallName);
+
 		// mViewMajors.setText(String.valueOf(mMajors));
 		// mViewPoints.setText(String.valueOf(mPoints));
 
@@ -236,14 +251,30 @@ public class DogEditFragment extends SherlockFragment implements
 	}
 
 	private void save() {
-		
+
 		mBreedName = mViewBreed.getText().toString();
 		mCallName = mViewName.getText().toString();
 		mMajors = mViewMajors.getText().toString();
 		mPoints = mViewPoints.getText().toString();
 		// TODO make this method take charsequences
-		new SyncHelper(getActivity()).updateDog(mDogId, mBreedName, mCallName,
-				mImagePath, mMajors, mOwnerId, mPoints, mSex);
+		if (createNew) {
+			new SyncHelper(getActivity()).createDog(mDogId, mBreedName,
+					mCallName, mImagePath, mMajors, mOwnerId, mPoints,
+					getSexFromRadioId(mSexId));
+		} else {
+			new SyncHelper(getActivity()).updateDog(mDogId, mBreedName,
+					mCallName, mImagePath, mMajors, mOwnerId, mPoints,
+					getSexFromRadioId(mSexId));
+		}
+	}
+
+	private int getSexFromRadioId(int id) {
+		return (id == R.id.dog_edit_sex_radio_male) ? Dogs.MALE : Dogs.FEMALE;
+	}
+
+	private int getRadioIdFromSex(int sex) {
+		return (sex == Dogs.MALE) ? R.id.dog_edit_sex_radio_male
+				: R.id.dog_edit_sex_radio_female;
 	}
 
 	@Override
@@ -313,17 +344,24 @@ public class DogEditFragment extends SherlockFragment implements
 	private interface DogQuery {
 		int _TOKEN = 0x1;
 
-		String[] PROJECTION = { DogshowContract.Dogs.DOG_ID,
+		String[] PROJECTION = { DogshowContract.Dogs._ID,
 				DogshowContract.Dogs.DOG_BREED,
 				DogshowContract.Dogs.DOG_CALL_NAME,
 				DogshowContract.Dogs.DOG_MAJORS,
 				DogshowContract.Dogs.DOG_POINTS,
-				DogshowContract.Dogs.DOG_IMAGE_PATH};
+				DogshowContract.Dogs.DOG_IMAGE_PATH,
+				DogshowContract.Dogs.DOG_SEX };
 		int DOG_ID = 0;
 		int DOG_BREED = 1;
 		int DOG_CALL_NAME = 2;
 		int DOG_MAJORS = 3;
 		int DOG_POINTS = 4;
 		int DOG_IMAGE_PATH = 5;
+		int DOG_SEX = 6;
+	}
+
+	@Override
+	public void onCheckedChanged(RadioGroup group, int checkedId) {
+		mSexId = checkedId;
 	}
 }

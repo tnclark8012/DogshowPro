@@ -1,7 +1,6 @@
 package dev.tnclark8012.dogshow.apps.android.sql;
 
-import java.util.List;
-
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowDatabase.Tables;
 import android.net.Uri;
 import android.provider.BaseColumns;
 import android.provider.ContactsContract;
@@ -30,6 +29,15 @@ public class DogshowContract {
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
     
     private static final String PATH_DOGS = "dogs";
+    private static final String PATH_HANDLERS = "handlers";
+    private static final String PATH_BREED_RINGS = "breedrings";
+    private static final String PATH_BREED_RINGS_WITH_DOGS = "with_dogs";
+    
+    private static final String PATH_BREED_RINGS_ENTERED = "entered";
+    private static final String PATH_BREED_RINGS_UPCOMING = "upcoming";
+    private static final String PATH_GROUP = "group";
+    private static final String PATH_BREEDS = "breeds";
+    
     
     /**
      * Special value for {@link SyncColumns#UPDATED} indicating that an entry
@@ -49,8 +57,6 @@ public class DogshowContract {
     }
 
     interface DogsColumns {
-        /** Unique string identifying this dog. */
-        String DOG_ID = "dog_id";
         /** String of the breed name */
         String DOG_BREED = "dog_breed";
         /** Dog's call name */
@@ -65,23 +71,37 @@ public class DogshowContract {
         String DOG_POINTS = "dog_points";
         /** Integer identifying sex: male = 0, female = 1*/
         String DOG_SEX = "dog_sex";
+        String DOG_IS_SHOWING = "dog_showing";
         String DOG_UPDATED = SyncColumns.UPDATED;
     }
     
+    interface HandlersColumns {
+    	String HANDLER_NAME = "handler_name";
+    	String HANDLER_UPDATED = SyncColumns.UPDATED;
+    }
+    
+    interface BreedRingsColumns {
+    	String RING_JUDGE = "breed_ring_judge";
+    	String RING_START = "breed_ring_start";
+    	String RING_NUMBER = "breed_ring_number";
+    	String RING_BREED = "breed_ring_breed";
+    	String RING_BREED_START = "breed_ring_breed_start";
+    }
+    
     /**
-     * Each session is a block of time that has a {@link Tracks}, a
-     * {@link Rooms}, and zero or more {@link Speakers}.
+     * Show Dogs
      */
     public static class Dogs implements DogsColumns,
             SyncColumns, BaseColumns {
         public static final Uri CONTENT_URI =
                 BASE_CONTENT_URI.buildUpon().appendPath(PATH_DOGS).build();
-        
-
+       
         public static final String CONTENT_TYPE =
                 "vnd.android.cursor.dir/vnd.dogshow.dog";
         public static final String CONTENT_ITEM_TYPE =
                 "vnd.android.cursor.item/vnd.dogshow.dog";
+        public static final int MALE = 1;
+        public static final int FEMALE = 0;
 
         /** Default "ORDER BY" clause. */
         public static final String DEFAULT_SORT = DogsColumns.DOG_CALL_NAME + " COLLATE NOCASE ASC";
@@ -114,6 +134,83 @@ public class DogshowContract {
         }
     }
 
+    /**
+     * Each session is a block of time that has a {@link Tracks}, a
+     * {@link Rooms}, and zero or more {@link Speakers}.
+     */
+    public static class Handlers implements HandlersColumns,
+            SyncColumns, BaseColumns {
+        public static final Uri CONTENT_URI =
+                BASE_CONTENT_URI.buildUpon().appendPath(PATH_HANDLERS).build();
+       
+        public static final String CONTENT_TYPE =
+                "vnd.android.cursor.dir/vnd.dogshow.handler";
+        public static final String CONTENT_ITEM_TYPE =
+                "vnd.android.cursor.item/vnd.dogshow.handler";
+
+        /** Default "ORDER BY" clause. */
+        public static final String DEFAULT_SORT = HandlersColumns.HANDLER_NAME + " COLLATE NOCASE ASC";
+        
+        /** Build {@link Uri} for requested Handler ID. */
+        public static Uri buildHandlerUri(String handlerId) {
+            return CONTENT_URI.buildUpon().appendPath(handlerId).build();
+        }
+
+        /** Read _ID from {@link Handlers} {@link Uri}. */
+        public static String getHandlerId(Uri uri) {
+            return uri.getPathSegments().get(1);
+        }
+    }
+    
+    /**
+     * Each Ring is a show ring that consists of multiple timeblocks and breed rings
+     */
+    public static class BreedRings implements BreedRingsColumns,
+            SyncColumns, BaseColumns {
+    	
+        public static final Uri CONTENT_URI =
+                BASE_CONTENT_URI.buildUpon().appendPath(PATH_BREED_RINGS).build();
+       
+        public static final String CONTENT_TYPE =
+                "vnd.android.cursor.dir/vnd.dogshow.breedring";
+        public static final String CONTENT_ITEM_TYPE =
+                "vnd.android.cursor.item/vnd.dogshow.breedring";
+        
+        /** Breed rings for which the user has dogs entered in the show*/
+        public static final String ENTERED_BREED_RINGS = Dogs.DOG_IS_SHOWING + " IS NOT NULL AND " + Dogs.DOG_IS_SHOWING + "!=0";
+        /** Default "ORDER BY" clause. */
+        public static final String DEFAULT_SORT = BreedRingsColumns.RING_START + " ASC";
+
+		public static final String UPCOMING_SELECTION = BreedRings.RING_BREED_START + " > ?";
+
+		public static final String CONCAT_CALL_NAME = "group_concat(dogs.dog_call_name, \", \" ) as group_concat_call_name";
+        
+        /** Build {@link Uri} for requested Ring ID. */
+        public static Uri buildRingUri(String RingId) {
+            return CONTENT_URI.buildUpon().appendPath(RingId).build();
+        }
+        
+        public static Uri buildEnteredRingsUri()
+        {
+        	return CONTENT_URI.buildUpon().appendPath(PATH_BREED_RINGS_WITH_DOGS).appendPath(PATH_BREED_RINGS_ENTERED).build();
+        }
+//        public static Uri buildEnteredRingsUpcomingUri()
+//        {
+//        	return CONTENT_URI.buildUpon().appendPath(PATH_BREED_RINGS_ENTERED).appendPath(PATH_BREED_RINGS_UPCOMING).build();
+//        }
+     // Builds selectionArgs for {@link PATH_BREED_RINGS_UPCOMING}
+        public static String[] buildUpcomingSelectionArgs(long currTime ) {
+            return new String[] { String.valueOf(currTime) };
+        }
+        
+
+        /** Read _ID from {@link BreedRings} {@link Uri}. */
+        public static String getRingId(Uri uri) {
+            return uri.getPathSegments().get(1);
+        }
+
+    }
+    
     public static Uri addCallerIsSyncAdapterParameter(Uri uri) {
         return uri.buildUpon().appendQueryParameter(
                 ContactsContract.CALLER_IS_SYNCADAPTER, "true").build();
@@ -122,9 +219,5 @@ public class DogshowContract {
     public static boolean hasCallerIsSyncAdapterParameter(Uri uri) {
         return TextUtils.equals("true",
                 uri.getQueryParameter(ContactsContract.CALLER_IS_SYNCADAPTER));
-    }
-    public static class Rings
-    {
-    	
     }
 }

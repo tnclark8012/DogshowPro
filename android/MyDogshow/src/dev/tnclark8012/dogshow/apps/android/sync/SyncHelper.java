@@ -21,6 +21,7 @@ import com.google.gson.JsonObject;
 import dev.tnclark8012.dogshow.apps.android.Config;
 import dev.tnclark8012.dogshow.apps.android.provider.DogshowProvider;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
+import dev.tnclark8012.dogshow.apps.android.sync.DogHandler.ParseMode;
 import dev.tnclark8012.dogshow.apps.android.util.AccountUtils;
 
 public class SyncHelper {
@@ -86,12 +87,25 @@ public class SyncHelper {
 		}
 	}
 	
-	public void updateDog(String dogId, String breedName, String callName, String imagePath, String majors, String ownerId, String points, String sex)
+	public void updateDog(String dogId, String breedName, String callName, String imagePath, String majors, String ownerId, String points, int sex)
 	{
 		//TODO move these calls to a Service
 		ContentResolver resolver = mContext.getContentResolver();
 		try {
-			resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY , new DogHandler(mContext).parse(dogId, breedName, callName, imagePath, majors, points, ownerId, sex));
+			resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY , new DogHandler(mContext).parse(ParseMode.UPDATE, dogId, breedName, callName, imagePath, majors, points, ownerId, sex));
+		} catch (RemoteException e) {
+            throw new RuntimeException("Problem applying batch operation", e);
+        } catch (OperationApplicationException e) {
+            throw new RuntimeException("Problem applying batch operation", e);
+        }
+	}
+	
+	public void createDog(String dogId, String breedName, String callName, String imagePath, String majors, String ownerId, String points, int sex)
+	{
+		//TODO move these calls to a Service
+		ContentResolver resolver = mContext.getContentResolver();
+		try {
+			resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY , new DogHandler(mContext).parse(ParseMode.NEW, dogId, breedName, callName, imagePath, majors, points, ownerId, sex));
 		} catch (RemoteException e) {
             throw new RuntimeException("Problem applying batch operation", e);
         } catch (OperationApplicationException e) {

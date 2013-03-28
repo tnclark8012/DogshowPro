@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.content.ContentProviderOperation;
 import android.content.Context;
 import android.util.Log;
+import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.SyncColumns;
@@ -12,29 +13,42 @@ import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.SyncColumns;
 public class DogHandler {
 	private static final String TAG = DogHandler.class.getSimpleName();
 
+	public static enum ParseMode {
+		NEW, UPDATE
+	};
+
 	public DogHandler(Context context) {
 
 	}
 
-	public ArrayList<ContentProviderOperation> parse(String dogId,
-			String breedName, String callName, String imagePath, String majors, String points,
-			String ownerId, String sex) {
+	public ArrayList<ContentProviderOperation> parse(ParseMode mode,
+			String dogId, String breedName, String callName, String imagePath,
+			String majors, String points, String ownerId, int sex) {
 		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
-		
-		//TODO handle NULL alloweds
-		final ContentProviderOperation.Builder builder = ContentProviderOperation
-				.newUpdate(
-						DogshowContract
-								.addCallerIsSyncAdapterParameter(Dogs.CONTENT_URI))
-				.withValue(SyncColumns.UPDATED, System.currentTimeMillis())
-				.withValue(Dogs.DOG_ID, Integer.parseInt(dogId))
-				.withValue(Dogs.DOG_BREED, breedName);
+		ContentProviderOperation.Builder builder = null;
+		switch (mode) {
+		case NEW:
+			Log.v(TAG, "new dog");
+			builder = ContentProviderOperation.newInsert(DogshowContract
+					.addCallerIsSyncAdapterParameter(Dogs.CONTENT_URI));
+			break;
+		case UPDATE:
+			builder = ContentProviderOperation.newUpdate(DogshowContract
+					.addCallerIsSyncAdapterParameter(Dogs.CONTENT_URI));
+			builder.withValue(Dogs._ID, Integer.parseInt(dogId));
+
+			break;
+		}
+		// TODO handle NULL alloweds
+
+		builder.withValue(SyncColumns.UPDATED, System.currentTimeMillis())
+
+		.withValue(Dogs.DOG_BREED, breedName);
 		if (!callName.isEmpty()) {
 			builder.withValue(Dogs.DOG_CALL_NAME, callName);
 		}
-		
-		if(!imagePath.isEmpty())
-		{
+
+		if (imagePath != null && !imagePath.isEmpty()) {
 			builder.withValue(Dogs.DOG_IMAGE_PATH, imagePath);
 		}
 		if (!majors.isEmpty()) {
@@ -59,13 +73,10 @@ public class DogHandler {
 				Log.w(TAG, "Couldn't parse points from:" + points);
 			}
 		}
-
-		if (!sex.isEmpty()) {
-			try {
-				builder.withValue(Dogs.DOG_SEX, Integer.parseInt(sex));
-			} catch (NumberFormatException e) {
-				Log.w(TAG, "Couldn't parse sex from:" + sex);
-			}
+		if (sex == Dogs.FEMALE || sex == Dogs.MALE) {
+			builder.withValue(Dogs.DOG_SEX, sex);
+		} else {
+			Log.w(TAG, "Couldn't persist invalid dog gender: " + sex);
 		}
 
 		builder.withValue(Dogs.UPDATED, System.currentTimeMillis());

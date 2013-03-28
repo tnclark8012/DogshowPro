@@ -9,7 +9,8 @@
         android:layout_width="70dp"
         android:layout_height="fill_parent"
         android:background="#AAAAAA" >
-            <TextView
+            <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+                xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
                 android:id="@+id/list_item_ring_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -17,7 +18,8 @@
                 android:layout_centerVertical="true"
                 android:gravity="center_horizontal"
                 android:textSize="@dimen/text_medium"
-                android:text="12:00\nam" />
+                android:text="12:00\nam"
+                ttv:typeface="Roboto-Bold.ttf" />
     </RelativeLayout>
     <RelativeLayout 
         android:id="@+id/list_item_ring_details_container"
@@ -26,13 +28,13 @@
         android:layout_toRightOf="@+id/list_item_ring_time_container"
         android:layout_marginLeft="@dimen/element_margin_normal"
         android:gravity="center_vertical">
-        <TextView
+        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
                 android:id="@+id/list_item_ring_breed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_medium"
                 android:text="Papillons" />
-        <TextView
+        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
                 android:id="@+id/list_item_ring_names"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -41,14 +43,25 @@
                 android:textSize="@dimen/text_small"
                 android:textColor="#777777"
                 android:text="Lotta, Michael" />
-        <TextView
-                android:id="@+id/list_item_ring_start"
+        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+                android:id="@+id/list_item_ring_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#777777"
                 android:layout_marginLeft="2dp"
                 android:layout_below="@+id/list_item_ring_names"
                 android:textSize="@dimen/text_small"
-                android:text="Ring 2 (11:45 am)" />
+                android:text="Ring 2" />
+        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView 
+            android:id="@+id/list_item_ring_start"
+            android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#777777"
+                android:layout_marginLeft="2dp"
+                android:layout_toRightOf="@+id/list_item_ring_number"
+                android:layout_below="@+id/list_item_ring_names"
+                android:textSize="@dimen/text_small"
+                android:text="(11:45 am)"
+            />
     </RelativeLayout>
 </RelativeLayout>

@@ -34,6 +34,7 @@ import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.util.Log;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowDatabase;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowDatabase.Tables;
@@ -54,6 +55,11 @@ public class DogshowProvider extends ContentProvider {
 	private static final int DOGS = 100;
 	private static final int DOGS_ID = 101;
 
+	private static final int BREED_RINGS = 200;
+	private static final int BREED_RINGS_ID = 201;
+	private static final int BREED_RINGS_WITH_DOGS= 202;
+	private static final int BREED_RINGS_WITH_DOGS_ENTERED = 203;
+	
 	private static final String MIME_XML = "text/xml";
 
 	/**
@@ -66,6 +72,9 @@ public class DogshowProvider extends ContentProvider {
 
 		matcher.addURI(authority, "dogs", DOGS);
 		matcher.addURI(authority, "dogs/*", DOGS_ID);
+		matcher.addURI(authority, "breedrings", BREED_RINGS);
+		matcher.addURI(authority, "breedrings/with_dogs",BREED_RINGS_WITH_DOGS);
+		matcher.addURI(authority, "breedrings/with_dogs/entered",BREED_RINGS_WITH_DOGS_ENTERED);
 		return matcher;
 	}
 
@@ -92,21 +101,38 @@ public class DogshowProvider extends ContentProvider {
 			return Dogs.CONTENT_TYPE;
 		case DOGS_ID:
 			return Dogs.CONTENT_ITEM_TYPE;
+		case BREED_RINGS:
+			return BreedRings.CONTENT_TYPE;
 		default:
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
 		}
 	}
-
+	
 	/** {@inheritDoc} */
 	@Override
 	public Cursor query(Uri uri, String[] projection, String selection,
 			String[] selectionArgs, String sortOrder) {
 		Log.v(TAG, "query(uri=" + uri + ", proj=" + Arrays.toString(projection)
-				+ ")");
+				+ ")");// TODO DogsFragment seems to make several queries to
+						// start
 		final SQLiteDatabase db = mOpenHelper.getReadableDatabase();
 
 		final int match = sUriMatcher.match(uri);
 		switch (match) {
+		case BREED_RINGS_WITH_DOGS:
+		case BREED_RINGS_WITH_DOGS_ENTERED: {
+			final SelectionBuilder exBuilder = buildExpandedSelection(uri,
+					BREED_RINGS_WITH_DOGS_ENTERED);
+			String groupBy = Dogs.DOG_BREED;			
+			return exBuilder.where(selection, selectionArgs).query(db,
+					projection,groupBy, null, sortOrder, null);
+		}
+//		case BREED_RINGS_ENTERED_UPCOMING: {
+//			final SelectionBuilder exBuilder = buildExpandedSelection(uri,
+//					BREED_RINGS_ENTERED_UPCOMING);
+//			return exBuilder.where(selection, selectionArgs).query(db,
+//					projection, sortOrder);
+//		}
 		default: {
 			// Most cases are handled with simple SelectionBuilder
 			final SelectionBuilder builder = buildSimpleSelection(uri);
@@ -129,7 +155,7 @@ public class DogshowProvider extends ContentProvider {
 			db.insertOrThrow(Tables.DOGS, null, values);
 			getContext().getContentResolver().notifyChange(uri, null,
 					syncToNetwork);
-			return Dogs.buildDogUri(values.getAsString(Dogs.DOG_ID));
+			return Dogs.buildDogUri(values.getAsString(Dogs._ID));
 		}
 		default: {
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
@@ -203,12 +229,15 @@ public class DogshowProvider extends ContentProvider {
 		final SelectionBuilder builder = new SelectionBuilder();
 		final int match = sUriMatcher.match(uri);
 		switch (match) {
+		case BREED_RINGS: {
+			return builder.table(Tables.BREED_RINGS);
+		}
 		case DOGS: {
 			return builder.table(Tables.DOGS);
 		}
 		case DOGS_ID:
 			final String dogId = Dogs.getDogId(uri);
-			return builder.table(Tables.DOGS).where(Dogs.DOG_ID + "=?", dogId);
+			return builder.table(Tables.DOGS).where(Dogs._ID + "=?", dogId);
 		default: {
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
 		}
@@ -223,12 +252,9 @@ public class DogshowProvider extends ContentProvider {
 	private SelectionBuilder buildExpandedSelection(Uri uri, int match) {
 		final SelectionBuilder builder = new SelectionBuilder();
 		switch (match) {
-		case DOGS: {
-			return builder.table(Tables.DOGS)
-					.mapToTable(Dogs._ID, Tables.DOGS)
-//					.mapToTable(Dogs..BLOCK_ID, Tables.SESSIONS)
-					;
-			
+		case BREED_RINGS_WITH_DOGS_ENTERED: {
+			return builder.table(Tables.BREED_RINGS_JOIN_DOGS).mapToTable(BreedRings._ID, Tables.BREED_RINGS).where(
+					BreedRings.ENTERED_BREED_RINGS);
 		}
 		default: {
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
@@ -246,122 +272,4 @@ public class DogshowProvider extends ContentProvider {
 		}
 		}
 	}
-
-	// private interface Subquery {
-	// String BLOCK_SESSIONS_COUNT = "(SELECT COUNT(" +
-	// Qualified.SESSIONS_SESSION_ID + ") FROM "
-	// + Tables.SESSIONS + " WHERE " + Qualified.SESSIONS_BLOCK_ID + "="
-	// + Qualified.BLOCKS_BLOCK_ID + ")";
-	//
-	// String BLOCK_NUM_STARRED_SESSIONS = "(SELECT COUNT(1) FROM "
-	// + Tables.SESSIONS + " WHERE " + Qualified.SESSIONS_BLOCK_ID + "="
-	// + Qualified.BLOCKS_BLOCK_ID + " AND " + Qualified.SESSIONS_STARRED +
-	// "=1)";
-	//
-	// String BLOCK_STARRED_SESSION_ID = "(SELECT " +
-	// Qualified.SESSIONS_SESSION_ID + " FROM "
-	// + Tables.SESSIONS + " WHERE " + Qualified.SESSIONS_BLOCK_ID + "="
-	// + Qualified.BLOCKS_BLOCK_ID + " AND " + Qualified.SESSIONS_STARRED +
-	// "=1 "
-	// + "ORDER BY " + Qualified.SESSIONS_TITLE + ")";
-	//
-	// String BLOCK_STARRED_SESSION_TITLE = "(SELECT " +
-	// Qualified.SESSIONS_TITLE + " FROM "
-	// + Tables.SESSIONS + " WHERE " + Qualified.SESSIONS_BLOCK_ID + "="
-	// + Qualified.BLOCKS_BLOCK_ID + " AND " + Qualified.SESSIONS_STARRED +
-	// "=1 "
-	// + "ORDER BY " + Qualified.SESSIONS_TITLE + ")";
-	//
-	// String BLOCK_STARRED_SESSION_HASHTAGS = "(SELECT " +
-	// Qualified.SESSIONS_HASHTAGS + " FROM "
-	// + Tables.SESSIONS + " WHERE " + Qualified.SESSIONS_BLOCK_ID + "="
-	// + Qualified.BLOCKS_BLOCK_ID + " AND " + Qualified.SESSIONS_STARRED +
-	// "=1 "
-	// + "ORDER BY " + Qualified.SESSIONS_TITLE + ")";
-	//
-	// String BLOCK_STARRED_SESSION_URL = "(SELECT " + Qualified.SESSIONS_URL +
-	// " FROM "
-	// + Tables.SESSIONS + " WHERE " + Qualified.SESSIONS_BLOCK_ID + "="
-	// + Qualified.BLOCKS_BLOCK_ID + " AND " + Qualified.SESSIONS_STARRED +
-	// "=1 "
-	// + "ORDER BY " + Qualified.SESSIONS_TITLE + ")";
-	//
-	// String BLOCK_STARRED_SESSION_LIVESTREAM_URL = "(SELECT "
-	// + Qualified.SESSIONS_LIVESTREAM_URL
-	// + " FROM "
-	// + Tables.SESSIONS + " WHERE " + Qualified.SESSIONS_BLOCK_ID + "="
-	// + Qualified.BLOCKS_BLOCK_ID + " AND " + Qualified.SESSIONS_STARRED +
-	// "=1 "
-	// + "ORDER BY " + Qualified.SESSIONS_TITLE + ")";
-	//
-	// String BLOCK_STARRED_SESSION_ROOM_NAME = "(SELECT " +
-	// Qualified.ROOMS_ROOM_NAME + " FROM "
-	// + Tables.SESSIONS_JOIN_ROOMS + " WHERE " + Qualified.SESSIONS_BLOCK_ID +
-	// "="
-	// + Qualified.BLOCKS_BLOCK_ID + " AND " + Qualified.SESSIONS_STARRED +
-	// "=1 "
-	// + "ORDER BY " + Qualified.SESSIONS_TITLE + ")";
-	//
-	// String BLOCK_STARRED_SESSION_ROOM_ID = "(SELECT " +
-	// Qualified.ROOMS_ROOM_ID + " FROM "
-	// + Tables.SESSIONS_JOIN_ROOMS + " WHERE " + Qualified.SESSIONS_BLOCK_ID +
-	// "="
-	// + Qualified.BLOCKS_BLOCK_ID + " AND " + Qualified.SESSIONS_STARRED +
-	// "=1 "
-	// + "ORDER BY " + Qualified.SESSIONS_TITLE + ")";
-	//
-	// String TRACK_SESSIONS_COUNT = "(SELECT COUNT(" +
-	// Qualified.SESSIONS_TRACKS_SESSION_ID
-	// + ") FROM " + Tables.SESSIONS_TRACKS + " WHERE "
-	// + Qualified.SESSIONS_TRACKS_TRACK_ID + "=" + Qualified.TRACKS_TRACK_ID +
-	// ")";
-	//
-	// String TRACK_VENDORS_COUNT = "(SELECT COUNT(" +
-	// Qualified.VENDORS_VENDOR_ID + ") FROM "
-	// + Tables.VENDORS + " WHERE " + Qualified.VENDORS_TRACK_ID + "="
-	// + Qualified.TRACKS_TRACK_ID + ")";
-	//
-	// String SESSIONS_SNIPPET = "snippet(" + Tables.SESSIONS_SEARCH +
-	// ",'{','}','\u2026')";
-	// }
-	//
-	// /**
-	// * {@link ScheduleContract} fields that are fully qualified with a
-	// specific
-	// * parent {@link Tables}. Used when needed to work around SQL ambiguity.
-	// */
-	// private interface Qualified {
-	// String SESSIONS_SESSION_ID = Tables.SESSIONS + "." + Sessions.SESSION_ID;
-	// String SESSIONS_BLOCK_ID = Tables.SESSIONS + "." + Sessions.BLOCK_ID;
-	// String SESSIONS_ROOM_ID = Tables.SESSIONS + "." + Sessions.ROOM_ID;
-	//
-	// String SESSIONS_TRACKS_SESSION_ID = Tables.SESSIONS_TRACKS + "."
-	// + SessionsTracks.SESSION_ID;
-	// String SESSIONS_TRACKS_TRACK_ID = Tables.SESSIONS_TRACKS + "."
-	// + SessionsTracks.TRACK_ID;
-	//
-	// String SESSIONS_SPEAKERS_SESSION_ID = Tables.SESSIONS_SPEAKERS + "."
-	// + SessionsSpeakers.SESSION_ID;
-	// String SESSIONS_SPEAKERS_SPEAKER_ID = Tables.SESSIONS_SPEAKERS + "."
-	// + SessionsSpeakers.SPEAKER_ID;
-	//
-	// String VENDORS_VENDOR_ID = Tables.VENDORS + "." + Vendors.VENDOR_ID;
-	// String VENDORS_TRACK_ID = Tables.VENDORS + "." + Vendors.TRACK_ID;
-	//
-	// String SESSIONS_STARRED = Tables.SESSIONS + "." +
-	// Sessions.SESSION_STARRED;
-	// String SESSIONS_TITLE = Tables.SESSIONS + "." + Sessions.SESSION_TITLE;
-	// String SESSIONS_HASHTAGS = Tables.SESSIONS + "." +
-	// Sessions.SESSION_HASHTAGS;
-	// String SESSIONS_URL = Tables.SESSIONS + "." + Sessions.SESSION_URL;
-	//
-	// String SESSIONS_LIVESTREAM_URL = Tables.SESSIONS + "." +
-	// Sessions.SESSION_LIVESTREAM_URL;
-	//
-	// String ROOMS_ROOM_NAME = Tables.ROOMS + "." + Rooms.ROOM_NAME;
-	// String ROOMS_ROOM_ID = Tables.ROOMS + "." + Rooms.ROOM_ID;
-	//
-	// String TRACKS_TRACK_ID = Tables.TRACKS + "." + Tracks.TRACK_ID;
-	// String BLOCKS_BLOCK_ID = Tables.BLOCKS + "." + Blocks.BLOCK_ID;
-	// }
 }
