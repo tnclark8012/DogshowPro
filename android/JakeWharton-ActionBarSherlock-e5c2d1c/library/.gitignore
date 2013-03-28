@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-bin/
-gen/
-=======
 #Android generated
 bin/*
 gen/*
@@ -35,5 +31,3 @@ proguard-project.txt
 
 #Other
 .DS_Store
-tmp
->>>>>>> updated gitignore
