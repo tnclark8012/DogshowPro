@@ -27,7 +27,8 @@ public class Config {
     // you should modify these fields to reflect your own backend.
     private static final String CONFERENCE_API_KEY = "API_KEY";
     private static final String ROOT_EVENT_ID = "googleio2012";
-    private static final String BASE_URL = "https://google-developers.appspot.com/_ah/api/resources/v0.1";
+//    private static final String BASE_URL = "https://google-developers.appspot.com/_ah/api/resources/v0.1";
+    private static final String BASE_URL = "http://dogshow-manager.appspot.com/rest";
     public static final String GET_ALL_SESSIONS_URL      = BASE_URL + "/sessions?parent_event=" + ROOT_EVENT_ID + "&api_key=" + CONFERENCE_API_KEY;
     public static final String GET_ALL_SPEAKERS_URL      = BASE_URL + "/speakers?event_id=" + ROOT_EVENT_ID + "&api_key=" + CONFERENCE_API_KEY;
     public static final String GET_ALL_ANNOUNCEMENTS_URL = BASE_URL + "/announcements?parent_event=" + ROOT_EVENT_ID + "&api_key=" + CONFERENCE_API_KEY;
