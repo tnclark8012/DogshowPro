@@ -76,4 +76,5 @@ public class Config {
 	public static final String GCM_SENDER_ID = "0000000000000"; // project ID
 																// from the APIs
 																// console
+
 }
