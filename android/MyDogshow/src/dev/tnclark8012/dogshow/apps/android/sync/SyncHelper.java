@@ -16,9 +16,6 @@ import android.content.Context;
 import android.content.OperationApplicationException;
 import android.os.RemoteException;
 import android.util.Log;
-
-import com.google.gson.JsonObject;
-
 import dev.tnclark8012.dogshow.apps.android.Config;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sync.DogHandler.ParseMode;
@@ -73,7 +70,7 @@ public class SyncHelper {
 	public JSONArray getShows() {
 		try {
 			return new JSONObject(makeSimpleGetRequest(mContext,
-					Config.GET_SHOW_URL)).getJSONArray("Shows");
+					Config.GET_SHOW_URL)).getJSONArray("show");
 		} catch (JSONException e) {
 			e.printStackTrace();
 			return null;

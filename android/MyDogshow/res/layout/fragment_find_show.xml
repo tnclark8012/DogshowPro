@@ -4,17 +4,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedEditTextView
-            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
-            android:id="@+id/find_show_search_box"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/element_spacing_normal"
-            android:layout_marginTop="@dimen/element_spacing_normal"
-            android:hint="Search closed shows"
-            android:textColor="@color/header_title"
-            android:textSize="@dimen/text_large"
-            ttv:typeface="Roboto-Medium.ttf" />
+    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedEditText
+        xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+        android:id="@+id/find_show_search_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/element_spacing_normal"
+        android:layout_marginTop="@dimen/element_spacing_normal"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:hint="Search closed shows"
+        android:textSize="@dimen/text_large"
+        ttv:typeface="Roboto-Medium.ttf" >
+
+        <requestFocus />
+    </dev.tnclark8012.dogshow.apps.android.widget.TypefacedEditText>
         
     <RelativeLayout
         android:layout_width="match_parent"

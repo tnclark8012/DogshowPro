@@ -55,15 +55,16 @@ public class FindShowFragment extends SherlockListFragment {
 		void onShowSynced();
 	}
 	
-	private AsyncTask getShowsTask = new AsyncTask<String, Void, JSONArray>()
+	private AsyncTask<Void, Void, JSONArray> getShowsTask = new AsyncTask<Void, Void, JSONArray>()
 			{
-				@Override
-				protected JSONArray doInBackground(String... params) {
-					return new SyncHelper(getActivity()).getShows();
-				}
 				protected void onPostExecute(JSONArray result) {
 					mAdapter = new ShowListAdapter(getActivity(), result);
 					setListAdapter(mAdapter);
+					mAdapter.notifyDataSetChanged();
+				}
+				@Override
+				protected JSONArray doInBackground(Void... params) {
+					return new SyncHelper(getActivity()).getShows();
 				};
 			};
 
@@ -107,7 +108,7 @@ public class FindShowFragment extends SherlockListFragment {
 			Bundle savedInstanceState) {
 		mRootView = inflater.inflate(R.layout.fragment_find_show, container,
 				false);
-
+		getShowsTask.execute();
 		return mRootView;
 	}
 
@@ -142,16 +143,21 @@ public class FindShowFragment extends SherlockListFragment {
 				return null;
 			}
 		}
+		
+		@Override
+		public int getCount() {
+			return mArray.length();
+		}
 
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			convertView = super.getView(position, convertView, parent);
 			JSONObject obj = getItem(position);
 			//Checking if it has a name first prevents try catch from failing (expensively)
-			if (obj != null && obj.has("name")) {
+			if (obj != null && obj.has("showName")) {
 				try {
 					((TextView) convertView.findViewById(android.R.id.text1))
-							.setText(obj.getString("name"));
+							.setText(obj.getString("showName"));
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
