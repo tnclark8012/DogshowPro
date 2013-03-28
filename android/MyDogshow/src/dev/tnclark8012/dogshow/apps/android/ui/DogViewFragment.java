@@ -28,6 +28,7 @@ import com.actionbarsherlock.view.MenuItem;
 
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
 import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
 
 public class DogViewFragment extends SherlockFragment implements
@@ -42,7 +43,6 @@ public class DogViewFragment extends SherlockFragment implements
 	private String mOwnerId;
 	private int mPoints;
 	private int mMajors;
-	private String mTitleStrin;
 
 	private ViewGroup mRootView;
 	private RelativeLayout mViewImage;
@@ -51,8 +51,7 @@ public class DogViewFragment extends SherlockFragment implements
 	private TextView mViewPoints;
 	private TextView mViewMajors;
 	private TextView mViewOwner;
-
-	private EditText mEditNameView;
+	private TextView mViewSex;
 
 	private Menu mMenu;
 	private Callbacks mCallbacks;
@@ -97,6 +96,7 @@ public class DogViewFragment extends SherlockFragment implements
 				.findViewById(R.id.dog_view_section_owner_text);
 		mViewImage = (RelativeLayout) mRootView
 				.findViewById(R.id.dog_view_image);
+		mViewSex = (TextView) mRootView.findViewById(R.id.dog_view_section_sex_text);
 		// SherlockFragmentActivity activity = getSherlockActivity();
 		// activity.getSupportActionBar().setTitle("Doggy Details");
 		// View view = inflater.inflate(R.layout.fragment_dog_view, container,
@@ -137,8 +137,9 @@ public class DogViewFragment extends SherlockFragment implements
 		mImagePath = cursor.getString(DogQuery.DOG_IMAGE_PATH);
 		mMajors = cursor.getInt(DogQuery.DOG_MAJORS);
 		mPoints = cursor.getInt(DogQuery.DOG_POINTS);
-
+		mSex = (cursor.getInt(DogQuery.DOG_SEX)==Dogs.MALE)? "Male" : "Female";//TODO string resource
 		mViewBreed.setText(mBreedName);
+		mViewSex.setText(mSex);
 		mViewName.setText(mCallName);
 		if (mImagePath != null) {
 			Resources res = getResources();
@@ -223,18 +224,20 @@ public class DogViewFragment extends SherlockFragment implements
 	private interface DogQuery {
 		int _TOKEN = 0x1;
 
-		String[] PROJECTION = { DogshowContract.Dogs.DOG_ID,
+		String[] PROJECTION = { DogshowContract.Dogs._ID,
 				DogshowContract.Dogs.DOG_BREED,
 				DogshowContract.Dogs.DOG_CALL_NAME,
 				DogshowContract.Dogs.DOG_IMAGE_PATH,
 				DogshowContract.Dogs.DOG_MAJORS,
-				DogshowContract.Dogs.DOG_POINTS, };
+				DogshowContract.Dogs.DOG_POINTS,
+				DogshowContract.Dogs.DOG_SEX};
 		int DOG_ID = 0;
 		int DOG_BREED = 1;
 		int DOG_CALL_NAME = 2;
 		int DOG_IMAGE_PATH = 3;
 		int DOG_MAJORS = 4;
 		int DOG_POINTS = 5;
+		int DOG_SEX = 6;
 	}
 
 }

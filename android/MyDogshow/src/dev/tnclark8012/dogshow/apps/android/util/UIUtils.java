@@ -16,7 +16,10 @@
 
 package dev.tnclark8012.dogshow.apps.android.util;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Formatter;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -274,5 +277,27 @@ public class UIUtils {
 			return options;
 
 		}
+
+	}
+
+	private static final SimpleDateFormat standardTimeFormatAmPm = new SimpleDateFormat(
+			"h:mm a", Locale.US);
+	private static final SimpleDateFormat standardTimeFormat = new SimpleDateFormat(
+			"h:mm", Locale.US);
+
+	public static String timeStringFromMillis(long millis, boolean withAmPm) {
+		Calendar cal = GregorianCalendar.getInstance();
+		cal.setTimeInMillis(millis);
+		if (withAmPm) {
+			return standardTimeFormatAmPm.format(cal.getTime());
+		} else {
+			return standardTimeFormat.format(cal.getTime());
+		}
+	}
+
+	public static String timeAmPmFromMillis(long millis) {
+		Calendar cal = GregorianCalendar.getInstance();
+		cal.setTimeInMillis(millis);
+		return new SimpleDateFormat("a", Locale.US).format(cal.getTime());
 	}
 }

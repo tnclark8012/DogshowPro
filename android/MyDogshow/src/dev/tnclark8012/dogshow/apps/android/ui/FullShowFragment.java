@@ -27,7 +27,6 @@ import android.database.ContentObserver;
 import android.database.Cursor;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.LoaderManager;
@@ -48,12 +47,16 @@ import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
-
-public class MyScheduleFragment extends SherlockListFragment implements
+/**
+ * Schedule Similar to {@link MyScheduleFragment} but does not remove past rings
+ * @author Taylor
+ *
+ */
+public class FullShowFragment extends SherlockListFragment implements
 		LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback {
 	private final long upcomingAllowedWindow = 1 * 60 * 1000;
 	private long upcomingBreedRingStart = 0;
-	private static final String TAG = MyScheduleFragment.class.getSimpleName();
+	private static final String TAG = FullShowFragment.class.getSimpleName();
 	private Uri mRingsUri;
 	private CursorAdapter mAdapter;
 	private int mRingQueryToken;
@@ -61,19 +64,16 @@ public class MyScheduleFragment extends SherlockListFragment implements
 	private TextView mViewBreed;
 	private TextView mViewTime;
 	private TextView mViewRing;
-	private RelativeLayout mBreedImage;
+	private RelativeLayout mViewBreedImage;
 	private RelativeLayout mViewUpcomingHeader;
 	private RelativeLayout mViewNoUpcomingHeader;
-	
 	private Uri mUpcommingUri;
 	private Handler handler = new Handler();
 	
 	private Runnable updateUpcomingRunnable = new Runnable() {
 		   @Override
 		   public void run() {
-			   LoaderManager manager = getLoaderManager();
-			   manager.restartLoader(UpcomingBreedRingQuery._TOKEN, getArguments(), MyScheduleFragment.this);
-			   manager.restartLoader(BreedRingsQuery._TOKEN, getArguments(), MyScheduleFragment.this);
+			   getLoaderManager().restartLoader(UpcomingBreedRingQuery._TOKEN, getArguments(), FullShowFragment.this);
 		   }
 		};
 	private final ContentObserver mObserver = new ContentObserver(new Handler()) {
@@ -131,28 +131,30 @@ public class MyScheduleFragment extends SherlockListFragment implements
 		mViewBreed = (TextView) mRootView.findViewById(R.id.schedule_breed);
 		mViewRing = (TextView) mRootView.findViewById(R.id.schedule_ring);
 		mViewTime = (TextView) mRootView.findViewById(R.id.schedule_ring_time);
-		mBreedImage = (RelativeLayout) mRootView
+		mViewBreedImage = (RelativeLayout) mRootView
 				.findViewById(R.id.schedule_breed_image);
 		mViewUpcomingHeader = (RelativeLayout)mRootView.findViewById(R.id.schedule_upcoming_header);
 		mViewNoUpcomingHeader = (RelativeLayout)mRootView.findViewById(R.id.schedule_no_upcoming_header);
+
 		return mRootView;
 	}
 
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 		CursorLoader loader = null;
-		String selection = BreedRings.UPCOMING_SELECTION;
-		String[] selectionArgs = BreedRings.buildUpcomingSelectionArgs(System.currentTimeMillis());
+
 		switch (id) {
 		case BreedRingsQuery._TOKEN:
 			loader = new CursorLoader(getActivity(),
 					BreedRings.buildEnteredRingsUri(),
-					BreedRingsQuery.PROJECTION, selection, selectionArgs,
+					BreedRingsQuery.PROJECTION, null, null,
 					DogshowContract.BreedRings.DEFAULT_SORT);
 			break;
 		case UpcomingBreedRingQuery._TOKEN:
+			String selection = BreedRings.UPCOMING_SELECTION;
 			// TODO swap String [] selectionArgs =
-			 //			String[] selectionArgs = BreedRings.buildUpcomingSelectionArgs(0);
+			 String[] selectionArgs = BreedRings.buildUpcomingSelectionArgs(System.currentTimeMillis());
+//			String[] selectionArgs = BreedRings.buildUpcomingSelectionArgs(0);
 			loader = new CursorLoader(getActivity(),
 					BreedRings.buildEnteredRingsUri(),
 					UpcomingBreedRingQuery.PROJECTION, selection,
@@ -172,6 +174,7 @@ public class MyScheduleFragment extends SherlockListFragment implements
 		if (token == BreedRingsQuery._TOKEN) {
 			mAdapter.changeCursor(cursor);
 			Bundle arguments = getArguments();
+
 			if (arguments != null && arguments.containsKey("_uri")) {
 				String uri = arguments.get("_uri").toString();
 			}
@@ -187,6 +190,7 @@ public class MyScheduleFragment extends SherlockListFragment implements
 		if (cursor.moveToFirst()) {
 			mViewNoUpcomingHeader.setVisibility(View.GONE);
 			mViewUpcomingHeader.setVisibility(View.VISIBLE);
+			
 			mViewBreed.setText(cursor
 					.getString(UpcomingBreedRingQuery.RING_BREED));
 			mViewRing.setText(getString(R.string.template_ring_number,
@@ -207,20 +211,18 @@ public class MyScheduleFragment extends SherlockListFragment implements
 
 				BitmapDrawable image = new BitmapDrawable(res,
 						UIUtils.loadBitmap(imagePath, width, height));
-				mBreedImage.setBackgroundDrawable(image);// setBackgroundDrawable(Drawable.createFromPath(imagePath));
+				mViewBreedImage.setBackgroundDrawable(image);// setBackgroundDrawable(Drawable.createFromPath(imagePath));
 
 				// mViewImage.setBackgroundDrawable(Drawable.createFromPath(mImagePath));
 			} else {
 				Log.w(TAG, "Image path was null");
-
-				mBreedImage.setBackgroundResource(R.drawable.dog);
+				mViewBreedImage.setBackgroundResource(R.drawable.dog);
 
 			}
 		} else {
-			Log.v(TAG, "No upcoming breed rings found");
+			Log.w(TAG, "No upcoming breed rings found");
 			mViewUpcomingHeader.setVisibility(View.GONE);
 			mViewNoUpcomingHeader.setVisibility(View.VISIBLE);
-			
 		}
 	}
 
@@ -240,8 +242,9 @@ public class MyScheduleFragment extends SherlockListFragment implements
 			Calendar cal = GregorianCalendar.getInstance();
 			String format = "h:mm";
 			String ampmFormat = "a";
+
 			((TextView) view.findViewById(R.id.list_item_ring_names))
-					.setText(cursor.getString(BreedRingsQuery.ENTERED_CALL_NAMES));
+					.setText(cursor.getString(BreedRingsQuery.DOG_CALL_NAME));
 			((TextView) view.findViewById(R.id.list_item_ring_breed))
 					.setText(cursor.getString(BreedRingsQuery.RING_BREED));
 			((TextView) view.findViewById(R.id.list_item_ring_number))
@@ -276,14 +279,14 @@ public class MyScheduleFragment extends SherlockListFragment implements
 				DogshowContract.BreedRings.RING_JUDGE,
 				DogshowContract.BreedRings.RING_NUMBER,
 				DogshowContract.BreedRings.RING_START,
-				DogshowContract.BreedRings.CONCAT_CALL_NAME};
+				DogshowContract.Dogs.DOG_CALL_NAME };
 		int _ID = 0;
 		int RING_BREED = 1;
 		int RING_BREED_START = 2;
 		int RING_JUDGE = 3;
 		int RING_NUMBER = 4;
 		int RING_START = 5;
-		int ENTERED_CALL_NAMES = 6;
+		int DOG_CALL_NAME = 6;
 	}
 
 	private interface UpcomingBreedRingQuery {

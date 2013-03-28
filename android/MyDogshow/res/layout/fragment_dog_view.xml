@@ -14,7 +14,6 @@
             android:id="@+id/dog_view_image"
             android:layout_width="@dimen/header_icon_width"
             android:layout_height="@dimen/header_icon_height"
-            android:background="@drawable/dog"
             android:maxHeight="@dimen/element_section_height_normal"
             android:maxWidth="@dimen/header_icon_width">
 
@@ -37,7 +36,6 @@
             android:layout_toRightOf="@+id/dog_view_image"
             android:ems="10"
             android:gravity="center_vertical"
-            android:text="Lotta"
             android:textSize="@dimen/text_large"
             android:textColor="@color/header_title" 
             ttv:typeface="Roboto-Medium.ttf"/>
@@ -59,14 +57,50 @@
         android:id="@+id/dog_view_contents"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/dog_view_header"
+        
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin" >
 
         <RelativeLayout
+            android:id="@+id/dog_view_section_sex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+                xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+                android:id="@+id/dog_view_section_sex_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SEX"
+                android:layout_marginLeft="@dimen/element_spacing_normal"
+                android:textColor="@color/accent_1"
+                android:textSize="@dimen/text_small"
+                ttv:typeface="Roboto-Bold.ttf" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dog_view_section_sex_label"
+                android:background="@drawable/accent_bar" >
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+            android:textSize="@dimen/text_medium"
+            android:id="@+id/dog_view_section_sex_text"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/element_inner_height"
+            android:layout_marginLeft="@dimen/element_spacing_normal"
+            android:layout_below="@+id/dog_view_section_sex"
+            android:layout_marginTop="@dimen/element_margin_normal"
+             />
+        
+        <RelativeLayout
             android:id="@+id/dog_view_section_breed"
+            android:layout_marginTop="@dimen/element_margin_normal" 
+            android:layout_below="@+id/dog_view_section_sex_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
@@ -97,7 +131,6 @@
             android:layout_marginLeft="@dimen/element_spacing_normal"
             android:layout_below="@+id/dog_view_section_breed"
             android:layout_marginTop="@dimen/element_margin_normal"
-            android:text="Papillon"
              />
 
         <RelativeLayout
@@ -134,7 +167,6 @@
             android:layout_marginLeft="@dimen/element_spacing_normal"
             android:layout_below="@+id/dog_view_section_points"
             android:layout_marginTop="@dimen/element_margin_normal"
-            android:text="10 points (15 needed)"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <RelativeLayout
@@ -152,7 +184,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/points_bezel"
-            android:text="0 majors (2 needed)"
             android:layout_marginLeft="@dimen/element_spacing_normal"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 

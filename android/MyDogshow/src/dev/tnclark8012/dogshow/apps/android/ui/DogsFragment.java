@@ -5,8 +5,10 @@ import java.util.LinkedHashSet;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.database.Cursor;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -30,66 +32,12 @@ import com.actionbarsherlock.view.MenuItem;
 
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
+import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
 
-/*
- private interface SessionsQuery {
- int _TOKEN = 0x1;
-
- String[] PROJECTION = {
- ScheduleContract.Blocks.BLOCK_START,
- ScheduleContract.Blocks.BLOCK_END,
- ScheduleContract.Sessions.SESSION_LEVEL,
- ScheduleContract.Sessions.SESSION_TITLE,
- ScheduleContract.Sessions.SESSION_ABSTRACT,
- ScheduleContract.Sessions.SESSION_REQUIREMENTS,
- ScheduleContract.Sessions.SESSION_STARRED,
- ScheduleContract.Sessions.SESSION_HASHTAGS,
- ScheduleContract.Sessions.SESSION_URL,
- ScheduleContract.Sessions.SESSION_YOUTUBE_URL,
- ScheduleContract.Sessions.SESSION_PDF_URL,
- ScheduleContract.Sessions.SESSION_NOTES_URL,
- ScheduleContract.Sessions.SESSION_LIVESTREAM_URL,
- ScheduleContract.Sessions.ROOM_ID,
- ScheduleContract.Rooms.ROOM_NAME,
- };
-
- int BLOCK_START = 0;
- int BLOCK_END = 1;
- int LEVEL = 2;
- int TITLE = 3;
- int ABSTRACT = 4;
- int REQUIREMENTS = 5;
- int STARRED = 6;
- int HASHTAGS = 7;
- int URL = 8;
- int YOUTUBE_URL = 9;
- int PDF_URL = 10;
- int NOTES_URL = 11;
- int LIVESTREAM_URL = 12;
- int ROOM_ID = 13;
- int ROOM_NAME = 14;
-
- int[] LINKS_INDICES = {
- URL,
- YOUTUBE_URL,
- PDF_URL,
- NOTES_URL,
- };
-
- int[] LINKS_TITLES = {
- R.string.session_link_main,
- R.string.session_link_youtube,
- R.string.session_link_pdf,
- R.string.session_link_notes,
- };
- }
-
- */
 public class DogsFragment extends SherlockListFragment implements
 		LoaderManager.LoaderCallbacks<Cursor> {
 
 	private static final String TAG = DogsFragment.class.getSimpleName();
-	private LinkedHashSet<Integer> mSelectedSessionPositions = new LinkedHashSet<Integer>();
 	private Handler mHandler = new Handler();
 	private int mDogQueryToken;
 	private String mSelectedDogId;
@@ -101,6 +49,13 @@ public class DogsFragment extends SherlockListFragment implements
 		 * otherwise.
 		 */
 		public boolean onDogSelected(String dogId);
+
+		/**
+		 * Return true if Add event was handled
+		 * 
+		 * @return
+		 */
+		public boolean onAddDogClick();
 	}
 
 	private static Callbacks sDummyCallbacks = new Callbacks() {
@@ -108,6 +63,10 @@ public class DogsFragment extends SherlockListFragment implements
 		public boolean onDogSelected(String sessionId) {
 			return true;
 		}
+
+		public boolean onAddDogClick() {
+			return false;
+		};
 	};
 
 	private Callbacks mCallbacks = sDummyCallbacks;
@@ -147,8 +106,9 @@ public class DogsFragment extends SherlockListFragment implements
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.getItemId() == R.id.menu_list_dogs_add) {
-			Log.v(TAG, "Add dog [not implemented]");
+
+		if (item.getItemId() == R.id.menu_list_dogs_add
+				&& mCallbacks.onAddDogClick()) {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
@@ -198,16 +158,15 @@ public class DogsFragment extends SherlockListFragment implements
 	private interface DogsQuery {
 		int _TOKEN = 0x1;
 
-		String[] PROJECTION = { BaseColumns._ID, DogshowContract.Dogs.DOG_ID,
+		String[] PROJECTION = { BaseColumns._ID,
 				DogshowContract.Dogs.DOG_CALL_NAME,
 				DogshowContract.Dogs.DOG_BREED,
 				DogshowContract.Dogs.DOG_IMAGE_PATH };
 
 		int _ID = 0;
-		int DOG_ID = 1;
-		int DOG_CALL_NAME = 2;
-		int DOG_BREED = 3;
-		int DOG_IMAGE_PATH = 4;
+		int DOG_CALL_NAME = 1;
+		int DOG_BREED = 2;
+		int DOG_IMAGE_PATH = 3;
 	}
 
 	@Override
@@ -285,7 +244,7 @@ public class DogsFragment extends SherlockListFragment implements
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		final Cursor cursor = (Cursor) mAdapter.getItem(position);
 		String dogId = cursor.getString(cursor
-				.getColumnIndex(DogshowContract.Dogs.DOG_ID));
+				.getColumnIndex(DogshowContract.Dogs._ID));
 		if (mCallbacks.onDogSelected(dogId)) {
 			mSelectedDogId = dogId;
 			mAdapter.notifyDataSetChanged();
@@ -304,15 +263,24 @@ public class DogsFragment extends SherlockListFragment implements
 			((TextView) view.findViewById(R.id.list_item_dog_breed))
 					.setText(cursor.getString(DogsQuery.DOG_BREED));
 			String imagePath = cursor.getString(DogsQuery.DOG_IMAGE_PATH);
+			RelativeLayout imageLayout = ((RelativeLayout) view
+					.findViewById(R.id.list_item_dog_thumb));
 			if (imagePath != null) {
-				((RelativeLayout) view.findViewById(R.id.list_item_dog_thumb))
-						.setBackgroundDrawable(Drawable
-								.createFromPath(imagePath));
+				Resources res = getResources();
+				int height = res
+						.getDimensionPixelSize(R.dimen.element_height_normal);
+				int width = res
+						.getDimensionPixelSize(R.dimen.element_width_normal);
+				// TODO fix deprecation with sdk check
+				// TODO move to AsyncTask
+				BitmapDrawable image = new BitmapDrawable(res,
+						UIUtils.loadBitmap(imagePath, width, height));
+				imageLayout.setBackgroundDrawable(image);// setBackgroundDrawable(Drawable.createFromPath(imagePath));
+				// mViewImage.setBackgroundDrawable(Drawable.createFromPath(imagePath));
+			} else {
+				imageLayout.setBackgroundResource(R.drawable.dog);
 			}
-			else
-			{
-				Log.w(TAG, "Dog image path was null");
-			}
+
 		}
 
 		@Override
