@@ -1,4 +1,8 @@
-// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2013-03-11 23:08:24
+<<<<<<< HEAD
+// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2013-03-11 21:44:03
+=======
+// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2013-03-11 23:05:06
+>>>>>>> origin/Android
 
 package dev.tclark.dogshow.grammar;
 import com.google.gson.JsonArray;

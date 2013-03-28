@@ -1,4 +1,8 @@
-// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2013-03-11 23:08:25
+<<<<<<< HEAD
+// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2013-03-11 21:44:06
+=======
+// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2013-03-11 23:05:07
+>>>>>>> origin/Android
 
 package dev.tclark.dogshow.grammar;
 
