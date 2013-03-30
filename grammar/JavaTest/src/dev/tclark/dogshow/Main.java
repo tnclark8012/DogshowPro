@@ -21,8 +21,9 @@ public class Main {
             IllegalAccessException {
     	String [] programs = {"testparse", "TRIN1JP.txt", "PLUM1JP.txt", "SACS1JP.txt", "LEAV1JP.txt"};
     	
-    	String program = programs[4];
-        String file = "testcase/examples/"+program;
+    	String program = args[0];
+        //String file = "testcase/examples/"+program;
+        String file = program;
         //System.setOut(new PrintStream(new File("testcase/tests/lexer/expected-outputs", program + ".output" )));
         LexerRunner lexerRunner = new LexerRunner(file);
 //        lexerRunner.printTokens(file);
