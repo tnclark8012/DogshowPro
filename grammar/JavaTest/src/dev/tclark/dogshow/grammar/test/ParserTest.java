@@ -26,7 +26,7 @@ public class ParserTest extends GrammarTest {
 	@Test
 	public void test() throws IOException, IllegalArgumentException,
 			IllegalAccessException, RecognitionException {
-
+		int numFails = 0;
 		for (int i = 0; i < testInputs.size(); i++) {
 			File file = testInputs.get(i);
 			parser = new ParserRunner(new LexerRunner());
@@ -38,8 +38,11 @@ public class ParserTest extends GrammarTest {
 			boolean areSame = compareFiles(outFile, testOutputs.get(i));
 			if (!areSame)
 				System.err.println(outFile.getAbsolutePath());
-			Assert.assertEquals(true, areSame);
+				System.err.println("VS. " + testOutputs.get(i).getAbsolutePath());
+				numFails++;
+//			Assert.assertEquals(true, areSame);
 		}
+		Assert.assertEquals(numFails, 0);
 	}
 
 }

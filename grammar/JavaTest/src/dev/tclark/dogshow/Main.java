@@ -19,11 +19,11 @@ public class Main {
     public static void main(String[] args) throws IOException,
             org.antlr.runtime.RecognitionException, IllegalArgumentException,
             IllegalAccessException {
-    	String [] programs = {"testparse", "TRIN1JP.txt", "PLUM1JP.txt", "SACS1JP.txt", "LEAV1JP.txt"};
+    	String [] programs = {"testparse", "TRIN1JP.txt", "PLUM1JP.txt", "SACS1JP.txt", "LEAV1JP.txt", "KTDC1JP.txt"};
     	
-    	String program = args[0];
-        //String file = "testcase/examples/"+program;
-        String file = program;
+    	String program = programs[5];
+        String file = "testcase/examples/"+program;
+//        String file = program;
         //System.setOut(new PrintStream(new File("testcase/tests/lexer/expected-outputs", program + ".output" )));
         LexerRunner lexerRunner = new LexerRunner(file);
 //        lexerRunner.printTokens(file);
