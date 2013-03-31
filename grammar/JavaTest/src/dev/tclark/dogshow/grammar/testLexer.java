@@ -1,4 +1,4 @@
-// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2013-03-11 23:08:25
+// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2013-03-30 20:22:04
 
 package dev.tclark.dogshow.grammar;
 
@@ -75,7 +75,7 @@ public class testLexer extends Lexer {
 		try {
 			int _type = JUNIOR_CLASS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:113:5: ( 'Master Class' | 'Open Senior' | 'Open Intermediate' | 'Open Junior' | 'Novice Senior' | 'Novice Junior' | 'Novice Intermediate' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:114:5: ( 'Master Class' | 'Open Senior' | 'Open Intermediate' | 'Open Junior' | 'Novice Senior' | 'Novice Junior' | 'Novice Intermediate' )
 			int alt1=7;
 			switch ( input.LA(1) ) {
 			case 'M':
@@ -302,49 +302,49 @@ public class testLexer extends Lexer {
 			}
 			switch (alt1) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:113:9: 'Master Class'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:114:9: 'Master Class'
 					{
 					match("Master Class"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:114:9: 'Open Senior'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:115:9: 'Open Senior'
 					{
 					match("Open Senior"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:115:9: 'Open Intermediate'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:116:9: 'Open Intermediate'
 					{
 					match("Open Intermediate"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:116:9: 'Open Junior'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:117:9: 'Open Junior'
 					{
 					match("Open Junior"); 
 
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:117:9: 'Novice Senior'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:118:9: 'Novice Senior'
 					{
 					match("Novice Senior"); 
 
 					}
 					break;
 				case 6 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:118:9: 'Novice Junior'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:119:9: 'Novice Junior'
 					{
 					match("Novice Junior"); 
 
 					}
 					break;
 				case 7 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:119:9: 'Novice Intermediate'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:120:9: 'Novice Intermediate'
 					{
 					match("Novice Intermediate"); 
 
@@ -364,1390 +364,1397 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_BREED_NAME_SINGLE"
 	public final void mFRAG_BREED_NAME_SINGLE() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:112:5: ({...}? => ( 'Affenpinscher' | 'Afghan Hound' | 'Airedale Terrier' | 'Akita' | 'Alaskan Malamute' | 'American English Coonhound' | 'American Eskimo Dog' | 'American Foxhound' | 'American Staffordshire Terrier' | 'American Water Spaniel' | 'Anatolian Shepherd Dog' | 'Australian Cattle Dog' | 'Australian Shepherd' | 'Australian Terrier' | 'Basenji' | 'Basset Hound' | 'Beagle' | 'Bearded Collie' | 'Beauceron' | 'Bedlington Terrier' | 'Belgian Malinois' | 'Belgian Sheepdog' | 'Belgian Tervuren' | 'Berger Picard' | 'Bernese Mountain Dog' | 'Bichon Frise' | 'Bichons Frise' | 'Black and Tan Coonhound' | 'Black & Tan Coonhound' | 'Black Russian Terrier' | 'Bloodhound' | 'Bluetick Coonhound' | 'Border Collie' | 'Border Terrier' | 'Borzoi' | 'Boston Terrier' | 'Bouvier des Flandres' | 'Bouviers des Flandres' | 'Boxer' | 'Boykin Spaniel' | 'Brace' | 'Briard' | 'Brittany' | 'Brussels Griffon' | 'Bull Terrier' | 'Bulldog' | 'Bullmastiff' | 'Cairn Terrier' | 'Canaan Dog' | 'Cane Corso' | 'Cardigan Welsh Corgi' | 'Cavalier King Charles Spaniel' | 'Cesky Terrier' | 'Chesapeake Bay Retriever' | 'Chihuahua' | 'Chinese Crested' | 'Chinese Shar-Pei' | 'Cirneco dell’Etna' | 'Chow Chow' | 'Clumber Spaniel' | 'Cocker Spaniel' | 'Collie' | 'Curly-Coated Retriever' | 'Dachshund' | 'Dalmatian' | 'Dandie Dinmont Terrier' | 'Doberman Pinscher' | 'Dogo Argentine' | 'Dogue de Bordeaux' | 'Dogues de Bordeaux' | 'English Cocker Spaniel' | 'English Foxhound' | 'English Setter' | 'English Springer Spaniel' | 'English Toy Spaniel' | 'Entlebucher Mountain Dog' | 'Field Spaniel' | 'Finnish Lapphund' | 'Finnish Spitz' | 'Flat-Coated Retriever' | 'Fox Terrier' | 'French Bulldog' | 'German Pinscher' | 'German Shepherd Dog' | 'German Shorthaired Pointer' | 'German Wirehaired Pointer' | 'Giant Schnauzer' | 'Glen of Imaal Terrier' | 'Golden Retriever' | 'Gordon Setter' | 'Great Dane' | 'Great Pyrenees' | 'Greater Swiss Mountain Dog' | 'Greyhound' | 'Harrier' | 'Havanese' | 'Ibizan Hound' | 'Icelandic Sheepdog' | 'Irish Red and White Setter' | 'Irish Setter' | 'Irish Terrier' | 'Irish Water Spaniel' | 'Irish Wolfhound' | 'Italian Greyhound' | 'Japanese Chin' | 'Keeshond' | 'Keeshonden' | 'Kerry Blue Terrier' | 'Komondor' | 'Kuvasz' | 'Kuvaszok' | 'Labrador Retriever' | 'Lagotto Romagnolo' | 'Lakeland Terrier' | 'Leonberger' | 'Lhasa Apso' | 'Löwchen' | 'Lowchen' | 'Maltese' | 'Manchester Terrier' | 'Mastiff' | 'Miniature American Shepherd' | 'Miniature Bull Terrier' | 'Miniature Pinscher' | 'Miniature Schnauzer' | 'Neapolitan Mastiff' | 'Newfoundland' | 'Norfolk Terrier' | 'Norwegian Buhund' | 'Norwegian Elkhound' | 'Norwegian Lundehund' | 'Norwich Terrier' | 'Nova Scotia Duck Tolling Retriever' | 'Old English Sheepdog' | 'Otterhound' | 'Papillon' | 'Parson Russell Terrier' | 'Pekingese' | 'Pembroke Welsh Corgi' | 'Petit Basset Griffon Vendéen' | 'Petits Bassets Griffons Vendeen' | 'Pharaoh Hound' | 'Plott' | 'Pointer' | 'Polish Lowland Sheepdog' | 'Pomeranian' | 'Poodle' | 'Portuguese Podengo Pequenos' | 'Portuguese Water Dog' | 'Pug' | 'Puli' | 'Pulik' | 'Pyrenean Shepherd' | 'Rat Terrier' | 'Redbone Coonhound' | 'Retrievers' | 'Rhodesian Ridgeback' | 'Rottweiler' | 'Russell Terrier' | 'Saint Bernard' | 'Saluki' | 'Samoyed' | 'Schipperke' | 'Scottish Deerhound' | 'Scottish Terrier' | 'Sealyham Terrier' | 'Setters' | 'Shetland Sheepdog' | 'Shiba Inu' | 'Shih Tzu' | 'Siberian Husky' | 'Siberian Huskies' | 'Silky Terrier' | 'Skye Terrier' | 'Soft Coated Wheaten Terrier' | 'Spaniels' | 'Spinone Italiano' | 'Spinoni Italiani' | 'Staffordshire Bull Terrier' | 'Standard Schnauzer' | 'Sussex Spaniel' | 'Swedish Vallhund' | 'Tibetan Mastiff' | 'Tibetan Spaniel' | 'Tibetan Terrier' | 'Toy Fox Terrier' | 'Treeing Walker Coonhound' | 'Vizsla' | 'Weimaraner' | 'Welsh Springer Spaniel' | 'Welsh Terrier' | 'West Highland White Terrier' | 'Whippet' | 'Wire Fox Terrier' | 'Wirehaired Pointing Griffon' | 'Xoloitzcuintli' | 'Yorkshire Terrier' ) )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:112:7: {...}? => ( 'Affenpinscher' | 'Afghan Hound' | 'Airedale Terrier' | 'Akita' | 'Alaskan Malamute' | 'American English Coonhound' | 'American Eskimo Dog' | 'American Foxhound' | 'American Staffordshire Terrier' | 'American Water Spaniel' | 'Anatolian Shepherd Dog' | 'Australian Cattle Dog' | 'Australian Shepherd' | 'Australian Terrier' | 'Basenji' | 'Basset Hound' | 'Beagle' | 'Bearded Collie' | 'Beauceron' | 'Bedlington Terrier' | 'Belgian Malinois' | 'Belgian Sheepdog' | 'Belgian Tervuren' | 'Berger Picard' | 'Bernese Mountain Dog' | 'Bichon Frise' | 'Bichons Frise' | 'Black and Tan Coonhound' | 'Black & Tan Coonhound' | 'Black Russian Terrier' | 'Bloodhound' | 'Bluetick Coonhound' | 'Border Collie' | 'Border Terrier' | 'Borzoi' | 'Boston Terrier' | 'Bouvier des Flandres' | 'Bouviers des Flandres' | 'Boxer' | 'Boykin Spaniel' | 'Brace' | 'Briard' | 'Brittany' | 'Brussels Griffon' | 'Bull Terrier' | 'Bulldog' | 'Bullmastiff' | 'Cairn Terrier' | 'Canaan Dog' | 'Cane Corso' | 'Cardigan Welsh Corgi' | 'Cavalier King Charles Spaniel' | 'Cesky Terrier' | 'Chesapeake Bay Retriever' | 'Chihuahua' | 'Chinese Crested' | 'Chinese Shar-Pei' | 'Cirneco dell’Etna' | 'Chow Chow' | 'Clumber Spaniel' | 'Cocker Spaniel' | 'Collie' | 'Curly-Coated Retriever' | 'Dachshund' | 'Dalmatian' | 'Dandie Dinmont Terrier' | 'Doberman Pinscher' | 'Dogo Argentine' | 'Dogue de Bordeaux' | 'Dogues de Bordeaux' | 'English Cocker Spaniel' | 'English Foxhound' | 'English Setter' | 'English Springer Spaniel' | 'English Toy Spaniel' | 'Entlebucher Mountain Dog' | 'Field Spaniel' | 'Finnish Lapphund' | 'Finnish Spitz' | 'Flat-Coated Retriever' | 'Fox Terrier' | 'French Bulldog' | 'German Pinscher' | 'German Shepherd Dog' | 'German Shorthaired Pointer' | 'German Wirehaired Pointer' | 'Giant Schnauzer' | 'Glen of Imaal Terrier' | 'Golden Retriever' | 'Gordon Setter' | 'Great Dane' | 'Great Pyrenees' | 'Greater Swiss Mountain Dog' | 'Greyhound' | 'Harrier' | 'Havanese' | 'Ibizan Hound' | 'Icelandic Sheepdog' | 'Irish Red and White Setter' | 'Irish Setter' | 'Irish Terrier' | 'Irish Water Spaniel' | 'Irish Wolfhound' | 'Italian Greyhound' | 'Japanese Chin' | 'Keeshond' | 'Keeshonden' | 'Kerry Blue Terrier' | 'Komondor' | 'Kuvasz' | 'Kuvaszok' | 'Labrador Retriever' | 'Lagotto Romagnolo' | 'Lakeland Terrier' | 'Leonberger' | 'Lhasa Apso' | 'Löwchen' | 'Lowchen' | 'Maltese' | 'Manchester Terrier' | 'Mastiff' | 'Miniature American Shepherd' | 'Miniature Bull Terrier' | 'Miniature Pinscher' | 'Miniature Schnauzer' | 'Neapolitan Mastiff' | 'Newfoundland' | 'Norfolk Terrier' | 'Norwegian Buhund' | 'Norwegian Elkhound' | 'Norwegian Lundehund' | 'Norwich Terrier' | 'Nova Scotia Duck Tolling Retriever' | 'Old English Sheepdog' | 'Otterhound' | 'Papillon' | 'Parson Russell Terrier' | 'Pekingese' | 'Pembroke Welsh Corgi' | 'Petit Basset Griffon Vendéen' | 'Petits Bassets Griffons Vendeen' | 'Pharaoh Hound' | 'Plott' | 'Pointer' | 'Polish Lowland Sheepdog' | 'Pomeranian' | 'Poodle' | 'Portuguese Podengo Pequenos' | 'Portuguese Water Dog' | 'Pug' | 'Puli' | 'Pulik' | 'Pyrenean Shepherd' | 'Rat Terrier' | 'Redbone Coonhound' | 'Retrievers' | 'Rhodesian Ridgeback' | 'Rottweiler' | 'Russell Terrier' | 'Saint Bernard' | 'Saluki' | 'Samoyed' | 'Schipperke' | 'Scottish Deerhound' | 'Scottish Terrier' | 'Sealyham Terrier' | 'Setters' | 'Shetland Sheepdog' | 'Shiba Inu' | 'Shih Tzu' | 'Siberian Husky' | 'Siberian Huskies' | 'Silky Terrier' | 'Skye Terrier' | 'Soft Coated Wheaten Terrier' | 'Spaniels' | 'Spinone Italiano' | 'Spinoni Italiani' | 'Staffordshire Bull Terrier' | 'Standard Schnauzer' | 'Sussex Spaniel' | 'Swedish Vallhund' | 'Tibetan Mastiff' | 'Tibetan Spaniel' | 'Tibetan Terrier' | 'Toy Fox Terrier' | 'Treeing Walker Coonhound' | 'Vizsla' | 'Weimaraner' | 'Welsh Springer Spaniel' | 'Welsh Terrier' | 'West Highland White Terrier' | 'Whippet' | 'Wire Fox Terrier' | 'Wirehaired Pointing Griffon' | 'Xoloitzcuintli' | 'Yorkshire Terrier' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:113:5: ({...}? => ( 'Affenpinscher' | 'Afghan Hound' | 'Airedale Terrier' | 'Akita' | 'Alaskan Malamute' | 'American English Coonhound' | 'American Eskimo Dog' | 'American Foxhound' | 'American Staffordshire Terrier' | 'American Water Spaniel' | 'Anatolian Shepherd Dog' | 'Australian Cattle Dog' | 'Australian Shepherd' | 'Australian Terrier' | 'Basenji' | 'Basset Hound' | 'Beagle' | 'Bearded Collie' | 'Beauceron' | 'Bedlington Terrier' | 'Belgian Malinois' | 'Belgian Sheepdog' | 'Belgian Tervuren' | 'Berger Picard' | 'Bernese Mountain Dog' | 'Bichon Frise' | 'Bichons Frise' | 'Black and Tan Coonhound' | 'Black & Tan Coonhound' | 'Black Russian Terrier' | 'Bloodhound' | 'Bluetick Coonhound' | 'Border Collie' | 'Border Terrier' | 'Borzoi' | 'Boston Terrier' | 'Bouvier des Flandres' | 'Bouviers des Flandres' | 'Boxer' | 'Boykin Spaniel' | 'Brace' | 'Briard' | 'Brittany' | 'Brussels Griffon' | 'Bull Terrier' | 'Bulldog' | 'Bullmastiff' | 'Cairn Terrier' | 'Canaan Dog' | 'Cane Corso' | 'Cardigan Welsh Corgi' | 'Cavalier King Charles Spaniel' | 'Cesky Terrier' | 'Chesapeake Bay Retriever' | 'Chihuahua' | 'Chinese Crested' | 'Chinese Shar-Pei' | 'Cirneco dell’Etna' | 'Chow Chow' | 'Clumber Spaniel' | 'Cocker Spaniel' | 'Collie' | 'Curly-Coated Retriever' | 'Dachshund' | 'Dalmatian' | 'Dandie Dinmont Terrier' | 'Doberman Pinscher' | 'Dogo Argentine' | 'Dogue de Bordeaux' | 'Dogues de Bordeaux' | 'English Cocker Spaniel' | 'English Foxhound' | 'English Setter' | 'English Springer Spaniel' | 'English Toy Spaniel' | 'Entlebucher Mountain Dog' | 'Field Spaniel' | 'Finnish Lapphund' | 'Finnish Spitz' | 'Flat-Coated Retriever' | 'Fox Terrier' | 'French Bulldog' | 'German Pinscher' | 'German Shepherd Dog' | 'German Shorthaired Pointer' | 'German Wirehaired Pointer' | 'Giant Schnauzer' | 'Glen of Imaal Terrier' | 'Golden Retriever' | 'Gordon Setter' | 'Great Dane' | 'Great Pyrenees' | 'Greater Swiss Mountain Dog' | 'Greyhound' | 'Harrier' | 'Havanese' | 'Ibizan Hound' | 'Icelandic Sheepdog' | 'Irish Red and White Setter' | 'Irish Setter' | 'Irish Terrier' | 'Irish Water Spaniel' | 'Irish Wolfhound' | 'Italian Greyhound' | 'Japanese Chin' | 'Keeshond' | 'Keeshonden' | 'Kerry Blue Terrier' | 'Komondor' | 'Kuvasz' | 'Kuvaszok' | 'Labrador Retriever' | 'Lagotto Romagnolo' | 'Lakeland Terrier' | 'Leonberger' | 'Lhasa Apso' | 'Löwchen' | 'Lowchen' | 'Maltese' | 'Manchester Terrier' | 'Mastiff' | 'Miniature American Shepherd' | 'Miniature Bull Terrier' | 'Miniature Pinscher' | 'Miniature Schnauzer' | 'Neapolitan Mastiff' | 'Newfoundland' | 'Norfolk Terrier' | 'Norwegian Buhund' | 'Norwegian Elkhound' | 'Norwegian Lundehund' | 'Norwich Terrier' | 'Nova Scotia Duck Tolling Retriever' | 'Old English Sheepdog' | 'Otterhound' | 'Papillon' | 'Parson Russell Terrier' | 'Pekingese' | 'Pembroke Welsh Corgi' | 'Petit Basset Griffon Vendéen' | 'Petits Bassets Griffons Vendeen' | 'Pharaoh Hound' | 'Plott' | 'Pointer' | 'Polish Lowland Sheepdog' | 'Pomeranian' | 'Poodle' | 'Portuguese Podengo Pequenos' | 'Portuguese Water Dog' | 'Pug' | 'Puli' | 'Pulik' | 'Pyrenean Shepherd' | 'Rat Terrier' | 'Redbone Coonhound' | 'Retrievers' | 'Rhodesian Ridgeback' | 'Rottweiler' | 'Russell Terrier' | 'Saint Bernard' | 'Saluki' | 'Samoyed' | 'Schipperke' | 'Scottish Deerhound' | 'Scottish Terrier' | 'Sealyham Terrier' | 'Setters' | 'Shetland Sheepdog' | 'Shiba Inu' | 'Shih Tzu' | 'Siberian Husky' | 'Siberian Huskies' | 'Silky Terrier' | 'Skye Terrier' | 'Soft Coated Wheaten Terrier' | 'Spaniels' | 'Spinone Italiano' | 'Spinoni Italiani' | 'Staffordshire Bull Terrier' | 'Standard Schnauzer' | 'Sussex Spaniel' | 'Swedish Vallhund' | 'Tibetan Mastiff' | 'Tibetan Spaniel' | 'Tibetan Terrier' | 'Toy Fox Terrier' | 'Treeing Walker Coonhound' | 'Vizsla' | 'Weimaraner' | 'Welsh Springer Spaniel' | 'Welsh Terrier' | 'West Highland White Terrier' | 'Whippet' | 'Wire Fox Terrier' | 'Wirehaired Pointing Griffon' | 'Wirehaired Vizsla' | 'Xoloitzcuintli' | 'Yorkshire Terrier' ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:113:7: {...}? => ( 'Affenpinscher' | 'Afghan Hound' | 'Airedale Terrier' | 'Akita' | 'Alaskan Malamute' | 'American English Coonhound' | 'American Eskimo Dog' | 'American Foxhound' | 'American Staffordshire Terrier' | 'American Water Spaniel' | 'Anatolian Shepherd Dog' | 'Australian Cattle Dog' | 'Australian Shepherd' | 'Australian Terrier' | 'Basenji' | 'Basset Hound' | 'Beagle' | 'Bearded Collie' | 'Beauceron' | 'Bedlington Terrier' | 'Belgian Malinois' | 'Belgian Sheepdog' | 'Belgian Tervuren' | 'Berger Picard' | 'Bernese Mountain Dog' | 'Bichon Frise' | 'Bichons Frise' | 'Black and Tan Coonhound' | 'Black & Tan Coonhound' | 'Black Russian Terrier' | 'Bloodhound' | 'Bluetick Coonhound' | 'Border Collie' | 'Border Terrier' | 'Borzoi' | 'Boston Terrier' | 'Bouvier des Flandres' | 'Bouviers des Flandres' | 'Boxer' | 'Boykin Spaniel' | 'Brace' | 'Briard' | 'Brittany' | 'Brussels Griffon' | 'Bull Terrier' | 'Bulldog' | 'Bullmastiff' | 'Cairn Terrier' | 'Canaan Dog' | 'Cane Corso' | 'Cardigan Welsh Corgi' | 'Cavalier King Charles Spaniel' | 'Cesky Terrier' | 'Chesapeake Bay Retriever' | 'Chihuahua' | 'Chinese Crested' | 'Chinese Shar-Pei' | 'Cirneco dell’Etna' | 'Chow Chow' | 'Clumber Spaniel' | 'Cocker Spaniel' | 'Collie' | 'Curly-Coated Retriever' | 'Dachshund' | 'Dalmatian' | 'Dandie Dinmont Terrier' | 'Doberman Pinscher' | 'Dogo Argentine' | 'Dogue de Bordeaux' | 'Dogues de Bordeaux' | 'English Cocker Spaniel' | 'English Foxhound' | 'English Setter' | 'English Springer Spaniel' | 'English Toy Spaniel' | 'Entlebucher Mountain Dog' | 'Field Spaniel' | 'Finnish Lapphund' | 'Finnish Spitz' | 'Flat-Coated Retriever' | 'Fox Terrier' | 'French Bulldog' | 'German Pinscher' | 'German Shepherd Dog' | 'German Shorthaired Pointer' | 'German Wirehaired Pointer' | 'Giant Schnauzer' | 'Glen of Imaal Terrier' | 'Golden Retriever' | 'Gordon Setter' | 'Great Dane' | 'Great Pyrenees' | 'Greater Swiss Mountain Dog' | 'Greyhound' | 'Harrier' | 'Havanese' | 'Ibizan Hound' | 'Icelandic Sheepdog' | 'Irish Red and White Setter' | 'Irish Setter' | 'Irish Terrier' | 'Irish Water Spaniel' | 'Irish Wolfhound' | 'Italian Greyhound' | 'Japanese Chin' | 'Keeshond' | 'Keeshonden' | 'Kerry Blue Terrier' | 'Komondor' | 'Kuvasz' | 'Kuvaszok' | 'Labrador Retriever' | 'Lagotto Romagnolo' | 'Lakeland Terrier' | 'Leonberger' | 'Lhasa Apso' | 'Löwchen' | 'Lowchen' | 'Maltese' | 'Manchester Terrier' | 'Mastiff' | 'Miniature American Shepherd' | 'Miniature Bull Terrier' | 'Miniature Pinscher' | 'Miniature Schnauzer' | 'Neapolitan Mastiff' | 'Newfoundland' | 'Norfolk Terrier' | 'Norwegian Buhund' | 'Norwegian Elkhound' | 'Norwegian Lundehund' | 'Norwich Terrier' | 'Nova Scotia Duck Tolling Retriever' | 'Old English Sheepdog' | 'Otterhound' | 'Papillon' | 'Parson Russell Terrier' | 'Pekingese' | 'Pembroke Welsh Corgi' | 'Petit Basset Griffon Vendéen' | 'Petits Bassets Griffons Vendeen' | 'Pharaoh Hound' | 'Plott' | 'Pointer' | 'Polish Lowland Sheepdog' | 'Pomeranian' | 'Poodle' | 'Portuguese Podengo Pequenos' | 'Portuguese Water Dog' | 'Pug' | 'Puli' | 'Pulik' | 'Pyrenean Shepherd' | 'Rat Terrier' | 'Redbone Coonhound' | 'Retrievers' | 'Rhodesian Ridgeback' | 'Rottweiler' | 'Russell Terrier' | 'Saint Bernard' | 'Saluki' | 'Samoyed' | 'Schipperke' | 'Scottish Deerhound' | 'Scottish Terrier' | 'Sealyham Terrier' | 'Setters' | 'Shetland Sheepdog' | 'Shiba Inu' | 'Shih Tzu' | 'Siberian Husky' | 'Siberian Huskies' | 'Silky Terrier' | 'Skye Terrier' | 'Soft Coated Wheaten Terrier' | 'Spaniels' | 'Spinone Italiano' | 'Spinoni Italiani' | 'Staffordshire Bull Terrier' | 'Standard Schnauzer' | 'Sussex Spaniel' | 'Swedish Vallhund' | 'Tibetan Mastiff' | 'Tibetan Spaniel' | 'Tibetan Terrier' | 'Toy Fox Terrier' | 'Treeing Walker Coonhound' | 'Vizsla' | 'Weimaraner' | 'Welsh Springer Spaniel' | 'Welsh Terrier' | 'West Highland White Terrier' | 'Whippet' | 'Wire Fox Terrier' | 'Wirehaired Pointing Griffon' | 'Wirehaired Vizsla' | 'Xoloitzcuintli' | 'Yorkshire Terrier' )
 			{
 			if ( !((allowBreed)) ) {
 				throw new FailedPredicateException(input, "FRAG_BREED_NAME_SINGLE", "allowBreed");
 			}
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:112:23: ( 'Affenpinscher' | 'Afghan Hound' | 'Airedale Terrier' | 'Akita' | 'Alaskan Malamute' | 'American English Coonhound' | 'American Eskimo Dog' | 'American Foxhound' | 'American Staffordshire Terrier' | 'American Water Spaniel' | 'Anatolian Shepherd Dog' | 'Australian Cattle Dog' | 'Australian Shepherd' | 'Australian Terrier' | 'Basenji' | 'Basset Hound' | 'Beagle' | 'Bearded Collie' | 'Beauceron' | 'Bedlington Terrier' | 'Belgian Malinois' | 'Belgian Sheepdog' | 'Belgian Tervuren' | 'Berger Picard' | 'Bernese Mountain Dog' | 'Bichon Frise' | 'Bichons Frise' | 'Black and Tan Coonhound' | 'Black & Tan Coonhound' | 'Black Russian Terrier' | 'Bloodhound' | 'Bluetick Coonhound' | 'Border Collie' | 'Border Terrier' | 'Borzoi' | 'Boston Terrier' | 'Bouvier des Flandres' | 'Bouviers des Flandres' | 'Boxer' | 'Boykin Spaniel' | 'Brace' | 'Briard' | 'Brittany' | 'Brussels Griffon' | 'Bull Terrier' | 'Bulldog' | 'Bullmastiff' | 'Cairn Terrier' | 'Canaan Dog' | 'Cane Corso' | 'Cardigan Welsh Corgi' | 'Cavalier King Charles Spaniel' | 'Cesky Terrier' | 'Chesapeake Bay Retriever' | 'Chihuahua' | 'Chinese Crested' | 'Chinese Shar-Pei' | 'Cirneco dell’Etna' | 'Chow Chow' | 'Clumber Spaniel' | 'Cocker Spaniel' | 'Collie' | 'Curly-Coated Retriever' | 'Dachshund' | 'Dalmatian' | 'Dandie Dinmont Terrier' | 'Doberman Pinscher' | 'Dogo Argentine' | 'Dogue de Bordeaux' | 'Dogues de Bordeaux' | 'English Cocker Spaniel' | 'English Foxhound' | 'English Setter' | 'English Springer Spaniel' | 'English Toy Spaniel' | 'Entlebucher Mountain Dog' | 'Field Spaniel' | 'Finnish Lapphund' | 'Finnish Spitz' | 'Flat-Coated Retriever' | 'Fox Terrier' | 'French Bulldog' | 'German Pinscher' | 'German Shepherd Dog' | 'German Shorthaired Pointer' | 'German Wirehaired Pointer' | 'Giant Schnauzer' | 'Glen of Imaal Terrier' | 'Golden Retriever' | 'Gordon Setter' | 'Great Dane' | 'Great Pyrenees' | 'Greater Swiss Mountain Dog' | 'Greyhound' | 'Harrier' | 'Havanese' | 'Ibizan Hound' | 'Icelandic Sheepdog' | 'Irish Red and White Setter' | 'Irish Setter' | 'Irish Terrier' | 'Irish Water Spaniel' | 'Irish Wolfhound' | 'Italian Greyhound' | 'Japanese Chin' | 'Keeshond' | 'Keeshonden' | 'Kerry Blue Terrier' | 'Komondor' | 'Kuvasz' | 'Kuvaszok' | 'Labrador Retriever' | 'Lagotto Romagnolo' | 'Lakeland Terrier' | 'Leonberger' | 'Lhasa Apso' | 'Löwchen' | 'Lowchen' | 'Maltese' | 'Manchester Terrier' | 'Mastiff' | 'Miniature American Shepherd' | 'Miniature Bull Terrier' | 'Miniature Pinscher' | 'Miniature Schnauzer' | 'Neapolitan Mastiff' | 'Newfoundland' | 'Norfolk Terrier' | 'Norwegian Buhund' | 'Norwegian Elkhound' | 'Norwegian Lundehund' | 'Norwich Terrier' | 'Nova Scotia Duck Tolling Retriever' | 'Old English Sheepdog' | 'Otterhound' | 'Papillon' | 'Parson Russell Terrier' | 'Pekingese' | 'Pembroke Welsh Corgi' | 'Petit Basset Griffon Vendéen' | 'Petits Bassets Griffons Vendeen' | 'Pharaoh Hound' | 'Plott' | 'Pointer' | 'Polish Lowland Sheepdog' | 'Pomeranian' | 'Poodle' | 'Portuguese Podengo Pequenos' | 'Portuguese Water Dog' | 'Pug' | 'Puli' | 'Pulik' | 'Pyrenean Shepherd' | 'Rat Terrier' | 'Redbone Coonhound' | 'Retrievers' | 'Rhodesian Ridgeback' | 'Rottweiler' | 'Russell Terrier' | 'Saint Bernard' | 'Saluki' | 'Samoyed' | 'Schipperke' | 'Scottish Deerhound' | 'Scottish Terrier' | 'Sealyham Terrier' | 'Setters' | 'Shetland Sheepdog' | 'Shiba Inu' | 'Shih Tzu' | 'Siberian Husky' | 'Siberian Huskies' | 'Silky Terrier' | 'Skye Terrier' | 'Soft Coated Wheaten Terrier' | 'Spaniels' | 'Spinone Italiano' | 'Spinoni Italiani' | 'Staffordshire Bull Terrier' | 'Standard Schnauzer' | 'Sussex Spaniel' | 'Swedish Vallhund' | 'Tibetan Mastiff' | 'Tibetan Spaniel' | 'Tibetan Terrier' | 'Toy Fox Terrier' | 'Treeing Walker Coonhound' | 'Vizsla' | 'Weimaraner' | 'Welsh Springer Spaniel' | 'Welsh Terrier' | 'West Highland White Terrier' | 'Whippet' | 'Wire Fox Terrier' | 'Wirehaired Pointing Griffon' | 'Xoloitzcuintli' | 'Yorkshire Terrier' )
-			int alt2=197;
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:113:23: ( 'Affenpinscher' | 'Afghan Hound' | 'Airedale Terrier' | 'Akita' | 'Alaskan Malamute' | 'American English Coonhound' | 'American Eskimo Dog' | 'American Foxhound' | 'American Staffordshire Terrier' | 'American Water Spaniel' | 'Anatolian Shepherd Dog' | 'Australian Cattle Dog' | 'Australian Shepherd' | 'Australian Terrier' | 'Basenji' | 'Basset Hound' | 'Beagle' | 'Bearded Collie' | 'Beauceron' | 'Bedlington Terrier' | 'Belgian Malinois' | 'Belgian Sheepdog' | 'Belgian Tervuren' | 'Berger Picard' | 'Bernese Mountain Dog' | 'Bichon Frise' | 'Bichons Frise' | 'Black and Tan Coonhound' | 'Black & Tan Coonhound' | 'Black Russian Terrier' | 'Bloodhound' | 'Bluetick Coonhound' | 'Border Collie' | 'Border Terrier' | 'Borzoi' | 'Boston Terrier' | 'Bouvier des Flandres' | 'Bouviers des Flandres' | 'Boxer' | 'Boykin Spaniel' | 'Brace' | 'Briard' | 'Brittany' | 'Brussels Griffon' | 'Bull Terrier' | 'Bulldog' | 'Bullmastiff' | 'Cairn Terrier' | 'Canaan Dog' | 'Cane Corso' | 'Cardigan Welsh Corgi' | 'Cavalier King Charles Spaniel' | 'Cesky Terrier' | 'Chesapeake Bay Retriever' | 'Chihuahua' | 'Chinese Crested' | 'Chinese Shar-Pei' | 'Cirneco dell’Etna' | 'Chow Chow' | 'Clumber Spaniel' | 'Cocker Spaniel' | 'Collie' | 'Curly-Coated Retriever' | 'Dachshund' | 'Dalmatian' | 'Dandie Dinmont Terrier' | 'Doberman Pinscher' | 'Dogo Argentine' | 'Dogue de Bordeaux' | 'Dogues de Bordeaux' | 'English Cocker Spaniel' | 'English Foxhound' | 'English Setter' | 'English Springer Spaniel' | 'English Toy Spaniel' | 'Entlebucher Mountain Dog' | 'Field Spaniel' | 'Finnish Lapphund' | 'Finnish Spitz' | 'Flat-Coated Retriever' | 'Fox Terrier' | 'French Bulldog' | 'German Pinscher' | 'German Shepherd Dog' | 'German Shorthaired Pointer' | 'German Wirehaired Pointer' | 'Giant Schnauzer' | 'Glen of Imaal Terrier' | 'Golden Retriever' | 'Gordon Setter' | 'Great Dane' | 'Great Pyrenees' | 'Greater Swiss Mountain Dog' | 'Greyhound' | 'Harrier' | 'Havanese' | 'Ibizan Hound' | 'Icelandic Sheepdog' | 'Irish Red and White Setter' | 'Irish Setter' | 'Irish Terrier' | 'Irish Water Spaniel' | 'Irish Wolfhound' | 'Italian Greyhound' | 'Japanese Chin' | 'Keeshond' | 'Keeshonden' | 'Kerry Blue Terrier' | 'Komondor' | 'Kuvasz' | 'Kuvaszok' | 'Labrador Retriever' | 'Lagotto Romagnolo' | 'Lakeland Terrier' | 'Leonberger' | 'Lhasa Apso' | 'Löwchen' | 'Lowchen' | 'Maltese' | 'Manchester Terrier' | 'Mastiff' | 'Miniature American Shepherd' | 'Miniature Bull Terrier' | 'Miniature Pinscher' | 'Miniature Schnauzer' | 'Neapolitan Mastiff' | 'Newfoundland' | 'Norfolk Terrier' | 'Norwegian Buhund' | 'Norwegian Elkhound' | 'Norwegian Lundehund' | 'Norwich Terrier' | 'Nova Scotia Duck Tolling Retriever' | 'Old English Sheepdog' | 'Otterhound' | 'Papillon' | 'Parson Russell Terrier' | 'Pekingese' | 'Pembroke Welsh Corgi' | 'Petit Basset Griffon Vendéen' | 'Petits Bassets Griffons Vendeen' | 'Pharaoh Hound' | 'Plott' | 'Pointer' | 'Polish Lowland Sheepdog' | 'Pomeranian' | 'Poodle' | 'Portuguese Podengo Pequenos' | 'Portuguese Water Dog' | 'Pug' | 'Puli' | 'Pulik' | 'Pyrenean Shepherd' | 'Rat Terrier' | 'Redbone Coonhound' | 'Retrievers' | 'Rhodesian Ridgeback' | 'Rottweiler' | 'Russell Terrier' | 'Saint Bernard' | 'Saluki' | 'Samoyed' | 'Schipperke' | 'Scottish Deerhound' | 'Scottish Terrier' | 'Sealyham Terrier' | 'Setters' | 'Shetland Sheepdog' | 'Shiba Inu' | 'Shih Tzu' | 'Siberian Husky' | 'Siberian Huskies' | 'Silky Terrier' | 'Skye Terrier' | 'Soft Coated Wheaten Terrier' | 'Spaniels' | 'Spinone Italiano' | 'Spinoni Italiani' | 'Staffordshire Bull Terrier' | 'Standard Schnauzer' | 'Sussex Spaniel' | 'Swedish Vallhund' | 'Tibetan Mastiff' | 'Tibetan Spaniel' | 'Tibetan Terrier' | 'Toy Fox Terrier' | 'Treeing Walker Coonhound' | 'Vizsla' | 'Weimaraner' | 'Welsh Springer Spaniel' | 'Welsh Terrier' | 'West Highland White Terrier' | 'Whippet' | 'Wire Fox Terrier' | 'Wirehaired Pointing Griffon' | 'Wirehaired Vizsla' | 'Xoloitzcuintli' | 'Yorkshire Terrier' )
+			int alt2=198;
 			alt2 = dfa2.predict(input);
 			switch (alt2) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:112:24: 'Affenpinscher'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:113:24: 'Affenpinscher'
 					{
 					match("Affenpinscher"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:113:5: 'Afghan Hound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:114:5: 'Afghan Hound'
 					{
 					match("Afghan Hound"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:114:5: 'Airedale Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:115:5: 'Airedale Terrier'
 					{
 					match("Airedale Terrier"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:115:5: 'Akita'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:116:5: 'Akita'
 					{
 					match("Akita"); 
 
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:116:5: 'Alaskan Malamute'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:117:5: 'Alaskan Malamute'
 					{
 					match("Alaskan Malamute"); 
 
 					}
 					break;
 				case 6 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:117:5: 'American English Coonhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:118:5: 'American English Coonhound'
 					{
 					match("American English Coonhound"); 
 
 					}
 					break;
 				case 7 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:118:5: 'American Eskimo Dog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:119:5: 'American Eskimo Dog'
 					{
 					match("American Eskimo Dog"); 
 
 					}
 					break;
 				case 8 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:119:5: 'American Foxhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:120:5: 'American Foxhound'
 					{
 					match("American Foxhound"); 
 
 					}
 					break;
 				case 9 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:120:5: 'American Staffordshire Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:121:5: 'American Staffordshire Terrier'
 					{
 					match("American Staffordshire Terrier"); 
 
 					}
 					break;
 				case 10 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:121:5: 'American Water Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:122:5: 'American Water Spaniel'
 					{
 					match("American Water Spaniel"); 
 
 					}
 					break;
 				case 11 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:122:5: 'Anatolian Shepherd Dog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:123:5: 'Anatolian Shepherd Dog'
 					{
 					match("Anatolian Shepherd Dog"); 
 
 					}
 					break;
 				case 12 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:123:5: 'Australian Cattle Dog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:124:5: 'Australian Cattle Dog'
 					{
 					match("Australian Cattle Dog"); 
 
 					}
 					break;
 				case 13 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:124:5: 'Australian Shepherd'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:125:5: 'Australian Shepherd'
 					{
 					match("Australian Shepherd"); 
 
 					}
 					break;
 				case 14 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:125:5: 'Australian Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:126:5: 'Australian Terrier'
 					{
 					match("Australian Terrier"); 
 
 					}
 					break;
 				case 15 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:126:5: 'Basenji'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:127:5: 'Basenji'
 					{
 					match("Basenji"); 
 
 					}
 					break;
 				case 16 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:127:5: 'Basset Hound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:128:5: 'Basset Hound'
 					{
 					match("Basset Hound"); 
 
 					}
 					break;
 				case 17 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:128:5: 'Beagle'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:129:5: 'Beagle'
 					{
 					match("Beagle"); 
 
 					}
 					break;
 				case 18 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:129:5: 'Bearded Collie'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:130:5: 'Bearded Collie'
 					{
 					match("Bearded Collie"); 
 
 					}
 					break;
 				case 19 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:130:5: 'Beauceron'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:131:5: 'Beauceron'
 					{
 					match("Beauceron"); 
 
 					}
 					break;
 				case 20 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:131:5: 'Bedlington Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:132:5: 'Bedlington Terrier'
 					{
 					match("Bedlington Terrier"); 
 
 					}
 					break;
 				case 21 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:132:5: 'Belgian Malinois'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:133:5: 'Belgian Malinois'
 					{
 					match("Belgian Malinois"); 
 
 					}
 					break;
 				case 22 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:133:5: 'Belgian Sheepdog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:134:5: 'Belgian Sheepdog'
 					{
 					match("Belgian Sheepdog"); 
 
 					}
 					break;
 				case 23 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:134:5: 'Belgian Tervuren'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:135:5: 'Belgian Tervuren'
 					{
 					match("Belgian Tervuren"); 
 
 					}
 					break;
 				case 24 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:135:5: 'Berger Picard'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:136:5: 'Berger Picard'
 					{
 					match("Berger Picard"); 
 
 					}
 					break;
 				case 25 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:136:5: 'Bernese Mountain Dog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:137:5: 'Bernese Mountain Dog'
 					{
 					match("Bernese Mountain Dog"); 
 
 					}
 					break;
 				case 26 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:137:5: 'Bichon Frise'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:138:5: 'Bichon Frise'
 					{
 					match("Bichon Frise"); 
 
 					}
 					break;
 				case 27 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:138:5: 'Bichons Frise'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:139:5: 'Bichons Frise'
 					{
 					match("Bichons Frise"); 
 
 					}
 					break;
 				case 28 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:139:5: 'Black and Tan Coonhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:140:5: 'Black and Tan Coonhound'
 					{
 					match("Black and Tan Coonhound"); 
 
 					}
 					break;
 				case 29 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:140:5: 'Black & Tan Coonhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:141:5: 'Black & Tan Coonhound'
 					{
 					match("Black & Tan Coonhound"); 
 
 					}
 					break;
 				case 30 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:141:5: 'Black Russian Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:142:5: 'Black Russian Terrier'
 					{
 					match("Black Russian Terrier"); 
 
 					}
 					break;
 				case 31 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:142:5: 'Bloodhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:143:5: 'Bloodhound'
 					{
 					match("Bloodhound"); 
 
 					}
 					break;
 				case 32 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:143:5: 'Bluetick Coonhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:144:5: 'Bluetick Coonhound'
 					{
 					match("Bluetick Coonhound"); 
 
 					}
 					break;
 				case 33 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:144:5: 'Border Collie'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:145:5: 'Border Collie'
 					{
 					match("Border Collie"); 
 
 					}
 					break;
 				case 34 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:145:5: 'Border Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:146:5: 'Border Terrier'
 					{
 					match("Border Terrier"); 
 
 					}
 					break;
 				case 35 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:146:5: 'Borzoi'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:147:5: 'Borzoi'
 					{
 					match("Borzoi"); 
 
 					}
 					break;
 				case 36 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:147:5: 'Boston Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:148:5: 'Boston Terrier'
 					{
 					match("Boston Terrier"); 
 
 					}
 					break;
 				case 37 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:148:5: 'Bouvier des Flandres'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:149:5: 'Bouvier des Flandres'
 					{
 					match("Bouvier des Flandres"); 
 
 					}
 					break;
 				case 38 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:149:5: 'Bouviers des Flandres'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:150:5: 'Bouviers des Flandres'
 					{
 					match("Bouviers des Flandres"); 
 
 					}
 					break;
 				case 39 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:150:5: 'Boxer'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:151:5: 'Boxer'
 					{
 					match("Boxer"); 
 
 					}
 					break;
 				case 40 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:151:5: 'Boykin Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:152:5: 'Boykin Spaniel'
 					{
 					match("Boykin Spaniel"); 
 
 					}
 					break;
 				case 41 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:152:5: 'Brace'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:153:5: 'Brace'
 					{
 					match("Brace"); 
 
 					}
 					break;
 				case 42 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:153:5: 'Briard'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:154:5: 'Briard'
 					{
 					match("Briard"); 
 
 					}
 					break;
 				case 43 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:154:5: 'Brittany'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:155:5: 'Brittany'
 					{
 					match("Brittany"); 
 
 					}
 					break;
 				case 44 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:155:5: 'Brussels Griffon'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:156:5: 'Brussels Griffon'
 					{
 					match("Brussels Griffon"); 
 
 					}
 					break;
 				case 45 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:156:5: 'Bull Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:157:5: 'Bull Terrier'
 					{
 					match("Bull Terrier"); 
 
 					}
 					break;
 				case 46 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:157:5: 'Bulldog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:158:5: 'Bulldog'
 					{
 					match("Bulldog"); 
 
 					}
 					break;
 				case 47 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:158:5: 'Bullmastiff'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:159:5: 'Bullmastiff'
 					{
 					match("Bullmastiff"); 
 
 					}
 					break;
 				case 48 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:159:5: 'Cairn Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:160:5: 'Cairn Terrier'
 					{
 					match("Cairn Terrier"); 
 
 					}
 					break;
 				case 49 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:160:5: 'Canaan Dog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:161:5: 'Canaan Dog'
 					{
 					match("Canaan Dog"); 
 
 					}
 					break;
 				case 50 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:161:5: 'Cane Corso'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:162:5: 'Cane Corso'
 					{
 					match("Cane Corso"); 
 
 					}
 					break;
 				case 51 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:162:5: 'Cardigan Welsh Corgi'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:163:5: 'Cardigan Welsh Corgi'
 					{
 					match("Cardigan Welsh Corgi"); 
 
 					}
 					break;
 				case 52 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:163:5: 'Cavalier King Charles Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:164:5: 'Cavalier King Charles Spaniel'
 					{
 					match("Cavalier King Charles Spaniel"); 
 
 					}
 					break;
 				case 53 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:164:5: 'Cesky Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:165:5: 'Cesky Terrier'
 					{
 					match("Cesky Terrier"); 
 
 					}
 					break;
 				case 54 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:165:5: 'Chesapeake Bay Retriever'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:166:5: 'Chesapeake Bay Retriever'
 					{
 					match("Chesapeake Bay Retriever"); 
 
 					}
 					break;
 				case 55 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:166:5: 'Chihuahua'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:167:5: 'Chihuahua'
 					{
 					match("Chihuahua"); 
 
 					}
 					break;
 				case 56 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:167:5: 'Chinese Crested'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:168:5: 'Chinese Crested'
 					{
 					match("Chinese Crested"); 
 
 					}
 					break;
 				case 57 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:168:5: 'Chinese Shar-Pei'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:169:5: 'Chinese Shar-Pei'
 					{
 					match("Chinese Shar-Pei"); 
 
 					}
 					break;
 				case 58 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:169:5: 'Cirneco dell’Etna'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:170:5: 'Cirneco dell’Etna'
 					{
 					match("Cirneco dell’Etna"); 
 
 					}
 					break;
 				case 59 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:170:5: 'Chow Chow'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:171:5: 'Chow Chow'
 					{
 					match("Chow Chow"); 
 
 					}
 					break;
 				case 60 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:171:5: 'Clumber Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:172:5: 'Clumber Spaniel'
 					{
 					match("Clumber Spaniel"); 
 
 					}
 					break;
 				case 61 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:172:5: 'Cocker Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:173:5: 'Cocker Spaniel'
 					{
 					match("Cocker Spaniel"); 
 
 					}
 					break;
 				case 62 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:173:5: 'Collie'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:174:5: 'Collie'
 					{
 					match("Collie"); 
 
 					}
 					break;
 				case 63 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:174:5: 'Curly-Coated Retriever'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:175:5: 'Curly-Coated Retriever'
 					{
 					match("Curly-Coated Retriever"); 
 
 					}
 					break;
 				case 64 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:175:5: 'Dachshund'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:176:5: 'Dachshund'
 					{
 					match("Dachshund"); 
 
 					}
 					break;
 				case 65 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:176:5: 'Dalmatian'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:177:5: 'Dalmatian'
 					{
 					match("Dalmatian"); 
 
 					}
 					break;
 				case 66 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:177:5: 'Dandie Dinmont Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:178:5: 'Dandie Dinmont Terrier'
 					{
 					match("Dandie Dinmont Terrier"); 
 
 					}
 					break;
 				case 67 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:178:5: 'Doberman Pinscher'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:179:5: 'Doberman Pinscher'
 					{
 					match("Doberman Pinscher"); 
 
 					}
 					break;
 				case 68 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:179:5: 'Dogo Argentine'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:180:5: 'Dogo Argentine'
 					{
 					match("Dogo Argentine"); 
 
 					}
 					break;
 				case 69 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:180:5: 'Dogue de Bordeaux'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:181:5: 'Dogue de Bordeaux'
 					{
 					match("Dogue de Bordeaux"); 
 
 					}
 					break;
 				case 70 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:181:5: 'Dogues de Bordeaux'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:182:5: 'Dogues de Bordeaux'
 					{
 					match("Dogues de Bordeaux"); 
 
 					}
 					break;
 				case 71 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:182:5: 'English Cocker Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:183:5: 'English Cocker Spaniel'
 					{
 					match("English Cocker Spaniel"); 
 
 					}
 					break;
 				case 72 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:183:5: 'English Foxhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:184:5: 'English Foxhound'
 					{
 					match("English Foxhound"); 
 
 					}
 					break;
 				case 73 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:184:5: 'English Setter'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:185:5: 'English Setter'
 					{
 					match("English Setter"); 
 
 					}
 					break;
 				case 74 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:185:5: 'English Springer Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:186:5: 'English Springer Spaniel'
 					{
 					match("English Springer Spaniel"); 
 
 					}
 					break;
 				case 75 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:186:5: 'English Toy Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:187:5: 'English Toy Spaniel'
 					{
 					match("English Toy Spaniel"); 
 
 					}
 					break;
 				case 76 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:187:5: 'Entlebucher Mountain Dog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:188:5: 'Entlebucher Mountain Dog'
 					{
 					match("Entlebucher Mountain Dog"); 
 
 					}
 					break;
 				case 77 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:188:5: 'Field Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:189:5: 'Field Spaniel'
 					{
 					match("Field Spaniel"); 
 
 					}
 					break;
 				case 78 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:189:5: 'Finnish Lapphund'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:190:5: 'Finnish Lapphund'
 					{
 					match("Finnish Lapphund"); 
 
 					}
 					break;
 				case 79 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:190:5: 'Finnish Spitz'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:191:5: 'Finnish Spitz'
 					{
 					match("Finnish Spitz"); 
 
 					}
 					break;
 				case 80 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:191:5: 'Flat-Coated Retriever'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:192:5: 'Flat-Coated Retriever'
 					{
 					match("Flat-Coated Retriever"); 
 
 					}
 					break;
 				case 81 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:192:5: 'Fox Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:193:5: 'Fox Terrier'
 					{
 					match("Fox Terrier"); 
 
 					}
 					break;
 				case 82 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:193:5: 'French Bulldog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:194:5: 'French Bulldog'
 					{
 					match("French Bulldog"); 
 
 					}
 					break;
 				case 83 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:194:5: 'German Pinscher'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:195:5: 'German Pinscher'
 					{
 					match("German Pinscher"); 
 
 					}
 					break;
 				case 84 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:195:5: 'German Shepherd Dog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:196:5: 'German Shepherd Dog'
 					{
 					match("German Shepherd Dog"); 
 
 					}
 					break;
 				case 85 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:196:5: 'German Shorthaired Pointer'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:197:5: 'German Shorthaired Pointer'
 					{
 					match("German Shorthaired Pointer"); 
 
 					}
 					break;
 				case 86 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:197:5: 'German Wirehaired Pointer'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:198:5: 'German Wirehaired Pointer'
 					{
 					match("German Wirehaired Pointer"); 
 
 					}
 					break;
 				case 87 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:198:5: 'Giant Schnauzer'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:199:5: 'Giant Schnauzer'
 					{
 					match("Giant Schnauzer"); 
 
 					}
 					break;
 				case 88 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:199:5: 'Glen of Imaal Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:200:5: 'Glen of Imaal Terrier'
 					{
 					match("Glen of Imaal Terrier"); 
 
 					}
 					break;
 				case 89 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:200:5: 'Golden Retriever'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:201:5: 'Golden Retriever'
 					{
 					match("Golden Retriever"); 
 
 					}
 					break;
 				case 90 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:201:5: 'Gordon Setter'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:202:5: 'Gordon Setter'
 					{
 					match("Gordon Setter"); 
 
 					}
 					break;
 				case 91 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:202:5: 'Great Dane'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:203:5: 'Great Dane'
 					{
 					match("Great Dane"); 
 
 					}
 					break;
 				case 92 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:203:5: 'Great Pyrenees'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:204:5: 'Great Pyrenees'
 					{
 					match("Great Pyrenees"); 
 
 					}
 					break;
 				case 93 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:204:5: 'Greater Swiss Mountain Dog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:205:5: 'Greater Swiss Mountain Dog'
 					{
 					match("Greater Swiss Mountain Dog"); 
 
 					}
 					break;
 				case 94 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:205:5: 'Greyhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:206:5: 'Greyhound'
 					{
 					match("Greyhound"); 
 
 					}
 					break;
 				case 95 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:206:5: 'Harrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:207:5: 'Harrier'
 					{
 					match("Harrier"); 
 
 					}
 					break;
 				case 96 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:207:5: 'Havanese'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:208:5: 'Havanese'
 					{
 					match("Havanese"); 
 
 					}
 					break;
 				case 97 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:208:5: 'Ibizan Hound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:209:5: 'Ibizan Hound'
 					{
 					match("Ibizan Hound"); 
 
 					}
 					break;
 				case 98 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:209:5: 'Icelandic Sheepdog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:210:5: 'Icelandic Sheepdog'
 					{
 					match("Icelandic Sheepdog"); 
 
 					}
 					break;
 				case 99 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:210:5: 'Irish Red and White Setter'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:211:5: 'Irish Red and White Setter'
 					{
 					match("Irish Red and White Setter"); 
 
 					}
 					break;
 				case 100 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:211:5: 'Irish Setter'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:212:5: 'Irish Setter'
 					{
 					match("Irish Setter"); 
 
 					}
 					break;
 				case 101 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:212:5: 'Irish Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:213:5: 'Irish Terrier'
 					{
 					match("Irish Terrier"); 
 
 					}
 					break;
 				case 102 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:213:5: 'Irish Water Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:214:5: 'Irish Water Spaniel'
 					{
 					match("Irish Water Spaniel"); 
 
 					}
 					break;
 				case 103 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:214:5: 'Irish Wolfhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:215:5: 'Irish Wolfhound'
 					{
 					match("Irish Wolfhound"); 
 
 					}
 					break;
 				case 104 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:215:5: 'Italian Greyhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:216:5: 'Italian Greyhound'
 					{
 					match("Italian Greyhound"); 
 
 					}
 					break;
 				case 105 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:216:5: 'Japanese Chin'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:217:5: 'Japanese Chin'
 					{
 					match("Japanese Chin"); 
 
 					}
 					break;
 				case 106 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:217:5: 'Keeshond'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:218:5: 'Keeshond'
 					{
 					match("Keeshond"); 
 
 					}
 					break;
 				case 107 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:218:5: 'Keeshonden'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:219:5: 'Keeshonden'
 					{
 					match("Keeshonden"); 
 
 					}
 					break;
 				case 108 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:219:5: 'Kerry Blue Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:220:5: 'Kerry Blue Terrier'
 					{
 					match("Kerry Blue Terrier"); 
 
 					}
 					break;
 				case 109 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:220:5: 'Komondor'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:221:5: 'Komondor'
 					{
 					match("Komondor"); 
 
 					}
 					break;
 				case 110 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:221:5: 'Kuvasz'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:222:5: 'Kuvasz'
 					{
 					match("Kuvasz"); 
 
 					}
 					break;
 				case 111 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:222:5: 'Kuvaszok'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:223:5: 'Kuvaszok'
 					{
 					match("Kuvaszok"); 
 
 					}
 					break;
 				case 112 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:223:5: 'Labrador Retriever'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:224:5: 'Labrador Retriever'
 					{
 					match("Labrador Retriever"); 
 
 					}
 					break;
 				case 113 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:224:5: 'Lagotto Romagnolo'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:225:5: 'Lagotto Romagnolo'
 					{
 					match("Lagotto Romagnolo"); 
 
 					}
 					break;
 				case 114 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:225:5: 'Lakeland Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:226:5: 'Lakeland Terrier'
 					{
 					match("Lakeland Terrier"); 
 
 					}
 					break;
 				case 115 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:226:5: 'Leonberger'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:227:5: 'Leonberger'
 					{
 					match("Leonberger"); 
 
 					}
 					break;
 				case 116 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:227:5: 'Lhasa Apso'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:228:5: 'Lhasa Apso'
 					{
 					match("Lhasa Apso"); 
 
 					}
 					break;
 				case 117 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:228:5: 'Löwchen'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:229:5: 'Löwchen'
 					{
 					match("Löwchen"); 
 
 					}
 					break;
 				case 118 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:229:5: 'Lowchen'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:230:5: 'Lowchen'
 					{
 					match("Lowchen"); 
 
 					}
 					break;
 				case 119 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:230:5: 'Maltese'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:231:5: 'Maltese'
 					{
 					match("Maltese"); 
 
 					}
 					break;
 				case 120 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:231:5: 'Manchester Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:232:5: 'Manchester Terrier'
 					{
 					match("Manchester Terrier"); 
 
 					}
 					break;
 				case 121 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:232:5: 'Mastiff'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:233:5: 'Mastiff'
 					{
 					match("Mastiff"); 
 
 					}
 					break;
 				case 122 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:233:5: 'Miniature American Shepherd'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:234:5: 'Miniature American Shepherd'
 					{
 					match("Miniature American Shepherd"); 
 
 					}
 					break;
 				case 123 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:234:5: 'Miniature Bull Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:235:5: 'Miniature Bull Terrier'
 					{
 					match("Miniature Bull Terrier"); 
 
 					}
 					break;
 				case 124 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:235:5: 'Miniature Pinscher'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:236:5: 'Miniature Pinscher'
 					{
 					match("Miniature Pinscher"); 
 
 					}
 					break;
 				case 125 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:236:5: 'Miniature Schnauzer'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:237:5: 'Miniature Schnauzer'
 					{
 					match("Miniature Schnauzer"); 
 
 					}
 					break;
 				case 126 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:237:5: 'Neapolitan Mastiff'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:238:5: 'Neapolitan Mastiff'
 					{
 					match("Neapolitan Mastiff"); 
 
 					}
 					break;
 				case 127 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:238:5: 'Newfoundland'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:239:5: 'Newfoundland'
 					{
 					match("Newfoundland"); 
 
 					}
 					break;
 				case 128 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:239:5: 'Norfolk Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:240:5: 'Norfolk Terrier'
 					{
 					match("Norfolk Terrier"); 
 
 					}
 					break;
 				case 129 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:240:5: 'Norwegian Buhund'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:241:5: 'Norwegian Buhund'
 					{
 					match("Norwegian Buhund"); 
 
 					}
 					break;
 				case 130 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:241:5: 'Norwegian Elkhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:242:5: 'Norwegian Elkhound'
 					{
 					match("Norwegian Elkhound"); 
 
 					}
 					break;
 				case 131 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:242:5: 'Norwegian Lundehund'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:243:5: 'Norwegian Lundehund'
 					{
 					match("Norwegian Lundehund"); 
 
 					}
 					break;
 				case 132 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:243:5: 'Norwich Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:244:5: 'Norwich Terrier'
 					{
 					match("Norwich Terrier"); 
 
 					}
 					break;
 				case 133 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:244:5: 'Nova Scotia Duck Tolling Retriever'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:245:5: 'Nova Scotia Duck Tolling Retriever'
 					{
 					match("Nova Scotia Duck Tolling Retriever"); 
 
 					}
 					break;
 				case 134 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:245:5: 'Old English Sheepdog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:246:5: 'Old English Sheepdog'
 					{
 					match("Old English Sheepdog"); 
 
 					}
 					break;
 				case 135 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:246:5: 'Otterhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:247:5: 'Otterhound'
 					{
 					match("Otterhound"); 
 
 					}
 					break;
 				case 136 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:247:5: 'Papillon'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:248:5: 'Papillon'
 					{
 					match("Papillon"); 
 
 					}
 					break;
 				case 137 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:248:5: 'Parson Russell Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:249:5: 'Parson Russell Terrier'
 					{
 					match("Parson Russell Terrier"); 
 
 					}
 					break;
 				case 138 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:249:5: 'Pekingese'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:250:5: 'Pekingese'
 					{
 					match("Pekingese"); 
 
 					}
 					break;
 				case 139 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:250:5: 'Pembroke Welsh Corgi'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:251:5: 'Pembroke Welsh Corgi'
 					{
 					match("Pembroke Welsh Corgi"); 
 
 					}
 					break;
 				case 140 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:251:5: 'Petit Basset Griffon Vendéen'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:252:5: 'Petit Basset Griffon Vendéen'
 					{
 					match("Petit Basset Griffon Vendéen"); 
 
 					}
 					break;
 				case 141 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:252:5: 'Petits Bassets Griffons Vendeen'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:253:5: 'Petits Bassets Griffons Vendeen'
 					{
 					match("Petits Bassets Griffons Vendeen"); 
 
 					}
 					break;
 				case 142 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:253:5: 'Pharaoh Hound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:254:5: 'Pharaoh Hound'
 					{
 					match("Pharaoh Hound"); 
 
 					}
 					break;
 				case 143 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:254:5: 'Plott'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:255:5: 'Plott'
 					{
 					match("Plott"); 
 
 					}
 					break;
 				case 144 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:255:5: 'Pointer'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:256:5: 'Pointer'
 					{
 					match("Pointer"); 
 
 					}
 					break;
 				case 145 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:256:5: 'Polish Lowland Sheepdog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:257:5: 'Polish Lowland Sheepdog'
 					{
 					match("Polish Lowland Sheepdog"); 
 
 					}
 					break;
 				case 146 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:257:5: 'Pomeranian'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:258:5: 'Pomeranian'
 					{
 					match("Pomeranian"); 
 
 					}
 					break;
 				case 147 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:258:5: 'Poodle'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:259:5: 'Poodle'
 					{
 					match("Poodle"); 
 
 					}
 					break;
 				case 148 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:259:5: 'Portuguese Podengo Pequenos'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:260:5: 'Portuguese Podengo Pequenos'
 					{
 					match("Portuguese Podengo Pequenos"); 
 
 					}
 					break;
 				case 149 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:260:5: 'Portuguese Water Dog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:261:5: 'Portuguese Water Dog'
 					{
 					match("Portuguese Water Dog"); 
 
 					}
 					break;
 				case 150 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:261:5: 'Pug'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:262:5: 'Pug'
 					{
 					match("Pug"); 
 
 					}
 					break;
 				case 151 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:262:5: 'Puli'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:263:5: 'Puli'
 					{
 					match("Puli"); 
 
 					}
 					break;
 				case 152 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:263:5: 'Pulik'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:264:5: 'Pulik'
 					{
 					match("Pulik"); 
 
 					}
 					break;
 				case 153 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:264:5: 'Pyrenean Shepherd'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:265:5: 'Pyrenean Shepherd'
 					{
 					match("Pyrenean Shepherd"); 
 
 					}
 					break;
 				case 154 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:265:5: 'Rat Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:266:5: 'Rat Terrier'
 					{
 					match("Rat Terrier"); 
 
 					}
 					break;
 				case 155 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:266:5: 'Redbone Coonhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:267:5: 'Redbone Coonhound'
 					{
 					match("Redbone Coonhound"); 
 
 					}
 					break;
 				case 156 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:267:5: 'Retrievers'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:268:5: 'Retrievers'
 					{
 					match("Retrievers"); 
 
 					}
 					break;
 				case 157 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:268:5: 'Rhodesian Ridgeback'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:269:5: 'Rhodesian Ridgeback'
 					{
 					match("Rhodesian Ridgeback"); 
 
 					}
 					break;
 				case 158 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:269:5: 'Rottweiler'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:270:5: 'Rottweiler'
 					{
 					match("Rottweiler"); 
 
 					}
 					break;
 				case 159 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:270:5: 'Russell Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:271:5: 'Russell Terrier'
 					{
 					match("Russell Terrier"); 
 
 					}
 					break;
 				case 160 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:271:5: 'Saint Bernard'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:272:5: 'Saint Bernard'
 					{
 					match("Saint Bernard"); 
 
 					}
 					break;
 				case 161 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:272:5: 'Saluki'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:273:5: 'Saluki'
 					{
 					match("Saluki"); 
 
 					}
 					break;
 				case 162 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:273:5: 'Samoyed'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:274:5: 'Samoyed'
 					{
 					match("Samoyed"); 
 
 					}
 					break;
 				case 163 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:274:5: 'Schipperke'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:275:5: 'Schipperke'
 					{
 					match("Schipperke"); 
 
 					}
 					break;
 				case 164 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:275:5: 'Scottish Deerhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:276:5: 'Scottish Deerhound'
 					{
 					match("Scottish Deerhound"); 
 
 					}
 					break;
 				case 165 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:276:5: 'Scottish Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:277:5: 'Scottish Terrier'
 					{
 					match("Scottish Terrier"); 
 
 					}
 					break;
 				case 166 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:277:5: 'Sealyham Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:278:5: 'Sealyham Terrier'
 					{
 					match("Sealyham Terrier"); 
 
 					}
 					break;
 				case 167 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:278:5: 'Setters'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:279:5: 'Setters'
 					{
 					match("Setters"); 
 
 					}
 					break;
 				case 168 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:279:5: 'Shetland Sheepdog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:280:5: 'Shetland Sheepdog'
 					{
 					match("Shetland Sheepdog"); 
 
 					}
 					break;
 				case 169 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:280:5: 'Shiba Inu'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:281:5: 'Shiba Inu'
 					{
 					match("Shiba Inu"); 
 
 					}
 					break;
 				case 170 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:281:5: 'Shih Tzu'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:282:5: 'Shih Tzu'
 					{
 					match("Shih Tzu"); 
 
 					}
 					break;
 				case 171 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:282:5: 'Siberian Husky'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:283:5: 'Siberian Husky'
 					{
 					match("Siberian Husky"); 
 
 					}
 					break;
 				case 172 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:283:5: 'Siberian Huskies'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:284:5: 'Siberian Huskies'
 					{
 					match("Siberian Huskies"); 
 
 					}
 					break;
 				case 173 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:284:5: 'Silky Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:285:5: 'Silky Terrier'
 					{
 					match("Silky Terrier"); 
 
 					}
 					break;
 				case 174 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:285:5: 'Skye Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:286:5: 'Skye Terrier'
 					{
 					match("Skye Terrier"); 
 
 					}
 					break;
 				case 175 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:286:5: 'Soft Coated Wheaten Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:287:5: 'Soft Coated Wheaten Terrier'
 					{
 					match("Soft Coated Wheaten Terrier"); 
 
 					}
 					break;
 				case 176 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:287:5: 'Spaniels'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:288:5: 'Spaniels'
 					{
 					match("Spaniels"); 
 
 					}
 					break;
 				case 177 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:288:5: 'Spinone Italiano'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:289:5: 'Spinone Italiano'
 					{
 					match("Spinone Italiano"); 
 
 					}
 					break;
 				case 178 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:289:5: 'Spinoni Italiani'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:290:5: 'Spinoni Italiani'
 					{
 					match("Spinoni Italiani"); 
 
 					}
 					break;
 				case 179 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:290:5: 'Staffordshire Bull Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:291:5: 'Staffordshire Bull Terrier'
 					{
 					match("Staffordshire Bull Terrier"); 
 
 					}
 					break;
 				case 180 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:291:5: 'Standard Schnauzer'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:292:5: 'Standard Schnauzer'
 					{
 					match("Standard Schnauzer"); 
 
 					}
 					break;
 				case 181 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:292:5: 'Sussex Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:293:5: 'Sussex Spaniel'
 					{
 					match("Sussex Spaniel"); 
 
 					}
 					break;
 				case 182 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:293:5: 'Swedish Vallhund'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:294:5: 'Swedish Vallhund'
 					{
 					match("Swedish Vallhund"); 
 
 					}
 					break;
 				case 183 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:294:5: 'Tibetan Mastiff'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:295:5: 'Tibetan Mastiff'
 					{
 					match("Tibetan Mastiff"); 
 
 					}
 					break;
 				case 184 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:295:5: 'Tibetan Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:296:5: 'Tibetan Spaniel'
 					{
 					match("Tibetan Spaniel"); 
 
 					}
 					break;
 				case 185 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:296:5: 'Tibetan Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:297:5: 'Tibetan Terrier'
 					{
 					match("Tibetan Terrier"); 
 
 					}
 					break;
 				case 186 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:297:5: 'Toy Fox Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:298:5: 'Toy Fox Terrier'
 					{
 					match("Toy Fox Terrier"); 
 
 					}
 					break;
 				case 187 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:298:5: 'Treeing Walker Coonhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:299:5: 'Treeing Walker Coonhound'
 					{
 					match("Treeing Walker Coonhound"); 
 
 					}
 					break;
 				case 188 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:299:5: 'Vizsla'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:300:5: 'Vizsla'
 					{
 					match("Vizsla"); 
 
 					}
 					break;
 				case 189 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:300:5: 'Weimaraner'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:301:5: 'Weimaraner'
 					{
 					match("Weimaraner"); 
 
 					}
 					break;
 				case 190 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:301:5: 'Welsh Springer Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:302:5: 'Welsh Springer Spaniel'
 					{
 					match("Welsh Springer Spaniel"); 
 
 					}
 					break;
 				case 191 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:302:5: 'Welsh Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:303:5: 'Welsh Terrier'
 					{
 					match("Welsh Terrier"); 
 
 					}
 					break;
 				case 192 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:303:5: 'West Highland White Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:304:5: 'West Highland White Terrier'
 					{
 					match("West Highland White Terrier"); 
 
 					}
 					break;
 				case 193 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:304:5: 'Whippet'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:305:5: 'Whippet'
 					{
 					match("Whippet"); 
 
 					}
 					break;
 				case 194 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:305:5: 'Wire Fox Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:306:5: 'Wire Fox Terrier'
 					{
 					match("Wire Fox Terrier"); 
 
 					}
 					break;
 				case 195 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:306:5: 'Wirehaired Pointing Griffon'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:307:5: 'Wirehaired Pointing Griffon'
 					{
 					match("Wirehaired Pointing Griffon"); 
 
 					}
 					break;
 				case 196 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:307:5: 'Xoloitzcuintli'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:308:2: 'Wirehaired Vizsla'
+					{
+					match("Wirehaired Vizsla"); 
+
+					}
+					break;
+				case 197 :
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:309:5: 'Xoloitzcuintli'
 					{
 					match("Xoloitzcuintli"); 
 
 					}
 					break;
-				case 197 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:308:5: 'Yorkshire Terrier'
+				case 198 :
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:310:5: 'Yorkshire Terrier'
 					{
 					match("Yorkshire Terrier"); 
 
@@ -1770,13 +1777,13 @@ public class testLexer extends Lexer {
 		try {
 			int _type = BREED_NAME;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:311:5: ({...}? => ( FRAG_BREED_NAME_SINGLE | FRAG_BREED_NAME_ALT ) ( 's' )? ( WS )? ( '(' FRAG_BREED_NAME_CATEGORY ')' ( WS )? ( FRAG_BREED_NAME_CATEGORY_SUFFIX )? )? ( BREED_NAME_SUFFIX )? )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:311:7: {...}? => ( FRAG_BREED_NAME_SINGLE | FRAG_BREED_NAME_ALT ) ( 's' )? ( WS )? ( '(' FRAG_BREED_NAME_CATEGORY ')' ( WS )? ( FRAG_BREED_NAME_CATEGORY_SUFFIX )? )? ( BREED_NAME_SUFFIX )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:313:5: ({...}? => ( FRAG_BREED_NAME_SINGLE | FRAG_BREED_NAME_ALT ) ( 's' )? ( WS )? ( '(' FRAG_BREED_NAME_CATEGORY ')' ( WS )? ( FRAG_BREED_NAME_CATEGORY_SUFFIX )? )? ( BREED_NAME_SUFFIX )? )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:313:7: {...}? => ( FRAG_BREED_NAME_SINGLE | FRAG_BREED_NAME_ALT ) ( 's' )? ( WS )? ( '(' FRAG_BREED_NAME_CATEGORY ')' ( WS )? ( FRAG_BREED_NAME_CATEGORY_SUFFIX )? )? ( BREED_NAME_SUFFIX )?
 			{
 			if ( !((allowBreed)) ) {
 				throw new FailedPredicateException(input, "BREED_NAME", "allowBreed");
 			}
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:311:22: ( FRAG_BREED_NAME_SINGLE | FRAG_BREED_NAME_ALT )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:313:22: ( FRAG_BREED_NAME_SINGLE | FRAG_BREED_NAME_ALT )
 			int alt3=2;
 			int LA3_0 = input.LA(1);
 			if ( ((LA3_0 >= 'A' && LA3_0 <= 'P')||(LA3_0 >= 'R' && LA3_0 <= 'T')||(LA3_0 >= 'W' && LA3_0 <= 'Y')) && ((allowBreed))) {
@@ -1809,14 +1816,14 @@ public class testLexer extends Lexer {
 			}
 			switch (alt3) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:311:23: FRAG_BREED_NAME_SINGLE
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:313:23: FRAG_BREED_NAME_SINGLE
 					{
 					mFRAG_BREED_NAME_SINGLE(); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:311:46: FRAG_BREED_NAME_ALT
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:313:46: FRAG_BREED_NAME_ALT
 					{
 					mFRAG_BREED_NAME_ALT(); 
 
@@ -1825,7 +1832,7 @@ public class testLexer extends Lexer {
 
 			}
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:311:67: ( 's' )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:313:67: ( 's' )?
 			int alt4=2;
 			int LA4_0 = input.LA(1);
 			if ( (LA4_0=='s') ) {
@@ -1833,7 +1840,7 @@ public class testLexer extends Lexer {
 			}
 			switch (alt4) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:311:67: 's'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:313:67: 's'
 					{
 					match('s'); 
 					}
@@ -1841,7 +1848,7 @@ public class testLexer extends Lexer {
 
 			}
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:311:72: ( WS )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:313:72: ( WS )?
 			int alt5=2;
 			int LA5_0 = input.LA(1);
 			if ( ((LA5_0 >= '\t' && LA5_0 <= '\n')||LA5_0=='\r'||LA5_0==' ') ) {
@@ -1849,7 +1856,7 @@ public class testLexer extends Lexer {
 			}
 			switch (alt5) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:311:72: WS
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:313:72: WS
 					{
 					mWS(); 
 
@@ -1858,7 +1865,7 @@ public class testLexer extends Lexer {
 
 			}
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:311:76: ( '(' FRAG_BREED_NAME_CATEGORY ')' ( WS )? ( FRAG_BREED_NAME_CATEGORY_SUFFIX )? )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:313:76: ( '(' FRAG_BREED_NAME_CATEGORY ')' ( WS )? ( FRAG_BREED_NAME_CATEGORY_SUFFIX )? )?
 			int alt8=2;
 			int LA8_0 = input.LA(1);
 			if ( (LA8_0=='(') ) {
@@ -1878,13 +1885,13 @@ public class testLexer extends Lexer {
 			}
 			switch (alt8) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:311:77: '(' FRAG_BREED_NAME_CATEGORY ')' ( WS )? ( FRAG_BREED_NAME_CATEGORY_SUFFIX )?
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:313:77: '(' FRAG_BREED_NAME_CATEGORY ')' ( WS )? ( FRAG_BREED_NAME_CATEGORY_SUFFIX )?
 					{
 					match('('); 
 					mFRAG_BREED_NAME_CATEGORY(); 
 
 					match(')'); 
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:311:110: ( WS )?
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:313:110: ( WS )?
 					int alt6=2;
 					int LA6_0 = input.LA(1);
 					if ( ((LA6_0 >= '\t' && LA6_0 <= '\n')||LA6_0=='\r'||LA6_0==' ') ) {
@@ -1892,7 +1899,7 @@ public class testLexer extends Lexer {
 					}
 					switch (alt6) {
 						case 1 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:311:110: WS
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:313:110: WS
 							{
 							mWS(); 
 
@@ -1901,7 +1908,7 @@ public class testLexer extends Lexer {
 
 					}
 
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:311:114: ( FRAG_BREED_NAME_CATEGORY_SUFFIX )?
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:313:114: ( FRAG_BREED_NAME_CATEGORY_SUFFIX )?
 					int alt7=2;
 					int LA7_0 = input.LA(1);
 					if ( ((LA7_0 >= 'A' && LA7_0 <= 'B')||LA7_0=='P') ) {
@@ -1909,7 +1916,7 @@ public class testLexer extends Lexer {
 					}
 					switch (alt7) {
 						case 1 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:311:114: FRAG_BREED_NAME_CATEGORY_SUFFIX
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:313:114: FRAG_BREED_NAME_CATEGORY_SUFFIX
 							{
 							mFRAG_BREED_NAME_CATEGORY_SUFFIX(); 
 
@@ -1923,7 +1930,7 @@ public class testLexer extends Lexer {
 
 			}
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:311:150: ( BREED_NAME_SUFFIX )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:313:150: ( BREED_NAME_SUFFIX )?
 			int alt9=2;
 			int LA9_0 = input.LA(1);
 			if ( (LA9_0=='(') ) {
@@ -1931,7 +1938,7 @@ public class testLexer extends Lexer {
 			}
 			switch (alt9) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:311:150: BREED_NAME_SUFFIX
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:313:150: BREED_NAME_SUFFIX
 					{
 					mBREED_NAME_SUFFIX(); 
 
@@ -1956,11 +1963,11 @@ public class testLexer extends Lexer {
 		try {
 			int _type = SPECIAL_SUFFIX;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:314:5: ( ( FRAG_BREED_NAME_SPECIAL_SUFFIX ) )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:314:9: ( FRAG_BREED_NAME_SPECIAL_SUFFIX )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:316:5: ( ( FRAG_BREED_NAME_SPECIAL_SUFFIX ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:316:9: ( FRAG_BREED_NAME_SPECIAL_SUFFIX )
 			{
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:314:9: ( FRAG_BREED_NAME_SPECIAL_SUFFIX )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:314:10: FRAG_BREED_NAME_SPECIAL_SUFFIX
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:316:9: ( FRAG_BREED_NAME_SPECIAL_SUFFIX )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:316:10: FRAG_BREED_NAME_SPECIAL_SUFFIX
 			{
 			mFRAG_BREED_NAME_SPECIAL_SUFFIX(); 
 
@@ -1982,7 +1989,7 @@ public class testLexer extends Lexer {
 		try {
 			int _type = BREED_NAME_SUFFIX;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:317:5: ( '(Misc. Dog)' | '(Misc. Dogs)' | '(Misc. Bitch)' | '(Misc. Bitches)' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:319:5: ( '(Misc. Dog)' | '(Misc. Dogs)' | '(Misc. Bitch)' | '(Misc. Bitches)' )
 			int alt10=4;
 			int LA10_0 = input.LA(1);
 			if ( (LA10_0=='(') ) {
@@ -2228,28 +2235,28 @@ public class testLexer extends Lexer {
 			}
 			switch (alt10) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:317:9: '(Misc. Dog)'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:319:9: '(Misc. Dog)'
 					{
 					match("(Misc. Dog)"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:317:23: '(Misc. Dogs)'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:319:23: '(Misc. Dogs)'
 					{
 					match("(Misc. Dogs)"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:317:38: '(Misc. Bitch)'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:319:38: '(Misc. Bitch)'
 					{
 					match("(Misc. Bitch)"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:317:54: '(Misc. Bitches)'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:319:54: '(Misc. Bitches)'
 					{
 					match("(Misc. Bitches)"); 
 
@@ -2269,10 +2276,10 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_BREED_NAME_SPECIAL_SUFFIX"
 	public final void mFRAG_BREED_NAME_SPECIAL_SUFFIX() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:320:5: ( ( 'Sweepstakes' | 'Entry' | 'Entries' | 'Veterans' ) )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:320:9: ( 'Sweepstakes' | 'Entry' | 'Entries' | 'Veterans' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:322:5: ( ( 'Sweepstakes' | 'Entry' | 'Entries' | 'Veterans' ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:322:9: ( 'Sweepstakes' | 'Entry' | 'Entries' | 'Veterans' )
 			{
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:320:9: ( 'Sweepstakes' | 'Entry' | 'Entries' | 'Veterans' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:322:9: ( 'Sweepstakes' | 'Entry' | 'Entries' | 'Veterans' )
 			int alt11=4;
 			switch ( input.LA(1) ) {
 			case 'S':
@@ -2359,28 +2366,28 @@ public class testLexer extends Lexer {
 			}
 			switch (alt11) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:320:10: 'Sweepstakes'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:322:10: 'Sweepstakes'
 					{
 					match("Sweepstakes"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:320:24: 'Entry'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:322:24: 'Entry'
 					{
 					match("Entry"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:320:32: 'Entries'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:322:32: 'Entries'
 					{
 					match("Entries"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:320:42: 'Veterans'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:322:42: 'Veterans'
 					{
 					match("Veterans"); 
 
@@ -2401,7 +2408,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_BREED_NAME_ALT"
 	public final void mFRAG_BREED_NAME_ALT() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:321:29: ( 'Veteran Dog' | 'Veteran Bitch' | 'Veteran Bitche' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:323:29: ( 'Veteran Dog' | 'Veteran Bitch' | 'Veteran Bitche' )
 			int alt12=3;
 			int LA12_0 = input.LA(1);
 			if ( (LA12_0=='V') ) {
@@ -2602,21 +2609,21 @@ public class testLexer extends Lexer {
 			}
 			switch (alt12) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:321:33: 'Veteran Dog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:323:33: 'Veteran Dog'
 					{
 					match("Veteran Dog"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:321:47: 'Veteran Bitch'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:323:47: 'Veteran Bitch'
 					{
 					match("Veteran Bitch"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:321:63: 'Veteran Bitche'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:323:63: 'Veteran Bitche'
 					{
 					match("Veteran Bitche"); 
 
@@ -2634,7 +2641,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_BREED_NAME_CATEGORY_SUFFIX"
 	public final void mFRAG_BREED_NAME_CATEGORY_SUFFIX() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:323:5: ( 'Ascob' | 'Parti-Color' | 'Black' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:325:5: ( 'Ascob' | 'Parti-Color' | 'Black' )
 			int alt13=3;
 			switch ( input.LA(1) ) {
 			case 'A':
@@ -2659,21 +2666,21 @@ public class testLexer extends Lexer {
 			}
 			switch (alt13) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:323:9: 'Ascob'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:325:9: 'Ascob'
 					{
 					match("Ascob"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:323:17: 'Parti-Color'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:325:17: 'Parti-Color'
 					{
 					match("Parti-Color"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:323:31: 'Black'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:325:31: 'Black'
 					{
 					match("Black"); 
 
@@ -2691,257 +2698,257 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_BREED_NAME_CATEGORY"
 	public final void mFRAG_BREED_NAME_CATEGORY() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:325:5: ( '13 Inch' | '15 Inch' | 'Boykin' | 'B & P C' | 'Chesapeake Bay' | 'Clumber' | 'Cocker' | 'Colored' | 'Curly-Coated' | 'English' | 'English Cocker' | 'English Springer' | 'Field' | 'Flat-Coated' | 'German Shorthaired' | 'German Wirehaired' | 'Golden' | 'Gordon' | 'Irish' | 'Irish Water' | 'K C & R' | 'Labrador' | 'Long Coat' | 'Longhaired' | 'Miniature' | 'Nova Scotia Duck Tolling' | 'Rough' | 'Smooth' | 'Smooth Coat' | 'Standard' | 'Sussex' | 'Toy' | 'Welsh Springer' | 'White' | 'Wire' | 'Wirehaired' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:327:5: ( '13 Inch' | '15 Inch' | 'Boykin' | 'B & P C' | 'Chesapeake Bay' | 'Clumber' | 'Cocker' | 'Colored' | 'Curly-Coated' | 'English' | 'English Cocker' | 'English Springer' | 'Field' | 'Flat-Coated' | 'German Shorthaired' | 'German Wirehaired' | 'Golden' | 'Gordon' | 'Irish' | 'Irish Water' | 'K C & R' | 'Labrador' | 'Long Coat' | 'Longhaired' | 'Miniature' | 'Nova Scotia Duck Tolling' | 'Rough' | 'Smooth' | 'Smooth Coat' | 'Standard' | 'Sussex' | 'Toy' | 'Welsh Springer' | 'White' | 'Wire' | 'Wirehaired' )
 			int alt14=36;
 			alt14 = dfa14.predict(input);
 			switch (alt14) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:326:9: '13 Inch'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:328:9: '13 Inch'
 					{
 					match("13 Inch"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:327:9: '15 Inch'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:329:9: '15 Inch'
 					{
 					match("15 Inch"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:328:9: 'Boykin'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:330:9: 'Boykin'
 					{
 					match("Boykin"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:329:9: 'B & P C'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:331:9: 'B & P C'
 					{
 					match("B & P C"); 
 
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:330:9: 'Chesapeake Bay'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:332:9: 'Chesapeake Bay'
 					{
 					match("Chesapeake Bay"); 
 
 					}
 					break;
 				case 6 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:331:9: 'Clumber'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:333:9: 'Clumber'
 					{
 					match("Clumber"); 
 
 					}
 					break;
 				case 7 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:332:9: 'Cocker'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:334:9: 'Cocker'
 					{
 					match("Cocker"); 
 
 					}
 					break;
 				case 8 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:333:9: 'Colored'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:335:9: 'Colored'
 					{
 					match("Colored"); 
 
 					}
 					break;
 				case 9 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:334:9: 'Curly-Coated'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:336:9: 'Curly-Coated'
 					{
 					match("Curly-Coated"); 
 
 					}
 					break;
 				case 10 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:335:9: 'English'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:337:9: 'English'
 					{
 					match("English"); 
 
 					}
 					break;
 				case 11 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:336:9: 'English Cocker'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:338:9: 'English Cocker'
 					{
 					match("English Cocker"); 
 
 					}
 					break;
 				case 12 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:337:9: 'English Springer'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:339:9: 'English Springer'
 					{
 					match("English Springer"); 
 
 					}
 					break;
 				case 13 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:338:9: 'Field'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:340:9: 'Field'
 					{
 					match("Field"); 
 
 					}
 					break;
 				case 14 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:339:9: 'Flat-Coated'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:341:9: 'Flat-Coated'
 					{
 					match("Flat-Coated"); 
 
 					}
 					break;
 				case 15 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:340:9: 'German Shorthaired'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:342:9: 'German Shorthaired'
 					{
 					match("German Shorthaired"); 
 
 					}
 					break;
 				case 16 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:341:9: 'German Wirehaired'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:343:9: 'German Wirehaired'
 					{
 					match("German Wirehaired"); 
 
 					}
 					break;
 				case 17 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:342:9: 'Golden'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:344:9: 'Golden'
 					{
 					match("Golden"); 
 
 					}
 					break;
 				case 18 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:343:9: 'Gordon'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:345:9: 'Gordon'
 					{
 					match("Gordon"); 
 
 					}
 					break;
 				case 19 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:344:9: 'Irish'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:346:9: 'Irish'
 					{
 					match("Irish"); 
 
 					}
 					break;
 				case 20 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:345:9: 'Irish Water'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:347:9: 'Irish Water'
 					{
 					match("Irish Water"); 
 
 					}
 					break;
 				case 21 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:346:9: 'K C & R'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:348:9: 'K C & R'
 					{
 					match("K C & R"); 
 
 					}
 					break;
 				case 22 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:347:9: 'Labrador'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:349:9: 'Labrador'
 					{
 					match("Labrador"); 
 
 					}
 					break;
 				case 23 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:348:9: 'Long Coat'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:350:9: 'Long Coat'
 					{
 					match("Long Coat"); 
 
 					}
 					break;
 				case 24 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:349:9: 'Longhaired'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:351:9: 'Longhaired'
 					{
 					match("Longhaired"); 
 
 					}
 					break;
 				case 25 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:350:9: 'Miniature'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:352:9: 'Miniature'
 					{
 					match("Miniature"); 
 
 					}
 					break;
 				case 26 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:351:9: 'Nova Scotia Duck Tolling'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:353:9: 'Nova Scotia Duck Tolling'
 					{
 					match("Nova Scotia Duck Tolling"); 
 
 					}
 					break;
 				case 27 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:352:9: 'Rough'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:354:9: 'Rough'
 					{
 					match("Rough"); 
 
 					}
 					break;
 				case 28 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:353:9: 'Smooth'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:355:9: 'Smooth'
 					{
 					match("Smooth"); 
 
 					}
 					break;
 				case 29 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:354:9: 'Smooth Coat'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:356:9: 'Smooth Coat'
 					{
 					match("Smooth Coat"); 
 
 					}
 					break;
 				case 30 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:355:9: 'Standard'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:357:9: 'Standard'
 					{
 					match("Standard"); 
 
 					}
 					break;
 				case 31 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:356:9: 'Sussex'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:358:9: 'Sussex'
 					{
 					match("Sussex"); 
 
 					}
 					break;
 				case 32 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:357:9: 'Toy'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:359:9: 'Toy'
 					{
 					match("Toy"); 
 
 					}
 					break;
 				case 33 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:358:9: 'Welsh Springer'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:360:9: 'Welsh Springer'
 					{
 					match("Welsh Springer"); 
 
 					}
 					break;
 				case 34 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:359:9: 'White'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:361:9: 'White'
 					{
 					match("White"); 
 
 					}
 					break;
 				case 35 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:360:9: 'Wire'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:362:9: 'Wire'
 					{
 					match("Wire"); 
 
 					}
 					break;
 				case 36 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:361:9: 'Wirehaired'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:363:9: 'Wirehaired'
 					{
 					match("Wirehaired"); 
 
@@ -2959,13 +2966,13 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_GROUP_NAME"
 	public final void mFRAG_GROUP_NAME() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:369:2: ({...}? => ( 'HERDING GROUP' | 'TERRIER GROUP' | 'NON-SPORTING GROUP' | 'SPORTING GROUP' | 'TOY GROUP' | 'HOUND GROUP' | 'WORKING GROUP' | ( 'BEST IN SHOW' ) ) )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:369:3: {...}? => ( 'HERDING GROUP' | 'TERRIER GROUP' | 'NON-SPORTING GROUP' | 'SPORTING GROUP' | 'TOY GROUP' | 'HOUND GROUP' | 'WORKING GROUP' | ( 'BEST IN SHOW' ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:371:2: ({...}? => ( 'HERDING GROUP' | 'TERRIER GROUP' | 'NON-SPORTING GROUP' | 'SPORTING GROUP' | 'TOY GROUP' | 'HOUND GROUP' | 'WORKING GROUP' | ( 'BEST IN SHOW' ) ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:371:3: {...}? => ( 'HERDING GROUP' | 'TERRIER GROUP' | 'NON-SPORTING GROUP' | 'SPORTING GROUP' | 'TOY GROUP' | 'HOUND GROUP' | 'WORKING GROUP' | ( 'BEST IN SHOW' ) )
 			{
 			if ( !((allowGroup)) ) {
 				throw new FailedPredicateException(input, "FRAG_GROUP_NAME", "allowGroup");
 			}
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:369:18: ( 'HERDING GROUP' | 'TERRIER GROUP' | 'NON-SPORTING GROUP' | 'SPORTING GROUP' | 'TOY GROUP' | 'HOUND GROUP' | 'WORKING GROUP' | ( 'BEST IN SHOW' ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:371:18: ( 'HERDING GROUP' | 'TERRIER GROUP' | 'NON-SPORTING GROUP' | 'SPORTING GROUP' | 'TOY GROUP' | 'HOUND GROUP' | 'WORKING GROUP' | ( 'BEST IN SHOW' ) )
 			int alt15=8;
 			switch ( input.LA(1) ) {
 			case 'H':
@@ -3039,59 +3046,59 @@ public class testLexer extends Lexer {
 			}
 			switch (alt15) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:369:20: 'HERDING GROUP'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:371:20: 'HERDING GROUP'
 					{
 					match("HERDING GROUP"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:370:3: 'TERRIER GROUP'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:372:3: 'TERRIER GROUP'
 					{
 					match("TERRIER GROUP"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:371:3: 'NON-SPORTING GROUP'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:373:3: 'NON-SPORTING GROUP'
 					{
 					match("NON-SPORTING GROUP"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:372:3: 'SPORTING GROUP'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:374:3: 'SPORTING GROUP'
 					{
 					match("SPORTING GROUP"); 
 
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:373:3: 'TOY GROUP'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:375:3: 'TOY GROUP'
 					{
 					match("TOY GROUP"); 
 
 					}
 					break;
 				case 6 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:374:3: 'HOUND GROUP'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:376:3: 'HOUND GROUP'
 					{
 					match("HOUND GROUP"); 
 
 					}
 					break;
 				case 7 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:375:3: 'WORKING GROUP'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:377:3: 'WORKING GROUP'
 					{
 					match("WORKING GROUP"); 
 
 					}
 					break;
 				case 8 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:376:3: ( 'BEST IN SHOW' )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:378:3: ( 'BEST IN SHOW' )
 					{
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:376:3: ( 'BEST IN SHOW' )
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:376:4: 'BEST IN SHOW'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:378:3: ( 'BEST IN SHOW' )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:378:4: 'BEST IN SHOW'
 					{
 					match("BEST IN SHOW"); 
 
@@ -3115,7 +3122,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_SPECIAL_GROUP_NAME"
 	public final void mFRAG_SPECIAL_GROUP_NAME() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:379:2: ( 'VETERAN SWEEPSTAKES GROUP' | 'SWEEPSTAKES GROUP' | 'REGULAR VARIETY GROUP' | 'Toy Variety Group' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:381:2: ( 'VETERAN SWEEPSTAKES GROUP' | 'SWEEPSTAKES GROUP' | 'REGULAR VARIETY GROUP' | 'Toy Variety Group' )
 			int alt16=4;
 			switch ( input.LA(1) ) {
 			case 'V':
@@ -3145,28 +3152,28 @@ public class testLexer extends Lexer {
 			}
 			switch (alt16) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:380:3: 'VETERAN SWEEPSTAKES GROUP'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:382:3: 'VETERAN SWEEPSTAKES GROUP'
 					{
 					match("VETERAN SWEEPSTAKES GROUP"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:381:3: 'SWEEPSTAKES GROUP'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:383:3: 'SWEEPSTAKES GROUP'
 					{
 					match("SWEEPSTAKES GROUP"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:382:3: 'REGULAR VARIETY GROUP'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:384:3: 'REGULAR VARIETY GROUP'
 					{
 					match("REGULAR VARIETY GROUP"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:383:3: 'Toy Variety Group'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:385:3: 'Toy Variety Group'
 					{
 					match("Toy Variety Group"); 
 
@@ -3186,7 +3193,7 @@ public class testLexer extends Lexer {
 		try {
 			int _type = GROUP_RING;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:386:2: ( ( FRAG_GROUP_NAME ' - ' JUDGE_NAME ) | FRAG_SPECIAL_GROUP_NAME )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:388:2: ( ( FRAG_GROUP_NAME ' - ' JUDGE_NAME ) | FRAG_SPECIAL_GROUP_NAME )
 			int alt17=2;
 			int LA17_0 = input.LA(1);
 			if ( (LA17_0=='B'||LA17_0=='H'||LA17_0=='N'||LA17_0=='W') && ((allowGroup))) {
@@ -3242,10 +3249,10 @@ public class testLexer extends Lexer {
 			}
 			switch (alt17) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:386:4: ( FRAG_GROUP_NAME ' - ' JUDGE_NAME )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:388:4: ( FRAG_GROUP_NAME ' - ' JUDGE_NAME )
 					{
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:386:4: ( FRAG_GROUP_NAME ' - ' JUDGE_NAME )
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:386:5: FRAG_GROUP_NAME ' - ' JUDGE_NAME
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:388:4: ( FRAG_GROUP_NAME ' - ' JUDGE_NAME )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:388:5: FRAG_GROUP_NAME ' - ' JUDGE_NAME
 					{
 					mFRAG_GROUP_NAME(); 
 
@@ -3258,7 +3265,7 @@ public class testLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:386:39: FRAG_SPECIAL_GROUP_NAME
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:388:39: FRAG_SPECIAL_GROUP_NAME
 					{
 					mFRAG_SPECIAL_GROUP_NAME(); 
 
@@ -3278,7 +3285,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_MONTH"
 	public final void mFRAG_MONTH() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:389:23: ( 'January' | 'JANUARY' | 'February' | 'FEBRUARY' | 'March' | 'MARCH' | 'April' | 'APRIL' | 'May' | 'MAY' | 'June' | 'JUNE' | 'July' | 'JULY' | 'August' | 'AUGUST' | 'September' | 'SEPTEMBER' | 'October' | 'OCTOBER' | 'November' | 'NOVEMBER' | 'December' | 'DECEMBER' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:391:23: ( 'January' | 'JANUARY' | 'February' | 'FEBRUARY' | 'March' | 'MARCH' | 'April' | 'APRIL' | 'May' | 'MAY' | 'June' | 'JUNE' | 'July' | 'JULY' | 'August' | 'AUGUST' | 'September' | 'SEPTEMBER' | 'October' | 'OCTOBER' | 'November' | 'NOVEMBER' | 'December' | 'DECEMBER' )
 			int alt18=24;
 			switch ( input.LA(1) ) {
 			case 'J':
@@ -3564,168 +3571,168 @@ public class testLexer extends Lexer {
 			}
 			switch (alt18) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:389:27: 'January'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:391:27: 'January'
 					{
 					match("January"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:389:37: 'JANUARY'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:391:37: 'JANUARY'
 					{
 					match("JANUARY"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:390:14: 'February'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:392:14: 'February'
 					{
 					match("February"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:390:25: 'FEBRUARY'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:392:25: 'FEBRUARY'
 					{
 					match("FEBRUARY"); 
 
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:391:14: 'March'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:393:14: 'March'
 					{
 					match("March"); 
 
 					}
 					break;
 				case 6 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:391:22: 'MARCH'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:393:22: 'MARCH'
 					{
 					match("MARCH"); 
 
 					}
 					break;
 				case 7 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:392:14: 'April'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:394:14: 'April'
 					{
 					match("April"); 
 
 					}
 					break;
 				case 8 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:392:22: 'APRIL'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:394:22: 'APRIL'
 					{
 					match("APRIL"); 
 
 					}
 					break;
 				case 9 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:393:14: 'May'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:395:14: 'May'
 					{
 					match("May"); 
 
 					}
 					break;
 				case 10 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:393:20: 'MAY'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:395:20: 'MAY'
 					{
 					match("MAY"); 
 
 					}
 					break;
 				case 11 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:394:14: 'June'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:396:14: 'June'
 					{
 					match("June"); 
 
 					}
 					break;
 				case 12 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:394:21: 'JUNE'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:396:21: 'JUNE'
 					{
 					match("JUNE"); 
 
 					}
 					break;
 				case 13 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:395:14: 'July'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:397:14: 'July'
 					{
 					match("July"); 
 
 					}
 					break;
 				case 14 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:395:21: 'JULY'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:397:21: 'JULY'
 					{
 					match("JULY"); 
 
 					}
 					break;
 				case 15 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:396:14: 'August'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:398:14: 'August'
 					{
 					match("August"); 
 
 					}
 					break;
 				case 16 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:396:23: 'AUGUST'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:398:23: 'AUGUST'
 					{
 					match("AUGUST"); 
 
 					}
 					break;
 				case 17 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:397:14: 'September'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:399:14: 'September'
 					{
 					match("September"); 
 
 					}
 					break;
 				case 18 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:397:26: 'SEPTEMBER'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:399:26: 'SEPTEMBER'
 					{
 					match("SEPTEMBER"); 
 
 					}
 					break;
 				case 19 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:398:14: 'October'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:400:14: 'October'
 					{
 					match("October"); 
 
 					}
 					break;
 				case 20 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:398:24: 'OCTOBER'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:400:24: 'OCTOBER'
 					{
 					match("OCTOBER"); 
 
 					}
 					break;
 				case 21 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:399:14: 'November'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:401:14: 'November'
 					{
 					match("November"); 
 
 					}
 					break;
 				case 22 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:399:25: 'NOVEMBER'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:401:25: 'NOVEMBER'
 					{
 					match("NOVEMBER"); 
 
 					}
 					break;
 				case 23 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:400:14: 'December'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:402:14: 'December'
 					{
 					match("December"); 
 
 					}
 					break;
 				case 24 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:400:25: 'DECEMBER'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:402:25: 'DECEMBER'
 					{
 					match("DECEMBER"); 
 
@@ -3743,7 +3750,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "END_PUNCTUATION"
 	public final void mEND_PUNCTUATION() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:402:29: ( '!' | '?' | '.' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:404:29: ( '!' | '?' | '.' )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:
 			{
 			if ( input.LA(1)=='!'||input.LA(1)=='.'||input.LA(1)=='?' ) {
@@ -3766,7 +3773,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_RING"
 	public final void mFRAG_RING() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:403:25: ( 'RING' | 'Ring' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:405:25: ( 'RING' | 'Ring' )
 			int alt19=2;
 			int LA19_0 = input.LA(1);
 			if ( (LA19_0=='R') ) {
@@ -3796,14 +3803,14 @@ public class testLexer extends Lexer {
 			}
 			switch (alt19) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:403:29: 'RING'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:405:29: 'RING'
 					{
 					match("RING"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:403:36: 'Ring'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:405:36: 'Ring'
 					{
 					match("Ring"); 
 
@@ -3821,7 +3828,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_SPEC_CHAR"
 	public final void mFRAG_SPEC_CHAR() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:404:29: ( ',' | '_' | '-' | ';' | ':' | '\\'' | '’' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:406:29: ( ',' | '_' | '-' | ';' | ':' | '\\'' | '’' )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:
 			{
 			if ( input.LA(1)=='\''||(input.LA(1) >= ',' && input.LA(1) <= '-')||(input.LA(1) >= ':' && input.LA(1) <= ';')||input.LA(1)=='_'||input.LA(1)=='\u2019' ) {
@@ -3844,8 +3851,8 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_SPEC_WORD_CHAR"
 	public final void mFRAG_SPEC_WORD_CHAR() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:407:5: ( '&' )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:407:9: '&'
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:409:5: ( '&' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:409:9: '&'
 			{
 			match('&'); 
 			}
@@ -3860,7 +3867,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_TIME_LABEL"
 	public final void mFRAG_TIME_LABEL() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:410:5: ( 'am' | 'pm' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:412:5: ( 'am' | 'pm' )
 			int alt20=2;
 			int LA20_0 = input.LA(1);
 			if ( (LA20_0=='a') ) {
@@ -3876,14 +3883,14 @@ public class testLexer extends Lexer {
 			}
 			switch (alt20) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:410:9: 'am'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:412:9: 'am'
 					{
 					match("am"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:410:14: 'pm'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:412:14: 'pm'
 					{
 					match("pm"); 
 
@@ -3901,7 +3908,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_TITLE"
 	public final void mFRAG_TITLE() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:413:5: ( 'MR' | 'Mr' | 'MRS' | 'Mrs' | 'MS' | 'Ms' | 'MISS' | 'Miss' | 'DR' | 'Dr' | 'COL' | 'Col' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:415:5: ( 'MR' | 'Mr' | 'MRS' | 'Mrs' | 'MS' | 'Ms' | 'MISS' | 'Miss' | 'DR' | 'Dr' | 'COL' | 'Col' )
 			int alt21=12;
 			switch ( input.LA(1) ) {
 			case 'M':
@@ -4013,84 +4020,84 @@ public class testLexer extends Lexer {
 			}
 			switch (alt21) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:413:9: 'MR'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:415:9: 'MR'
 					{
 					match("MR"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:413:14: 'Mr'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:415:14: 'Mr'
 					{
 					match("Mr"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:414:9: 'MRS'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:416:9: 'MRS'
 					{
 					match("MRS"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:414:15: 'Mrs'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:416:15: 'Mrs'
 					{
 					match("Mrs"); 
 
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:415:9: 'MS'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:417:9: 'MS'
 					{
 					match("MS"); 
 
 					}
 					break;
 				case 6 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:415:14: 'Ms'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:417:14: 'Ms'
 					{
 					match("Ms"); 
 
 					}
 					break;
 				case 7 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:416:9: 'MISS'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:418:9: 'MISS'
 					{
 					match("MISS"); 
 
 					}
 					break;
 				case 8 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:416:16: 'Miss'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:418:16: 'Miss'
 					{
 					match("Miss"); 
 
 					}
 					break;
 				case 9 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:417:10: 'DR'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:419:10: 'DR'
 					{
 					match("DR"); 
 
 					}
 					break;
 				case 10 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:417:15: 'Dr'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:419:15: 'Dr'
 					{
 					match("Dr"); 
 
 					}
 					break;
 				case 11 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:418:9: 'COL'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:420:9: 'COL'
 					{
 					match("COL"); 
 
 					}
 					break;
 				case 12 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:418:15: 'Col'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:420:15: 'Col'
 					{
 					match("Col"); 
 
@@ -4108,7 +4115,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_WEEK_DAY"
 	public final void mFRAG_WEEK_DAY() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:421:23: ( 'Sunday' | 'SUNDAY' | 'Monday' | 'MONDAY' | 'Tuesday' | 'TUESDAY' | 'Wednesday' | 'WEDNESDAY' | 'Thursday' | 'THURSDAY' | 'Friday' | 'FRIDAY' | 'Saturday' | 'SATURDAY' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:423:23: ( 'Sunday' | 'SUNDAY' | 'Monday' | 'MONDAY' | 'Tuesday' | 'TUESDAY' | 'Wednesday' | 'WEDNESDAY' | 'Thursday' | 'THURSDAY' | 'Friday' | 'FRIDAY' | 'Saturday' | 'SATURDAY' )
 			int alt22=14;
 			switch ( input.LA(1) ) {
 			case 'S':
@@ -4256,98 +4263,98 @@ public class testLexer extends Lexer {
 			}
 			switch (alt22) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:421:27: 'Sunday'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:423:27: 'Sunday'
 					{
 					match("Sunday"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:421:36: 'SUNDAY'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:423:36: 'SUNDAY'
 					{
 					match("SUNDAY"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:422:9: 'Monday'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:424:9: 'Monday'
 					{
 					match("Monday"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:422:18: 'MONDAY'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:424:18: 'MONDAY'
 					{
 					match("MONDAY"); 
 
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:423:9: 'Tuesday'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:425:9: 'Tuesday'
 					{
 					match("Tuesday"); 
 
 					}
 					break;
 				case 6 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:423:19: 'TUESDAY'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:425:19: 'TUESDAY'
 					{
 					match("TUESDAY"); 
 
 					}
 					break;
 				case 7 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:424:9: 'Wednesday'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:426:9: 'Wednesday'
 					{
 					match("Wednesday"); 
 
 					}
 					break;
 				case 8 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:424:21: 'WEDNESDAY'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:426:21: 'WEDNESDAY'
 					{
 					match("WEDNESDAY"); 
 
 					}
 					break;
 				case 9 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:425:9: 'Thursday'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:427:9: 'Thursday'
 					{
 					match("Thursday"); 
 
 					}
 					break;
 				case 10 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:425:20: 'THURSDAY'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:427:20: 'THURSDAY'
 					{
 					match("THURSDAY"); 
 
 					}
 					break;
 				case 11 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:426:9: 'Friday'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:428:9: 'Friday'
 					{
 					match("Friday"); 
 
 					}
 					break;
 				case 12 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:426:18: 'FRIDAY'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:428:18: 'FRIDAY'
 					{
 					match("FRIDAY"); 
 
 					}
 					break;
 				case 13 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:427:9: 'Saturday'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:429:9: 'Saturday'
 					{
 					match("Saturday"); 
 
 					}
 					break;
 				case 14 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:427:20: 'SATURDAY'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:429:20: 'SATURDAY'
 					{
 					match("SATURDAY"); 
 
@@ -4367,7 +4374,7 @@ public class testLexer extends Lexer {
 		try {
 			int _type = STANDALONE_COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:444:5: ( 'LUNCH' | 'VARIETY GROUP JUDGING' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:446:5: ( 'LUNCH' | 'VARIETY GROUP JUDGING' )
 			int alt23=2;
 			int LA23_0 = input.LA(1);
 			if ( (LA23_0=='L') ) {
@@ -4383,14 +4390,14 @@ public class testLexer extends Lexer {
 			}
 			switch (alt23) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:444:9: 'LUNCH'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:446:9: 'LUNCH'
 					{
 					match("LUNCH"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:444:17: 'VARIETY GROUP JUDGING'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:446:17: 'VARIETY GROUP JUDGING'
 					{
 					match("VARIETY GROUP JUDGING"); 
 
@@ -4412,8 +4419,8 @@ public class testLexer extends Lexer {
 		try {
 			int _type = BREED_COUNT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:440:14: ( INT '-' INT '-' INT '-' INT )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:440:17: INT '-' INT '-' INT '-' INT
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:14: ( INT '-' INT '-' INT '-' INT )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:17: INT '-' INT '-' INT '-' INT
 			{
 			mINT(); 
 
@@ -4442,14 +4449,14 @@ public class testLexer extends Lexer {
 		try {
 			int _type = JUDGE_NAME;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:441:11: ({...}? => ( FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )* ( ( WS )? ( PARENTHETICAL_INT )? ) ) )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:441:13: {...}? => ( FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )* ( ( WS )? ( PARENTHETICAL_INT )? ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:443:11: ({...}? => ( FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )* ( ( WS )? ( PARENTHETICAL_INT )? ) ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:443:13: {...}? => ( FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )* ( ( WS )? ( PARENTHETICAL_INT )? ) )
 			{
 			if ( !((allowJudge)) ) {
 				throw new FailedPredicateException(input, "JUDGE_NAME", "allowJudge");
 			}
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:441:28: ( FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )* ( ( WS )? ( PARENTHETICAL_INT )? ) )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:441:29: FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )* ( ( WS )? ( PARENTHETICAL_INT )? )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:443:28: ( FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )* ( ( WS )? ( PARENTHETICAL_INT )? ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:443:29: FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )* ( ( WS )? ( PARENTHETICAL_INT )? )
 			{
 			mFRAG_TITLE(); 
 
@@ -4457,7 +4464,7 @@ public class testLexer extends Lexer {
 
 			mFRAG_PROPER_NAME(); 
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:441:60: ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )*
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:443:60: ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )*
 			loop25:
 			do {
 				int alt25=2;
@@ -4479,10 +4486,10 @@ public class testLexer extends Lexer {
 
 				switch (alt25) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:441:61: ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:443:61: ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME )
 					{
 					match(' '); 
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:441:65: ( PARENTHETICAL_NAME | FRAG_PROPER_NAME )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:443:65: ( PARENTHETICAL_NAME | FRAG_PROPER_NAME )
 					int alt24=2;
 					int LA24_0 = input.LA(1);
 					if ( (LA24_0=='(') ) {
@@ -4498,14 +4505,14 @@ public class testLexer extends Lexer {
 					}
 					switch (alt24) {
 						case 1 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:441:66: PARENTHETICAL_NAME
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:443:66: PARENTHETICAL_NAME
 							{
 							mPARENTHETICAL_NAME(); 
 
 							}
 							break;
 						case 2 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:441:85: FRAG_PROPER_NAME
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:443:85: FRAG_PROPER_NAME
 							{
 							mFRAG_PROPER_NAME(); 
 
@@ -4522,10 +4529,10 @@ public class testLexer extends Lexer {
 				}
 			} while (true);
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:441:105: ( ( WS )? ( PARENTHETICAL_INT )? )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:441:106: ( WS )? ( PARENTHETICAL_INT )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:443:105: ( ( WS )? ( PARENTHETICAL_INT )? )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:443:106: ( WS )? ( PARENTHETICAL_INT )?
 			{
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:441:106: ( WS )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:443:106: ( WS )?
 			int alt26=2;
 			int LA26_0 = input.LA(1);
 			if ( ((LA26_0 >= '\t' && LA26_0 <= '\n')||LA26_0=='\r'||LA26_0==' ') ) {
@@ -4533,7 +4540,7 @@ public class testLexer extends Lexer {
 			}
 			switch (alt26) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:441:106: WS
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:443:106: WS
 					{
 					mWS(); 
 
@@ -4542,7 +4549,7 @@ public class testLexer extends Lexer {
 
 			}
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:441:110: ( PARENTHETICAL_INT )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:443:110: ( PARENTHETICAL_INT )?
 			int alt27=2;
 			int LA27_0 = input.LA(1);
 			if ( (LA27_0=='(') ) {
@@ -4550,7 +4557,7 @@ public class testLexer extends Lexer {
 			}
 			switch (alt27) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:441:110: PARENTHETICAL_INT
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:443:110: PARENTHETICAL_INT
 					{
 					mPARENTHETICAL_INT(); 
 
@@ -4579,10 +4586,10 @@ public class testLexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:444:4: ( ( ' ' | '\\t' | '\\n' | '\\r' )+ )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:444:5: ( ' ' | '\\t' | '\\n' | '\\r' )+
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:446:4: ( ( ' ' | '\\t' | '\\n' | '\\r' )+ )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:446:5: ( ' ' | '\\t' | '\\n' | '\\r' )+
 			{
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:444:5: ( ' ' | '\\t' | '\\n' | '\\r' )+
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:446:5: ( ' ' | '\\t' | '\\n' | '\\r' )+
 			int cnt28=0;
 			loop28:
 			do {
@@ -4633,10 +4640,10 @@ public class testLexer extends Lexer {
 		try {
 			int _type = RING_TITLE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:446:13: ( ( 'GROUP RING' | ( 'RING' WS INT ) ) )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:446:17: ( 'GROUP RING' | ( 'RING' WS INT ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:448:13: ( ( 'GROUP RING' | ( 'RING' WS INT ) ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:448:17: ( 'GROUP RING' | ( 'RING' WS INT ) )
 			{
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:446:17: ( 'GROUP RING' | ( 'RING' WS INT ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:448:17: ( 'GROUP RING' | ( 'RING' WS INT ) )
 			int alt29=2;
 			int LA29_0 = input.LA(1);
 			if ( (LA29_0=='G') ) {
@@ -4652,7 +4659,7 @@ public class testLexer extends Lexer {
 			}
 			switch (alt29) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:446:18: 'GROUP RING'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:448:18: 'GROUP RING'
 					{
 					match("GROUP RING"); 
 
@@ -4660,10 +4667,10 @@ public class testLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:446:49: ( 'RING' WS INT )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:448:49: ( 'RING' WS INT )
 					{
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:446:49: ( 'RING' WS INT )
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:446:50: 'RING' WS INT
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:448:49: ( 'RING' WS INT )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:448:50: 'RING' WS INT
 					{
 					match("RING"); 
 
@@ -4695,15 +4702,15 @@ public class testLexer extends Lexer {
 		try {
 			int _type = PHONE_NUMBER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:449:5: ( '(' '0' .. '9' '0' .. '9' '0' .. '9' ')' ( WS )? '0' .. '9' '0' .. '9' '0' .. '9' '-' '0' .. '9' '0' .. '9' '0' .. '9' '0' .. '9' )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:449:9: '(' '0' .. '9' '0' .. '9' '0' .. '9' ')' ( WS )? '0' .. '9' '0' .. '9' '0' .. '9' '-' '0' .. '9' '0' .. '9' '0' .. '9' '0' .. '9'
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:451:5: ( '(' '0' .. '9' '0' .. '9' '0' .. '9' ')' ( WS )? '0' .. '9' '0' .. '9' '0' .. '9' '-' '0' .. '9' '0' .. '9' '0' .. '9' '0' .. '9' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:451:9: '(' '0' .. '9' '0' .. '9' '0' .. '9' ')' ( WS )? '0' .. '9' '0' .. '9' '0' .. '9' '-' '0' .. '9' '0' .. '9' '0' .. '9' '0' .. '9'
 			{
 			match('('); 
 			matchRange('0','9'); 
 			matchRange('0','9'); 
 			matchRange('0','9'); 
 			match(')'); 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:449:42: ( WS )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:451:42: ( WS )?
 			int alt30=2;
 			int LA30_0 = input.LA(1);
 			if ( ((LA30_0 >= '\t' && LA30_0 <= '\n')||LA30_0=='\r'||LA30_0==' ') ) {
@@ -4711,7 +4718,7 @@ public class testLexer extends Lexer {
 			}
 			switch (alt30) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:449:42: WS
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:451:42: WS
 					{
 					mWS(); 
 
@@ -4744,8 +4751,8 @@ public class testLexer extends Lexer {
 		try {
 			int _type = TIME;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:451:9: ( INT ':' INT WS FRAG_TIME_LABEL )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:451:13: INT ':' INT WS FRAG_TIME_LABEL
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:453:9: ( INT ':' INT WS FRAG_TIME_LABEL )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:453:13: INT ':' INT WS FRAG_TIME_LABEL
 			{
 			mINT(); 
 
@@ -4773,8 +4780,8 @@ public class testLexer extends Lexer {
 		try {
 			int _type = DATE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:453:9: ( FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:453:13: FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:455:9: ( FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:455:13: FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT
 			{
 			mFRAG_WEEK_DAY(); 
 
@@ -4809,10 +4816,10 @@ public class testLexer extends Lexer {
 		try {
 			int _type = ELLIPSIS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:455:9: ( ( '.' )+ )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:455:13: ( '.' )+
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:457:9: ( ( '.' )+ )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:457:13: ( '.' )+
 			{
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:455:13: ( '.' )+
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:457:13: ( '.' )+
 			int cnt31=0;
 			loop31:
 			do {
@@ -4824,7 +4831,7 @@ public class testLexer extends Lexer {
 
 				switch (alt31) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:455:13: '.'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:457:13: '.'
 					{
 					match('.'); 
 					}
@@ -4855,10 +4862,10 @@ public class testLexer extends Lexer {
 		try {
 			int _type = INT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:457:5: ( ( '0' .. '9' )+ )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:457:6: ( '0' .. '9' )+
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:459:5: ( ( '0' .. '9' )+ )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:459:6: ( '0' .. '9' )+
 			{
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:457:6: ( '0' .. '9' )+
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:459:6: ( '0' .. '9' )+
 			int cnt32=0;
 			loop32:
 			do {
@@ -4908,11 +4915,11 @@ public class testLexer extends Lexer {
 		try {
 			int _type = PARENTHETICAL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:460:5: ( '(' ( WORD | INT | FRAG_PROPER_NAME ) ( WS ( WORD | INT | FRAG_PROPER_NAME ) )* ')' )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:460:9: '(' ( WORD | INT | FRAG_PROPER_NAME ) ( WS ( WORD | INT | FRAG_PROPER_NAME ) )* ')'
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:5: ( '(' ( WORD | INT | FRAG_PROPER_NAME ) ( WS ( WORD | INT | FRAG_PROPER_NAME ) )* ')' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:9: '(' ( WORD | INT | FRAG_PROPER_NAME ) ( WS ( WORD | INT | FRAG_PROPER_NAME ) )* ')'
 			{
 			match('('); 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:460:13: ( WORD | INT | FRAG_PROPER_NAME )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:13: ( WORD | INT | FRAG_PROPER_NAME )
 			int alt33=3;
 			switch ( input.LA(1) ) {
 			case '&':
@@ -5004,21 +5011,21 @@ public class testLexer extends Lexer {
 			}
 			switch (alt33) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:460:14: WORD
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:14: WORD
 					{
 					mWORD(); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:460:19: INT
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:19: INT
 					{
 					mINT(); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:460:23: FRAG_PROPER_NAME
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:23: FRAG_PROPER_NAME
 					{
 					mFRAG_PROPER_NAME(); 
 
@@ -5027,7 +5034,7 @@ public class testLexer extends Lexer {
 
 			}
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:460:41: ( WS ( WORD | INT | FRAG_PROPER_NAME ) )*
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:41: ( WS ( WORD | INT | FRAG_PROPER_NAME ) )*
 			loop35:
 			do {
 				int alt35=2;
@@ -5038,11 +5045,11 @@ public class testLexer extends Lexer {
 
 				switch (alt35) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:460:42: WS ( WORD | INT | FRAG_PROPER_NAME )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:42: WS ( WORD | INT | FRAG_PROPER_NAME )
 					{
 					mWS(); 
 
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:460:45: ( WORD | INT | FRAG_PROPER_NAME )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:45: ( WORD | INT | FRAG_PROPER_NAME )
 					int alt34=3;
 					switch ( input.LA(1) ) {
 					case '&':
@@ -5134,21 +5141,21 @@ public class testLexer extends Lexer {
 					}
 					switch (alt34) {
 						case 1 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:460:46: WORD
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:46: WORD
 							{
 							mWORD(); 
 
 							}
 							break;
 						case 2 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:460:51: INT
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:51: INT
 							{
 							mINT(); 
 
 							}
 							break;
 						case 3 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:460:55: FRAG_PROPER_NAME
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:55: FRAG_PROPER_NAME
 							{
 							mFRAG_PROPER_NAME(); 
 
@@ -5180,14 +5187,14 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_PROPER_NAME"
 	public final void mFRAG_PROPER_NAME() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:461:26: ( ( 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )* ) ( END_PUNCTUATION )? )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:461:28: ( 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )* ) ( END_PUNCTUATION )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:463:26: ( ( 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )* ) ( END_PUNCTUATION )? )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:463:28: ( 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )* ) ( END_PUNCTUATION )?
 			{
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:461:28: ( 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )* )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:461:29: 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )*
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:463:28: ( 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )* )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:463:29: 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )*
 			{
 			matchRange('A','Z'); 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:461:38: ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )*
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:463:38: ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )*
 			loop36:
 			do {
 				int alt36=2;
@@ -5218,7 +5225,7 @@ public class testLexer extends Lexer {
 
 			}
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:461:94: ( END_PUNCTUATION )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:463:94: ( END_PUNCTUATION )?
 			int alt37=2;
 			int LA37_0 = input.LA(1);
 			if ( (LA37_0=='!'||LA37_0=='.'||LA37_0=='?') ) {
@@ -5255,11 +5262,11 @@ public class testLexer extends Lexer {
 		try {
 			int _type = PARENTHETICAL_INT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:464:5: ( '(' ( WS )? INT ( WS )? ')' )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:464:9: '(' ( WS )? INT ( WS )? ')'
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:5: ( '(' ( WS )? INT ( WS )? ')' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:9: '(' ( WS )? INT ( WS )? ')'
 			{
 			match('('); 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:464:13: ( WS )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:13: ( WS )?
 			int alt38=2;
 			int LA38_0 = input.LA(1);
 			if ( ((LA38_0 >= '\t' && LA38_0 <= '\n')||LA38_0=='\r'||LA38_0==' ') ) {
@@ -5267,7 +5274,7 @@ public class testLexer extends Lexer {
 			}
 			switch (alt38) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:464:13: WS
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:13: WS
 					{
 					mWS(); 
 
@@ -5278,7 +5285,7 @@ public class testLexer extends Lexer {
 
 			mINT(); 
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:464:21: ( WS )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:21: ( WS )?
 			int alt39=2;
 			int LA39_0 = input.LA(1);
 			if ( ((LA39_0 >= '\t' && LA39_0 <= '\n')||LA39_0=='\r'||LA39_0==' ') ) {
@@ -5286,7 +5293,7 @@ public class testLexer extends Lexer {
 			}
 			switch (alt39) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:464:21: WS
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:21: WS
 					{
 					mWS(); 
 
@@ -5310,10 +5317,10 @@ public class testLexer extends Lexer {
 	// $ANTLR start "WORD"
 	public final void mWORD() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:465:16: ( ( 'a' .. 'z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )+ ( END_PUNCTUATION )? )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:465:18: ( 'a' .. 'z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )+ ( END_PUNCTUATION )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:467:16: ( ( 'a' .. 'z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )+ ( END_PUNCTUATION )? )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:467:18: ( 'a' .. 'z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )+ ( END_PUNCTUATION )?
 			{
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:465:18: ( 'a' .. 'z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )+
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:467:18: ( 'a' .. 'z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )+
 			int cnt40=0;
 			loop40:
 			do {
@@ -5347,7 +5354,7 @@ public class testLexer extends Lexer {
 				cnt40++;
 			} while (true);
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:465:65: ( END_PUNCTUATION )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:467:65: ( END_PUNCTUATION )?
 			int alt41=2;
 			int LA41_0 = input.LA(1);
 			if ( (LA41_0=='!'||LA41_0=='.'||LA41_0=='?') ) {
@@ -5384,10 +5391,10 @@ public class testLexer extends Lexer {
 		try {
 			int _type = COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:9: ( ( ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS ) )+ )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:13: ( ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS ) )+
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:468:9: ( ( ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS ) )+ )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:468:13: ( ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS ) )+
 			{
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:13: ( ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS ) )+
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:468:13: ( ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS ) )+
 			int cnt43=0;
 			loop43:
 			do {
@@ -5399,9 +5406,9 @@ public class testLexer extends Lexer {
 
 				switch (alt43) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:14: ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:468:14: ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS )
 					{
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:14: ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:468:14: ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS )
 					int alt42=5;
 					switch ( input.LA(1) ) {
 					case 'A':
@@ -5503,35 +5510,35 @@ public class testLexer extends Lexer {
 					}
 					switch (alt42) {
 						case 1 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:15: FRAG_PROPER_NAME
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:468:15: FRAG_PROPER_NAME
 							{
 							mFRAG_PROPER_NAME(); 
 
 							}
 							break;
 						case 2 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:32: WORD
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:468:32: WORD
 							{
 							mWORD(); 
 
 							}
 							break;
 						case 3 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:37: PARENTHETICAL
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:468:37: PARENTHETICAL
 							{
 							mPARENTHETICAL(); 
 
 							}
 							break;
 						case 4 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:51: INT
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:468:51: INT
 							{
 							mINT(); 
 
 							}
 							break;
 						case 5 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:55: ELLIPSIS
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:468:55: ELLIPSIS
 							{
 							mELLIPSIS(); 
 
@@ -5567,8 +5574,8 @@ public class testLexer extends Lexer {
 	// $ANTLR start "END_WORD"
 	public final void mEND_WORD() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:468:2: ( WORD END_PUNCTUATION )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:468:4: WORD END_PUNCTUATION
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:470:2: ( WORD END_PUNCTUATION )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:470:4: WORD END_PUNCTUATION
 			{
 			mWORD(); 
 
@@ -5586,8 +5593,8 @@ public class testLexer extends Lexer {
 	// $ANTLR start "PARENTHETICAL_NAME"
 	public final void mPARENTHETICAL_NAME() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:469:28: ( '(' FRAG_PROPER_NAME ')' )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:469:30: '(' FRAG_PROPER_NAME ')'
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:471:28: ( '(' FRAG_PROPER_NAME ')' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:471:30: '(' FRAG_PROPER_NAME ')'
 			{
 			match('('); 
 			mFRAG_PROPER_NAME(); 
@@ -5607,8 +5614,8 @@ public class testLexer extends Lexer {
 		try {
 			int _type = FallThrough;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:475:3: ( . )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:475:6: .
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:477:3: ( . )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:477:6: .
 			{
 			matchAny(); 
 			_channel=HIDDEN;
@@ -5774,9 +5781,9 @@ public class testLexer extends Lexer {
 	protected DFA14 dfa14 = new DFA14(this);
 	protected DFA44 dfa44 = new DFA44(this);
 	static final String DFA2_eotS =
-		"\u00ec\uffff\1\u0110\74\uffff\1\u014a\72\uffff\1\u017a\102\uffff";
+		"\u00ec\uffff\1\u0110\74\uffff\1\u014b\74\uffff\1\u017d\110\uffff";
 	static final String DFA2_eofS =
-		"\u01a7\uffff";
+		"\u01af\uffff";
 	static final String DFA2_minS =
 		"\1\101\1\146\3\141\1\156\1\151\1\145\1\141\1\142\1\uffff\1\145\2\141\1"+
 		"\145\1\154\3\141\1\151\1\uffff\1\145\2\uffff\1\146\3\uffff\1\145\1\uffff"+
@@ -5796,15 +5803,15 @@ public class testLexer extends Lexer {
 		"\1\164\1\165\1\153\1\164\2\uffff\1\162\1\157\2\uffff\1\164\1\150\1\40"+
 		"\1\143\2\141\1\156\1\40\1\162\1\145\3\uffff\1\163\1\40\2\163\1\156\2\40"+
 		"\1\157\1\172\1\164\1\147\1\uffff\1\40\1\147\2\uffff\2\151\1\156\1\141"+
-		"\1\40\2\uffff\1\141\1\154\1\156\1\40\1\46\1\40\1\162\1\145\2\uffff\2\150"+
+		"\1\40\1\uffff\2\141\1\154\1\156\1\40\1\46\1\40\1\162\1\145\2\uffff\2\150"+
 		"\1\40\1\104\1\uffff\1\122\1\156\1\157\1\165\1\151\2\uffff\1\165\1\163"+
-		"\1\141\1\145\1\156\1\123\1\156\1\151\1\40\5\uffff\1\103\4\40\1\120\5\uffff"+
-		"\1\141\1\144\2\uffff\1\162\1\141\1\145\1\150\1\156\2\uffff\1\40\2\uffff"+
-		"\1\40\1\141\1\115\4\uffff\2\103\1\114\1\uffff\1\150\3\uffff\2\145\1\156"+
-		"\1\163\2\40\1\115\1\105\1\156\7\uffff\1\145\3\uffff\1\145\2\uffff\2\40"+
-		"\1\145\1\104\1\110\3\uffff\1\156\3\uffff\1\40\4\uffff\1\101\1\102\1\40"+
-		"\2\uffff\1\165\2\uffff\1\103\7\uffff\1\120\1\163\5\uffff\1\153\1\151\2"+
-		"\uffff";
+		"\1\141\1\145\1\156\1\123\1\151\1\156\1\151\1\40\5\uffff\1\103\4\40\1\120"+
+		"\5\uffff\1\141\1\144\2\uffff\1\162\1\141\1\145\1\150\1\156\2\uffff\1\40"+
+		"\2\uffff\1\162\1\40\1\141\1\115\4\uffff\2\103\1\114\1\uffff\1\150\3\uffff"+
+		"\2\145\1\156\1\163\2\40\1\115\1\145\1\105\1\156\7\uffff\1\145\3\uffff"+
+		"\1\145\2\uffff\2\40\1\145\1\104\1\110\3\uffff\1\144\1\156\3\uffff\1\40"+
+		"\4\uffff\1\101\1\102\1\40\2\uffff\1\165\1\40\2\uffff\1\103\7\uffff\1\120"+
+		"\1\163\1\120\5\uffff\1\153\2\uffff\1\151\2\uffff";
 	static final String DFA2_maxS =
 		"\1\131\3\165\1\157\1\156\2\162\1\141\1\164\1\uffff\1\165\1\u00f6\1\151"+
 		"\1\157\1\164\1\171\1\165\1\167\1\162\1\uffff\1\151\2\uffff\1\147\3\uffff"+
@@ -5824,17 +5831,18 @@ public class testLexer extends Lexer {
 		"\1\uffff\1\151\1\164\1\165\1\153\1\164\2\uffff\1\162\1\157\2\uffff\1\164"+
 		"\2\150\1\143\2\141\1\156\1\40\1\162\1\145\3\uffff\4\163\1\156\1\145\1"+
 		"\40\1\157\1\172\1\164\1\147\1\uffff\1\163\1\147\2\uffff\2\151\1\156\1"+
-		"\141\1\40\2\uffff\1\141\1\154\1\156\1\163\1\141\1\40\1\162\1\145\2\uffff"+
+		"\141\1\40\1\uffff\2\141\1\154\1\156\1\163\1\141\1\40\1\162\1\145\2\uffff"+
 		"\2\150\1\40\1\120\1\uffff\1\127\1\156\1\157\1\165\1\151\2\uffff\1\165"+
-		"\1\163\1\141\1\151\1\156\1\124\1\156\1\151\1\40\5\uffff\1\124\1\163\3"+
-		"\40\1\127\5\uffff\1\157\1\144\2\uffff\1\162\1\141\1\145\1\150\1\156\2"+
-		"\uffff\1\40\2\uffff\1\40\1\141\1\124\4\uffff\1\123\1\124\1\123\1\uffff"+
-		"\1\150\3\uffff\2\145\1\156\1\163\2\40\1\124\1\127\1\156\7\uffff\1\160"+
-		"\3\uffff\1\157\2\uffff\2\40\1\145\1\124\1\110\3\uffff\1\163\3\uffff\1"+
-		"\40\4\uffff\1\123\1\114\1\40\2\uffff\1\165\2\uffff\1\124\7\uffff\1\127"+
-		"\1\163\5\uffff\1\153\1\171\2\uffff";
+		"\1\163\1\141\1\151\1\156\1\124\1\151\1\156\1\151\1\40\5\uffff\1\124\1"+
+		"\163\3\40\1\127\5\uffff\1\157\1\144\2\uffff\1\162\1\141\1\145\1\150\1"+
+		"\156\2\uffff\1\40\2\uffff\1\162\1\40\1\141\1\124\4\uffff\1\123\1\124\1"+
+		"\123\1\uffff\1\150\3\uffff\2\145\1\156\1\163\2\40\1\124\1\145\1\127\1"+
+		"\156\7\uffff\1\160\3\uffff\1\157\2\uffff\2\40\1\145\1\124\1\110\3\uffff"+
+		"\1\144\1\163\3\uffff\1\40\4\uffff\1\123\1\114\1\40\2\uffff\1\165\1\40"+
+		"\2\uffff\1\124\7\uffff\1\127\1\163\1\126\5\uffff\1\153\2\uffff\1\171\2"+
+		"\uffff";
 	static final String DFA2_acceptS =
-		"\12\uffff\1\151\11\uffff\1\u00bc\1\uffff\1\u00c4\1\u00c5\1\uffff\1\3\1"+
+		"\12\uffff\1\151\11\uffff\1\u00bc\1\uffff\1\u00c5\1\u00c6\1\uffff\1\3\1"+
 		"\4\1\5\1\uffff\1\13\11\uffff\1\65\1\uffff\1\72\1\74\1\uffff\1\77\4\uffff"+
 		"\1\120\1\121\1\122\1\uffff\1\127\1\130\3\uffff\1\141\1\142\1\uffff\1\150"+
 		"\1\uffff\1\155\2\uffff\1\163\1\164\1\165\1\166\4\uffff\1\u0086\1\u0087"+
@@ -5852,17 +5860,18 @@ public class testLexer extends Lexer {
 		"\uffff\1\43\1\uffff\1\52\1\53\1\uffff\1\61\1\62\1\67\1\uffff\1\104\5\uffff"+
 		"\1\136\4\uffff\1\u0080\5\uffff\1\u00a9\1\u00aa\2\uffff\1\u00b3\1\u00b4"+
 		"\12\uffff\1\55\1\56\1\57\13\uffff\1\u0084\2\uffff\1\u0098\1\u0097\5\uffff"+
-		"\1\u00c2\1\u00c3\10\uffff\1\105\1\106\4\uffff\1\135\5\uffff\1\u008c\1"+
-		"\u008d\11\uffff\1\32\1\33\1\34\1\35\1\36\6\uffff\1\133\1\134\1\143\1\144"+
-		"\1\145\2\uffff\1\157\1\156\5\uffff\1\u00b1\1\u00b2\1\uffff\1\u00be\1\u00bf"+
-		"\3\uffff\1\41\1\42\1\45\1\46\3\uffff\1\123\1\uffff\1\126\1\146\1\147\11"+
+		"\1\u00c2\11\uffff\1\105\1\106\4\uffff\1\135\5\uffff\1\u008c\1\u008d\12"+
+		"\uffff\1\32\1\33\1\34\1\35\1\36\6\uffff\1\133\1\134\1\143\1\144\1\145"+
+		"\2\uffff\1\157\1\156\5\uffff\1\u00b1\1\u00b2\1\uffff\1\u00be\1\u00bf\4"+
+		"\uffff\1\41\1\42\1\45\1\46\3\uffff\1\123\1\uffff\1\126\1\146\1\147\12"+
 		"\uffff\1\25\1\26\1\27\1\70\1\71\1\107\1\110\1\uffff\1\113\1\116\1\117"+
-		"\1\uffff\1\153\1\152\5\uffff\1\u00b7\1\u00b8\1\u00b9\1\uffff\1\10\1\11"+
-		"\1\12\1\uffff\1\111\1\112\1\124\1\125\3\uffff\1\u00a4\1\u00a5\1\uffff"+
-		"\1\6\1\7\1\uffff\1\172\1\173\1\174\1\175\1\u0081\1\u0082\1\u0083\2\uffff"+
-		"\1\14\1\15\1\16\1\u0094\1\u0095\2\uffff\1\u00ab\1\u00ac";
+		"\1\uffff\1\153\1\152\5\uffff\1\u00b7\1\u00b8\1\u00b9\2\uffff\1\10\1\11"+
+		"\1\12\1\uffff\1\111\1\112\1\124\1\125\3\uffff\1\u00a4\1\u00a5\2\uffff"+
+		"\1\6\1\7\1\uffff\1\172\1\173\1\174\1\175\1\u0081\1\u0082\1\u0083\3\uffff"+
+		"\1\14\1\15\1\16\1\u0094\1\u0095\1\uffff\1\u00c3\1\u00c4\1\uffff\1\u00ab"+
+		"\1\u00ac";
 	static final String DFA2_specialS =
-		"\u01a7\uffff}>";
+		"\u01af\uffff}>";
 	static final String[] DFA2_transitionS = {
 			"\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17"+
 			"\1\20\1\uffff\1\21\1\22\1\23\1\uffff\1\24\1\25\1\26\1\27",
@@ -6148,92 +6157,95 @@ public class testLexer extends Lexer {
 			"\1\u0132",
 			"\1\u0133",
 			"",
-			"",
 			"\1\u0134",
 			"\1\u0135",
 			"\1\u0136",
-			"\1\u0137\122\uffff\1\u0138",
-			"\1\u013a\53\uffff\1\u013b\16\uffff\1\u0139",
-			"\1\u013c",
+			"\1\u0137",
+			"\1\u0138\122\uffff\1\u0139",
+			"\1\u013b\53\uffff\1\u013c\16\uffff\1\u013a",
 			"\1\u013d",
 			"\1\u013e",
-			"",
-			"",
 			"\1\u013f",
+			"",
+			"",
 			"\1\u0140",
 			"\1\u0141",
-			"\1\u0142\13\uffff\1\u0143",
+			"\1\u0142",
+			"\1\u0143\13\uffff\1\u0144",
 			"",
-			"\1\u0144\1\u0145\1\u0146\2\uffff\1\u0147",
-			"\1\u0148",
+			"\1\u0145\1\u0146\1\u0147\2\uffff\1\u0148",
 			"\1\u0149",
-			"\1\u014b",
+			"\1\u014a",
 			"\1\u014c",
-			"",
-			"",
 			"\1\u014d",
+			"",
+			"",
 			"\1\u014e",
 			"\1\u014f",
-			"\1\u0150\3\uffff\1\u0151",
-			"\1\u0152",
-			"\1\u0153\1\u0154",
-			"\1\u0155",
+			"\1\u0150",
+			"\1\u0151\3\uffff\1\u0152",
+			"\1\u0153",
+			"\1\u0154\1\u0155",
 			"\1\u0156",
 			"\1\u0157",
+			"\1\u0158",
+			"\1\u0159",
 			"",
 			"",
 			"",
 			"",
 			"",
-			"\1\u0158\20\uffff\1\u0159",
-			"\1\u015a\122\uffff\1\u015b",
-			"\1\u015c",
-			"\1\u015d",
+			"\1\u015a\20\uffff\1\u015b",
+			"\1\u015c\122\uffff\1\u015d",
 			"\1\u015e",
-			"\1\u015f\2\uffff\1\u0160\3\uffff\1\u0161",
+			"\1\u015f",
+			"\1\u0160",
+			"\1\u0161\2\uffff\1\u0162\3\uffff\1\u0163",
 			"",
 			"",
 			"",
 			"",
 			"",
-			"\1\u0162\15\uffff\1\u0163",
-			"\1\u0164",
-			"",
-			"",
-			"\1\u0165",
+			"\1\u0164\15\uffff\1\u0165",
 			"\1\u0166",
+			"",
+			"",
 			"\1\u0167",
 			"\1\u0168",
 			"\1\u0169",
-			"",
-			"",
 			"\1\u016a",
-			"",
-			"",
 			"\1\u016b",
+			"",
+			"",
 			"\1\u016c",
-			"\1\u016d\5\uffff\1\u016e\1\u016f",
+			"",
+			"",
+			"\1\u016d",
+			"\1\u016e",
+			"\1\u016f",
+			"\1\u0170\5\uffff\1\u0171\1\u0172",
 			"",
 			"",
 			"",
 			"",
-			"\1\u0170\17\uffff\1\u0171",
-			"\1\u0172\2\uffff\1\u0173\14\uffff\1\u0174\1\u0175",
-			"\1\u0176\6\uffff\1\u0177",
+			"\1\u0173\17\uffff\1\u0174",
+			"\1\u0175\2\uffff\1\u0176\14\uffff\1\u0177\1\u0178",
+			"\1\u0179\6\uffff\1\u017a",
 			"",
-			"\1\u0178",
-			"",
-			"",
-			"",
-			"\1\u0179",
 			"\1\u017b",
+			"",
+			"",
+			"",
 			"\1\u017c",
-			"\1\u017d",
 			"\1\u017e",
 			"\1\u017f",
-			"\1\u0180\5\uffff\1\u0181\1\u0182",
-			"\1\u0183\1\u0184\14\uffff\1\u0185\3\uffff\1\u0186",
-			"\1\u0187",
+			"\1\u0180",
+			"\1\u0181",
+			"\1\u0182",
+			"\1\u0183\5\uffff\1\u0184\1\u0185",
+			"\1\u0186",
+			"\1\u0187\1\u0188\14\uffff\1\u0189\3\uffff\1\u018a",
+			"\1\u018b",
 			"",
 			"",
 			"",
@@ -6241,55 +6253,60 @@ public class testLexer extends Lexer {
 			"",
 			"",
 			"",
-			"\1\u0188\12\uffff\1\u0189",
+			"\1\u018c\12\uffff\1\u018d",
 			"",
 			"",
 			"",
-			"\1\u018a\11\uffff\1\u018b",
+			"\1\u018e\11\uffff\1\u018f",
 			"",
 			"",
-			"\1\u018c",
-			"\1\u018d",
-			"\1\u018e",
-			"\1\u018f\17\uffff\1\u0190",
+			"\1\u0190",
 			"\1\u0191",
+			"\1\u0192",
+			"\1\u0193\17\uffff\1\u0194",
+			"\1\u0195",
 			"",
 			"",
 			"",
-			"\1\u0192\4\uffff\1\u0193",
+			"\1\u0196",
+			"\1\u0197\4\uffff\1\u0198",
 			"",
 			"",
 			"",
-			"\1\u0194",
-			"",
-			"",
-			"",
-			"",
-			"\1\u0195\1\u0196\15\uffff\1\u0197\2\uffff\1\u0198",
-			"\1\u0199\2\uffff\1\u019a\6\uffff\1\u019b",
-			"\1\u019c",
-			"",
-			"",
-			"\1\u019d",
-			"",
-			"",
-			"\1\u019e\17\uffff\1\u019f\1\u01a0",
+			"\1\u0199",
 			"",
 			"",
 			"",
 			"",
+			"\1\u019a\1\u019b\15\uffff\1\u019c\2\uffff\1\u019d",
+			"\1\u019e\2\uffff\1\u019f\6\uffff\1\u01a0",
+			"\1\u01a1",
 			"",
 			"",
-			"",
-			"\1\u01a1\6\uffff\1\u01a2",
+			"\1\u01a2",
 			"\1\u01a3",
 			"",
 			"",
+			"\1\u01a4\17\uffff\1\u01a5\1\u01a6",
 			"",
 			"",
 			"",
-			"\1\u01a4",
-			"\1\u01a6\17\uffff\1\u01a5",
+			"",
+			"",
+			"",
+			"",
+			"\1\u01a7\6\uffff\1\u01a8",
+			"\1\u01a9",
+			"\1\u01aa\5\uffff\1\u01ab",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"\1\u01ac",
+			"",
+			"",
+			"\1\u01ae\17\uffff\1\u01ad",
 			"",
 			""
 	};
@@ -6325,7 +6342,7 @@ public class testLexer extends Lexer {
 		}
 		@Override
 		public String getDescription() {
-			return "112:23: ( 'Affenpinscher' | 'Afghan Hound' | 'Airedale Terrier' | 'Akita' | 'Alaskan Malamute' | 'American English Coonhound' | 'American Eskimo Dog' | 'American Foxhound' | 'American Staffordshire Terrier' | 'American Water Spaniel' | 'Anatolian Shepherd Dog' | 'Australian Cattle Dog' | 'Australian Shepherd' | 'Australian Terrier' | 'Basenji' | 'Basset Hound' | 'Beagle' | 'Bearded Collie' | 'Beauceron' | 'Bedlington Terrier' | 'Belgian Malinois' | 'Belgian Sheepdog' | 'Belgian Tervuren' | 'Berger Picard' | 'Bernese Mountain Dog' | 'Bichon Frise' | 'Bichons Frise' | 'Black and Tan Coonhound' | 'Black & Tan Coonhound' | 'Black Russian Terrier' | 'Bloodhound' | 'Bluetick Coonhound' | 'Border Collie' | 'Border Terrier' | 'Borzoi' | 'Boston Terrier' | 'Bouvier des Flandres' | 'Bouviers des Flandres' | 'Boxer' | 'Boykin Spaniel' | 'Brace' | 'Briard' | 'Brittany' | 'Brussels Griffon' | 'Bull Terrier' | 'Bulldog' | 'Bullmastiff' | 'Cairn Terrier' | 'Canaan Dog' | 'Cane Corso' | 'Cardigan Welsh Corgi' | 'Cavalier King Charles Spaniel' | 'Cesky Terrier' | 'Chesapeake Bay Retriever' | 'Chihuahua' | 'Chinese Crested' | 'Chinese Shar-Pei' | 'Cirneco dell’Etna' | 'Chow Chow' | 'Clumber Spaniel' | 'Cocker Spaniel' | 'Collie' | 'Curly-Coated Retriever' | 'Dachshund' | 'Dalmatian' | 'Dandie Dinmont Terrier' | 'Doberman Pinscher' | 'Dogo Argentine' | 'Dogue de Bordeaux' | 'Dogues de Bordeaux' | 'English Cocker Spaniel' | 'English Foxhound' | 'English Setter' | 'English Springer Spaniel' | 'English Toy Spaniel' | 'Entlebucher Mountain Dog' | 'Field Spaniel' | 'Finnish Lapphund' | 'Finnish Spitz' | 'Flat-Coated Retriever' | 'Fox Terrier' | 'French Bulldog' | 'German Pinscher' | 'German Shepherd Dog' | 'German Shorthaired Pointer' | 'German Wirehaired Pointer' | 'Giant Schnauzer' | 'Glen of Imaal Terrier' | 'Golden Retriever' | 'Gordon Setter' | 'Great Dane' | 'Great Pyrenees' | 'Greater Swiss Mountain Dog' | 'Greyhound' | 'Harrier' | 'Havanese' | 'Ibizan Hound' | 'Icelandic Sheepdog' | 'Irish Red and White Setter' | 'Irish Setter' | 'Irish Terrier' | 'Irish Water Spaniel' | 'Irish Wolfhound' | 'Italian Greyhound' | 'Japanese Chin' | 'Keeshond' | 'Keeshonden' | 'Kerry Blue Terrier' | 'Komondor' | 'Kuvasz' | 'Kuvaszok' | 'Labrador Retriever' | 'Lagotto Romagnolo' | 'Lakeland Terrier' | 'Leonberger' | 'Lhasa Apso' | 'Löwchen' | 'Lowchen' | 'Maltese' | 'Manchester Terrier' | 'Mastiff' | 'Miniature American Shepherd' | 'Miniature Bull Terrier' | 'Miniature Pinscher' | 'Miniature Schnauzer' | 'Neapolitan Mastiff' | 'Newfoundland' | 'Norfolk Terrier' | 'Norwegian Buhund' | 'Norwegian Elkhound' | 'Norwegian Lundehund' | 'Norwich Terrier' | 'Nova Scotia Duck Tolling Retriever' | 'Old English Sheepdog' | 'Otterhound' | 'Papillon' | 'Parson Russell Terrier' | 'Pekingese' | 'Pembroke Welsh Corgi' | 'Petit Basset Griffon Vendéen' | 'Petits Bassets Griffons Vendeen' | 'Pharaoh Hound' | 'Plott' | 'Pointer' | 'Polish Lowland Sheepdog' | 'Pomeranian' | 'Poodle' | 'Portuguese Podengo Pequenos' | 'Portuguese Water Dog' | 'Pug' | 'Puli' | 'Pulik' | 'Pyrenean Shepherd' | 'Rat Terrier' | 'Redbone Coonhound' | 'Retrievers' | 'Rhodesian Ridgeback' | 'Rottweiler' | 'Russell Terrier' | 'Saint Bernard' | 'Saluki' | 'Samoyed' | 'Schipperke' | 'Scottish Deerhound' | 'Scottish Terrier' | 'Sealyham Terrier' | 'Setters' | 'Shetland Sheepdog' | 'Shiba Inu' | 'Shih Tzu' | 'Siberian Husky' | 'Siberian Huskies' | 'Silky Terrier' | 'Skye Terrier' | 'Soft Coated Wheaten Terrier' | 'Spaniels' | 'Spinone Italiano' | 'Spinoni Italiani' | 'Staffordshire Bull Terrier' | 'Standard Schnauzer' | 'Sussex Spaniel' | 'Swedish Vallhund' | 'Tibetan Mastiff' | 'Tibetan Spaniel' | 'Tibetan Terrier' | 'Toy Fox Terrier' | 'Treeing Walker Coonhound' | 'Vizsla' | 'Weimaraner' | 'Welsh Springer Spaniel' | 'Welsh Terrier' | 'West Highland White Terrier' | 'Whippet' | 'Wire Fox Terrier' | 'Wirehaired Pointing Griffon' | 'Xoloitzcuintli' | 'Yorkshire Terrier' )";
+			return "113:23: ( 'Affenpinscher' | 'Afghan Hound' | 'Airedale Terrier' | 'Akita' | 'Alaskan Malamute' | 'American English Coonhound' | 'American Eskimo Dog' | 'American Foxhound' | 'American Staffordshire Terrier' | 'American Water Spaniel' | 'Anatolian Shepherd Dog' | 'Australian Cattle Dog' | 'Australian Shepherd' | 'Australian Terrier' | 'Basenji' | 'Basset Hound' | 'Beagle' | 'Bearded Collie' | 'Beauceron' | 'Bedlington Terrier' | 'Belgian Malinois' | 'Belgian Sheepdog' | 'Belgian Tervuren' | 'Berger Picard' | 'Bernese Mountain Dog' | 'Bichon Frise' | 'Bichons Frise' | 'Black and Tan Coonhound' | 'Black & Tan Coonhound' | 'Black Russian Terrier' | 'Bloodhound' | 'Bluetick Coonhound' | 'Border Collie' | 'Border Terrier' | 'Borzoi' | 'Boston Terrier' | 'Bouvier des Flandres' | 'Bouviers des Flandres' | 'Boxer' | 'Boykin Spaniel' | 'Brace' | 'Briard' | 'Brittany' | 'Brussels Griffon' | 'Bull Terrier' | 'Bulldog' | 'Bullmastiff' | 'Cairn Terrier' | 'Canaan Dog' | 'Cane Corso' | 'Cardigan Welsh Corgi' | 'Cavalier King Charles Spaniel' | 'Cesky Terrier' | 'Chesapeake Bay Retriever' | 'Chihuahua' | 'Chinese Crested' | 'Chinese Shar-Pei' | 'Cirneco dell’Etna' | 'Chow Chow' | 'Clumber Spaniel' | 'Cocker Spaniel' | 'Collie' | 'Curly-Coated Retriever' | 'Dachshund' | 'Dalmatian' | 'Dandie Dinmont Terrier' | 'Doberman Pinscher' | 'Dogo Argentine' | 'Dogue de Bordeaux' | 'Dogues de Bordeaux' | 'English Cocker Spaniel' | 'English Foxhound' | 'English Setter' | 'English Springer Spaniel' | 'English Toy Spaniel' | 'Entlebucher Mountain Dog' | 'Field Spaniel' | 'Finnish Lapphund' | 'Finnish Spitz' | 'Flat-Coated Retriever' | 'Fox Terrier' | 'French Bulldog' | 'German Pinscher' | 'German Shepherd Dog' | 'German Shorthaired Pointer' | 'German Wirehaired Pointer' | 'Giant Schnauzer' | 'Glen of Imaal Terrier' | 'Golden Retriever' | 'Gordon Setter' | 'Great Dane' | 'Great Pyrenees' | 'Greater Swiss Mountain Dog' | 'Greyhound' | 'Harrier' | 'Havanese' | 'Ibizan Hound' | 'Icelandic Sheepdog' | 'Irish Red and White Setter' | 'Irish Setter' | 'Irish Terrier' | 'Irish Water Spaniel' | 'Irish Wolfhound' | 'Italian Greyhound' | 'Japanese Chin' | 'Keeshond' | 'Keeshonden' | 'Kerry Blue Terrier' | 'Komondor' | 'Kuvasz' | 'Kuvaszok' | 'Labrador Retriever' | 'Lagotto Romagnolo' | 'Lakeland Terrier' | 'Leonberger' | 'Lhasa Apso' | 'Löwchen' | 'Lowchen' | 'Maltese' | 'Manchester Terrier' | 'Mastiff' | 'Miniature American Shepherd' | 'Miniature Bull Terrier' | 'Miniature Pinscher' | 'Miniature Schnauzer' | 'Neapolitan Mastiff' | 'Newfoundland' | 'Norfolk Terrier' | 'Norwegian Buhund' | 'Norwegian Elkhound' | 'Norwegian Lundehund' | 'Norwich Terrier' | 'Nova Scotia Duck Tolling Retriever' | 'Old English Sheepdog' | 'Otterhound' | 'Papillon' | 'Parson Russell Terrier' | 'Pekingese' | 'Pembroke Welsh Corgi' | 'Petit Basset Griffon Vendéen' | 'Petits Bassets Griffons Vendeen' | 'Pharaoh Hound' | 'Plott' | 'Pointer' | 'Polish Lowland Sheepdog' | 'Pomeranian' | 'Poodle' | 'Portuguese Podengo Pequenos' | 'Portuguese Water Dog' | 'Pug' | 'Puli' | 'Pulik' | 'Pyrenean Shepherd' | 'Rat Terrier' | 'Redbone Coonhound' | 'Retrievers' | 'Rhodesian Ridgeback' | 'Rottweiler' | 'Russell Terrier' | 'Saint Bernard' | 'Saluki' | 'Samoyed' | 'Schipperke' | 'Scottish Deerhound' | 'Scottish Terrier' | 'Sealyham Terrier' | 'Setters' | 'Shetland Sheepdog' | 'Shiba Inu' | 'Shih Tzu' | 'Siberian Husky' | 'Siberian Huskies' | 'Silky Terrier' | 'Skye Terrier' | 'Soft Coated Wheaten Terrier' | 'Spaniels' | 'Spinone Italiano' | 'Spinoni Italiani' | 'Staffordshire Bull Terrier' | 'Standard Schnauzer' | 'Sussex Spaniel' | 'Swedish Vallhund' | 'Tibetan Mastiff' | 'Tibetan Spaniel' | 'Tibetan Terrier' | 'Toy Fox Terrier' | 'Treeing Walker Coonhound' | 'Vizsla' | 'Weimaraner' | 'Welsh Springer Spaniel' | 'Welsh Terrier' | 'West Highland White Terrier' | 'Whippet' | 'Wire Fox Terrier' | 'Wirehaired Pointing Griffon' | 'Wirehaired Vizsla' | 'Xoloitzcuintli' | 'Yorkshire Terrier' )";
 		}
 	}
 
@@ -6465,7 +6482,7 @@ public class testLexer extends Lexer {
 		}
 		@Override
 		public String getDescription() {
-			return "324:10: fragment FRAG_BREED_NAME_CATEGORY : ( '13 Inch' | '15 Inch' | 'Boykin' | 'B & P C' | 'Chesapeake Bay' | 'Clumber' | 'Cocker' | 'Colored' | 'Curly-Coated' | 'English' | 'English Cocker' | 'English Springer' | 'Field' | 'Flat-Coated' | 'German Shorthaired' | 'German Wirehaired' | 'Golden' | 'Gordon' | 'Irish' | 'Irish Water' | 'K C & R' | 'Labrador' | 'Long Coat' | 'Longhaired' | 'Miniature' | 'Nova Scotia Duck Tolling' | 'Rough' | 'Smooth' | 'Smooth Coat' | 'Standard' | 'Sussex' | 'Toy' | 'Welsh Springer' | 'White' | 'Wire' | 'Wirehaired' );";
+			return "326:10: fragment FRAG_BREED_NAME_CATEGORY : ( '13 Inch' | '15 Inch' | 'Boykin' | 'B & P C' | 'Chesapeake Bay' | 'Clumber' | 'Cocker' | 'Colored' | 'Curly-Coated' | 'English' | 'English Cocker' | 'English Springer' | 'Field' | 'Flat-Coated' | 'German Shorthaired' | 'German Wirehaired' | 'Golden' | 'Gordon' | 'Irish' | 'Irish Water' | 'K C & R' | 'Labrador' | 'Long Coat' | 'Longhaired' | 'Miniature' | 'Nova Scotia Duck Tolling' | 'Rough' | 'Smooth' | 'Smooth Coat' | 'Standard' | 'Sussex' | 'Toy' | 'Welsh Springer' | 'White' | 'Wire' | 'Wirehaired' );";
 		}
 	}
 
@@ -6709,48 +6726,48 @@ public class testLexer extends Lexer {
 		"\5\17\uffff\1\5\3\uffff\1\5\4\uffff\1\5\6\uffff\1\7\u00e7\uffff\1\5\1"+
 		"\uffff\1\4\4\uffff\1\5\166\uffff";
 	static final String DFA44_specialS =
-		"\1\67\16\uffff\1\u00aa\21\uffff\1\u0096\1\u00eb\1\105\1\u00c0\43\uffff"+
-		"\1\112\1\u00b4\137\uffff\1\106\1\uffff\1\u00bf\4\uffff\1\u00e2\54\uffff"+
-		"\1\120\1\uffff\1\111\12\uffff\1\u0099\52\uffff\1\51\2\uffff\1\u00d3\43"+
-		"\uffff\1\u00ca\41\uffff\1\u00b5\1\104\5\uffff\1\u00e3\44\uffff\1\u00d0"+
-		"\1\u00cd\2\uffff\1\22\6\uffff\1\u00ae\11\uffff\1\u00a8\14\uffff\1\122"+
-		"\45\uffff\1\132\1\u009c\1\uffff\1\u00e5\22\uffff\1\u00c7\2\uffff\1\u00bc"+
-		"\1\u00bd\15\uffff\1\u00be\15\uffff\1\37\2\uffff\1\u00e9\37\uffff\1\u00d6"+
-		"\16\uffff\1\101\6\uffff\1\u00ef\1\uffff\1\u00ee\5\uffff\1\24\3\uffff\1"+
-		"\30\14\uffff\1\u00d9\4\uffff\1\u0094\6\uffff\1\124\2\uffff\1\46\5\uffff"+
-		"\1\u00cc\2\uffff\1\56\3\uffff\1\74\6\uffff\1\102\6\uffff\1\45\1\uffff"+
-		"\1\54\5\uffff\1\131\17\uffff\1\61\1\130\10\uffff\1\u00cf\10\uffff\1\u00c6"+
-		"\1\uffff\1\u00b9\31\uffff\1\u00f1\36\uffff\1\0\1\uffff\1\127\5\uffff\1"+
-		"\3\1\u00c2\4\uffff\1\17\1\uffff\1\u00a5\2\uffff\1\u0095\1\u00f2\1\36\1"+
-		"\uffff\1\133\1\43\1\134\1\u00ed\4\uffff\1\23\7\uffff\1\u00ac\1\u00dc\3"+
-		"\uffff\1\u00a2\1\uffff\1\u00a4\6\uffff\1\u009a\2\uffff\1\u00df\1\126\1"+
-		"\125\6\uffff\1\115\5\uffff\1\u0093\7\uffff\1\u00e1\2\uffff\1\u00dd\1\uffff"+
-		"\1\135\1\uffff\1\u00d7\1\uffff\1\52\34\uffff\1\136\7\uffff\1\64\14\uffff"+
-		"\1\u00b2\16\uffff\1\72\17\uffff\1\32\1\26\4\uffff\1\u00ea\1\uffff\1\u00e4"+
-		"\5\uffff\1\2\3\uffff\1\u00c3\1\137\1\4\2\uffff\1\113\1\20\1\16\2\uffff"+
-		"\1\140\1\123\1\141\2\uffff\1\u00e6\5\uffff\1\u00f0\1\u00af\1\u00ad\1\142"+
-		"\4\uffff\1\u00bb\2\uffff\1\u00ba\1\uffff\1\114\1\uffff\1\7\1\uffff\1\u009d"+
-		"\1\uffff\1\107\4\uffff\1\143\1\uffff\1\77\2\uffff\1\27\3\uffff\1\u00db"+
-		"\1\55\1\uffff\1\144\40\uffff\1\u00d5\3\uffff\1\u00d2\1\uffff\1\145\1\65"+
-		"\4\uffff\1\62\3\uffff\1\u00b6\1\u00b8\2\uffff\1\u00b3\4\uffff\1\121\1"+
-		"\33\1\u009b\4\uffff\1\146\1\u00d1\4\uffff\1\70\1\uffff\1\u00cb\6\uffff"+
-		"\1\147\1\150\11\uffff\1\1\1\117\2\uffff\1\151\3\uffff\1\12\1\35\1\u00e8"+
-		"\1\40\1\152\1\uffff\1\34\1\31\5\uffff\1\u00a9\3\uffff\1\153\1\6\1\uffff"+
-		"\1\110\1\u009f\1\15\1\21\1\76\1\100\1\uffff\1\154\1\50\1\uffff\1\u00de"+
-		"\1\155\34\uffff\1\u00a6\3\uffff\1\u00d4\4\uffff\1\156\2\uffff\1\u00a7"+
-		"\1\u00c1\1\157\1\u00c4\1\75\1\66\1\uffff\1\u00b1\1\uffff\1\u00c9\11\uffff"+
-		"\1\160\12\uffff\1\71\1\uffff\1\u00b7\4\uffff\1\5\1\uffff\1\u00c5\2\uffff"+
-		"\1\161\2\uffff\1\u00e0\1\uffff\1\u00da\1\u00d8\2\uffff\1\10\1\162\1\116"+
-		"\1\uffff\1\163\1\164\1\165\1\uffff\1\166\1\47\41\uffff\1\167\4\uffff\1"+
-		"\u00ce\2\uffff\1\170\10\uffff\1\11\3\uffff\1\u00f4\1\44\1\u00ec\3\uffff"+
-		"\1\u009e\1\171\1\13\1\u00f3\1\uffff\1\u00ab\1\172\1\uffff\1\173\1\174"+
-		"\2\uffff\1\175\1\14\1\25\1\176\1\53\1\u00a1\37\uffff\1\60\1\57\1\63\3"+
-		"\uffff\1\73\1\42\4\uffff\1\177\3\uffff\1\u0080\1\u00e7\1\uffff\1\u00a0"+
-		"\1\u0098\1\u0081\1\u0082\1\u0083\33\uffff\1\u0084\1\u0085\1\u0086\3\uffff"+
-		"\1\u0087\5\uffff\1\41\1\u00c8\1\uffff\1\u0088\1\u00a3\34\uffff\1\u0089"+
-		"\1\uffff\1\u0097\24\uffff\1\u00b0\4\uffff\1\u008a\16\uffff\1\u008b\1\uffff"+
-		"\1\u008c\2\uffff\1\103\1\uffff\1\u008d\16\uffff\1\u008e\1\uffff\1\u008f"+
-		"\13\uffff\1\u0090\22\uffff\1\u0091\11\uffff\1\u0092\13\uffff}>";
+		"\1\u00b3\16\uffff\1\u00db\21\uffff\1\u00d8\1\u00ae\1\u00ad\1\100\43\uffff"+
+		"\1\u00a8\1\103\137\uffff\1\u00ac\1\uffff\1\77\4\uffff\1\50\54\uffff\1"+
+		"\66\1\uffff\1\u00a9\12\uffff\1\u00e8\52\uffff\1\u00b8\2\uffff\1\40\43"+
+		"\uffff\1\u00da\41\uffff\1\102\1\u00a7\5\uffff\1\52\44\uffff\1\13\1\u00e3"+
+		"\2\uffff\1\120\6\uffff\1\106\11\uffff\1\u00ee\14\uffff\1\u00d4\45\uffff"+
+		"\1\146\1\6\1\uffff\1\32\22\uffff\1\22\2\uffff\1\25\1\0\15\uffff\1\u00be"+
+		"\15\uffff\1\72\2\uffff\1\u00f2\37\uffff\1\31\16\uffff\1\u00c2\6\uffff"+
+		"\1\64\1\uffff\1\63\5\uffff\1\114\3\uffff\1\76\14\uffff\1\36\4\uffff\1"+
+		"\u00ea\6\uffff\1\u00d9\2\uffff\1\134\5\uffff\1\u00e7\2\uffff\1\u00a3\3"+
+		"\uffff\1\u00c3\6\uffff\1\u00bb\6\uffff\1\110\1\uffff\1\u00b1\5\uffff\1"+
+		"\145\17\uffff\1\u00aa\1\144\10\uffff\1\15\10\uffff\1\21\1\uffff\1\23\31"+
+		"\uffff\1\35\36\uffff\1\u00b7\1\uffff\1\143\5\uffff\1\u00a5\1\45\4\uffff"+
+		"\1\u00a2\1\uffff\1\u00ed\2\uffff\1\u00e4\1\55\1\124\1\uffff\1\147\1\126"+
+		"\1\150\1\62\4\uffff\1\116\7\uffff\1\u00f4\1\71\3\uffff\1\u00f1\1\uffff"+
+		"\1\u00ec\6\uffff\1\u00e1\2\uffff\1\u00ca\1\u00d6\1\u00d2\6\uffff\1\u00d0"+
+		"\5\uffff\1\73\7\uffff\1\53\2\uffff\1\26\1\uffff\1\151\1\uffff\1\33\1\uffff"+
+		"\1\u00b6\34\uffff\1\152\7\uffff\1\u00c5\14\uffff\1\5\16\uffff\1\u00cd"+
+		"\17\uffff\1\135\1\136\4\uffff\1\44\1\uffff\1\51\5\uffff\1\u00b4\3\uffff"+
+		"\1\42\1\153\1\u00a6\2\uffff\1\u00d1\1\u00a1\1\133\2\uffff\1\154\1\u00d5"+
+		"\1\155\2\uffff\1\60\5\uffff\1\u00b9\1\105\1\111\1\156\4\uffff\1\54\2\uffff"+
+		"\1\24\1\uffff\1\u00d3\1\uffff\1\113\1\uffff\1\u00e0\1\uffff\1\u00cb\4"+
+		"\uffff\1\157\1\uffff\1\u00bf\2\uffff\1\137\3\uffff\1\34\1\u00b0\1\uffff"+
+		"\1\160\40\uffff\1\37\3\uffff\1\14\1\uffff\1\161\1\u00c6\4\uffff\1\u00c1"+
+		"\3\uffff\1\1\1\4\2\uffff\1\10\4\uffff\1\u00cf\1\11\1\u00df\4\uffff\1\162"+
+		"\1\17\4\uffff\1\u00c8\1\uffff\1\u00e5\6\uffff\1\163\1\164\11\uffff\1\u00b5"+
+		"\1\u00dc\2\uffff\1\165\3\uffff\1\140\1\125\1\61\1\130\1\166\1\uffff\1"+
+		"\122\1\123\5\uffff\1\u00f0\3\uffff\1\167\1\117\1\uffff\1\u00c9\1\74\1"+
+		"\112\1\104\1\u00bd\1\u00c0\1\uffff\1\170\1\142\1\uffff\1\30\1\171\34\uffff"+
+		"\1\u00d7\3\uffff\1\41\4\uffff\1\172\2\uffff\1\u00ef\1\16\1\173\1\20\1"+
+		"\u00c4\1\u00ba\1\uffff\1\7\1\uffff\1\u00dd\11\uffff\1\174\12\uffff\1\121"+
+		"\1\uffff\1\2\4\uffff\1\u00a4\1\uffff\1\46\2\uffff\1\175\2\uffff\1\65\1"+
+		"\uffff\1\70\1\67\2\uffff\1\115\1\176\1\u00ce\1\uffff\1\177\1\u0080\1\u0081"+
+		"\1\uffff\1\u0082\1\u009f\41\uffff\1\u0083\4\uffff\1\12\2\uffff\1\u0084"+
+		"\10\uffff\1\75\3\uffff\1\u00bc\1\141\1\43\3\uffff\1\u00eb\1\u0085\1\u00a0"+
+		"\1\56\1\uffff\1\101\1\u0086\1\uffff\1\u0087\1\u0088\2\uffff\1\u0089\1"+
+		"\107\1\132\1\u008a\1\u00b2\1\131\37\uffff\1\u00ab\1\u00af\1\u00c7\3\uffff"+
+		"\1\u00cc\1\47\4\uffff\1\u008b\3\uffff\1\u008c\1\57\1\uffff\1\u00e9\1\u00e6"+
+		"\1\u008d\1\u008e\1\u008f\33\uffff\1\u0090\1\u0091\1\u0092\3\uffff\1\u0093"+
+		"\5\uffff\1\127\1\u00de\1\uffff\1\u0094\1\u00f3\34\uffff\1\u0095\1\uffff"+
+		"\1\27\24\uffff\1\3\4\uffff\1\u0096\16\uffff\1\u0097\1\uffff\1\u0098\2"+
+		"\uffff\1\u00e2\1\uffff\1\u0099\16\uffff\1\u009a\1\uffff\1\u009b\13\uffff"+
+		"\1\u009c\22\uffff\1\u009d\11\uffff\1\u009e\13\uffff}>";
 	static final String[] DFA44_transitionS = {
 			"\11\36\2\32\2\36\1\32\22\36\1\32\5\36\2\35\1\30\3\36\2\35\1\33\1\36\12"+
 			"\31\2\35\5\36\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17"+
@@ -9123,132 +9140,869 @@ public class testLexer extends Lexer {
 			int _s = s;
 			switch ( s ) {
 					case 0 : 
-						int LA44_746 = input.LA(1);
+						int LA44_492 = input.LA(1);
 						 
-						int index44_746 = input.index();
+						int index44_492 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_746==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_492==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_746);
+						input.seek(index44_492);
 						if ( s>=0 ) return s;
 						break;
 
 					case 1 : 
-						int LA44_1081 = input.LA(1);
+						int LA44_1039 = input.LA(1);
 						 
-						int index44_1081 = input.index();
+						int index44_1039 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1081==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_1039==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_1081);
+						input.seek(index44_1039);
 						if ( s>=0 ) return s;
 						break;
 
 					case 2 : 
-						int LA44_929 = input.LA(1);
+						int LA44_1193 = input.LA(1);
 						 
-						int index44_929 = input.index();
+						int index44_1193 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_929==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_1193==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_929);
+						input.seek(index44_1193);
 						if ( s>=0 ) return s;
 						break;
 
 					case 3 : 
-						int LA44_754 = input.LA(1);
+						int LA44_1450 = input.LA(1);
 						 
-						int index44_754 = input.index();
+						int index44_1450 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_754==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_1450==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_754);
+						input.seek(index44_1450);
 						if ( s>=0 ) return s;
 						break;
 
 					case 4 : 
-						int LA44_935 = input.LA(1);
+						int LA44_1040 = input.LA(1);
 						 
-						int index44_935 = input.index();
+						int index44_1040 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_935==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_1040==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_935);
+						input.seek(index44_1040);
 						if ( s>=0 ) return s;
 						break;
 
 					case 5 : 
-						int LA44_1198 = input.LA(1);
+						int LA44_884 = input.LA(1);
 						 
-						int index44_1198 = input.index();
+						int index44_884 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1198==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_884==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_1198);
+						input.seek(index44_884);
 						if ( s>=0 ) return s;
 						break;
 
 					case 6 : 
-						int LA44_1107 = input.LA(1);
+						int LA44_467 = input.LA(1);
 						 
-						int index44_1107 = input.index();
+						int index44_467 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1107=='s') ) {s = 467;}
-						else if ( ((LA44_1107 >= '\t' && LA44_1107 <= '\n')||LA44_1107=='\r'||LA44_1107==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1107=='(') ) {s = 468;}
-						else if ( (LA44_1107=='!'||(LA44_1107 >= '&' && LA44_1107 <= '\'')||(LA44_1107 >= ',' && LA44_1107 <= '.')||(LA44_1107 >= '0' && LA44_1107 <= ';')||LA44_1107=='?'||(LA44_1107 >= 'A' && LA44_1107 <= 'Z')||LA44_1107=='_'||(LA44_1107 >= 'a' && LA44_1107 <= 'r')||(LA44_1107 >= 't' && LA44_1107 <= 'z')||LA44_1107=='\u2019') ) {s = 40;}
-						else s = 1213;
+						if ( ((LA44_467 >= '\t' && LA44_467 <= '\n')||LA44_467=='\r'||LA44_467==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_467=='(') ) {s = 468;}
+						else if ( (LA44_467=='!'||(LA44_467 >= '&' && LA44_467 <= '\'')||(LA44_467 >= ',' && LA44_467 <= '.')||(LA44_467 >= '0' && LA44_467 <= ';')||LA44_467=='?'||(LA44_467 >= 'A' && LA44_467 <= 'Z')||LA44_467=='_'||(LA44_467 >= 'a' && LA44_467 <= 'z')||LA44_467=='\u2019') ) {s = 40;}
+						else s = 652;
 						 
-						input.seek(index44_1107);
+						input.seek(index44_467);
 						if ( s>=0 ) return s;
 						break;
 
 					case 7 : 
-						int LA44_969 = input.LA(1);
+						int LA44_1168 = input.LA(1);
 						 
-						int index44_969 = input.index();
+						int index44_1168 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_969=='s') ) {s = 467;}
-						else if ( ((LA44_969 >= '\t' && LA44_969 <= '\n')||LA44_969=='\r'||LA44_969==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_969=='(') ) {s = 468;}
-						else if ( (LA44_969=='!'||(LA44_969 >= '&' && LA44_969 <= '\'')||(LA44_969 >= ',' && LA44_969 <= '.')||(LA44_969 >= '0' && LA44_969 <= ';')||LA44_969=='?'||(LA44_969 >= 'A' && LA44_969 <= 'Z')||LA44_969=='_'||(LA44_969 >= 'a' && LA44_969 <= 'r')||(LA44_969 >= 't' && LA44_969 <= 'z')||LA44_969=='\u2019') ) {s = 40;}
-						else s = 1106;
+						if ( (LA44_1168==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
 						 
-						input.seek(index44_969);
+						input.seek(index44_1168);
 						if ( s>=0 ) return s;
 						break;
 
 					case 8 : 
-						int LA44_1212 = input.LA(1);
+						int LA44_1043 = input.LA(1);
 						 
-						int index44_1212 = input.index();
+						int index44_1043 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1212=='s') ) {s = 467;}
-						else if ( ((LA44_1212 >= '\t' && LA44_1212 <= '\n')||LA44_1212=='\r'||LA44_1212==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1212=='(') ) {s = 468;}
-						else if ( (LA44_1212=='!'||(LA44_1212 >= '&' && LA44_1212 <= '\'')||(LA44_1212 >= ',' && LA44_1212 <= '.')||(LA44_1212 >= '0' && LA44_1212 <= ';')||LA44_1212=='?'||(LA44_1212 >= 'A' && LA44_1212 <= 'Z')||LA44_1212=='_'||(LA44_1212 >= 'a' && LA44_1212 <= 'r')||(LA44_1212 >= 't' && LA44_1212 <= 'z')||LA44_1212=='\u2019') ) {s = 40;}
-						else s = 1294;
+						if ( (LA44_1043==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
 						 
-						input.seek(index44_1212);
+						input.seek(index44_1043);
 						if ( s>=0 ) return s;
 						break;
 
 					case 9 : 
+						int LA44_1049 = input.LA(1);
+						 
+						int index44_1049 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1049==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_1049);
+						if ( s>=0 ) return s;
+						break;
+
+					case 10 : 
+						int LA44_1260 = input.LA(1);
+						 
+						int index44_1260 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1260==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_1260);
+						if ( s>=0 ) return s;
+						break;
+
+					case 11 : 
+						int LA44_394 = input.LA(1);
+						 
+						int index44_394 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_394==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_394=='d') ) {s = 583;}
+						else if ( (LA44_394=='m') ) {s = 584;}
+						else s = 40;
+						 
+						input.seek(index44_394);
+						if ( s>=0 ) return s;
+						break;
+
+					case 12 : 
+						int LA44_1027 = input.LA(1);
+						 
+						int index44_1027 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1027==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_1027);
+						if ( s>=0 ) return s;
+						break;
+
+					case 13 : 
+						int LA44_678 = input.LA(1);
+						 
+						int index44_678 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_678==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_678);
+						if ( s>=0 ) return s;
+						break;
+
+					case 14 : 
+						int LA44_1162 = input.LA(1);
+						 
+						int index44_1162 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1162==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_1162);
+						if ( s>=0 ) return s;
+						break;
+
+					case 15 : 
+						int LA44_1056 = input.LA(1);
+						 
+						int index44_1056 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1056==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1056=='s') ) {s = 1176;}
+						else s = 40;
+						 
+						input.seek(index44_1056);
+						if ( s>=0 ) return s;
+						break;
+
+					case 16 : 
+						int LA44_1164 = input.LA(1);
+						 
+						int index44_1164 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1164==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_1164);
+						if ( s>=0 ) return s;
+						break;
+
+					case 17 : 
+						int LA44_687 = input.LA(1);
+						 
+						int index44_687 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_687==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_687);
+						if ( s>=0 ) return s;
+						break;
+
+					case 18 : 
+						int LA44_488 = input.LA(1);
+						 
+						int index44_488 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_488==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_488);
+						if ( s>=0 ) return s;
+						break;
+
+					case 19 : 
+						int LA44_689 = input.LA(1);
+						 
+						int index44_689 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_689==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_689);
+						if ( s>=0 ) return s;
+						break;
+
+					case 20 : 
+						int LA44_965 = input.LA(1);
+						 
+						int index44_965 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_965==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_965);
+						if ( s>=0 ) return s;
+						break;
+
+					case 21 : 
+						int LA44_491 = input.LA(1);
+						 
+						int index44_491 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_491==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_491);
+						if ( s>=0 ) return s;
+						break;
+
+					case 22 : 
+						int LA44_828 = input.LA(1);
+						 
+						int index44_828 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_828==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_828);
+						if ( s>=0 ) return s;
+						break;
+
+					case 23 : 
+						int LA44_1429 = input.LA(1);
+						 
+						int index44_1429 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1429=='s') ) {s = 467;}
+						else if ( ((LA44_1429 >= '\t' && LA44_1429 <= '\n')||LA44_1429=='\r'||LA44_1429==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1429=='(') ) {s = 468;}
+						else if ( (LA44_1429=='!'||(LA44_1429 >= '&' && LA44_1429 <= '\'')||(LA44_1429 >= ',' && LA44_1429 <= '.')||(LA44_1429 >= '0' && LA44_1429 <= ';')||LA44_1429=='?'||(LA44_1429 >= 'A' && LA44_1429 <= 'Z')||LA44_1429=='_'||(LA44_1429 >= 'a' && LA44_1429 <= 'r')||(LA44_1429 >= 't' && LA44_1429 <= 'z')||LA44_1429=='\u2019') ) {s = 40;}
+						else s = 1455;
+						 
+						input.seek(index44_1429);
+						if ( s>=0 ) return s;
+						break;
+
+					case 24 : 
+						int LA44_1119 = input.LA(1);
+						 
+						int index44_1119 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1119==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_1119);
+						if ( s>=0 ) return s;
+						break;
+
+					case 25 : 
+						int LA44_555 = input.LA(1);
+						 
+						int index44_555 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_555=='s') ) {s = 467;}
+						else if ( ((LA44_555 >= '\t' && LA44_555 <= '\n')||LA44_555=='\r'||LA44_555==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_555=='(') ) {s = 468;}
+						else if ( (LA44_555=='!'||(LA44_555 >= '&' && LA44_555 <= '\'')||(LA44_555 >= ',' && LA44_555 <= '.')||(LA44_555 >= '0' && LA44_555 <= ';')||LA44_555=='?'||(LA44_555 >= 'A' && LA44_555 <= 'Z')||LA44_555=='_'||(LA44_555 >= 'a' && LA44_555 <= 'r')||(LA44_555 >= 't' && LA44_555 <= 'z')||LA44_555=='\u2019') ) {s = 40;}
+						else s = 748;
+						 
+						input.seek(index44_555);
+						if ( s>=0 ) return s;
+						break;
+
+					case 26 : 
+						int LA44_469 = input.LA(1);
+						 
+						int index44_469 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_469=='k') ) {s = 668;}
+						else if ( (LA44_469=='s') ) {s = 467;}
+						else if ( ((LA44_469 >= '\t' && LA44_469 <= '\n')||LA44_469=='\r'||LA44_469==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_469=='(') ) {s = 468;}
+						else if ( (LA44_469=='!'||(LA44_469 >= '&' && LA44_469 <= '\'')||(LA44_469 >= ',' && LA44_469 <= '.')||(LA44_469 >= '0' && LA44_469 <= ';')||LA44_469=='?'||(LA44_469 >= 'A' && LA44_469 <= 'Z')||LA44_469=='_'||(LA44_469 >= 'a' && LA44_469 <= 'j')||(LA44_469 >= 'l' && LA44_469 <= 'r')||(LA44_469 >= 't' && LA44_469 <= 'z')||LA44_469=='\u2019') ) {s = 40;}
+						else s = 669;
+						 
+						input.seek(index44_469);
+						if ( s>=0 ) return s;
+						break;
+
+					case 27 : 
+						int LA44_832 = input.LA(1);
+						 
+						int index44_832 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_832==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_832);
+						if ( s>=0 ) return s;
+						break;
+
+					case 28 : 
+						int LA44_987 = input.LA(1);
+						 
+						int index44_987 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_987==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_987);
+						if ( s>=0 ) return s;
+						break;
+
+					case 29 : 
+						int LA44_715 = input.LA(1);
+						 
+						int index44_715 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_715==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_715);
+						if ( s>=0 ) return s;
+						break;
+
+					case 30 : 
+						int LA44_602 = input.LA(1);
+						 
+						int index44_602 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_602==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_602=='s') ) {s = 792;}
+						else s = 40;
+						 
+						input.seek(index44_602);
+						if ( s>=0 ) return s;
+						break;
+
+					case 31 : 
+						int LA44_1023 = input.LA(1);
+						 
+						int index44_1023 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1023==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_1023);
+						if ( s>=0 ) return s;
+						break;
+
+					case 32 : 
+						int LA44_280 = input.LA(1);
+						 
+						int index44_280 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_280==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_280);
+						if ( s>=0 ) return s;
+						break;
+
+					case 33 : 
+						int LA44_1153 = input.LA(1);
+						 
+						int index44_1153 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1153==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_1153);
+						if ( s>=0 ) return s;
+						break;
+
+					case 34 : 
+						int LA44_933 = input.LA(1);
+						 
+						int index44_933 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_933=='s') ) {s = 467;}
+						else if ( ((LA44_933 >= '\t' && LA44_933 <= '\n')||LA44_933=='\r'||LA44_933==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_933=='(') ) {s = 468;}
+						else if ( (LA44_933=='!'||(LA44_933 >= '&' && LA44_933 <= '\'')||(LA44_933 >= ',' && LA44_933 <= '.')||(LA44_933 >= '0' && LA44_933 <= ';')||LA44_933=='?'||(LA44_933 >= 'A' && LA44_933 <= 'Z')||LA44_933=='_'||(LA44_933 >= 'a' && LA44_933 <= 'r')||(LA44_933 >= 't' && LA44_933 <= 'z')||LA44_933=='\u2019') ) {s = 40;}
+						else s = 1085;
+						 
+						input.seek(index44_933);
+						if ( s>=0 ) return s;
+						break;
+
+					case 35 : 
+						int LA44_1278 = input.LA(1);
+						 
+						int index44_1278 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1278==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_1278);
+						if ( s>=0 ) return s;
+						break;
+
+					case 36 : 
+						int LA44_921 = input.LA(1);
+						 
+						int index44_921 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_921==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_921);
+						if ( s>=0 ) return s;
+						break;
+
+					case 37 : 
+						int LA44_755 = input.LA(1);
+						 
+						int index44_755 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_755=='s') ) {s = 467;}
+						else if ( ((LA44_755 >= '\t' && LA44_755 <= '\n')||LA44_755=='\r'||LA44_755==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_755=='(') ) {s = 468;}
+						else if ( (LA44_755=='!'||(LA44_755 >= '&' && LA44_755 <= '\'')||(LA44_755 >= ',' && LA44_755 <= '.')||(LA44_755 >= '0' && LA44_755 <= ';')||LA44_755=='?'||(LA44_755 >= 'A' && LA44_755 <= 'Z')||LA44_755=='_'||(LA44_755 >= 'a' && LA44_755 <= 'r')||(LA44_755 >= 't' && LA44_755 <= 'z')||LA44_755=='\u2019') ) {s = 40;}
+						else s = 934;
+						 
+						input.seek(index44_755);
+						if ( s>=0 ) return s;
+						break;
+
+					case 38 : 
+						int LA44_1200 = input.LA(1);
+						 
+						int index44_1200 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1200=='s') ) {s = 467;}
+						else if ( ((LA44_1200 >= '\t' && LA44_1200 <= '\n')||LA44_1200=='\r'||LA44_1200==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1200=='(') ) {s = 468;}
+						else if ( (LA44_1200=='!'||(LA44_1200 >= '&' && LA44_1200 <= '\'')||(LA44_1200 >= ',' && LA44_1200 <= '.')||(LA44_1200 >= '0' && LA44_1200 <= ';')||LA44_1200=='?'||(LA44_1200 >= 'A' && LA44_1200 <= 'Z')||LA44_1200=='_'||(LA44_1200 >= 'a' && LA44_1200 <= 'r')||(LA44_1200 >= 't' && LA44_1200 <= 'z')||LA44_1200=='\u2019') ) {s = 40;}
+						else s = 1283;
+						 
+						input.seek(index44_1200);
+						if ( s>=0 ) return s;
+						break;
+
+					case 39 : 
+						int LA44_1338 = input.LA(1);
+						 
+						int index44_1338 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1338==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_1338);
+						if ( s>=0 ) return s;
+						break;
+
+					case 40 : 
+						int LA44_176 = input.LA(1);
+						 
+						int index44_176 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_176==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_176);
+						if ( s>=0 ) return s;
+						break;
+
+					case 41 : 
+						int LA44_923 = input.LA(1);
+						 
+						int index44_923 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_923==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_923);
+						if ( s>=0 ) return s;
+						break;
+
+					case 42 : 
+						int LA44_357 = input.LA(1);
+						 
+						int index44_357 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_357==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_357);
+						if ( s>=0 ) return s;
+						break;
+
+					case 43 : 
+						int LA44_825 = input.LA(1);
+						 
+						int index44_825 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_825==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_825);
+						if ( s>=0 ) return s;
+						break;
+
+					case 44 : 
+						int LA44_962 = input.LA(1);
+						 
+						int index44_962 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_962==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_962);
+						if ( s>=0 ) return s;
+						break;
+
+					case 45 : 
+						int LA44_766 = input.LA(1);
+						 
+						int index44_766 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_766=='s') ) {s = 467;}
+						else if ( ((LA44_766 >= '\t' && LA44_766 <= '\n')||LA44_766=='\r'||LA44_766==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_766=='(') ) {s = 468;}
+						else if ( (LA44_766=='!'||(LA44_766 >= '&' && LA44_766 <= '\'')||(LA44_766 >= ',' && LA44_766 <= '.')||(LA44_766 >= '0' && LA44_766 <= ';')||LA44_766=='?'||(LA44_766 >= 'A' && LA44_766 <= 'Z')||LA44_766=='_'||(LA44_766 >= 'a' && LA44_766 <= 'r')||(LA44_766 >= 't' && LA44_766 <= 'z')||LA44_766=='\u2019') ) {s = 40;}
+						else s = 943;
+						 
+						input.seek(index44_766);
+						if ( s>=0 ) return s;
+						break;
+
+					case 46 : 
+						int LA44_1285 = input.LA(1);
+						 
+						int index44_1285 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1285=='s') ) {s = 467;}
+						else if ( ((LA44_1285 >= '\t' && LA44_1285 <= '\n')||LA44_1285=='\r'||LA44_1285==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1285=='(') ) {s = 468;}
+						else if ( (LA44_1285=='!'||(LA44_1285 >= '&' && LA44_1285 <= '\'')||(LA44_1285 >= ',' && LA44_1285 <= '.')||(LA44_1285 >= '0' && LA44_1285 <= ';')||LA44_1285=='?'||(LA44_1285 >= 'A' && LA44_1285 <= 'Z')||LA44_1285=='_'||(LA44_1285 >= 'a' && LA44_1285 <= 'r')||(LA44_1285 >= 't' && LA44_1285 <= 'z')||LA44_1285=='\u2019') ) {s = 40;}
+						else s = 1347;
+						 
+						input.seek(index44_1285);
+						if ( s>=0 ) return s;
+						break;
+
+					case 47 : 
+						int LA44_1348 = input.LA(1);
+						 
+						int index44_1348 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1348=='s') ) {s = 467;}
+						else if ( ((LA44_1348 >= '\t' && LA44_1348 <= '\n')||LA44_1348=='\r'||LA44_1348==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1348=='(') ) {s = 468;}
+						else if ( (LA44_1348=='!'||(LA44_1348 >= '&' && LA44_1348 <= '\'')||(LA44_1348 >= ',' && LA44_1348 <= '.')||(LA44_1348 >= '0' && LA44_1348 <= ';')||LA44_1348=='?'||(LA44_1348 >= 'A' && LA44_1348 <= 'Z')||LA44_1348=='_'||(LA44_1348 >= 'a' && LA44_1348 <= 'r')||(LA44_1348 >= 't' && LA44_1348 <= 'z')||LA44_1348=='\u2019') ) {s = 40;}
+						else s = 1397;
+						 
+						input.seek(index44_1348);
+						if ( s>=0 ) return s;
+						break;
+
+					case 48 : 
+						int LA44_948 = input.LA(1);
+						 
+						int index44_948 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_948=='s') ) {s = 467;}
+						else if ( ((LA44_948 >= '\t' && LA44_948 <= '\n')||LA44_948=='\r'||LA44_948==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_948=='(') ) {s = 468;}
+						else if ( (LA44_948=='!'||(LA44_948 >= '&' && LA44_948 <= '\'')||(LA44_948 >= ',' && LA44_948 <= '.')||(LA44_948 >= '0' && LA44_948 <= ';')||LA44_948=='?'||(LA44_948 >= 'A' && LA44_948 <= 'Z')||LA44_948=='_'||(LA44_948 >= 'a' && LA44_948 <= 'r')||(LA44_948 >= 't' && LA44_948 <= 'z')||LA44_948=='\u2019') ) {s = 40;}
+						else s = 1093;
+						 
+						input.seek(index44_948);
+						if ( s>=0 ) return s;
+						break;
+
+					case 49 : 
+						int LA44_1091 = input.LA(1);
+						 
+						int index44_1091 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1091=='s') ) {s = 467;}
+						else if ( ((LA44_1091 >= '\t' && LA44_1091 <= '\n')||LA44_1091=='\r'||LA44_1091==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1091=='(') ) {s = 468;}
+						else if ( (LA44_1091=='!'||(LA44_1091 >= '&' && LA44_1091 <= '\'')||(LA44_1091 >= ',' && LA44_1091 <= '.')||(LA44_1091 >= '0' && LA44_1091 <= ';')||LA44_1091=='?'||(LA44_1091 >= 'A' && LA44_1091 <= 'Z')||LA44_1091=='_'||(LA44_1091 >= 'a' && LA44_1091 <= 'r')||(LA44_1091 >= 't' && LA44_1091 <= 'z')||LA44_1091=='\u2019') ) {s = 40;}
+						else s = 1203;
+						 
+						input.seek(index44_1091);
+						if ( s>=0 ) return s;
+						break;
+
+					case 50 : 
+						int LA44_772 = input.LA(1);
+						 
+						int index44_772 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_772=='s') ) {s = 467;}
+						else if ( ((LA44_772 >= '\t' && LA44_772 <= '\n')||LA44_772=='\r'||LA44_772==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_772=='(') ) {s = 468;}
+						else if ( (LA44_772=='!'||(LA44_772 >= '&' && LA44_772 <= '\'')||(LA44_772 >= ',' && LA44_772 <= '.')||(LA44_772 >= '0' && LA44_772 <= ';')||LA44_772=='?'||(LA44_772 >= 'A' && LA44_772 <= 'Z')||LA44_772=='_'||(LA44_772 >= 'a' && LA44_772 <= 'r')||(LA44_772 >= 't' && LA44_772 <= 'z')||LA44_772=='\u2019') ) {s = 40;}
+						else s = 945;
+						 
+						input.seek(index44_772);
+						if ( s>=0 ) return s;
+						break;
+
+					case 51 : 
+						int LA44_579 = input.LA(1);
+						 
+						int index44_579 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_579=='s') ) {s = 467;}
+						else if ( ((LA44_579 >= '\t' && LA44_579 <= '\n')||LA44_579=='\r'||LA44_579==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_579=='(') ) {s = 468;}
+						else if ( (LA44_579=='!'||(LA44_579 >= '&' && LA44_579 <= '\'')||(LA44_579 >= ',' && LA44_579 <= '.')||(LA44_579 >= '0' && LA44_579 <= ';')||LA44_579=='?'||(LA44_579 >= 'A' && LA44_579 <= 'Z')||LA44_579=='_'||(LA44_579 >= 'a' && LA44_579 <= 'r')||(LA44_579 >= 't' && LA44_579 <= 'z')||LA44_579=='\u2019') ) {s = 40;}
+						else s = 771;
+						 
+						input.seek(index44_579);
+						if ( s>=0 ) return s;
+						break;
+
+					case 52 : 
+						int LA44_577 = input.LA(1);
+						 
+						int index44_577 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_577=='s') ) {s = 467;}
+						else if ( ((LA44_577 >= '\t' && LA44_577 <= '\n')||LA44_577=='\r'||LA44_577==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_577=='(') ) {s = 468;}
+						else if ( (LA44_577=='!'||(LA44_577 >= '&' && LA44_577 <= '\'')||(LA44_577 >= ',' && LA44_577 <= '.')||(LA44_577 >= '0' && LA44_577 <= ';')||LA44_577=='?'||(LA44_577 >= 'A' && LA44_577 <= 'Z')||LA44_577=='_'||(LA44_577 >= 'a' && LA44_577 <= 'r')||(LA44_577 >= 't' && LA44_577 <= 'z')||LA44_577=='\u2019') ) {s = 40;}
+						else s = 769;
+						 
+						input.seek(index44_577);
+						if ( s>=0 ) return s;
+						break;
+
+					case 53 : 
+						int LA44_1206 = input.LA(1);
+						 
+						int index44_1206 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1206=='s') ) {s = 467;}
+						else if ( ((LA44_1206 >= '\t' && LA44_1206 <= '\n')||LA44_1206=='\r'||LA44_1206==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1206=='(') ) {s = 468;}
+						else if ( (LA44_1206=='!'||(LA44_1206 >= '&' && LA44_1206 <= '\'')||(LA44_1206 >= ',' && LA44_1206 <= '.')||(LA44_1206 >= '0' && LA44_1206 <= ';')||LA44_1206=='?'||(LA44_1206 >= 'A' && LA44_1206 <= 'Z')||LA44_1206=='_'||(LA44_1206 >= 'a' && LA44_1206 <= 'r')||(LA44_1206 >= 't' && LA44_1206 <= 'z')||LA44_1206=='\u2019') ) {s = 40;}
+						else s = 1288;
+						 
+						input.seek(index44_1206);
+						if ( s>=0 ) return s;
+						break;
+
+					case 54 : 
+						int LA44_221 = input.LA(1);
+						 
+						int index44_221 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_221=='l') ) {s = 409;}
+						else if ( ((LA44_221 >= '\t' && LA44_221 <= '\n')||LA44_221=='\r'||LA44_221==' ') && ((allowJudge))) {s = 170;}
+						else s = 40;
+						 
+						input.seek(index44_221);
+						if ( s>=0 ) return s;
+						break;
+
+					case 55 : 
+						int LA44_1209 = input.LA(1);
+						 
+						int index44_1209 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1209=='s') ) {s = 467;}
+						else if ( ((LA44_1209 >= '\t' && LA44_1209 <= '\n')||LA44_1209=='\r'||LA44_1209==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1209=='(') ) {s = 468;}
+						else if ( (LA44_1209=='!'||(LA44_1209 >= '&' && LA44_1209 <= '\'')||(LA44_1209 >= ',' && LA44_1209 <= '.')||(LA44_1209 >= '0' && LA44_1209 <= ';')||LA44_1209=='?'||(LA44_1209 >= 'A' && LA44_1209 <= 'Z')||LA44_1209=='_'||(LA44_1209 >= 'a' && LA44_1209 <= 'r')||(LA44_1209 >= 't' && LA44_1209 <= 'z')||LA44_1209=='\u2019') ) {s = 40;}
+						else s = 1291;
+						 
+						input.seek(index44_1209);
+						if ( s>=0 ) return s;
+						break;
+
+					case 56 : 
+						int LA44_1208 = input.LA(1);
+						 
+						int index44_1208 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1208=='s') ) {s = 467;}
+						else if ( ((LA44_1208 >= '\t' && LA44_1208 <= '\n')||LA44_1208=='\r'||LA44_1208==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1208=='(') ) {s = 468;}
+						else if ( (LA44_1208=='!'||(LA44_1208 >= '&' && LA44_1208 <= '\'')||(LA44_1208 >= ',' && LA44_1208 <= '.')||(LA44_1208 >= '0' && LA44_1208 <= ';')||LA44_1208=='?'||(LA44_1208 >= 'A' && LA44_1208 <= 'Z')||LA44_1208=='_'||(LA44_1208 >= 'a' && LA44_1208 <= 'r')||(LA44_1208 >= 't' && LA44_1208 <= 'z')||LA44_1208=='\u2019') ) {s = 40;}
+						else s = 1290;
+						 
+						input.seek(index44_1208);
+						if ( s>=0 ) return s;
+						break;
+
+					case 57 : 
+						int LA44_786 = input.LA(1);
+						 
+						int index44_786 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_786=='s') ) {s = 467;}
+						else if ( ((LA44_786 >= '\t' && LA44_786 <= '\n')||LA44_786=='\r'||LA44_786==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_786=='(') ) {s = 468;}
+						else if ( (LA44_786=='!'||(LA44_786 >= '&' && LA44_786 <= '\'')||(LA44_786 >= ',' && LA44_786 <= '.')||(LA44_786 >= '0' && LA44_786 <= ';')||LA44_786=='?'||(LA44_786 >= 'A' && LA44_786 <= 'Z')||LA44_786=='_'||(LA44_786 >= 'a' && LA44_786 <= 'r')||(LA44_786 >= 't' && LA44_786 <= 'z')||LA44_786=='\u2019') ) {s = 40;}
+						else s = 957;
+						 
+						input.seek(index44_786);
+						if ( s>=0 ) return s;
+						break;
+
+					case 58 : 
+						int LA44_520 = input.LA(1);
+						 
+						int index44_520 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_520==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_520);
+						if ( s>=0 ) return s;
+						break;
+
+					case 59 : 
+						int LA44_817 = input.LA(1);
+						 
+						int index44_817 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_817=='o') ) {s = 977;}
+						else if ( (LA44_817=='s') ) {s = 467;}
+						else if ( ((LA44_817 >= '\t' && LA44_817 <= '\n')||LA44_817=='\r'||LA44_817==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_817=='(') ) {s = 468;}
+						else if ( (LA44_817=='!'||(LA44_817 >= '&' && LA44_817 <= '\'')||(LA44_817 >= ',' && LA44_817 <= '.')||(LA44_817 >= '0' && LA44_817 <= ';')||LA44_817=='?'||(LA44_817 >= 'A' && LA44_817 <= 'Z')||LA44_817=='_'||(LA44_817 >= 'a' && LA44_817 <= 'n')||(LA44_817 >= 'p' && LA44_817 <= 'r')||(LA44_817 >= 't' && LA44_817 <= 'z')||LA44_817=='\u2019') ) {s = 40;}
+						else s = 978;
+						 
+						input.seek(index44_817);
+						if ( s>=0 ) return s;
+						break;
+
+					case 60 : 
+						int LA44_1110 = input.LA(1);
+						 
+						int index44_1110 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1110=='e') ) {s = 1215;}
+						else if ( (LA44_1110=='s') ) {s = 467;}
+						else if ( ((LA44_1110 >= '\t' && LA44_1110 <= '\n')||LA44_1110=='\r'||LA44_1110==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1110=='(') ) {s = 468;}
+						else if ( (LA44_1110=='!'||(LA44_1110 >= '&' && LA44_1110 <= '\'')||(LA44_1110 >= ',' && LA44_1110 <= '.')||(LA44_1110 >= '0' && LA44_1110 <= ';')||LA44_1110=='?'||(LA44_1110 >= 'A' && LA44_1110 <= 'Z')||LA44_1110=='_'||(LA44_1110 >= 'a' && LA44_1110 <= 'd')||(LA44_1110 >= 'f' && LA44_1110 <= 'r')||(LA44_1110 >= 't' && LA44_1110 <= 'z')||LA44_1110=='\u2019') ) {s = 40;}
+						else s = 1216;
+						 
+						input.seek(index44_1110);
+						if ( s>=0 ) return s;
+						break;
+
+					case 61 : 
 						int LA44_1272 = input.LA(1);
 						 
 						int index44_1272 = input.index();
@@ -9261,104 +10015,85 @@ public class testLexer extends Lexer {
 						if ( s>=0 ) return s;
 						break;
 
-					case 10 : 
-						int LA44_1089 = input.LA(1);
+					case 62 : 
+						int LA44_589 = input.LA(1);
 						 
-						int index44_1089 = input.index();
+						int index44_589 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1089==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_589==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_1089);
+						input.seek(index44_589);
 						if ( s>=0 ) return s;
 						break;
 
-					case 11 : 
-						int LA44_1284 = input.LA(1);
+					case 63 : 
+						int LA44_171 = input.LA(1);
 						 
-						int index44_1284 = input.index();
+						int index44_171 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1284==' ') && ((allowBreed))) {s = 100;}
+						if ( ((LA44_171 >= '\t' && LA44_171 <= '\n')||LA44_171=='\r'||LA44_171==' ') && ((allowJudge))) {s = 170;}
 						else s = 40;
 						 
-						input.seek(index44_1284);
+						input.seek(index44_171);
 						if ( s>=0 ) return s;
 						break;
 
-					case 12 : 
-						int LA44_1295 = input.LA(1);
+					case 64 : 
+						int LA44_36 = input.LA(1);
 						 
-						int index44_1295 = input.index();
+						int index44_36 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1295=='s') ) {s = 467;}
-						else if ( ((LA44_1295 >= '\t' && LA44_1295 <= '\n')||LA44_1295=='\r'||LA44_1295==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1295=='(') ) {s = 468;}
-						else if ( (LA44_1295=='!'||(LA44_1295 >= '&' && LA44_1295 <= '\'')||(LA44_1295 >= ',' && LA44_1295 <= '.')||(LA44_1295 >= '0' && LA44_1295 <= ';')||LA44_1295=='?'||(LA44_1295 >= 'A' && LA44_1295 <= 'Z')||LA44_1295=='_'||(LA44_1295 >= 'a' && LA44_1295 <= 'r')||(LA44_1295 >= 't' && LA44_1295 <= 'z')||LA44_1295=='\u2019') ) {s = 40;}
-						else s = 1352;
-						 
-						input.seek(index44_1295);
-						if ( s>=0 ) return s;
-						break;
-
-					case 13 : 
-						int LA44_1111 = input.LA(1);
-						 
-						int index44_1111 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1111=='s') ) {s = 467;}
-						else if ( ((LA44_1111 >= '\t' && LA44_1111 <= '\n')||LA44_1111=='\r'||LA44_1111==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1111=='(') ) {s = 468;}
-						else if ( (LA44_1111=='!'||(LA44_1111 >= '&' && LA44_1111 <= '\'')||(LA44_1111 >= ',' && LA44_1111 <= '.')||(LA44_1111 >= '0' && LA44_1111 <= ';')||LA44_1111=='?'||(LA44_1111 >= 'A' && LA44_1111 <= 'Z')||LA44_1111=='_'||(LA44_1111 >= 'a' && LA44_1111 <= 'r')||(LA44_1111 >= 't' && LA44_1111 <= 'z')||LA44_1111=='\u2019') ) {s = 40;}
-						else s = 1217;
-						 
-						input.seek(index44_1111);
-						if ( s>=0 ) return s;
-						break;
-
-					case 14 : 
-						int LA44_940 = input.LA(1);
-						 
-						int index44_940 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_940==' ') && ((allowBreed))) {s = 100;}
+						if ( ((LA44_36 >= '\t' && LA44_36 <= '\n')||LA44_36=='\r'||LA44_36==' ') && ((allowJudge))) {s = 170;}
 						else s = 40;
 						 
-						input.seek(index44_940);
+						input.seek(index44_36);
 						if ( s>=0 ) return s;
 						break;
 
-					case 15 : 
-						int LA44_760 = input.LA(1);
+					case 65 : 
+						int LA44_1287 = input.LA(1);
 						 
-						int index44_760 = input.index();
+						int index44_1287 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_760==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_1287==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_760);
+						input.seek(index44_1287);
 						if ( s>=0 ) return s;
 						break;
 
-					case 16 : 
-						int LA44_939 = input.LA(1);
+					case 66 : 
+						int LA44_350 = input.LA(1);
 						 
-						int index44_939 = input.index();
+						int index44_350 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_939==' ') && ((allowBreed))) {s = 100;}
+						if ( ((LA44_350 >= '\t' && LA44_350 <= '\n')||LA44_350=='\r'||LA44_350==' ') && ((allowJudge))) {s = 170;}
 						else s = 40;
 						 
-						input.seek(index44_939);
+						input.seek(index44_350);
 						if ( s>=0 ) return s;
 						break;
 
-					case 17 : 
+					case 67 : 
+						int LA44_73 = input.LA(1);
+						 
+						int index44_73 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((LA44_73 >= '\t' && LA44_73 <= '\n')||LA44_73=='\r'||LA44_73==' ') && ((allowJudge))) {s = 170;}
+						else s = 40;
+						 
+						input.seek(index44_73);
+						if ( s>=0 ) return s;
+						break;
+
+					case 68 : 
 						int LA44_1112 = input.LA(1);
 						 
 						int index44_1112 = input.index();
@@ -9374,33 +10109,108 @@ public class testLexer extends Lexer {
 						if ( s>=0 ) return s;
 						break;
 
-					case 18 : 
-						int LA44_398 = input.LA(1);
+					case 69 : 
+						int LA44_955 = input.LA(1);
 						 
-						int index44_398 = input.index();
+						int index44_955 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_398==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_955==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_398);
+						input.seek(index44_955);
 						if ( s>=0 ) return s;
 						break;
 
-					case 19 : 
-						int LA44_777 = input.LA(1);
+					case 70 : 
+						int LA44_405 = input.LA(1);
 						 
-						int index44_777 = input.index();
+						int index44_405 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_777==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_405==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_777);
+						input.seek(index44_405);
 						if ( s>=0 ) return s;
 						break;
 
-					case 20 : 
+					case 71 : 
+						int LA44_1295 = input.LA(1);
+						 
+						int index44_1295 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1295=='s') ) {s = 467;}
+						else if ( ((LA44_1295 >= '\t' && LA44_1295 <= '\n')||LA44_1295=='\r'||LA44_1295==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1295=='(') ) {s = 468;}
+						else if ( (LA44_1295=='!'||(LA44_1295 >= '&' && LA44_1295 <= '\'')||(LA44_1295 >= ',' && LA44_1295 <= '.')||(LA44_1295 >= '0' && LA44_1295 <= ';')||LA44_1295=='?'||(LA44_1295 >= 'A' && LA44_1295 <= 'Z')||LA44_1295=='_'||(LA44_1295 >= 'a' && LA44_1295 <= 'r')||(LA44_1295 >= 't' && LA44_1295 <= 'z')||LA44_1295=='\u2019') ) {s = 40;}
+						else s = 1352;
+						 
+						input.seek(index44_1295);
+						if ( s>=0 ) return s;
+						break;
+
+					case 72 : 
+						int LA44_644 = input.LA(1);
+						 
+						int index44_644 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_644==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_644=='s') ) {s = 828;}
+						else s = 40;
+						 
+						input.seek(index44_644);
+						if ( s>=0 ) return s;
+						break;
+
+					case 73 : 
+						int LA44_956 = input.LA(1);
+						 
+						int index44_956 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_956==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_956);
+						if ( s>=0 ) return s;
+						break;
+
+					case 74 : 
+						int LA44_1111 = input.LA(1);
+						 
+						int index44_1111 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1111=='s') ) {s = 467;}
+						else if ( ((LA44_1111 >= '\t' && LA44_1111 <= '\n')||LA44_1111=='\r'||LA44_1111==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1111=='(') ) {s = 468;}
+						else if ( (LA44_1111=='!'||(LA44_1111 >= '&' && LA44_1111 <= '\'')||(LA44_1111 >= ',' && LA44_1111 <= '.')||(LA44_1111 >= '0' && LA44_1111 <= ';')||LA44_1111=='?'||(LA44_1111 >= 'A' && LA44_1111 <= 'Z')||LA44_1111=='_'||(LA44_1111 >= 'a' && LA44_1111 <= 'r')||(LA44_1111 >= 't' && LA44_1111 <= 'z')||LA44_1111=='\u2019') ) {s = 40;}
+						else s = 1217;
+						 
+						input.seek(index44_1111);
+						if ( s>=0 ) return s;
+						break;
+
+					case 75 : 
+						int LA44_969 = input.LA(1);
+						 
+						int index44_969 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_969=='s') ) {s = 467;}
+						else if ( ((LA44_969 >= '\t' && LA44_969 <= '\n')||LA44_969=='\r'||LA44_969==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_969=='(') ) {s = 468;}
+						else if ( (LA44_969=='!'||(LA44_969 >= '&' && LA44_969 <= '\'')||(LA44_969 >= ',' && LA44_969 <= '.')||(LA44_969 >= '0' && LA44_969 <= ';')||LA44_969=='?'||(LA44_969 >= 'A' && LA44_969 <= 'Z')||LA44_969=='_'||(LA44_969 >= 'a' && LA44_969 <= 'r')||(LA44_969 >= 't' && LA44_969 <= 'z')||LA44_969=='\u2019') ) {s = 40;}
+						else s = 1106;
+						 
+						input.seek(index44_969);
+						if ( s>=0 ) return s;
+						break;
+
+					case 76 : 
 						int LA44_585 = input.LA(1);
 						 
 						int index44_585 = input.index();
@@ -9413,110 +10223,78 @@ public class testLexer extends Lexer {
 						if ( s>=0 ) return s;
 						break;
 
-					case 21 : 
-						int LA44_1296 = input.LA(1);
+					case 77 : 
+						int LA44_1212 = input.LA(1);
 						 
-						int index44_1296 = input.index();
+						int index44_1212 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1296=='s') ) {s = 467;}
-						else if ( ((LA44_1296 >= '\t' && LA44_1296 <= '\n')||LA44_1296=='\r'||LA44_1296==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1296=='(') ) {s = 468;}
-						else if ( (LA44_1296=='!'||(LA44_1296 >= '&' && LA44_1296 <= '\'')||(LA44_1296 >= ',' && LA44_1296 <= '.')||(LA44_1296 >= '0' && LA44_1296 <= ';')||LA44_1296=='?'||(LA44_1296 >= 'A' && LA44_1296 <= 'Z')||LA44_1296=='_'||(LA44_1296 >= 'a' && LA44_1296 <= 'r')||(LA44_1296 >= 't' && LA44_1296 <= 'z')||LA44_1296=='\u2019') ) {s = 40;}
-						else s = 1353;
+						if ( (LA44_1212=='s') ) {s = 467;}
+						else if ( ((LA44_1212 >= '\t' && LA44_1212 <= '\n')||LA44_1212=='\r'||LA44_1212==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1212=='(') ) {s = 468;}
+						else if ( (LA44_1212=='!'||(LA44_1212 >= '&' && LA44_1212 <= '\'')||(LA44_1212 >= ',' && LA44_1212 <= '.')||(LA44_1212 >= '0' && LA44_1212 <= ';')||LA44_1212=='?'||(LA44_1212 >= 'A' && LA44_1212 <= 'Z')||LA44_1212=='_'||(LA44_1212 >= 'a' && LA44_1212 <= 'r')||(LA44_1212 >= 't' && LA44_1212 <= 'z')||LA44_1212=='\u2019') ) {s = 40;}
+						else s = 1294;
 						 
-						input.seek(index44_1296);
+						input.seek(index44_1212);
 						if ( s>=0 ) return s;
 						break;
 
-					case 22 : 
-						int LA44_916 = input.LA(1);
+					case 78 : 
+						int LA44_777 = input.LA(1);
 						 
-						int index44_916 = input.index();
+						int index44_777 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_916=='s') ) {s = 467;}
-						else if ( ((LA44_916 >= '\t' && LA44_916 <= '\n')||LA44_916=='\r'||LA44_916==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_916=='(') ) {s = 468;}
-						else if ( (LA44_916=='!'||(LA44_916 >= '&' && LA44_916 <= '\'')||(LA44_916 >= ',' && LA44_916 <= '.')||(LA44_916 >= '0' && LA44_916 <= ';')||LA44_916=='?'||(LA44_916 >= 'A' && LA44_916 <= 'Z')||LA44_916=='_'||(LA44_916 >= 'a' && LA44_916 <= 'r')||(LA44_916 >= 't' && LA44_916 <= 'z')||LA44_916=='\u2019') ) {s = 40;}
-						else s = 1071;
-						 
-						input.seek(index44_916);
-						if ( s>=0 ) return s;
-						break;
-
-					case 23 : 
-						int LA44_983 = input.LA(1);
-						 
-						int index44_983 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_983=='s') ) {s = 467;}
-						else if ( ((LA44_983 >= '\t' && LA44_983 <= '\n')||LA44_983=='\r'||LA44_983==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_983=='(') ) {s = 468;}
-						else if ( (LA44_983=='!'||(LA44_983 >= '&' && LA44_983 <= '\'')||(LA44_983 >= ',' && LA44_983 <= '.')||(LA44_983 >= '0' && LA44_983 <= ';')||LA44_983=='?'||(LA44_983 >= 'A' && LA44_983 <= 'Z')||LA44_983=='_'||(LA44_983 >= 'a' && LA44_983 <= 'r')||(LA44_983 >= 't' && LA44_983 <= 'z')||LA44_983=='\u2019') ) {s = 40;}
-						else s = 1116;
-						 
-						input.seek(index44_983);
-						if ( s>=0 ) return s;
-						break;
-
-					case 24 : 
-						int LA44_589 = input.LA(1);
-						 
-						int index44_589 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_589==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_777==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_589);
+						input.seek(index44_777);
 						if ( s>=0 ) return s;
 						break;
 
-					case 25 : 
-						int LA44_1096 = input.LA(1);
+					case 79 : 
+						int LA44_1107 = input.LA(1);
 						 
-						int index44_1096 = input.index();
+						int index44_1107 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1096==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_1107=='s') ) {s = 467;}
+						else if ( ((LA44_1107 >= '\t' && LA44_1107 <= '\n')||LA44_1107=='\r'||LA44_1107==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1107=='(') ) {s = 468;}
+						else if ( (LA44_1107=='!'||(LA44_1107 >= '&' && LA44_1107 <= '\'')||(LA44_1107 >= ',' && LA44_1107 <= '.')||(LA44_1107 >= '0' && LA44_1107 <= ';')||LA44_1107=='?'||(LA44_1107 >= 'A' && LA44_1107 <= 'Z')||LA44_1107=='_'||(LA44_1107 >= 'a' && LA44_1107 <= 'r')||(LA44_1107 >= 't' && LA44_1107 <= 'z')||LA44_1107=='\u2019') ) {s = 40;}
+						else s = 1213;
+						 
+						input.seek(index44_1107);
+						if ( s>=0 ) return s;
+						break;
+
+					case 80 : 
+						int LA44_398 = input.LA(1);
+						 
+						int index44_398 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_398==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_1096);
+						input.seek(index44_398);
 						if ( s>=0 ) return s;
 						break;
 
-					case 26 : 
-						int LA44_915 = input.LA(1);
+					case 81 : 
+						int LA44_1191 = input.LA(1);
 						 
-						int index44_915 = input.index();
+						int index44_1191 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_915=='s') ) {s = 467;}
-						else if ( ((LA44_915 >= '\t' && LA44_915 <= '\n')||LA44_915=='\r'||LA44_915==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_915=='(') ) {s = 468;}
-						else if ( (LA44_915=='!'||(LA44_915 >= '&' && LA44_915 <= '\'')||(LA44_915 >= ',' && LA44_915 <= '.')||(LA44_915 >= '0' && LA44_915 <= ';')||LA44_915=='?'||(LA44_915 >= 'A' && LA44_915 <= 'Z')||LA44_915=='_'||(LA44_915 >= 'a' && LA44_915 <= 'r')||(LA44_915 >= 't' && LA44_915 <= 'z')||LA44_915=='\u2019') ) {s = 40;}
-						else s = 1070;
-						 
-						input.seek(index44_915);
-						if ( s>=0 ) return s;
-						break;
-
-					case 27 : 
-						int LA44_1049 = input.LA(1);
-						 
-						int index44_1049 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1049==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_1191==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_1049);
+						input.seek(index44_1191);
 						if ( s>=0 ) return s;
 						break;
 
-					case 28 : 
+					case 82 : 
 						int LA44_1095 = input.LA(1);
 						 
 						int index44_1095 = input.index();
@@ -9529,20 +10307,20 @@ public class testLexer extends Lexer {
 						if ( s>=0 ) return s;
 						break;
 
-					case 29 : 
-						int LA44_1090 = input.LA(1);
+					case 83 : 
+						int LA44_1096 = input.LA(1);
 						 
-						int index44_1090 = input.index();
+						int index44_1096 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1090==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_1096==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_1090);
+						input.seek(index44_1096);
 						if ( s>=0 ) return s;
 						break;
 
-					case 30 : 
+					case 84 : 
 						int LA44_767 = input.LA(1);
 						 
 						int index44_767 = input.index();
@@ -9555,33 +10333,33 @@ public class testLexer extends Lexer {
 						if ( s>=0 ) return s;
 						break;
 
-					case 31 : 
-						int LA44_520 = input.LA(1);
+					case 85 : 
+						int LA44_1090 = input.LA(1);
 						 
-						int index44_520 = input.index();
+						int index44_1090 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_520==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_1090==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_520);
+						input.seek(index44_1090);
 						if ( s>=0 ) return s;
 						break;
 
-					case 32 : 
-						int LA44_1092 = input.LA(1);
+					case 86 : 
+						int LA44_770 = input.LA(1);
 						 
-						int index44_1092 = input.index();
+						int index44_770 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1092==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_770==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_1092);
+						input.seek(index44_770);
 						if ( s>=0 ) return s;
 						break;
 
-					case 33 : 
+					case 87 : 
 						int LA44_1394 = input.LA(1);
 						 
 						int index44_1394 = input.index();
@@ -9597,33 +10375,137 @@ public class testLexer extends Lexer {
 						if ( s>=0 ) return s;
 						break;
 
-					case 34 : 
-						int LA44_1338 = input.LA(1);
+					case 88 : 
+						int LA44_1092 = input.LA(1);
 						 
-						int index44_1338 = input.index();
+						int index44_1092 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1338==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_1092==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_1338);
+						input.seek(index44_1092);
 						if ( s>=0 ) return s;
 						break;
 
-					case 35 : 
-						int LA44_770 = input.LA(1);
+					case 89 : 
+						int LA44_1299 = input.LA(1);
 						 
-						int index44_770 = input.index();
+						int index44_1299 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_770==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_1299==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_770);
+						input.seek(index44_1299);
 						if ( s>=0 ) return s;
 						break;
 
-					case 36 : 
+					case 90 : 
+						int LA44_1296 = input.LA(1);
+						 
+						int index44_1296 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1296=='s') ) {s = 467;}
+						else if ( ((LA44_1296 >= '\t' && LA44_1296 <= '\n')||LA44_1296=='\r'||LA44_1296==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1296=='(') ) {s = 468;}
+						else if ( (LA44_1296=='!'||(LA44_1296 >= '&' && LA44_1296 <= '\'')||(LA44_1296 >= ',' && LA44_1296 <= '.')||(LA44_1296 >= '0' && LA44_1296 <= ';')||LA44_1296=='?'||(LA44_1296 >= 'A' && LA44_1296 <= 'Z')||LA44_1296=='_'||(LA44_1296 >= 'a' && LA44_1296 <= 'r')||(LA44_1296 >= 't' && LA44_1296 <= 'z')||LA44_1296=='\u2019') ) {s = 40;}
+						else s = 1353;
+						 
+						input.seek(index44_1296);
+						if ( s>=0 ) return s;
+						break;
+
+					case 91 : 
+						int LA44_940 = input.LA(1);
+						 
+						int index44_940 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_940==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_940);
+						if ( s>=0 ) return s;
+						break;
+
+					case 92 : 
+						int LA44_617 = input.LA(1);
+						 
+						int index44_617 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_617==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_617=='e') ) {s = 805;}
+						else s = 40;
+						 
+						input.seek(index44_617);
+						if ( s>=0 ) return s;
+						break;
+
+					case 93 : 
+						int LA44_915 = input.LA(1);
+						 
+						int index44_915 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_915=='s') ) {s = 467;}
+						else if ( ((LA44_915 >= '\t' && LA44_915 <= '\n')||LA44_915=='\r'||LA44_915==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_915=='(') ) {s = 468;}
+						else if ( (LA44_915=='!'||(LA44_915 >= '&' && LA44_915 <= '\'')||(LA44_915 >= ',' && LA44_915 <= '.')||(LA44_915 >= '0' && LA44_915 <= ';')||LA44_915=='?'||(LA44_915 >= 'A' && LA44_915 <= 'Z')||LA44_915=='_'||(LA44_915 >= 'a' && LA44_915 <= 'r')||(LA44_915 >= 't' && LA44_915 <= 'z')||LA44_915=='\u2019') ) {s = 40;}
+						else s = 1070;
+						 
+						input.seek(index44_915);
+						if ( s>=0 ) return s;
+						break;
+
+					case 94 : 
+						int LA44_916 = input.LA(1);
+						 
+						int index44_916 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_916=='s') ) {s = 467;}
+						else if ( ((LA44_916 >= '\t' && LA44_916 <= '\n')||LA44_916=='\r'||LA44_916==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_916=='(') ) {s = 468;}
+						else if ( (LA44_916=='!'||(LA44_916 >= '&' && LA44_916 <= '\'')||(LA44_916 >= ',' && LA44_916 <= '.')||(LA44_916 >= '0' && LA44_916 <= ';')||LA44_916=='?'||(LA44_916 >= 'A' && LA44_916 <= 'Z')||LA44_916=='_'||(LA44_916 >= 'a' && LA44_916 <= 'r')||(LA44_916 >= 't' && LA44_916 <= 'z')||LA44_916=='\u2019') ) {s = 40;}
+						else s = 1071;
+						 
+						input.seek(index44_916);
+						if ( s>=0 ) return s;
+						break;
+
+					case 95 : 
+						int LA44_983 = input.LA(1);
+						 
+						int index44_983 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_983=='s') ) {s = 467;}
+						else if ( ((LA44_983 >= '\t' && LA44_983 <= '\n')||LA44_983=='\r'||LA44_983==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_983=='(') ) {s = 468;}
+						else if ( (LA44_983=='!'||(LA44_983 >= '&' && LA44_983 <= '\'')||(LA44_983 >= ',' && LA44_983 <= '.')||(LA44_983 >= '0' && LA44_983 <= ';')||LA44_983=='?'||(LA44_983 >= 'A' && LA44_983 <= 'Z')||LA44_983=='_'||(LA44_983 >= 'a' && LA44_983 <= 'r')||(LA44_983 >= 't' && LA44_983 <= 'z')||LA44_983=='\u2019') ) {s = 40;}
+						else s = 1116;
+						 
+						input.seek(index44_983);
+						if ( s>=0 ) return s;
+						break;
+
+					case 96 : 
+						int LA44_1089 = input.LA(1);
+						 
+						int index44_1089 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1089==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_1089);
+						if ( s>=0 ) return s;
+						break;
+
+					case 97 : 
 						int LA44_1277 = input.LA(1);
 						 
 						int index44_1277 = input.index();
@@ -9639,51 +10521,7 @@ public class testLexer extends Lexer {
 						if ( s>=0 ) return s;
 						break;
 
-					case 37 : 
-						int LA44_644 = input.LA(1);
-						 
-						int index44_644 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_644==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_644=='s') ) {s = 828;}
-						else s = 40;
-						 
-						input.seek(index44_644);
-						if ( s>=0 ) return s;
-						break;
-
-					case 38 : 
-						int LA44_617 = input.LA(1);
-						 
-						int index44_617 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_617==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_617=='e') ) {s = 805;}
-						else s = 40;
-						 
-						input.seek(index44_617);
-						if ( s>=0 ) return s;
-						break;
-
-					case 39 : 
-						int LA44_1221 = input.LA(1);
-						 
-						int index44_1221 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1221=='s') ) {s = 467;}
-						else if ( ((LA44_1221 >= '\t' && LA44_1221 <= '\n')||LA44_1221=='\r'||LA44_1221==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1221=='(') ) {s = 468;}
-						else if ( (LA44_1221=='!'||(LA44_1221 >= '&' && LA44_1221 <= '\'')||(LA44_1221 >= ',' && LA44_1221 <= '.')||(LA44_1221 >= '0' && LA44_1221 <= ';')||LA44_1221=='?'||(LA44_1221 >= 'A' && LA44_1221 <= 'Z')||LA44_1221=='_'||(LA44_1221 >= 'a' && LA44_1221 <= 'r')||(LA44_1221 >= 't' && LA44_1221 <= 'z')||LA44_1221=='\u2019') ) {s = 40;}
-						else s = 1297;
-						 
-						input.seek(index44_1221);
-						if ( s>=0 ) return s;
-						break;
-
-					case 40 : 
+					case 98 : 
 						int LA44_1117 = input.LA(1);
 						 
 						int index44_1117 = input.index();
@@ -9699,87 +10537,842 @@ public class testLexer extends Lexer {
 						if ( s>=0 ) return s;
 						break;
 
-					case 41 : 
-						int LA44_277 = input.LA(1);
+					case 99 : 
+						int LA44_748 = input.LA(1);
 						 
-						int index44_277 = input.index();
+						int index44_748 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_277=='s') ) {s = 467;}
-						else if ( ((LA44_277 >= '\t' && LA44_277 <= '\n')||LA44_277=='\r'||LA44_277==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_277=='(') ) {s = 468;}
-						else if ( (LA44_277=='!'||(LA44_277 >= '&' && LA44_277 <= '\'')||(LA44_277 >= ',' && LA44_277 <= '.')||(LA44_277 >= '0' && LA44_277 <= ';')||LA44_277=='?'||(LA44_277 >= 'A' && LA44_277 <= 'Z')||LA44_277=='_'||(LA44_277 >= 'a' && LA44_277 <= 'r')||(LA44_277 >= 't' && LA44_277 <= 'z')||LA44_277=='\u2019') ) {s = 40;}
-						else s = 466;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
 						 
-						input.seek(index44_277);
+						input.seek(index44_748);
 						if ( s>=0 ) return s;
 						break;
 
-					case 42 : 
-						int LA44_834 = input.LA(1);
+					case 100 : 
+						int LA44_669 = input.LA(1);
 						 
-						int index44_834 = input.index();
+						int index44_669 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_834=='s') ) {s = 467;}
-						else if ( ((LA44_834 >= '\t' && LA44_834 <= '\n')||LA44_834=='\r'||LA44_834==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_834=='(') ) {s = 468;}
-						else if ( (LA44_834=='!'||(LA44_834 >= '&' && LA44_834 <= '\'')||(LA44_834 >= ',' && LA44_834 <= '.')||(LA44_834 >= '0' && LA44_834 <= ';')||LA44_834=='?'||(LA44_834 >= 'A' && LA44_834 <= 'Z')||LA44_834=='_'||(LA44_834 >= 'a' && LA44_834 <= 'r')||(LA44_834 >= 't' && LA44_834 <= 'z')||LA44_834=='\u2019') ) {s = 40;}
-						else s = 990;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
 						 
-						input.seek(index44_834);
+						input.seek(index44_669);
 						if ( s>=0 ) return s;
 						break;
 
-					case 43 : 
-						int LA44_1298 = input.LA(1);
+					case 101 : 
+						int LA44_652 = input.LA(1);
 						 
-						int index44_1298 = input.index();
+						int index44_652 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1298=='s') ) {s = 467;}
-						else if ( ((LA44_1298 >= '\t' && LA44_1298 <= '\n')||LA44_1298=='\r'||LA44_1298==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1298=='(') ) {s = 468;}
-						else if ( (LA44_1298=='!'||(LA44_1298 >= '&' && LA44_1298 <= '\'')||(LA44_1298 >= ',' && LA44_1298 <= '.')||(LA44_1298 >= '0' && LA44_1298 <= ';')||LA44_1298=='?'||(LA44_1298 >= 'A' && LA44_1298 <= 'Z')||LA44_1298=='_'||(LA44_1298 >= 'a' && LA44_1298 <= 'r')||(LA44_1298 >= 't' && LA44_1298 <= 'z')||LA44_1298=='\u2019') ) {s = 40;}
-						else s = 1354;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
 						 
-						input.seek(index44_1298);
+						input.seek(index44_652);
 						if ( s>=0 ) return s;
 						break;
 
-					case 44 : 
-						int LA44_646 = input.LA(1);
+					case 102 : 
+						int LA44_466 = input.LA(1);
 						 
-						int index44_646 = input.index();
+						int index44_466 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_646=='s') ) {s = 467;}
-						else if ( ((LA44_646 >= '\t' && LA44_646 <= '\n')||LA44_646=='\r'||LA44_646==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_646=='(') ) {s = 468;}
-						else if ( (LA44_646=='!'||(LA44_646 >= '&' && LA44_646 <= '\'')||(LA44_646 >= ',' && LA44_646 <= '.')||(LA44_646 >= '0' && LA44_646 <= ';')||LA44_646=='?'||(LA44_646 >= 'A' && LA44_646 <= 'Z')||LA44_646=='_'||(LA44_646 >= 'a' && LA44_646 <= 'r')||(LA44_646 >= 't' && LA44_646 <= 'z')||LA44_646=='\u2019') ) {s = 40;}
-						else s = 830;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
 						 
-						input.seek(index44_646);
+						input.seek(index44_466);
 						if ( s>=0 ) return s;
 						break;
 
-					case 45 : 
-						int LA44_988 = input.LA(1);
+					case 103 : 
+						int LA44_769 = input.LA(1);
 						 
-						int index44_988 = input.index();
+						int index44_769 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_988=='s') ) {s = 467;}
-						else if ( ((LA44_988 >= '\t' && LA44_988 <= '\n')||LA44_988=='\r'||LA44_988==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_988=='(') ) {s = 468;}
-						else if ( (LA44_988=='!'||(LA44_988 >= '&' && LA44_988 <= '\'')||(LA44_988 >= ',' && LA44_988 <= '.')||(LA44_988 >= '0' && LA44_988 <= ';')||LA44_988=='?'||(LA44_988 >= 'A' && LA44_988 <= 'Z')||LA44_988=='_'||(LA44_988 >= 'a' && LA44_988 <= 'r')||(LA44_988 >= 't' && LA44_988 <= 'z')||LA44_988=='\u2019') ) {s = 40;}
-						else s = 1120;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
 						 
-						input.seek(index44_988);
+						input.seek(index44_769);
 						if ( s>=0 ) return s;
 						break;
 
-					case 46 : 
+					case 104 : 
+						int LA44_771 = input.LA(1);
+						 
+						int index44_771 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_771);
+						if ( s>=0 ) return s;
+						break;
+
+					case 105 : 
+						int LA44_830 = input.LA(1);
+						 
+						int index44_830 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_830);
+						if ( s>=0 ) return s;
+						break;
+
+					case 106 : 
+						int LA44_863 = input.LA(1);
+						 
+						int index44_863 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_863);
+						if ( s>=0 ) return s;
+						break;
+
+					case 107 : 
+						int LA44_934 = input.LA(1);
+						 
+						int index44_934 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_934);
+						if ( s>=0 ) return s;
+						break;
+
+					case 108 : 
+						int LA44_943 = input.LA(1);
+						 
+						int index44_943 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_943);
+						if ( s>=0 ) return s;
+						break;
+
+					case 109 : 
+						int LA44_945 = input.LA(1);
+						 
+						int index44_945 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_945);
+						if ( s>=0 ) return s;
+						break;
+
+					case 110 : 
+						int LA44_957 = input.LA(1);
+						 
+						int index44_957 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_957);
+						if ( s>=0 ) return s;
+						break;
+
+					case 111 : 
+						int LA44_978 = input.LA(1);
+						 
+						int index44_978 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_978);
+						if ( s>=0 ) return s;
+						break;
+
+					case 112 : 
+						int LA44_990 = input.LA(1);
+						 
+						int index44_990 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_990);
+						if ( s>=0 ) return s;
+						break;
+
+					case 113 : 
+						int LA44_1029 = input.LA(1);
+						 
+						int index44_1029 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1029);
+						if ( s>=0 ) return s;
+						break;
+
+					case 114 : 
+						int LA44_1055 = input.LA(1);
+						 
+						int index44_1055 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1055);
+						if ( s>=0 ) return s;
+						break;
+
+					case 115 : 
+						int LA44_1070 = input.LA(1);
+						 
+						int index44_1070 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1070);
+						if ( s>=0 ) return s;
+						break;
+
+					case 116 : 
+						int LA44_1071 = input.LA(1);
+						 
+						int index44_1071 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1071);
+						if ( s>=0 ) return s;
+						break;
+
+					case 117 : 
+						int LA44_1085 = input.LA(1);
+						 
+						int index44_1085 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1085);
+						if ( s>=0 ) return s;
+						break;
+
+					case 118 : 
+						int LA44_1093 = input.LA(1);
+						 
+						int index44_1093 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1093);
+						if ( s>=0 ) return s;
+						break;
+
+					case 119 : 
+						int LA44_1106 = input.LA(1);
+						 
+						int index44_1106 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1106);
+						if ( s>=0 ) return s;
+						break;
+
+					case 120 : 
+						int LA44_1116 = input.LA(1);
+						 
+						int index44_1116 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1116);
+						if ( s>=0 ) return s;
+						break;
+
+					case 121 : 
+						int LA44_1120 = input.LA(1);
+						 
+						int index44_1120 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1120);
+						if ( s>=0 ) return s;
+						break;
+
+					case 122 : 
+						int LA44_1158 = input.LA(1);
+						 
+						int index44_1158 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1158);
+						if ( s>=0 ) return s;
+						break;
+
+					case 123 : 
+						int LA44_1163 = input.LA(1);
+						 
+						int index44_1163 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1163);
+						if ( s>=0 ) return s;
+						break;
+
+					case 124 : 
+						int LA44_1180 = input.LA(1);
+						 
+						int index44_1180 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1180);
+						if ( s>=0 ) return s;
+						break;
+
+					case 125 : 
+						int LA44_1203 = input.LA(1);
+						 
+						int index44_1203 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1203);
+						if ( s>=0 ) return s;
+						break;
+
+					case 126 : 
+						int LA44_1213 = input.LA(1);
+						 
+						int index44_1213 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1213);
+						if ( s>=0 ) return s;
+						break;
+
+					case 127 : 
+						int LA44_1216 = input.LA(1);
+						 
+						int index44_1216 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1216);
+						if ( s>=0 ) return s;
+						break;
+
+					case 128 : 
+						int LA44_1217 = input.LA(1);
+						 
+						int index44_1217 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1217);
+						if ( s>=0 ) return s;
+						break;
+
+					case 129 : 
+						int LA44_1218 = input.LA(1);
+						 
+						int index44_1218 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1218);
+						if ( s>=0 ) return s;
+						break;
+
+					case 130 : 
+						int LA44_1220 = input.LA(1);
+						 
+						int index44_1220 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1220);
+						if ( s>=0 ) return s;
+						break;
+
+					case 131 : 
+						int LA44_1255 = input.LA(1);
+						 
+						int index44_1255 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1255);
+						if ( s>=0 ) return s;
+						break;
+
+					case 132 : 
+						int LA44_1263 = input.LA(1);
+						 
+						int index44_1263 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1263);
+						if ( s>=0 ) return s;
+						break;
+
+					case 133 : 
+						int LA44_1283 = input.LA(1);
+						 
+						int index44_1283 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1283);
+						if ( s>=0 ) return s;
+						break;
+
+					case 134 : 
+						int LA44_1288 = input.LA(1);
+						 
+						int index44_1288 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1288);
+						if ( s>=0 ) return s;
+						break;
+
+					case 135 : 
+						int LA44_1290 = input.LA(1);
+						 
+						int index44_1290 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1290);
+						if ( s>=0 ) return s;
+						break;
+
+					case 136 : 
+						int LA44_1291 = input.LA(1);
+						 
+						int index44_1291 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1291);
+						if ( s>=0 ) return s;
+						break;
+
+					case 137 : 
+						int LA44_1294 = input.LA(1);
+						 
+						int index44_1294 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1294);
+						if ( s>=0 ) return s;
+						break;
+
+					case 138 : 
+						int LA44_1297 = input.LA(1);
+						 
+						int index44_1297 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1297);
+						if ( s>=0 ) return s;
+						break;
+
+					case 139 : 
+						int LA44_1343 = input.LA(1);
+						 
+						int index44_1343 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1343);
+						if ( s>=0 ) return s;
+						break;
+
+					case 140 : 
+						int LA44_1347 = input.LA(1);
+						 
+						int index44_1347 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1347);
+						if ( s>=0 ) return s;
+						break;
+
+					case 141 : 
+						int LA44_1352 = input.LA(1);
+						 
+						int index44_1352 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1352);
+						if ( s>=0 ) return s;
+						break;
+
+					case 142 : 
+						int LA44_1353 = input.LA(1);
+						 
+						int index44_1353 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1353);
+						if ( s>=0 ) return s;
+						break;
+
+					case 143 : 
+						int LA44_1354 = input.LA(1);
+						 
+						int index44_1354 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1354);
+						if ( s>=0 ) return s;
+						break;
+
+					case 144 : 
+						int LA44_1382 = input.LA(1);
+						 
+						int index44_1382 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1382);
+						if ( s>=0 ) return s;
+						break;
+
+					case 145 : 
+						int LA44_1383 = input.LA(1);
+						 
+						int index44_1383 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1383);
+						if ( s>=0 ) return s;
+						break;
+
+					case 146 : 
+						int LA44_1384 = input.LA(1);
+						 
+						int index44_1384 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1384);
+						if ( s>=0 ) return s;
+						break;
+
+					case 147 : 
+						int LA44_1388 = input.LA(1);
+						 
+						int index44_1388 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1388);
+						if ( s>=0 ) return s;
+						break;
+
+					case 148 : 
+						int LA44_1397 = input.LA(1);
+						 
+						int index44_1397 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1397);
+						if ( s>=0 ) return s;
+						break;
+
+					case 149 : 
+						int LA44_1427 = input.LA(1);
+						 
+						int index44_1427 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1427);
+						if ( s>=0 ) return s;
+						break;
+
+					case 150 : 
+						int LA44_1455 = input.LA(1);
+						 
+						int index44_1455 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1455);
+						if ( s>=0 ) return s;
+						break;
+
+					case 151 : 
+						int LA44_1470 = input.LA(1);
+						 
+						int index44_1470 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1470);
+						if ( s>=0 ) return s;
+						break;
+
+					case 152 : 
+						int LA44_1472 = input.LA(1);
+						 
+						int index44_1472 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1472);
+						if ( s>=0 ) return s;
+						break;
+
+					case 153 : 
+						int LA44_1477 = input.LA(1);
+						 
+						int index44_1477 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1477);
+						if ( s>=0 ) return s;
+						break;
+
+					case 154 : 
+						int LA44_1492 = input.LA(1);
+						 
+						int index44_1492 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1492);
+						if ( s>=0 ) return s;
+						break;
+
+					case 155 : 
+						int LA44_1494 = input.LA(1);
+						 
+						int index44_1494 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1494);
+						if ( s>=0 ) return s;
+						break;
+
+					case 156 : 
+						int LA44_1506 = input.LA(1);
+						 
+						int index44_1506 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1506);
+						if ( s>=0 ) return s;
+						break;
+
+					case 157 : 
+						int LA44_1525 = input.LA(1);
+						 
+						int index44_1525 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1525);
+						if ( s>=0 ) return s;
+						break;
+
+					case 158 : 
+						int LA44_1535 = input.LA(1);
+						 
+						int index44_1535 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((allowBreed)) ) {s = 100;}
+						else if ( (true) ) {s = 40;}
+						 
+						input.seek(index44_1535);
+						if ( s>=0 ) return s;
+						break;
+
+					case 159 : 
+						int LA44_1221 = input.LA(1);
+						 
+						int index44_1221 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1221=='s') ) {s = 467;}
+						else if ( ((LA44_1221 >= '\t' && LA44_1221 <= '\n')||LA44_1221=='\r'||LA44_1221==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1221=='(') ) {s = 468;}
+						else if ( (LA44_1221=='!'||(LA44_1221 >= '&' && LA44_1221 <= '\'')||(LA44_1221 >= ',' && LA44_1221 <= '.')||(LA44_1221 >= '0' && LA44_1221 <= ';')||LA44_1221=='?'||(LA44_1221 >= 'A' && LA44_1221 <= 'Z')||LA44_1221=='_'||(LA44_1221 >= 'a' && LA44_1221 <= 'r')||(LA44_1221 >= 't' && LA44_1221 <= 'z')||LA44_1221=='\u2019') ) {s = 40;}
+						else s = 1297;
+						 
+						input.seek(index44_1221);
+						if ( s>=0 ) return s;
+						break;
+
+					case 160 : 
+						int LA44_1284 = input.LA(1);
+						 
+						int index44_1284 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1284==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_1284);
+						if ( s>=0 ) return s;
+						break;
+
+					case 161 : 
+						int LA44_939 = input.LA(1);
+						 
+						int index44_939 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_939==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_939);
+						if ( s>=0 ) return s;
+						break;
+
+					case 162 : 
+						int LA44_760 = input.LA(1);
+						 
+						int index44_760 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_760==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_760);
+						if ( s>=0 ) return s;
+						break;
+
+					case 163 : 
 						int LA44_626 = input.LA(1);
 						 
 						int index44_626 = input.index();
@@ -9792,39 +11385,85 @@ public class testLexer extends Lexer {
 						if ( s>=0 ) return s;
 						break;
 
-					case 47 : 
-						int LA44_1332 = input.LA(1);
+					case 164 : 
+						int LA44_1198 = input.LA(1);
 						 
-						int index44_1332 = input.index();
+						int index44_1198 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1332=='s') ) {s = 467;}
-						else if ( ((LA44_1332 >= '\t' && LA44_1332 <= '\n')||LA44_1332=='\r'||LA44_1332==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1332=='(') ) {s = 468;}
-						else if ( (LA44_1332=='!'||(LA44_1332 >= '&' && LA44_1332 <= '\'')||(LA44_1332 >= ',' && LA44_1332 <= '.')||(LA44_1332 >= '0' && LA44_1332 <= ';')||LA44_1332=='?'||(LA44_1332 >= 'A' && LA44_1332 <= 'Z')||LA44_1332=='_'||(LA44_1332 >= 'a' && LA44_1332 <= 'r')||(LA44_1332 >= 't' && LA44_1332 <= 'z')||LA44_1332=='\u2019') ) {s = 40;}
-						else s = 1383;
+						if ( (LA44_1198==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
 						 
-						input.seek(index44_1332);
+						input.seek(index44_1198);
 						if ( s>=0 ) return s;
 						break;
 
-					case 48 : 
-						int LA44_1331 = input.LA(1);
+					case 165 : 
+						int LA44_754 = input.LA(1);
 						 
-						int index44_1331 = input.index();
+						int index44_754 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1331=='s') ) {s = 467;}
-						else if ( ((LA44_1331 >= '\t' && LA44_1331 <= '\n')||LA44_1331=='\r'||LA44_1331==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1331=='(') ) {s = 468;}
-						else if ( (LA44_1331=='!'||(LA44_1331 >= '&' && LA44_1331 <= '\'')||(LA44_1331 >= ',' && LA44_1331 <= '.')||(LA44_1331 >= '0' && LA44_1331 <= ';')||LA44_1331=='?'||(LA44_1331 >= 'A' && LA44_1331 <= 'Z')||LA44_1331=='_'||(LA44_1331 >= 'a' && LA44_1331 <= 'r')||(LA44_1331 >= 't' && LA44_1331 <= 'z')||LA44_1331=='\u2019') ) {s = 40;}
-						else s = 1382;
+						if ( (LA44_754==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
 						 
-						input.seek(index44_1331);
+						input.seek(index44_754);
 						if ( s>=0 ) return s;
 						break;
 
-					case 49 : 
+					case 166 : 
+						int LA44_935 = input.LA(1);
+						 
+						int index44_935 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_935==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_935);
+						if ( s>=0 ) return s;
+						break;
+
+					case 167 : 
+						int LA44_351 = input.LA(1);
+						 
+						int index44_351 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((LA44_351 >= '\t' && LA44_351 <= '\n')||LA44_351=='\r'||LA44_351==' ') && ((allowJudge))) {s = 170;}
+						else s = 40;
+						 
+						input.seek(index44_351);
+						if ( s>=0 ) return s;
+						break;
+
+					case 168 : 
+						int LA44_72 = input.LA(1);
+						 
+						int index44_72 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((LA44_72 >= '\t' && LA44_72 <= '\n')||LA44_72=='\r'||LA44_72==' ') && ((allowJudge))) {s = 170;}
+						else s = 40;
+						 
+						input.seek(index44_72);
+						if ( s>=0 ) return s;
+						break;
+
+					case 169 : 
+						int LA44_223 = input.LA(1);
+						 
+						int index44_223 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((LA44_223 >= '\t' && LA44_223 <= '\n')||LA44_223=='\r'||LA44_223==' ') && ((allowJudge))) {s = 170;}
+						else s = 40;
+						 
+						input.seek(index44_223);
+						if ( s>=0 ) return s;
+						break;
+
+					case 170 : 
 						int LA44_668 = input.LA(1);
 						 
 						int index44_668 = input.index();
@@ -9840,87 +11479,127 @@ public class testLexer extends Lexer {
 						if ( s>=0 ) return s;
 						break;
 
-					case 50 : 
-						int LA44_1035 = input.LA(1);
+					case 171 : 
+						int LA44_1331 = input.LA(1);
 						 
-						int index44_1035 = input.index();
+						int index44_1331 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1035=='s') ) {s = 467;}
-						else if ( ((LA44_1035 >= '\t' && LA44_1035 <= '\n')||LA44_1035=='\r'||LA44_1035==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1035=='(') ) {s = 468;}
-						else if ( (LA44_1035=='!'||(LA44_1035 >= '&' && LA44_1035 <= '\'')||(LA44_1035 >= ',' && LA44_1035 <= '.')||(LA44_1035 >= '0' && LA44_1035 <= ';')||LA44_1035=='?'||(LA44_1035 >= 'A' && LA44_1035 <= 'Z')||LA44_1035=='_'||(LA44_1035 >= 'a' && LA44_1035 <= 'r')||(LA44_1035 >= 't' && LA44_1035 <= 'z')||LA44_1035=='\u2019') ) {s = 40;}
-						else s = 1163;
+						if ( (LA44_1331=='s') ) {s = 467;}
+						else if ( ((LA44_1331 >= '\t' && LA44_1331 <= '\n')||LA44_1331=='\r'||LA44_1331==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1331=='(') ) {s = 468;}
+						else if ( (LA44_1331=='!'||(LA44_1331 >= '&' && LA44_1331 <= '\'')||(LA44_1331 >= ',' && LA44_1331 <= '.')||(LA44_1331 >= '0' && LA44_1331 <= ';')||LA44_1331=='?'||(LA44_1331 >= 'A' && LA44_1331 <= 'Z')||LA44_1331=='_'||(LA44_1331 >= 'a' && LA44_1331 <= 'r')||(LA44_1331 >= 't' && LA44_1331 <= 'z')||LA44_1331=='\u2019') ) {s = 40;}
+						else s = 1382;
 						 
-						input.seek(index44_1035);
+						input.seek(index44_1331);
 						if ( s>=0 ) return s;
 						break;
 
-					case 51 : 
-						int LA44_1333 = input.LA(1);
+					case 172 : 
+						int LA44_169 = input.LA(1);
 						 
-						int index44_1333 = input.index();
+						int index44_169 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1333=='s') ) {s = 467;}
-						else if ( ((LA44_1333 >= '\t' && LA44_1333 <= '\n')||LA44_1333=='\r'||LA44_1333==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1333=='(') ) {s = 468;}
-						else if ( (LA44_1333=='!'||(LA44_1333 >= '&' && LA44_1333 <= '\'')||(LA44_1333 >= ',' && LA44_1333 <= '.')||(LA44_1333 >= '0' && LA44_1333 <= ';')||LA44_1333=='?'||(LA44_1333 >= 'A' && LA44_1333 <= 'Z')||LA44_1333=='_'||(LA44_1333 >= 'a' && LA44_1333 <= 'r')||(LA44_1333 >= 't' && LA44_1333 <= 'z')||LA44_1333=='\u2019') ) {s = 40;}
-						else s = 1384;
+						if ( ((LA44_169 >= '\t' && LA44_169 <= '\n')||LA44_169=='\r'||LA44_169==' ') && ((allowJudge))) {s = 170;}
+						else s = 40;
 						 
-						input.seek(index44_1333);
+						input.seek(index44_169);
 						if ( s>=0 ) return s;
 						break;
 
-					case 52 : 
-						int LA44_871 = input.LA(1);
+					case 173 : 
+						int LA44_35 = input.LA(1);
 						 
-						int index44_871 = input.index();
+						int index44_35 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_871=='s') ) {s = 467;}
-						else if ( ((LA44_871 >= '\t' && LA44_871 <= '\n')||LA44_871=='\r'||LA44_871==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_871=='(') ) {s = 468;}
-						else if ( (LA44_871=='!'||(LA44_871 >= '&' && LA44_871 <= '\'')||(LA44_871 >= ',' && LA44_871 <= '.')||(LA44_871 >= '0' && LA44_871 <= ';')||LA44_871=='?'||(LA44_871 >= 'A' && LA44_871 <= 'Z')||LA44_871=='_'||(LA44_871 >= 'a' && LA44_871 <= 'r')||(LA44_871 >= 't' && LA44_871 <= 'z')||LA44_871=='\u2019') ) {s = 40;}
-						else s = 1029;
+						if ( ((LA44_35 >= '\t' && LA44_35 <= '\n')||LA44_35=='\r'||LA44_35==' ') && ((allowJudge))) {s = 170;}
+						else s = 40;
 						 
-						input.seek(index44_871);
+						input.seek(index44_35);
 						if ( s>=0 ) return s;
 						break;
 
-					case 53 : 
-						int LA44_1030 = input.LA(1);
+					case 174 : 
+						int LA44_34 = input.LA(1);
 						 
-						int index44_1030 = input.index();
+						int index44_34 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1030=='s') ) {s = 467;}
-						else if ( ((LA44_1030 >= '\t' && LA44_1030 <= '\n')||LA44_1030=='\r'||LA44_1030==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1030=='(') ) {s = 468;}
-						else if ( (LA44_1030=='!'||(LA44_1030 >= '&' && LA44_1030 <= '\'')||(LA44_1030 >= ',' && LA44_1030 <= '.')||(LA44_1030 >= '0' && LA44_1030 <= ';')||LA44_1030=='?'||(LA44_1030 >= 'A' && LA44_1030 <= 'Z')||LA44_1030=='_'||(LA44_1030 >= 'a' && LA44_1030 <= 'r')||(LA44_1030 >= 't' && LA44_1030 <= 'z')||LA44_1030=='\u2019') ) {s = 40;}
-						else s = 1158;
+						if ( (LA44_34=='s') ) {s = 171;}
+						else if ( ((LA44_34 >= '\t' && LA44_34 <= '\n')||LA44_34=='\r'||LA44_34==' ') && ((allowJudge))) {s = 170;}
+						else s = 40;
 						 
-						input.seek(index44_1030);
+						input.seek(index44_34);
 						if ( s>=0 ) return s;
 						break;
 
-					case 54 : 
-						int LA44_1166 = input.LA(1);
+					case 175 : 
+						int LA44_1332 = input.LA(1);
 						 
-						int index44_1166 = input.index();
+						int index44_1332 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1166=='s') ) {s = 467;}
-						else if ( ((LA44_1166 >= '\t' && LA44_1166 <= '\n')||LA44_1166=='\r'||LA44_1166==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1166=='(') ) {s = 468;}
-						else if ( (LA44_1166=='!'||(LA44_1166 >= '&' && LA44_1166 <= '\'')||(LA44_1166 >= ',' && LA44_1166 <= '.')||(LA44_1166 >= '0' && LA44_1166 <= ';')||LA44_1166=='?'||(LA44_1166 >= 'A' && LA44_1166 <= 'Z')||LA44_1166=='_'||(LA44_1166 >= 'a' && LA44_1166 <= 'r')||(LA44_1166 >= 't' && LA44_1166 <= 'z')||LA44_1166=='\u2019') ) {s = 40;}
-						else s = 1263;
+						if ( (LA44_1332=='s') ) {s = 467;}
+						else if ( ((LA44_1332 >= '\t' && LA44_1332 <= '\n')||LA44_1332=='\r'||LA44_1332==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1332=='(') ) {s = 468;}
+						else if ( (LA44_1332=='!'||(LA44_1332 >= '&' && LA44_1332 <= '\'')||(LA44_1332 >= ',' && LA44_1332 <= '.')||(LA44_1332 >= '0' && LA44_1332 <= ';')||LA44_1332=='?'||(LA44_1332 >= 'A' && LA44_1332 <= 'Z')||LA44_1332=='_'||(LA44_1332 >= 'a' && LA44_1332 <= 'r')||(LA44_1332 >= 't' && LA44_1332 <= 'z')||LA44_1332=='\u2019') ) {s = 40;}
+						else s = 1383;
 						 
-						input.seek(index44_1166);
+						input.seek(index44_1332);
 						if ( s>=0 ) return s;
 						break;
 
-					case 55 : 
+					case 176 : 
+						int LA44_988 = input.LA(1);
+						 
+						int index44_988 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_988=='s') ) {s = 467;}
+						else if ( ((LA44_988 >= '\t' && LA44_988 <= '\n')||LA44_988=='\r'||LA44_988==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_988=='(') ) {s = 468;}
+						else if ( (LA44_988=='!'||(LA44_988 >= '&' && LA44_988 <= '\'')||(LA44_988 >= ',' && LA44_988 <= '.')||(LA44_988 >= '0' && LA44_988 <= ';')||LA44_988=='?'||(LA44_988 >= 'A' && LA44_988 <= 'Z')||LA44_988=='_'||(LA44_988 >= 'a' && LA44_988 <= 'r')||(LA44_988 >= 't' && LA44_988 <= 'z')||LA44_988=='\u2019') ) {s = 40;}
+						else s = 1120;
+						 
+						input.seek(index44_988);
+						if ( s>=0 ) return s;
+						break;
+
+					case 177 : 
+						int LA44_646 = input.LA(1);
+						 
+						int index44_646 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_646=='s') ) {s = 467;}
+						else if ( ((LA44_646 >= '\t' && LA44_646 <= '\n')||LA44_646=='\r'||LA44_646==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_646=='(') ) {s = 468;}
+						else if ( (LA44_646=='!'||(LA44_646 >= '&' && LA44_646 <= '\'')||(LA44_646 >= ',' && LA44_646 <= '.')||(LA44_646 >= '0' && LA44_646 <= ';')||LA44_646=='?'||(LA44_646 >= 'A' && LA44_646 <= 'Z')||LA44_646=='_'||(LA44_646 >= 'a' && LA44_646 <= 'r')||(LA44_646 >= 't' && LA44_646 <= 'z')||LA44_646=='\u2019') ) {s = 40;}
+						else s = 830;
+						 
+						input.seek(index44_646);
+						if ( s>=0 ) return s;
+						break;
+
+					case 178 : 
+						int LA44_1298 = input.LA(1);
+						 
+						int index44_1298 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1298=='s') ) {s = 467;}
+						else if ( ((LA44_1298 >= '\t' && LA44_1298 <= '\n')||LA44_1298=='\r'||LA44_1298==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1298=='(') ) {s = 468;}
+						else if ( (LA44_1298=='!'||(LA44_1298 >= '&' && LA44_1298 <= '\'')||(LA44_1298 >= ',' && LA44_1298 <= '.')||(LA44_1298 >= '0' && LA44_1298 <= ';')||LA44_1298=='?'||(LA44_1298 >= 'A' && LA44_1298 <= 'Z')||LA44_1298=='_'||(LA44_1298 >= 'a' && LA44_1298 <= 'r')||(LA44_1298 >= 't' && LA44_1298 <= 'z')||LA44_1298=='\u2019') ) {s = 40;}
+						else s = 1354;
+						 
+						input.seek(index44_1298);
+						if ( s>=0 ) return s;
+						break;
+
+					case 179 : 
 						int LA44_0 = input.LA(1);
 						s = -1;
 						if ( (LA44_0=='M') ) {s = 1;}
@@ -9956,146 +11635,107 @@ public class testLexer extends Lexer {
 						if ( s>=0 ) return s;
 						break;
 
-					case 56 : 
-						int LA44_1061 = input.LA(1);
+					case 180 : 
+						int LA44_929 = input.LA(1);
 						 
-						int index44_1061 = input.index();
+						int index44_929 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1061=='s') ) {s = 467;}
-						else if ( ((LA44_1061 >= '\t' && LA44_1061 <= '\n')||LA44_1061=='\r'||LA44_1061==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1061=='(') ) {s = 468;}
-						else if ( (LA44_1061=='!'||(LA44_1061 >= '&' && LA44_1061 <= '\'')||(LA44_1061 >= ',' && LA44_1061 <= '.')||(LA44_1061 >= '0' && LA44_1061 <= ';')||LA44_1061=='?'||(LA44_1061 >= 'A' && LA44_1061 <= 'Z')||LA44_1061=='_'||(LA44_1061 >= 'a' && LA44_1061 <= 'r')||(LA44_1061 >= 't' && LA44_1061 <= 'z')||LA44_1061=='\u2019') ) {s = 40;}
-						else s = 1180;
-						 
-						input.seek(index44_1061);
-						if ( s>=0 ) return s;
-						break;
-
-					case 57 : 
-						int LA44_1191 = input.LA(1);
-						 
-						int index44_1191 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1191==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_929==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_1191);
+						input.seek(index44_929);
 						if ( s>=0 ) return s;
 						break;
 
-					case 58 : 
-						int LA44_899 = input.LA(1);
+					case 181 : 
+						int LA44_1081 = input.LA(1);
 						 
-						int index44_899 = input.index();
+						int index44_1081 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_899=='s') ) {s = 467;}
-						else if ( ((LA44_899 >= '\t' && LA44_899 <= '\n')||LA44_899=='\r'||LA44_899==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_899=='(') ) {s = 468;}
-						else if ( (LA44_899=='!'||(LA44_899 >= '&' && LA44_899 <= '\'')||(LA44_899 >= ',' && LA44_899 <= '.')||(LA44_899 >= '0' && LA44_899 <= ';')||LA44_899=='?'||(LA44_899 >= 'A' && LA44_899 <= 'Z')||LA44_899=='_'||(LA44_899 >= 'a' && LA44_899 <= 'r')||(LA44_899 >= 't' && LA44_899 <= 'z')||LA44_899=='\u2019') ) {s = 40;}
-						else s = 1055;
-						 
-						input.seek(index44_899);
-						if ( s>=0 ) return s;
-						break;
-
-					case 59 : 
-						int LA44_1337 = input.LA(1);
-						 
-						int index44_1337 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1337=='s') ) {s = 467;}
-						else if ( ((LA44_1337 >= '\t' && LA44_1337 <= '\n')||LA44_1337=='\r'||LA44_1337==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1337=='(') ) {s = 468;}
-						else if ( (LA44_1337=='!'||(LA44_1337 >= '&' && LA44_1337 <= '\'')||(LA44_1337 >= ',' && LA44_1337 <= '.')||(LA44_1337 >= '0' && LA44_1337 <= ';')||LA44_1337=='?'||(LA44_1337 >= 'A' && LA44_1337 <= 'Z')||LA44_1337=='_'||(LA44_1337 >= 'a' && LA44_1337 <= 'r')||(LA44_1337 >= 't' && LA44_1337 <= 'z')||LA44_1337=='\u2019') ) {s = 40;}
-						else s = 1388;
-						 
-						input.seek(index44_1337);
-						if ( s>=0 ) return s;
-						break;
-
-					case 60 : 
-						int LA44_630 = input.LA(1);
-						 
-						int index44_630 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_630==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_1081==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_630);
+						input.seek(index44_1081);
 						if ( s>=0 ) return s;
 						break;
 
-					case 61 : 
-						int LA44_1165 = input.LA(1);
+					case 182 : 
+						int LA44_834 = input.LA(1);
 						 
-						int index44_1165 = input.index();
+						int index44_834 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1165==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
+						if ( (LA44_834=='s') ) {s = 467;}
+						else if ( ((LA44_834 >= '\t' && LA44_834 <= '\n')||LA44_834=='\r'||LA44_834==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_834=='(') ) {s = 468;}
+						else if ( (LA44_834=='!'||(LA44_834 >= '&' && LA44_834 <= '\'')||(LA44_834 >= ',' && LA44_834 <= '.')||(LA44_834 >= '0' && LA44_834 <= ';')||LA44_834=='?'||(LA44_834 >= 'A' && LA44_834 <= 'Z')||LA44_834=='_'||(LA44_834 >= 'a' && LA44_834 <= 'r')||(LA44_834 >= 't' && LA44_834 <= 'z')||LA44_834=='\u2019') ) {s = 40;}
+						else s = 990;
 						 
-						input.seek(index44_1165);
+						input.seek(index44_834);
 						if ( s>=0 ) return s;
 						break;
 
-					case 62 : 
-						int LA44_1113 = input.LA(1);
+					case 183 : 
+						int LA44_746 = input.LA(1);
 						 
-						int index44_1113 = input.index();
+						int index44_746 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1113==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_746==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_1113);
+						input.seek(index44_746);
 						if ( s>=0 ) return s;
 						break;
 
-					case 63 : 
-						int LA44_980 = input.LA(1);
+					case 184 : 
+						int LA44_277 = input.LA(1);
 						 
-						int index44_980 = input.index();
+						int index44_277 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_980==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
+						if ( (LA44_277=='s') ) {s = 467;}
+						else if ( ((LA44_277 >= '\t' && LA44_277 <= '\n')||LA44_277=='\r'||LA44_277==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_277=='(') ) {s = 468;}
+						else if ( (LA44_277=='!'||(LA44_277 >= '&' && LA44_277 <= '\'')||(LA44_277 >= ',' && LA44_277 <= '.')||(LA44_277 >= '0' && LA44_277 <= ';')||LA44_277=='?'||(LA44_277 >= 'A' && LA44_277 <= 'Z')||LA44_277=='_'||(LA44_277 >= 'a' && LA44_277 <= 'r')||(LA44_277 >= 't' && LA44_277 <= 'z')||LA44_277=='\u2019') ) {s = 40;}
+						else s = 466;
 						 
-						input.seek(index44_980);
+						input.seek(index44_277);
 						if ( s>=0 ) return s;
 						break;
 
-					case 64 : 
-						int LA44_1114 = input.LA(1);
+					case 185 : 
+						int LA44_954 = input.LA(1);
 						 
-						int index44_1114 = input.index();
+						int index44_954 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1114==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_954==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_1114);
+						input.seek(index44_954);
 						if ( s>=0 ) return s;
 						break;
 
-					case 65 : 
-						int LA44_570 = input.LA(1);
+					case 186 : 
+						int LA44_1166 = input.LA(1);
 						 
-						int index44_570 = input.index();
+						int index44_1166 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_570==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
+						if ( (LA44_1166=='s') ) {s = 467;}
+						else if ( ((LA44_1166 >= '\t' && LA44_1166 <= '\n')||LA44_1166=='\r'||LA44_1166==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1166=='(') ) {s = 468;}
+						else if ( (LA44_1166=='!'||(LA44_1166 >= '&' && LA44_1166 <= '\'')||(LA44_1166 >= ',' && LA44_1166 <= '.')||(LA44_1166 >= '0' && LA44_1166 <= ';')||LA44_1166=='?'||(LA44_1166 >= 'A' && LA44_1166 <= 'Z')||LA44_1166=='_'||(LA44_1166 >= 'a' && LA44_1166 <= 'r')||(LA44_1166 >= 't' && LA44_1166 <= 'z')||LA44_1166=='\u2019') ) {s = 40;}
+						else s = 1263;
 						 
-						input.seek(index44_570);
+						input.seek(index44_1166);
 						if ( s>=0 ) return s;
 						break;
 
-					case 66 : 
+					case 187 : 
 						int LA44_637 = input.LA(1);
 						 
 						int index44_637 = input.index();
@@ -10108,1632 +11748,29 @@ public class testLexer extends Lexer {
 						if ( s>=0 ) return s;
 						break;
 
-					case 67 : 
-						int LA44_1475 = input.LA(1);
-						 
-						int index44_1475 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1475=='s') ) {s = 467;}
-						else if ( ((LA44_1475 >= '\t' && LA44_1475 <= '\n')||LA44_1475=='\r'||LA44_1475==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1475=='(') ) {s = 468;}
-						else if ( (LA44_1475=='!'||(LA44_1475 >= '&' && LA44_1475 <= '\'')||(LA44_1475 >= ',' && LA44_1475 <= '.')||(LA44_1475 >= '0' && LA44_1475 <= ';')||LA44_1475=='?'||(LA44_1475 >= 'A' && LA44_1475 <= 'Z')||LA44_1475=='_'||(LA44_1475 >= 'a' && LA44_1475 <= 'r')||(LA44_1475 >= 't' && LA44_1475 <= 'z')||LA44_1475=='\u2019') ) {s = 40;}
-						else s = 1492;
-						 
-						input.seek(index44_1475);
-						if ( s>=0 ) return s;
-						break;
-
-					case 68 : 
-						int LA44_351 = input.LA(1);
-						 
-						int index44_351 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((LA44_351 >= '\t' && LA44_351 <= '\n')||LA44_351=='\r'||LA44_351==' ') && ((allowJudge))) {s = 170;}
-						else s = 40;
-						 
-						input.seek(index44_351);
-						if ( s>=0 ) return s;
-						break;
-
-					case 69 : 
-						int LA44_35 = input.LA(1);
-						 
-						int index44_35 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((LA44_35 >= '\t' && LA44_35 <= '\n')||LA44_35=='\r'||LA44_35==' ') && ((allowJudge))) {s = 170;}
-						else s = 40;
-						 
-						input.seek(index44_35);
-						if ( s>=0 ) return s;
-						break;
-
-					case 70 : 
-						int LA44_169 = input.LA(1);
-						 
-						int index44_169 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((LA44_169 >= '\t' && LA44_169 <= '\n')||LA44_169=='\r'||LA44_169==' ') && ((allowJudge))) {s = 170;}
-						else s = 40;
-						 
-						input.seek(index44_169);
-						if ( s>=0 ) return s;
-						break;
-
-					case 71 : 
-						int LA44_973 = input.LA(1);
-						 
-						int index44_973 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_973==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_973);
-						if ( s>=0 ) return s;
-						break;
-
-					case 72 : 
-						int LA44_1109 = input.LA(1);
-						 
-						int index44_1109 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1109==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1109);
-						if ( s>=0 ) return s;
-						break;
-
-					case 73 : 
-						int LA44_223 = input.LA(1);
-						 
-						int index44_223 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((LA44_223 >= '\t' && LA44_223 <= '\n')||LA44_223=='\r'||LA44_223==' ') && ((allowJudge))) {s = 170;}
-						else s = 40;
-						 
-						input.seek(index44_223);
-						if ( s>=0 ) return s;
-						break;
-
-					case 74 : 
-						int LA44_72 = input.LA(1);
-						 
-						int index44_72 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((LA44_72 >= '\t' && LA44_72 <= '\n')||LA44_72=='\r'||LA44_72==' ') && ((allowJudge))) {s = 170;}
-						else s = 40;
-						 
-						input.seek(index44_72);
-						if ( s>=0 ) return s;
-						break;
-
-					case 75 : 
-						int LA44_938 = input.LA(1);
-						 
-						int index44_938 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_938==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_938);
-						if ( s>=0 ) return s;
-						break;
-
-					case 76 : 
-						int LA44_967 = input.LA(1);
-						 
-						int index44_967 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_967==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_967);
-						if ( s>=0 ) return s;
-						break;
-
-					case 77 : 
-						int LA44_811 = input.LA(1);
-						 
-						int index44_811 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_811==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_811);
-						if ( s>=0 ) return s;
-						break;
-
-					case 78 : 
-						int LA44_1214 = input.LA(1);
-						 
-						int index44_1214 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1214==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1214);
-						if ( s>=0 ) return s;
-						break;
-
-					case 79 : 
-						int LA44_1082 = input.LA(1);
-						 
-						int index44_1082 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1082==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1082);
-						if ( s>=0 ) return s;
-						break;
-
-					case 80 : 
-						int LA44_221 = input.LA(1);
-						 
-						int index44_221 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_221=='l') ) {s = 409;}
-						else if ( ((LA44_221 >= '\t' && LA44_221 <= '\n')||LA44_221=='\r'||LA44_221==' ') && ((allowJudge))) {s = 170;}
-						else s = 40;
-						 
-						input.seek(index44_221);
-						if ( s>=0 ) return s;
-						break;
-
-					case 81 : 
-						int LA44_1048 = input.LA(1);
-						 
-						int index44_1048 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1048==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1048);
-						if ( s>=0 ) return s;
-						break;
-
-					case 82 : 
-						int LA44_428 = input.LA(1);
-						 
-						int index44_428 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_428==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_428);
-						if ( s>=0 ) return s;
-						break;
-
-					case 83 : 
-						int LA44_944 = input.LA(1);
-						 
-						int index44_944 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_944==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_944=='s') ) {s = 1090;}
-						else s = 40;
-						 
-						input.seek(index44_944);
-						if ( s>=0 ) return s;
-						break;
-
-					case 84 : 
-						int LA44_614 = input.LA(1);
-						 
-						int index44_614 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_614==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_614);
-						if ( s>=0 ) return s;
-						break;
-
-					case 85 : 
-						int LA44_804 = input.LA(1);
-						 
-						int index44_804 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_804==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_804);
-						if ( s>=0 ) return s;
-						break;
-
-					case 86 : 
-						int LA44_803 = input.LA(1);
-						 
-						int index44_803 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_803==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_803);
-						if ( s>=0 ) return s;
-						break;
-
-					case 87 : 
-						int LA44_748 = input.LA(1);
-						 
-						int index44_748 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_748);
-						if ( s>=0 ) return s;
-						break;
-
-					case 88 : 
-						int LA44_669 = input.LA(1);
-						 
-						int index44_669 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_669);
-						if ( s>=0 ) return s;
-						break;
-
-					case 89 : 
-						int LA44_652 = input.LA(1);
-						 
-						int index44_652 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_652);
-						if ( s>=0 ) return s;
-						break;
-
-					case 90 : 
-						int LA44_466 = input.LA(1);
-						 
-						int index44_466 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_466);
-						if ( s>=0 ) return s;
-						break;
-
-					case 91 : 
-						int LA44_769 = input.LA(1);
-						 
-						int index44_769 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_769);
-						if ( s>=0 ) return s;
-						break;
-
-					case 92 : 
-						int LA44_771 = input.LA(1);
-						 
-						int index44_771 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_771);
-						if ( s>=0 ) return s;
-						break;
-
-					case 93 : 
-						int LA44_830 = input.LA(1);
-						 
-						int index44_830 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_830);
-						if ( s>=0 ) return s;
-						break;
-
-					case 94 : 
-						int LA44_863 = input.LA(1);
-						 
-						int index44_863 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_863);
-						if ( s>=0 ) return s;
-						break;
-
-					case 95 : 
-						int LA44_934 = input.LA(1);
-						 
-						int index44_934 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_934);
-						if ( s>=0 ) return s;
-						break;
-
-					case 96 : 
-						int LA44_943 = input.LA(1);
-						 
-						int index44_943 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_943);
-						if ( s>=0 ) return s;
-						break;
-
-					case 97 : 
-						int LA44_945 = input.LA(1);
-						 
-						int index44_945 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_945);
-						if ( s>=0 ) return s;
-						break;
-
-					case 98 : 
-						int LA44_957 = input.LA(1);
-						 
-						int index44_957 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_957);
-						if ( s>=0 ) return s;
-						break;
-
-					case 99 : 
-						int LA44_978 = input.LA(1);
-						 
-						int index44_978 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_978);
-						if ( s>=0 ) return s;
-						break;
-
-					case 100 : 
-						int LA44_990 = input.LA(1);
-						 
-						int index44_990 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_990);
-						if ( s>=0 ) return s;
-						break;
-
-					case 101 : 
-						int LA44_1029 = input.LA(1);
-						 
-						int index44_1029 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1029);
-						if ( s>=0 ) return s;
-						break;
-
-					case 102 : 
-						int LA44_1055 = input.LA(1);
-						 
-						int index44_1055 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1055);
-						if ( s>=0 ) return s;
-						break;
-
-					case 103 : 
-						int LA44_1070 = input.LA(1);
-						 
-						int index44_1070 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1070);
-						if ( s>=0 ) return s;
-						break;
-
-					case 104 : 
-						int LA44_1071 = input.LA(1);
-						 
-						int index44_1071 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1071);
-						if ( s>=0 ) return s;
-						break;
-
-					case 105 : 
-						int LA44_1085 = input.LA(1);
-						 
-						int index44_1085 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1085);
-						if ( s>=0 ) return s;
-						break;
-
-					case 106 : 
-						int LA44_1093 = input.LA(1);
-						 
-						int index44_1093 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1093);
-						if ( s>=0 ) return s;
-						break;
-
-					case 107 : 
-						int LA44_1106 = input.LA(1);
-						 
-						int index44_1106 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1106);
-						if ( s>=0 ) return s;
-						break;
-
-					case 108 : 
-						int LA44_1116 = input.LA(1);
-						 
-						int index44_1116 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1116);
-						if ( s>=0 ) return s;
-						break;
-
-					case 109 : 
-						int LA44_1120 = input.LA(1);
-						 
-						int index44_1120 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1120);
-						if ( s>=0 ) return s;
-						break;
-
-					case 110 : 
-						int LA44_1158 = input.LA(1);
-						 
-						int index44_1158 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1158);
-						if ( s>=0 ) return s;
-						break;
-
-					case 111 : 
-						int LA44_1163 = input.LA(1);
-						 
-						int index44_1163 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1163);
-						if ( s>=0 ) return s;
-						break;
-
-					case 112 : 
-						int LA44_1180 = input.LA(1);
-						 
-						int index44_1180 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1180);
-						if ( s>=0 ) return s;
-						break;
-
-					case 113 : 
-						int LA44_1203 = input.LA(1);
-						 
-						int index44_1203 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1203);
-						if ( s>=0 ) return s;
-						break;
-
-					case 114 : 
-						int LA44_1213 = input.LA(1);
-						 
-						int index44_1213 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1213);
-						if ( s>=0 ) return s;
-						break;
-
-					case 115 : 
-						int LA44_1216 = input.LA(1);
-						 
-						int index44_1216 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1216);
-						if ( s>=0 ) return s;
-						break;
-
-					case 116 : 
-						int LA44_1217 = input.LA(1);
-						 
-						int index44_1217 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1217);
-						if ( s>=0 ) return s;
-						break;
-
-					case 117 : 
-						int LA44_1218 = input.LA(1);
-						 
-						int index44_1218 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1218);
-						if ( s>=0 ) return s;
-						break;
-
-					case 118 : 
-						int LA44_1220 = input.LA(1);
-						 
-						int index44_1220 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1220);
-						if ( s>=0 ) return s;
-						break;
-
-					case 119 : 
-						int LA44_1255 = input.LA(1);
-						 
-						int index44_1255 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1255);
-						if ( s>=0 ) return s;
-						break;
-
-					case 120 : 
-						int LA44_1263 = input.LA(1);
-						 
-						int index44_1263 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1263);
-						if ( s>=0 ) return s;
-						break;
-
-					case 121 : 
-						int LA44_1283 = input.LA(1);
-						 
-						int index44_1283 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1283);
-						if ( s>=0 ) return s;
-						break;
-
-					case 122 : 
-						int LA44_1288 = input.LA(1);
-						 
-						int index44_1288 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1288);
-						if ( s>=0 ) return s;
-						break;
-
-					case 123 : 
-						int LA44_1290 = input.LA(1);
-						 
-						int index44_1290 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1290);
-						if ( s>=0 ) return s;
-						break;
-
-					case 124 : 
-						int LA44_1291 = input.LA(1);
-						 
-						int index44_1291 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1291);
-						if ( s>=0 ) return s;
-						break;
-
-					case 125 : 
-						int LA44_1294 = input.LA(1);
-						 
-						int index44_1294 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1294);
-						if ( s>=0 ) return s;
-						break;
-
-					case 126 : 
-						int LA44_1297 = input.LA(1);
-						 
-						int index44_1297 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1297);
-						if ( s>=0 ) return s;
-						break;
-
-					case 127 : 
-						int LA44_1343 = input.LA(1);
-						 
-						int index44_1343 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1343);
-						if ( s>=0 ) return s;
-						break;
-
-					case 128 : 
-						int LA44_1347 = input.LA(1);
-						 
-						int index44_1347 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1347);
-						if ( s>=0 ) return s;
-						break;
-
-					case 129 : 
-						int LA44_1352 = input.LA(1);
-						 
-						int index44_1352 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1352);
-						if ( s>=0 ) return s;
-						break;
-
-					case 130 : 
-						int LA44_1353 = input.LA(1);
-						 
-						int index44_1353 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1353);
-						if ( s>=0 ) return s;
-						break;
-
-					case 131 : 
-						int LA44_1354 = input.LA(1);
-						 
-						int index44_1354 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1354);
-						if ( s>=0 ) return s;
-						break;
-
-					case 132 : 
-						int LA44_1382 = input.LA(1);
-						 
-						int index44_1382 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1382);
-						if ( s>=0 ) return s;
-						break;
-
-					case 133 : 
-						int LA44_1383 = input.LA(1);
-						 
-						int index44_1383 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1383);
-						if ( s>=0 ) return s;
-						break;
-
-					case 134 : 
-						int LA44_1384 = input.LA(1);
-						 
-						int index44_1384 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1384);
-						if ( s>=0 ) return s;
-						break;
-
-					case 135 : 
-						int LA44_1388 = input.LA(1);
-						 
-						int index44_1388 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1388);
-						if ( s>=0 ) return s;
-						break;
-
-					case 136 : 
-						int LA44_1397 = input.LA(1);
-						 
-						int index44_1397 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1397);
-						if ( s>=0 ) return s;
-						break;
-
-					case 137 : 
-						int LA44_1427 = input.LA(1);
-						 
-						int index44_1427 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1427);
-						if ( s>=0 ) return s;
-						break;
-
-					case 138 : 
-						int LA44_1455 = input.LA(1);
-						 
-						int index44_1455 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1455);
-						if ( s>=0 ) return s;
-						break;
-
-					case 139 : 
-						int LA44_1470 = input.LA(1);
-						 
-						int index44_1470 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1470);
-						if ( s>=0 ) return s;
-						break;
-
-					case 140 : 
-						int LA44_1472 = input.LA(1);
-						 
-						int index44_1472 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1472);
-						if ( s>=0 ) return s;
-						break;
-
-					case 141 : 
-						int LA44_1477 = input.LA(1);
-						 
-						int index44_1477 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1477);
-						if ( s>=0 ) return s;
-						break;
-
-					case 142 : 
-						int LA44_1492 = input.LA(1);
-						 
-						int index44_1492 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1492);
-						if ( s>=0 ) return s;
-						break;
-
-					case 143 : 
-						int LA44_1494 = input.LA(1);
-						 
-						int index44_1494 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1494);
-						if ( s>=0 ) return s;
-						break;
-
-					case 144 : 
-						int LA44_1506 = input.LA(1);
-						 
-						int index44_1506 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1506);
-						if ( s>=0 ) return s;
-						break;
-
-					case 145 : 
-						int LA44_1525 = input.LA(1);
-						 
-						int index44_1525 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1525);
-						if ( s>=0 ) return s;
-						break;
-
-					case 146 : 
-						int LA44_1535 = input.LA(1);
-						 
-						int index44_1535 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((allowBreed)) ) {s = 100;}
-						else if ( (true) ) {s = 40;}
-						 
-						input.seek(index44_1535);
-						if ( s>=0 ) return s;
-						break;
-
-					case 147 : 
-						int LA44_817 = input.LA(1);
-						 
-						int index44_817 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_817=='o') ) {s = 977;}
-						else if ( (LA44_817=='s') ) {s = 467;}
-						else if ( ((LA44_817 >= '\t' && LA44_817 <= '\n')||LA44_817=='\r'||LA44_817==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_817=='(') ) {s = 468;}
-						else if ( (LA44_817=='!'||(LA44_817 >= '&' && LA44_817 <= '\'')||(LA44_817 >= ',' && LA44_817 <= '.')||(LA44_817 >= '0' && LA44_817 <= ';')||LA44_817=='?'||(LA44_817 >= 'A' && LA44_817 <= 'Z')||LA44_817=='_'||(LA44_817 >= 'a' && LA44_817 <= 'n')||(LA44_817 >= 'p' && LA44_817 <= 'r')||(LA44_817 >= 't' && LA44_817 <= 'z')||LA44_817=='\u2019') ) {s = 40;}
-						else s = 978;
-						 
-						input.seek(index44_817);
-						if ( s>=0 ) return s;
-						break;
-
-					case 148 : 
-						int LA44_607 = input.LA(1);
-						 
-						int index44_607 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_607==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_607);
-						if ( s>=0 ) return s;
-						break;
-
-					case 149 : 
-						int LA44_765 = input.LA(1);
-						 
-						int index44_765 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_765==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_765);
-						if ( s>=0 ) return s;
-						break;
-
-					case 150 : 
-						int LA44_33 = input.LA(1);
-						 
-						int index44_33 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_33=='S') ) {s = 169;}
-						else if ( ((LA44_33 >= '\t' && LA44_33 <= '\n')||LA44_33=='\r'||LA44_33==' ') && ((allowJudge))) {s = 170;}
-						else s = 40;
-						 
-						input.seek(index44_33);
-						if ( s>=0 ) return s;
-						break;
-
-					case 151 : 
-						int LA44_1429 = input.LA(1);
-						 
-						int index44_1429 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1429=='s') ) {s = 467;}
-						else if ( ((LA44_1429 >= '\t' && LA44_1429 <= '\n')||LA44_1429=='\r'||LA44_1429==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1429=='(') ) {s = 468;}
-						else if ( (LA44_1429=='!'||(LA44_1429 >= '&' && LA44_1429 <= '\'')||(LA44_1429 >= ',' && LA44_1429 <= '.')||(LA44_1429 >= '0' && LA44_1429 <= ';')||LA44_1429=='?'||(LA44_1429 >= 'A' && LA44_1429 <= 'Z')||LA44_1429=='_'||(LA44_1429 >= 'a' && LA44_1429 <= 'r')||(LA44_1429 >= 't' && LA44_1429 <= 'z')||LA44_1429=='\u2019') ) {s = 40;}
-						else s = 1455;
-						 
-						input.seek(index44_1429);
-						if ( s>=0 ) return s;
-						break;
-
-					case 152 : 
-						int LA44_1351 = input.LA(1);
-						 
-						int index44_1351 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1351==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1351);
-						if ( s>=0 ) return s;
-						break;
-
-					case 153 : 
-						int LA44_234 = input.LA(1);
-						 
-						int index44_234 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_234==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_234);
-						if ( s>=0 ) return s;
-						break;
-
-					case 154 : 
-						int LA44_799 = input.LA(1);
-						 
-						int index44_799 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_799==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_799);
-						if ( s>=0 ) return s;
-						break;
-
-					case 155 : 
-						int LA44_1050 = input.LA(1);
-						 
-						int index44_1050 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1050==' ') && ((allowGroup))) {s = 1173;}
-						else s = 40;
-						 
-						input.seek(index44_1050);
-						if ( s>=0 ) return s;
-						break;
-
-					case 156 : 
-						int LA44_467 = input.LA(1);
-						 
-						int index44_467 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((LA44_467 >= '\t' && LA44_467 <= '\n')||LA44_467=='\r'||LA44_467==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_467=='(') ) {s = 468;}
-						else if ( (LA44_467=='!'||(LA44_467 >= '&' && LA44_467 <= '\'')||(LA44_467 >= ',' && LA44_467 <= '.')||(LA44_467 >= '0' && LA44_467 <= ';')||LA44_467=='?'||(LA44_467 >= 'A' && LA44_467 <= 'Z')||LA44_467=='_'||(LA44_467 >= 'a' && LA44_467 <= 'z')||LA44_467=='\u2019') ) {s = 40;}
-						else s = 652;
-						 
-						input.seek(index44_467);
-						if ( s>=0 ) return s;
-						break;
-
-					case 157 : 
-						int LA44_971 = input.LA(1);
-						 
-						int index44_971 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_971==' ') && ((allowGroup))) {s = 810;}
-						else s = 40;
-						 
-						input.seek(index44_971);
-						if ( s>=0 ) return s;
-						break;
-
-					case 158 : 
-						int LA44_1282 = input.LA(1);
-						 
-						int index44_1282 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1282==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1282);
-						if ( s>=0 ) return s;
-						break;
-
-					case 159 : 
-						int LA44_1110 = input.LA(1);
-						 
-						int index44_1110 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1110=='e') ) {s = 1215;}
-						else if ( (LA44_1110=='s') ) {s = 467;}
-						else if ( ((LA44_1110 >= '\t' && LA44_1110 <= '\n')||LA44_1110=='\r'||LA44_1110==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1110=='(') ) {s = 468;}
-						else if ( (LA44_1110=='!'||(LA44_1110 >= '&' && LA44_1110 <= '\'')||(LA44_1110 >= ',' && LA44_1110 <= '.')||(LA44_1110 >= '0' && LA44_1110 <= ';')||LA44_1110=='?'||(LA44_1110 >= 'A' && LA44_1110 <= 'Z')||LA44_1110=='_'||(LA44_1110 >= 'a' && LA44_1110 <= 'd')||(LA44_1110 >= 'f' && LA44_1110 <= 'r')||(LA44_1110 >= 't' && LA44_1110 <= 'z')||LA44_1110=='\u2019') ) {s = 40;}
-						else s = 1216;
-						 
-						input.seek(index44_1110);
-						if ( s>=0 ) return s;
-						break;
-
-					case 160 : 
-						int LA44_1350 = input.LA(1);
-						 
-						int index44_1350 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1350==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1350);
-						if ( s>=0 ) return s;
-						break;
-
-					case 161 : 
-						int LA44_1299 = input.LA(1);
-						 
-						int index44_1299 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1299==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1299);
-						if ( s>=0 ) return s;
-						break;
-
-					case 162 : 
-						int LA44_790 = input.LA(1);
-						 
-						int index44_790 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_790==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_790);
-						if ( s>=0 ) return s;
-						break;
-
-					case 163 : 
-						int LA44_1398 = input.LA(1);
-						 
-						int index44_1398 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1398==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1398);
-						if ( s>=0 ) return s;
-						break;
-
-					case 164 : 
-						int LA44_792 = input.LA(1);
-						 
-						int index44_792 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_792==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_792);
-						if ( s>=0 ) return s;
-						break;
-
-					case 165 : 
-						int LA44_762 = input.LA(1);
-						 
-						int index44_762 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_762==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_762=='s') ) {s = 940;}
-						else s = 40;
-						 
-						input.seek(index44_762);
-						if ( s>=0 ) return s;
-						break;
-
-					case 166 : 
-						int LA44_1149 = input.LA(1);
-						 
-						int index44_1149 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((LA44_1149 >= '\t' && LA44_1149 <= '\n')||LA44_1149=='\r'||LA44_1149==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1149=='A') ) {s = 1251;}
-						else if ( (LA44_1149=='P') ) {s = 1252;}
-						else if ( (LA44_1149=='B') ) {s = 1253;}
-						else if ( (LA44_1149=='(') ) {s = 1254;}
-						else if ( ((LA44_1149 >= '&' && LA44_1149 <= '\'')||(LA44_1149 >= ',' && LA44_1149 <= '.')||(LA44_1149 >= '0' && LA44_1149 <= ';')||(LA44_1149 >= 'C' && LA44_1149 <= 'O')||(LA44_1149 >= 'Q' && LA44_1149 <= 'Z')||LA44_1149=='_'||(LA44_1149 >= 'a' && LA44_1149 <= 'z')||LA44_1149=='\u2019') ) {s = 40;}
-						else s = 1255;
-						 
-						input.seek(index44_1149);
-						if ( s>=0 ) return s;
-						break;
-
-					case 167 : 
-						int LA44_1161 = input.LA(1);
-						 
-						int index44_1161 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1161==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1161);
-						if ( s>=0 ) return s;
-						break;
-
-					case 168 : 
-						int LA44_415 = input.LA(1);
-						 
-						int index44_415 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_415==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_415);
-						if ( s>=0 ) return s;
-						break;
-
-					case 169 : 
-						int LA44_1102 = input.LA(1);
-						 
-						int index44_1102 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1102==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1102);
-						if ( s>=0 ) return s;
-						break;
-
-					case 170 : 
-						int LA44_15 = input.LA(1);
-						 
-						int index44_15 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_15=='a') ) {s = 97;}
-						else if ( (LA44_15=='e') ) {s = 98;}
-						else if ( (LA44_15=='h') ) {s = 99;}
-						else if ( (LA44_15=='\u00F6') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_15=='o') ) {s = 101;}
-						else if ( (LA44_15=='U') ) {s = 102;}
-						else s = 40;
-						 
-						input.seek(index44_15);
-						if ( s>=0 ) return s;
-						break;
-
-					case 171 : 
-						int LA44_1287 = input.LA(1);
-						 
-						int index44_1287 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1287==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1287);
-						if ( s>=0 ) return s;
-						break;
-
-					case 172 : 
-						int LA44_785 = input.LA(1);
-						 
-						int index44_785 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_785==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_785);
-						if ( s>=0 ) return s;
-						break;
-
-					case 173 : 
-						int LA44_956 = input.LA(1);
-						 
-						int index44_956 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_956==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_956);
-						if ( s>=0 ) return s;
-						break;
-
-					case 174 : 
-						int LA44_405 = input.LA(1);
-						 
-						int index44_405 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_405==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_405);
-						if ( s>=0 ) return s;
-						break;
-
-					case 175 : 
-						int LA44_955 = input.LA(1);
-						 
-						int index44_955 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_955==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_955);
-						if ( s>=0 ) return s;
-						break;
-
-					case 176 : 
-						int LA44_1450 = input.LA(1);
-						 
-						int index44_1450 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1450==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1450);
-						if ( s>=0 ) return s;
-						break;
-
-					case 177 : 
-						int LA44_1168 = input.LA(1);
-						 
-						int index44_1168 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1168==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1168);
-						if ( s>=0 ) return s;
-						break;
-
-					case 178 : 
-						int LA44_884 = input.LA(1);
-						 
-						int index44_884 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_884==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_884);
-						if ( s>=0 ) return s;
-						break;
-
-					case 179 : 
-						int LA44_1043 = input.LA(1);
-						 
-						int index44_1043 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1043==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1043);
-						if ( s>=0 ) return s;
-						break;
-
-					case 180 : 
-						int LA44_73 = input.LA(1);
-						 
-						int index44_73 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((LA44_73 >= '\t' && LA44_73 <= '\n')||LA44_73=='\r'||LA44_73==' ') && ((allowJudge))) {s = 170;}
-						else s = 40;
-						 
-						input.seek(index44_73);
-						if ( s>=0 ) return s;
-						break;
-
-					case 181 : 
-						int LA44_350 = input.LA(1);
-						 
-						int index44_350 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((LA44_350 >= '\t' && LA44_350 <= '\n')||LA44_350=='\r'||LA44_350==' ') && ((allowJudge))) {s = 170;}
-						else s = 40;
-						 
-						input.seek(index44_350);
-						if ( s>=0 ) return s;
-						break;
-
-					case 182 : 
-						int LA44_1039 = input.LA(1);
-						 
-						int index44_1039 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1039==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1039);
-						if ( s>=0 ) return s;
-						break;
-
-					case 183 : 
-						int LA44_1193 = input.LA(1);
-						 
-						int index44_1193 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1193==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1193);
-						if ( s>=0 ) return s;
-						break;
-
-					case 184 : 
-						int LA44_1040 = input.LA(1);
-						 
-						int index44_1040 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1040==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1040);
-						if ( s>=0 ) return s;
-						break;
-
-					case 185 : 
-						int LA44_689 = input.LA(1);
-						 
-						int index44_689 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_689==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_689);
-						if ( s>=0 ) return s;
-						break;
-
-					case 186 : 
-						int LA44_965 = input.LA(1);
-						 
-						int index44_965 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_965==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_965);
-						if ( s>=0 ) return s;
-						break;
-
-					case 187 : 
-						int LA44_962 = input.LA(1);
-						 
-						int index44_962 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_962==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_962);
-						if ( s>=0 ) return s;
-						break;
-
 					case 188 : 
-						int LA44_491 = input.LA(1);
+						int LA44_1276 = input.LA(1);
 						 
-						int index44_491 = input.index();
+						int index44_1276 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_491==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_1276==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_491);
+						input.seek(index44_1276);
 						if ( s>=0 ) return s;
 						break;
 
 					case 189 : 
-						int LA44_492 = input.LA(1);
+						int LA44_1113 = input.LA(1);
 						 
-						int index44_492 = input.index();
+						int index44_1113 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_492==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_1113==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_492);
+						input.seek(index44_1113);
 						if ( s>=0 ) return s;
 						break;
 
@@ -11751,447 +11788,164 @@ public class testLexer extends Lexer {
 						break;
 
 					case 191 : 
-						int LA44_171 = input.LA(1);
+						int LA44_980 = input.LA(1);
 						 
-						int index44_171 = input.index();
+						int index44_980 = input.index();
 						input.rewind();
 						s = -1;
-						if ( ((LA44_171 >= '\t' && LA44_171 <= '\n')||LA44_171=='\r'||LA44_171==' ') && ((allowJudge))) {s = 170;}
+						if ( (LA44_980==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_171);
+						input.seek(index44_980);
 						if ( s>=0 ) return s;
 						break;
 
 					case 192 : 
-						int LA44_36 = input.LA(1);
+						int LA44_1114 = input.LA(1);
 						 
-						int index44_36 = input.index();
+						int index44_1114 = input.index();
 						input.rewind();
 						s = -1;
-						if ( ((LA44_36 >= '\t' && LA44_36 <= '\n')||LA44_36=='\r'||LA44_36==' ') && ((allowJudge))) {s = 170;}
+						if ( (LA44_1114==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_36);
+						input.seek(index44_1114);
 						if ( s>=0 ) return s;
 						break;
 
 					case 193 : 
-						int LA44_1162 = input.LA(1);
+						int LA44_1035 = input.LA(1);
 						 
-						int index44_1162 = input.index();
+						int index44_1035 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1162==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
+						if ( (LA44_1035=='s') ) {s = 467;}
+						else if ( ((LA44_1035 >= '\t' && LA44_1035 <= '\n')||LA44_1035=='\r'||LA44_1035==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1035=='(') ) {s = 468;}
+						else if ( (LA44_1035=='!'||(LA44_1035 >= '&' && LA44_1035 <= '\'')||(LA44_1035 >= ',' && LA44_1035 <= '.')||(LA44_1035 >= '0' && LA44_1035 <= ';')||LA44_1035=='?'||(LA44_1035 >= 'A' && LA44_1035 <= 'Z')||LA44_1035=='_'||(LA44_1035 >= 'a' && LA44_1035 <= 'r')||(LA44_1035 >= 't' && LA44_1035 <= 'z')||LA44_1035=='\u2019') ) {s = 40;}
+						else s = 1163;
 						 
-						input.seek(index44_1162);
+						input.seek(index44_1035);
 						if ( s>=0 ) return s;
 						break;
 
 					case 194 : 
-						int LA44_755 = input.LA(1);
+						int LA44_570 = input.LA(1);
 						 
-						int index44_755 = input.index();
+						int index44_570 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_755=='s') ) {s = 467;}
-						else if ( ((LA44_755 >= '\t' && LA44_755 <= '\n')||LA44_755=='\r'||LA44_755==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_755=='(') ) {s = 468;}
-						else if ( (LA44_755=='!'||(LA44_755 >= '&' && LA44_755 <= '\'')||(LA44_755 >= ',' && LA44_755 <= '.')||(LA44_755 >= '0' && LA44_755 <= ';')||LA44_755=='?'||(LA44_755 >= 'A' && LA44_755 <= 'Z')||LA44_755=='_'||(LA44_755 >= 'a' && LA44_755 <= 'r')||(LA44_755 >= 't' && LA44_755 <= 'z')||LA44_755=='\u2019') ) {s = 40;}
-						else s = 934;
+						if ( (LA44_570==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
 						 
-						input.seek(index44_755);
+						input.seek(index44_570);
 						if ( s>=0 ) return s;
 						break;
 
 					case 195 : 
-						int LA44_933 = input.LA(1);
+						int LA44_630 = input.LA(1);
 						 
-						int index44_933 = input.index();
+						int index44_630 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_933=='s') ) {s = 467;}
-						else if ( ((LA44_933 >= '\t' && LA44_933 <= '\n')||LA44_933=='\r'||LA44_933==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_933=='(') ) {s = 468;}
-						else if ( (LA44_933=='!'||(LA44_933 >= '&' && LA44_933 <= '\'')||(LA44_933 >= ',' && LA44_933 <= '.')||(LA44_933 >= '0' && LA44_933 <= ';')||LA44_933=='?'||(LA44_933 >= 'A' && LA44_933 <= 'Z')||LA44_933=='_'||(LA44_933 >= 'a' && LA44_933 <= 'r')||(LA44_933 >= 't' && LA44_933 <= 'z')||LA44_933=='\u2019') ) {s = 40;}
-						else s = 1085;
+						if ( (LA44_630==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
 						 
-						input.seek(index44_933);
+						input.seek(index44_630);
 						if ( s>=0 ) return s;
 						break;
 
 					case 196 : 
-						int LA44_1164 = input.LA(1);
+						int LA44_1165 = input.LA(1);
 						 
-						int index44_1164 = input.index();
+						int index44_1165 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1164==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_1165==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_1164);
+						input.seek(index44_1165);
 						if ( s>=0 ) return s;
 						break;
 
 					case 197 : 
-						int LA44_1200 = input.LA(1);
+						int LA44_871 = input.LA(1);
 						 
-						int index44_1200 = input.index();
+						int index44_871 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1200=='s') ) {s = 467;}
-						else if ( ((LA44_1200 >= '\t' && LA44_1200 <= '\n')||LA44_1200=='\r'||LA44_1200==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1200=='(') ) {s = 468;}
-						else if ( (LA44_1200=='!'||(LA44_1200 >= '&' && LA44_1200 <= '\'')||(LA44_1200 >= ',' && LA44_1200 <= '.')||(LA44_1200 >= '0' && LA44_1200 <= ';')||LA44_1200=='?'||(LA44_1200 >= 'A' && LA44_1200 <= 'Z')||LA44_1200=='_'||(LA44_1200 >= 'a' && LA44_1200 <= 'r')||(LA44_1200 >= 't' && LA44_1200 <= 'z')||LA44_1200=='\u2019') ) {s = 40;}
-						else s = 1283;
+						if ( (LA44_871=='s') ) {s = 467;}
+						else if ( ((LA44_871 >= '\t' && LA44_871 <= '\n')||LA44_871=='\r'||LA44_871==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_871=='(') ) {s = 468;}
+						else if ( (LA44_871=='!'||(LA44_871 >= '&' && LA44_871 <= '\'')||(LA44_871 >= ',' && LA44_871 <= '.')||(LA44_871 >= '0' && LA44_871 <= ';')||LA44_871=='?'||(LA44_871 >= 'A' && LA44_871 <= 'Z')||LA44_871=='_'||(LA44_871 >= 'a' && LA44_871 <= 'r')||(LA44_871 >= 't' && LA44_871 <= 'z')||LA44_871=='\u2019') ) {s = 40;}
+						else s = 1029;
 						 
-						input.seek(index44_1200);
+						input.seek(index44_871);
 						if ( s>=0 ) return s;
 						break;
 
 					case 198 : 
-						int LA44_687 = input.LA(1);
+						int LA44_1030 = input.LA(1);
 						 
-						int index44_687 = input.index();
+						int index44_1030 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_687==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
+						if ( (LA44_1030=='s') ) {s = 467;}
+						else if ( ((LA44_1030 >= '\t' && LA44_1030 <= '\n')||LA44_1030=='\r'||LA44_1030==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1030=='(') ) {s = 468;}
+						else if ( (LA44_1030=='!'||(LA44_1030 >= '&' && LA44_1030 <= '\'')||(LA44_1030 >= ',' && LA44_1030 <= '.')||(LA44_1030 >= '0' && LA44_1030 <= ';')||LA44_1030=='?'||(LA44_1030 >= 'A' && LA44_1030 <= 'Z')||LA44_1030=='_'||(LA44_1030 >= 'a' && LA44_1030 <= 'r')||(LA44_1030 >= 't' && LA44_1030 <= 'z')||LA44_1030=='\u2019') ) {s = 40;}
+						else s = 1158;
 						 
-						input.seek(index44_687);
+						input.seek(index44_1030);
 						if ( s>=0 ) return s;
 						break;
 
 					case 199 : 
-						int LA44_488 = input.LA(1);
+						int LA44_1333 = input.LA(1);
 						 
-						int index44_488 = input.index();
+						int index44_1333 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_488==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
+						if ( (LA44_1333=='s') ) {s = 467;}
+						else if ( ((LA44_1333 >= '\t' && LA44_1333 <= '\n')||LA44_1333=='\r'||LA44_1333==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1333=='(') ) {s = 468;}
+						else if ( (LA44_1333=='!'||(LA44_1333 >= '&' && LA44_1333 <= '\'')||(LA44_1333 >= ',' && LA44_1333 <= '.')||(LA44_1333 >= '0' && LA44_1333 <= ';')||LA44_1333=='?'||(LA44_1333 >= 'A' && LA44_1333 <= 'Z')||LA44_1333=='_'||(LA44_1333 >= 'a' && LA44_1333 <= 'r')||(LA44_1333 >= 't' && LA44_1333 <= 'z')||LA44_1333=='\u2019') ) {s = 40;}
+						else s = 1384;
 						 
-						input.seek(index44_488);
+						input.seek(index44_1333);
 						if ( s>=0 ) return s;
 						break;
 
 					case 200 : 
-						int LA44_1395 = input.LA(1);
+						int LA44_1061 = input.LA(1);
 						 
-						int index44_1395 = input.index();
+						int index44_1061 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1395==' ') && ((allowGroup))) {s = 1428;}
-						else s = 40;
+						if ( (LA44_1061=='s') ) {s = 467;}
+						else if ( ((LA44_1061 >= '\t' && LA44_1061 <= '\n')||LA44_1061=='\r'||LA44_1061==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1061=='(') ) {s = 468;}
+						else if ( (LA44_1061=='!'||(LA44_1061 >= '&' && LA44_1061 <= '\'')||(LA44_1061 >= ',' && LA44_1061 <= '.')||(LA44_1061 >= '0' && LA44_1061 <= ';')||LA44_1061=='?'||(LA44_1061 >= 'A' && LA44_1061 <= 'Z')||LA44_1061=='_'||(LA44_1061 >= 'a' && LA44_1061 <= 'r')||(LA44_1061 >= 't' && LA44_1061 <= 'z')||LA44_1061=='\u2019') ) {s = 40;}
+						else s = 1180;
 						 
-						input.seek(index44_1395);
+						input.seek(index44_1061);
 						if ( s>=0 ) return s;
 						break;
 
 					case 201 : 
-						int LA44_1170 = input.LA(1);
+						int LA44_1109 = input.LA(1);
 						 
-						int index44_1170 = input.index();
+						int index44_1109 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1170==' ') && ((allowGroup))) {s = 1182;}
+						if ( (LA44_1109==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_1170);
+						input.seek(index44_1109);
 						if ( s>=0 ) return s;
 						break;
 
 					case 202 : 
-						int LA44_316 = input.LA(1);
-						 
-						int index44_316 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_316==' ') && ((allowGroup))) {s = 509;}
-						else s = 40;
-						 
-						input.seek(index44_316);
-						if ( s>=0 ) return s;
-						break;
-
-					case 203 : 
-						int LA44_1063 = input.LA(1);
-						 
-						int index44_1063 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1063==' ') && ((allowGroup))) {s = 1182;}
-						else s = 40;
-						 
-						input.seek(index44_1063);
-						if ( s>=0 ) return s;
-						break;
-
-					case 204 : 
-						int LA44_623 = input.LA(1);
-						 
-						int index44_623 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_623==' ') && ((allowGroup))) {s = 810;}
-						else s = 40;
-						 
-						input.seek(index44_623);
-						if ( s>=0 ) return s;
-						break;
-
-					case 205 : 
-						int LA44_395 = input.LA(1);
-						 
-						int index44_395 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_395==' ') && ((allowGroup))) {s = 509;}
-						else s = 40;
-						 
-						input.seek(index44_395);
-						if ( s>=0 ) return s;
-						break;
-
-					case 206 : 
-						int LA44_1260 = input.LA(1);
-						 
-						int index44_1260 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1260==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1260);
-						if ( s>=0 ) return s;
-						break;
-
-					case 207 : 
-						int LA44_678 = input.LA(1);
-						 
-						int index44_678 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_678==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_678);
-						if ( s>=0 ) return s;
-						break;
-
-					case 208 : 
-						int LA44_394 = input.LA(1);
-						 
-						int index44_394 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_394==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_394=='d') ) {s = 583;}
-						else if ( (LA44_394=='m') ) {s = 584;}
-						else s = 40;
-						 
-						input.seek(index44_394);
-						if ( s>=0 ) return s;
-						break;
-
-					case 209 : 
-						int LA44_1056 = input.LA(1);
-						 
-						int index44_1056 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1056==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1056=='s') ) {s = 1176;}
-						else s = 40;
-						 
-						input.seek(index44_1056);
-						if ( s>=0 ) return s;
-						break;
-
-					case 210 : 
-						int LA44_1027 = input.LA(1);
-						 
-						int index44_1027 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1027==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1027);
-						if ( s>=0 ) return s;
-						break;
-
-					case 211 : 
-						int LA44_280 = input.LA(1);
-						 
-						int index44_280 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_280==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_280);
-						if ( s>=0 ) return s;
-						break;
-
-					case 212 : 
-						int LA44_1153 = input.LA(1);
-						 
-						int index44_1153 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1153==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1153);
-						if ( s>=0 ) return s;
-						break;
-
-					case 213 : 
-						int LA44_1023 = input.LA(1);
-						 
-						int index44_1023 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1023==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1023);
-						if ( s>=0 ) return s;
-						break;
-
-					case 214 : 
-						int LA44_555 = input.LA(1);
-						 
-						int index44_555 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_555=='s') ) {s = 467;}
-						else if ( ((LA44_555 >= '\t' && LA44_555 <= '\n')||LA44_555=='\r'||LA44_555==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_555=='(') ) {s = 468;}
-						else if ( (LA44_555=='!'||(LA44_555 >= '&' && LA44_555 <= '\'')||(LA44_555 >= ',' && LA44_555 <= '.')||(LA44_555 >= '0' && LA44_555 <= ';')||LA44_555=='?'||(LA44_555 >= 'A' && LA44_555 <= 'Z')||LA44_555=='_'||(LA44_555 >= 'a' && LA44_555 <= 'r')||(LA44_555 >= 't' && LA44_555 <= 'z')||LA44_555=='\u2019') ) {s = 40;}
-						else s = 748;
-						 
-						input.seek(index44_555);
-						if ( s>=0 ) return s;
-						break;
-
-					case 215 : 
-						int LA44_832 = input.LA(1);
-						 
-						int index44_832 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_832==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_832);
-						if ( s>=0 ) return s;
-						break;
-
-					case 216 : 
-						int LA44_1209 = input.LA(1);
-						 
-						int index44_1209 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1209=='s') ) {s = 467;}
-						else if ( ((LA44_1209 >= '\t' && LA44_1209 <= '\n')||LA44_1209=='\r'||LA44_1209==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1209=='(') ) {s = 468;}
-						else if ( (LA44_1209=='!'||(LA44_1209 >= '&' && LA44_1209 <= '\'')||(LA44_1209 >= ',' && LA44_1209 <= '.')||(LA44_1209 >= '0' && LA44_1209 <= ';')||LA44_1209=='?'||(LA44_1209 >= 'A' && LA44_1209 <= 'Z')||LA44_1209=='_'||(LA44_1209 >= 'a' && LA44_1209 <= 'r')||(LA44_1209 >= 't' && LA44_1209 <= 'z')||LA44_1209=='\u2019') ) {s = 40;}
-						else s = 1291;
-						 
-						input.seek(index44_1209);
-						if ( s>=0 ) return s;
-						break;
-
-					case 217 : 
-						int LA44_602 = input.LA(1);
-						 
-						int index44_602 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_602==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_602=='s') ) {s = 792;}
-						else s = 40;
-						 
-						input.seek(index44_602);
-						if ( s>=0 ) return s;
-						break;
-
-					case 218 : 
-						int LA44_1208 = input.LA(1);
-						 
-						int index44_1208 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1208=='s') ) {s = 467;}
-						else if ( ((LA44_1208 >= '\t' && LA44_1208 <= '\n')||LA44_1208=='\r'||LA44_1208==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1208=='(') ) {s = 468;}
-						else if ( (LA44_1208=='!'||(LA44_1208 >= '&' && LA44_1208 <= '\'')||(LA44_1208 >= ',' && LA44_1208 <= '.')||(LA44_1208 >= '0' && LA44_1208 <= ';')||LA44_1208=='?'||(LA44_1208 >= 'A' && LA44_1208 <= 'Z')||LA44_1208=='_'||(LA44_1208 >= 'a' && LA44_1208 <= 'r')||(LA44_1208 >= 't' && LA44_1208 <= 'z')||LA44_1208=='\u2019') ) {s = 40;}
-						else s = 1290;
-						 
-						input.seek(index44_1208);
-						if ( s>=0 ) return s;
-						break;
-
-					case 219 : 
-						int LA44_987 = input.LA(1);
-						 
-						int index44_987 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_987==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_987);
-						if ( s>=0 ) return s;
-						break;
-
-					case 220 : 
-						int LA44_786 = input.LA(1);
-						 
-						int index44_786 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_786=='s') ) {s = 467;}
-						else if ( ((LA44_786 >= '\t' && LA44_786 <= '\n')||LA44_786=='\r'||LA44_786==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_786=='(') ) {s = 468;}
-						else if ( (LA44_786=='!'||(LA44_786 >= '&' && LA44_786 <= '\'')||(LA44_786 >= ',' && LA44_786 <= '.')||(LA44_786 >= '0' && LA44_786 <= ';')||LA44_786=='?'||(LA44_786 >= 'A' && LA44_786 <= 'Z')||LA44_786=='_'||(LA44_786 >= 'a' && LA44_786 <= 'r')||(LA44_786 >= 't' && LA44_786 <= 'z')||LA44_786=='\u2019') ) {s = 40;}
-						else s = 957;
-						 
-						input.seek(index44_786);
-						if ( s>=0 ) return s;
-						break;
-
-					case 221 : 
-						int LA44_828 = input.LA(1);
-						 
-						int index44_828 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_828==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_828);
-						if ( s>=0 ) return s;
-						break;
-
-					case 222 : 
-						int LA44_1119 = input.LA(1);
-						 
-						int index44_1119 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1119==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1119);
-						if ( s>=0 ) return s;
-						break;
-
-					case 223 : 
 						int LA44_802 = input.LA(1);
 						 
 						int index44_802 = input.index();
@@ -12204,140 +11958,536 @@ public class testLexer extends Lexer {
 						if ( s>=0 ) return s;
 						break;
 
-					case 224 : 
-						int LA44_1206 = input.LA(1);
+					case 203 : 
+						int LA44_973 = input.LA(1);
 						 
-						int index44_1206 = input.index();
+						int index44_973 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1206=='s') ) {s = 467;}
-						else if ( ((LA44_1206 >= '\t' && LA44_1206 <= '\n')||LA44_1206=='\r'||LA44_1206==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1206=='(') ) {s = 468;}
-						else if ( (LA44_1206=='!'||(LA44_1206 >= '&' && LA44_1206 <= '\'')||(LA44_1206 >= ',' && LA44_1206 <= '.')||(LA44_1206 >= '0' && LA44_1206 <= ';')||LA44_1206=='?'||(LA44_1206 >= 'A' && LA44_1206 <= 'Z')||LA44_1206=='_'||(LA44_1206 >= 'a' && LA44_1206 <= 'r')||(LA44_1206 >= 't' && LA44_1206 <= 'z')||LA44_1206=='\u2019') ) {s = 40;}
-						else s = 1288;
+						if ( (LA44_973==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
 						 
-						input.seek(index44_1206);
+						input.seek(index44_973);
+						if ( s>=0 ) return s;
+						break;
+
+					case 204 : 
+						int LA44_1337 = input.LA(1);
+						 
+						int index44_1337 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1337=='s') ) {s = 467;}
+						else if ( ((LA44_1337 >= '\t' && LA44_1337 <= '\n')||LA44_1337=='\r'||LA44_1337==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1337=='(') ) {s = 468;}
+						else if ( (LA44_1337=='!'||(LA44_1337 >= '&' && LA44_1337 <= '\'')||(LA44_1337 >= ',' && LA44_1337 <= '.')||(LA44_1337 >= '0' && LA44_1337 <= ';')||LA44_1337=='?'||(LA44_1337 >= 'A' && LA44_1337 <= 'Z')||LA44_1337=='_'||(LA44_1337 >= 'a' && LA44_1337 <= 'r')||(LA44_1337 >= 't' && LA44_1337 <= 'z')||LA44_1337=='\u2019') ) {s = 40;}
+						else s = 1388;
+						 
+						input.seek(index44_1337);
+						if ( s>=0 ) return s;
+						break;
+
+					case 205 : 
+						int LA44_899 = input.LA(1);
+						 
+						int index44_899 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_899=='s') ) {s = 467;}
+						else if ( ((LA44_899 >= '\t' && LA44_899 <= '\n')||LA44_899=='\r'||LA44_899==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_899=='(') ) {s = 468;}
+						else if ( (LA44_899=='!'||(LA44_899 >= '&' && LA44_899 <= '\'')||(LA44_899 >= ',' && LA44_899 <= '.')||(LA44_899 >= '0' && LA44_899 <= ';')||LA44_899=='?'||(LA44_899 >= 'A' && LA44_899 <= 'Z')||LA44_899=='_'||(LA44_899 >= 'a' && LA44_899 <= 'r')||(LA44_899 >= 't' && LA44_899 <= 'z')||LA44_899=='\u2019') ) {s = 40;}
+						else s = 1055;
+						 
+						input.seek(index44_899);
+						if ( s>=0 ) return s;
+						break;
+
+					case 206 : 
+						int LA44_1214 = input.LA(1);
+						 
+						int index44_1214 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1214==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_1214);
+						if ( s>=0 ) return s;
+						break;
+
+					case 207 : 
+						int LA44_1048 = input.LA(1);
+						 
+						int index44_1048 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1048==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_1048);
+						if ( s>=0 ) return s;
+						break;
+
+					case 208 : 
+						int LA44_811 = input.LA(1);
+						 
+						int index44_811 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_811==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_811);
+						if ( s>=0 ) return s;
+						break;
+
+					case 209 : 
+						int LA44_938 = input.LA(1);
+						 
+						int index44_938 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_938==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_938);
+						if ( s>=0 ) return s;
+						break;
+
+					case 210 : 
+						int LA44_804 = input.LA(1);
+						 
+						int index44_804 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_804==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_804);
+						if ( s>=0 ) return s;
+						break;
+
+					case 211 : 
+						int LA44_967 = input.LA(1);
+						 
+						int index44_967 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_967==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_967);
+						if ( s>=0 ) return s;
+						break;
+
+					case 212 : 
+						int LA44_428 = input.LA(1);
+						 
+						int index44_428 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_428==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_428);
+						if ( s>=0 ) return s;
+						break;
+
+					case 213 : 
+						int LA44_944 = input.LA(1);
+						 
+						int index44_944 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_944==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_944=='s') ) {s = 1090;}
+						else s = 40;
+						 
+						input.seek(index44_944);
+						if ( s>=0 ) return s;
+						break;
+
+					case 214 : 
+						int LA44_803 = input.LA(1);
+						 
+						int index44_803 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_803==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_803);
+						if ( s>=0 ) return s;
+						break;
+
+					case 215 : 
+						int LA44_1149 = input.LA(1);
+						 
+						int index44_1149 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((LA44_1149 >= '\t' && LA44_1149 <= '\n')||LA44_1149=='\r'||LA44_1149==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1149=='A') ) {s = 1251;}
+						else if ( (LA44_1149=='P') ) {s = 1252;}
+						else if ( (LA44_1149=='B') ) {s = 1253;}
+						else if ( (LA44_1149=='(') ) {s = 1254;}
+						else if ( ((LA44_1149 >= '&' && LA44_1149 <= '\'')||(LA44_1149 >= ',' && LA44_1149 <= '.')||(LA44_1149 >= '0' && LA44_1149 <= ';')||(LA44_1149 >= 'C' && LA44_1149 <= 'O')||(LA44_1149 >= 'Q' && LA44_1149 <= 'Z')||LA44_1149=='_'||(LA44_1149 >= 'a' && LA44_1149 <= 'z')||LA44_1149=='\u2019') ) {s = 40;}
+						else s = 1255;
+						 
+						input.seek(index44_1149);
+						if ( s>=0 ) return s;
+						break;
+
+					case 216 : 
+						int LA44_33 = input.LA(1);
+						 
+						int index44_33 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_33=='S') ) {s = 169;}
+						else if ( ((LA44_33 >= '\t' && LA44_33 <= '\n')||LA44_33=='\r'||LA44_33==' ') && ((allowJudge))) {s = 170;}
+						else s = 40;
+						 
+						input.seek(index44_33);
+						if ( s>=0 ) return s;
+						break;
+
+					case 217 : 
+						int LA44_614 = input.LA(1);
+						 
+						int index44_614 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_614==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_614);
+						if ( s>=0 ) return s;
+						break;
+
+					case 218 : 
+						int LA44_316 = input.LA(1);
+						 
+						int index44_316 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_316==' ') && ((allowGroup))) {s = 509;}
+						else s = 40;
+						 
+						input.seek(index44_316);
+						if ( s>=0 ) return s;
+						break;
+
+					case 219 : 
+						int LA44_15 = input.LA(1);
+						 
+						int index44_15 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_15=='a') ) {s = 97;}
+						else if ( (LA44_15=='e') ) {s = 98;}
+						else if ( (LA44_15=='h') ) {s = 99;}
+						else if ( (LA44_15=='\u00F6') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_15=='o') ) {s = 101;}
+						else if ( (LA44_15=='U') ) {s = 102;}
+						else s = 40;
+						 
+						input.seek(index44_15);
+						if ( s>=0 ) return s;
+						break;
+
+					case 220 : 
+						int LA44_1082 = input.LA(1);
+						 
+						int index44_1082 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1082==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_1082);
+						if ( s>=0 ) return s;
+						break;
+
+					case 221 : 
+						int LA44_1170 = input.LA(1);
+						 
+						int index44_1170 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1170==' ') && ((allowGroup))) {s = 1182;}
+						else s = 40;
+						 
+						input.seek(index44_1170);
+						if ( s>=0 ) return s;
+						break;
+
+					case 222 : 
+						int LA44_1395 = input.LA(1);
+						 
+						int index44_1395 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1395==' ') && ((allowGroup))) {s = 1428;}
+						else s = 40;
+						 
+						input.seek(index44_1395);
+						if ( s>=0 ) return s;
+						break;
+
+					case 223 : 
+						int LA44_1050 = input.LA(1);
+						 
+						int index44_1050 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1050==' ') && ((allowGroup))) {s = 1173;}
+						else s = 40;
+						 
+						input.seek(index44_1050);
+						if ( s>=0 ) return s;
+						break;
+
+					case 224 : 
+						int LA44_971 = input.LA(1);
+						 
+						int index44_971 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_971==' ') && ((allowGroup))) {s = 810;}
+						else s = 40;
+						 
+						input.seek(index44_971);
 						if ( s>=0 ) return s;
 						break;
 
 					case 225 : 
-						int LA44_825 = input.LA(1);
+						int LA44_799 = input.LA(1);
 						 
-						int index44_825 = input.index();
+						int index44_799 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_825==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_799==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_825);
+						input.seek(index44_799);
 						if ( s>=0 ) return s;
 						break;
 
 					case 226 : 
-						int LA44_176 = input.LA(1);
+						int LA44_1475 = input.LA(1);
 						 
-						int index44_176 = input.index();
+						int index44_1475 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_176==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
+						if ( (LA44_1475=='s') ) {s = 467;}
+						else if ( ((LA44_1475 >= '\t' && LA44_1475 <= '\n')||LA44_1475=='\r'||LA44_1475==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_1475=='(') ) {s = 468;}
+						else if ( (LA44_1475=='!'||(LA44_1475 >= '&' && LA44_1475 <= '\'')||(LA44_1475 >= ',' && LA44_1475 <= '.')||(LA44_1475 >= '0' && LA44_1475 <= ';')||LA44_1475=='?'||(LA44_1475 >= 'A' && LA44_1475 <= 'Z')||LA44_1475=='_'||(LA44_1475 >= 'a' && LA44_1475 <= 'r')||(LA44_1475 >= 't' && LA44_1475 <= 'z')||LA44_1475=='\u2019') ) {s = 40;}
+						else s = 1492;
 						 
-						input.seek(index44_176);
+						input.seek(index44_1475);
 						if ( s>=0 ) return s;
 						break;
 
 					case 227 : 
-						int LA44_357 = input.LA(1);
+						int LA44_395 = input.LA(1);
 						 
-						int index44_357 = input.index();
+						int index44_395 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_357==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_395==' ') && ((allowGroup))) {s = 509;}
 						else s = 40;
 						 
-						input.seek(index44_357);
+						input.seek(index44_395);
 						if ( s>=0 ) return s;
 						break;
 
 					case 228 : 
-						int LA44_923 = input.LA(1);
+						int LA44_765 = input.LA(1);
 						 
-						int index44_923 = input.index();
+						int index44_765 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_923==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_765==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_923);
+						input.seek(index44_765);
 						if ( s>=0 ) return s;
 						break;
 
 					case 229 : 
-						int LA44_469 = input.LA(1);
+						int LA44_1063 = input.LA(1);
 						 
-						int index44_469 = input.index();
+						int index44_1063 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_469=='k') ) {s = 668;}
-						else if ( (LA44_469=='s') ) {s = 467;}
-						else if ( ((LA44_469 >= '\t' && LA44_469 <= '\n')||LA44_469=='\r'||LA44_469==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_469=='(') ) {s = 468;}
-						else if ( (LA44_469=='!'||(LA44_469 >= '&' && LA44_469 <= '\'')||(LA44_469 >= ',' && LA44_469 <= '.')||(LA44_469 >= '0' && LA44_469 <= ';')||LA44_469=='?'||(LA44_469 >= 'A' && LA44_469 <= 'Z')||LA44_469=='_'||(LA44_469 >= 'a' && LA44_469 <= 'j')||(LA44_469 >= 'l' && LA44_469 <= 'r')||(LA44_469 >= 't' && LA44_469 <= 'z')||LA44_469=='\u2019') ) {s = 40;}
-						else s = 669;
+						if ( (LA44_1063==' ') && ((allowGroup))) {s = 1182;}
+						else s = 40;
 						 
-						input.seek(index44_469);
+						input.seek(index44_1063);
 						if ( s>=0 ) return s;
 						break;
 
 					case 230 : 
-						int LA44_948 = input.LA(1);
+						int LA44_1351 = input.LA(1);
 						 
-						int index44_948 = input.index();
+						int index44_1351 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_948=='s') ) {s = 467;}
-						else if ( ((LA44_948 >= '\t' && LA44_948 <= '\n')||LA44_948=='\r'||LA44_948==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_948=='(') ) {s = 468;}
-						else if ( (LA44_948=='!'||(LA44_948 >= '&' && LA44_948 <= '\'')||(LA44_948 >= ',' && LA44_948 <= '.')||(LA44_948 >= '0' && LA44_948 <= ';')||LA44_948=='?'||(LA44_948 >= 'A' && LA44_948 <= 'Z')||LA44_948=='_'||(LA44_948 >= 'a' && LA44_948 <= 'r')||(LA44_948 >= 't' && LA44_948 <= 'z')||LA44_948=='\u2019') ) {s = 40;}
-						else s = 1093;
+						if ( (LA44_1351==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
 						 
-						input.seek(index44_948);
+						input.seek(index44_1351);
 						if ( s>=0 ) return s;
 						break;
 
 					case 231 : 
-						int LA44_1348 = input.LA(1);
+						int LA44_623 = input.LA(1);
 						 
-						int index44_1348 = input.index();
+						int index44_623 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1348=='s') ) {s = 467;}
-						else if ( ((LA44_1348 >= '\t' && LA44_1348 <= '\n')||LA44_1348=='\r'||LA44_1348==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1348=='(') ) {s = 468;}
-						else if ( (LA44_1348=='!'||(LA44_1348 >= '&' && LA44_1348 <= '\'')||(LA44_1348 >= ',' && LA44_1348 <= '.')||(LA44_1348 >= '0' && LA44_1348 <= ';')||LA44_1348=='?'||(LA44_1348 >= 'A' && LA44_1348 <= 'Z')||LA44_1348=='_'||(LA44_1348 >= 'a' && LA44_1348 <= 'r')||(LA44_1348 >= 't' && LA44_1348 <= 'z')||LA44_1348=='\u2019') ) {s = 40;}
-						else s = 1397;
+						if ( (LA44_623==' ') && ((allowGroup))) {s = 810;}
+						else s = 40;
 						 
-						input.seek(index44_1348);
+						input.seek(index44_623);
 						if ( s>=0 ) return s;
 						break;
 
 					case 232 : 
-						int LA44_1091 = input.LA(1);
+						int LA44_234 = input.LA(1);
 						 
-						int index44_1091 = input.index();
+						int index44_234 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1091=='s') ) {s = 467;}
-						else if ( ((LA44_1091 >= '\t' && LA44_1091 <= '\n')||LA44_1091=='\r'||LA44_1091==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1091=='(') ) {s = 468;}
-						else if ( (LA44_1091=='!'||(LA44_1091 >= '&' && LA44_1091 <= '\'')||(LA44_1091 >= ',' && LA44_1091 <= '.')||(LA44_1091 >= '0' && LA44_1091 <= ';')||LA44_1091=='?'||(LA44_1091 >= 'A' && LA44_1091 <= 'Z')||LA44_1091=='_'||(LA44_1091 >= 'a' && LA44_1091 <= 'r')||(LA44_1091 >= 't' && LA44_1091 <= 'z')||LA44_1091=='\u2019') ) {s = 40;}
-						else s = 1203;
+						if ( (LA44_234==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
 						 
-						input.seek(index44_1091);
+						input.seek(index44_234);
 						if ( s>=0 ) return s;
 						break;
 
 					case 233 : 
+						int LA44_1350 = input.LA(1);
+						 
+						int index44_1350 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1350==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_1350);
+						if ( s>=0 ) return s;
+						break;
+
+					case 234 : 
+						int LA44_607 = input.LA(1);
+						 
+						int index44_607 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_607==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_607);
+						if ( s>=0 ) return s;
+						break;
+
+					case 235 : 
+						int LA44_1282 = input.LA(1);
+						 
+						int index44_1282 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1282==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_1282);
+						if ( s>=0 ) return s;
+						break;
+
+					case 236 : 
+						int LA44_792 = input.LA(1);
+						 
+						int index44_792 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_792==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_792);
+						if ( s>=0 ) return s;
+						break;
+
+					case 237 : 
+						int LA44_762 = input.LA(1);
+						 
+						int index44_762 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_762==' ') && ((allowBreed))) {s = 100;}
+						else if ( (LA44_762=='s') ) {s = 940;}
+						else s = 40;
+						 
+						input.seek(index44_762);
+						if ( s>=0 ) return s;
+						break;
+
+					case 238 : 
+						int LA44_415 = input.LA(1);
+						 
+						int index44_415 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_415==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_415);
+						if ( s>=0 ) return s;
+						break;
+
+					case 239 : 
+						int LA44_1161 = input.LA(1);
+						 
+						int index44_1161 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1161==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_1161);
+						if ( s>=0 ) return s;
+						break;
+
+					case 240 : 
+						int LA44_1102 = input.LA(1);
+						 
+						int index44_1102 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_1102==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_1102);
+						if ( s>=0 ) return s;
+						break;
+
+					case 241 : 
+						int LA44_790 = input.LA(1);
+						 
+						int index44_790 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA44_790==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
+						 
+						input.seek(index44_790);
+						if ( s>=0 ) return s;
+						break;
+
+					case 242 : 
 						int LA44_523 = input.LA(1);
 						 
 						int index44_523 = input.index();
@@ -12351,162 +12501,29 @@ public class testLexer extends Lexer {
 						if ( s>=0 ) return s;
 						break;
 
-					case 234 : 
-						int LA44_921 = input.LA(1);
-						 
-						int index44_921 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_921==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_921);
-						if ( s>=0 ) return s;
-						break;
-
-					case 235 : 
-						int LA44_34 = input.LA(1);
-						 
-						int index44_34 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_34=='s') ) {s = 171;}
-						else if ( ((LA44_34 >= '\t' && LA44_34 <= '\n')||LA44_34=='\r'||LA44_34==' ') && ((allowJudge))) {s = 170;}
-						else s = 40;
-						 
-						input.seek(index44_34);
-						if ( s>=0 ) return s;
-						break;
-
-					case 236 : 
-						int LA44_1278 = input.LA(1);
-						 
-						int index44_1278 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_1278==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_1278);
-						if ( s>=0 ) return s;
-						break;
-
-					case 237 : 
-						int LA44_772 = input.LA(1);
-						 
-						int index44_772 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_772=='s') ) {s = 467;}
-						else if ( ((LA44_772 >= '\t' && LA44_772 <= '\n')||LA44_772=='\r'||LA44_772==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_772=='(') ) {s = 468;}
-						else if ( (LA44_772=='!'||(LA44_772 >= '&' && LA44_772 <= '\'')||(LA44_772 >= ',' && LA44_772 <= '.')||(LA44_772 >= '0' && LA44_772 <= ';')||LA44_772=='?'||(LA44_772 >= 'A' && LA44_772 <= 'Z')||LA44_772=='_'||(LA44_772 >= 'a' && LA44_772 <= 'r')||(LA44_772 >= 't' && LA44_772 <= 'z')||LA44_772=='\u2019') ) {s = 40;}
-						else s = 945;
-						 
-						input.seek(index44_772);
-						if ( s>=0 ) return s;
-						break;
-
-					case 238 : 
-						int LA44_579 = input.LA(1);
-						 
-						int index44_579 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_579=='s') ) {s = 467;}
-						else if ( ((LA44_579 >= '\t' && LA44_579 <= '\n')||LA44_579=='\r'||LA44_579==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_579=='(') ) {s = 468;}
-						else if ( (LA44_579=='!'||(LA44_579 >= '&' && LA44_579 <= '\'')||(LA44_579 >= ',' && LA44_579 <= '.')||(LA44_579 >= '0' && LA44_579 <= ';')||LA44_579=='?'||(LA44_579 >= 'A' && LA44_579 <= 'Z')||LA44_579=='_'||(LA44_579 >= 'a' && LA44_579 <= 'r')||(LA44_579 >= 't' && LA44_579 <= 'z')||LA44_579=='\u2019') ) {s = 40;}
-						else s = 771;
-						 
-						input.seek(index44_579);
-						if ( s>=0 ) return s;
-						break;
-
-					case 239 : 
-						int LA44_577 = input.LA(1);
-						 
-						int index44_577 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_577=='s') ) {s = 467;}
-						else if ( ((LA44_577 >= '\t' && LA44_577 <= '\n')||LA44_577=='\r'||LA44_577==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_577=='(') ) {s = 468;}
-						else if ( (LA44_577=='!'||(LA44_577 >= '&' && LA44_577 <= '\'')||(LA44_577 >= ',' && LA44_577 <= '.')||(LA44_577 >= '0' && LA44_577 <= ';')||LA44_577=='?'||(LA44_577 >= 'A' && LA44_577 <= 'Z')||LA44_577=='_'||(LA44_577 >= 'a' && LA44_577 <= 'r')||(LA44_577 >= 't' && LA44_577 <= 'z')||LA44_577=='\u2019') ) {s = 40;}
-						else s = 769;
-						 
-						input.seek(index44_577);
-						if ( s>=0 ) return s;
-						break;
-
-					case 240 : 
-						int LA44_954 = input.LA(1);
-						 
-						int index44_954 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_954==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_954);
-						if ( s>=0 ) return s;
-						break;
-
-					case 241 : 
-						int LA44_715 = input.LA(1);
-						 
-						int index44_715 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_715==' ') && ((allowBreed))) {s = 100;}
-						else s = 40;
-						 
-						input.seek(index44_715);
-						if ( s>=0 ) return s;
-						break;
-
-					case 242 : 
-						int LA44_766 = input.LA(1);
-						 
-						int index44_766 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA44_766=='s') ) {s = 467;}
-						else if ( ((LA44_766 >= '\t' && LA44_766 <= '\n')||LA44_766=='\r'||LA44_766==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_766=='(') ) {s = 468;}
-						else if ( (LA44_766=='!'||(LA44_766 >= '&' && LA44_766 <= '\'')||(LA44_766 >= ',' && LA44_766 <= '.')||(LA44_766 >= '0' && LA44_766 <= ';')||LA44_766=='?'||(LA44_766 >= 'A' && LA44_766 <= 'Z')||LA44_766=='_'||(LA44_766 >= 'a' && LA44_766 <= 'r')||(LA44_766 >= 't' && LA44_766 <= 'z')||LA44_766=='\u2019') ) {s = 40;}
-						else s = 943;
-						 
-						input.seek(index44_766);
-						if ( s>=0 ) return s;
-						break;
-
 					case 243 : 
-						int LA44_1285 = input.LA(1);
+						int LA44_1398 = input.LA(1);
 						 
-						int index44_1285 = input.index();
+						int index44_1398 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1285=='s') ) {s = 467;}
-						else if ( ((LA44_1285 >= '\t' && LA44_1285 <= '\n')||LA44_1285=='\r'||LA44_1285==' ') && ((allowBreed))) {s = 100;}
-						else if ( (LA44_1285=='(') ) {s = 468;}
-						else if ( (LA44_1285=='!'||(LA44_1285 >= '&' && LA44_1285 <= '\'')||(LA44_1285 >= ',' && LA44_1285 <= '.')||(LA44_1285 >= '0' && LA44_1285 <= ';')||LA44_1285=='?'||(LA44_1285 >= 'A' && LA44_1285 <= 'Z')||LA44_1285=='_'||(LA44_1285 >= 'a' && LA44_1285 <= 'r')||(LA44_1285 >= 't' && LA44_1285 <= 'z')||LA44_1285=='\u2019') ) {s = 40;}
-						else s = 1347;
+						if ( (LA44_1398==' ') && ((allowBreed))) {s = 100;}
+						else s = 40;
 						 
-						input.seek(index44_1285);
+						input.seek(index44_1398);
 						if ( s>=0 ) return s;
 						break;
 
 					case 244 : 
-						int LA44_1276 = input.LA(1);
+						int LA44_785 = input.LA(1);
 						 
-						int index44_1276 = input.index();
+						int index44_785 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA44_1276==' ') && ((allowBreed))) {s = 100;}
+						if ( (LA44_785==' ') && ((allowBreed))) {s = 100;}
 						else s = 40;
 						 
-						input.seek(index44_1276);
+						input.seek(index44_785);
 						if ( s>=0 ) return s;
 						break;
 			}
