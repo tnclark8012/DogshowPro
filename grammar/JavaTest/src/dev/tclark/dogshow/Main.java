@@ -1,6 +1,7 @@
 package dev.tclark.dogshow;
 import java.io.IOException;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import dev.tclark.dogshow.grammar.LexerRunner;
@@ -24,14 +25,17 @@ public class Main {
 //    	String program = programs[5];
 //        String file = "testcase/examples/"+program;
     	String file = args[0];
+    	
 //        String file = program;
         //System.setOut(new PrintStream(new File("testcase/tests/lexer/expected-outputs", program + ".output" )));
         LexerRunner lexerRunner = new LexerRunner(file);
-        lexerRunner.printTokens(file);
+//        lexerRunner.printTokens(file);
         
         
         ParserRunner parserRunner = new ParserRunner(lexerRunner);
         JsonObject result = parserRunner.parseStart(file);
+//        result.get("asdf").getAsInt()
         System.out.println(result);
+
     }
 }

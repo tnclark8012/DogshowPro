@@ -17,11 +17,47 @@ boolean allowGroup = false;
 boolean allowJudge = false;
 }
 @parser::members {
+String currentBlockTime = null;
 boolean debug = false;
   private boolean ahead(String text) {
     System.out.println("Does " + input.toString() + " contain " + text + "?");
     return input.toString().contains(text);
   }
+  
+  private int parseIntSafely(String str, int defaultValue){
+  	try{
+  		return Integer.parseInt(str);
+  	}
+  	catch(NumberFormatException nfe)
+  	{
+  		return defaultValue;
+  	}
+  }
+  
+	private int[] parseBreedCount(String count)
+	{//No for loop, like a boss
+		int [] array = new int [4];
+		String[] split = count.split("-");
+		array[0] = parseIntSafely(split[0],0);
+		array[1] = parseIntSafely(split[1],0);
+		array[2] = parseIntSafely(split[2],0);
+		array[3] = parseIntSafely(split[3],0);
+		return array;
+	}
+	/**
+	* adds the individual counts to the json, returns the total
+	*/
+	private int addBreedCountToJson(JsonObject json, String count)
+	{
+		int [] countArray = parseBreedCount(count);
+		json.addProperty("DogCount", countArray[0]);
+		json.addProperty("BitchCount", countArray[1]);
+		json.addProperty("SpecialDogCount", countArray[2]);
+		json.addProperty("SpecialBitchCount", countArray[3]);
+		return countArray[0]+countArray[1]+countArray[2]+countArray[3];
+	}
+  
+  
 }
 test_special:   special_ring+;
 test_breed
@@ -51,31 +87,36 @@ big_comment returns [String str]
 comment returns [String str]
 		@init{str="";}
 		: (TIME{str=$TIME.text;}|COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|INT{str=$INT.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;});
+
+timeblock_comment returns [String str]//No time
+		@init{str="";}
+		: (COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|INT{str=$INT.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;});
+
 		
 ring_comment returns [String str]
     :   STANDALONE_COMMENT{str=$STANDALONE_COMMENT.text;};
 
 timeblock returns [JsonObject json] 
-	@init {json = new JsonObject(); String comment = ""; String time = ""; int blockCounter = 0;}	
-	: (TIME{time=$TIME.text;json.addProperty("Time", time);}) (mInnerBlock1=inner_timeblock{json.add("Block"+(blockCounter++), mInnerBlock1);json.add("time", new JsonPrimitive(time));} (mComment=comment{comment+=$mComment.str;})*{if(!comment.equals("")){json.add("comment",new JsonPrimitive(comment));}})*;
+	@init {json = new JsonObject(); String comment = ""; String time = "";}	
+	: (TIME{currentBlockTime=$TIME.text;json.addProperty("Time", currentBlockTime);}) (rings=inner_timeblock{if(json.has("rings")){JsonArray already=json.getAsJsonArray("Rings");already.addAll(rings);json.add("Rings",already);}else{json.add("Rings", rings);}} (mComment=timeblock_comment{comment+=$mComment.str;})*{if(!comment.equals("")){json.add("timeblock_comment",new JsonPrimitive(comment));}})*;
 inner_timeblock returns [JsonArray array]
-	@init {array = new JsonArray();}
-	:	(mSpecialRing=special_ring{array.add(mSpecialRing);}|mJuniorRing=junior_ring{array.add(mJuniorRing);}|((breed_ring)=>mBreedRing=breed_ring{array.add(mBreedRing);})|ring_comment)+;
+	@init {array = new JsonArray();int countAhead = 0;}
+	:	(mSpecialRing=special_ring{mSpecialRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mSpecialRing.get("Count").getAsInt();array.add(mSpecialRing);}|mJuniorRing=junior_ring{mJuniorRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mJuniorRing.get("Count").getAsInt();array.add(mJuniorRing);}|((breed_ring)=>mBreedRing=breed_ring{mBreedRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mBreedRing.get("Count").getAsInt();array.add(mBreedRing);})|ring_comment)+;
 special_ring returns [JsonObject json]
-	@init {json = new JsonObject(); String breedName = "";}
-	:   INT{json.addProperty("Count", $INT.text);} (BREED_NAME{breedName+=$BREED_NAME.text;})? (SPECIAL_SUFFIX{breedName+= " " +$SPECIAL_SUFFIX.text;})+ {json.addProperty("BreedName", breedName);};
+	@init {json = new JsonObject(); json.addProperty("BlockStart",currentBlockTime);String breedName = "";}
+	:   INT{json.addProperty("Count", parseIntSafely($INT.text, 0));} (BREED_NAME{breedName+=$BREED_NAME.text;})? (SPECIAL_SUFFIX{breedName+= " " +$SPECIAL_SUFFIX.text;})+ {json.addProperty("BreedName", breedName);};
 junior_ring returns [JsonObject json]
-	@init{json = new JsonObject();}
-	:    INT{json.addProperty("Count", $INT.text);} JUNIOR_CLASS{json.addProperty("ClassName", $JUNIOR_CLASS.text);};
+	@init{json = new JsonObject();json.addProperty("BlockStart",currentBlockTime);}
+	:    INT{json.addProperty("Count",parseIntSafely($INT.text, 0));} JUNIOR_CLASS{json.addProperty("ClassName", $JUNIOR_CLASS.text);};
 
 group_ring returns [String str]
 	:	 GROUP_RING{str=$GROUP_RING.text;};
 group_block returns [JsonObject json]
 	@init {json = new JsonObject(); JsonArray rings = new JsonArray();}
-	:	TIME{json.addProperty("TIME", $TIME.text);} STANDALONE_COMMENT? (mRing=group_ring {rings.add(new JsonPrimitive(mRing));})+ {json.add("Rings", rings);};
+	:	TIME{currentBlockTime=$TIME.text;json.addProperty("TIME", currentBlockTime);} STANDALONE_COMMENT? (mRing=group_ring {rings.add(new JsonPrimitive(mRing));})+ {json.add("Rings", rings);};
 breed_ring returns [JsonObject json]
-	@init{json = new JsonObject();String breedName = "";}
-    :   INT{json.addProperty("Count", $INT.text);} BREED_NAME{breedName+=$BREED_NAME.text;} (BREED_NAME_SUFFIX{breedName += " " + $BREED_NAME_SUFFIX.text;})? {json.addProperty("BreedName", breedName);} (BREED_COUNT{json.addProperty("BreedCount", $BREED_COUNT.text);})?;
+	@init{json = new JsonObject();json.addProperty("BlockStart",currentBlockTime);String breedName = "";int total = 0;}
+    :   INT{total = parseIntSafely($INT.text, 0);json.addProperty("Count", total);} BREED_NAME{breedName+=$BREED_NAME.text;} (BREED_NAME_SUFFIX{breedName += " " + $BREED_NAME_SUFFIX.text;})? {json.addProperty("BreedName", breedName);} (BREED_COUNT{int counted = addBreedCountToJson(json, $BREED_COUNT.text);assert (counted==total);})?;
 
 
 
