@@ -17,6 +17,7 @@ boolean allowGroup = false;
 boolean allowJudge = false;
 }
 @parser::members {
+boolean debug = false;
   private boolean ahead(String text) {
     System.out.println("Does " + input.toString() + " contain " + text + "?");
     return input.toString().contains(text);
@@ -26,12 +27,12 @@ test_special:   special_ring+;
 test_breed
     :   breed_ring;
 start   returns [JsonObject json]
-		@init {json = new JsonObject(); String comments = ""; JsonArray ringArray = new JsonArray(); System.out.println("starting...");}
+		@init {json = new JsonObject(); String comments = ""; JsonArray ringArray = new JsonArray();}
 		:(mComment=big_comment{comments+=$mComment.str;})+ {json.addProperty("Comment", comments);}((ring)=>mRing=ring{ringArray.add($mRing.json);})+ {json.add("Rings", ringArray);} EOF;
 		//:((mComment=big_comment{comments+=$mComment.str;})+ {json.addProperty("Comment", comments);}((ring)=>mRing=ring{ringArray.add($mRing.json);})*)+ {json.add("Rings", ringArray);} EOF;
 
 ring	returns [JsonObject json]
-		@init {json = new JsonObject();System.out.println("ring...");}
+		@init {json = new JsonObject();if(debug){System.out.println("ring...");}}
 		:   RING_TITLE{json.addProperty("Title", $RING_TITLE.text);} mRing=inner_ring{json.add("Ring", mRing);};
 inner_ring returns [JsonObject json]
 	@init{json = new JsonObject();JsonArray judgeBlocks = new JsonArray();}
@@ -304,6 +305,7 @@ fragment FRAG_BREED_NAME_SINGLE
     'Whippet'|
     'Wire Fox Terrier'|
     'Wirehaired Pointing Griffon'|
+	'Wirehaired Vizsla'|
     'Xoloitzcuintli'|
     'Yorkshire Terrier');
         
