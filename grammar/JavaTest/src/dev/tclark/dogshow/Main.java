@@ -27,7 +27,7 @@ public class Main {
 //        String file = program;
         //System.setOut(new PrintStream(new File("testcase/tests/lexer/expected-outputs", program + ".output" )));
         LexerRunner lexerRunner = new LexerRunner(file);
-//        lexerRunner.printTokens(file);
+        lexerRunner.printTokens(file);
         
         
         ParserRunner parserRunner = new ParserRunner(lexerRunner);
