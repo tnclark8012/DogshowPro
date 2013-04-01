@@ -7,6 +7,7 @@ import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
+import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -16,6 +17,20 @@ import com.google.appengine.labs.repackaged.org.json.JSONObject;
 @PersistenceCapable
 @XmlRootElement
 public class Show {
+	public static Show createDummyInstance(long id, String name)
+	{
+		return new Show(id, name);
+	}
+	
+	private Show(long id, String name)
+	{
+		this.id = id;
+		this.showName = name;
+	}
+	@Id
+	@XmlElement
+	private Long id;
+	
 	@PrimaryKey
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	private Key key;
