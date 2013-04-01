@@ -1,14 +1,9 @@
 package dev.tclark.dogshow;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 
-import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -17,7 +12,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
-import dev.tclark.dogshow.models.show.Show;
+import com.google.appengine.labs.repackaged.org.json.JSONObject;
+
 import dev.tclark.dogshow.models.show.ShowDay;
 import dev.tclark.dogshow.models.show.ShowRing;
 import dev.tclark.dogshow.persistence.datastore.accessors.ShowAccessor;
@@ -46,12 +42,14 @@ public class ShowServlet {
 	}
 
 	@POST
-	@Path("test")
+	@Path("/create")
 	public Response postShowDetails(@FormParam("name") String name,
 			@FormParam("date") String date, @FormParam("city") String city,
-			@FormParam("state") String state) {
+			@FormParam("state") String state, @FormParam("show") JSONObject json) {
 		long dateMillis = Long.parseLong(date);
 		System.out.println("Creating show...");
+		System.out.println(json);
+		Pattern p;
 		ShowAccessor
 				.createShow(new dev.tclark.dogshow.persistence.datastore.Show(
 						name, dateMillis, city, state, null));

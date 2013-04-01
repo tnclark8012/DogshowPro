@@ -7,6 +7,8 @@ package dev.tclark.dogshow.grammar;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 }
 @lexer::header {
 package dev.tclark.dogshow.grammar;
@@ -19,6 +21,7 @@ boolean allowJudge = false;
 @parser::members {
 String currentBlockTime = null;
 boolean debug = false;
+Pattern lastIntPattern = Pattern.compile("[^0-9]+([0-9]+)$");
   private boolean ahead(String text) {
     System.out.println("Does " + input.toString() + " contain " + text + "?");
     return input.toString().contains(text);
@@ -32,6 +35,16 @@ boolean debug = false;
   	{
   		return defaultValue;
   	}
+  }
+  
+  private int parseRingNumber(String ringTitle)
+  {
+	Matcher matcher = lastIntPattern.matcher(ringTitle);
+	if (matcher.find()) {
+		String someNumberStr = matcher.group(1);
+		return Integer.parseInt(someNumberStr);
+	}
+	return -1;
   }
   
 	private int[] parseBreedCount(String count)
@@ -69,7 +82,7 @@ start   returns [JsonObject json]
 
 ring	returns [JsonObject json]
 		@init {json = new JsonObject();if(debug){System.out.println("ring...");}}
-		:   RING_TITLE{json.addProperty("Title", $RING_TITLE.text);} mRing=inner_ring{json.add("Ring", mRing);};
+		:   RING_TITLE{json.addProperty("Title", $RING_TITLE.text); json.addProperty("Number", parseRingNumber($RING_TITLE.text));} mRing=inner_ring{json.add("Ring", mRing);};
 inner_ring returns [JsonObject json]
 	@init{json = new JsonObject();JsonArray judgeBlocks = new JsonArray();}
 	:  ((group_block)=>mGroupBlock=group_block{json.add("GroupRing", mGroupBlock);} comment*)

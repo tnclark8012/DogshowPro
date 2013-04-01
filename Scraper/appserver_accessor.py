@@ -7,7 +7,7 @@ class AppServerAccessor(object):
         print ("Posting show JSON to server...");
         url = config.AppServer.SHOW_POST_URL
         print(url);
-        values = {'name':show._club,  'date':int(show.date), 'city':show.city, 'state':show.state, 'show':showJson}
+        values = {'name':show._club,  'date':int(show.date)*1000, 'city':show.city, 'state':show.state, 'show':showJson}
         #values = {'city': 'Columbiana', 'date': 1365138000.0, 'name': 'Northeast Oklahoma Kennel Club', 'state': 'AL'}
         response = urlopen_with_retry(url, values)
 
