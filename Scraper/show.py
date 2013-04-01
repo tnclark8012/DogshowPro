@@ -24,6 +24,9 @@ class Show(object):
         self.programName = None;
         self_city = None;
         self._state = None;
+        self._parsedPath = None;
+        self._pdfPath = None;
+        self._cleanedPath = None;
         self._parseShowPage();
         
     def __str__(self):
@@ -32,7 +35,32 @@ class Show(object):
             + "\n\t"  + self._location 
             + "\n\t" + "page link:" + self._pagelink 
             + "\n\t program code: " + self._programcode
-            + "\n\t pdf link: " + self.programName );
+            + "\n\t pdf link: " + self.programName
+            + "\n\t PDF Path: " + str(self._pdfPath) + ' or ' + str(self.pdfFilePath)  );
+
+    @property
+    def parsedFilePath(self):
+        return self._parsedPath
+
+    @property
+    def showCode(self):
+        return self._programcode;
+
+    @parsedFilePath.setter
+    def parsedFilePath(self, value):
+        self._parsedPath = value
+
+    @property
+    def pdfFilePath(self):
+        return self._pdfPath
+
+    @property
+    def cleanedFilePath(self):
+        return self._cleanedPath
+
+    @cleanedFilePath.setter
+    def cleanedFilePath(self, value):
+        self._cleanedPath = value
 
     @property
     def date(self):
@@ -94,20 +122,23 @@ class Show(object):
         self._location = self._parseLocation(pool);
         self._hasProgram = self._checkIfProgram(pool);
 
-    def downloadProgram(self, path):
+    def downloadProgram(self):
+        print("setting pdf path...")
+        self._pdfPath = config.Pdf.DOWNLOAD_DIR+self.programName
+        print("pdf path is " + self._pdfPath)
         if not config.Env.OFFLINE and config.Env.DO_DOWNLOAD and self._hasProgram:
             if not self._pdfLink:
                 print("download died: " + self._pagelink)
                 return False;
             #self._programcode = "PPTO1";
             pdfName = self.programName; 
-            url = config.Onofrio.pdfUrl(self._pdfLink)
-            
-            
+            url = config.Onofrio.pdfUrl(self._pdfLink)            
             print("*** Downloading ***" + url);
             (filename, headers) = urllib.request.urlretrieve(url, path)
             f = open(filename)
             f.close();
+            self._pdfPath = filename
+            print("pdf path: " + self._pdfPath)
             if config.Env.VERBOSE:
                 print(filename)
             return True;
