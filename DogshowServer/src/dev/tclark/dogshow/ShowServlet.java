@@ -1,14 +1,8 @@
 package dev.tclark.dogshow;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
 import java.util.logging.Logger;
 
-import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -19,7 +13,6 @@ import javax.ws.rs.core.Response;
 
 import com.google.appengine.labs.repackaged.org.json.JSONObject;
 
-import dev.tclark.dogshow.models.show.Show;
 import dev.tclark.dogshow.models.show.ShowDay;
 import dev.tclark.dogshow.models.show.ShowRing;
 import dev.tclark.dogshow.persistence.datastore.accessors.ShowAccessor;
@@ -55,7 +48,6 @@ public class ShowServlet {
 		long dateMillis = Long.parseLong(date);
 		System.out.println("Creating show...");
 		System.out.println(json);
-		
 		ShowAccessor
 				.createShow(new dev.tclark.dogshow.persistence.datastore.Show(
 						name, dateMillis, city, state, null));
