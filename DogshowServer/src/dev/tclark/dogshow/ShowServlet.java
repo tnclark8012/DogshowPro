@@ -49,7 +49,6 @@ public class ShowServlet {
 		long dateMillis = Long.parseLong(date);
 		System.out.println("Creating show...");
 		System.out.println(json);
-		Pattern p;
 		ShowAccessor
 				.createShow(new dev.tclark.dogshow.persistence.datastore.Show(
 						name, dateMillis, city, state, null));
