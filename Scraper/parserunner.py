@@ -22,4 +22,4 @@ class ParseRunner(object):
             show.parsedPath = outputLocation;
             subprocess.call(['java', '-jar', 'pdfbox-app-1.7.1.jar', 'ExtractText', fullPdfPath, outputLocation])
         else:
-            print("No PDF file to parse for show: " + str(show))
+            pass

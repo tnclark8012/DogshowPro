@@ -12,7 +12,7 @@ class Env(object):
 
 class AppServer(object):
     SERVER_URL = "http://localhost:8888/rest/" if Env.DEBUG else 'http://dogshow-manager.appspot.com/rest/'
-    SHOW_POST_URL = SERVER_URL + "shows"
+    SHOW_POST_URL = SERVER_URL + "shows/create"
 
 class Onofrio(object):
     BASE_URL = "http://www.onofrio.com"
