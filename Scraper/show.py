@@ -62,11 +62,12 @@ class Show(object):
     def cleanedFilePath(self, value):
         self._cleanedPath = value
 
+    #Converts date string to millis
     @property
     def date(self):
         match = re.search("(?P<month>"+config.MONTH_REGEX+") (?P<day>\d+)[0-9-]*, (?P<year>\d{4})", self._date);
         date = match.group("month") + ' ' +match.group("day") + ' ' + match.group('year')
-        return time.mktime(datetime.datetime.strptime(date, "%B %d %Y").timetuple())
+        return time.mktime(datetime.datetime.strptime(date, "%B %d %Y").timetuple())*1000
     @property
     def city(self):
         return self._city;

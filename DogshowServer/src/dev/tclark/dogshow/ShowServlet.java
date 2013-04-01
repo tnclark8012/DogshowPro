@@ -1,6 +1,10 @@
 package dev.tclark.dogshow;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Locale;
 import java.util.logging.Logger;
 
 import javax.ws.rs.FormParam;
@@ -11,6 +15,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
+import com.google.appengine.labs.repackaged.org.json.JSONArray;
+import com.google.appengine.labs.repackaged.org.json.JSONException;
 import com.google.appengine.labs.repackaged.org.json.JSONObject;
 
 import dev.tclark.dogshow.models.show.ShowDay;
@@ -43,11 +49,35 @@ public class ShowServlet {
 	@POST
 	@Path("/create")
 	public Response postShowDetails(@FormParam("name") String name,
-			@FormParam("date") String date, @FormParam("city") String city,
+			@FormParam("date") String dateStr, @FormParam("city") String city,
 			@FormParam("state") String state, @FormParam("show") JSONObject json) {
-		long dateMillis = Long.parseLong(date);
+		long dateMillis = Long.parseLong(dateStr);
+		Date date = new Date(dateMillis);
+		System.out.println("Posted " + name + " starting on " + date);
+		Calendar cal = new GregorianCalendar(Locale.US);
+		cal.setTime(date);
+		cal.add(Calendar.DAY_OF_MONTH, -1);
+		try {
+			JSONArray ringsArray = json.getJSONArray("Rings");
+			int ringCount = ringsArray.length();
+			int lastRing = 999;
+			for(int i = 0; i < ringCount; i++)
+			{
+				int num = ringsArray.getJSONObject(i).getInt("Number");
+				if( num < lastRing && num != -1 || num > lastRing && lastRing == -1)
+				{
+					cal.add(Calendar.DAY_OF_MONTH, 1);
+					JSONObject ring = ringsArray.getJSONObject(i);
+					ring.put("DateMillis", cal.getTimeInMillis());
+				}
+				lastRing = num;
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		
 		System.out.println("Creating show...");
-		System.out.println(json);
+		//System.out.println(json);
 		ShowAccessor
 				.createShow(new dev.tclark.dogshow.persistence.datastore.Show(
 						name, dateMillis, city, state, null));
