@@ -5,9 +5,9 @@ MONTH_REGEX = "January|February|March|April|May|June|July|August|September|Octob
 
 
 class Env(object):
-    OFFLINE = False;
+    OFFLINE = True;
     DEBUG = True
-    DO_DOWNLOAD = True;
+    DO_DOWNLOAD = False;
     VERBOSE = False;
 
 class AppServer(object):
@@ -17,7 +17,7 @@ class AppServer(object):
 class Onofrio(object):
     BASE_URL = "http://www.onofrio.com"
     CLOSED_SHOWS = BASE_URL + "/execpgm/index?index=JP";
-    LOCAL_PAGE = 'file:///C|/Users/Taylor/workspace/Python/scrapping/local/showpage.htm';
+    LOCAL_PAGE = 'file:///C|'+ os.getcwd()[3:] + '/local/showpage.htm';
     def showPage(link):
         return Onofrio.BASE_URL+link;
     def pdfUrl(pdfLink):
@@ -28,3 +28,7 @@ class Pdf(object):
 
 class Parse(object):
     OUTPUT_DIR = os.getcwd() + "/parsed/"
+
+class Grammar(object):
+    GRAMMAR_JAR = os.getcwd() + "/bin/grammar.jar"
+    CLEANED_PROGRAM_DIR = os.getcwd() + "/cleaned/"

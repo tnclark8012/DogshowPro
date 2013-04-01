@@ -16,7 +16,7 @@ class ShowScraper(object):
     def __init__(self, offline, verbose ):
         self.VERBOSE = verbose;
         self.OFFLINE = offline;
-        self.DO_DOWNLOAD = config.DO_DOWNLOAD;
+        self.DO_DOWNLOAD = config.Env.DO_DOWNLOAD;
         self._allshows = self._pullShowsFromOnofrio()
         self._uniqueshows = self._getUniqueShows();
     
