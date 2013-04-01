@@ -61,15 +61,19 @@ public class ShowServlet {
 			JSONArray ringsArray = json.getJSONArray("Rings");
 			int ringCount = ringsArray.length();
 			int lastRing = 999;
+			JSONArray judgeBlocks = null;
+			String judgeName;
+			JSONArray timeBlocks = null;
+			
 			for(int i = 0; i < ringCount; i++)
 			{
 				int num = ringsArray.getJSONObject(i).getInt("Number");
 				if( num < lastRing && num != -1 || num > lastRing && lastRing == -1)
 				{
-					cal.add(Calendar.DAY_OF_MONTH, 1);
-					JSONObject ring = ringsArray.getJSONObject(i);
-					ring.put("DateMillis", cal.getTimeInMillis());
+					cal.add(Calendar.DAY_OF_MONTH, 1);					
 				}
+				JSONObject ring = ringsArray.getJSONObject(i);
+				ring.put("DateMillis", cal.getTimeInMillis());
 				lastRing = num;
 			}
 		} catch (JSONException e) {
