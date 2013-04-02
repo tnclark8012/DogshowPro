@@ -28,7 +28,7 @@ public class Main {
         LexerRunner lexerRunner = new LexerRunner(file);
         
         ParserRunner parserRunner = new ParserRunner(lexerRunner);
-        parserRunner.setRelationalParsing(true);
+        parserRunner.setRelationalParsing(false);
         JsonObject result = parserRunner.parseStart(file);
         
         System.out.println(result);

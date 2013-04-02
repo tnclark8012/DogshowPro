@@ -4,17 +4,52 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.ParseException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+
+import com.google.appengine.labs.repackaged.org.json.JSONArray;
+import com.google.appengine.labs.repackaged.org.json.JSONException;
+import com.google.appengine.labs.repackaged.org.json.JSONObject;
 
 import dev.tnclark8012.dogshow.shared.BreedGroup;
 import dev.tnclark8012.dogshow.shared.Breeds;
 
 public class Main {
 
-	public static void main(String[] argz) throws IOException {
+	/**
+	 * @param argz
+	 * @throws IOException
+	 * @throws ParseException
+	 * @throws JSONException
+	 */
+	public static void main(String[] argz) throws IOException, ParseException,
+			JSONException {
+		
+		Breeds [] breeds = BreedGroup.FSS.getBreeds();
+		String [] names = BreedGroup.FSS.getBreedNames();
+		for(String name : names)
+		{
+			System.out.println(name);
+		}
+		System.out.println("***************************");
+		
+		for(Breeds b : breeds)
+		{
+			if(b!= null)
+			System.out.println(b.getPrimaryName());
+		}
+		Breeds.parse("Poodles (Toy) ");
+		if(true)
+		{
+			return;
+		}
 		File breedsDir = new File("breedlist");
 		BufferedReader reader;
 		Map<String, List<String>> groupBreedMap = new HashMap<String, List<String>>();
@@ -24,18 +59,20 @@ public class Main {
 			String groupNameEnum = groupName.toUpperCase().replace("[ \\-]+",
 					"_");
 			String line = null;
-			String breedEnumFormat = "%s(BreedGroup.%s, \"%s\"),";
+			String breedEnumFormat = "%s(BreedGroup.%s, \"%s\", \"%s\"),";
 			List<String> breedNameEnums = new LinkedList<String>();
 			breedNameEnums.add(groupName);
 			System.out.println("//****BEGIN " + groupName + "****");
 			while ((line = reader.readLine()) != null) {
 				String name = line;
 				String enumName = line.toUpperCase()
-						.replaceAll("[’' \"\\-\\(]+", "_")
+						.replaceAll("[’' \"\\-\\(-]+", "_")
 						.replaceAll("[\\)”]", "").replaceAll("&", "AND");
 				breedNameEnums.add(enumName);
+				
+				String plural = name.contains("(")? name.replaceAll(" \\(", "s (") : name + "s";
 				System.out.println(String.format(breedEnumFormat, enumName,
-						groupNameEnum, name));
+						groupNameEnum, name, plural));
 			}
 			groupBreedMap.put(groupNameEnum, breedNameEnums);
 			System.out.println("//****END " + groupName + "****");
@@ -62,7 +99,6 @@ public class Main {
 
 		}
 		System.out.println("done.");
-		System.out.println(BreedGroup.TOY.getBreedNames());
 	}
 
 }

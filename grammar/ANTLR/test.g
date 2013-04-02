@@ -197,6 +197,7 @@ fragment FRAG_BREED_NAME_SINGLE
     'American Staffordshire Terrier'|
     'American Water Spaniel'|
     'Anatolian Shepherd Dog'|
+	'Appenzeller Sennenhunde'|
     'Australian Cattle Dog'|
     'Australian Shepherd'|
     'Australian Terrier'|
