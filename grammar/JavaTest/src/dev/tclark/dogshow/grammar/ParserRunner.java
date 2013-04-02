@@ -14,7 +14,7 @@ import com.google.gson.JsonObject;
  */
 public class ParserRunner extends GrammarRunner{
 	private LexerRunner lexer;
-
+	private boolean mRelationalParse = true;
 	public ParserRunner(LexerRunner lexer){
         this.lexer = lexer;
 	}
@@ -23,6 +23,7 @@ public class ParserRunner extends GrammarRunner{
 		
 		CommonTokenStream tokens = lexer.getTokenStream(inputFile);
         testParser parser = new testParser( tokens );
+        parser.setRelationalParse(mRelationalParse);
         return parser.start();
 	}
 	
@@ -43,6 +44,10 @@ public class ParserRunner extends GrammarRunner{
 	{
 		setErrStream(errStream);
 		return parseStart(inputFile, outputStream);
+	}
+
+	public void setRelationalParsing(boolean value) {
+		mRelationalParse = value;
 	}
 	
 	
