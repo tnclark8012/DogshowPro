@@ -21,7 +21,24 @@ boolean allowJudge = false;
 @parser::members {
 String currentBlockTime = null;
 boolean debug = false;
+
+// Non-relational style objects for better JSON
+public boolean mRelational = true;
+JsonArray mShowRings = new JsonArray();
+String mCurrentJudge = null;
+int mCurrentRingNumber = -1;
+// end non-relational
+
+public void setRelationalParse(boolean value)
+{
+	mRelational = value;
+}
+
+
 Pattern lastIntPattern = Pattern.compile("[^0-9]+([0-9]+)$");
+Pattern groupPattern = Pattern.compile("((?:(?:TERRIER|HERDING|NON-SPORTING|SPORTING|TOY|HOUND|WORKING) GROUP)|(?:BEST IN SHOW)) - (.*)");
+
+  
   private boolean ahead(String text) {
     System.out.println("Does " + input.toString() + " contain " + text + "?");
     return input.toString().contains(text);
@@ -57,6 +74,18 @@ Pattern lastIntPattern = Pattern.compile("[^0-9]+([0-9]+)$");
 		array[3] = parseIntSafely(split[3],0);
 		return array;
 	}
+	
+	private String[] parseGroupRing(String groupRing)
+	{
+		String[] judgeAndGroup = new String[2];
+		Matcher m = groupPattern.matcher(groupRing);
+		if(m.find())
+		{
+			judgeAndGroup[0] = m.group(1);
+			judgeAndGroup[1] = m.group(2);
+		}
+		return judgeAndGroup;
+	}
 	/**
 	* adds the individual counts to the json, returns the total
 	*/
@@ -77,22 +106,22 @@ test_breed
     :   breed_ring;
 start   returns [JsonObject json]
 		@init {json = new JsonObject(); String comments = ""; JsonArray ringArray = new JsonArray();}
-		:(mComment=big_comment{comments+=$mComment.str;})+ {json.addProperty("Comment", comments);}((ring)=>mRing=ring{ringArray.add($mRing.json);})+ {json.add("Rings", ringArray);} EOF;
+		:(mComment=big_comment{comments+=$mComment.str;})+ {json.addProperty("Comment", comments);}((ring)=>mRing=ring{ringArray.add($mRing.json);})+ {json.add("Rings", ringArray); if(!mRelational){json = new JsonObject(); json.add("Rings", mShowRings);}} EOF;
 		//:((mComment=big_comment{comments+=$mComment.str;})+ {json.addProperty("Comment", comments);}((ring)=>mRing=ring{ringArray.add($mRing.json);})*)+ {json.add("Rings", ringArray);} EOF;
 
 ring	returns [JsonObject json]
 		@init {json = new JsonObject();if(debug){System.out.println("ring...");}}
-		:   RING_TITLE{json.addProperty("Title", $RING_TITLE.text); json.addProperty("Number", parseRingNumber($RING_TITLE.text));} mRing=inner_ring{json.add("Ring", mRing);};
+		:   RING_TITLE{json.addProperty("Title", $RING_TITLE.text); json.addProperty("Number", parseRingNumber($RING_TITLE.text));if(!mRelational){mCurrentRingNumber=parseRingNumber($RING_TITLE.text);}} mRing=inner_ring{json.add("Ring", mRing);};
 inner_ring returns [JsonObject json]
 	@init{json = new JsonObject();JsonArray judgeBlocks = new JsonArray();}
 	:  ((group_block)=>mGroupBlock=group_block{json.add("GroupRing", mGroupBlock);} comment*)
 	    |((mJugeBlock=judge_block{judgeBlocks.add(mJugeBlock);})+ {json.add("JudgeBlocks", judgeBlocks);});
 judge_block returns [JsonObject json]
 	@init{json = new JsonObject(); JsonArray array = new JsonArray();}
-    :   mName=judge_name{json.addProperty("Judge", mName);} (mBlock=timeblock{array.add(mBlock);})+ {json.add("TimeBlocks", array);};
+    :   mName=judge_name{json.addProperty("Judge", mName); if(!mRelational){mCurrentJudge = mName;}} (mBlock=timeblock{array.add(mBlock);})+ {json.add("TimeBlocks", array);};
 judge_name returns [String str]
 	@init {str = "";}
-	:	(JUDGE_NAME{str=$JUDGE_NAME.text;})|((COMMENT{str += $COMMENT.text;})+ PARENTHETICAL{str += $PARENTHETICAL.text;}); 
+	:	(JUDGE_NAME{str=$JUDGE_NAME.text;})|((COMMENT{str += $COMMENT.text;})+ PARENTHETICAL{str += $PARENTHETICAL.text;}){}; 
 big_comment returns [String str]
 		@init {str = "";}
 		:   (mComment=comment{str = mComment;}|TIME{str=$TIME.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|BREED_NAME{str=$BREED_NAME.text;}|SPECIAL_SUFFIX{str=$SPECIAL_SUFFIX.text;}|GROUP_RING{str=$GROUP_RING.text;});
@@ -111,24 +140,24 @@ ring_comment returns [String str]
 
 timeblock returns [JsonObject json] 
 	@init {json = new JsonObject(); String comment = ""; String time = "";}	
-	: (TIME{currentBlockTime=$TIME.text;json.addProperty("Time", currentBlockTime);}) (rings=inner_timeblock{if(json.has("rings")){JsonArray already=json.getAsJsonArray("Rings");already.addAll(rings);json.add("Rings",already);}else{json.add("Rings", rings);}} (mComment=timeblock_comment{comment+=$mComment.str;})*{if(!comment.equals("")){json.add("timeblock_comment",new JsonPrimitive(comment));}})*;
+	: (TIME{currentBlockTime=$TIME.text;json.addProperty("Time", currentBlockTime);}) (rings=inner_timeblock{if(json.has("Rings")){JsonArray already=json.getAsJsonArray("Rings");already.addAll(rings);json.add("Rings",already);}else{json.add("Rings", rings);}} (mComment=timeblock_comment{comment+=$mComment.str;})*{if(!comment.equals("")){json.add("timeblock_comment",new JsonPrimitive(comment));}})*{if(!mRelational&&json.has("Rings")){mShowRings.addAll(json.getAsJsonArray("Rings"));}};
 inner_timeblock returns [JsonArray array]
 	@init {array = new JsonArray();int countAhead = 0;}
 	:	(mSpecialRing=special_ring{mSpecialRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mSpecialRing.get("Count").getAsInt();array.add(mSpecialRing);}|mJuniorRing=junior_ring{mJuniorRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mJuniorRing.get("Count").getAsInt();array.add(mJuniorRing);}|((breed_ring)=>mBreedRing=breed_ring{mBreedRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mBreedRing.get("Count").getAsInt();array.add(mBreedRing);})|ring_comment)+;
 special_ring returns [JsonObject json]
-	@init {json = new JsonObject(); json.addProperty("BlockStart",currentBlockTime);String breedName = "";}
+	@init {json = new JsonObject(); json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}String breedName = "";}
 	:   INT{json.addProperty("Count", parseIntSafely($INT.text, 0));} (BREED_NAME{breedName+=$BREED_NAME.text;})? (SPECIAL_SUFFIX{breedName+= " " +$SPECIAL_SUFFIX.text;})+ {json.addProperty("BreedName", breedName);};
 junior_ring returns [JsonObject json]
-	@init{json = new JsonObject();json.addProperty("BlockStart",currentBlockTime);}
+	@init{json = new JsonObject();json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}}
 	:    INT{json.addProperty("Count",parseIntSafely($INT.text, 0));} JUNIOR_CLASS{json.addProperty("ClassName", $JUNIOR_CLASS.text);};
 
 group_ring returns [String str]
 	:	 GROUP_RING{str=$GROUP_RING.text;};
 group_block returns [JsonObject json]
 	@init {json = new JsonObject(); JsonArray rings = new JsonArray();}
-	:	TIME{currentBlockTime=$TIME.text;json.addProperty("TIME", currentBlockTime);} STANDALONE_COMMENT? (mRing=group_ring {rings.add(new JsonPrimitive(mRing));})+ {json.add("Rings", rings);};
+	:	TIME{currentBlockTime=$TIME.text;json.addProperty("TIME", currentBlockTime);} STANDALONE_COMMENT? (mRing=group_ring {if(!mRelational){json = new JsonObject();String[] arr = parseGroupRing(mRing);json.addProperty("Group", arr[0]);json.addProperty("Judge",arr[1]);json.addProperty("Time",currentBlockTime);mShowRings.add(json);}else{rings.add(new JsonPrimitive(mRing));}})+ {if(mRelational){json.add("Rings", rings);}};
 breed_ring returns [JsonObject json]
-	@init{json = new JsonObject();json.addProperty("BlockStart",currentBlockTime);String breedName = "";int total = 0;}
+	@init{json = new JsonObject();json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}String breedName = "";int total = 0;}
     :   INT{total = parseIntSafely($INT.text, 0);json.addProperty("Count", total);} BREED_NAME{breedName+=$BREED_NAME.text;} (BREED_NAME_SUFFIX{breedName += " " + $BREED_NAME_SUFFIX.text;})? {json.addProperty("BreedName", breedName);} (BREED_COUNT{int counted = addBreedCountToJson(json, $BREED_COUNT.text);assert (counted==total);})?;
 
 
