@@ -76,6 +76,28 @@ public class SyncHelper {
 			return null;
 		}
 	}
+	
+	public JSONArray getBreedRingsForShow(String showId)
+	{
+		try {
+			return new JSONObject(makeSimpleGetRequest(mContext,
+					Config.buildGetBreedRingsUrl(showId))).getJSONArray("Rings");
+		} catch (JSONException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public JSONArray getBreedRingsForShow(String showId, String breed)
+	{
+		try {
+			return new JSONObject(makeSimpleGetRequest(mContext,
+					Config.buildGetBreedRingsUrl(showId, breed))).getJSONArray("Rings");
+		} catch (JSONException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 	public void updateDog(String dogId, String breedName, String callName,
 			String imagePath, String majors, String ownerId, String points,
@@ -104,6 +126,19 @@ public class SyncHelper {
 					new DogHandler(mContext).parse(ParseMode.NEW, dogId,
 							breedName, callName, imagePath, majors, points,
 							ownerId, sex));
+		} catch (RemoteException e) {
+			throw new RuntimeException("Problem applying batch operation", e);
+		} catch (OperationApplicationException e) {
+			throw new RuntimeException("Problem applying batch operation", e);
+		}
+	}
+	
+	public void createRing(String showId, long dateMillis, String judge, int ringNumber, long blockStartMillis, int count, String breedName, int dogCount, int bitchCount, int specialDog, int specialBitch, int countAhead) {
+		// TODO move these calls to a Service
+		ContentResolver resolver = mContext.getContentResolver();
+		try {
+			resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY,
+					new RingHandler(mContext).parse(showId, dateMillis, judge, ringNumber, blockStartMillis, count, breedName, dogCount, bitchCount, specialDog, specialBitch, countAhead));
 		} catch (RemoteException e) {
 			throw new RuntimeException("Problem applying batch operation", e);
 		} catch (OperationApplicationException e) {

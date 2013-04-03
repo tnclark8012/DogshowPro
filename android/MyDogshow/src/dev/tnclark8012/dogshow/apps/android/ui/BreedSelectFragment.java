@@ -9,8 +9,8 @@ import android.widget.ListView;
 import com.actionbarsherlock.app.SherlockListFragment;
 
 import dev.tnclark8012.dogshow.apps.android.adapters.BreedAdapter;
-import dev.tnclark8012.dogshow.shared.BreedGroup;
-import dev.tnclark8012.dogshow.shared.Breeds;
+import dev.tnclark8012.dogshow.shared.DogshowEnums.BreedGroup;
+import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
 public class BreedSelectFragment extends SherlockListFragment{
 	public interface BreedSelectListener

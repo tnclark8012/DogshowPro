@@ -116,7 +116,7 @@ public class FindShowFragment extends SherlockListFragment {
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		JSONObject show = mAdapter.getItem(position);
 		try {
-			mSelectedShowId = show.getLong("id");
+			mSelectedShowId = show.getLong("showId");
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}

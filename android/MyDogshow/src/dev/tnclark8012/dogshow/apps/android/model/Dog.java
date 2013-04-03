@@ -2,8 +2,6 @@ package dev.tnclark8012.dogshow.apps.android.model;
 
 import com.j256.ormlite.field.DatabaseField;
 
-import dev.tnclark8012.dogshow.shared.Breeds;
-
 public class Dog extends AbstractModel {
 
 	@DatabaseField

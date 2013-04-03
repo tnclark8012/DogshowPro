@@ -73,22 +73,49 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 
 		db.execSQL("CREATE TABLE " + Tables.BREED_RINGS + " ("
 				+ BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+				+ BreedRingsColumns.RING_BITCH_COUNT + " INTEGER NOT NULL,"
+				+ BreedRingsColumns.RING_BLOCK_START+ " INTEGER NOT NULL,"
 				+ BreedRingsColumns.RING_BREED + " TEXT NOT NULL,"
-				+ BreedRingsColumns.RING_BREED_START + " INTEGER NOT NULL,"
-				+ BreedRingsColumns.RING_JUDGE + " TEXT NOT NULL,"
-				+ BreedRingsColumns.RING_NUMBER + " INTEGER NOT NULL,"
-				+ BreedRingsColumns.RING_START + " INTEGER NOT NULL)");
-
+				+ BreedRingsColumns.RING_BREED_COUNT + " INTEGER NOT NULL,"
+				+ BreedRingsColumns.RING_COUNT_AHEAD + " INTEGER NOT NULL,"
+				+ BreedRingsColumns.RING_DATE + " INTEGER NOT NULL,"
+				+ BreedRingsColumns.RING_DOG_COUNT+ " INTEGER NOT NULL,"
+				+ BreedRingsColumns.RING_JUDGE+ " TEXT NOT NULL,"
+				+ BreedRingsColumns.RING_NUMBER+ " INTEGER NOT NULL,"
+				+ BreedRingsColumns.RING_SHOW_ID + " TEXT NOT NULL,"
+				+ BreedRingsColumns.RING_SPECIAL_BITCH_COUNT+ " INTEGER NOT NULL,"
+				+ BreedRingsColumns.RING_SPECIAL_DOG_COUNT + " INTEGER NOT NULL,"
+				+ BreedRingsColumns.RING_UPDATED+ " INTEGER NOT NULL)");
+		Calendar today = new GregorianCalendar();
+		today.set(Calendar.HOUR, 0);
+		today.set(Calendar.MINUTE, 0);
+		today.set(Calendar.SECOND, 0);
+		today.set(Calendar.MILLISECOND, 0);
 		db.execSQL("INSERT INTO " + Tables.BREED_RINGS + "("
+				+ BreedRingsColumns.RING_BITCH_COUNT + ","
+				+ BreedRingsColumns.RING_BLOCK_START + ","
 				+ BreedRingsColumns.RING_BREED + ","
-				+ BreedRingsColumns.RING_BREED_START + ","
+				+ BreedRingsColumns.RING_BREED_COUNT + ","
+				+ BreedRingsColumns.RING_COUNT_AHEAD + ","
+				+ BreedRingsColumns.RING_DATE + ","
+				+ BreedRingsColumns.RING_DOG_COUNT + ","
 				+ BreedRingsColumns.RING_JUDGE + ","
-				+ BreedRingsColumns.RING_NUMBER + ","
-				+ BreedRingsColumns.RING_START + ")" + " VALUES ("
-				+ "\"Papillon\","
+				+ BreedRingsColumns.RING_NUMBER+ ","
+				+ BreedRingsColumns.RING_SHOW_ID + ","
+				+ BreedRingsColumns.RING_SPECIAL_BITCH_COUNT + ","
+				+ BreedRingsColumns.RING_SPECIAL_DOG_COUNT + ")" + " VALUES ("
+				+ "2,"
 				+ (new GregorianCalendar().getTimeInMillis()+2*60*1000)
-				+ "," + "\"Dr. Steve Keating\"," + "3,"
-				+ new GregorianCalendar().getTimeInMillis()
+				+ "\"Papillon\","
+				+ "10,"
+				+ "15,"
+				+ (today.getTimeInMillis()) +","
+				+ "5,"
+				+ "\"Dr. Steve Keating\","
+				+ "3,"
+				+ "TEST"
+				+ "2,"
+				+ "1"
 				+ ")");
 
 	}

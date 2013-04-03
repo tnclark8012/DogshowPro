@@ -81,11 +81,19 @@ public class DogshowContract {
     }
     
     interface BreedRingsColumns {
-    	String RING_JUDGE = "breed_ring_judge";
-    	String RING_START = "breed_ring_start";
-    	String RING_NUMBER = "breed_ring_number";
+    	String RING_BITCH_COUNT = "breed_ring_bitch_count";
+    	String RING_BLOCK_START = "breed_ring_block_start";
     	String RING_BREED = "breed_ring_breed";
-    	String RING_BREED_START = "breed_ring_breed_start";
+    	String RING_BREED_COUNT = "breed_ring_count";
+    	String RING_COUNT_AHEAD = "breed_ring_count_ahead";
+    	String RING_DATE = "breed_ring_date";
+    	String RING_DOG_COUNT = "breed_ring_dog_count";
+    	String RING_JUDGE = "breed_ring_judge";
+    	String RING_NUMBER = "breed_ring_number";
+    	String RING_SHOW_ID = "breed_ring_show_id";
+    	String RING_SPECIAL_DOG_COUNT = "breed_ring_special_dog_count";
+    	String RING_SPECIAL_BITCH_COUNT = "breed_ring_special_bitch_count";
+    	String RING_UPDATED = SyncColumns.UPDATED;
     }
     
     /**
@@ -179,9 +187,9 @@ public class DogshowContract {
         /** Breed rings for which the user has dogs entered in the show*/
         public static final String ENTERED_BREED_RINGS = Dogs.DOG_IS_SHOWING + " IS NOT NULL AND " + Dogs.DOG_IS_SHOWING + "!=0";
         /** Default "ORDER BY" clause. */
-        public static final String DEFAULT_SORT = BreedRingsColumns.RING_START + " ASC";
+        public static final String DEFAULT_SORT = BreedRingsColumns.RING_BLOCK_START + " ASC";
 
-		public static final String UPCOMING_SELECTION = BreedRings.RING_BREED_START + " > ?";
+		public static final String UPCOMING_SELECTION = BreedRings.RING_BLOCK_START + " > ?";
 
 		public static final String CONCAT_CALL_NAME = "group_concat(dogs.dog_call_name, \", \" ) as group_concat_call_name";
         

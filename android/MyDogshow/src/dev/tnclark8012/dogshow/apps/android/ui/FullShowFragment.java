@@ -275,10 +275,10 @@ public class FullShowFragment extends SherlockListFragment implements
 
 		String[] PROJECTION = { DogshowContract.BreedRings._ID,
 				DogshowContract.BreedRings.RING_BREED,
-				DogshowContract.BreedRings.RING_BREED_START,
+				DogshowContract.BreedRings.RING_BLOCK_START,
 				DogshowContract.BreedRings.RING_JUDGE,
 				DogshowContract.BreedRings.RING_NUMBER,
-				DogshowContract.BreedRings.RING_START,
+				DogshowContract.BreedRings.RING_BLOCK_START,
 				DogshowContract.Dogs.DOG_CALL_NAME };
 		int _ID = 0;
 		int RING_BREED = 1;
@@ -294,7 +294,7 @@ public class FullShowFragment extends SherlockListFragment implements
 
 		String[] PROJECTION = { DogshowContract.BreedRings._ID,
 				DogshowContract.BreedRings.RING_BREED,
-				DogshowContract.BreedRings.RING_BREED_START,
+				DogshowContract.BreedRings.RING_BLOCK_START,
 				DogshowContract.BreedRings.RING_NUMBER,
 				DogshowContract.Dogs.DOG_IMAGE_PATH };
 		int _ID = 0;
