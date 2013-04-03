@@ -16,7 +16,6 @@
 
 package dev.tnclark8012.dogshow.apps.android.ui;
 
-import static dev.tnclark8012.dogshow.apps.android.util.LogUtils.LOGD;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -29,8 +28,8 @@ import com.actionbarsherlock.app.ActionBar;
 
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.ui.BreedSelectFragment.BreedSelectListener;
-import dev.tnclark8012.dogshow.shared.BreedGroup;
-import dev.tnclark8012.dogshow.shared.Breeds;
+import dev.tnclark8012.dogshow.shared.DogshowEnums.BreedGroup;
+import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
 /**
  * The landing screen for the app, once the user has logged in.

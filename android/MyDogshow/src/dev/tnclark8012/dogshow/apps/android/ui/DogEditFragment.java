@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -37,7 +35,7 @@ import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
 import dev.tnclark8012.dogshow.apps.android.sync.SyncHelper;
 import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
-import dev.tnclark8012.dogshow.shared.Breeds;
+import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
 public class DogEditFragment extends SherlockFragment implements
 		LoaderManager.LoaderCallbacks<Cursor>, OnClickListener,

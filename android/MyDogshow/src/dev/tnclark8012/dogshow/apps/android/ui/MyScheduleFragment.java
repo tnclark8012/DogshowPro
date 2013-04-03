@@ -246,7 +246,7 @@ public class MyScheduleFragment extends SherlockListFragment implements
 					.setText(cursor.getString(BreedRingsQuery.RING_BREED));
 			((TextView) view.findViewById(R.id.list_item_ring_number))
 					.setText(getString(R.string.template_ring_number, cursor.getInt(BreedRingsQuery.RING_NUMBER)));
-			long timeMillis = cursor.getLong(BreedRingsQuery.RING_START);
+			long timeMillis = cursor.getLong(BreedRingsQuery.RING_BLOCK_START);
 			((TextView) view.findViewById(R.id.list_item_ring_start))
 					.setText(String.format("(%s)",
 							UIUtils.timeStringFromMillis(timeMillis, true)));
@@ -272,17 +272,17 @@ public class MyScheduleFragment extends SherlockListFragment implements
 
 		String[] PROJECTION = { DogshowContract.BreedRings._ID,
 				DogshowContract.BreedRings.RING_BREED,
-				DogshowContract.BreedRings.RING_BREED_START,
+				DogshowContract.BreedRings.RING_BLOCK_START,
 				DogshowContract.BreedRings.RING_JUDGE,
 				DogshowContract.BreedRings.RING_NUMBER,
-				DogshowContract.BreedRings.RING_START,
+				DogshowContract.BreedRings.RING_BLOCK_START,
 				DogshowContract.BreedRings.CONCAT_CALL_NAME};
 		int _ID = 0;
 		int RING_BREED = 1;
 		int RING_BREED_START = 2;
 		int RING_JUDGE = 3;
 		int RING_NUMBER = 4;
-		int RING_START = 5;
+		int RING_BLOCK_START = 5;
 		int ENTERED_CALL_NAMES = 6;
 	}
 
@@ -291,7 +291,7 @@ public class MyScheduleFragment extends SherlockListFragment implements
 
 		String[] PROJECTION = { DogshowContract.BreedRings._ID,
 				DogshowContract.BreedRings.RING_BREED,
-				DogshowContract.BreedRings.RING_BREED_START,
+				DogshowContract.BreedRings.RING_BLOCK_START,
 				DogshowContract.BreedRings.RING_NUMBER,
 				DogshowContract.Dogs.DOG_IMAGE_PATH };
 		int _ID = 0;
