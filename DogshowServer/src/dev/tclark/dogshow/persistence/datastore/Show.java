@@ -9,33 +9,14 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.labs.repackaged.org.json.JSONObject;
 
 @XmlRootElement
-public class Show {
-	public static Show createDummyInstance(long id, String name)
-	{
-		return new Show(id, name);
-	}
+public class Show implements Storable{
 	
-	private Show(long id, String name)
-	{
-		this.id = id;
-		this.showName = name;
-	}
-	
-	@XmlElement
-	private Long id;
-	
-//	@PrimaryKey
-//	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
-//	private Key key;
-
 	@XmlElement
 	private String showName;
 
 	@XmlElement
-	private Date startDate;
+	private long startDateMillis;
 
-//	@XmlElement
-	private Date endDate;
 	@XmlElement
 	private String name;
 	@XmlElement
@@ -43,56 +24,52 @@ public class Show {
 	@XmlElement
 	private String state;
 	@XmlElement
-	private String programCode;
+	private String showId;
 
 	public Show()
 	{
-		startDate = new Date();
-		endDate = new Date();
+		startDateMillis = new Date().getTime();
+		showId = "Dummy";
+		city = "Anytown";
+		state = "Your state";
 		showName = "Taylor's Dog Show";
 	}
-	public Show(String showName, Date startDate) {
-		this.showName = showName;
-		this.startDate = startDate;
-	}
-
+	
 	public String getShowName() {
 		return showName;
 	}
-
-	public Show(String showName, Date startDate, Date endDate, JSONObject json)
-	{
-		
-	}
 	
-	public Entity toEntity()
+	public long getStartDate()
 	{
-		Entity e = new Entity(Show.class.getSimpleName());
-		e.setProperty("name", showName);
-		e.setProperty("startDate", startDate.getTime());
-		e.setProperty("city", city);
-		e.setProperty("state", state);
-		e.setProperty("programCode", programCode);
-		return e;
+		return startDateMillis;
 	}
 	
 	
-	public static Show fromEntity(Entity entity)
+	public Show(Entity entity)
 	{
-		String name = (String)entity.getProperty("name");
-		long start = (Long)entity.getProperty("startDate");
-		String city = (String) entity.getProperty("city");
-		String state = (String)entity.getProperty("state");
-		String programCode = (String)entity.getProperty("programCode");
-		return new Show(name, start, city, state, programCode);
+		name = (String)entity.getProperty("name");
+		startDateMillis = (Long)entity.getProperty("startDate");
+		city = (String) entity.getProperty("city");
+		state = (String)entity.getProperty("state");
+		showId = (String)entity.getProperty("showId");
 	}
 	
-	public Show(String name, long start, String city, String state, String programCode)
+	public Show(String name, long startDate, String city, String state, String showId)
 	{
 		this.name = name;
-		this.startDate = new Date(start);
+		this.startDateMillis = startDate;
 		this.city = city;
 		this.state = state;
-		this.programCode = programCode;
+		this.showId = showId;
+	}
+	@Override
+	public Entity toDatastoreEntity() {
+		Entity e = new Entity(Show.class.getSimpleName());
+		e.setProperty("name", showName);
+		e.setProperty("startDate", startDateMillis);
+		e.setProperty("city", city);
+		e.setProperty("state", state);
+		e.setProperty("showId", showId);
+		return e;
 	}
 }

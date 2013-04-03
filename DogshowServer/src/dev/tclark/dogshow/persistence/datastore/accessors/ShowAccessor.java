@@ -18,7 +18,28 @@ public class ShowAccessor {
 	public static void createShow(Show show) {
 		DatastoreService datastore = DatastoreServiceFactory
 				.getDatastoreService();
-		datastore.put(show.toEntity());
+		datastore.put(show.toDatastoreEntity());
+	}
+
+	/**
+	 * Gets a single show by showId. If multiple exist in the Datastore, it
+	 * returns the first found
+	 * 
+	 * @param showId
+	 * @return
+	 */
+	public static Show getSingleShowById(String showId) {
+		DatastoreService datastore = DatastoreServiceFactory
+				.getDatastoreService();
+		System.out.println("Looking for showId=" + showId);
+		Filter stateFilter = new FilterPredicate("showId",
+				FilterOperator.EQUAL, showId);
+		Query q = new Query(Show.class.getSimpleName()).setFilter(stateFilter);
+		PreparedQuery pq = datastore.prepare(q);
+		for (Entity result : pq.asIterable()) {
+			return new Show(result);
+		}
+		return null;
 	}
 
 	public static List<Show> getShowsByState(String stateCode) {
@@ -31,7 +52,7 @@ public class ShowAccessor {
 		PreparedQuery pq = datastore.prepare(q);
 		List<Show> results = new LinkedList<Show>();
 		for (Entity result : pq.asIterable()) {
-			results.add(Show.fromEntity(result));
+			results.add(new Show(result));
 		}
 		return results;
 	}
@@ -56,7 +77,7 @@ public class ShowAccessor {
 		PreparedQuery pq = datastore.prepare(q);
 		List<Show> results = new LinkedList<Show>();
 		for (Entity result : pq.asIterable()) {
-			results.add(Show.fromEntity(result));
+			results.add(new Show(result));
 		}
 		return results;
 	}
