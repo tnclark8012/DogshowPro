@@ -288,8 +288,10 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 		int RING_BLOCK_START = 2;
 		int RING_JUDGE = 3;
 		int RING_NUMBER = 4;
+
 		int ENTERED_CALL_NAMES = 5;
 		int BREED_COUNT_AHEAD = 6;
+	
 	}
 
 	private interface UpcomingBreedRingQuery {

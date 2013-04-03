@@ -47,6 +47,7 @@ public class FindShowFragment extends SherlockListFragment {
 	private static final String TAG = FindShowFragment.class.getSimpleName();
 	private ShowListAdapter mAdapter;
 	private View mRootView;
+	
 	private String mSelectedShowId = "[not set]";
 	
 	public interface Callbacks {
