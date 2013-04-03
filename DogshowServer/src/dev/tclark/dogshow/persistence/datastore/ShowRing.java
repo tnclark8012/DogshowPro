@@ -16,7 +16,7 @@ public abstract class ShowRing implements Storable {
 	@XmlElement
 	protected long dateMillis;
 	
-	
+	//TODO doesn't work not b/c of fromJson methods
 //	private boolean mEntityConstructorCalled = false;
 
 
@@ -29,6 +29,7 @@ public abstract class ShowRing implements Storable {
 
 	public static final ShowRing fromJson(String showId, JSONObject ring) {
 		ShowRing showRing = null;
+		
 		if (ring.has("BreedName")) {
 			showRing = BreedRing.fromJson(ring);
 		} else if (ring.has("ClassName")) {
