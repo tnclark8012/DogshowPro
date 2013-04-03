@@ -50,7 +50,7 @@ public class ShowServlet {
 	
 	@GET
 	@Produces("application/json")
-	public List<dev.tclark.dogshow.persistence.datastore.Show> getAllShows() {
+	public List<Show> getAllShows() {
 		return ShowManager.getAllShows();
 	}
 
