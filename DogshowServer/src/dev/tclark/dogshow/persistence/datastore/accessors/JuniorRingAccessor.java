@@ -3,6 +3,7 @@ package dev.tclark.dogshow.persistence.datastore.accessors;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.google.appengine.api.datastore.AsyncDatastoreService;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -12,13 +13,11 @@ import com.google.appengine.api.datastore.Query.Filter;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 import com.google.appengine.api.datastore.Query.FilterPredicate;
 
-import dev.tclark.dogshow.persistence.datastore.BreedRing;
 import dev.tclark.dogshow.persistence.datastore.JuniorRing;
 
 public class JuniorRingAccessor {
 	public static void createJuniorRing(JuniorRing ring) {
-		DatastoreService datastore = DatastoreServiceFactory
-				.getDatastoreService();
+		AsyncDatastoreService datastore = DatastoreHelper.getAsyncDatastore();
 		datastore.put(ring.toDatastoreEntity());
 	}
 
