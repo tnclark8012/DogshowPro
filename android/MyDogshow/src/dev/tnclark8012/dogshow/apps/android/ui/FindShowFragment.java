@@ -47,30 +47,41 @@ public class FindShowFragment extends SherlockListFragment {
 	private static final String TAG = FindShowFragment.class.getSimpleName();
 	private ShowListAdapter mAdapter;
 	private View mRootView;
-	private long mSelectedShowId = -1;
+	private String mSelectedShowId = "[not set]";
 
 	public interface Callbacks {
-		void onShowSelected(long showId);
+		void onShowSelected(String showId);
 
 		void onShowSynced();
 	}
+
+	private AsyncTask<Void, Void, JSONArray> getShowsTask = new AsyncTask<Void, Void, JSONArray>() {
+		protected void onPostExecute(JSONArray result) {
+			mAdapter = new ShowListAdapter(getActivity(), result);
+			setListAdapter(mAdapter);
+			mAdapter.notifyDataSetChanged();
+		}
+
+		@Override
+		protected JSONArray doInBackground(Void... params) {
+			return new SyncHelper(getActivity()).getShows();
+		};
+	};
 	
-	private AsyncTask<Void, Void, JSONArray> getShowsTask = new AsyncTask<Void, Void, JSONArray>()
-			{
-				protected void onPostExecute(JSONArray result) {
-					mAdapter = new ShowListAdapter(getActivity(), result);
-					setListAdapter(mAdapter);
-					mAdapter.notifyDataSetChanged();
-				}
-				@Override
-				protected JSONArray doInBackground(Void... params) {
-					return new SyncHelper(getActivity()).getShows();
-				};
-			};
+	private AsyncTask<Void, Void, JSONArray> getRingsTask = new AsyncTask<Void, Void, JSONArray>() {
+		protected void onPostExecute(JSONArray result) {
+			
+		}
+
+		@Override
+		protected JSONArray doInBackground(Void... params) {
+			return new SyncHelper(getActivity()).getShows();
+		};
+	};
 
 	private static Callbacks sDummyCallbacks = new Callbacks() {
 		@Override
-		public void onShowSelected(long showId) {
+		public void onShowSelected(String showId) {
 		}
 
 		@Override
@@ -116,7 +127,7 @@ public class FindShowFragment extends SherlockListFragment {
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		JSONObject show = mAdapter.getItem(position);
 		try {
-			mSelectedShowId = show.getLong("showId");
+			mSelectedShowId = show.getString("showId");
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -143,17 +154,21 @@ public class FindShowFragment extends SherlockListFragment {
 				return null;
 			}
 		}
-		
+
 		@Override
 		public int getCount() {
-			return mArray.length();
+			if (mArray != null) {
+				return mArray.length();
+			}
+			return 0;
 		}
 
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			convertView = super.getView(position, convertView, parent);
 			JSONObject obj = getItem(position);
-			//Checking if it has a name first prevents try catch from failing (expensively)
+			// Checking if it has a name first prevents try catch from failing
+			// (expensively)
 			if (obj != null && obj.has("showName")) {
 				try {
 					((TextView) convertView.findViewById(android.R.id.text1))

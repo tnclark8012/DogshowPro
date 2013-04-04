@@ -6,7 +6,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.google.appengine.api.datastore.Entity;
-import com.google.appengine.labs.repackaged.org.json.JSONObject;
 
 @XmlRootElement
 public class Show implements Storable{
@@ -16,9 +15,7 @@ public class Show implements Storable{
 
 	@XmlElement
 	private long startDateMillis;
-
-	@XmlElement
-	private String name;
+	
 	@XmlElement
 	private String city;
 	@XmlElement
@@ -47,7 +44,8 @@ public class Show implements Storable{
 	
 	public Show(Entity entity)
 	{
-		name = (String)entity.getProperty("name");
+		showName = (String)entity.getProperty("showName");
+		System.out.println("Setting entity showName to " + showName);
 		startDateMillis = (Long)entity.getProperty("startDate");
 		city = (String) entity.getProperty("city");
 		state = (String)entity.getProperty("state");
@@ -56,7 +54,7 @@ public class Show implements Storable{
 	
 	public Show(String name, long startDate, String city, String state, String showId)
 	{
-		this.name = name;
+		this.showName = name;
 		this.startDateMillis = startDate;
 		this.city = city;
 		this.state = state;
@@ -65,7 +63,8 @@ public class Show implements Storable{
 	@Override
 	public Entity toDatastoreEntity() {
 		Entity e = new Entity(Show.class.getSimpleName());
-		e.setProperty("name", showName);
+		System.out.println("Storing entity showName as " + showName);
+		e.setProperty("showName", showName);
 		e.setProperty("startDate", startDateMillis);
 		e.setProperty("city", city);
 		e.setProperty("state", state);
