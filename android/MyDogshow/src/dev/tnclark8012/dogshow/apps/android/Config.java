@@ -26,7 +26,6 @@ public class Config {
 																						// console
 
 	public static final boolean DEBUG_LOCAL = false;
-	public static final boolean DEBUG_OFFLINE = false;//TODO implement
 	// Conference API-specific config
 	// NOTE: the backend used for the Google I/O 2012 Android app is not
 	// currently open source, so
@@ -35,24 +34,18 @@ public class Config {
 	private static final String ROOT_EVENT_ID = "googleio2012";
 	// private static final String BASE_URL =
 	// "https://google-developers.appspot.com/_ah/api/resources/v0.1";
-	private static final String BASE_URL = (DEBUG_LOCAL)?"http://10.0.2.2:8888/rest":"http://dogshow-manager.appspot.com/rest";
-	public static final String GET_ALL_SESSIONS_URL = BASE_URL
-			+ "/sessions?parent_event=" + ROOT_EVENT_ID + "&api_key="
-			+ CONFERENCE_API_KEY;
-	public static final String GET_ALL_SPEAKERS_URL = BASE_URL
-			+ "/speakers?event_id=" + ROOT_EVENT_ID + "&api_key="
-			+ CONFERENCE_API_KEY;
-	public static final String GET_ALL_ANNOUNCEMENTS_URL = BASE_URL
-			+ "/announcements?parent_event=" + ROOT_EVENT_ID + "&api_key="
-			+ CONFERENCE_API_KEY;
-	public static final String EDIT_MY_SCHEDULE_URL = BASE_URL
-			+ "/editmyschedule/o/";
+	private static final String BASE_URL = (DEBUG_LOCAL) ? "http://10.0.2.2:8888/rest" : "http://dogshow-manager.appspot.com/rest";
+	public static final String GET_ALL_SESSIONS_URL = BASE_URL + "/sessions?parent_event=" + ROOT_EVENT_ID + "&api_key=" + CONFERENCE_API_KEY;
+	public static final String GET_ALL_SPEAKERS_URL = BASE_URL + "/speakers?event_id=" + ROOT_EVENT_ID + "&api_key=" + CONFERENCE_API_KEY;
+	public static final String GET_ALL_ANNOUNCEMENTS_URL = BASE_URL + "/announcements?parent_event=" + ROOT_EVENT_ID + "&api_key=" + CONFERENCE_API_KEY;
+	public static final String EDIT_MY_SCHEDULE_URL = BASE_URL + "/editmyschedule/o/";
 	public static final String GET_SHOW_URL = BASE_URL + "/shows";
 	public static final String GET_RINGS_URL = BASE_URL + "/rings";
 
 	public static final String buildGetBreedRingsUrl(String showId) {
 		return GET_RINGS_URL + "/show/" + showId;
 	}
+
 	public static final String buildGetBreedRingsUrl(String showId, String breed) {
 		return GET_RINGS_URL + "/show/" + showId + "/" + breed;
 	}
