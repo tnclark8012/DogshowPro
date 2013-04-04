@@ -54,7 +54,7 @@ public class GroupRing extends ShowRing {
 	@Override
 	protected Entity toEntity()
 	{
-		Entity e = new Entity(GroupRing.class.getSimpleName());
+		Entity e = new Entity(GroupRing.class.getSimpleName(), getKeyName());
 		e.setProperty("blockStart", mBlockStartMillis);
 		e.setProperty("judge", mJudgeName);
 		
@@ -68,5 +68,9 @@ public class GroupRing extends ShowRing {
 		mBlockStartMillis = (Long)entity.getProperty("blockStart");
 		mJudgeName = (String)entity.getProperty("judge");
 		group = BreedGroup.parse((String) entity.getProperty("group"));
+	}
+	@Override
+	public String getKeyName() {
+		return KeyNameHelper.generateKeyName(showId, group, mBlockStartMillis);
 	}
 }

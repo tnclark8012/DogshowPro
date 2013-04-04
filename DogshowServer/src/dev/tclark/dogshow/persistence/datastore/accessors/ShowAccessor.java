@@ -2,23 +2,51 @@ package dev.tclark.dogshow.persistence.datastore.accessors;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 import com.google.appengine.api.datastore.AsyncDatastoreService;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.EntityNotFoundException;
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.Filter;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 import com.google.appengine.api.datastore.Query.FilterPredicate;
+import com.google.appengine.api.datastore.Transaction;
 
 import dev.tclark.dogshow.persistence.datastore.Show;
 
 public class ShowAccessor {
 	public static void createShow(Show show) {
-		AsyncDatastoreService datastore = DatastoreHelper.getAsyncDatastore();
-		datastore.put(show.toDatastoreEntity());
+		DatastoreService datastore = DatastoreHelper.getDatastoreService();
+		try {
+			Key showKey = KeyFactory.createKey(Show.class.getSimpleName(),
+					show.getKeyName());
+			datastore.get(showKey);
+		} catch (EntityNotFoundException e) {
+			System.out.println("Creating show async...");
+			AsyncDatastoreService asyncDatastore = DatastoreHelper
+					.getAsyncDatastore();
+			Future<Transaction> txn = asyncDatastore.beginTransaction();
+			datastore.put(show.toDatastoreEntity());
+			try {
+				txn.get().commitAsync();
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				System.err.println("Couldn't commit show!");
+				e1.printStackTrace();
+			} catch (ExecutionException e1) {
+				// TODO Auto-generated catch block
+				System.err.println("Couldn't commit show!");
+				e1.printStackTrace();
+			}
+		}
+
 	}
 
 	/**

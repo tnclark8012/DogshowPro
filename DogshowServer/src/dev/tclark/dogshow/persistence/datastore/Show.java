@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import com.google.appengine.api.datastore.Entity;
 
 @XmlRootElement
-public class Show implements Storable{
+public class Show implements Storable, CustomKeyName{
 	
 	@XmlElement
 	private String showName;
@@ -62,13 +62,17 @@ public class Show implements Storable{
 	}
 	@Override
 	public Entity toDatastoreEntity() {
-		Entity e = new Entity(Show.class.getSimpleName());
-		System.out.println("Storing entity showName as " + showName);
+		Entity e = new Entity(Show.class.getSimpleName(), getKeyName());
 		e.setProperty("showName", showName);
 		e.setProperty("startDate", startDateMillis);
 		e.setProperty("city", city);
 		e.setProperty("state", state);
 		e.setProperty("showId", showId);
 		return e;
+	}
+
+	@Override
+	public String getKeyName() {
+		return KeyNameHelper.generateKeyName(showName);
 	}
 }
