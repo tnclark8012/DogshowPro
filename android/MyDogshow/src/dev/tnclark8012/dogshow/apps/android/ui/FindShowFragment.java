@@ -47,9 +47,7 @@ public class FindShowFragment extends SherlockListFragment {
 	private static final String TAG = FindShowFragment.class.getSimpleName();
 	private ShowListAdapter mAdapter;
 	private View mRootView;
-	
 	private String mSelectedShowId = "[not set]";
-	
 	public interface Callbacks {
 		void onShowSelected(String showId);
 
@@ -63,10 +61,6 @@ public class FindShowFragment extends SherlockListFragment {
 				setListAdapter(mAdapter);
 				mAdapter.notifyDataSetChanged();
 			}
-			else
-			{
-				
-			}
 		}
 
 		@Override
@@ -77,7 +71,6 @@ public class FindShowFragment extends SherlockListFragment {
 
 	private AsyncTask<Void, Void, JSONArray> getRingsTask = new AsyncTask<Void, Void, JSONArray>() {
 		protected void onPostExecute(JSONArray result) {
-
 		}
 
 		@Override
