@@ -3,6 +3,7 @@ package dev.tclark.dogshow.persistence.datastore.accessors;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.google.appengine.api.datastore.AsyncDatastoreService;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -17,8 +18,7 @@ import dev.tclark.dogshow.persistence.datastore.GroupRing;
 
 public class GroupRingAccessor {
 	public static void createGroupRing(GroupRing ring) {
-		DatastoreService datastore = DatastoreServiceFactory
-				.getDatastoreService();
+		AsyncDatastoreService datastore = DatastoreHelper.getAsyncDatastore();
 		datastore.put(ring.toDatastoreEntity());
 	}
 

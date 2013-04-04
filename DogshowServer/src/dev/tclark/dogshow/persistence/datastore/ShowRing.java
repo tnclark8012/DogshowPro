@@ -16,8 +16,8 @@ public abstract class ShowRing implements Storable {
 	@XmlElement
 	protected long dateMillis;
 	
-	
-	private boolean mEntityConstructorCalled = false;
+	//TODO doesn't work not b/c of fromJson methods
+//	private boolean mEntityConstructorCalled = false;
 
 
 	protected ShowRing() {
@@ -29,6 +29,7 @@ public abstract class ShowRing implements Storable {
 
 	public static final ShowRing fromJson(String showId, JSONObject ring) {
 		ShowRing showRing = null;
+		
 		if (ring.has("BreedName")) {
 			showRing = BreedRing.fromJson(ring);
 		} else if (ring.has("ClassName")) {
@@ -49,10 +50,10 @@ public abstract class ShowRing implements Storable {
 
 	@Override
 	public final Entity toDatastoreEntity() {
-		if(!mEntityConstructorCalled)
-		{
-			throw new RuntimeException("ShowRing subclass must call through super(Entity) constructor to use datastore!");
-		}
+//		if(!mEntityConstructorCalled)
+//		{
+//			throw new RuntimeException("ShowRing subclass must call through super(Entity) constructor to use datastore!");
+//		}
 		Entity e = toEntity();
 		e.setProperty("showId", showId);
 		e.setProperty("dateMillis", dateMillis);
@@ -60,7 +61,7 @@ public abstract class ShowRing implements Storable {
 	}
 
 	public ShowRing(Entity entity) {
-		mEntityConstructorCalled = true;
+//		mEntityConstructorCalled = true;
 		showId = (String) entity.getProperty("showId");
 		dateMillis = (Long) entity.getProperty("dateMillis");
 	}
