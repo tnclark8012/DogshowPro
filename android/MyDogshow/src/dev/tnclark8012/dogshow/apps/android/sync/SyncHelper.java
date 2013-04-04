@@ -95,24 +95,6 @@ public class SyncHelper {
 		}
 	}
 
-	public JSONArray getBreedRingsForShow(String showId) {
-		try {
-			return new JSONObject(makeSimpleGetRequest(mContext, Config.buildGetBreedRingsUrl(showId))).getJSONArray("Rings");
-		} catch (JSONException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-
-	public void getBreedRingsForShow(String showId, String breed) {
-		try {
-			JSONArray json = new JSONObject(makeSimpleGetRequest(mContext, Config.buildGetBreedRingsUrl(showId, breed))).getJSONArray("Rings");
-		} catch (JSONException e) {
-			e.printStackTrace();
-
-		}
-	}
-
 	public void executeSync(String showId) {
 		final ContentResolver resolver = mContext.getContentResolver();
 		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
@@ -212,31 +194,26 @@ public class SyncHelper {
 		}
 	}
 
-	public void createRing(String showId, long dateMillis, String judge, int ringNumber, long blockStartMillis, int count, String breedName, int dogCount, int bitchCount, int specialDog, int specialBitch, int countAhead) {
-		// TODO move these calls to a Service
-		ContentResolver resolver = mContext.getContentResolver();
-		try {
-			resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY, new RingHandler(mContext).parse(showId, dateMillis, judge, ringNumber, blockStartMillis, count, breedName, dogCount, bitchCount, specialDog, specialBitch, countAhead));
-		} catch (RemoteException e) {
-			throw new RuntimeException("Problem applying batch operation", e);
-		} catch (OperationApplicationException e) {
-			throw new RuntimeException("Problem applying batch operation", e);
-		}
-	}
-
 	private ArrayList<ContentProviderOperation> executeGet(String urlString, JsonHandler handler, boolean authenticated) throws IOException {
 		Log.d(TAG, "Requesting URL: " + urlString);
 		String response = null;
-		URL url = new URL(urlString);
-		HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-		mAuthToken = AccountUtils.getAuthToken(mContext);
-		if (authenticated && mAuthToken != null) {
-			urlConnection.setRequestProperty("Authorization", "Bearer " + mAuthToken);
+		if (!Config.DEBUG_OFFLINE) {
+			URL url = new URL(urlString);
+			HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+			mAuthToken = AccountUtils.getAuthToken(mContext);
+			if (authenticated && mAuthToken != null) {
+				urlConnection.setRequestProperty("Authorization", "Bearer " + mAuthToken);
+			}
+			urlConnection.connect();
+			throwErrors(urlConnection);
+			response = readInputStream(urlConnection.getInputStream());
+		} else {
+			Log.i(TAG, "Debugging offline, response is set.");
+			if (handler instanceof BreedRingsHandler) {
+				response = "";
+			}
+			throw new UnsupportedOperationException("Debug offline is not yet implemented");
 		}
-		urlConnection.connect();
-		throwErrors(urlConnection);
-		response = readInputStream(urlConnection.getInputStream());
-
 		Log.v(TAG, "HTTP response: " + response);
 		return handler.parse(response);
 	}
