@@ -59,7 +59,7 @@ public class JuniorRing extends ShowRing {
 
 	@Override
 	protected Entity toEntity() {
-		Entity e = new Entity(JuniorRing.class.getSimpleName());
+		Entity e = new Entity(JuniorRing.class.getSimpleName(), getKeyName());
 		e.setProperty("blockStart", blockStartMillis);
 		e.setProperty("judge", judge);
 		e.setProperty("ringNumber", ringNumber);
@@ -77,5 +77,10 @@ public class JuniorRing extends ShowRing {
 		count = ((Long) entity.getProperty("count")).intValue();
 		className = (String) entity.getProperty("className");
 		countAhead = ((Long) entity.getProperty("countAhead")).intValue();
+	}
+
+	@Override
+	public String getKeyName() {
+		return KeyNameHelper.generateKeyName(showId, className, blockStartMillis);
 	}
 }

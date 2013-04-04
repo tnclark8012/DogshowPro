@@ -9,7 +9,7 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.labs.repackaged.org.json.JSONObject;
 
 @XmlRootElement
-public class Show implements Storable{
+public class Show implements Storable, CustomKeyName{
 	
 	@XmlElement
 	private String showName;
@@ -64,12 +64,17 @@ public class Show implements Storable{
 	}
 	@Override
 	public Entity toDatastoreEntity() {
-		Entity e = new Entity(Show.class.getSimpleName());
+		Entity e = new Entity(Show.class.getSimpleName(), getKeyName());
 		e.setProperty("name", showName);
 		e.setProperty("startDate", startDateMillis);
 		e.setProperty("city", city);
 		e.setProperty("state", state);
 		e.setProperty("showId", showId);
 		return e;
+	}
+
+	@Override
+	public String getKeyName() {
+		return KeyNameHelper.generateKeyName(showName);
 	}
 }

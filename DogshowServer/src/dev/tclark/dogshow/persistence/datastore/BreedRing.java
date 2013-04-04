@@ -86,9 +86,13 @@ public class BreedRing extends ShowRing {
 		return ring;
 	}
 
+	public String getKeyName()
+	{
+		return KeyNameHelper.generateKeyName(showId, breed, blockStartMillis);
+	}
 	@Override
 	protected Entity toEntity() {
-		Entity e = new Entity(BreedRing.class.getSimpleName());
+		Entity e = new Entity(BreedRing.class.getSimpleName(), getKeyName());
 		e.setProperty("blockStart", blockStartMillis);
 		e.setProperty("judge", judge);
 		e.setProperty("ringNumber", ringNumber);
