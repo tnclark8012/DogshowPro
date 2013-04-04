@@ -73,8 +73,18 @@ public class SyncHelper {
 	public JSONArray getShows() {
 		try {
 			Log.v(TAG, "getShows using base url, " + Config.GET_SHOW_URL);
-			return new JSONObject(makeSimpleGetRequest(mContext,
-					Config.GET_SHOW_URL)).getJSONArray("show");
+			JSONObject response = new JSONObject(makeSimpleGetRequest(mContext,
+					Config.GET_SHOW_URL));//TODO create ResponseHandler
+			JSONArray array = null;
+			array = response.optJSONArray("show");
+			if(array != null)
+			{
+				return array;
+			}
+			else
+			{
+				return new JSONArray().put(response.getJSONObject("show"));
+			}
 		} catch (JSONException e) {
 			e.printStackTrace();
 			return null;

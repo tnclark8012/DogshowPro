@@ -4,7 +4,7 @@ import java.util.Date;
 
 import com.j256.ormlite.field.DatabaseField;
 
-public class ShowRing extends AbstractModel{
+public class ShowRing{
 	@DatabaseField
 	int mRingNumber;
 	

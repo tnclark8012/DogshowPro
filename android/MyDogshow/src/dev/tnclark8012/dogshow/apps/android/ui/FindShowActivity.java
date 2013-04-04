@@ -18,7 +18,7 @@ public class FindShowActivity extends SimpleSinglePaneActivity implements FindSh
 	@Override
 	public void onShowSelected(String showId) {
 		Log.v(TAG, "selected show. id: " + showId);
-		new SyncHelper(this);
+		new SyncHelper(this).executeSync(showId);
 		finish();
 	}
 	@Override
