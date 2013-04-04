@@ -47,10 +47,13 @@ import com.actionbarsherlock.view.ActionMode;
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
+import dev.tnclark8012.dogshow.apps.android.sync.DogHandler;
 import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
+import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
 public class MyScheduleFragment extends SherlockListFragment implements
 		LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback {
+	private final static long perDogMillis = 1000 * 60 * 2;
 	private final long upcomingAllowedWindow = 1 * 60 * 1000;
 	private long upcomingBreedRingStart = 0;
 	private static final String TAG = MyScheduleFragment.class.getSimpleName();
@@ -64,18 +67,20 @@ public class MyScheduleFragment extends SherlockListFragment implements
 	private RelativeLayout mBreedImage;
 	private RelativeLayout mViewUpcomingHeader;
 	private RelativeLayout mViewNoUpcomingHeader;
-	
+
 	private Uri mUpcommingUri;
 	private Handler handler = new Handler();
-	
+
 	private Runnable updateUpcomingRunnable = new Runnable() {
-		   @Override
-		   public void run() {
-			   LoaderManager manager = getLoaderManager();
-			   manager.restartLoader(UpcomingBreedRingQuery._TOKEN, getArguments(), MyScheduleFragment.this);
-			   manager.restartLoader(BreedRingsQuery._TOKEN, getArguments(), MyScheduleFragment.this);
-		   }
-		};
+		@Override
+		public void run() {
+			LoaderManager manager = getLoaderManager();
+			manager.restartLoader(UpcomingBreedRingQuery._TOKEN,
+					getArguments(), MyScheduleFragment.this);
+			manager.restartLoader(BreedRingsQuery._TOKEN, getArguments(),
+					MyScheduleFragment.this);
+		}
+	};
 	private final ContentObserver mObserver = new ContentObserver(new Handler()) {
 		@Override
 		public void onChange(boolean selfChange) {
@@ -133,8 +138,10 @@ public class MyScheduleFragment extends SherlockListFragment implements
 		mViewTime = (TextView) mRootView.findViewById(R.id.schedule_ring_time);
 		mBreedImage = (RelativeLayout) mRootView
 				.findViewById(R.id.schedule_breed_image);
-		mViewUpcomingHeader = (RelativeLayout)mRootView.findViewById(R.id.schedule_upcoming_header);
-		mViewNoUpcomingHeader = (RelativeLayout)mRootView.findViewById(R.id.schedule_no_upcoming_header);
+		mViewUpcomingHeader = (RelativeLayout) mRootView
+				.findViewById(R.id.schedule_upcoming_header);
+		mViewNoUpcomingHeader = (RelativeLayout) mRootView
+				.findViewById(R.id.schedule_no_upcoming_header);
 		return mRootView;
 	}
 
@@ -142,7 +149,8 @@ public class MyScheduleFragment extends SherlockListFragment implements
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 		CursorLoader loader = null;
 		String selection = BreedRings.UPCOMING_SELECTION;
-		String[] selectionArgs = BreedRings.buildUpcomingSelectionArgs(System.currentTimeMillis());
+		String[] selectionArgs = BreedRings.buildUpcomingSelectionArgs(System
+				.currentTimeMillis());
 		switch (id) {
 		case BreedRingsQuery._TOKEN:
 			loader = new CursorLoader(getActivity(),
@@ -152,7 +160,8 @@ public class MyScheduleFragment extends SherlockListFragment implements
 			break;
 		case UpcomingBreedRingQuery._TOKEN:
 			// TODO swap String [] selectionArgs =
-			 //			String[] selectionArgs = BreedRings.buildUpcomingSelectionArgs(0);
+			// String[] selectionArgs =
+			// BreedRings.buildUpcomingSelectionArgs(0);
 			loader = new CursorLoader(getActivity(),
 					BreedRings.buildEnteredRingsUri(),
 					UpcomingBreedRingQuery.PROJECTION, selection,
@@ -187,13 +196,19 @@ public class MyScheduleFragment extends SherlockListFragment implements
 		if (cursor.moveToFirst()) {
 			mViewNoUpcomingHeader.setVisibility(View.GONE);
 			mViewUpcomingHeader.setVisibility(View.VISIBLE);
-			mViewBreed.setText(cursor
-					.getString(UpcomingBreedRingQuery.RING_BREED));
+			String breed = cursor.getString(UpcomingBreedRingQuery.RING_BREED);
+			mViewBreed.setText(Breeds.parse(breed).getPlural());
 			mViewRing.setText(getString(R.string.template_ring_number,
 					cursor.getInt(UpcomingBreedRingQuery.RING_NUMBER)));
-			upcomingBreedRingStart = cursor.getLong(UpcomingBreedRingQuery.RING_BREED_START);
-			mViewTime.setText(UIUtils.timeStringFromMillis(upcomingBreedRingStart, true));
-			long delay = upcomingBreedRingStart + upcomingAllowedWindow - System.currentTimeMillis();
+			upcomingBreedRingStart = cursor
+					.getLong(UpcomingBreedRingQuery.RING_BLOCK_START);
+			int countAhead = cursor.getInt(UpcomingBreedRingQuery.BREED_COUNT_AHEAD);
+			long estMillis = upcomingBreedRingStart + countAhead * perDogMillis;
+
+			mViewTime.setText(UIUtils.timeStringFromMillis(
+					estMillis, true));
+			long delay = estMillis + upcomingAllowedWindow
+					- System.currentTimeMillis();
 			delay = (delay > 0) ? delay : 0;
 			handler.postDelayed(updateUpcomingRunnable, delay);
 			String imagePath = cursor
@@ -220,7 +235,7 @@ public class MyScheduleFragment extends SherlockListFragment implements
 			Log.v(TAG, "No upcoming breed rings found");
 			mViewUpcomingHeader.setVisibility(View.GONE);
 			mViewNoUpcomingHeader.setVisibility(View.VISIBLE);
-			
+
 		}
 	}
 
@@ -241,20 +256,24 @@ public class MyScheduleFragment extends SherlockListFragment implements
 			String format = "h:mm";
 			String ampmFormat = "a";
 			((TextView) view.findViewById(R.id.list_item_ring_names))
-					.setText(cursor.getString(BreedRingsQuery.ENTERED_CALL_NAMES));
+					.setText(cursor
+							.getString(BreedRingsQuery.ENTERED_CALL_NAMES));
 			((TextView) view.findViewById(R.id.list_item_ring_breed))
 					.setText(cursor.getString(BreedRingsQuery.RING_BREED));
 			((TextView) view.findViewById(R.id.list_item_ring_number))
-					.setText(getString(R.string.template_ring_number, cursor.getInt(BreedRingsQuery.RING_NUMBER)));
-			long timeMillis = cursor.getLong(BreedRingsQuery.RING_BLOCK_START);
+					.setText(getString(R.string.template_ring_number,
+							cursor.getInt(BreedRingsQuery.RING_NUMBER)));
+			long blockTimeMillis = cursor
+					.getLong(BreedRingsQuery.RING_BLOCK_START);
 			((TextView) view.findViewById(R.id.list_item_ring_start))
 					.setText(String.format("(%s)",
-							UIUtils.timeStringFromMillis(timeMillis, true)));
+							UIUtils.timeStringFromMillis(blockTimeMillis, true)));
 
-			timeMillis = cursor.getLong(BreedRingsQuery.RING_BREED_START);
+			int countAhead = cursor.getInt(BreedRingsQuery.BREED_COUNT_AHEAD);
+			long estMillis = blockTimeMillis + countAhead * perDogMillis;
 			String time = String.format("%s\n%s",
-					UIUtils.timeStringFromMillis(timeMillis, false),
-					UIUtils.timeAmPmFromMillis(timeMillis));
+					UIUtils.timeStringFromMillis(estMillis, false),
+					UIUtils.timeAmPmFromMillis(estMillis));
 
 			((TextView) view.findViewById(R.id.list_item_ring_time))
 					.setText(time);
@@ -275,15 +294,15 @@ public class MyScheduleFragment extends SherlockListFragment implements
 				DogshowContract.BreedRings.RING_BLOCK_START,
 				DogshowContract.BreedRings.RING_JUDGE,
 				DogshowContract.BreedRings.RING_NUMBER,
-				DogshowContract.BreedRings.RING_BLOCK_START,
-				DogshowContract.BreedRings.CONCAT_CALL_NAME};
+				DogshowContract.BreedRings.CONCAT_CALL_NAME,
+				DogshowContract.BreedRings.RING_COUNT_AHEAD };
 		int _ID = 0;
 		int RING_BREED = 1;
-		int RING_BREED_START = 2;
+		int RING_BLOCK_START = 2;
 		int RING_JUDGE = 3;
 		int RING_NUMBER = 4;
-		int RING_BLOCK_START = 5;
-		int ENTERED_CALL_NAMES = 6;
+		int ENTERED_CALL_NAMES = 5;
+		int BREED_COUNT_AHEAD = 6;
 	}
 
 	private interface UpcomingBreedRingQuery {
@@ -293,12 +312,15 @@ public class MyScheduleFragment extends SherlockListFragment implements
 				DogshowContract.BreedRings.RING_BREED,
 				DogshowContract.BreedRings.RING_BLOCK_START,
 				DogshowContract.BreedRings.RING_NUMBER,
-				DogshowContract.Dogs.DOG_IMAGE_PATH };
+				DogshowContract.Dogs.DOG_IMAGE_PATH,
+				DogshowContract.BreedRings.RING_COUNT_AHEAD};
 		int _ID = 0;
 		int RING_BREED = 1;
-		int RING_BREED_START = 2;
+		int RING_BLOCK_START = 2;
 		int RING_NUMBER = 3;
 		int DOG_IMAGE_PATH = 4;
+		int BREED_COUNT_AHEAD = 5;
+
 	}
 
 	@Override

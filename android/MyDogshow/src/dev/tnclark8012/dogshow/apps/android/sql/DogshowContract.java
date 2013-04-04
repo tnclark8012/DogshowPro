@@ -1,5 +1,8 @@
 package dev.tnclark8012.dogshow.apps.android.sql;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowDatabase.Tables;
 import android.net.Uri;
 import android.provider.BaseColumns;
@@ -189,7 +192,7 @@ public class DogshowContract {
         /** Default "ORDER BY" clause. */
         public static final String DEFAULT_SORT = BreedRingsColumns.RING_BLOCK_START + " ASC";
 
-		public static final String UPCOMING_SELECTION = BreedRings.RING_BLOCK_START + " > ?";
+		public static final String UPCOMING_SELECTION = BreedRings.RING_BLOCK_START + " > ? AND " + BreedRings.RING_BLOCK_START + " < ?";
 
 		public static final String CONCAT_CALL_NAME = "group_concat(dogs.dog_call_name, \", \" ) as group_concat_call_name";
         
@@ -208,7 +211,13 @@ public class DogshowContract {
 //        }
      // Builds selectionArgs for {@link PATH_BREED_RINGS_UPCOMING}
         public static String[] buildUpcomingSelectionArgs(long currTime ) {
-            return new String[] { String.valueOf(currTime) };
+        	Calendar cal = new GregorianCalendar();
+        	cal.setTimeInMillis(currTime);
+        	cal.add(Calendar.DATE, 1);
+        	cal.set(Calendar.HOUR, 0);
+        	cal.set(Calendar.MINUTE, 0);
+        	cal.set(Calendar.MILLISECOND, 0);
+            return new String[] { String.valueOf(currTime), String.valueOf(cal.getTimeInMillis()) };
         }
         
 

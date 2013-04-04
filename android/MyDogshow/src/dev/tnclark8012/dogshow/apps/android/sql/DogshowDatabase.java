@@ -60,7 +60,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				+ DogsColumns.DOG_MAJORS + "," + DogsColumns.DOG_OWNER_ID + ","
 				+ DogsColumns.DOG_POINTS + "," + DogsColumns.DOG_SEX + ","
 				+ DogsColumns.DOG_IS_SHOWING + "," + DogsColumns.DOG_UPDATED
-				+ ")" + " VALUES (" + "\"Papillon\"," + "\"Lotta\"," + "2,"
+				+ ")" + " VALUES (" + "\"PAPILLON\"," + "\"Lotta\"," + "2,"
 				+ "0," + "15," + "1," + "1," + System.currentTimeMillis() + ")");
 		
 		db.execSQL("INSERT INTO " + Tables.DOGS + " (" + DogsColumns.DOG_BREED
@@ -68,7 +68,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				+ DogsColumns.DOG_MAJORS + "," + DogsColumns.DOG_OWNER_ID + ","
 				+ DogsColumns.DOG_POINTS + "," + DogsColumns.DOG_SEX + ","
 				+ DogsColumns.DOG_IS_SHOWING + "," + DogsColumns.DOG_UPDATED
-				+ ")" + " VALUES (" + "\"Papillon\"," + "\"Michael\"," + "2,"
+				+ ")" + " VALUES (" + "\"PAPILLON\"," + "\"Michael\"," + "2,"
 				+ "0," + "20," + "0," + "1," + System.currentTimeMillis() + ")");
 
 		db.execSQL("CREATE TABLE " + Tables.BREED_RINGS + " ("
@@ -103,19 +103,21 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				+ BreedRingsColumns.RING_NUMBER+ ","
 				+ BreedRingsColumns.RING_SHOW_ID + ","
 				+ BreedRingsColumns.RING_SPECIAL_BITCH_COUNT + ","
-				+ BreedRingsColumns.RING_SPECIAL_DOG_COUNT + ")" + " VALUES ("
+				+ BreedRingsColumns.RING_SPECIAL_DOG_COUNT + ","
+				+ BreedRingsColumns.RING_UPDATED + ")" + " VALUES ("
 				+ "2,"
 				+ (new GregorianCalendar().getTimeInMillis()+2*60*1000)
-				+ "\"Papillon\","
+				+ ",\"PAPILLON\","
 				+ "10,"
 				+ "15,"
 				+ (today.getTimeInMillis()) +","
 				+ "5,"
 				+ "\"Dr. Steve Keating\","
 				+ "3,"
-				+ "TEST"
+				+ "\"dummy\","
 				+ "2,"
-				+ "1"
+				+ "1,"
+				+ System.currentTimeMillis()
 				+ ")");
 
 	}

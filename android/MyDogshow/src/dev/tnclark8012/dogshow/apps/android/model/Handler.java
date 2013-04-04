@@ -6,7 +6,7 @@ import java.util.Map;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.field.DatabaseField;
 
-public class Handler extends AbstractModel{
+public class Handler {
 		
 		@DatabaseField(index = true)
 		private String mName;

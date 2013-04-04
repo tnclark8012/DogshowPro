@@ -57,9 +57,9 @@ public class DogshowProvider extends ContentProvider {
 
 	private static final int BREED_RINGS = 200;
 	private static final int BREED_RINGS_ID = 201;
-	private static final int BREED_RINGS_WITH_DOGS= 202;
+	private static final int BREED_RINGS_WITH_DOGS = 202;
 	private static final int BREED_RINGS_WITH_DOGS_ENTERED = 203;
-	
+
 	private static final String MIME_XML = "text/xml";
 
 	/**
@@ -73,8 +73,9 @@ public class DogshowProvider extends ContentProvider {
 		matcher.addURI(authority, "dogs", DOGS);
 		matcher.addURI(authority, "dogs/*", DOGS_ID);
 		matcher.addURI(authority, "breedrings", BREED_RINGS);
-		matcher.addURI(authority, "breedrings/with_dogs",BREED_RINGS_WITH_DOGS);
-		matcher.addURI(authority, "breedrings/with_dogs/entered",BREED_RINGS_WITH_DOGS_ENTERED);
+		matcher.addURI(authority, "breedrings/with_dogs", BREED_RINGS_WITH_DOGS);
+		matcher.addURI(authority, "breedrings/with_dogs/entered",
+				BREED_RINGS_WITH_DOGS_ENTERED);
 		return matcher;
 	}
 
@@ -107,7 +108,7 @@ public class DogshowProvider extends ContentProvider {
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
 		}
 	}
-	
+
 	/** {@inheritDoc} */
 	@Override
 	public Cursor query(Uri uri, String[] projection, String selection,
@@ -123,16 +124,16 @@ public class DogshowProvider extends ContentProvider {
 		case BREED_RINGS_WITH_DOGS_ENTERED: {
 			final SelectionBuilder exBuilder = buildExpandedSelection(uri,
 					BREED_RINGS_WITH_DOGS_ENTERED);
-			String groupBy = Dogs.DOG_BREED;			
+			String groupBy = Dogs.DOG_BREED;
 			return exBuilder.where(selection, selectionArgs).query(db,
-					projection,groupBy, null, sortOrder, null);
+					projection, groupBy, null, sortOrder, null);
 		}
-//		case BREED_RINGS_ENTERED_UPCOMING: {
-//			final SelectionBuilder exBuilder = buildExpandedSelection(uri,
-//					BREED_RINGS_ENTERED_UPCOMING);
-//			return exBuilder.where(selection, selectionArgs).query(db,
-//					projection, sortOrder);
-//		}
+		// case BREED_RINGS_ENTERED_UPCOMING: {
+		// final SelectionBuilder exBuilder = buildExpandedSelection(uri,
+		// BREED_RINGS_ENTERED_UPCOMING);
+		// return exBuilder.where(selection, selectionArgs).query(db,
+		// projection, sortOrder);
+		// }
 		default: {
 			// Most cases are handled with simple SelectionBuilder
 			final SelectionBuilder builder = buildSimpleSelection(uri);
@@ -156,6 +157,12 @@ public class DogshowProvider extends ContentProvider {
 			getContext().getContentResolver().notifyChange(uri, null,
 					syncToNetwork);
 			return Dogs.buildDogUri(values.getAsString(Dogs._ID));
+		}
+		case BREED_RINGS: {
+			db.insertOrThrow(Tables.BREED_RINGS, null, values);
+			getContext().getContentResolver().notifyChange(uri, null,
+					syncToNetwork);
+			return BreedRings.buildRingUri(values.getAsString(BreedRings._ID));
 		}
 		default: {
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
@@ -253,8 +260,9 @@ public class DogshowProvider extends ContentProvider {
 		final SelectionBuilder builder = new SelectionBuilder();
 		switch (match) {
 		case BREED_RINGS_WITH_DOGS_ENTERED: {
-			return builder.table(Tables.BREED_RINGS_JOIN_DOGS).mapToTable(BreedRings._ID, Tables.BREED_RINGS).where(
-					BreedRings.ENTERED_BREED_RINGS);
+			return builder.table(Tables.BREED_RINGS_JOIN_DOGS)
+					.mapToTable(BreedRings._ID, Tables.BREED_RINGS)
+					.where(BreedRings.ENTERED_BREED_RINGS);
 		}
 		default: {
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
