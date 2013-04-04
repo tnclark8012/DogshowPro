@@ -6,14 +6,17 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.ContentProviderOperation;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.OperationApplicationException;
+import android.database.Cursor;
 import android.os.RemoteException;
 import android.util.Log;
 import dev.tnclark8012.dogshow.apps.android.Config;
@@ -24,7 +27,7 @@ import dev.tnclark8012.dogshow.apps.android.util.AccountUtils;
 public class SyncHelper {
 	private final static String TAG = SyncHelper.class.getSimpleName();
 	private Context mContext;
-
+	private String mAuthToken;
 	public SyncHelper(Context context) {
 		mContext = context;
 	}
@@ -78,27 +81,54 @@ public class SyncHelper {
 		}
 	}
 
-	public JSONArray getBreedRingsForShow(String showId) {
+	public void executeSync(String showId) {
+		final ContentResolver resolver = mContext.getContentResolver();
+        ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
 		try {
-			return new JSONObject(makeSimpleGetRequest(mContext,
-					Config.buildGetBreedRingsUrl(showId)))
-					.getJSONArray("Rings");
-		} catch (JSONException e) {
+			boolean auth = AccountUtils.isAuthenticated(mContext);
+			 Cursor breedsCursor = resolver.query(DogshowContract.BreedRings.buildEnteredRingsUri(),
+	                    new String[]{DogshowContract.Dogs.DOG_BREED},
+	                    null, null, null);
+	            batch = new ArrayList<ContentProviderOperation>();
+	            String breedName = null;
+	            Log.i(TAG, "Syncing breed rings");
+	            int numBreeds = 0;
+	            while (breedsCursor.moveToNext()) {
+	            	breedName = breedsCursor.getString(0);
+	            	Log.v(TAG, "Requesting breed ring: " + breedName);
+	            	batch.addAll(executeGet(Config.buildGetBreedRingsUrl(showId, breedName),
+	                        new BreedRingsHandler(mContext), auth));
+	            	numBreeds++;
+	            }
+	            Log.v(TAG, "Pulled breed rings for " + numBreeds + " breeds");
+	            breedsCursor.close();
+		} catch (IOException e) {
 			e.printStackTrace();
-			return null;
 		}
+		
+		try {
+			resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY, batch);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (OperationApplicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
 	}
 
-	public void getBreedRingsForShow(String showId, String breed) {
-		try {
-			JSONArray json = new JSONObject(makeSimpleGetRequest(mContext,
-					Config.buildGetBreedRingsUrl(showId, breed)))
-					.getJSONArray("Rings");
-		} catch (JSONException e) {
-			e.printStackTrace();
-		
-		}
-	}
+//	public void getBreedRingsForShow(String showId, String breed) {
+//		try {
+//			JSONArray json = new JSONObject(makeSimpleGetRequest(mContext,
+//					Config.buildGetBreedRingsUrl(showId, breed)))
+//					.getJSONArray("Rings");
+//		} catch (JSONException e) {
+//			e.printStackTrace();
+//		
+//		}
+//	}
 
 	public void updateDog(String dogId, String breedName, String callName,
 			String imagePath, String majors, String ownerId, String points,
@@ -142,7 +172,7 @@ public class SyncHelper {
 		ContentResolver resolver = mContext.getContentResolver();
 		try {
 			resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY,
-					new RingHandler(mContext).parse(showId, dateMillis, judge,
+					new BreedRingsHandler(mContext).parse(showId, dateMillis, judge,
 							ringNumber, blockStartMillis, count, breedName,
 							dogCount, bitchCount, specialDog, specialBitch,
 							countAhead));
@@ -152,6 +182,24 @@ public class SyncHelper {
 			throw new RuntimeException("Problem applying batch operation", e);
 		}
 	}
+	
+	private ArrayList<ContentProviderOperation> executeGet(String urlString, JsonHandler handler,
+            boolean authenticated) throws IOException {
+        Log.d(TAG, "Requesting URL: " + urlString);
+        URL url = new URL(urlString);
+        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        mAuthToken = AccountUtils.getAuthToken(mContext);
+        if (authenticated && mAuthToken != null) {
+            urlConnection.setRequestProperty("Authorization", "Bearer " + mAuthToken);
+        }
+
+        urlConnection.connect();
+        throwErrors(urlConnection);
+
+        String response = readInputStream(urlConnection.getInputStream());
+        Log.v(TAG, "HTTP response: " + response);
+        return handler.parse(response);
+    }
 
 	private static String readInputStream(InputStream inputStream)
 			throws IOException {
