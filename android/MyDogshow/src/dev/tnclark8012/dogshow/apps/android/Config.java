@@ -26,6 +26,7 @@ public class Config {
 																						// console
 
 	public static final boolean DEBUG_LOCAL = false;
+	public static final boolean DEBUG_OFFLINE = false;
 	// Conference API-specific config
 	// NOTE: the backend used for the Google I/O 2012 Android app is not
 	// currently open source, so
@@ -69,4 +70,5 @@ public class Config {
 	public static final String GCM_SENDER_ID = "0000000000000"; // project ID
 																// from the APIs
 																// console
+	
 }

@@ -34,7 +34,6 @@ public class BreedRingsHandler extends JsonHandler {
 		// TODO handle NULL alloweds
 
 		builder.withValue(SyncColumns.UPDATED, System.currentTimeMillis())
-
 		.withValue(BreedRings.RING_SHOW_ID, showId).withValue(BreedRings.RING_BITCH_COUNT, bitchCount).withValue(BreedRings.RING_BLOCK_START, blockStartMillis).withValue(BreedRings.RING_BREED, breedName).withValue(BreedRings.RING_BREED_COUNT, count).withValue(BreedRings.RING_COUNT_AHEAD, countAhead).withValue(BreedRings.RING_DOG_COUNT, dogCount).withValue(BreedRings.RING_JUDGE, judge).withValue(BreedRings.RING_NUMBER, ringNumber).withValue(BreedRings.RING_SPECIAL_BITCH_COUNT, specialBitch).withValue(BreedRings.RING_SPECIAL_DOG_COUNT, specialDog).withValue(BreedRings.RING_DATE, dateMillis).withValue(Dogs.UPDATED, System.currentTimeMillis());
 		batch.add(builder.build());
 		return batch;

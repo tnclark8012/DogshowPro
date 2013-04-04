@@ -7,6 +7,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.Set;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,10 +19,14 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.OperationApplicationException;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.RemoteException;
 import android.util.Log;
 import dev.tnclark8012.dogshow.apps.android.Config;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.SyncColumns;
 import dev.tnclark8012.dogshow.apps.android.sync.DogHandler.ParseMode;
 import dev.tnclark8012.dogshow.apps.android.util.AccountUtils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
@@ -89,24 +95,6 @@ public class SyncHelper {
 		}
 	}
 
-	public JSONArray getBreedRingsForShow(String showId) {
-		try {
-			return new JSONObject(makeSimpleGetRequest(mContext, Config.buildGetBreedRingsUrl(showId))).getJSONArray("Rings");
-		} catch (JSONException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-
-	public void getBreedRingsForShow(String showId, String breed) {
-		try {
-			JSONArray json = new JSONObject(makeSimpleGetRequest(mContext, Config.buildGetBreedRingsUrl(showId, breed))).getJSONArray("Rings");
-		} catch (JSONException e) {
-			e.printStackTrace();
-
-		}
-	}
-
 	public void executeSync(String showId) {
 		final ContentResolver resolver = mContext.getContentResolver();
 		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
@@ -142,6 +130,46 @@ public class SyncHelper {
 
 	}
 
+	public void updateBreedRing(Map<String, Object> updateValues, String selection, String[] selectionArgs) {
+		updateTable(BreedRings.CONTENT_URI, updateValues, selection, selectionArgs);
+	}
+
+	public void updateBreedRing(long id, Map<String, Object> updateValues) {
+		updateTable(BreedRings.CONTENT_URI, updateValues, BreedRings._ID + "=?", new String[]{String.valueOf(id)});
+	}
+
+	public void updateDog(Map<String, Object> updateValues, String selection, String[] selectionArgs) {
+		updateTable(Dogs.CONTENT_URI, updateValues, selection, selectionArgs);
+	}
+
+	private void updateTable(Uri contentUri, Map<String, Object> updateValues, String selection, String[] selectionArgs) {
+		// TODO move these calls to a Service
+		ContentResolver resolver = mContext.getContentResolver();
+		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
+		ContentProviderOperation.Builder builder = null;
+		builder = ContentProviderOperation.newUpdate(DogshowContract.addCallerIsSyncAdapterParameter(contentUri));
+		Set<String> keys = updateValues.keySet();
+		for (String key : keys) {
+			builder.withValue(key, updateValues.get(key));
+		}
+		builder.withValue(SyncColumns.UPDATED, System.currentTimeMillis());
+		builder.withSelection(selection, selectionArgs);
+		batch.add(builder.build());
+
+		try {
+			resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY, batch);
+		} catch (RemoteException e) {
+			throw new RuntimeException("Problem applying batch operation", e);
+		} catch (OperationApplicationException e) {
+			throw new RuntimeException("Problem applying batch operation", e);
+		}
+	}
+
+	/**
+	 * TODO Move from DogHandler to {@link #updateDog(Map, String, String[])}
+	 * 
+	 * @see {@link DogHandler#parse(ParseMode, String, String, String, String, String, String, String, int)}
+	 */
 	public void updateDog(String dogId, String breedName, String callName, String imagePath, String majors, String ownerId, String points, int sex) {
 		// TODO move these calls to a Service
 		ContentResolver resolver = mContext.getContentResolver();
@@ -166,31 +194,26 @@ public class SyncHelper {
 		}
 	}
 
-	public void createRing(String showId, long dateMillis, String judge, int ringNumber, long blockStartMillis, int count, String breedName, int dogCount, int bitchCount, int specialDog, int specialBitch, int countAhead) {
-		// TODO move these calls to a Service
-		ContentResolver resolver = mContext.getContentResolver();
-		try {
-			resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY, new RingHandler(mContext).parse(showId, dateMillis, judge, ringNumber, blockStartMillis, count, breedName, dogCount, bitchCount, specialDog, specialBitch, countAhead));
-		} catch (RemoteException e) {
-			throw new RuntimeException("Problem applying batch operation", e);
-		} catch (OperationApplicationException e) {
-			throw new RuntimeException("Problem applying batch operation", e);
-		}
-	}
-
 	private ArrayList<ContentProviderOperation> executeGet(String urlString, JsonHandler handler, boolean authenticated) throws IOException {
 		Log.d(TAG, "Requesting URL: " + urlString);
 		String response = null;
-		URL url = new URL(urlString);
-		HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-		mAuthToken = AccountUtils.getAuthToken(mContext);
-		if (authenticated && mAuthToken != null) {
-			urlConnection.setRequestProperty("Authorization", "Bearer " + mAuthToken);
+		if (!Config.DEBUG_OFFLINE) {
+			URL url = new URL(urlString);
+			HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+			mAuthToken = AccountUtils.getAuthToken(mContext);
+			if (authenticated && mAuthToken != null) {
+				urlConnection.setRequestProperty("Authorization", "Bearer " + mAuthToken);
+			}
+			urlConnection.connect();
+			throwErrors(urlConnection);
+			response = readInputStream(urlConnection.getInputStream());
+		} else {
+			Log.i(TAG, "Debugging offline, response is set.");
+			if (handler instanceof BreedRingsHandler) {
+				response = "";
+			}
+			throw new UnsupportedOperationException("Debug offline is not yet implemented");
 		}
-		urlConnection.connect();
-		throwErrors(urlConnection);
-		response = readInputStream(urlConnection.getInputStream());
-
 		Log.v(TAG, "HTTP response: " + response);
 		return handler.parse(response);
 	}
