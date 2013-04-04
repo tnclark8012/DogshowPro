@@ -53,6 +53,7 @@ import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.preferences.Prefs;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
+import dev.tnclark8012.dogshow.apps.android.sync.DogHandler;
 import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
 import dev.tnclark8012.dogshow.apps.android.util.Utils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
@@ -73,7 +74,6 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 	private RelativeLayout mViewNoUpcomingHeader;
 	private TextView mViewNoUpcomingHeaderText;
 	private SparseBooleanArray newDayPositions;
-
 	private Handler handler = new Handler();
 
 	private Runnable updateUpcomingRunnable = new Runnable() {
@@ -144,7 +144,8 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 		CursorLoader loader = null;
 		String selection = BreedRings.UPCOMING_SELECTION;
-		String[] selectionArgs = BreedRings.buildUpcomingSelectionArgs(System.currentTimeMillis());
+		String[] selectionArgs = BreedRings.buildUpcomingSelectionArgs(System
+				.currentTimeMillis());
 		switch (id) {
 		case BreedRingsQuery._TOKEN:
 			loader = new CursorLoader(getActivity(), BreedRings.buildEnteredRingsUri(), BreedRingsQuery.PROJECTION, selection, selectionArgs, DogshowContract.BreedRings.DEFAULT_SORT);
@@ -288,16 +289,15 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 		int RING_BLOCK_START = 2;
 		int RING_JUDGE = 3;
 		int RING_NUMBER = 4;
-
 		int ENTERED_CALL_NAMES = 5;
 		int BREED_COUNT_AHEAD = 6;
-	
 	}
 
 	private interface UpcomingBreedRingQuery {
 		int _TOKEN = 0x2;
 
 		String[] PROJECTION = { DogshowContract.BreedRings._ID, DogshowContract.BreedRings.RING_BREED, DogshowContract.BreedRings.RING_BLOCK_START, DogshowContract.BreedRings.RING_NUMBER, DogshowContract.Dogs.DOG_IMAGE_PATH, DogshowContract.BreedRings.RING_COUNT_AHEAD };
+
 		int _ID = 0;
 		int RING_BREED = 1;
 		int RING_BLOCK_START = 2;
