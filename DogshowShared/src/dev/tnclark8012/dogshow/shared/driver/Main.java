@@ -13,6 +13,7 @@ import java.util.Map;
 import com.google.appengine.labs.repackaged.org.json.JSONException;
 import com.google.gson.Gson;
 
+import dev.tnclark8012.dogshow.shared.DogshowEnums.BreedGroup;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
 public class Main {
@@ -32,6 +33,7 @@ public class Main {
 	public static void main(String[] argz) throws IOException, ParseException,
 			JSONException {
 		// Breeds [] breeds = Breeds.values();
+<<<<<<< HEAD
 		System.out.println("***************************");
 		String json = "{\"breedRing\":[{\"showId\":\"test3\",\"dateMillis\":\"1365008357276\",\"judge\":\"MR ROBERT E HUTTON (90)\",\"ringNumber\":\"4\",\"blockStartMillis\":\"1364997617276\",\"count\":\"21\",\"breed\":\"PAPILLON\",\"dogCount\":\"7\",\"bitchCount\":\"7\",\"specialDogCount\":\"5\",\"specialBitchCount\":\"2\",\"countAhead\":\"5\"},{\"showId\":\"test3\",\"dateMillis\":\"1365267557276\",\"judge\":\"DR DANIEL W DOWLING (162)\",\"ringNumber\":\"7\",\"blockStartMillis\":\"1365245117276\",\"count\":\"27\",\"breed\":\"PAPILLON\",\"dogCount\":\"12\",\"bitchCount\":\"7\",\"specialDogCount\":\"6\",\"specialBitchCount\":\"2\",\"countAhead\":\"0\"},{\"showId\":\"test3\",\"dateMillis\":\"1365353957276\",\"judge\":\"MR WILLIAM DEVILLENEUVE (120)\",\"ringNumber\":\"2\",\"blockStartMillis\":\"1365327017276\",\"count\":\"12\",\"breed\":\"PAPILLON\",\"dogCount\":\"3\",\"bitchCount\":\"3\",\"specialDogCount\":\"6\",\"specialBitchCount\":\"0\",\"countAhead\":\"5\"},{\"showId\":\"test\",\"dateMillis\":\"1365043837713\",\"judge\":\"MR ROBERT E HUTTON (90)\",\"ringNumber\":\"4\",\"blockStartMillis\":\"1365084037713\",\"count\":\"21\",\"breed\":\"PAPILLON\",\"dogCount\":\"7\",\"bitchCount\":\"7\",\"specialDogCount\":\"5\",\"specialBitchCount\":\"2\",\"countAhead\":\"5\"},{\"showId\":\"test\",\"dateMillis\":\"1365130237713\",\"judge\":\"MR DANA L PLONKEY (165)\",\"ringNumber\":\"6\",\"blockStartMillis\":\"1365154537713\",\"count\":\"27\",\"breed\":\"PAPILLON\",\"dogCount\":\"10\",\"bitchCount\":\"8\",\"specialDogCount\":\"6\",\"specialBitchCount\":\"3\",\"countAhead\":\"11\"},{\"showId\":\"test\",\"dateMillis\":\"1365216637713\",\"judge\":\"MR MICHAEL J DACHEL (169)\",\"ringNumber\":\"7\",\"blockStartMillis\":\"1365241837713\",\"count\":\"26\",\"breed\":\"PAPILLON\",\"dogCount\":\"11\",\"bitchCount\":\"7\",\"specialDogCount\":\"6\",\"specialBitchCount\":\"2\",\"countAhead\":\"7\"},{\"showId\":\"test\",\"dateMillis\":\"1365303037713\",\"judge\":\"DR DANIEL W DOWLING (162)\",\"ringNumber\":\"7\",\"blockStartMillis\":\"1365331537713\",\"count\":\"27\",\"breed\":\"PAPILLON\",\"dogCount\":\"12\",\"bitchCount\":\"7\",\"specialDogCount\":\"6\",\"specialBitchCount\":\"2\",\"countAhead\":\"0\"},{\"showId\":\"test\",\"dateMillis\":\"1365389437713\",\"judge\":\"MR WILLIAM DEVILLENEUVE (120)\",\"ringNumber\":\"2\",\"blockStartMillis\":\"1365413437713\",\"count\":\"12\",\"breed\":\"PAPILLON\",\"dogCount\":\"3\",\"bitchCount\":\"3\",\"specialDogCount\":\"6\",\"specialBitchCount\":\"0\",\"countAhead\":\"5\"}]}";
 		BreedRingsResponse r = new Gson().fromJson(json, BreedRingsResponse.class);
@@ -41,6 +43,9 @@ public class Main {
 		}
 
 		System.out.println(Breeds.parse("Poodles (Toy) "));
+=======
+		printArray(BreedGroup.HERDING.getBreedNames());
+>>>>>>> Rings pull and show w/ mult breeds. big commit
 		if (true) {
 			return;
 		}

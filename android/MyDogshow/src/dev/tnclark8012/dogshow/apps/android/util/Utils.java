@@ -1,7 +1,6 @@
 package dev.tnclark8012.dogshow.apps.android.util;
 
 import android.text.format.Time;
-
 public class Utils {
 	public static int parseIntSafely(String str, int defaultValue) {
 		if (str.isEmpty() || !Character.isDigit(str.charAt(0))) {
@@ -15,7 +14,6 @@ public class Utils {
 			}
 		}
 	}
-
 	public static boolean isSameDay(long one, long two) {
 		Time time = new Time();
 		time.set(one);

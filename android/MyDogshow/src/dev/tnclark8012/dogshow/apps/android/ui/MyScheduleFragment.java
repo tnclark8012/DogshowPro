@@ -16,9 +16,7 @@
 
 package dev.tnclark8012.dogshow.apps.android.ui;
 
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 import android.app.Activity;
 import android.content.Context;
@@ -31,7 +29,6 @@ import android.database.Cursor;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -53,7 +50,6 @@ import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.preferences.Prefs;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
-import dev.tnclark8012.dogshow.apps.android.sync.DogHandler;
 import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
 import dev.tnclark8012.dogshow.apps.android.util.Utils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
@@ -144,8 +140,7 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 		CursorLoader loader = null;
 		String selection = BreedRings.UPCOMING_SELECTION;
-		String[] selectionArgs = BreedRings.buildUpcomingSelectionArgs(System
-				.currentTimeMillis());
+		String[] selectionArgs = BreedRings.buildUpcomingSelectionArgs(System.currentTimeMillis());
 		switch (id) {
 		case BreedRingsQuery._TOKEN:
 			loader = new CursorLoader(getActivity(), BreedRings.buildEnteredRingsUri(), BreedRingsQuery.PROJECTION, selection, selectionArgs, DogshowContract.BreedRings.DEFAULT_SORT);
@@ -270,7 +265,6 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 			((TextView) view.findViewById(R.id.list_item_ring_start)).setText(String.format("(%s)", UIUtils.timeStringFromMillis(blockTimeMillis, true)));
 
 			String time = String.format("%s\n%s", UIUtils.timeStringFromMillis(estMillis, false), UIUtils.timeAmPmFromMillis(estMillis));
-
 			((TextView) view.findViewById(R.id.list_item_ring_time)).setText(time);
 		}
 
@@ -297,7 +291,6 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 		int _TOKEN = 0x2;
 
 		String[] PROJECTION = { DogshowContract.BreedRings._ID, DogshowContract.BreedRings.RING_BREED, DogshowContract.BreedRings.RING_BLOCK_START, DogshowContract.BreedRings.RING_NUMBER, DogshowContract.Dogs.DOG_IMAGE_PATH, DogshowContract.BreedRings.RING_COUNT_AHEAD };
-
 		int _ID = 0;
 		int RING_BREED = 1;
 		int RING_BLOCK_START = 2;
