@@ -42,23 +42,15 @@ import dev.tnclark8012.dogshow.apps.android.util.AccountUtils;
  * The landing screen for the app, once the user has logged in.
  * 
  * <p>
- * This activity uses different layouts to present its various fragments,
- * depending on the device configuration. {@link MyScheduleFragment},
- * {@link ExploreFragment}, and {@link SocialStreamFragment} are always
- * available to the user. {@link WhatsOnFragment} is always available on tablets
- * and phones in portrait, but is hidden on phones held in landscape.
+ * This activity uses different layouts to present its various fragments, depending on the device configuration. {@link MyScheduleFragment}, {@link ExploreFragment}, and {@link SocialStreamFragment} are always available to the user. {@link WhatsOnFragment} is always available on tablets and phones in portrait, but is hidden on phones held in landscape.
  * 
  * <p>
- * On phone-size screens, the three fragments are represented by
- * {@link ActionBar} tabs, and can are held inside a {@link ViewPager} to allow
- * horizontal swiping.
+ * On phone-size screens, the three fragments are represented by {@link ActionBar} tabs, and can are held inside a {@link ViewPager} to allow horizontal swiping.
  * 
  * <p>
- * On tablets, the three fragments are always visible and are presented as
- * either three panes (landscape) or a grid (portrait).
+ * On tablets, the three fragments are always visible and are presented as either three panes (landscape) or a grid (portrait).
  */
-public class ScheduleActivity extends BaseActivity implements
-		ActionBar.TabListener, ViewPager.OnPageChangeListener {
+public class ScheduleActivity extends BaseActivity implements ActionBar.TabListener, ViewPager.OnPageChangeListener {
 
 	private static final String TAG = HomeActivity.class.getSimpleName();
 
@@ -81,25 +73,16 @@ public class ScheduleActivity extends BaseActivity implements
 		String homeScreenLabel;
 		if (mViewPager != null) {
 			// Phone setup
-			mViewPager.setAdapter(new HomePagerAdapter(
-					getSupportFragmentManager()));
+			mViewPager.setAdapter(new HomePagerAdapter(getSupportFragmentManager()));
 			mViewPager.setOnPageChangeListener(this);
 			mViewPager.setPageMarginDrawable(R.drawable.grey_border_inset_lr);
-			mViewPager.setPageMargin(getResources().getDimensionPixelSize(
-					R.dimen.page_margin_width));
+			mViewPager.setPageMargin(getResources().getDimensionPixelSize(R.dimen.page_margin_width));
 
 			final ActionBar actionBar = getSupportActionBar();
 			actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-			actionBar.addTab(actionBar.newTab()
-					.setText(R.string.title_my_schedule).setTabListener(this));
-			actionBar
-					.addTab(actionBar.newTab()
-							.setText(R.string.title_team_schedule)
-							.setTabListener(this));
-			actionBar
-					.addTab(actionBar.newTab()
-							.setText(R.string.title_full_schedule)
-							.setTabListener(this));
+			actionBar.addTab(actionBar.newTab().setText(R.string.title_my_schedule).setTabListener(this));
+			actionBar.addTab(actionBar.newTab().setText(R.string.title_team_schedule).setTabListener(this));
+			actionBar.addTab(actionBar.newTab().setText(R.string.title_full_schedule).setTabListener(this));
 
 			homeScreenLabel = getString(R.string.title_my_schedule);
 
@@ -122,19 +105,16 @@ public class ScheduleActivity extends BaseActivity implements
 	}
 
 	@Override
-	public void onTabSelected(ActionBar.Tab tab,
-			FragmentTransaction fragmentTransaction) {
+	public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
 		mViewPager.setCurrentItem(tab.getPosition());
 	}
 
 	@Override
-	public void onTabUnselected(ActionBar.Tab tab,
-			FragmentTransaction fragmentTransaction) {
+	public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
 	}
 
 	@Override
-	public void onTabReselected(ActionBar.Tab tab,
-			FragmentTransaction fragmentTransaction) {
+	public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
 	}
 
 	@Override
@@ -203,7 +183,7 @@ public class ScheduleActivity extends BaseActivity implements
 
 	private class HomePagerAdapter extends FragmentPagerAdapter {
 		MyScheduleFragment mMyScheduleFragment;
-		ExploreFragment mExploreFragment;
+		MyScheduleFragment mTeamFragment;
 
 		public HomePagerAdapter(FragmentManager fm) {
 			super(fm);
@@ -214,16 +194,18 @@ public class ScheduleActivity extends BaseActivity implements
 			Fragment fragment = null;
 			Bundle args = intentToFragmentArguments(getIntent());
 			args.putParcelable("_uri", DogshowContract.BreedRings.buildEnteredRingsUri());
-			 switch (position) {
-			 case 0:
-			 case 1:
-				 fragment = mMyScheduleFragment = new MyScheduleFragment();
-				 break;
-			 case 2:
-				 Log.d(TAG, "new FullShowFragment()");
-				 fragment = new FullShowFragment();
-				 break;
-			 }
+			switch (position) {
+			case 0:
+				fragment = (mMyScheduleFragment == null) ? mMyScheduleFragment = new MyScheduleFragment() : mMyScheduleFragment;
+				break;
+			case 1:
+				fragment = (mTeamFragment == null) ? mTeamFragment = new MyScheduleFragment() : mTeamFragment;
+				break;
+			case 2:
+				Log.d(TAG, "new FullShowFragment()");
+				fragment = new FullShowFragment();
+				break;
+			}
 			fragment.setArguments(args);
 			return fragment;
 		}
@@ -286,10 +268,8 @@ public class ScheduleActivity extends BaseActivity implements
 		mSyncStatusObserver.onStatusChanged(0);
 
 		// Watch for sync state changes
-		final int mask = ContentResolver.SYNC_OBSERVER_TYPE_PENDING
-				| ContentResolver.SYNC_OBSERVER_TYPE_ACTIVE;
-		mSyncObserverHandle = ContentResolver.addStatusChangeListener(mask,
-				mSyncStatusObserver);
+		final int mask = ContentResolver.SYNC_OBSERVER_TYPE_PENDING | ContentResolver.SYNC_OBSERVER_TYPE_ACTIVE;
+		mSyncObserverHandle = ContentResolver.addStatusChangeListener(mask, mSyncStatusObserver);
 	}
 
 	public void setRefreshActionButtonState(boolean refreshing) {
@@ -304,8 +284,7 @@ public class ScheduleActivity extends BaseActivity implements
 			runOnUiThread(new Runnable() {
 				@Override
 				public void run() {
-					String accountName = AccountUtils
-							.getChosenAccountName(ScheduleActivity.this);
+					String accountName = AccountUtils.getChosenAccountName(ScheduleActivity.this);
 					if (TextUtils.isEmpty(accountName)) {
 						setRefreshActionButtonState(false);
 						return;

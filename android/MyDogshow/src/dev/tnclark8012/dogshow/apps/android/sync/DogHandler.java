@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import android.content.ContentProviderOperation;
 import android.content.Context;
 import android.util.Log;
-import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.SyncColumns;
+import dev.tnclark8012.dogshow.apps.android.util.Utils;
 
 public class DogHandler {
 	private static final String TAG = DogHandler.class.getSimpleName();
@@ -21,24 +21,24 @@ public class DogHandler {
 
 	}
 
-	public ArrayList<ContentProviderOperation> parse(ParseMode mode,
-			String dogId, String breedName, String callName, String imagePath,
-			String majors, String points, String ownerId, int sex) {
+	public ArrayList<ContentProviderOperation> parse(ParseMode mode, String dogId, String breedName, String callName, String imagePath, String majors, String points, String ownerId, int sex) {
 		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
 		ContentProviderOperation.Builder builder = null;
 		switch (mode) {
 		case NEW:
 			Log.v(TAG, "new dog");
-			builder = ContentProviderOperation.newInsert(DogshowContract
-					.addCallerIsSyncAdapterParameter(Dogs.CONTENT_URI));
+			Log.w(TAG, "Setting dog to entered!");// FIXME Let the user pick
+			builder = ContentProviderOperation.newInsert(DogshowContract.addCallerIsSyncAdapterParameter(Dogs.CONTENT_URI));
+
 			break;
 		case UPDATE:
-			builder = ContentProviderOperation.newUpdate(DogshowContract
-					.addCallerIsSyncAdapterParameter(Dogs.CONTENT_URI));
-			builder.withValue(Dogs._ID, Integer.parseInt(dogId));
+			builder = ContentProviderOperation.newUpdate(DogshowContract.addCallerIsSyncAdapterParameter(Dogs.CONTENT_URI));
+			// builder.withValue(Dogs._ID, Integer.parseInt(dogId));
+			builder.withSelection(Dogs._ID + "=?", new String[] { String.valueOf(dogId) });
 
 			break;
 		}
+		builder.withValue(Dogs.DOG_IS_SHOWING, 1);
 		// TODO handle NULL alloweds
 
 		builder.withValue(SyncColumns.UPDATED, System.currentTimeMillis())
@@ -51,26 +51,15 @@ public class DogHandler {
 		if (imagePath != null && !imagePath.isEmpty()) {
 			builder.withValue(Dogs.DOG_IMAGE_PATH, imagePath);
 		}
-		if (!majors.isEmpty()) {
-			try {
-				builder.withValue(Dogs.DOG_MAJORS, Integer.parseInt(majors));
 
-			} catch (NumberFormatException e) {
-				Log.w(TAG, "Couldn't parse major from:" + majors);
-			}
-		}
+		builder.withValue(Dogs.DOG_MAJORS, Utils.parseIntSafely(majors, 0));
+		builder.withValue(Dogs.DOG_POINTS, Utils.parseIntSafely(points, 0));
+		
 		if (!ownerId.isEmpty()) {
 			try {
 				builder.withValue(Dogs.DOG_OWNER_ID, Integer.parseInt(ownerId));
 			} catch (NumberFormatException e) {
 				Log.w(TAG, "Couldn't parse owner_id from:" + ownerId);
-			}
-		}
-		if (!points.isEmpty()) {
-			try {
-				builder.withValue(Dogs.DOG_POINTS, Integer.parseInt(points));
-			} catch (NumberFormatException e) {
-				Log.w(TAG, "Couldn't parse points from:" + points);
 			}
 		}
 		if (sex == Dogs.FEMALE || sex == Dogs.MALE) {

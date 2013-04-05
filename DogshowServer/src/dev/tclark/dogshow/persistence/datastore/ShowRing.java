@@ -63,6 +63,7 @@ public abstract class ShowRing implements Storable, CustomKeyName {
 	public ShowRing(Entity entity) {
 //		mEntityConstructorCalled = true;
 		showId = (String) entity.getProperty("showId");
+		System.out.println("ShowRing entity had property " + showId);
 		dateMillis = (Long) entity.getProperty("dateMillis");
 	}
 	

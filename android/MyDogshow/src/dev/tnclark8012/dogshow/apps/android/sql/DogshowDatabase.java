@@ -28,10 +28,12 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 		String DOGS = "dogs";
 		String HANDLERS = "handlers";
 		String BREED_RINGS = "breed_rings";
-		String BREED_RINGS_JOIN_DOGS = BREED_RINGS + " " + "JOIN " + DOGS
+		String ENTERED_DOGS_BY_BREED = "(SELECT *, " + Dogs.DOG_BREED + " as " + Dogs.ENTERED_DOGS_BREED + ", group_concat(dogs." + Dogs.DOG_CALL_NAME + ", \", \" ) as " + Dogs.ENTERED_DOGS_NAMES + " FROM " + Tables.DOGS + " GROUP BY " + Dogs.DOG_BREED +")";
+		String BREED_RINGS_JOIN_DOGS = BREED_RINGS + " " + "JOIN " + ENTERED_DOGS_BY_BREED
 				+ " ON " + BREED_RINGS + "." + BreedRings.RING_BREED + "="
-				+ DOGS + "." + Dogs.DOG_BREED;
-
+		//TODO make fully-qualified column name interface FIXME to avoid hard coded dogs. as below and elsewhere
+				+ Dogs.ENTERED_DOGS_BREED;
+				
 	}
 
 	public DogshowDatabase(Context context) {
@@ -91,34 +93,34 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 		today.set(Calendar.MINUTE, 0);
 		today.set(Calendar.SECOND, 0);
 		today.set(Calendar.MILLISECOND, 0);
-		db.execSQL("INSERT INTO " + Tables.BREED_RINGS + "("
-				+ BreedRingsColumns.RING_BITCH_COUNT + ","
-				+ BreedRingsColumns.RING_BLOCK_START + ","
-				+ BreedRingsColumns.RING_BREED + ","
-				+ BreedRingsColumns.RING_BREED_COUNT + ","
-				+ BreedRingsColumns.RING_COUNT_AHEAD + ","
-				+ BreedRingsColumns.RING_DATE + ","
-				+ BreedRingsColumns.RING_DOG_COUNT + ","
-				+ BreedRingsColumns.RING_JUDGE + ","
-				+ BreedRingsColumns.RING_NUMBER+ ","
-				+ BreedRingsColumns.RING_SHOW_ID + ","
-				+ BreedRingsColumns.RING_SPECIAL_BITCH_COUNT + ","
-				+ BreedRingsColumns.RING_SPECIAL_DOG_COUNT + ","
-				+ BreedRingsColumns.RING_UPDATED + ")" + " VALUES ("
-				+ "2,"
-				+ (new GregorianCalendar().getTimeInMillis()+2*60*1000)
-				+ ",\"PAPILLON\","
-				+ "10,"
-				+ "15,"
-				+ (today.getTimeInMillis()) +","
-				+ "5,"
-				+ "\"Dr. Steve Keating\","
-				+ "3,"
-				+ "\"dummy\","
-				+ "2,"
-				+ "1,"
-				+ System.currentTimeMillis()
-				+ ")");
+//		db.execSQL("INSERT INTO " + Tables.BREED_RINGS + "("
+//				+ BreedRingsColumns.RING_BITCH_COUNT + ","
+//				+ BreedRingsColumns.RING_BLOCK_START + ","
+//				+ BreedRingsColumns.RING_BREED + ","
+//				+ BreedRingsColumns.RING_BREED_COUNT + ","
+//				+ BreedRingsColumns.RING_COUNT_AHEAD + ","
+//				+ BreedRingsColumns.RING_DATE + ","
+//				+ BreedRingsColumns.RING_DOG_COUNT + ","
+//				+ BreedRingsColumns.RING_JUDGE + ","
+//				+ BreedRingsColumns.RING_NUMBER+ ","
+//				+ BreedRingsColumns.RING_SHOW_ID + ","
+//				+ BreedRingsColumns.RING_SPECIAL_BITCH_COUNT + ","
+//				+ BreedRingsColumns.RING_SPECIAL_DOG_COUNT + ","
+//				+ BreedRingsColumns.RING_UPDATED + ")" + " VALUES ("
+//				+ "2,"
+//				+ (new GregorianCalendar().getTimeInMillis()+2*60*1000)
+//				+ ",\"PAPILLON\","
+//				+ "10,"
+//				+ "15,"
+//				+ (today.getTimeInMillis()) +","
+//				+ "5,"
+//				+ "\"Dr. Steve Keating\","
+//				+ "3,"
+//				+ "\"dummy\","
+//				+ "2,"
+//				+ "1,"
+//				+ System.currentTimeMillis()
+//				+ ")");
 
 	}
 

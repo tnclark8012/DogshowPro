@@ -38,12 +38,11 @@ import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowDatabase;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowDatabase.Tables;
+import dev.tnclark8012.dogshow.apps.android.util.DebugUtils;
 import dev.tnclark8012.dogshow.apps.android.util.SelectionBuilder;
 
 /**
- * Provider that stores {@link ScheduleContract} data. Data is usually inserted
- * by {@link com.google.android.apps.iosched.sync.SyncHelper}, and queried by
- * various {@link Activity} instances.
+ * Provider that stores {@link ScheduleContract} data. Data is usually inserted by {@link com.google.android.apps.iosched.sync.SyncHelper}, and queried by various {@link Activity} instances.
  */
 public class DogshowProvider extends ContentProvider {
 	private static final String TAG = DogshowProvider.class.getSimpleName();
@@ -54,6 +53,7 @@ public class DogshowProvider extends ContentProvider {
 
 	private static final int DOGS = 100;
 	private static final int DOGS_ID = 101;
+	private static final int DOGS_ENTERED = 102;
 
 	private static final int BREED_RINGS = 200;
 	private static final int BREED_RINGS_ID = 201;
@@ -63,19 +63,19 @@ public class DogshowProvider extends ContentProvider {
 	private static final String MIME_XML = "text/xml";
 
 	/**
-	 * Build and return a {@link UriMatcher} that catches all {@link Uri}
-	 * variations supported by this {@link ContentProvider}.
+	 * Build and return a {@link UriMatcher} that catches all {@link Uri} variations supported by this {@link ContentProvider}.
 	 */
 	private static UriMatcher buildUriMatcher() {
 		final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
 		final String authority = DogshowContract.CONTENT_AUTHORITY;
 
 		matcher.addURI(authority, "dogs", DOGS);
+		matcher.addURI(authority, "dogs/entered", DOGS_ENTERED);
+
 		matcher.addURI(authority, "dogs/*", DOGS_ID);
 		matcher.addURI(authority, "breedrings", BREED_RINGS);
 		matcher.addURI(authority, "breedrings/with_dogs", BREED_RINGS_WITH_DOGS);
-		matcher.addURI(authority, "breedrings/with_dogs/entered",
-				BREED_RINGS_WITH_DOGS_ENTERED);
+		matcher.addURI(authority, "breedrings/with_dogs/entered", BREED_RINGS_WITH_DOGS_ENTERED);
 		return matcher;
 	}
 
@@ -111,34 +111,28 @@ public class DogshowProvider extends ContentProvider {
 
 	/** {@inheritDoc} */
 	@Override
-	public Cursor query(Uri uri, String[] projection, String selection,
-			String[] selectionArgs, String sortOrder) {
-		Log.v(TAG, "query(uri=" + uri + ", proj=" + Arrays.toString(projection)
-				+ ")");// TODO DogsFragment seems to make several queries to
-						// start
+	public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+		Log.v(TAG, "query(uri=" + uri + ", proj=" + Arrays.toString(projection) + ")");// TODO FIXME DogsFragment seems to make several queries to
+																						// start
 		final SQLiteDatabase db = mOpenHelper.getReadableDatabase();
 
 		final int match = sUriMatcher.match(uri);
 		switch (match) {
 		case BREED_RINGS_WITH_DOGS:
 		case BREED_RINGS_WITH_DOGS_ENTERED: {
-			final SelectionBuilder exBuilder = buildExpandedSelection(uri,
-					BREED_RINGS_WITH_DOGS_ENTERED);
-			String groupBy = Dogs.DOG_BREED;
-			return exBuilder.where(selection, selectionArgs).query(db,
-					projection, groupBy, null, sortOrder, null);
+			final SelectionBuilder exBuilder = buildExpandedSelection(uri, BREED_RINGS_WITH_DOGS_ENTERED);
+			final SelectionBuilder builder = new SelectionBuilder();
+
+			return exBuilder.where(selection, selectionArgs).query(db, projection, null, null, sortOrder, null);
 		}
-		// case BREED_RINGS_ENTERED_UPCOMING: {
-		// final SelectionBuilder exBuilder = buildExpandedSelection(uri,
-		// BREED_RINGS_ENTERED_UPCOMING);
-		// return exBuilder.where(selection, selectionArgs).query(db,
-		// projection, sortOrder);
-		// }
+		case DOGS_ENTERED:
+			final SelectionBuilder exBuilder = buildSimpleSelection(uri);
+			String groupBy = Dogs.DOG_BREED;
+			return exBuilder.where(selection, selectionArgs).query(db, projection, groupBy, null, sortOrder, null);
 		default: {
 			// Most cases are handled with simple SelectionBuilder
 			final SelectionBuilder builder = buildSimpleSelection(uri);
-			return builder.where(selection, selectionArgs).query(db,
-					projection, sortOrder);
+			return builder.where(selection, selectionArgs).query(db, projection, sortOrder);
 		}
 		}
 	}
@@ -149,19 +143,16 @@ public class DogshowProvider extends ContentProvider {
 		Log.v(TAG, "insert(uri=" + uri + ", values=" + values.toString() + ")");
 		final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 		final int match = sUriMatcher.match(uri);
-		boolean syncToNetwork = !DogshowContract
-				.hasCallerIsSyncAdapterParameter(uri);
+		boolean syncToNetwork = !DogshowContract.hasCallerIsSyncAdapterParameter(uri);
 		switch (match) {
 		case DOGS: {
 			db.insertOrThrow(Tables.DOGS, null, values);
-			getContext().getContentResolver().notifyChange(uri, null,
-					syncToNetwork);
+			getContext().getContentResolver().notifyChange(uri, null, syncToNetwork);
 			return Dogs.buildDogUri(values.getAsString(Dogs._ID));
 		}
 		case BREED_RINGS: {
 			db.insertOrThrow(Tables.BREED_RINGS, null, values);
-			getContext().getContentResolver().notifyChange(uri, null,
-					syncToNetwork);
+			getContext().getContentResolver().notifyChange(uri, null, syncToNetwork);
 			return BreedRings.buildRingUri(values.getAsString(BreedRings._ID));
 		}
 		default: {
@@ -172,16 +163,13 @@ public class DogshowProvider extends ContentProvider {
 
 	/** {@inheritDoc} */
 	@Override
-	public int update(Uri uri, ContentValues values, String selection,
-			String[] selectionArgs) {
-		Log.v(TAG, "update(uri=" + uri + ", values=" + values.toString() + ")");
+	public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
+		Log.v(TAG, "update(uri=" + uri + ", values=" + values.toString() + ") selection " + selection);
 		final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 		final SelectionBuilder builder = buildSimpleSelection(uri);
 		int retVal = builder.where(selection, selectionArgs).update(db, values);
-		boolean syncToNetwork = !DogshowContract
-				.hasCallerIsSyncAdapterParameter(uri);
-		getContext().getContentResolver()
-				.notifyChange(uri, null, syncToNetwork);
+		boolean syncToNetwork = !DogshowContract.hasCallerIsSyncAdapterParameter(uri);
+		getContext().getContentResolver().notifyChange(uri, null, syncToNetwork);
 		return retVal;
 	}
 
@@ -198,20 +186,15 @@ public class DogshowProvider extends ContentProvider {
 		final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 		final SelectionBuilder builder = buildSimpleSelection(uri);
 		int retVal = builder.where(selection, selectionArgs).delete(db);
-		getContext().getContentResolver().notifyChange(uri, null,
-				!DogshowContract.hasCallerIsSyncAdapterParameter(uri));
+		getContext().getContentResolver().notifyChange(uri, null, !DogshowContract.hasCallerIsSyncAdapterParameter(uri));
 		return retVal;
 	}
 
 	/**
-	 * Apply the given set of {@link ContentProviderOperation}, executing inside
-	 * a {@link SQLiteDatabase} transaction. All changes will be rolled back if
-	 * any single one fails.
+	 * Apply the given set of {@link ContentProviderOperation}, executing inside a {@link SQLiteDatabase} transaction. All changes will be rolled back if any single one fails.
 	 */
 	@Override
-	public ContentProviderResult[] applyBatch(
-			ArrayList<ContentProviderOperation> operations)
-			throws OperationApplicationException {
+	public ContentProviderResult[] applyBatch(ArrayList<ContentProviderOperation> operations) throws OperationApplicationException {
 		final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 		db.beginTransaction();
 		try {
@@ -228,9 +211,7 @@ public class DogshowProvider extends ContentProvider {
 	}
 
 	/**
-	 * Build a simple {@link SelectionBuilder} to match the requested
-	 * {@link Uri}. This is usually enough to support {@link #insert},
-	 * {@link #update}, and {@link #delete} operations.
+	 * Build a simple {@link SelectionBuilder} to match the requested {@link Uri}. This is usually enough to support {@link #insert}, {@link #update}, and {@link #delete} operations.
 	 */
 	private SelectionBuilder buildSimpleSelection(Uri uri) {
 		final SelectionBuilder builder = new SelectionBuilder();
@@ -240,6 +221,9 @@ public class DogshowProvider extends ContentProvider {
 			return builder.table(Tables.BREED_RINGS);
 		}
 		case DOGS: {
+			return builder.table(Tables.DOGS);
+		}
+		case DOGS_ENTERED: {
 			return builder.table(Tables.DOGS);
 		}
 		case DOGS_ID:
@@ -252,17 +236,13 @@ public class DogshowProvider extends ContentProvider {
 	}
 
 	/**
-	 * Build an advanced {@link SelectionBuilder} to match the requested
-	 * {@link Uri}. This is usually only used by {@link #query}, since it
-	 * performs table joins useful for {@link Cursor} data.
+	 * Build an advanced {@link SelectionBuilder} to match the requested {@link Uri}. This is usually only used by {@link #query}, since it performs table joins useful for {@link Cursor} data.
 	 */
 	private SelectionBuilder buildExpandedSelection(Uri uri, int match) {
 		final SelectionBuilder builder = new SelectionBuilder();
 		switch (match) {
 		case BREED_RINGS_WITH_DOGS_ENTERED: {
-			return builder.table(Tables.BREED_RINGS_JOIN_DOGS)
-					.mapToTable(BreedRings._ID, Tables.BREED_RINGS)
-					.where(BreedRings.ENTERED_BREED_RINGS);
+			return builder.table(Tables.BREED_RINGS_JOIN_DOGS).mapToTable(BreedRings._ID, Tables.BREED_RINGS).where(BreedRings.ENTERED_BREED_RINGS);
 		}
 		default: {
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
@@ -271,8 +251,7 @@ public class DogshowProvider extends ContentProvider {
 	}
 
 	@Override
-	public ParcelFileDescriptor openFile(Uri uri, String mode)
-			throws FileNotFoundException {
+	public ParcelFileDescriptor openFile(Uri uri, String mode) throws FileNotFoundException {
 		final int match = sUriMatcher.match(uri);
 		switch (match) {
 		default: {

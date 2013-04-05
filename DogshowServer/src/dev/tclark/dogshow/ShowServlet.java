@@ -38,16 +38,18 @@ public class ShowServlet {
 		ShowDay day = new ShowDay();
 		return day;
 	}
+
 	@GET
 	@Produces("application/json")
-	@Path("createDummy/{id}")
+	@Path("createShow/{id}")
 	public Response createDummyShow(@PathParam("id") String showId) {
-		ShowManager
-		.createShow(new Show("Dummy", new Date().getTime(), "Any Town", "Some State", showId));
+		System.out.println("Called create for id " + showId);
+		ShowManager.createShow(new Show("Wichita Kennel Club, Inc.",
+				new GregorianCalendar(2013, 4, 4, 0, 0).getTimeInMillis(),
+				"Valley Center", "KS", showId));
 		return Response.ok("Success").build();
 	}
 
-	
 	@GET
 	@Produces("application/json")
 	public List<Show> getAllShows() {
@@ -99,8 +101,7 @@ public class ShowServlet {
 			@FormParam("show") JSONObject json) {
 		long dateMillis = Long.parseLong(dateStr);
 		System.out.println("Creating show...");
-		ShowManager
-				.createShow(new Show(name, dateMillis, city, state, showId));
+		ShowManager.createShow(new Show(name, dateMillis, city, state, showId));
 
 		return Response.ok(name).build();
 	}
@@ -118,6 +119,6 @@ public class ShowServlet {
 	/** TODO GET request for dev purposes only. Obviously change this upon release*/
 	public String delete() {
 		ShowManager.deleteAllShows(true, true, true, true, true);
-		return "I hope you meant to do that";
+		return "I hope you meant to do that!";
 	}
 }

@@ -160,7 +160,7 @@ public class DogEditFragment extends SherlockFragment implements
 		mCallName = cursor.getString(DogQuery.DOG_CALL_NAME);
 		mMajors = String.valueOf(cursor.getInt(DogQuery.DOG_MAJORS));
 		mPoints = String.valueOf(cursor.getInt(DogQuery.DOG_POINTS));
-		mViewBreed.setText(mBreedName);
+		mViewBreed.setText(Breeds.parse(mBreedName).getPrimaryName());
 		mViewName.setText(mCallName);
 		mSexId = getRadioIdFromSex(cursor.getInt(DogQuery.DOG_SEX));
 		mViewSex.check(mSexId);

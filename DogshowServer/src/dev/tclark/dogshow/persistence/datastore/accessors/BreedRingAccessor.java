@@ -1,5 +1,6 @@
 package dev.tclark.dogshow.persistence.datastore.accessors;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -9,6 +10,8 @@ import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.CompositeFilter;
+import com.google.appengine.api.datastore.Query.CompositeFilterOperator;
 import com.google.appengine.api.datastore.Query.Filter;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 import com.google.appengine.api.datastore.Query.FilterPredicate;
@@ -44,12 +47,13 @@ public class BreedRingAccessor {
 		Filter idFilter = new FilterPredicate("showId", FilterOperator.EQUAL,
 				showId);
 		Filter breedFilter = new FilterPredicate("breed", FilterOperator.EQUAL, breed.toString());
-		Query q = new Query(BreedRing.class.getSimpleName()).setFilter(idFilter).setFilter(breedFilter);
+		Query q = new Query(BreedRing.class.getSimpleName()).setFilter(new CompositeFilter(CompositeFilterOperator.AND, Arrays.asList(idFilter,breedFilter)));
 		PreparedQuery pq = datastore.prepare(q);
 		List<BreedRing> results = new LinkedList<BreedRing>();
 		for (Entity result : pq.asIterable()) {
 			results.add(new BreedRing(result));
 		}
+		System.out.println("Found " + results.size());
 		return results;
 	}
 

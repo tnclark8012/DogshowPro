@@ -59,4 +59,12 @@ public class ShowRingServlet {
 		}
 		return Response.ok("Failure").build();
 	}
+
+	@GET
+	@Path("delete/{showId}")
+	public Response deleteShowRings(@PathParam("showId") String showId
+	/* , @FormParam("rings") JSONObject json */) throws JSONException {
+		ShowRingManager.deleteShowRingsForShow(showId);
+		return Response.ok("All rings deleted for show " + showId).build();
+	}
 }

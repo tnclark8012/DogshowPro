@@ -140,7 +140,7 @@ public class FindShowFragment extends SherlockListFragment {
 		JSONArray mArray;
 
 		public ShowListAdapter(Context context, JSONArray array) {
-			super(context, android.R.layout.simple_list_item_1,
+			super(context, android.R.layout.simple_list_item_2,
 					android.R.id.text1);
 			mArray = array;
 		}
@@ -173,6 +173,8 @@ public class FindShowFragment extends SherlockListFragment {
 				try {
 					((TextView) convertView.findViewById(android.R.id.text1))
 							.setText(obj.getString("showName"));
+					((TextView) convertView.findViewById(android.R.id.text2))
+					.setText(obj.getString("city") + ", " + obj.getString("state"));
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
