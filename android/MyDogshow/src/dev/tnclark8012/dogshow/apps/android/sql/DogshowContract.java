@@ -32,6 +32,7 @@ public class DogshowContract {
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
     
     private static final String PATH_DOGS = "dogs";
+    private static final String PATH_DOGS_ENTERED = "entered";
     private static final String PATH_HANDLERS = "handlers";
     private static final String PATH_BREED_RINGS = "breedrings";
     private static final String PATH_BREED_RINGS_WITH_DOGS = "with_dogs";
@@ -106,28 +107,28 @@ public class DogshowContract {
             SyncColumns, BaseColumns {
         public static final Uri CONTENT_URI =
                 BASE_CONTENT_URI.buildUpon().appendPath(PATH_DOGS).build();
-       
+        
         public static final String CONTENT_TYPE =
                 "vnd.android.cursor.dir/vnd.dogshow.dog";
         public static final String CONTENT_ITEM_TYPE =
                 "vnd.android.cursor.item/vnd.dogshow.dog";
         public static final int MALE = 1;
         public static final int FEMALE = 0;
-
+        public static final String ENTERED_DOGS_BREED = "entered_dogs_breed";
+        public static final String ENTERED_DOGS_NAMES = "entered_dogs_names";
         /** Default "ORDER BY" clause. */
         public static final String DEFAULT_SORT = DogsColumns.DOG_CALL_NAME + " COLLATE NOCASE ASC";
+
+		public static Uri buildEnteredGroupedBreedUri()
+		{
+			return CONTENT_URI.buildUpon().appendPath(PATH_DOGS_ENTERED).build();
+		}
 
         // Builds selectionArgs for {@link AT_TIME_SELECTION}
         public static String[] buildAtTimeSelectionArgs(long time) {
             final String timeString = String.valueOf(time);
             return new String[] { timeString, timeString };
         }
-
-//        // Used to fetch upcoming sessions
-//        public static final String UPCOMING_SELECTION =
-//                BLOCK_START + " = (select min(" + BLOCK_START + ") from " +
-//                ScheduleDatabase.Tables.BLOCKS_JOIN_SESSIONS + " where " + LIVESTREAM_SELECTION +
-//                " and " + BLOCK_START + " >" + " ?)";
 
         // Builds selectionArgs for {@link UPCOMING_SELECTION}
         public static String[] buildUpcomingSelectionArgs(long minTime) {
@@ -192,7 +193,7 @@ public class DogshowContract {
         /** Default "ORDER BY" clause. */
         public static final String DEFAULT_SORT = BreedRingsColumns.RING_BLOCK_START + " ASC";
 
-		public static final String UPCOMING_SELECTION = BreedRings.RING_BLOCK_START + " > ? AND " + BreedRings.RING_BLOCK_START + " < ?";
+		public static final String UPCOMING_SELECTION = BreedRings.RING_BLOCK_START + " > ? ";//TODO AND " + BreedRings.RING_BLOCK_START + " < ?";
 
 		public static final String CONCAT_CALL_NAME = "group_concat(dogs.dog_call_name, \", \" ) as group_concat_call_name";
         
@@ -205,19 +206,16 @@ public class DogshowContract {
         {
         	return CONTENT_URI.buildUpon().appendPath(PATH_BREED_RINGS_WITH_DOGS).appendPath(PATH_BREED_RINGS_ENTERED).build();
         }
-//        public static Uri buildEnteredRingsUpcomingUri()
-//        {
-//        	return CONTENT_URI.buildUpon().appendPath(PATH_BREED_RINGS_ENTERED).appendPath(PATH_BREED_RINGS_UPCOMING).build();
-//        }
+
      // Builds selectionArgs for {@link PATH_BREED_RINGS_UPCOMING}
-        public static String[] buildUpcomingSelectionArgs(long currTime ) {
-        	Calendar cal = new GregorianCalendar();
-        	cal.setTimeInMillis(currTime);
-        	cal.add(Calendar.DATE, 1);
-        	cal.set(Calendar.HOUR, 0);
-        	cal.set(Calendar.MINUTE, 0);
-        	cal.set(Calendar.MILLISECOND, 0);
-            return new String[] { String.valueOf(currTime), String.valueOf(cal.getTimeInMillis()) };
+		public static String[] buildUpcomingSelectionArgs(long currTime ) {
+//      TODO  	Calendar cal = new GregorianCalendar();
+//        	cal.setTimeInMillis(currTime);
+//        	cal.add(Calendar.DATE, 1);
+//        	cal.set(Calendar.HOUR, 0);
+//        	cal.set(Calendar.MINUTE, 0);
+//        	cal.set(Calendar.MILLISECOND, 0);
+            return new String[] { String.valueOf(currTime) };//, String.valueOf(cal.getTimeInMillis()) };
         }
         
 
