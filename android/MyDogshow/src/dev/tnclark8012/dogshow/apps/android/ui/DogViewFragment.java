@@ -30,6 +30,7 @@ import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
 import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
+import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
 public class DogViewFragment extends SherlockFragment implements
 		LoaderManager.LoaderCallbacks<Cursor> {
@@ -138,9 +139,10 @@ public class DogViewFragment extends SherlockFragment implements
 		mMajors = cursor.getInt(DogQuery.DOG_MAJORS);
 		mPoints = cursor.getInt(DogQuery.DOG_POINTS);
 		mSex = (cursor.getInt(DogQuery.DOG_SEX)==Dogs.MALE)? "Male" : "Female";//TODO string resource
-		mViewBreed.setText(mBreedName);
+		mViewBreed.setText(Breeds.parse(mBreedName).getPrimaryName());
 		mViewSex.setText(mSex);
 		mViewName.setText(mCallName);
+		Log.v(TAG, "DOG_IS_SHOWING: " + cursor.getInt(DogQuery.DOG_IS_SHOWING));
 		if (mImagePath != null) {
 			Resources res = getResources();
 			int height = res.getDimensionPixelSize(R.dimen.header_icon_height);
@@ -230,7 +232,8 @@ public class DogViewFragment extends SherlockFragment implements
 				DogshowContract.Dogs.DOG_IMAGE_PATH,
 				DogshowContract.Dogs.DOG_MAJORS,
 				DogshowContract.Dogs.DOG_POINTS,
-				DogshowContract.Dogs.DOG_SEX};
+				DogshowContract.Dogs.DOG_SEX,
+				DogshowContract.Dogs.DOG_IS_SHOWING};
 		int DOG_ID = 0;
 		int DOG_BREED = 1;
 		int DOG_CALL_NAME = 2;
@@ -238,6 +241,7 @@ public class DogViewFragment extends SherlockFragment implements
 		int DOG_MAJORS = 4;
 		int DOG_POINTS = 5;
 		int DOG_SEX = 6;
+		int DOG_IS_SHOWING = 7;
 	}
 
 }

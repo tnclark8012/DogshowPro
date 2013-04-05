@@ -11,13 +11,20 @@ import java.util.List;
 import java.util.Map;
 
 import com.google.appengine.labs.repackaged.org.json.JSONException;
+import com.google.gson.Gson;
+import com.google.gson.annotations.SerializedName;
 
-import dev.tnclark8012.dogshow.shared.DogshowEnums;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.BreedGroup;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
 public class Main {
-
+	public static void printArray(Object [] array)
+	{
+		for(Object o : array)
+		{
+			System.out.println(""+o);
+		}
+	}
 	/**
 	 * @param argz
 	 * @throws IOException
@@ -27,10 +34,7 @@ public class Main {
 	public static void main(String[] argz) throws IOException, ParseException,
 			JSONException {
 		// Breeds [] breeds = Breeds.values();
-
-		System.out.println("***************************");
-
-		System.out.println(Breeds.parse("Poodles (Toy) "));
+		printArray(BreedGroup.HERDING.getBreedNames());
 		if (true) {
 			return;
 		}

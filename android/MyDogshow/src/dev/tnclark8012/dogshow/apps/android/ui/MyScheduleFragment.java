@@ -17,6 +17,7 @@
 package dev.tnclark8012.dogshow.apps.android.ui;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import android.app.Activity;
@@ -27,7 +28,6 @@ import android.database.ContentObserver;
 import android.database.Cursor;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.LoaderManager;
@@ -48,9 +48,10 @@ import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
+import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
-public class MyScheduleFragment extends SherlockListFragment implements
-		LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback {
+public class MyScheduleFragment extends SherlockListFragment implements LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback {
+	private final static long perDogMillis = 1000 * 60 * 2;
 	private final long upcomingAllowedWindow = 1 * 60 * 1000;
 	private long upcomingBreedRingStart = 0;
 	private static final String TAG = MyScheduleFragment.class.getSimpleName();
@@ -63,17 +64,18 @@ public class MyScheduleFragment extends SherlockListFragment implements
 	private RelativeLayout mBreedImage;
 	private RelativeLayout mViewUpcomingHeader;
 	private RelativeLayout mViewNoUpcomingHeader;
-	
+	private TextView mViewNoUpcomingHeaderText;
+
 	private Handler handler = new Handler();
-	
+
 	private Runnable updateUpcomingRunnable = new Runnable() {
-		   @Override
-		   public void run() {
-			   LoaderManager manager = getLoaderManager();
-			   manager.restartLoader(UpcomingBreedRingQuery._TOKEN, getArguments(), MyScheduleFragment.this);
-			   manager.restartLoader(BreedRingsQuery._TOKEN, getArguments(), MyScheduleFragment.this);
-		   }
-		};
+		@Override
+		public void run() {
+			LoaderManager manager = getLoaderManager();
+			manager.restartLoader(UpcomingBreedRingQuery._TOKEN, getArguments(), MyScheduleFragment.this);
+			manager.restartLoader(BreedRingsQuery._TOKEN, getArguments(), MyScheduleFragment.this);
+		}
+	};
 	private final ContentObserver mObserver = new ContentObserver(new Handler()) {
 		@Override
 		public void onChange(boolean selfChange) {
@@ -81,8 +83,7 @@ public class MyScheduleFragment extends SherlockListFragment implements
 				return;
 			}
 
-			Loader<Cursor> loader = getLoaderManager().getLoader(
-					mRingQueryToken);
+			Loader<Cursor> loader = getLoaderManager().getLoader(mRingQueryToken);
 			if (loader != null) {
 				loader.forceLoad();
 			}
@@ -93,24 +94,20 @@ public class MyScheduleFragment extends SherlockListFragment implements
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		final Intent intent = BaseActivity
-				.fragmentArgumentsToIntent(getArguments());
+		final Intent intent = BaseActivity.fragmentArgumentsToIntent(getArguments());
 		mRingQueryToken = BreedRingsQuery._TOKEN;
 		mAdapter = new RingListAdapter(getActivity());
 		setListAdapter(mAdapter);
 		LoaderManager manager = getLoaderManager();
 		manager.restartLoader(BreedRingsQuery._TOKEN, getArguments(), this);
-		manager.restartLoader(UpcomingBreedRingQuery._TOKEN, getArguments(),
-				this);
+		manager.restartLoader(UpcomingBreedRingQuery._TOKEN, getArguments(), this);
 	}
 
 	@Override
 	public void onAttach(Activity activity) {
 		// TODO Use URI from arguments
 		super.onAttach(activity);
-		activity.getContentResolver().registerContentObserver(
-				DogshowContract.BreedRings.buildEnteredRingsUri(), true,
-				mObserver);
+		activity.getContentResolver().registerContentObserver(DogshowContract.BreedRings.buildEnteredRingsUri(), true, mObserver);
 
 	}
 
@@ -122,17 +119,15 @@ public class MyScheduleFragment extends SherlockListFragment implements
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		mRootView = inflater.inflate(R.layout.fragment_schedule_list,
-				container, false);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		mRootView = inflater.inflate(R.layout.fragment_schedule_list, container, false);
 		mViewBreed = (TextView) mRootView.findViewById(R.id.schedule_breed);
 		mViewRing = (TextView) mRootView.findViewById(R.id.schedule_ring);
 		mViewTime = (TextView) mRootView.findViewById(R.id.schedule_ring_time);
-		mBreedImage = (RelativeLayout) mRootView
-				.findViewById(R.id.schedule_breed_image);
-		mViewUpcomingHeader = (RelativeLayout)mRootView.findViewById(R.id.schedule_upcoming_header);
-		mViewNoUpcomingHeader = (RelativeLayout)mRootView.findViewById(R.id.schedule_no_upcoming_header);
+		mBreedImage = (RelativeLayout) mRootView.findViewById(R.id.schedule_breed_image);
+		mViewUpcomingHeader = (RelativeLayout) mRootView.findViewById(R.id.schedule_upcoming_header);
+		mViewNoUpcomingHeader = (RelativeLayout) mRootView.findViewById(R.id.schedule_no_upcoming_header);
+		mViewNoUpcomingHeaderText = (TextView) mRootView.findViewById(R.id.schedule_no_upcoming_header_text);
 		return mRootView;
 	}
 
@@ -143,18 +138,10 @@ public class MyScheduleFragment extends SherlockListFragment implements
 		String[] selectionArgs = BreedRings.buildUpcomingSelectionArgs(System.currentTimeMillis());
 		switch (id) {
 		case BreedRingsQuery._TOKEN:
-			loader = new CursorLoader(getActivity(),
-					BreedRings.buildEnteredRingsUri(),
-					BreedRingsQuery.PROJECTION, selection, selectionArgs,
-					DogshowContract.BreedRings.DEFAULT_SORT);
+			loader = new CursorLoader(getActivity(), BreedRings.buildEnteredRingsUri(), BreedRingsQuery.PROJECTION, selection, selectionArgs, DogshowContract.BreedRings.DEFAULT_SORT);
 			break;
 		case UpcomingBreedRingQuery._TOKEN:
-			// TODO swap String [] selectionArgs =
-			 //			String[] selectionArgs = BreedRings.buildUpcomingSelectionArgs(0);
-			loader = new CursorLoader(getActivity(),
-					BreedRings.buildEnteredRingsUri(),
-					UpcomingBreedRingQuery.PROJECTION, selection,
-					selectionArgs, DogshowContract.BreedRings.DEFAULT_SORT);
+			loader = new CursorLoader(getActivity(), BreedRings.buildEnteredRingsUri(), UpcomingBreedRingQuery.PROJECTION, selection, selectionArgs, DogshowContract.BreedRings.DEFAULT_SORT);
 			break;
 		}
 		return loader;
@@ -168,6 +155,7 @@ public class MyScheduleFragment extends SherlockListFragment implements
 
 		int token = loader.getId();
 		if (token == BreedRingsQuery._TOKEN) {
+			Log.v(TAG, "Cursor contains " + cursor.getCount() + " breed rings");
 			mAdapter.changeCursor(cursor);
 			Bundle arguments = getArguments();
 			if (arguments != null && arguments.containsKey("_uri")) {
@@ -185,26 +173,25 @@ public class MyScheduleFragment extends SherlockListFragment implements
 		if (cursor.moveToFirst()) {
 			mViewNoUpcomingHeader.setVisibility(View.GONE);
 			mViewUpcomingHeader.setVisibility(View.VISIBLE);
-			mViewBreed.setText(cursor
-					.getString(UpcomingBreedRingQuery.RING_BREED));
-			mViewRing.setText(getString(R.string.template_ring_number,
-					cursor.getInt(UpcomingBreedRingQuery.RING_NUMBER)));
-			upcomingBreedRingStart = cursor.getLong(UpcomingBreedRingQuery.RING_BREED_START);
-			mViewTime.setText(UIUtils.timeStringFromMillis(upcomingBreedRingStart, true));
-			long delay = upcomingBreedRingStart + upcomingAllowedWindow - System.currentTimeMillis();
+			String breed = cursor.getString(UpcomingBreedRingQuery.RING_BREED);
+			mViewBreed.setText(Breeds.parse(breed).getPlural());
+			mViewRing.setText(getString(R.string.template_ring_number, cursor.getInt(UpcomingBreedRingQuery.RING_NUMBER)));
+			upcomingBreedRingStart = cursor.getLong(UpcomingBreedRingQuery.RING_BLOCK_START);
+			int countAhead = cursor.getInt(UpcomingBreedRingQuery.BREED_COUNT_AHEAD);
+			long estMillis = upcomingBreedRingStart + countAhead * perDogMillis;
+
+			mViewTime.setText(UIUtils.timeStringFromMillis(estMillis, true));
+			long delay = estMillis + upcomingAllowedWindow - System.currentTimeMillis();
+			Log.i(TAG, "Closest ring is " + new Date(estMillis));
 			delay = (delay > 0) ? delay : 0;
 			handler.postDelayed(updateUpcomingRunnable, delay);
-			String imagePath = cursor
-					.getString(UpcomingBreedRingQuery.DOG_IMAGE_PATH);
+			String imagePath = cursor.getString(UpcomingBreedRingQuery.DOG_IMAGE_PATH);
 			if (imagePath != null) {
 				Resources res = getResources();
-				int height = res
-						.getDimensionPixelSize(R.dimen.header_icon_height);
-				int width = res
-						.getDimensionPixelSize(R.dimen.header_icon_width);
+				int height = res.getDimensionPixelSize(R.dimen.header_icon_height);
+				int width = res.getDimensionPixelSize(R.dimen.header_icon_width);
 
-				BitmapDrawable image = new BitmapDrawable(res,
-						UIUtils.loadBitmap(imagePath, width, height));
+				BitmapDrawable image = new BitmapDrawable(res, UIUtils.loadBitmap(imagePath, width, height));
 				mBreedImage.setBackgroundDrawable(image);// setBackgroundDrawable(Drawable.createFromPath(imagePath));
 
 				// mViewImage.setBackgroundDrawable(Drawable.createFromPath(mImagePath));
@@ -218,7 +205,8 @@ public class MyScheduleFragment extends SherlockListFragment implements
 			Log.v(TAG, "No upcoming breed rings found");
 			mViewUpcomingHeader.setVisibility(View.GONE);
 			mViewNoUpcomingHeader.setVisibility(View.VISIBLE);
-			
+			mViewNoUpcomingHeaderText.setVisibility(View.VISIBLE);
+
 		}
 	}
 
@@ -238,65 +226,50 @@ public class MyScheduleFragment extends SherlockListFragment implements
 			Calendar cal = GregorianCalendar.getInstance();
 			String format = "h:mm";
 			String ampmFormat = "a";
-			((TextView) view.findViewById(R.id.list_item_ring_names))
-					.setText(cursor.getString(BreedRingsQuery.ENTERED_CALL_NAMES));
-			((TextView) view.findViewById(R.id.list_item_ring_breed))
-					.setText(cursor.getString(BreedRingsQuery.RING_BREED));
-			((TextView) view.findViewById(R.id.list_item_ring_number))
-					.setText(getString(R.string.template_ring_number, cursor.getInt(BreedRingsQuery.RING_NUMBER)));
-			long timeMillis = cursor.getLong(BreedRingsQuery.RING_START);
-			((TextView) view.findViewById(R.id.list_item_ring_start))
-					.setText(String.format("(%s)",
-							UIUtils.timeStringFromMillis(timeMillis, true)));
+			((TextView) view.findViewById(R.id.list_item_ring_names)).setText(cursor.getString(BreedRingsQuery.ENTERED_CALL_NAMES));
+			String breedName = cursor.getString(BreedRingsQuery.RING_BREED);
+			((TextView) view.findViewById(R.id.list_item_ring_breed)).setText(Breeds.parse(breedName).getPlural());
+			((TextView) view.findViewById(R.id.list_item_ring_number)).setText(getString(R.string.template_ring_number, cursor.getInt(BreedRingsQuery.RING_NUMBER)));
+			long blockTimeMillis = cursor.getLong(BreedRingsQuery.RING_BLOCK_START);
+			((TextView) view.findViewById(R.id.list_item_ring_start)).setText(String.format("(%s)", UIUtils.timeStringFromMillis(blockTimeMillis, true)));
 
-			timeMillis = cursor.getLong(BreedRingsQuery.RING_BREED_START);
-			String time = String.format("%s\n%s",
-					UIUtils.timeStringFromMillis(timeMillis, false),
-					UIUtils.timeAmPmFromMillis(timeMillis));
+			int countAhead = cursor.getInt(BreedRingsQuery.BREED_COUNT_AHEAD);
+			long estMillis = blockTimeMillis + countAhead * perDogMillis;
+			String time = String.format("%s\n%s", UIUtils.timeStringFromMillis(estMillis, false), UIUtils.timeAmPmFromMillis(estMillis));
 
-			((TextView) view.findViewById(R.id.list_item_ring_time))
-					.setText(time);
+			((TextView) view.findViewById(R.id.list_item_ring_time)).setText(time);
 		}
 
 		@Override
 		public View newView(Context context, Cursor cursor, ViewGroup parent) {
-			return getActivity().getLayoutInflater().inflate(
-					R.layout.list_item_ring, parent, false);
+			return getActivity().getLayoutInflater().inflate(R.layout.list_item_ring, parent, false);
 		}
 	}
 
 	private interface BreedRingsQuery {
 		int _TOKEN = 0x1;
 
-		String[] PROJECTION = { DogshowContract.BreedRings._ID,
-				DogshowContract.BreedRings.RING_BREED,
-				DogshowContract.BreedRings.RING_BREED_START,
-				DogshowContract.BreedRings.RING_JUDGE,
-				DogshowContract.BreedRings.RING_NUMBER,
-				DogshowContract.BreedRings.RING_START,
-				DogshowContract.BreedRings.CONCAT_CALL_NAME};
+		String[] PROJECTION = { DogshowContract.BreedRings._ID, DogshowContract.BreedRings.RING_BREED, DogshowContract.BreedRings.RING_BLOCK_START, DogshowContract.BreedRings.RING_JUDGE, DogshowContract.BreedRings.RING_NUMBER, DogshowContract.Dogs.ENTERED_DOGS_NAMES, DogshowContract.BreedRings.RING_COUNT_AHEAD };
 		int _ID = 0;
 		int RING_BREED = 1;
-		int RING_BREED_START = 2;
+		int RING_BLOCK_START = 2;
 		int RING_JUDGE = 3;
 		int RING_NUMBER = 4;
-		int RING_START = 5;
-		int ENTERED_CALL_NAMES = 6;
+		int ENTERED_CALL_NAMES = 5;
+		int BREED_COUNT_AHEAD = 6;
 	}
 
 	private interface UpcomingBreedRingQuery {
 		int _TOKEN = 0x2;
 
-		String[] PROJECTION = { DogshowContract.BreedRings._ID,
-				DogshowContract.BreedRings.RING_BREED,
-				DogshowContract.BreedRings.RING_BREED_START,
-				DogshowContract.BreedRings.RING_NUMBER,
-				DogshowContract.Dogs.DOG_IMAGE_PATH };
+		String[] PROJECTION = { DogshowContract.BreedRings._ID, DogshowContract.BreedRings.RING_BREED, DogshowContract.BreedRings.RING_BLOCK_START, DogshowContract.BreedRings.RING_NUMBER, DogshowContract.Dogs.DOG_IMAGE_PATH, DogshowContract.BreedRings.RING_COUNT_AHEAD };
 		int _ID = 0;
 		int RING_BREED = 1;
-		int RING_BREED_START = 2;
+		int RING_BLOCK_START = 2;
 		int RING_NUMBER = 3;
 		int DOG_IMAGE_PATH = 4;
+		int BREED_COUNT_AHEAD = 5;
+
 	}
 
 	@Override
@@ -307,22 +280,19 @@ public class MyScheduleFragment extends SherlockListFragment implements
 	}
 
 	@Override
-	public boolean onCreateActionMode(ActionMode mode,
-			com.actionbarsherlock.view.Menu menu) {
+	public boolean onCreateActionMode(ActionMode mode, com.actionbarsherlock.view.Menu menu) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean onPrepareActionMode(ActionMode mode,
-			com.actionbarsherlock.view.Menu menu) {
+	public boolean onPrepareActionMode(ActionMode mode, com.actionbarsherlock.view.Menu menu) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean onActionItemClicked(ActionMode mode,
-			com.actionbarsherlock.view.MenuItem item) {
+	public boolean onActionItemClicked(ActionMode mode, com.actionbarsherlock.view.MenuItem item) {
 		// TODO Auto-generated method stub
 		return false;
 	}

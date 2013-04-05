@@ -1,4 +1,4 @@
-package dev.tnclark8012.dogshow.apps.android.model;
+package dev.tnclark8012.dogshow.shared.driver;
 
 
 public class BreedRing{

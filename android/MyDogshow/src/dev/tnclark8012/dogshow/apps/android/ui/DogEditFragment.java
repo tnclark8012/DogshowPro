@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -37,7 +35,7 @@ import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
 import dev.tnclark8012.dogshow.apps.android.sync.SyncHelper;
 import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
-import dev.tnclark8012.dogshow.shared.Breeds;
+import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
 public class DogEditFragment extends SherlockFragment implements
 		LoaderManager.LoaderCallbacks<Cursor>, OnClickListener,
@@ -162,7 +160,7 @@ public class DogEditFragment extends SherlockFragment implements
 		mCallName = cursor.getString(DogQuery.DOG_CALL_NAME);
 		mMajors = String.valueOf(cursor.getInt(DogQuery.DOG_MAJORS));
 		mPoints = String.valueOf(cursor.getInt(DogQuery.DOG_POINTS));
-		mViewBreed.setText(mBreedName);
+		mViewBreed.setText(Breeds.parse(mBreedName).getPrimaryName());
 		mViewName.setText(mCallName);
 		mSexId = getRadioIdFromSex(cursor.getInt(DogQuery.DOG_SEX));
 		mViewSex.check(mSexId);

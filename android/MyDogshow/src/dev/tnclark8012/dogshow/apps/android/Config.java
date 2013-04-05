@@ -17,39 +17,63 @@
 package dev.tnclark8012.dogshow.apps.android;
 
 public class Config {
-    // OAuth 2.0 related config
-    public static final String APP_NAME = "Your-App-Name";
-    public static final String API_KEY = "API_KEY"; // from the APIs console
-    public static final String CLIENT_ID = "0000000000000.apps.googleusercontent.com"; // from the APIs console
+	// OAuth 2.0 related config
+	public static final String APP_NAME = "Your-App-Name";
+	public static final String API_KEY = "API_KEY"; // from the APIs console
+	public static final String CLIENT_ID = "0000000000000.apps.googleusercontent.com"; // from
+																						// the
+																						// APIs
+																						// console
 
-    // Conference API-specific config
-    // NOTE: the backend used for the Google I/O 2012 Android app is not currently open source, so
-    // you should modify these fields to reflect your own backend.
-    private static final String CONFERENCE_API_KEY = "API_KEY";
-    private static final String ROOT_EVENT_ID = "googleio2012";
-    private static final String BASE_URL = "https://google-developers.appspot.com/_ah/api/resources/v0.1";
-    public static final String GET_ALL_SESSIONS_URL      = BASE_URL + "/sessions?parent_event=" + ROOT_EVENT_ID + "&api_key=" + CONFERENCE_API_KEY;
-    public static final String GET_ALL_SPEAKERS_URL      = BASE_URL + "/speakers?event_id=" + ROOT_EVENT_ID + "&api_key=" + CONFERENCE_API_KEY;
-    public static final String GET_ALL_ANNOUNCEMENTS_URL = BASE_URL + "/announcements?parent_event=" + ROOT_EVENT_ID + "&api_key=" + CONFERENCE_API_KEY;
-    public static final String EDIT_MY_SCHEDULE_URL      = BASE_URL + "/editmyschedule/o/";
-    public static final String GET_SHOW_URL      = BASE_URL + "/shows";
-  
+	public static final boolean DEBUG_LOCAL = true;
+	public static final boolean DEBUG_OFFLINE = false;//TODO implement
+	// Conference API-specific config
+	// NOTE: the backend used for the Google I/O 2012 Android app is not
+	// currently open source, so
+	// you should modify these fields to reflect your own backend.
+	private static final String CONFERENCE_API_KEY = "API_KEY";
+	private static final String ROOT_EVENT_ID = "googleio2012";
+	// private static final String BASE_URL =
+	// "https://google-developers.appspot.com/_ah/api/resources/v0.1";
+	private static final String BASE_URL = (DEBUG_LOCAL)?"http://10.0.2.2:8888/rest":"http://dogshow-manager.appspot.com/rest";
+	public static final String GET_ALL_SESSIONS_URL = BASE_URL
+			+ "/sessions?parent_event=" + ROOT_EVENT_ID + "&api_key="
+			+ CONFERENCE_API_KEY;
+	public static final String GET_ALL_SPEAKERS_URL = BASE_URL
+			+ "/speakers?event_id=" + ROOT_EVENT_ID + "&api_key="
+			+ CONFERENCE_API_KEY;
+	public static final String GET_ALL_ANNOUNCEMENTS_URL = BASE_URL
+			+ "/announcements?parent_event=" + ROOT_EVENT_ID + "&api_key="
+			+ CONFERENCE_API_KEY;
+	public static final String EDIT_MY_SCHEDULE_URL = BASE_URL
+			+ "/editmyschedule/o/";
+	public static final String GET_SHOW_URL = BASE_URL + "/shows";
+	public static final String GET_RINGS_URL = BASE_URL + "/rings";
 
-    // Static file host for the sandbox data
-    public static final String GET_SANDBOX_URL = "https://developers.google.com/events/io/sandbox-data";
+	public static final String buildGetBreedRingsUrl(String showId) {
+		return GET_RINGS_URL + "/show/" + showId;
+	}
+	public static final String buildGetBreedRingsUrl(String showId, String breed) {
+		return GET_RINGS_URL + "/show/" + showId + "/" + breed;
+	}
 
-    // YouTube API config
-    public static final String YOUTUBE_API_KEY = "API_KEY";
-    // YouTube share URL
-    public static final String YOUTUBE_SHARE_URL_PREFIX = "http://youtu.be/";
+	// Static file host for the sandbox data
+	public static final String GET_SANDBOX_URL = "https://developers.google.com/events/io/sandbox-data";
 
-    // Livestream captions config
-    public static final String PRIMARY_LIVESTREAM_CAPTIONS_URL = "TODO";
-    public static final String SECONDARY_LIVESTREAM_CAPTIONS_URL = "TODO";
-    public static final String PRIMARY_LIVESTREAM_TRACK = "android";
-    public static final String SECONDARY_LIVESTREAM_TRACK = "chrome";
+	// YouTube API config
+	public static final String YOUTUBE_API_KEY = "API_KEY";
+	// YouTube share URL
+	public static final String YOUTUBE_SHARE_URL_PREFIX = "http://youtu.be/";
 
-    // GCM config
-    public static final String GCM_SERVER_URL = "https://yourapp-gcm.appspot.com";
-    public static final String GCM_SENDER_ID = "0000000000000"; // project ID from the APIs console
+	// Livestream captions config
+	public static final String PRIMARY_LIVESTREAM_CAPTIONS_URL = "TODO";
+	public static final String SECONDARY_LIVESTREAM_CAPTIONS_URL = "TODO";
+	public static final String PRIMARY_LIVESTREAM_TRACK = "android";
+	public static final String SECONDARY_LIVESTREAM_TRACK = "chrome";
+
+	// GCM config
+	public static final String GCM_SERVER_URL = "https://yourapp-gcm.appspot.com";
+	public static final String GCM_SENDER_ID = "0000000000000"; // project ID
+																// from the APIs
+																// console
 }

@@ -59,4 +59,11 @@ public class ShowRingManager {
 		}
 		return false;
 	}
+
+	public static boolean deleteShowRingsForShow(String showId) {
+		BreedRingManager.deleteAllBreedRingsForShow(showId);
+		JuniorRingManager.deleteAllJuniorRingsForShow(showId);
+		GroupRingManager.deleteAllGroupRingsForShow(showId);
+		return false;
+	}
 }

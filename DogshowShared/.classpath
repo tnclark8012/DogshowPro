@@ -6,5 +6,6 @@
 	<classpathentry kind="lib" path="libs/appengine-api-labs.jar"/>
 	<classpathentry kind="lib" path="libs/appengine-endpoints.jar"/>
 	<classpathentry kind="lib" path="libs/appengine-jsr107cache-1.7.5.jar"/>
+	<classpathentry kind="lib" path="libs/gson-2.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
