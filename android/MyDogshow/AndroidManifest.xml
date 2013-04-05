@@ -112,6 +112,11 @@
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.HomeActivity" />
         </activity>
+        <activity android:name=".preferences.PrefsActivity"
+            android:label="Settings">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.HomeActivity" />
+        </activity>
         
         <provider
             android:name=".provider.DogshowProvider"
