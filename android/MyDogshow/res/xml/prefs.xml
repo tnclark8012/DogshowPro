@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+   <PreferenceCategory
+   android:summary="Settings"
+   android:title="Settings" >
+  <EditTextPreference
+     android:key="judgeTime"
+     android:summary="Estimated minutes to judge one dog"
+     android:title="Judging Time" />
+ </PreferenceCategory> 
+
+</PreferenceScreen>

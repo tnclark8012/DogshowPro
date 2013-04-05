@@ -55,7 +55,6 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 	private final long upcomingAllowedWindow = 1 * 60 * 1000;
 	private long upcomingBreedRingStart = 0;
 	private static final String TAG = MyScheduleFragment.class.getSimpleName();
-	private Uri mRingsUri;
 	private CursorAdapter mAdapter;
 	private int mRingQueryToken;
 	private View mRootView;
@@ -65,9 +64,6 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 	private RelativeLayout mBreedImage;
 	private RelativeLayout mViewUpcomingHeader;
 	private RelativeLayout mViewNoUpcomingHeader;
-	private TextView mViewNoUpcomingHeaderText;
-
-	private Uri mUpcommingUri;
 	private Handler handler = new Handler();
 
 	private Runnable updateUpcomingRunnable = new Runnable() {
