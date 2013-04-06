@@ -2,10 +2,8 @@ package dev.tclark.dogshow.persistence.datastore.managers;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
 
 import com.google.appengine.labs.repackaged.org.json.JSONArray;
 import com.google.appengine.labs.repackaged.org.json.JSONException;
@@ -14,6 +12,7 @@ import com.google.appengine.labs.repackaged.org.json.JSONObject;
 import dev.tclark.dogshow.persistence.datastore.Show;
 import dev.tclark.dogshow.persistence.datastore.ShowRing;
 import dev.tclark.dogshow.persistence.datastore.accessors.ShowRingAccessor;
+import dev.tclark.dogshow.util.Utils;
 
 public class ShowRingManager {
 	public static void createShowRings(List<ShowRing> rings) {
@@ -26,7 +25,7 @@ public class ShowRingManager {
 			//TODO preprocessing JSON stinks...
 			System.out.println("Creating rings for " + "(" + showId
 					+ ") starting on " + new Date(match.getStartDate()));
-			Calendar cal = new GregorianCalendar(Locale.US);
+			Calendar cal = Utils.getCalendar();
 			cal.setTimeInMillis(match.getStartDate());
 			cal.add(Calendar.DAY_OF_MONTH, -1);
 			JSONArray ringsArray = null;

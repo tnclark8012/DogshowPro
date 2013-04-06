@@ -25,7 +25,7 @@ public class Config {
 																						// APIs
 																						// console
 
-	public static final boolean DEBUG_LOCAL = true;
+	public static final boolean DEBUG_LOCAL = false;
 	public static final boolean DEBUG_OFFLINE = false;//TODO implement
 	// Conference API-specific config
 	// NOTE: the backend used for the Google I/O 2012 Android app is not

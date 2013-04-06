@@ -45,7 +45,7 @@ public class Show implements Storable, CustomKeyName{
 	public Show(Entity entity)
 	{
 		showName = (String)entity.getProperty("showName");
-		System.out.println("Setting entity showName to " + showName);
+
 		startDateMillis = (Long)entity.getProperty("startDate");
 		city = (String) entity.getProperty("city");
 		state = (String)entity.getProperty("state");
@@ -68,6 +68,7 @@ public class Show implements Storable, CustomKeyName{
 		e.setProperty("city", city);
 		e.setProperty("state", state);
 		e.setProperty("showId", showId);
+		System.out.println("Setting entity showName to " + showName + " on " + new Date(startDateMillis));
 		return e;
 	}
 

@@ -122,7 +122,8 @@ public class DogshowProvider extends ContentProvider {
 		case BREED_RINGS_WITH_DOGS_ENTERED: {
 			final SelectionBuilder exBuilder = buildExpandedSelection(uri, BREED_RINGS_WITH_DOGS_ENTERED);
 			final SelectionBuilder builder = new SelectionBuilder();
-
+			Log.d(TAG, "Sort order is " + sortOrder);
+			
 			return exBuilder.where(selection, selectionArgs).query(db, projection, null, null, sortOrder, null);
 		}
 		case DOGS_ENTERED:

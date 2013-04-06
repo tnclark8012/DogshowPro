@@ -29,17 +29,20 @@ import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.database.Cursor;
 import android.graphics.drawable.BitmapDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.CursorAdapter;
+import android.text.format.DateUtils;
 import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewStub;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -51,6 +54,7 @@ import dev.tnclark8012.dogshow.apps.android.preferences.Prefs;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
+import dev.tnclark8012.dogshow.apps.android.util.Utils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
 public class MyScheduleFragment extends SherlockListFragment implements LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback, OnSharedPreferenceChangeListener {
@@ -67,6 +71,8 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 	private RelativeLayout mBreedImage;
 	private RelativeLayout mViewUpcomingHeader;
 	private RelativeLayout mViewNoUpcomingHeader;
+	private TextView mViewNoUpcomingHeaderText;
+	private SparseBooleanArray newDayPositions;
 	private Handler handler = new Handler();
 
 	private Runnable updateUpcomingRunnable = new Runnable() {
@@ -158,17 +164,33 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 		int token = loader.getId();
 		if (token == BreedRingsQuery._TOKEN) {
 			Log.v(TAG, "Cursor contains " + cursor.getCount() + " breed rings");
-			mAdapter.changeCursor(cursor);
-			Bundle arguments = getArguments();
-			if (arguments != null && arguments.containsKey("_uri")) {
-				String uri = arguments.get("_uri").toString();
-			}
+			onBreedRingsQueryComplete(cursor);
 		} else if (token == UpcomingBreedRingQuery._TOKEN) {
 			onBreedRingUpommingQueryComplete(cursor);
 		} else {
 			Log.d(TAG, "Query complete, Not Actionable: " + token);
 			cursor.close();
 		}
+	}
+
+	public void onBreedRingsQueryComplete(Cursor cursor) {
+		int cursorSize = cursor.getCount();
+		cursor.moveToFirst();
+		int position = 0;
+		newDayPositions = new SparseBooleanArray(cursorSize);
+		newDayPositions.put(position, true);
+		long prevBlockMillis = cursor.getLong(BreedRingsQuery.RING_BLOCK_START);
+		long currentBlockMillis = 0;
+		if (cursorSize > 1) {
+			while (cursor.moveToNext()) {
+				position++;
+				currentBlockMillis = cursor.getLong(BreedRingsQuery.RING_BLOCK_START);
+				newDayPositions.put(position, !Utils.isSameDay(prevBlockMillis, currentBlockMillis));
+				prevBlockMillis = currentBlockMillis;
+			}
+		}
+		cursor.moveToPosition(-1);
+		mAdapter.changeCursor(cursor);
 	}
 
 	public void onBreedRingUpommingQueryComplete(Cursor cursor) {
@@ -225,18 +247,26 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 
 		@Override
 		public void bindView(View view, Context context, Cursor cursor) {
-			Calendar cal = GregorianCalendar.getInstance();
-			String format = "h:mm";
-			String ampmFormat = "a";
+			int countAhead = cursor.getInt(BreedRingsQuery.BREED_COUNT_AHEAD);
+			long blockTimeMillis = cursor.getLong(BreedRingsQuery.RING_BLOCK_START);
+			long estMillis = blockTimeMillis + countAhead * perDogMillis;
+			if (newDayPositions.get(cursor.getPosition())) {
+				ViewStub stub = (ViewStub) view.findViewById(R.id.list_item_ring_header_stub);
+				RelativeLayout header = null;
+				if (stub != null) {
+					header = (RelativeLayout) stub.inflate();
+				} else {
+					header = (RelativeLayout) view.findViewById(R.id.list_item_ring_header);
+				}
+				((TextView) header.findViewById(R.id.list_item_ring_header_date)).setText(DateUtils.formatDateTime(mContext, blockTimeMillis, DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NO_YEAR) + "");
+			}
 			((TextView) view.findViewById(R.id.list_item_ring_names)).setText(cursor.getString(BreedRingsQuery.ENTERED_CALL_NAMES));
 			String breedName = cursor.getString(BreedRingsQuery.RING_BREED);
 			((TextView) view.findViewById(R.id.list_item_ring_breed)).setText(Breeds.parse(breedName).getPlural());
 			((TextView) view.findViewById(R.id.list_item_ring_number)).setText(getString(R.string.template_ring_number, cursor.getInt(BreedRingsQuery.RING_NUMBER)));
-			long blockTimeMillis = cursor.getLong(BreedRingsQuery.RING_BLOCK_START);
+
 			((TextView) view.findViewById(R.id.list_item_ring_start)).setText(String.format("(%s)", UIUtils.timeStringFromMillis(blockTimeMillis, true)));
 
-			int countAhead = cursor.getInt(BreedRingsQuery.BREED_COUNT_AHEAD);
-			long estMillis = blockTimeMillis + countAhead * perDogMillis;
 			String time = String.format("%s\n%s", UIUtils.timeStringFromMillis(estMillis, false), UIUtils.timeAmPmFromMillis(estMillis));
 
 			((TextView) view.findViewById(R.id.list_item_ring_time)).setText(time);
@@ -244,7 +274,7 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 
 		@Override
 		public View newView(Context context, Cursor cursor, ViewGroup parent) {
-			return getActivity().getLayoutInflater().inflate(R.layout.list_item_ring, parent, false);
+			return getActivity().getLayoutInflater().inflate(R.layout.list_item_ring_with_header, parent, false);
 		}
 	}
 
@@ -278,6 +308,7 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 	public void onActivityCreated(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
+		Prefs.get(getActivity()).registerOnSharedPreferenceChangeListener(this);
 		// getListView().setAdapter(new ArrayAdapter<String>(getActivity(), 0));
 	}
 
@@ -307,11 +338,14 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-		if(key.equals(Prefs.KEY_JUDGE_TIME))
-		{
+		Log.d(TAG, "Preference changed!");
+		if (key.equals(Prefs.KEY_JUDGE_TIME)) {
 			perDogMillis = Prefs.getEstimatedJudgingTime(getActivity());
+			LoaderManager manager = getLoaderManager();
+			manager.restartLoader(BreedRingsQuery._TOKEN, getArguments(), this);
+			manager.restartLoader(UpcomingBreedRingQuery._TOKEN, getArguments(), this);
 		}
-		
+
 	}
 
 }
