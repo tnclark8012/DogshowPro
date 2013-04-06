@@ -4,9 +4,11 @@
    android:summary="Settings"
    android:title="Settings" >
   <EditTextPreference
-     android:key="judgeTime"
+     android:key="dev.tnclark8012.dogshow.android.dogshow.prefs.key.JUDGE_TIME"
      android:summary="Estimated minutes to judge one dog"
-     android:title="Judging Time" />
+     android:title="Judging Time"
+     android:inputType="number"
+     android:hint="minutes" />
  </PreferenceCategory> 
 
 </PreferenceScreen>

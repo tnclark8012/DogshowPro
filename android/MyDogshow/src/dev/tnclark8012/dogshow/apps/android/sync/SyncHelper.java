@@ -71,11 +71,12 @@ public class SyncHelper {
 		try {//TODO use show handler
 			Log.v(TAG, "getShows using base url, " + Config.GET_SHOW_URL);
 			String responseStr = makeSimpleGetRequest(mContext, Config.GET_SHOW_URL);
+			Log.v(TAG, "Response: " + responseStr);
 			if(responseStr == null)
 			{
 				return null;
 			}
-			JSONObject response = new JSONObject();// TODO create ResponseHandler
+			JSONObject response = new JSONObject(responseStr);// TODO create ResponseHandler
 			JSONArray array = null;
 			array = response.optJSONArray("show");
 			if (array != null) {

@@ -13,7 +13,6 @@ import com.google.appengine.api.datastore.Query.Filter;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 import com.google.appengine.api.datastore.Query.FilterPredicate;
 
-import dev.tclark.dogshow.persistence.datastore.BreedRing;
 import dev.tclark.dogshow.persistence.datastore.GroupRing;
 
 public class GroupRingAccessor {

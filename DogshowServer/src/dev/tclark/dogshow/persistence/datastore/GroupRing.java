@@ -2,8 +2,6 @@ package dev.tclark.dogshow.persistence.datastore;
 
 import java.text.ParseException;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Locale;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -30,7 +28,7 @@ public class GroupRing extends ShowRing {
 			GroupRing ring = new GroupRing();
 			long dateMillis = json.getLong("DateMillis");
 			String timeString = json.getString("Time");
-			Calendar cal = new GregorianCalendar(Locale.US);
+			Calendar cal = Utils.getCalendar();
 			cal.setTimeInMillis(dateMillis);
 			long blockStartMillis = Utils.millisFromTimeString(cal, timeString);
 			ring.mBlockStartMillis = blockStartMillis;

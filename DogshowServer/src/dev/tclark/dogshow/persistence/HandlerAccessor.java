@@ -1,7 +1,5 @@
 package dev.tclark.dogshow.persistence;
 
-import org.apache.jsp.ah.entityDetailsBody_jsp;
-
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
