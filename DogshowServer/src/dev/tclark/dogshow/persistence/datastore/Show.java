@@ -45,11 +45,7 @@ public class Show implements Storable, CustomKeyName{
 	public Show(Entity entity)
 	{
 		showName = (String)entity.getProperty("showName");
-<<<<<<< HEAD
 
-=======
-		System.out.println("Setting entity showName to " + showName);
->>>>>>> showName was not being set. FindShowFragment pulls shows from server
 		startDateMillis = (Long)entity.getProperty("startDate");
 		city = (String) entity.getProperty("city");
 		state = (String)entity.getProperty("state");

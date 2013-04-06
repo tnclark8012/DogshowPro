@@ -2,16 +2,9 @@ package dev.tclark.dogshow.persistence.datastore.accessors;
 
 import java.util.List;
 
-import com.google.appengine.api.datastore.DatastoreService;
-import com.google.appengine.api.datastore.DatastoreServiceFactory;
-import com.google.appengine.api.datastore.Entity;
-import com.google.appengine.api.datastore.PreparedQuery;
-import com.google.appengine.api.datastore.Query;
-
 import dev.tclark.dogshow.persistence.datastore.BreedRing;
 import dev.tclark.dogshow.persistence.datastore.GroupRing;
 import dev.tclark.dogshow.persistence.datastore.JuniorRing;
-import dev.tclark.dogshow.persistence.datastore.Show;
 import dev.tclark.dogshow.persistence.datastore.ShowRing;
 
 public class ShowRingAccessor {
