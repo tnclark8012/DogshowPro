@@ -63,15 +63,15 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				+ DogsColumns.DOG_POINTS + "," + DogsColumns.DOG_SEX + ","
 				+ DogsColumns.DOG_IS_SHOWING + "," + DogsColumns.DOG_UPDATED
 				+ ")" + " VALUES (" + "\"PAPILLON\"," + "\"Lotta\"," + "2,"
-				+ "0," + "15," + "1," + "1," + System.currentTimeMillis() + ")");
+				+ "0," + "15," + "0," + "1," + System.currentTimeMillis() + ")");
 		
 		db.execSQL("INSERT INTO " + Tables.DOGS + " (" + DogsColumns.DOG_BREED
 				+ "," + DogsColumns.DOG_CALL_NAME + ","
 				+ DogsColumns.DOG_MAJORS + "," + DogsColumns.DOG_OWNER_ID + ","
 				+ DogsColumns.DOG_POINTS + "," + DogsColumns.DOG_SEX + ","
 				+ DogsColumns.DOG_IS_SHOWING + "," + DogsColumns.DOG_UPDATED
-				+ ")" + " VALUES (" + "\"PAPILLON\"," + "\"Michael\"," + "2,"
-				+ "0," + "20," + "0," + "1," + System.currentTimeMillis() + ")");
+				+ ")" + " VALUES (" + "\"SHETLAND_SHEEPDOG\"," + "\"Jay\"," + "2,"
+				+ "0," + "20," + "1," + "1," + System.currentTimeMillis() + ")");
 
 		db.execSQL("CREATE TABLE " + Tables.BREED_RINGS + " ("
 				+ BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"

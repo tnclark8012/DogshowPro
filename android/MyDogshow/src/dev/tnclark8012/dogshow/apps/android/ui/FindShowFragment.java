@@ -48,7 +48,7 @@ public class FindShowFragment extends SherlockListFragment {
 	private ShowListAdapter mAdapter;
 	private View mRootView;
 	private String mSelectedShowId = "[not set]";
-
+	
 	public interface Callbacks {
 		void onShowSelected(String showId);
 
@@ -57,9 +57,15 @@ public class FindShowFragment extends SherlockListFragment {
 
 	private AsyncTask<Void, Void, JSONArray> getShowsTask = new AsyncTask<Void, Void, JSONArray>() {
 		protected void onPostExecute(JSONArray result) {
-			mAdapter = new ShowListAdapter(getActivity(), result);
-			setListAdapter(mAdapter);
-			mAdapter.notifyDataSetChanged();
+			if (result != null) {
+				mAdapter = new ShowListAdapter(getActivity(), result);
+				setListAdapter(mAdapter);
+				mAdapter.notifyDataSetChanged();
+			}
+			else
+			{
+				
+			}
 		}
 
 		@Override
@@ -67,10 +73,10 @@ public class FindShowFragment extends SherlockListFragment {
 			return new SyncHelper(getActivity()).getShows();
 		};
 	};
-	
+
 	private AsyncTask<Void, Void, JSONArray> getRingsTask = new AsyncTask<Void, Void, JSONArray>() {
 		protected void onPostExecute(JSONArray result) {
-			
+
 		}
 
 		@Override
@@ -94,16 +100,20 @@ public class FindShowFragment extends SherlockListFragment {
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		final Intent intent = BaseActivity
-				.fragmentArgumentsToIntent(getArguments());
+		final Intent intent = BaseActivity.fragmentArgumentsToIntent(getArguments());
+	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
+		getShowsTask.cancel(true);
 	}
 
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
 		if (!(activity instanceof Callbacks)) {
-			throw new ClassCastException(
-					"Activity must implement fragment's callbacks.");
+			throw new ClassCastException("Activity must implement fragment's callbacks.");
 		}
 		mCallbacks = (Callbacks) activity;
 	}
@@ -115,10 +125,8 @@ public class FindShowFragment extends SherlockListFragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		mRootView = inflater.inflate(R.layout.fragment_find_show, container,
-				false);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		mRootView = inflater.inflate(R.layout.fragment_find_show, container, false);
 		getShowsTask.execute();
 		return mRootView;
 	}
@@ -140,8 +148,7 @@ public class FindShowFragment extends SherlockListFragment {
 		JSONArray mArray;
 
 		public ShowListAdapter(Context context, JSONArray array) {
-			super(context, android.R.layout.simple_list_item_2,
-					android.R.id.text1);
+			super(context, android.R.layout.simple_list_item_2, android.R.id.text1);
 			mArray = array;
 		}
 
@@ -171,10 +178,8 @@ public class FindShowFragment extends SherlockListFragment {
 			// (expensively)
 			if (obj != null && obj.has("showName")) {
 				try {
-					((TextView) convertView.findViewById(android.R.id.text1))
-							.setText(obj.getString("showName"));
-					((TextView) convertView.findViewById(android.R.id.text2))
-					.setText(obj.getString("city") + ", " + obj.getString("state"));
+					((TextView) convertView.findViewById(android.R.id.text1)).setText(obj.getString("showName"));
+					((TextView) convertView.findViewById(android.R.id.text2)).setText(obj.getString("city") + ", " + obj.getString("state"));
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}

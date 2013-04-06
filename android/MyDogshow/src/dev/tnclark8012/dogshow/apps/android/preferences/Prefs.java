@@ -17,7 +17,14 @@ public final class Prefs {
 	public static SharedPreferences get(Context context) {
 		return PreferenceManager.getDefaultSharedPreferences(context);
 	}
-	public static float getEstimatedJudgingTime(Context context) {
-		return PreferenceManager.getDefaultSharedPreferences(context).getFloat(KEY_JUDGE_TIME, 2.5f);
+
+	/**
+	 * Estimated judging time per dog
+	 * 
+	 * @param context
+	 * @return milliseconds per dog
+	 */
+	public static long getEstimatedJudgingTime(Context context) {
+		return (long) (1000 * 60 * Float.parseFloat(PreferenceManager.getDefaultSharedPreferences(context).getString(KEY_JUDGE_TIME, "2.5")));
 	}
 }

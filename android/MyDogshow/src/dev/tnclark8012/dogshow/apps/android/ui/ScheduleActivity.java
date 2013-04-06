@@ -183,7 +183,8 @@ public class ScheduleActivity extends BaseActivity implements ActionBar.TabListe
 
 	private class HomePagerAdapter extends FragmentPagerAdapter {
 		MyScheduleFragment mMyScheduleFragment;
-		MyScheduleFragment mTeamFragment;
+		IncompleteFragment mTeamFragment;
+		IncompleteFragment mFullShowFragment;
 
 		public HomePagerAdapter(FragmentManager fm) {
 			super(fm);
@@ -199,11 +200,11 @@ public class ScheduleActivity extends BaseActivity implements ActionBar.TabListe
 				fragment = (mMyScheduleFragment == null) ? mMyScheduleFragment = new MyScheduleFragment() : mMyScheduleFragment;
 				break;
 			case 1:
-				fragment = (mTeamFragment == null) ? mTeamFragment = new MyScheduleFragment() : mTeamFragment;
+				fragment = (mTeamFragment == null) ? mTeamFragment = new IncompleteFragment() : mTeamFragment;
 				break;
 			case 2:
 				Log.d(TAG, "new FullShowFragment()");
-				fragment = new FullShowFragment();
+				fragment = (mFullShowFragment == null) ? mFullShowFragment = new IncompleteFragment() : mFullShowFragment;
 				break;
 			}
 			fragment.setArguments(args);

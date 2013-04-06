@@ -214,7 +214,7 @@ public class DogsFragment extends SherlockListFragment implements LoaderManager.
 		public void bindView(View view, Context context, Cursor cursor) {
 			((TextView) view.findViewById(R.id.list_item_dog_name)).setText(cursor.getString(DogsQuery.DOG_CALL_NAME));
 			String breedStr = cursor.getString(DogsQuery.DOG_BREED);
-			((TextView) view.findViewById(R.id.list_item_dog_breed)).setText(Breeds.parse(breedStr).getPlural());
+			((TextView) view.findViewById(R.id.list_item_dog_breed)).setText(Breeds.parse(breedStr).getPrimaryName());
 			String imagePath = cursor.getString(DogsQuery.DOG_IMAGE_PATH);
 			RelativeLayout imageLayout = ((RelativeLayout) view.findViewById(R.id.list_item_dog_thumb));
 			if (imagePath != null) {
