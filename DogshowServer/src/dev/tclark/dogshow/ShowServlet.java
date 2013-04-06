@@ -41,7 +41,6 @@ public class ShowServlet {
 	@Produces("application/json")
 	@Path("createShow/{id}")
 	public Response createDummyShow(@PathParam("id") String showId) {
-<<<<<<< HEAD
 		String response = "Called create for id " + showId;
 		System.out.println(response);
 		Calendar date = Utils.getCalendar();
@@ -49,13 +48,6 @@ public class ShowServlet {
 		response += ". Setting date to " + date + ". In millis is: " + date.getTimeInMillis();
 		ShowManager.createShow(new Show("Wichita Kennel Club, Inc.", date.getTimeInMillis(), "Valley Center", "KS", showId));
 		return Response.ok(response).build();
-=======
-		System.out.println("Called create for id " + showId);
-		ShowManager.createShow(new Show("Wichita Kennel Club, Inc.",
-				new GregorianCalendar(2013, 4, 4, 0, 0).getTimeInMillis(),
-				"Valley Center", "KS", showId));
-		return Response.ok("Success").build();
->>>>>>> Rings pull and show w/ mult breeds. big commit
 	}
 
 	@GET
