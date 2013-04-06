@@ -341,7 +341,6 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 			manager.restartLoader(BreedRingsQuery._TOKEN, getArguments(), this);
 			manager.restartLoader(UpcomingBreedRingQuery._TOKEN, getArguments(), this);
 		}
-
 	}
 
 }
