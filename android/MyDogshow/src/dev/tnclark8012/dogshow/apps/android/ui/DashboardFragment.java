@@ -53,15 +53,16 @@ public class DashboardFragment extends SherlockFragment
 
 		});
 
-		root.findViewById(R.id.dashboard_handlers).setOnClickListener(new View.OnClickListener()
-		{
-			public void onClick(View view)
-			{
-					Intent intent = new Intent(getActivity(), HandlerActivity.class);
-					startActivity(intent);
-			}
-
-		});
+		root.findViewById(R.id.dashboard_handlers).setVisibility(View.GONE);
+//		.setOnClickListener(new View.OnClickListener()
+//		{
+//			public void onClick(View view)
+//			{
+//					Intent intent = new Intent(getActivity(), HandlerActivity.class);
+//					startActivity(intent);
+//			}
+//
+//		});
 		root.findViewById(R.id.dashboard_find_show).setOnClickListener(new View.OnClickListener()
 		{
 			public void onClick(View view)

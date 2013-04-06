@@ -23,6 +23,8 @@ import java.util.GregorianCalendar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.database.Cursor;
@@ -45,13 +47,14 @@ import com.actionbarsherlock.app.SherlockListFragment;
 import com.actionbarsherlock.view.ActionMode;
 
 import dev.tnclark8012.dogshow.apps.android.R;
+import dev.tnclark8012.dogshow.apps.android.preferences.Prefs;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
-public class MyScheduleFragment extends SherlockListFragment implements LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback {
-	private final static long perDogMillis = 1000 * 60 * 2;
+public class MyScheduleFragment extends SherlockListFragment implements LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback, OnSharedPreferenceChangeListener {
+	private static long perDogMillis = 1000 * 60 * 2;
 	private final long upcomingAllowedWindow = 1 * 60 * 1000;
 	private long upcomingBreedRingStart = 0;
 	private static final String TAG = MyScheduleFragment.class.getSimpleName();
@@ -95,6 +98,7 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		final Intent intent = BaseActivity.fragmentArgumentsToIntent(getArguments());
+		perDogMillis = Prefs.getEstimatedJudgingTime(getActivity());
 		mRingQueryToken = BreedRingsQuery._TOKEN;
 		mAdapter = new RingListAdapter(getActivity());
 		setListAdapter(mAdapter);
@@ -301,6 +305,15 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 	public void onDestroyActionMode(ActionMode mode) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+		if(key.equals(Prefs.KEY_JUDGE_TIME))
+		{
+			perDogMillis = Prefs.getEstimatedJudgingTime(getActivity());
+		}
+		
 	}
 
 }
