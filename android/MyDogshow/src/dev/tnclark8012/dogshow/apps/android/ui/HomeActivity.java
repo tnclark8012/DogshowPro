@@ -16,14 +16,13 @@
 
 package dev.tnclark8012.dogshow.apps.android.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 
 import com.actionbarsherlock.app.ActionBar;
 
 import dev.tnclark8012.dogshow.apps.android.R;
-import dev.tnclark8012.dogshow.apps.android.R.layout;
 
 /**
  * The landing screen for the app, once the user has logged in.
@@ -44,6 +43,7 @@ public class HomeActivity extends BaseActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+    	Log.d(TAG, "onCreate");
         super.onCreate(savedInstanceState);
         getSupportActionBar().setHomeButtonEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
