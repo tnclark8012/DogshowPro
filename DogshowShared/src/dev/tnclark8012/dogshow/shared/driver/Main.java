@@ -10,12 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import com.google.appengine.labs.repackaged.org.json.JSONException;
-import com.google.gson.Gson;
-import com.google.gson.annotations.SerializedName;
-
-import dev.tnclark8012.dogshow.shared.DogshowEnums.BreedGroup;
-import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
+import dev.tnclark8012.dogshow.shared.DogshowEnums.JuniorClass;
 
 public class Main {
 	public static void printArray(Object [] array)
@@ -31,10 +26,9 @@ public class Main {
 	 * @throws ParseException
 	 * @throws JSONException
 	 */
-	public static void main(String[] argz) throws IOException, ParseException,
-			JSONException {
+	public static void main(String[] argz) throws IOException, ParseException {
 		// Breeds [] breeds = Breeds.values();
-		printArray(BreedGroup.HERDING.getBreedNames());
+		printArray(JuniorClass.values());
 		if (true) {
 			return;
 		}

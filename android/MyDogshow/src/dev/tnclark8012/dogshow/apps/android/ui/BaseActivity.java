@@ -42,7 +42,7 @@ public abstract class BaseActivity extends SherlockFragmentActivity {
 		// and show the authentication screen.
 			if (!AccountUtils.isAuthenticated(this)) {
 //				new Intent(this, DogActivity.class)
-				AccountUtils.startAuthenticationFlow(this, null);
+				AccountUtils.startAuthenticationFlow(this, getIntent());
 				finish();
 			}
 
