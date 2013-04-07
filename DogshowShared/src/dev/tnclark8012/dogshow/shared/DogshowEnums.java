@@ -3,6 +3,37 @@ package dev.tnclark8012.dogshow.shared;
 import java.util.ArrayList;
 
 public class DogshowEnums {
+	public enum JuniorClass {
+		NOVICE_JUNIOR("Novice Junior"),
+		NOVICE_INTERMEDIATE("Novice Intermediate"),
+		NOVICE_SENIOR("Novice Senior"),
+		OPEN_JUNIOR("Open Junior"),
+		OPEN_INTERMEDIATE("Open Intermediate"),
+		OPEN_SENIOR("Open Senior"),
+		MASTER_CLASS("Master Class");
+		private String mName;// primary
+
+		private JuniorClass(String namePrimary) {
+			mName = namePrimary;
+		}
+
+		public static JuniorClass parse(String className) {
+			className = className.trim();
+			for (JuniorClass clazz : JuniorClass.values()) {
+				if (clazz.hasName(className)) {
+					return clazz;
+				}
+			}
+			return null;
+		}
+
+		public String getPrimaryName() {
+			return mName;
+		}
+		public boolean hasName(String name) {
+			return toString().equalsIgnoreCase(name) || mName.equalsIgnoreCase(name);
+		}
+	}
 	public enum Breeds {
 
 		APPENZELLER_SENNENHUNDE("FSS", "Appenzeller Sennenhunde",

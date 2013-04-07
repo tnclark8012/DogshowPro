@@ -13,10 +13,13 @@ import com.google.appengine.labs.repackaged.org.json.JSONException;
 import com.google.appengine.labs.repackaged.org.json.JSONObject;
 
 import dev.tclark.dogshow.persistence.datastore.BreedRing;
+import dev.tclark.dogshow.persistence.datastore.JuniorRing;
 import dev.tclark.dogshow.persistence.datastore.accessors.BreedRingAccessor;
 import dev.tclark.dogshow.persistence.datastore.managers.BreedRingManager;
+import dev.tclark.dogshow.persistence.datastore.managers.JuniorRingManager;
 import dev.tclark.dogshow.persistence.datastore.managers.ShowRingManager;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
+import dev.tnclark8012.dogshow.shared.DogshowEnums.JuniorClass;
 
 @Path("rings")
 public class ShowRingServlet {
@@ -33,12 +36,21 @@ public class ShowRingServlet {
 
 	@GET
 	@Produces("application/json")
-	@Path("show/{id}/{breed}")
+	@Path("show/{id}/breed/{breed}")
 	public List<BreedRing> getBreedRingsForShowByBreed(
 			@PathParam("id") String showId, @PathParam("breed") String breed) {
 		return BreedRingManager.getBreedRingsByShowId(showId,
 				Breeds.parse(breed));
 	}
+	
+	@GET
+	@Produces("application/json")
+	@Path("show/{id}/juniors/{class}")
+	public List<JuniorRing> getJuniorRingsForShowByClass(
+			@PathParam("id") String showId, @PathParam("class") String className) {
+		return JuniorRingManager.getJuniorRingsByShowIdClassName(showId, JuniorClass.parse(className));
+	}	
+	
 
 	@GET
 	@Produces("application/json")

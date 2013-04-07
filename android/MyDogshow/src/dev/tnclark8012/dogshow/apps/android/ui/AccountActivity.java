@@ -139,10 +139,10 @@ public class AccountActivity extends SherlockFragmentActivity implements
 		openID = prefs.getString(Prefs.KEY_OPEN_ID, null);
 		editor.putString(Prefs.KEY_AUTH_TOKEN, authToken);
 		if (mFinishIntent != null) {
-			// mFinishIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-			// mFinishIntent.setAction(Intent.ACTION_MAIN);
-			// mFinishIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-			// | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+			 mFinishIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+			 mFinishIntent.setAction(Intent.ACTION_MAIN);
+			 mFinishIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+			 | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 			startActivity(mFinishIntent);
 		}
 		Toast.makeText(this, authToken, Toast.LENGTH_LONG);
