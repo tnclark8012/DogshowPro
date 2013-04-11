@@ -1,9 +1,5 @@
 package dev.tnclark8012.dogshow.apps.android.sql;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-
-import dev.tnclark8012.dogshow.apps.android.sql.DogshowDatabase.Tables;
 import android.net.Uri;
 import android.provider.BaseColumns;
 import android.provider.ContactsContract;

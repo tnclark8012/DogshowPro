@@ -7,6 +7,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.Set;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,10 +19,14 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.OperationApplicationException;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.RemoteException;
 import android.util.Log;
 import dev.tnclark8012.dogshow.apps.android.Config;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.SyncColumns;
 import dev.tnclark8012.dogshow.apps.android.sync.DogHandler.ParseMode;
 import dev.tnclark8012.dogshow.apps.android.util.AccountUtils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
@@ -68,12 +74,11 @@ public class SyncHelper {
 	}
 
 	public JSONArray getShows() {
-		try {//TODO use show handler
+		try {// TODO use show handler
 			Log.v(TAG, "getShows using base url, " + Config.GET_SHOW_URL);
 			String responseStr = makeSimpleGetRequest(mContext, Config.GET_SHOW_URL);
 			Log.v(TAG, "Response: " + responseStr);
-			if(responseStr == null)
-			{
+			if (responseStr == null) {
 				return null;
 			}
 			JSONObject response = new JSONObject(responseStr);// TODO create ResponseHandler
@@ -92,30 +97,27 @@ public class SyncHelper {
 
 	public void executeSync(String showId) {
 		final ContentResolver resolver = mContext.getContentResolver();
-        ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
+		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
 		try {
 			boolean auth = AccountUtils.isAuthenticated(mContext);
-			 Cursor breedsCursor = resolver.query(DogshowContract.Dogs.buildEnteredGroupedBreedUri(),
-	                    new String[]{DogshowContract.Dogs.DOG_BREED},
-	                    null, null, null );
-	            batch = new ArrayList<ContentProviderOperation>();
-	            String breedName = null;
-	            Log.i(TAG, "Syncing breed rings for " + breedsCursor.getCount() + " breeds"); 
-	            int numBreeds = 0;
-	            BreedRingsHandler handler = new BreedRingsHandler(mContext, true);
-	            while (breedsCursor.moveToNext()) {
-	            	breedName = breedsCursor.getString(0);
-	            	Log.v(TAG, "Requesting breed ring: " + breedName);
-	            	batch.addAll(executeGet(Config.buildGetBreedRingsUrl(showId, breedName),handler
-	                        , auth));
-	            	numBreeds++;
-	            }
-	            Log.v(TAG, "Pulled breed rings for " + numBreeds + " breeds");
-	            breedsCursor.close();
+			Cursor breedsCursor = resolver.query(DogshowContract.Dogs.buildEnteredGroupedBreedUri(), new String[] { DogshowContract.Dogs.DOG_BREED }, null, null, null);
+			batch = new ArrayList<ContentProviderOperation>();
+			String breedName = null;
+			Log.i(TAG, "Syncing breed rings for " + breedsCursor.getCount() + " breeds");
+			int numBreeds = 0;
+			BreedRingsHandler handler = new BreedRingsHandler(mContext, true);
+			while (breedsCursor.moveToNext()) {
+				breedName = breedsCursor.getString(0);
+				Log.v(TAG, "Requesting breed ring: " + breedName);
+				batch.addAll(executeGet(Config.buildGetBreedRingsUrl(showId, breedName), handler, auth));
+				numBreeds++;
+			}
+			Log.v(TAG, "Pulled breed rings for " + numBreeds + " breeds");
+			breedsCursor.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		try {
 			resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY, batch);
 		} catch (RemoteException e) {
@@ -126,9 +128,43 @@ public class SyncHelper {
 			e.printStackTrace();
 		}
 
-
 	}
 
+	public void updateBreedRing(Map<String, Object> updateValues, String selection, String[] selectionArgs) {
+		updateTable(BreedRings.CONTENT_URI, updateValues, selection, selectionArgs);
+	}
+
+	public void updateDog(Map<String, Object> updateValues, String selection, String[] selectionArgs) {
+		updateTable(Dogs.CONTENT_URI, updateValues, selection, selectionArgs);
+	}
+	
+	private void updateTable(Uri contentUri, Map<String, Object> updateValues, String selection, String[] selectionArgs) {
+		// TODO move these calls to a Service
+		ContentResolver resolver = mContext.getContentResolver();
+		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
+		ContentProviderOperation.Builder builder = null;
+		Log.v(TAG, "new ring");
+		builder = ContentProviderOperation.newUpdate(DogshowContract.addCallerIsSyncAdapterParameter(contentUri));
+		Set<String> keys = updateValues.keySet();
+		for (String key : keys) {
+			builder.withValue(key, updateValues.get(key));
+		}
+		builder.withValue(SyncColumns.UPDATED, System.currentTimeMillis());
+		builder.withSelection(selection, selectionArgs);
+		batch.add(builder.build());
+
+		try {
+			resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY, batch);
+		} catch (RemoteException e) {
+			throw new RuntimeException("Problem applying batch operation", e);
+		} catch (OperationApplicationException e) {
+			throw new RuntimeException("Problem applying batch operation", e);
+		}
+	}
+
+	/** TODO Move from DogHandler to {@link #updateDog(Map, String, String[])} 
+	 * @see {@link DogHandler#parse(ParseMode, String, String, String, String, String, String, String, int)}
+	 */
 	public void updateDog(String dogId, String breedName, String callName, String imagePath, String majors, String ownerId, String points, int sex) {
 		// TODO move these calls to a Service
 		ContentResolver resolver = mContext.getContentResolver();
