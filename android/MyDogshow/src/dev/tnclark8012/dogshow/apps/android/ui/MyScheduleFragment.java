@@ -16,9 +16,7 @@
 
 package dev.tnclark8012.dogshow.apps.android.ui;
 
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 import android.app.Activity;
 import android.content.Context;
@@ -31,7 +29,6 @@ import android.database.Cursor;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -58,7 +55,7 @@ import dev.tnclark8012.dogshow.apps.android.util.Utils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
 public class MyScheduleFragment extends SherlockListFragment implements LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback, OnSharedPreferenceChangeListener {
-	private static long perDogMillis = 1000 * 60 * 2;
+	private static float defaultPerDogJudgingMinutes = 2f;
 	private final long upcomingAllowedWindow = 1 * 60 * 1000;
 	private long upcomingBreedRingStart = 0;
 	private static final String TAG = MyScheduleFragment.class.getSimpleName();
@@ -103,7 +100,7 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		final Intent intent = BaseActivity.fragmentArgumentsToIntent(getArguments());
-		perDogMillis = Prefs.getEstimatedJudgingTime(getActivity());
+		defaultPerDogJudgingMinutes = Prefs.getEstimatedJudgingTime(getActivity());
 		mRingQueryToken = BreedRingsQuery._TOKEN;
 		mAdapter = new RingListAdapter(getActivity());
 		setListAdapter(mAdapter);
@@ -203,11 +200,13 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 			mViewRing.setText(getString(R.string.template_ring_number, cursor.getInt(UpcomingBreedRingQuery.RING_NUMBER)));
 			upcomingBreedRingStart = cursor.getLong(UpcomingBreedRingQuery.RING_BLOCK_START);
 			int countAhead = cursor.getInt(UpcomingBreedRingQuery.BREED_COUNT_AHEAD);
-			long estMillis = upcomingBreedRingStart + countAhead * perDogMillis;
+			float judgeMinutesPerDog = Utils.getMaybeNull(cursor, BreedRingsQuery.RING_JUDGE_TIME, defaultPerDogJudgingMinutes);
+			long estimatedStart = Utils.estimateBlockStart(countAhead, upcomingBreedRingStart, judgeMinutesPerDog);
+//			blockTimeMillis + countAhead * Utils.minutesToMillis(judgeMinutesPerDog);
 
-			mViewTime.setText(UIUtils.timeStringFromMillis(estMillis, true));
-			long delay = estMillis + upcomingAllowedWindow - System.currentTimeMillis();
-			Log.i(TAG, "Closest ring is " + new Date(estMillis));
+			mViewTime.setText(UIUtils.timeStringFromMillis(estimatedStart, true));
+			long delay = estimatedStart + upcomingAllowedWindow - System.currentTimeMillis();
+			Log.i(TAG, "Closest ring is " + new Date(estimatedStart));
 			delay = (delay > 0) ? delay : 0;
 			handler.postDelayed(updateUpcomingRunnable, delay);
 			String imagePath = cursor.getString(UpcomingBreedRingQuery.DOG_IMAGE_PATH);
@@ -250,7 +249,8 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 		public void bindView(View view, Context context, Cursor cursor) {
 			int countAhead = cursor.getInt(BreedRingsQuery.BREED_COUNT_AHEAD);
 			long blockTimeMillis = cursor.getLong(BreedRingsQuery.RING_BLOCK_START);
-			long estMillis = blockTimeMillis + countAhead * perDogMillis;
+			float judgeMinutesPerDog = Utils.getMaybeNull(cursor, BreedRingsQuery.RING_JUDGE_TIME, defaultPerDogJudgingMinutes);
+			long estMillis = Utils.estimateBlockStart(countAhead, blockTimeMillis, judgeMinutesPerDog);
 			if (newDayPositions.get(cursor.getPosition())) {
 				ViewStub stub = (ViewStub) view.findViewById(R.id.list_item_ring_header_stub);
 				RelativeLayout header = null;
@@ -279,29 +279,34 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 		}
 	}
 
+	/**
+	 * TODO Why can't this be the same query as {@link UpcomingBreedRingQuery}? How much would we save?
+	 * @author Taylor
+	 *
+	 */
 	private interface BreedRingsQuery {
 		int _TOKEN = 0x1;
 
-		String[] PROJECTION = { DogshowContract.BreedRings._ID, DogshowContract.BreedRings.RING_BREED, DogshowContract.BreedRings.RING_BLOCK_START, DogshowContract.BreedRings.RING_JUDGE, DogshowContract.BreedRings.RING_NUMBER, DogshowContract.Dogs.ENTERED_DOGS_NAMES, DogshowContract.BreedRings.RING_COUNT_AHEAD };
+		String[] PROJECTION = { DogshowContract.BreedRings._ID, DogshowContract.BreedRings.RING_BREED, DogshowContract.BreedRings.RING_BLOCK_START, DogshowContract.BreedRings.RING_JUDGE_TIME, DogshowContract.BreedRings.RING_NUMBER, DogshowContract.Dogs.ENTERED_DOGS_NAMES, DogshowContract.BreedRings.RING_COUNT_AHEAD };
 		int _ID = 0;
 		int RING_BREED = 1;
 		int RING_BLOCK_START = 2;
-		int RING_JUDGE = 3;
+		int RING_JUDGE_TIME = 3;
 		int RING_NUMBER = 4;
 		int ENTERED_CALL_NAMES = 5;
 		int BREED_COUNT_AHEAD = 6;
 	}
-
 	private interface UpcomingBreedRingQuery {
 		int _TOKEN = 0x2;
 
-		String[] PROJECTION = { DogshowContract.BreedRings._ID, DogshowContract.BreedRings.RING_BREED, DogshowContract.BreedRings.RING_BLOCK_START, DogshowContract.BreedRings.RING_NUMBER, DogshowContract.Dogs.DOG_IMAGE_PATH, DogshowContract.BreedRings.RING_COUNT_AHEAD };
+		String[] PROJECTION = { DogshowContract.BreedRings._ID, DogshowContract.BreedRings.RING_BREED, DogshowContract.BreedRings.RING_BLOCK_START, DogshowContract.BreedRings.RING_NUMBER, DogshowContract.Dogs.DOG_IMAGE_PATH, DogshowContract.BreedRings.RING_COUNT_AHEAD, DogshowContract.BreedRings.RING_JUDGE_TIME };
 		int _ID = 0;
 		int RING_BREED = 1;
 		int RING_BLOCK_START = 2;
 		int RING_NUMBER = 3;
 		int DOG_IMAGE_PATH = 4;
 		int BREED_COUNT_AHEAD = 5;
+		int RING_JUDGE_TIME = 6;
 
 	}
 
@@ -341,7 +346,7 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 		Log.d(TAG, "Preference changed!");
 		if (key.equals(Prefs.KEY_JUDGE_TIME)) {
-			perDogMillis = Prefs.getEstimatedJudgingTime(getActivity());
+			defaultPerDogJudgingMinutes = Prefs.getEstimatedJudgingTime(getActivity());
 			LoaderManager manager = getLoaderManager();
 			manager.restartLoader(BreedRingsQuery._TOKEN, getArguments(), this);
 			manager.restartLoader(UpcomingBreedRingQuery._TOKEN, getArguments(), this);
