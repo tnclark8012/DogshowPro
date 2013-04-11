@@ -20,7 +20,7 @@ public class DogHandler {
 	public DogHandler(Context context) {
 
 	}
-
+	/** TODO move update (eliminating parsemode) to {@link SyncHelper#updateDog(java.util.Map, String, String[])}*/
 	public ArrayList<ContentProviderOperation> parse(ParseMode mode, String dogId, String breedName, String callName, String imagePath, String majors, String points, String ownerId, int sex) {
 		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
 		ContentProviderOperation.Builder builder = null;
