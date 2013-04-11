@@ -52,8 +52,8 @@ public class DogHandler {
 			builder.withValue(Dogs.DOG_IMAGE_PATH, imagePath);
 		}
 
-		builder.withValue(Dogs.DOG_MAJORS, Utils.parseIntSafely(majors, 0));
-		builder.withValue(Dogs.DOG_POINTS, Utils.parseIntSafely(points, 0));
+		builder.withValue(Dogs.DOG_MAJORS, Utils.parseSafely(majors, 0));
+		builder.withValue(Dogs.DOG_POINTS, Utils.parseSafely(points, 0));
 		
 		if (!ownerId.isEmpty()) {
 			try {

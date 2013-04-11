@@ -40,6 +40,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -54,7 +56,7 @@ import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
 import dev.tnclark8012.dogshow.apps.android.util.Utils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
-public class MyScheduleFragment extends SherlockListFragment implements LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback, OnSharedPreferenceChangeListener {
+public class MyScheduleFragment extends SherlockListFragment implements LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback, OnSharedPreferenceChangeListener, OnItemLongClickListener {
 	private static float defaultPerDogJudgingMinutes = 2f;
 	private final long upcomingAllowedWindow = 1 * 60 * 1000;
 	private long upcomingBreedRingStart = 0;
@@ -202,7 +204,7 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 			int countAhead = cursor.getInt(UpcomingBreedRingQuery.BREED_COUNT_AHEAD);
 			float judgeMinutesPerDog = Utils.getMaybeNull(cursor, BreedRingsQuery.RING_JUDGE_TIME, defaultPerDogJudgingMinutes);
 			long estimatedStart = Utils.estimateBlockStart(countAhead, upcomingBreedRingStart, judgeMinutesPerDog);
-//			blockTimeMillis + countAhead * Utils.minutesToMillis(judgeMinutesPerDog);
+			// blockTimeMillis + countAhead * Utils.minutesToMillis(judgeMinutesPerDog);
 
 			mViewTime.setText(UIUtils.timeStringFromMillis(estimatedStart, true));
 			long delay = estimatedStart + upcomingAllowedWindow - System.currentTimeMillis();
@@ -281,8 +283,9 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 
 	/**
 	 * TODO Why can't this be the same query as {@link UpcomingBreedRingQuery}? How much would we save?
+	 * 
 	 * @author Taylor
-	 *
+	 * 
 	 */
 	private interface BreedRingsQuery {
 		int _TOKEN = 0x1;
@@ -296,6 +299,7 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 		int ENTERED_CALL_NAMES = 5;
 		int BREED_COUNT_AHEAD = 6;
 	}
+
 	private interface UpcomingBreedRingQuery {
 		int _TOKEN = 0x2;
 
@@ -315,7 +319,7 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
 		Prefs.get(getActivity()).registerOnSharedPreferenceChangeListener(this);
-		// getListView().setAdapter(new ArrayAdapter<String>(getActivity(), 0));
+		getListView().setOnItemLongClickListener(this);
 	}
 
 	@Override
@@ -353,5 +357,13 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 		}
 
 	}
+
+	@Override
+	public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+		return false;
+	}
+
+
 
 }
