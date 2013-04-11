@@ -83,7 +83,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				+ BreedRingsColumns.RING_DATE + " INTEGER NOT NULL,"
 				+ BreedRingsColumns.RING_DOG_COUNT+ " INTEGER NOT NULL,"
 				+ BreedRingsColumns.RING_JUDGE+ " TEXT NOT NULL,"
-				+ BreedRingsColumns.RING_JUDGE_TIME + " INTEGER NULL,"
+				+ BreedRingsColumns.RING_JUDGE_TIME + " FLOAT NULL,"
 				+ BreedRingsColumns.RING_NUMBER+ " INTEGER NOT NULL,"
 				+ BreedRingsColumns.RING_SHOW_ID + " TEXT NOT NULL,"
 				+ BreedRingsColumns.RING_SPECIAL_BITCH_COUNT+ " INTEGER NOT NULL,"
