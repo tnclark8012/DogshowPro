@@ -93,6 +93,7 @@ public class DogshowContract {
     	String RING_DATE = "breed_ring_date";
     	String RING_DOG_COUNT = "breed_ring_dog_count";
     	String RING_JUDGE = "breed_ring_judge";
+    	String RING_JUDGE_TIME = "breed_ring_judge_time";
     	String RING_NUMBER = "breed_ring_number";
     	String RING_SHOW_ID = "breed_ring_show_id";
     	String RING_SPECIAL_DOG_COUNT = "breed_ring_special_dog_count";
