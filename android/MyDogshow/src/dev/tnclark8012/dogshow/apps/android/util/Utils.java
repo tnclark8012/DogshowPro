@@ -4,13 +4,26 @@ import android.database.Cursor;
 import android.text.format.Time;
 
 public class Utils {
-	public static int parseIntSafely(String str, int defaultValue) {
+	public static int parseSafely(String str, int defaultValue) {
 		if (str.isEmpty() || !Character.isDigit(str.charAt(0))) {
 			// catch easiest cases that cause NumberFormatException to avoid costly handling
 			return defaultValue;
 		} else {
 			try {
 				return Integer.parseInt(str);
+			} catch (NumberFormatException nfe) {
+				return defaultValue;
+			}
+		}
+	}
+	
+	public static float parseSafely(String str, float defaultValue) {
+		if (str.isEmpty() || !Character.isDigit(str.charAt(0))) {
+			// catch easiest cases that cause NumberFormatException to avoid costly handling
+			return defaultValue;
+		} else {
+			try {
+				return Float.parseFloat(str);
 			} catch (NumberFormatException nfe) {
 				return defaultValue;
 			}
