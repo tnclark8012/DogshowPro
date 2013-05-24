@@ -134,16 +134,19 @@ public class SyncHelper {
 		updateTable(BreedRings.CONTENT_URI, updateValues, selection, selectionArgs);
 	}
 
+	public void updateBreedRing(long id, Map<String, Object> updateValues) {
+		updateTable(BreedRings.CONTENT_URI, updateValues, BreedRings._ID + "=?", new String[]{String.valueOf(id)});
+	}
+
 	public void updateDog(Map<String, Object> updateValues, String selection, String[] selectionArgs) {
 		updateTable(Dogs.CONTENT_URI, updateValues, selection, selectionArgs);
 	}
-	
+
 	private void updateTable(Uri contentUri, Map<String, Object> updateValues, String selection, String[] selectionArgs) {
 		// TODO move these calls to a Service
 		ContentResolver resolver = mContext.getContentResolver();
 		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
 		ContentProviderOperation.Builder builder = null;
-		Log.v(TAG, "new ring");
 		builder = ContentProviderOperation.newUpdate(DogshowContract.addCallerIsSyncAdapterParameter(contentUri));
 		Set<String> keys = updateValues.keySet();
 		for (String key : keys) {
@@ -162,7 +165,9 @@ public class SyncHelper {
 		}
 	}
 
-	/** TODO Move from DogHandler to {@link #updateDog(Map, String, String[])} 
+	/**
+	 * TODO Move from DogHandler to {@link #updateDog(Map, String, String[])}
+	 * 
 	 * @see {@link DogHandler#parse(ParseMode, String, String, String, String, String, String, String, int)}
 	 */
 	public void updateDog(String dogId, String breedName, String callName, String imagePath, String majors, String ownerId, String points, int sex) {

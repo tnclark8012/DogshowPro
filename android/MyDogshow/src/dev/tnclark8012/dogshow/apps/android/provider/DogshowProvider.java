@@ -39,6 +39,7 @@ import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowDatabase;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowDatabase.Tables;
 import dev.tnclark8012.dogshow.apps.android.util.DebugUtils;
+import dev.tnclark8012.dogshow.apps.android.util.LogUtils;
 import dev.tnclark8012.dogshow.apps.android.util.SelectionBuilder;
 
 /**
@@ -121,7 +122,6 @@ public class DogshowProvider extends ContentProvider {
 		case BREED_RINGS_WITH_DOGS:
 		case BREED_RINGS_WITH_DOGS_ENTERED: {
 			final SelectionBuilder exBuilder = buildExpandedSelection(uri, BREED_RINGS_WITH_DOGS_ENTERED);
-			final SelectionBuilder builder = new SelectionBuilder();
 			Log.d(TAG, "Sort order is " + sortOrder);
 			
 			return exBuilder.where(selection, selectionArgs).query(db, projection, null, null, sortOrder, null);
@@ -165,12 +165,14 @@ public class DogshowProvider extends ContentProvider {
 	/** {@inheritDoc} */
 	@Override
 	public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
-		Log.v(TAG, "update(uri=" + uri + ", values=" + values.toString() + ") selection " + selection);
+		Log.v(TAG, "update(uri=" + uri + ", values=" + values.toString() + ") selection " + selection + ", selectionArgs: " + selectionArgs[0]);
 		final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 		final SelectionBuilder builder = buildSimpleSelection(uri);
 		int retVal = builder.where(selection, selectionArgs).update(db, values);
+		Log.v(TAG, retVal + " row affected.");
 		boolean syncToNetwork = !DogshowContract.hasCallerIsSyncAdapterParameter(uri);
 		getContext().getContentResolver().notifyChange(uri, null, syncToNetwork);
+		Log.d(TAG, "return val of update: " + retVal);
 		return retVal;
 	}
 
