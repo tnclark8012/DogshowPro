@@ -2,8 +2,10 @@ package dev.tnclark8012.dogshow.apps.android.util;
 
 import android.database.Cursor;
 import android.text.format.Time;
+import android.util.Log;
 
 public class Utils {
+	private static final String TAG = Utils.class.getSimpleName();
 	public static int parseSafely(String str, int defaultValue) {
 		if (str.isEmpty() || !Character.isDigit(str.charAt(0))) {
 			// catch easiest cases that cause NumberFormatException to avoid costly handling
@@ -37,7 +39,10 @@ public class Utils {
 		int oneMonth = time.month;
 		int oneMonthDay = time.monthDay;
 		time.set(two);
-		return (oneYear == time.year) && (oneMonth == time.month) && (oneMonthDay == time.monthDay);
+		boolean same = (oneYear == time.year) && (oneMonth == time.month) && (oneMonthDay == time.monthDay);
+		Log.d(TAG, oneMonth+"/"+oneMonthDay + "/" + oneYear + " is same as " + time.month + "/" + time.monthDay + "/" +time.year+ ": " + same);
+		Log.d(TAG, one + " is same as " + two + ": " + same);
+		return same;
 	}
 
 	public static long getMaybeNull(Cursor cursor, int columnIndex, long defaultValue) {
