@@ -2,10 +2,8 @@ package dev.tclark.dogshow;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
 import java.util.logging.Logger;
 
 import javax.ws.rs.FormParam;
@@ -100,7 +98,6 @@ public class ShowServlet {
 		long dateMillis = Long.parseLong(dateStr);
 		System.out.println("Creating show...");
 		ShowManager.createShow(new Show(name, dateMillis, city, state, showId));
-
 		return Response.ok(name).build();
 	}
 

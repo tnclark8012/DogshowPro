@@ -70,5 +70,4 @@ public class Utils {
 	{
 		return estimateBlockStart(dogCountAhead, timeBlockStart, ((long)(estimatedMinutesPerDog*1000*60)));//Simple, but used several places
 	}
-	
 }

@@ -20,6 +20,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
@@ -34,6 +35,7 @@ import dev.tnclark8012.dogshow.apps.android.util.AccountUtils;
  * A base activity that handles common functionality in the app.
  */
 public abstract class BaseActivity extends SherlockFragmentActivity {
+	private static final String TAG = BaseActivity.class.getSimpleName();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -44,6 +46,10 @@ public abstract class BaseActivity extends SherlockFragmentActivity {
 //				new Intent(this, DogActivity.class)
 				AccountUtils.startAuthenticationFlow(this, getIntent());
 				finish();
+			}
+			else
+			{
+				Log.i(TAG, "Is authenticated");
 			}
 
 		getSupportActionBar().setHomeButtonEnabled(true);

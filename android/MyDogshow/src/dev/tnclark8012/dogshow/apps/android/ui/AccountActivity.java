@@ -120,32 +120,32 @@ public class AccountActivity extends SherlockFragmentActivity implements
 
 	@Override
 	public void onAuthTokenAvailable(String authToken) {
-		// ContentResolver.setIsSyncable(mChosenAccount,
-		// ScheduleContract.CONTENT_AUTHORITY, 1);
-		// *********************************
-		// Load stored registration info
-		// *********************************
-		SharedPreferences prefs = Prefs.get(this);
-		SharedPreferences.Editor editor = prefs.edit();
-		String installationId;
-		String openID;
-		if ((installationId = prefs.getString(Prefs.KEY_DEVICE_ID, null)) == null) {
-			// Do not generate a new installation ID for a newly chosen account
-			Log.d(TAG, "Generating installation ID");
-			installationId = UUID.randomUUID().toString();
-			editor.putString(Prefs.KEY_DEVICE_ID, installationId);
-			editor.commit();
-		}
-		openID = prefs.getString(Prefs.KEY_OPEN_ID, null);
-		editor.putString(Prefs.KEY_AUTH_TOKEN, authToken);
+//		// ContentResolver.setIsSyncable(mChosenAccount,
+//		// ScheduleContract.CONTENT_AUTHORITY, 1);
+//		// *********************************
+//		// Load stored registration info
+//		// *********************************
+//		SharedPreferences prefs = Prefs.get(this);
+//		SharedPreferences.Editor editor = prefs.edit();
+//		String installationId;
+//		String openID;
+//		if ((installationId = prefs.getString(Prefs.KEY_DEVICE_ID, null)) == null) {
+//			// Do not generate a new installation ID for a newly chosen account
+//			Log.d(TAG, "Generating installation ID");
+//			installationId = UUID.randomUUID().toString();
+//			editor.putString(Prefs.KEY_DEVICE_ID, installationId);
+//			editor.commit();
+//		}
+//		openID = prefs.getString(Prefs.KEY_OPEN_ID, null);
+//		editor.putString(Prefs.KEY_AUTH_TOKEN, authToken);
 		if (mFinishIntent != null) {
-			 mFinishIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-			 mFinishIntent.setAction(Intent.ACTION_MAIN);
-			 mFinishIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-			 | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-			startActivity(mFinishIntent);
+//			 mFinishIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+//			 mFinishIntent.setAction(Intent.ACTION_MAIN);
+//			 mFinishIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
+			 Log.d(TAG, "Starting finish intent");
+			startActivity(new Intent(this, HomeActivity.class));
 		}
-		Toast.makeText(this, authToken, Toast.LENGTH_LONG);
+		//Toast.makeText(this, authToken, Toast.LENGTH_LONG).show();
 		finish();
 	}
 
