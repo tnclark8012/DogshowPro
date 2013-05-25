@@ -16,13 +16,8 @@
 
 package dev.tnclark8012.dogshow.apps.android.ui;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -35,6 +30,7 @@ import android.widget.TextView;
 import com.actionbarsherlock.app.SherlockListFragment;
 
 import dev.tnclark8012.dogshow.apps.android.R;
+import dev.tnclark8012.dogshow.apps.android.model.Show;
 import dev.tnclark8012.dogshow.apps.android.sync.SyncHelper;
 
 /**
@@ -48,39 +44,26 @@ public class FindShowFragment extends SherlockListFragment {
 	private ShowListAdapter mAdapter;
 	private View mRootView;
 	private String mSelectedShowId = "[not set]";
-	
+
 	public interface Callbacks {
 		void onShowSelected(String showId);
 
 		void onShowSynced();
 	}
 
-	private AsyncTask<Void, Void, JSONArray> getShowsTask = new AsyncTask<Void, Void, JSONArray>() {
-		protected void onPostExecute(JSONArray result) {
+	private AsyncTask<Void, Void, Show[]> getShowsTask = new AsyncTask<Void, Void, Show[]>() {
+		protected void onPostExecute(Show[] result) {
 			if (result != null) {
 				mAdapter = new ShowListAdapter(getActivity(), result);
 				setListAdapter(mAdapter);
 				mAdapter.notifyDataSetChanged();
-			}
-			else
-			{
-				
+			} else {
+
 			}
 		}
 
 		@Override
-		protected JSONArray doInBackground(Void... params) {
-			return new SyncHelper(getActivity()).getShows();
-		};
-	};
-
-	private AsyncTask<Void, Void, JSONArray> getRingsTask = new AsyncTask<Void, Void, JSONArray>() {
-		protected void onPostExecute(JSONArray result) {
-
-		}
-
-		@Override
-		protected JSONArray doInBackground(Void... params) {
+		protected Show[] doInBackground(Void... params) {
 			return new SyncHelper(getActivity()).getShows();
 		};
 	};
@@ -126,39 +109,30 @@ public class FindShowFragment extends SherlockListFragment {
 
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
-		JSONObject show = mAdapter.getItem(position);
-		try {
-			mSelectedShowId = show.getString("showId");
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
+		Show show = mAdapter.getItem(position);
+		mSelectedShowId = show.showId;
 		mCallbacks.onShowSelected(mSelectedShowId);
 	}
 
-	private class ShowListAdapter extends ArrayAdapter<JSONObject> {
+	private class ShowListAdapter extends ArrayAdapter<Show> {
 		int mResource;
 		int mTextViewResourceId;
-		JSONArray mArray;
+		Show[] mArray;
 
-		public ShowListAdapter(Context context, JSONArray array) {
+		public ShowListAdapter(Context context, Show[] result) {
 			super(context, android.R.layout.simple_list_item_2, android.R.id.text1);
-			mArray = array;
+			mArray = result;
 		}
 
 		@Override
-		public JSONObject getItem(int position) {
-			try {
-				return mArray.getJSONObject(position);
-			} catch (JSONException e) {
-				e.printStackTrace();
-				return null;
-			}
+		public Show getItem(int position) {
+				return mArray[position];
 		}
 
 		@Override
 		public int getCount() {
 			if (mArray != null) {
-				return mArray.length();
+				return mArray.length;
 			}
 			return 0;
 		}
@@ -166,16 +140,12 @@ public class FindShowFragment extends SherlockListFragment {
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			convertView = super.getView(position, convertView, parent);
-			JSONObject obj = getItem(position);
+			Show obj = getItem(position);
 			// Checking if it has a name first prevents try catch from failing
 			// (expensively)
-			if (obj != null && obj.has("showName")) {
-				try {
-					((TextView) convertView.findViewById(android.R.id.text1)).setText(obj.getString("showName"));
-					((TextView) convertView.findViewById(android.R.id.text2)).setText(obj.getString("city") + ", " + obj.getString("state"));
-				} catch (JSONException e) {
-					e.printStackTrace();
-				}
+			if (obj != null) {
+				((TextView) convertView.findViewById(android.R.id.text1)).setText(obj.showName);
+				((TextView) convertView.findViewById(android.R.id.text2)).setText(obj.city + ", " + obj.state);
 			}
 			return convertView;
 		}

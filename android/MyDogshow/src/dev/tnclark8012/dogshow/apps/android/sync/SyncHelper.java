@@ -7,29 +7,22 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Map;
-import java.util.Set;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import android.content.ContentProviderOperation;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.OperationApplicationException;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.RemoteException;
 import android.util.Log;
+
+import com.google.gson.Gson;
+
 import dev.tnclark8012.dogshow.apps.android.Config;
+import dev.tnclark8012.dogshow.apps.android.model.Show;
+import dev.tnclark8012.dogshow.apps.android.model.ShowsResponse;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
-import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
-import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
-import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.SyncColumns;
-import dev.tnclark8012.dogshow.apps.android.sync.DogHandler.ParseMode;
 import dev.tnclark8012.dogshow.apps.android.util.AccountUtils;
-import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
 public class SyncHelper {
 	private final static String TAG = SyncHelper.class.getSimpleName();
@@ -73,26 +66,15 @@ public class SyncHelper {
 		}
 	}
 
-	public JSONArray getShows() {
-		try {// TODO use show handler
+	public Show[] getShows() {
 			Log.v(TAG, "getShows using base url, " + Config.GET_SHOW_URL);
 			String responseStr = makeSimpleGetRequest(mContext, Config.GET_SHOW_URL);
 			Log.v(TAG, "Response: " + responseStr);
 			if (responseStr == null) {
 				return null;
 			}
-			JSONObject response = new JSONObject(responseStr);// TODO create ResponseHandler
-			JSONArray array = null;
-			array = response.optJSONArray("show");
-			if (array != null) {
-				return array;
-			} else {
-				return new JSONArray().put(response.getJSONObject("show"));
-			}
-		} catch (JSONException e) {
-			e.printStackTrace();
-			return null;
-		}
+			ShowsResponse response = new Gson().fromJson(responseStr, ShowsResponse.class);
+			return response.shows;
 	}
 
 	public void executeSync(String showId) {

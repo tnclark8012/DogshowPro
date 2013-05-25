@@ -6,7 +6,6 @@ import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.database.Cursor;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,7 +16,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -98,15 +96,6 @@ public class DogViewFragment extends SherlockFragment implements
 		mViewImage = (RelativeLayout) mRootView
 				.findViewById(R.id.dog_view_image);
 		mViewSex = (TextView) mRootView.findViewById(R.id.dog_view_section_sex_text);
-		// SherlockFragmentActivity activity = getSherlockActivity();
-		// activity.getSupportActionBar().setTitle("Doggy Details");
-		// View view = inflater.inflate(R.layout.fragment_dog_view, container,
-		// false);
-		//
-		// QuickContactBadge badgeSmall = (QuickContactBadge) view
-		// .findViewById(R.id.dog_view_owner_contact_badge);
-		// badgeSmall.assignContactFromEmail("tnclark8012@gmail.com", true);
-		// badgeSmall.setMode(ContactsContract.QuickContact.MODE_SMALL);
 		return mRootView;
 	}
 
