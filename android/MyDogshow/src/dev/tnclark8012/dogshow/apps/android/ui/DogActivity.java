@@ -16,7 +16,6 @@ public class DogActivity extends SimpleSinglePaneActivity implements DogEditFrag
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 
 		if (mViewFragment == null)

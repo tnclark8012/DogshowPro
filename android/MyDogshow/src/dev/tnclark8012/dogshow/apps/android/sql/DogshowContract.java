@@ -1,5 +1,6 @@
 package dev.tnclark8012.dogshow.apps.android.sql;
 
+import dev.tnclark8012.dogshow.apps.android.Config;
 import android.net.Uri;
 import android.provider.BaseColumns;
 import android.provider.ContactsContract;
@@ -206,13 +207,7 @@ public class DogshowContract {
 
      // Builds selectionArgs for {@link PATH_BREED_RINGS_UPCOMING}
 		public static String[] buildUpcomingSelectionArgs(long currTime ) {
-//      TODO  	Calendar cal = new GregorianCalendar();
-//        	cal.setTimeInMillis(currTime);
-//        	cal.add(Calendar.DATE, 1);
-//        	cal.set(Calendar.HOUR, 0);
-//        	cal.set(Calendar.MINUTE, 0);
-//        	cal.set(Calendar.MILLISECOND, 0);
-            return new String[] { String.valueOf(currTime) };//, String.valueOf(cal.getTimeInMillis()) };
+            return new String[] { String.valueOf(currTime) };
         }
         
 

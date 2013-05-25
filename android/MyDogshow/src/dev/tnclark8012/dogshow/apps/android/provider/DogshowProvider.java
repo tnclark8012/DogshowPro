@@ -38,8 +38,6 @@ import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowDatabase;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowDatabase.Tables;
-import dev.tnclark8012.dogshow.apps.android.util.DebugUtils;
-import dev.tnclark8012.dogshow.apps.android.util.LogUtils;
 import dev.tnclark8012.dogshow.apps.android.util.SelectionBuilder;
 
 /**

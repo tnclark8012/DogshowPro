@@ -97,13 +97,6 @@ public class FindShowFragment extends SherlockListFragment {
 	private Callbacks mCallbacks = sDummyCallbacks;
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
-		final Intent intent = BaseActivity.fragmentArgumentsToIntent(getArguments());
-	}
-
-	@Override
 	public void onPause() {
 		super.onPause();
 		getShowsTask.cancel(true);

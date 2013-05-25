@@ -36,19 +36,10 @@ public class HandlerServlet extends HttpServlet {
 			String name = req.getParameter("name");
 			Handler handler = HandlerAccessor.getHandler(user);
 			
-//			PersistenceManager pm = PMF.get().getPersistenceManager();
-			
-//			Query query = pm.newQuery(Handler.class);
-//			query.setFilter("key == keyParam");
-//			query.declareParameters(Key.class.getName() + " keyParam");
-//			
-//			List<Handler> handlers = (List<Handler>)query.execute(k);
 			if( handler == null )
 			{
 				log.info("New handler, " + name + "! Adding to DB");
 				HandlerAccessor.createHandler(user, name);
-//				handler = new Handler(k, name);
-//				pm.makePersistent(handler);
 				resp.getWriter().println("New");
 			}
 			else
@@ -62,10 +53,4 @@ public class HandlerServlet extends HttpServlet {
 		}
 	}
 	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
-	}
 }

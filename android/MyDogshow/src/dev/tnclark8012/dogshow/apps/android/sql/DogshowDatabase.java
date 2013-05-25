@@ -1,7 +1,6 @@
 package dev.tnclark8012.dogshow.apps.android.sql;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 import android.content.Context;
@@ -32,8 +31,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 		String BREED_RINGS_JOIN_DOGS = BREED_RINGS + " " + "JOIN " + ENTERED_DOGS_BY_BREED
 				+ " ON " + BREED_RINGS + "." + BreedRings.RING_BREED + "="
 		//TODO make fully-qualified column name interface FIXME to avoid hard coded dogs. as below and elsewhere
-				+ Dogs.ENTERED_DOGS_BREED;
-				
+				+ Dogs.ENTERED_DOGS_BREED;			
 	}
 
 	public DogshowDatabase(Context context) {

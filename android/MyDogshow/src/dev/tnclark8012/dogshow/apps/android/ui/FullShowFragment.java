@@ -21,12 +21,10 @@ import java.util.GregorianCalendar;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.database.Cursor;
 import android.graphics.drawable.BitmapDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.LoaderManager;
@@ -57,7 +55,6 @@ public class FullShowFragment extends SherlockListFragment implements
 	private final long upcomingAllowedWindow = 1 * 60 * 1000;
 	private long upcomingBreedRingStart = 0;
 	private static final String TAG = FullShowFragment.class.getSimpleName();
-	private Uri mRingsUri;
 	private CursorAdapter mAdapter;
 	private int mRingQueryToken;
 	private View mRootView;
@@ -67,7 +64,6 @@ public class FullShowFragment extends SherlockListFragment implements
 	private RelativeLayout mViewBreedImage;
 	private RelativeLayout mViewUpcomingHeader;
 	private RelativeLayout mViewNoUpcomingHeader;
-	private Uri mUpcommingUri;
 	private Handler handler = new Handler();
 	
 	private Runnable updateUpcomingRunnable = new Runnable() {
@@ -93,10 +89,7 @@ public class FullShowFragment extends SherlockListFragment implements
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		final Intent intent = BaseActivity
-				.fragmentArgumentsToIntent(getArguments());
 		mRingQueryToken = BreedRingsQuery._TOKEN;
 		mAdapter = new RingListAdapter(getActivity());
 		setListAdapter(mAdapter);
@@ -152,9 +145,7 @@ public class FullShowFragment extends SherlockListFragment implements
 			break;
 		case UpcomingBreedRingQuery._TOKEN:
 			String selection = BreedRings.UPCOMING_SELECTION;
-			// TODO swap String [] selectionArgs =
 			 String[] selectionArgs = BreedRings.buildUpcomingSelectionArgs(System.currentTimeMillis());
-//			String[] selectionArgs = BreedRings.buildUpcomingSelectionArgs(0);
 			loader = new CursorLoader(getActivity(),
 					BreedRings.buildEnteredRingsUri(),
 					UpcomingBreedRingQuery.PROJECTION, selection,
@@ -211,9 +202,7 @@ public class FullShowFragment extends SherlockListFragment implements
 
 				BitmapDrawable image = new BitmapDrawable(res,
 						UIUtils.loadBitmap(imagePath, width, height));
-				mViewBreedImage.setBackgroundDrawable(image);// setBackgroundDrawable(Drawable.createFromPath(imagePath));
-
-				// mViewImage.setBackgroundDrawable(Drawable.createFromPath(mImagePath));
+				mViewBreedImage.setBackgroundDrawable(image);
 			} else {
 				Log.w(TAG, "Image path was null");
 				mViewBreedImage.setBackgroundResource(R.drawable.dog);
@@ -228,8 +217,6 @@ public class FullShowFragment extends SherlockListFragment implements
 
 	@Override
 	public void onLoaderReset(Loader<Cursor> arg0) {
-		// TODO Auto-generated method stub
-
 	}
 
 	private class RingListAdapter extends CursorAdapter {
@@ -305,37 +292,24 @@ public class FullShowFragment extends SherlockListFragment implements
 	}
 
 	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onActivityCreated(savedInstanceState);
-		// getListView().setAdapter(new ArrayAdapter<String>(getActivity(), 0));
-	}
-
-	@Override
 	public boolean onCreateActionMode(ActionMode mode,
 			com.actionbarsherlock.view.Menu menu) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean onPrepareActionMode(ActionMode mode,
 			com.actionbarsherlock.view.Menu menu) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean onActionItemClicked(ActionMode mode,
 			com.actionbarsherlock.view.MenuItem item) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public void onDestroyActionMode(ActionMode mode) {
-		// TODO Auto-generated method stub
-
 	}
-
 }

@@ -126,7 +126,6 @@ public class DogViewFragment extends SherlockFragment implements
 
 	@Override
 	public void onDetach() {
-		// TODO Auto-generated method stub
 		super.onDetach();
 		getActivity().getContentResolver().unregisterContentObserver(mObserver);
 	}

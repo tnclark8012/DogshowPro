@@ -23,12 +23,10 @@ public class BreedSelectFragment extends SherlockListFragment {
 	}
 
 	private BreedGroup mGroup;
-	private BreedAdapter mAdapter;
 	private BreedSelectListener mListener;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		mGroup = (BreedGroup) getArguments().getSerializable(
 				BreedSelectActivity.EXTRA_BREED_GROUP);

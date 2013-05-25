@@ -107,7 +107,6 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		final Intent intent = BaseActivity.fragmentArgumentsToIntent(getArguments());
 		defaultPerDogJudgingMinutes = Prefs.getEstimatedJudgingTime(getActivity());
@@ -220,7 +219,6 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 			int countAhead = cursor.getInt(UpcomingBreedRingQuery.BREED_COUNT_AHEAD);
 			float judgeMinutesPerDog = Utils.getMaybeNull(cursor, BreedRingsQuery.RING_JUDGE_TIME, defaultPerDogJudgingMinutes);
 			long estimatedStart = Utils.estimateBlockStart(countAhead, upcomingBreedRingStart, judgeMinutesPerDog);
-			// blockTimeMillis + countAhead * Utils.minutesToMillis(judgeMinutesPerDog);
 
 			mViewTime.setText(UIUtils.timeStringFromMillis(estimatedStart, true));
 			long delay = estimatedStart + upcomingAllowedWindow - System.currentTimeMillis();
@@ -254,9 +252,6 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 
 	@Override
 	public void onLoaderReset(Loader<Cursor> arg0) {
-		Toast.makeText(getActivity(), "onLoaderReset", Toast.LENGTH_SHORT).show();
-		// TODO Auto-generated method stub
-
 	}
 
 	private class RingListAdapter extends CursorAdapter {
@@ -344,7 +339,6 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
 		Prefs.get(getActivity()).registerOnSharedPreferenceChangeListener(this);
 		getListView().setOnItemLongClickListener(this);
@@ -352,26 +346,21 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 
 	@Override
 	public boolean onCreateActionMode(ActionMode mode, com.actionbarsherlock.view.Menu menu) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean onPrepareActionMode(ActionMode mode, com.actionbarsherlock.view.Menu menu) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean onActionItemClicked(ActionMode mode, com.actionbarsherlock.view.MenuItem item) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public void onDestroyActionMode(ActionMode mode) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -386,6 +375,7 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 
 	}
 
+	
 	@Override
 	public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 		Cursor cursor = (Cursor) mAdapter.getItem(position);
@@ -394,10 +384,7 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 		long dogId = Utils.getMaybeNull(cursor, BreedRingsQuery._ID, -1);
 		b.putLong(EditJudgeTimeDialog.BUNDLE_KEY_ID, dogId);
 		b.putFloat(EditJudgeTimeDialog.BUNDLE_KEY_TIME, minutes);
-		EditJudgeTimeDialog d = new EditJudgeTimeDialog();//TODO make callback implicit by checking activity?
-		d.setCallback(this);
-		d.setArguments(b);
-		
+		EditJudgeTimeDialog d = EditJudgeTimeDialog.newInstance(dogId, minutes, this);
 		d.show(getFragmentManager(), "dialog");
 		return true;
 	}

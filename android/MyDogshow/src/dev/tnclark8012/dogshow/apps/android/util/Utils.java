@@ -6,6 +6,16 @@ import android.util.Log;
 
 public class Utils {
 	private static final String TAG = Utils.class.getSimpleName();
+	/**
+	 * Is API 16 or greater?
+	 * @return
+	 */
+	//TODO LOW: Should this be a public static final boolean?
+	public static boolean isJellybean()
+	{
+		return android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN;
+	}
+	
 	public static int parseSafely(String str, int defaultValue) {
 		if (str.isEmpty() || !Character.isDigit(str.charAt(0))) {
 			// catch easiest cases that cause NumberFormatException to avoid costly handling

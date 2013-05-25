@@ -23,35 +23,14 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 
 import com.actionbarsherlock.app.ActionBar;
 
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.ui.BreedSelectFragment.BreedSelectListener;
-import dev.tnclark8012.dogshow.apps.android.util.DebugUtils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.BreedGroup;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
-/**
- * The landing screen for the app, once the user has logged in.
- * 
- * <p>
- * This activity uses different layouts to present its various fragments,
- * depending on the device configuration. {@link MyScheduleFragment},
- * {@link ExploreFragment}, and {@link SocialStreamFragment} are always
- * available to the user. {@link WhatsOnFragment} is always available on tablets
- * and phones in portrait, but is hidden on phones held in landscape.
- * 
- * <p>
- * On phone-size screens, the three fragments are represented by
- * {@link ActionBar} tabs, and can are held inside a {@link ViewPager} to allow
- * horizontal swiping.
- * 
- * <p>
- * On tablets, the three fragments are always visible and are presented as
- * either three panes (landscape) or a grid (portrait).
- */
 public class BreedSelectActivity extends BaseActivity implements
 		ActionBar.TabListener, ViewPager.OnPageChangeListener,
 		BreedSelectListener {
@@ -68,7 +47,6 @@ public class BreedSelectActivity extends BaseActivity implements
 			return;
 		}
 		setContentView(R.layout.activity_breed_select);
-		FragmentManager fm = getSupportFragmentManager();
 
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		if (mViewPager != null) {
@@ -148,38 +126,6 @@ public class BreedSelectActivity extends BaseActivity implements
 	public void onPageScrollStateChanged(int i) {
 	}
 
-	@Override
-	protected void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
-
-		// Since the pager fragments don't have known tags or IDs, the only way
-		// to persist the
-		// reference is to use putFragment/getFragment. Remember, we're not
-		// persisting the exact
-		// Fragment instance. This mechanism simply gives us a way to persist
-		// access to the
-		// 'current' fragment instance for the given fragment (which changes
-		// across orientation
-		// changes).
-		//
-		// The outcome of all this is that the "Refresh" menu button refreshes
-		// the stream across
-		// orientation changes.
-		// if (mSocialStreamFragment != null) {
-		// getSupportFragmentManager().putFragment(outState, "stream_fragment",
-		// mSocialStreamFragment);
-		// }
-	}
-
-	@Override
-	protected void onRestoreInstanceState(Bundle savedInstanceState) {
-		super.onRestoreInstanceState(savedInstanceState);
-		// if (mSocialStreamFragment == null) {
-		// mSocialStreamFragment = (SocialStreamFragment)
-		// getSupportFragmentManager()
-		// .getFragment(savedInstanceState, "stream_fragment");
-		// }
-	}
 
 	private class BreedSelectPagerAdapter extends FragmentPagerAdapter {
 		BreedSelectFragment mHerding;

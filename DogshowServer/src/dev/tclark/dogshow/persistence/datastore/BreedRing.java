@@ -73,7 +73,6 @@ public class BreedRing extends ShowRing {
 			ring.countAhead = json.getInt("CountAhead");
 
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
@@ -105,9 +104,10 @@ public class BreedRing extends ShowRing {
 
 	public BreedRing(Entity entity) {
 		super(entity);
-		//TODO .intValue is used to combat widening of GAE. Is it really an issue? should I just use longs? 
+		
 		blockStartMillis = (Long) entity.getProperty("blockStart");
 		judge = (String) entity.getProperty("judge");
+		//TODO .intValue is used to combat widening of GAE. Is it really an issue? should I just use longs? 
 		ringNumber = ((Long) entity.getProperty("ringNumber")).intValue();
 		count = ((Long) entity.getProperty("count")).intValue();
 		breed = Breeds.parse((String) entity.getProperty("breed"));

@@ -1,5 +1,6 @@
 package dev.tnclark8012.dogshow.apps.android.ui;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -30,6 +31,7 @@ import com.actionbarsherlock.view.MenuItem;
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
+import dev.tnclark8012.dogshow.apps.android.util.Utils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
 public class DogsFragment extends SherlockListFragment implements LoaderManager.LoaderCallbacks<Cursor> {
@@ -37,7 +39,6 @@ public class DogsFragment extends SherlockListFragment implements LoaderManager.
 	private static final String TAG = DogsFragment.class.getSimpleName();
 	private Handler mHandler = new Handler();
 	private int mDogQueryToken;
-	private String mSelectedDogId;
 	private CursorAdapter mAdapter;
 
 	public interface Callbacks {
@@ -109,20 +110,15 @@ public class DogsFragment extends SherlockListFragment implements LoaderManager.
 	}
 
 	protected void reloadFromArguments(Bundle arguments) {
-		// Teardown from previous arguments
 		setListAdapter(null);
-
-		// Load new arguments
 		final Intent intent = BaseActivity.fragmentArgumentsToIntent(arguments);
 		final Uri dogsUri = intent.getData();
-
 		if (dogsUri == null) {
 			// return;
 		}
 
 		mAdapter = new DogListAdapter(getActivity());
 		mDogQueryToken = DogsQuery._TOKEN;
-
 		setListAdapter(mAdapter);
 		// Force start background query to load sessions
 		getLoaderManager().restartLoader(mDogQueryToken, arguments, this);
@@ -200,7 +196,6 @@ public class DogsFragment extends SherlockListFragment implements LoaderManager.
 		final Cursor cursor = (Cursor) mAdapter.getItem(position);
 		String dogId = cursor.getString(cursor.getColumnIndex(DogshowContract.Dogs._ID));
 		if (mCallbacks.onDogSelected(dogId)) {
-			mSelectedDogId = dogId;
 			mAdapter.notifyDataSetChanged();
 		}
 	}
@@ -210,6 +205,9 @@ public class DogsFragment extends SherlockListFragment implements LoaderManager.
 			super(activity, null, false);
 		}
 
+		
+		@SuppressWarnings("deprecation")
+		@SuppressLint("NewApi")
 		@Override
 		public void bindView(View view, Context context, Cursor cursor) {
 			((TextView) view.findViewById(R.id.list_item_dog_name)).setText(cursor.getString(DogsQuery.DOG_CALL_NAME));
@@ -221,10 +219,14 @@ public class DogsFragment extends SherlockListFragment implements LoaderManager.
 				Resources res = getResources();
 				int height = res.getDimensionPixelSize(R.dimen.element_height_normal);
 				int width = res.getDimensionPixelSize(R.dimen.element_width_normal);
-				// TODO fix deprecation with sdk check
-				// TODO move to AsyncTask
+				//TODO LOW: move to AsyncTask
 				BitmapDrawable image = new BitmapDrawable(res, UIUtils.loadBitmap(imagePath, width, height));
-				imageLayout.setBackgroundDrawable(image);
+				if (Utils.isJellybean()) {
+					imageLayout.setBackground(image);
+				} else {
+					imageLayout.setBackgroundDrawable(image);
+				}
+				
 			} else {
 				imageLayout.setBackgroundResource(R.drawable.dog);
 			}
