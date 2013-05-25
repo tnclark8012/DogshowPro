@@ -12,6 +12,7 @@ import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRingsColumns;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.DogsColumns;
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.HandlersColumns;
 
 public class DogshowDatabase extends SQLiteOpenHelper {
 	private static final String TAG = DogshowDatabase.class.getSimpleName();
@@ -44,6 +45,15 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
+		db.execSQL("CREATE TABLE " + Tables.HANDLERS + " (" 
+				+ BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+				+ HandlersColumns.HANDLER_NAME + " INTEGER NOT NULL,"
+				+ HandlersColumns.HANDLER_JUNIOR_LEVEL + " TEXT,"
+				+ HandlersColumns.HANDLER_UPDATED + " INTEGER NOT NULL)");
+		db.execSQL("INSERT INTO " + Tables.HANDLERS + "("
+				+ HandlersColumns.HANDLER_NAME + "," + HandlersColumns.HANDLER_JUNIOR_LEVEL + "," + HandlersColumns.HANDLER_UPDATED + ") VALUES ("
+				+ "\"Tanner\"," + "OPEN_SENIOR, " + System.currentTimeMillis() + ")");
+		
 		db.execSQL("CREATE TABLE " + Tables.DOGS + " (" + BaseColumns._ID
 				+ " INTEGER PRIMARY KEY AUTOINCREMENT," + DogsColumns.DOG_BREED
 				+ " TEXT NOT NULL," + DogsColumns.DOG_CALL_NAME
