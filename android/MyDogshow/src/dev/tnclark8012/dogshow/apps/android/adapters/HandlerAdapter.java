@@ -27,7 +27,7 @@ public class HandlerAdapter extends ArrayAdapter<Handler>{
 	private boolean allItemsActivated;
 	public HandlerAdapter(Context context, List<Handler> handlers)
 	{
-		super(context, R.layout.handler_list_item, handlers);
+		super(context, R.layout.list_item_handler, handlers);
 		mContext = context;
 		mHandlers = handlers;
 		Resources resources = mContext.getResources();
@@ -82,7 +82,7 @@ public class HandlerAdapter extends ArrayAdapter<Handler>{
 		if( convertView == null )
 		{
 			holder = new ViewHolder();
-			convertView = mInflator.inflate( R.layout.handler_list_item, parent, false );
+			convertView = mInflator.inflate( R.layout.list_item_handler, parent, false );
 			//holder.image = ( ImageView ) convertView.findViewById( R.id.handler_icon );
 			holder.tvName = ( TextView ) convertView.findViewById( R.id.handler_name );
 			convertView.setTag( holder );

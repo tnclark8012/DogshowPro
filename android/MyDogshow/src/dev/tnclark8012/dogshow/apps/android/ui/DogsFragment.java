@@ -57,7 +57,7 @@ public class DogsFragment extends SherlockListFragment implements LoaderManager.
 
 	private static Callbacks sDummyCallbacks = new Callbacks() {
 		@Override
-		public boolean onDogSelected(String sessionId) {
+		public boolean onDogSelected(String dogId) {
 			return true;
 		}
 
@@ -230,8 +230,6 @@ public class DogsFragment extends SherlockListFragment implements LoaderManager.
 			} else {
 				imageLayout.setBackgroundResource(R.drawable.dog);
 			}
-			view.setBackgroundResource(R.drawable.list_selector);
-
 		}
 
 		@Override

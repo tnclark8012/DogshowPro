@@ -5,7 +5,7 @@
     android:background="@drawable/list_selector" >
  
     <ImageView
-        android:id="@+id/handler_icon"
+        android:id="@+id/list_item_handler_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -14,25 +14,15 @@
         android:contentDescription="@string/img_description_handler"
         android:focusable="false"
         android:src="@drawable/ic_default_handler" />
- 
-    <TextView
-        android:id="@+id/handler_name"
+
+    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+        android:id="@+id/list_item_handler_name"
         android:layout_width="wrap_content"
+        android:layout_marginLeft="@dimen/element_margin_normal"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="6dp"
-        android:layout_toRightOf="@+id/handler_icon"
+        android:layout_toRightOf="@+id/list_item_handler_icon"
         android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-<!-- 
-<TextView
-        android:id="@+id/handler_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="6dp"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
--->
 </RelativeLayout>
