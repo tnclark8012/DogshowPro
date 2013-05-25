@@ -32,7 +32,6 @@ import android.database.Cursor;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -55,9 +54,9 @@ import com.actionbarsherlock.view.ActionMode;
 
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.preferences.Prefs;
+import dev.tnclark8012.dogshow.apps.android.provider.PersistHelper;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
-import dev.tnclark8012.dogshow.apps.android.sync.SyncHelper;
 import dev.tnclark8012.dogshow.apps.android.ui.dialog.EditJudgeTimeDialog;
 import dev.tnclark8012.dogshow.apps.android.util.DebugUtils;
 import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
@@ -408,7 +407,7 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 		Map<String, Object> map = new HashMap<String, Object>();
 		Log.d(TAG, "Setting minutes to " + minutes);
 		map.put(BreedRings.RING_JUDGE_TIME, minutes);
-		new SyncHelper(getActivity()).updateBreedRing(id, map);
+		new PersistHelper(getActivity()).updateBreedRing(id, map);
 		
 	}
 

@@ -31,9 +31,9 @@ import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
 import dev.tnclark8012.dogshow.apps.android.R;
+import dev.tnclark8012.dogshow.apps.android.provider.PersistHelper;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
-import dev.tnclark8012.dogshow.apps.android.sync.SyncHelper;
 import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
@@ -256,11 +256,11 @@ public class DogEditFragment extends SherlockFragment implements
 		mPoints = mViewPoints.getText().toString();
 		// TODO make this method take charsequences
 		if (createNew) {
-			new SyncHelper(getActivity()).createDog(mDogId, mBreedName,
+			new PersistHelper(getActivity()).createDog(mDogId, mBreedName,
 					mCallName, mImagePath, mMajors, mOwnerId, mPoints,
 					getSexFromRadioId(mSexId));
 		} else {
-			new SyncHelper(getActivity()).updateDog(mDogId, mBreedName,
+			new PersistHelper(getActivity()).updateDog(mDogId, mBreedName,
 					mCallName, mImagePath, mMajors, mOwnerId, mPoints,
 					getSexFromRadioId(mSexId));
 		}
