@@ -36,8 +36,8 @@ public class BreedRingsHandler extends JsonHandler {
 		// // Clear out existing rings
 
 		if (response != null) {
-			if (response.breedRings != null) {
-				numRings = response.breedRings.length;
+			if (response.juniorsRings != null) {
+				numRings = response.juniorsRings.length;
 			}
 			if (clearExisting && !hasCleared) {
 				batch.add(ContentProviderOperation.newDelete(DogshowContract.addCallerIsSyncAdapterParameter(BreedRings.CONTENT_URI)).build());
@@ -46,7 +46,7 @@ public class BreedRingsHandler extends JsonHandler {
 			if (numRings > 0) {
 				Log.i(TAG, "Updating breed rings");
 
-				for (BreedRing ring : response.breedRings) {
+				for (BreedRing ring : response.juniorsRings) {
 					// Insert rings info
 					batch.add(ContentProviderOperation.newInsert(DogshowContract.addCallerIsSyncAdapterParameter(BreedRings.CONTENT_URI)).withValue(SyncColumns.UPDATED, System.currentTimeMillis()).withValue(BreedRings.RING_BITCH_COUNT, ring.bitchCount).withValue(BreedRings.RING_BLOCK_START, ring.blockStartMillis).withValue(BreedRings.RING_BREED, ring.breed).withValue(BreedRings.RING_BREED_COUNT, ring.count).withValue(BreedRings.RING_COUNT_AHEAD, ring.countAhead).withValue(BreedRings.RING_DATE, ring.dateMillis).withValue(BreedRings.RING_DOG_COUNT, ring.dogCount).withValue(BreedRings.RING_JUDGE, ring.judge).withValue(BreedRings.RING_NUMBER, ring.ringNumber).withValue(BreedRings.RING_SHOW_ID, ring.showId).withValue(BreedRings.RING_SPECIAL_BITCH_COUNT, ring.specialBitchCount).withValue(BreedRings.RING_SPECIAL_DOG_COUNT, ring.specialDogCount).build());
 				}

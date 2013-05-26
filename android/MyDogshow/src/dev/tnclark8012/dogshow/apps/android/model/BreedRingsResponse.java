@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName;
 
 public class BreedRingsResponse {
 	@SerializedName("breedRing")
-    public BreedRing[] breedRings;
+    public BreedRing[] juniorsRings;
 }

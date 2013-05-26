@@ -120,7 +120,7 @@ public class HandlerListFragment extends SherlockListFragment implements OnItemL
 	private interface HandlersQuery {
 		int _TOKEN = 0x1;
 
-		String[] PROJECTION = { DogshowContract.Handlers._ID, DogshowContract.Handlers.HANDLER_NAME, DogshowContract.Handlers.HANDLER_JUNIOR_LEVEL };
+		String[] PROJECTION = { DogshowContract.Handlers._ID, DogshowContract.Handlers.HANDLER_NAME, DogshowContract.Handlers.HANDLER_JUNIOR_CLASS };
 
 		int _ID = 0;
 		int HANDLER_NAME = 1;

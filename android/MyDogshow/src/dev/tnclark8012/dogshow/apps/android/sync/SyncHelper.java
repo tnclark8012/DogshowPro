@@ -23,6 +23,7 @@ import dev.tnclark8012.dogshow.apps.android.Config;
 import dev.tnclark8012.dogshow.apps.android.model.Show;
 import dev.tnclark8012.dogshow.apps.android.model.ShowsResponse;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Handlers;
 import dev.tnclark8012.dogshow.apps.android.util.AccountUtils;
 
 public class SyncHelper {
@@ -78,6 +79,7 @@ public class SyncHelper {
 			return response.shows;
 	}
 
+	//TODO move this to a service
 	public void executeSync(String showId) {
 		final ContentResolver resolver = mContext.getContentResolver();
 		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
@@ -149,11 +151,43 @@ public class SyncHelper {
 		return responseBuilder.toString();
 	}
 	
-	private AsyncTask<Void, Void, Void> requestJuniorsRingsTask = new AsyncTask<Void, Void, Void>() {
+	private AsyncTask<String, Void, Void> requestJuniorsRingsTask = new AsyncTask<String, Void, Void>() {
 
 		@Override
-		protected Void doInBackground(Void... params) {
+		protected Void doInBackground(String... params) {
 			
+			final ContentResolver resolver = mContext.getContentResolver();
+			ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
+			try {
+				boolean auth = AccountUtils.isAuthenticated(mContext);
+				
+				Cursor juniorsCursor = resolver.query(Handlers.buildEnteredJuniorsClassesUri(),new String[] { Handlers.HANDLER_JUNIOR_CLASS }, Handlers.HANDLER_IS_SHOWING + "=?", new String[]{"1"}, null);
+				batch = new ArrayList<ContentProviderOperation>();
+				String className = null;
+				Log.i(TAG, "Syncing junior rings for " + juniorsCursor.getCount() + " classes");
+				int numClasses = 0;
+				BreedRingsHandler handler = new BreedRingsHandler(mContext, true);
+				while (juniorsCursor.moveToNext()) {
+					className = juniorsCursor.getString(0);
+					Log.v(TAG, "Requesting juniors ring: " + className);
+					batch.addAll(executeGet(Config.buildGetJuniorRingsUrl(params[0], className), handler, auth));
+					numClasses++;
+				}
+				Log.v(TAG, "Pulled breed rings for " + numClasses + " breeds");
+				juniorsCursor.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			try {
+				resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY, batch);
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (OperationApplicationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			return null;
 		}
 	};
