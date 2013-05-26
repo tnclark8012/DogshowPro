@@ -1,16 +1,12 @@
 package dev.tnclark8012.dogshow.apps.android.ui;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.database.Cursor;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.BaseColumns;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -20,22 +16,15 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.CursorAdapter;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockListFragment;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
 
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.model.Handler;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
-import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
-import dev.tnclark8012.dogshow.apps.android.util.Utils;
-import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
-public class HandlerListFragment extends SherlockListFragment implements OnItemLongClickListener, HandlerListActionMode.Callback, LoaderManager.LoaderCallbacks<Cursor> {
+public class HandlerListFragment extends SherlockListFragment implements OnItemLongClickListener, LoaderManager.LoaderCallbacks<Cursor> {
 
 	private static final String TAG = HandlerListFragment.class.getSimpleName();
 	private Handler mHandler = new Handler();
@@ -68,14 +57,6 @@ public class HandlerListFragment extends SherlockListFragment implements OnItemL
 	};
 
 	private Callbacks mCallbacks = sDummyCallbacks;
-
-	@Override
-	public void onHandlerDeleted(boolean isDeleted, Handler... handlers) {
-	}
-
-	@Override
-	public void onActionModeDestroy() {
-	}
 
 	@Override
 	public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int arg2,

@@ -36,6 +36,7 @@ import android.util.Log;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Handlers;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowDatabase;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowDatabase.Tables;
 import dev.tnclark8012.dogshow.apps.android.util.SelectionBuilder;
@@ -58,6 +59,8 @@ public class DogshowProvider extends ContentProvider {
 	private static final int BREED_RINGS_ID = 201;
 	private static final int BREED_RINGS_WITH_DOGS = 202;
 	private static final int BREED_RINGS_WITH_DOGS_ENTERED = 203;
+	
+	private static final int HANDLERS = 300;
 
 	private static final String MIME_XML = "text/xml";
 
@@ -75,6 +78,8 @@ public class DogshowProvider extends ContentProvider {
 		matcher.addURI(authority, "breedrings", BREED_RINGS);
 		matcher.addURI(authority, "breedrings/with_dogs", BREED_RINGS_WITH_DOGS);
 		matcher.addURI(authority, "breedrings/with_dogs/entered", BREED_RINGS_WITH_DOGS_ENTERED);
+		
+		matcher.addURI(authority, "handlers", HANDLERS);
 		return matcher;
 	}
 
@@ -103,6 +108,8 @@ public class DogshowProvider extends ContentProvider {
 			return Dogs.CONTENT_ITEM_TYPE;
 		case BREED_RINGS:
 			return BreedRings.CONTENT_TYPE;
+		case HANDLERS:
+			return Handlers.CONTENT_TYPE;
 		default:
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
 		}
@@ -153,6 +160,12 @@ public class DogshowProvider extends ContentProvider {
 			db.insertOrThrow(Tables.BREED_RINGS, null, values);
 			getContext().getContentResolver().notifyChange(uri, null, syncToNetwork);
 			return BreedRings.buildRingUri(values.getAsString(BreedRings._ID));
+		}
+		case HANDLERS: {
+			db.insertOrThrow(Tables.HANDLERS, null, values);
+			getContext().getContentResolver().notifyChange(uri, null, syncToNetwork);
+			return Handlers.buildHandlerUri(values.getAsString(Handlers._ID));
+			
 		}
 		default: {
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
@@ -230,6 +243,8 @@ public class DogshowProvider extends ContentProvider {
 		case DOGS_ID:
 			final String dogId = Dogs.getDogId(uri);
 			return builder.table(Tables.DOGS).where(Dogs._ID + "=?", dogId);
+		case HANDLERS:
+			return builder.table(Tables.HANDLERS);
 		default: {
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
 		}

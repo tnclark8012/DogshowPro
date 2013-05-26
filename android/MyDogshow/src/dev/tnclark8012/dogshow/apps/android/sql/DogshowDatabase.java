@@ -52,7 +52,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				+ HandlersColumns.HANDLER_UPDATED + " INTEGER NOT NULL)");
 		db.execSQL("INSERT INTO " + Tables.HANDLERS + "("
 				+ HandlersColumns.HANDLER_NAME + "," + HandlersColumns.HANDLER_JUNIOR_LEVEL + "," + HandlersColumns.HANDLER_UPDATED + ") VALUES ("
-				+ "\"Tanner\"," + "OPEN_SENIOR, " + System.currentTimeMillis() + ")");
+				+ "\"Tanner\"," + "\"OPEN_SENIOR\", " + System.currentTimeMillis() + ")");
 		
 		db.execSQL("CREATE TABLE " + Tables.DOGS + " (" + BaseColumns._ID
 				+ " INTEGER PRIMARY KEY AUTOINCREMENT," + DogsColumns.DOG_BREED
