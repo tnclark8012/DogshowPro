@@ -37,13 +37,14 @@ public class JuniorsRingsHandler extends JsonHandler {
 		if (response != null) {
 			if (response.juniorsRings != null) {
 				numRings = response.juniorsRings.length;
+				Log.d(TAG,"response contained " + numRings + " juniors rings" );
 			}
 			if (clearExisting && !hasCleared) {
 				batch.add(ContentProviderOperation.newDelete(DogshowContract.addCallerIsSyncAdapterParameter(JuniorsRings.CONTENT_URI)).build());
 				hasCleared = true;
 			}
 			if (numRings > 0) {
-				Log.i(TAG, "Updating breed rings");
+				Log.i(TAG, "Updating juniors rings");
 
 				for (JuniorsRing ring : response.juniorsRings) {
 					// Insert rings info

@@ -37,6 +37,7 @@ import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Handlers;
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.JuniorsRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowDatabase;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowDatabase.Tables;
 import dev.tnclark8012.dogshow.apps.android.util.SelectionBuilder;
@@ -62,6 +63,8 @@ public class DogshowProvider extends ContentProvider {
 	
 	private static final int HANDLERS = 300;
 	private static final int HANDLERS_BY_JUNIORS_CLASS = 301;
+	
+	private static final int JUNIORS_RINGS = 400;
 
 	private static final String MIME_XML = "text/xml";
 
@@ -82,6 +85,8 @@ public class DogshowProvider extends ContentProvider {
 		
 		matcher.addURI(authority, "handlers", HANDLERS);
 		matcher.addURI(authority, "handlers/juniors/by_class", HANDLERS_BY_JUNIORS_CLASS);
+		
+		matcher.addURI(authority, "juniorsrings", JUNIORS_RINGS );
 		return matcher;
 	}
 
@@ -112,6 +117,8 @@ public class DogshowProvider extends ContentProvider {
 			return BreedRings.CONTENT_TYPE;
 		case HANDLERS:
 			return Handlers.CONTENT_TYPE;
+		case JUNIORS_RINGS:
+			return JuniorsRings.CONTENT_TYPE;
 		default:
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
 		}
@@ -175,7 +182,11 @@ public class DogshowProvider extends ContentProvider {
 			db.insertOrThrow(Tables.HANDLERS, null, values);
 			getContext().getContentResolver().notifyChange(uri, null, syncToNetwork);
 			return Handlers.buildHandlerUri(values.getAsString(Handlers._ID));
-			
+		}
+		case JUNIORS_RINGS: {
+			db.insertOrThrow(Tables.JUNIORS_RINGS, null, values);
+			getContext().getContentResolver().notifyChange(uri, null, syncToNetwork);
+			return JuniorsRings.buildRingUri(values.getAsString(JuniorsRings._ID));
 		}
 		default: {
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
@@ -257,6 +268,8 @@ public class DogshowProvider extends ContentProvider {
 			return builder.table(Tables.HANDLERS);
 		case HANDLERS_BY_JUNIORS_CLASS:
 			return builder.table(Tables.HANDLERS);
+		case JUNIORS_RINGS:
+			return builder.table(Tables.JUNIORS_RINGS);
 		default: {
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
 		}

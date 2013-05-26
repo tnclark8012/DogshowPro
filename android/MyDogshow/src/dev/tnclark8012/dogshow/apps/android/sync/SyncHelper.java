@@ -112,6 +112,7 @@ public class SyncHelper {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		requestJuniorsRingsTask.execute("KTDC1");
 
 	}
 
@@ -166,14 +167,14 @@ public class SyncHelper {
 				String className = null;
 				Log.i(TAG, "Syncing junior rings for " + juniorsCursor.getCount() + " classes");
 				int numClasses = 0;
-				BreedRingsHandler handler = new BreedRingsHandler(mContext, true);
+				JuniorsRingsHandler handler = new JuniorsRingsHandler(mContext, true);
 				while (juniorsCursor.moveToNext()) {
 					className = juniorsCursor.getString(0);
 					Log.v(TAG, "Requesting juniors ring: " + className);
 					batch.addAll(executeGet(Config.buildGetJuniorRingsUrl(params[0], className), handler, auth));
 					numClasses++;
 				}
-				Log.v(TAG, "Pulled breed rings for " + numClasses + " breeds");
+				Log.v(TAG, "Pulled juniors rings for " + numClasses + " classes");
 				juniorsCursor.close();
 			} catch (IOException e) {
 				e.printStackTrace();
