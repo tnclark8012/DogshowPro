@@ -17,7 +17,7 @@ public class JuniorRingManager {
 	}
 
 	public static List<JuniorRing> getJuniorRingsByShowIdClassName(String showId, JuniorClass clazz) {
-		return JuniorRingAccessor.getAllJuniorRingsByShowIdClassName(showId, clazz.getPrimaryName());
+		return JuniorRingAccessor.getAllJuniorRingsByShowIdClassName(showId, clazz.toString());
 	}
 	
 	public static void deleteAllJuniorRings(boolean sure, boolean reallySure,

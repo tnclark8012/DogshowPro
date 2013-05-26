@@ -13,6 +13,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.OperationApplicationException;
 import android.database.Cursor;
+import android.os.AsyncTask;
 import android.os.RemoteException;
 import android.util.Log;
 
@@ -147,4 +148,13 @@ public class SyncHelper {
 		}
 		return responseBuilder.toString();
 	}
+	
+	private AsyncTask<Void, Void, Void> requestJuniorsRingsTask = new AsyncTask<Void, Void, Void>() {
+
+		@Override
+		protected Void doInBackground(Void... params) {
+			
+			return null;
+		}
+	};
 }
