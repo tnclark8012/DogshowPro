@@ -55,7 +55,7 @@ public class Config {
 		return GET_RINGS_URL + "/show/" + showId;
 	}
 	public static final String buildGetBreedRingsUrl(String showId, String breed) {
-		return GET_RINGS_URL + "/show/" + showId + "/" + breed;
+		return GET_RINGS_URL + "/show/" + showId + "/breed/" + breed;
 	}
 	
 	public static final String buildGetJuniorRingsUrl(String showId, String juniorClass) {
