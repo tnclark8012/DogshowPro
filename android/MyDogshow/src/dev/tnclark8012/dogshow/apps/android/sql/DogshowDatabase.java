@@ -13,6 +13,7 @@ import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRingsColumn
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.DogsColumns;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.HandlersColumns;
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.JuniorsRingsColumns;
 
 public class DogshowDatabase extends SQLiteOpenHelper {
 	private static final String TAG = DogshowDatabase.class.getSimpleName();
@@ -26,8 +27,10 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 
 	public interface Tables {
 		String DOGS = "dogs";
-		String HANDLERS = "handlers";
 		String BREED_RINGS = "breed_rings";
+		String HANDLERS = "handlers";
+		String JUNIORS_RINGS = "juniors_rings";
+		
 		String ENTERED_DOGS_BY_BREED = "(SELECT *, " + Dogs.DOG_BREED + " as " + Dogs.ENTERED_DOGS_BREED + ", group_concat(dogs." + Dogs.DOG_CALL_NAME + ", \", \" ) as " + Dogs.ENTERED_DOGS_NAMES + " FROM " + Tables.DOGS + " GROUP BY " + Dogs.DOG_BREED +")";
 		String BREED_RINGS_JOIN_DOGS = BREED_RINGS + " " + "JOIN " + ENTERED_DOGS_BY_BREED
 				+ " ON " + BREED_RINGS + "." + BreedRings.RING_BREED + "="
@@ -48,12 +51,12 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 		db.execSQL("CREATE TABLE " + Tables.HANDLERS + " (" 
 				+ BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
 				+ HandlersColumns.HANDLER_NAME + " INTEGER NOT NULL,"
-				+ HandlersColumns.HANDLER_JUNIOR_LEVEL + " TEXT,"
+				+ HandlersColumns.HANDLER_JUNIOR_CLASS + " TEXT,"
 				+ HandlersColumns.HANDLER_IS_SHOWING + " INTEGER NOT NULL,"
 				+ HandlersColumns.HANDLER_IS_SHOWING_JUNIORS + " INTEGER NOT NULL,"
 				+ HandlersColumns.HANDLER_UPDATED + " INTEGER NOT NULL)");
 		db.execSQL("INSERT INTO " + Tables.HANDLERS + "("
-				+ HandlersColumns.HANDLER_NAME + "," + HandlersColumns.HANDLER_JUNIOR_LEVEL + "," 
+				+ HandlersColumns.HANDLER_NAME + "," + HandlersColumns.HANDLER_JUNIOR_CLASS + "," 
 				+ HandlersColumns.HANDLER_IS_SHOWING + "," 
 				+ HandlersColumns.HANDLER_IS_SHOWING_JUNIORS+ "," 
 				+ HandlersColumns.HANDLER_UPDATED + ") VALUES ("
@@ -102,6 +105,19 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				+ BreedRingsColumns.RING_SPECIAL_BITCH_COUNT+ " INTEGER NOT NULL,"
 				+ BreedRingsColumns.RING_SPECIAL_DOG_COUNT + " INTEGER NOT NULL,"
 				+ BreedRingsColumns.RING_UPDATED+ " INTEGER NOT NULL)");
+		
+		db.execSQL("CREATE TABLE " + Tables.JUNIORS_RINGS + " ("
+				+ BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+				+ JuniorsRingsColumns.RING_BLOCK_START+ " INTEGER NOT NULL,"
+				+ JuniorsRingsColumns.RING_JUNIOR_CLASS_NAME + " TEXT NOT NULL,"
+				+ JuniorsRingsColumns.RING_JUNIOR_COUNT + " INTEGER NOT NULL,"
+				+ JuniorsRingsColumns.RING_COUNT_AHEAD + " INTEGER NOT NULL,"
+				+ JuniorsRingsColumns.RING_DATE + " INTEGER NOT NULL,"
+				+ JuniorsRingsColumns.RING_JUDGE+ " TEXT NOT NULL,"
+				+ JuniorsRingsColumns.RING_JUDGE_TIME + " FLOAT NULL,"
+				+ JuniorsRingsColumns.RING_NUMBER+ " INTEGER NOT NULL,"
+				+ JuniorsRingsColumns.RING_SHOW_ID + " TEXT NOT NULL,"
+				+ JuniorsRingsColumns.RING_UPDATED+ " INTEGER NOT NULL)");
 		Calendar today = new GregorianCalendar();
 		today.set(Calendar.HOUR, 0);
 		today.set(Calendar.MINUTE, 0);

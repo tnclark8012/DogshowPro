@@ -57,6 +57,11 @@ public class Config {
 	public static final String buildGetBreedRingsUrl(String showId, String breed) {
 		return GET_RINGS_URL + "/show/" + showId + "/" + breed;
 	}
+	
+	public static final String buildGetJuniorRingsUrl(String showId, String juniorClass) {
+		return GET_RINGS_URL + "/show/" + showId + "/juniors/" + juniorClass;
+	}
+	
 
 	// Static file host for the sandbox data
 	public static final String GET_SANDBOX_URL = "https://developers.google.com/events/io/sandbox-data";

@@ -1,6 +1,5 @@
 package dev.tnclark8012.dogshow.apps.android.sql;
 
-import dev.tnclark8012.dogshow.apps.android.Config;
 import android.net.Uri;
 import android.provider.BaseColumns;
 import android.provider.ContactsContract;
@@ -38,6 +37,11 @@ public class DogshowContract {
     private static final String PATH_BREED_RINGS_UPCOMING = "upcoming";
     private static final String PATH_GROUP = "group";
     private static final String PATH_BREEDS = "breeds";
+    
+    private static final String PATH_JUNIORS_RINGS = "juniorsrings";
+    
+    private static final String PATH_HANDLERS_JUNIORS= "juniors";
+    private static final String PATH_HANDLERS_BY_JUNIORS_CLASS = "by_class";
     
     
     /**
@@ -78,7 +82,7 @@ public class DogshowContract {
     
     interface HandlersColumns {
     	String HANDLER_NAME = "handler_name";
-    	String HANDLER_JUNIOR_LEVEL = "handler_junior_level";
+    	String HANDLER_JUNIOR_CLASS = "handler_junior_level";
     	String HANDLER_IS_SHOWING = "handler_is_showing";
     	String HANDLER_IS_SHOWING_JUNIORS = "handler_is_showing_juniors";
     	String HANDLER_UPDATED = SyncColumns.UPDATED;
@@ -98,6 +102,19 @@ public class DogshowContract {
     	String RING_SHOW_ID = "breed_ring_show_id";
     	String RING_SPECIAL_DOG_COUNT = "breed_ring_special_dog_count";
     	String RING_SPECIAL_BITCH_COUNT = "breed_ring_special_bitch_count";
+    	String RING_UPDATED = SyncColumns.UPDATED;
+    }
+    
+    interface JuniorsRingsColumns {
+    	String RING_BLOCK_START = "junior_ring_block_start";
+    	String RING_JUNIOR_COUNT = "junior_ring_count";
+    	String RING_JUNIOR_CLASS_NAME = "junior_ring_class_name";
+    	String RING_COUNT_AHEAD = "junior_ring_count_ahead";
+    	String RING_DATE = "junior_ring_date";
+    	String RING_JUDGE = "junior_ring_judge";
+    	String RING_JUDGE_TIME = "junior_ring_judge_time";
+    	String RING_NUMBER = "junior_ring_number";
+    	String RING_SHOW_ID = "junior_ring_show_id";
     	String RING_UPDATED = SyncColumns.UPDATED;
     }
     
@@ -173,6 +190,11 @@ public class DogshowContract {
         public static String getHandlerId(Uri uri) {
             return uri.getPathSegments().get(1);
         }
+        
+        public static Uri buildEnteredJuniorsClassesUri()
+        {
+        	return CONTENT_URI.buildUpon().appendPath(PATH_HANDLERS_JUNIORS).appendPath(PATH_HANDLERS_BY_JUNIORS_CLASS).build();
+        }
     }
     
     /**
@@ -214,6 +236,42 @@ public class DogshowContract {
         }
         
 
+        /** Read _ID from {@link BreedRings} {@link Uri}. */
+        public static String getRingId(Uri uri) {
+            return uri.getPathSegments().get(1);
+        }
+
+    }
+    
+    /**
+     * Each Ring is a show ring that consists of multiple timeblocks and breed rings
+     */
+    public static class JuniorsRings implements JuniorsRingsColumns,
+            SyncColumns, BaseColumns {
+    	
+        public static final Uri CONTENT_URI =
+                BASE_CONTENT_URI.buildUpon().appendPath(PATH_JUNIORS_RINGS).build();
+       
+        public static final String CONTENT_TYPE =
+                "vnd.android.cursor.dir/vnd.dogshow.juniorring";
+        public static final String CONTENT_ITEM_TYPE =
+                "vnd.android.cursor.item/vnd.dogshow.juniorring";
+        
+        
+        public static final String DEFAULT_SORT = JuniorsRingsColumns.RING_BLOCK_START + " ASC";
+
+		public static final String UPCOMING_SELECTION = JuniorsRingsColumns.RING_BLOCK_START + " > ? ";//TODO AND " + BreedRings.RING_BLOCK_START + " < ?";
+
+        
+        /** Build {@link Uri} for requested Ring ID. */
+        public static Uri buildRingUri(String RingId) {
+            return CONTENT_URI.buildUpon().appendPath(RingId).build();
+        }
+
+		public static String[] buildUpcomingSelectionArgs(long currTime ) {
+            return new String[] { String.valueOf(currTime) };
+        }
+        
         /** Read _ID from {@link BreedRings} {@link Uri}. */
         public static String getRingId(Uri uri) {
             return uri.getPathSegments().get(1);

@@ -61,6 +61,7 @@ public class DogshowProvider extends ContentProvider {
 	private static final int BREED_RINGS_WITH_DOGS_ENTERED = 203;
 	
 	private static final int HANDLERS = 300;
+	private static final int HANDLERS_BY_JUNIORS_CLASS = 301;
 
 	private static final String MIME_XML = "text/xml";
 
@@ -80,6 +81,7 @@ public class DogshowProvider extends ContentProvider {
 		matcher.addURI(authority, "breedrings/with_dogs/entered", BREED_RINGS_WITH_DOGS_ENTERED);
 		
 		matcher.addURI(authority, "handlers", HANDLERS);
+		matcher.addURI(authority, "handlers/juniors/by_class", HANDLERS_BY_JUNIORS_CLASS);
 		return matcher;
 	}
 
@@ -132,9 +134,17 @@ public class DogshowProvider extends ContentProvider {
 			return exBuilder.where(selection, selectionArgs).query(db, projection, null, null, sortOrder, null);
 		}
 		case DOGS_ENTERED:
+		{
 			final SelectionBuilder exBuilder = buildSimpleSelection(uri);
 			String groupBy = Dogs.DOG_BREED;
 			return exBuilder.where(selection, selectionArgs).query(db, projection, groupBy, null, sortOrder, null);
+		}
+		case HANDLERS_BY_JUNIORS_CLASS:
+		{
+			final SelectionBuilder exBuilder = buildSimpleSelection(uri);
+			String groupBy = Handlers.HANDLER_JUNIOR_CLASS;
+			return exBuilder.where(selection, selectionArgs).query(db, projection, groupBy, null, sortOrder, null);
+		}
 		default: {
 			// Most cases are handled with simple SelectionBuilder
 			final SelectionBuilder builder = buildSimpleSelection(uri);
@@ -244,6 +254,8 @@ public class DogshowProvider extends ContentProvider {
 			final String dogId = Dogs.getDogId(uri);
 			return builder.table(Tables.DOGS).where(Dogs._ID + "=?", dogId);
 		case HANDLERS:
+			return builder.table(Tables.HANDLERS);
+		case HANDLERS_BY_JUNIORS_CLASS:
 			return builder.table(Tables.HANDLERS);
 		default: {
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
