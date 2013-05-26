@@ -79,6 +79,8 @@ public class DogshowContract {
     interface HandlersColumns {
     	String HANDLER_NAME = "handler_name";
     	String HANDLER_JUNIOR_LEVEL = "handler_junior_level";
+    	String HANDLER_IS_SHOWING = "handler_is_showing";
+    	String HANDLER_IS_SHOWING_JUNIORS = "handler_is_showing_juniors";
     	String HANDLER_UPDATED = SyncColumns.UPDATED;
     }
     

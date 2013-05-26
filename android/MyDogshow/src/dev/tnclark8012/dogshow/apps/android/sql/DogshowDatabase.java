@@ -49,10 +49,15 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				+ BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
 				+ HandlersColumns.HANDLER_NAME + " INTEGER NOT NULL,"
 				+ HandlersColumns.HANDLER_JUNIOR_LEVEL + " TEXT,"
+				+ HandlersColumns.HANDLER_IS_SHOWING + " INTEGER NOT NULL,"
+				+ HandlersColumns.HANDLER_IS_SHOWING_JUNIORS + " INTEGER NOT NULL,"
 				+ HandlersColumns.HANDLER_UPDATED + " INTEGER NOT NULL)");
 		db.execSQL("INSERT INTO " + Tables.HANDLERS + "("
-				+ HandlersColumns.HANDLER_NAME + "," + HandlersColumns.HANDLER_JUNIOR_LEVEL + "," + HandlersColumns.HANDLER_UPDATED + ") VALUES ("
-				+ "\"Tanner\"," + "\"OPEN_SENIOR\", " + System.currentTimeMillis() + ")");
+				+ HandlersColumns.HANDLER_NAME + "," + HandlersColumns.HANDLER_JUNIOR_LEVEL + "," 
+				+ HandlersColumns.HANDLER_IS_SHOWING + "," 
+				+ HandlersColumns.HANDLER_IS_SHOWING_JUNIORS+ "," 
+				+ HandlersColumns.HANDLER_UPDATED + ") VALUES ("
+				+ "\"Tanner\"," + "\"OPEN_SENIOR\", 1, 1," + System.currentTimeMillis() + ")");
 		
 		db.execSQL("CREATE TABLE " + Tables.DOGS + " (" + BaseColumns._ID
 				+ " INTEGER PRIMARY KEY AUTOINCREMENT," + DogsColumns.DOG_BREED
