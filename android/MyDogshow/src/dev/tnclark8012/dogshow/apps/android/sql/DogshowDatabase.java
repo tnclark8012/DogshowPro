@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 import android.util.Log;
+import dev.tnclark8012.dogshow.apps.android.provider.DogshowProvider.Qualified;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRingsColumns;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
@@ -33,9 +34,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 		
 		String ENTERED_DOGS_BY_BREED = "(SELECT *, " + Dogs.DOG_BREED + " as " + Dogs.ENTERED_DOGS_BREED + ", group_concat(dogs." + Dogs.DOG_CALL_NAME + ", \", \" ) as " + Dogs.ENTERED_DOGS_NAMES + " FROM " + Tables.DOGS + " GROUP BY " + Dogs.DOG_BREED +")";
 		String BREED_RINGS_JOIN_DOGS = BREED_RINGS + " " + "JOIN " + ENTERED_DOGS_BY_BREED
-				+ " ON " + BREED_RINGS + "." + BreedRings.RING_BREED + "="
-		//TODO make fully-qualified column name interface FIXME to avoid hard coded dogs. as below and elsewhere
-				+ Dogs.ENTERED_DOGS_BREED;			
+				+ " ON " + Qualified.BREED_RINGS_RING_BREED + "=" + Dogs.ENTERED_DOGS_BREED;			
 	}
 
 	public DogshowDatabase(Context context) {

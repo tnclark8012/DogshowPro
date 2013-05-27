@@ -300,4 +300,8 @@ public class DogshowProvider extends ContentProvider {
 		}
 		}
 	}
+	
+	public interface Qualified {
+		public static final String BREED_RINGS_RING_BREED = Tables.BREED_RINGS + "." + BreedRings.RING_BREED;
+	}
 }
