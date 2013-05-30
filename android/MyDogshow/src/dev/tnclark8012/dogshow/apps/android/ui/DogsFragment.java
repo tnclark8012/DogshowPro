@@ -30,6 +30,7 @@ import com.actionbarsherlock.view.MenuItem;
 
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
 import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
 import dev.tnclark8012.dogshow.apps.android.util.Utils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
@@ -145,7 +146,7 @@ public class DogsFragment extends SherlockListFragment implements LoaderManager.
 	private interface DogsQuery {
 		int _TOKEN = 0x1;
 
-		String[] PROJECTION = { BaseColumns._ID, DogshowContract.Dogs.DOG_CALL_NAME, DogshowContract.Dogs.DOG_BREED, DogshowContract.Dogs.DOG_IMAGE_PATH };
+		String[] PROJECTION = { BaseColumns._ID, Dogs.DOG_CALL_NAME, Dogs.DOG_BREED, Dogs.DOG_IMAGE_PATH };
 
 		int _ID = 0;
 		int DOG_CALL_NAME = 1;

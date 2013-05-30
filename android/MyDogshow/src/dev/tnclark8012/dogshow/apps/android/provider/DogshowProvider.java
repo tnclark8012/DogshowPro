@@ -34,6 +34,7 @@ import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.util.Log;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.AllRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Handlers;
@@ -65,6 +66,8 @@ public class DogshowProvider extends ContentProvider {
 	private static final int HANDLERS_BY_JUNIORS_CLASS = 301;
 	
 	private static final int JUNIORS_RINGS = 400;
+	
+	private static final int ALL_RINGS_ENTERED = 500;
 
 	private static final String MIME_XML = "text/xml";
 
@@ -87,6 +90,10 @@ public class DogshowProvider extends ContentProvider {
 		matcher.addURI(authority, "handlers/juniors/by_class", HANDLERS_BY_JUNIORS_CLASS);
 		
 		matcher.addURI(authority, "juniorsrings", JUNIORS_RINGS );
+
+
+		matcher.addURI(authority, "rings/entered", ALL_RINGS_ENTERED );
+
 		return matcher;
 	}
 
@@ -152,6 +159,11 @@ public class DogshowProvider extends ContentProvider {
 			String groupBy = Handlers.HANDLER_JUNIOR_CLASS;
 			return exBuilder.where(selection, selectionArgs).query(db, projection, groupBy, null, sortOrder, null);
 		}
+//		case ALL_RINGS_ENTERED:
+//		{
+//			final SelectionBuilder exBuilder = buildExpandedSelection(uri, ALL_RINGS_ENTERED);
+//			return exBuilder.where(selection, selectionArgs).query(db, projection, null, null, sortOrder, null);
+//		}
 		default: {
 			// Most cases are handled with simple SelectionBuilder
 			final SelectionBuilder builder = buildSimpleSelection(uri);
@@ -270,6 +282,8 @@ public class DogshowProvider extends ContentProvider {
 			return builder.table(Tables.HANDLERS);
 		case JUNIORS_RINGS:
 			return builder.table(Tables.JUNIORS_RINGS);
+		case ALL_RINGS_ENTERED:
+			return builder.table(Tables.ALL_ENTERED_RINGS);//TODO FIXME this should be Tables.All_Rings
 		default: {
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
 		}
@@ -303,5 +317,34 @@ public class DogshowProvider extends ContentProvider {
 	
 	public interface Qualified {
 		public static final String BREED_RINGS_RING_BREED = Tables.BREED_RINGS + "." + BreedRings.RING_BREED;
+	}
+	
+	public interface Subquery {
+//		select * from (SELECT Bd._id, (breed_ring_breed) as title,(entered_dogs_names) as subtitle,(breed_ring_block_start) as block_start,(breed_ring_count_ahead) as count_ahead,(dog_image_path) as image_path,(breed_ring_judge_time) as judge_time FROM ( (breed_rings JOIN (
+//		        SELECT *, dog_breed as entered_dogs_breed, group_concat(dog_call_name, ", " ) as entered_dogs_names FROM dogs AS BLAH GROUP BY dog_breed ) AS Bd
+//		    ON breed_ring_breed=entered_dogs_breed ) )
+		
+		public static final String BREED_RING_OVERVIEW = "(SELECT Bd._id, (breed_ring_breed) as title,(entered_dogs_names) as subtitle,(breed_ring_block_start) as block_start,(breed_ring_count_ahead) as count_ahead,(dog_image_path) as image_path,(breed_ring_judge_time) as judge_time FROM ( (breed_rings JOIN (SELECT *, dog_breed as entered_dogs_breed, group_concat(dog_call_name, \", \" ) as entered_dogs_names FROM dogs AS BLAH GROUP BY dog_breed ) AS Bd ON breed_ring_breed=entered_dogs_breed )";
+//		public static final String BREED_RING_OVERVIEW = "(SELECT " + 
+//				BreedRings._ID + ", (" + 
+//				BreedRings.RING_BREED + ") as " + AllRings.ALL_RINGS_TITLE + ",(" + 
+//				Dogs.ENTERED_DOGS_NAMES  + ") as " + AllRings.ALL_RINGS_SUBTITLE + ",(" +
+//				BreedRings.RING_BLOCK_START + ") as " + AllRings.ALL_RINGS_BLOCK_START + ",(" +
+//				BreedRings.RING_COUNT_AHEAD + ") as " + AllRings.ALL_RINGS_COUNT_AHEAD + ",(" +
+//				Dogs.DOG_IMAGE_PATH + ") as " + AllRings.ALL_RINGS_IMAGE_PATH + ",(" +
+//				BreedRings.RING_JUDGE_TIME + ") as " + AllRings.ALL_RINGS_JUDGE_TIME +
+//				" FROM " + Tables.BREED_RINGS_JOIN_DOGS + ")";
+		public static final String JUNIOR_RING_OVERVIEW = "(SELECT b._id, junior_ring_class_name,group_concat(handler_name, \", \" ) as class_entered_handlers,junior_ring_block_start as block_start,junior_ring_count_ahead as count_ahead,NULL,junior_ring_judge_time as judge_time FROM (juniors_rings JOIN (SELECT * FROM handlers AS handlerTabl WHERE handler_is_showing_juniors=1 AND handler_junior_level IS NOT NULL ) as b ON handler_junior_level=junior_ring_class_name))";
+		
+//		public static final String JUNIOR_RING_OVERVIEW = "(SELECT " + 
+//				JuniorsRings._ID + ", " + 
+//				JuniorsRings.RING_JUNIOR_CLASS_NAME + "," + 
+//				"NULL," +//TODO handler name
+//				JuniorsRings.RING_BLOCK_START + " as " + AllRings.ALL_RINGS_BLOCK_START + "," +
+//				JuniorsRings.RING_COUNT_AHEAD + " as " + AllRings.ALL_RINGS_COUNT_AHEAD + "," +
+//				"NULL," + //TODO Handler image
+//				JuniorsRings.RING_JUDGE_TIME + " as " + AllRings.ALL_RINGS_JUDGE_TIME + 
+//				" FROM " + Tables.ENTERED_JUNIORS_RINGS+")";
+		public static final String ENTERED_JUNIOR_HANDLERS = "(SELECT * FROM " + Tables.HANDLERS + " WHERE " + Handlers.HANDLER_IS_SHOWING_JUNIORS + "=1 AND " + Handlers.HANDLER_JUNIOR_CLASS + " NOT NULL)";
 	}
 }

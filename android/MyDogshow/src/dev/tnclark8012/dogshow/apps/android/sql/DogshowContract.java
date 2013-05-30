@@ -28,12 +28,11 @@ public class DogshowContract {
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
     
     private static final String PATH_DOGS = "dogs";
-    private static final String PATH_DOGS_ENTERED = "entered";
+    private static final String PATH_ENTERED = "entered";
     private static final String PATH_HANDLERS = "handlers";
     private static final String PATH_BREED_RINGS = "breedrings";
     private static final String PATH_BREED_RINGS_WITH_DOGS = "with_dogs";
     
-    private static final String PATH_BREED_RINGS_ENTERED = "entered";
     private static final String PATH_BREED_RINGS_UPCOMING = "upcoming";
     private static final String PATH_GROUP = "group";
     private static final String PATH_BREEDS = "breeds";
@@ -42,6 +41,9 @@ public class DogshowContract {
     
     private static final String PATH_HANDLERS_JUNIORS= "juniors";
     private static final String PATH_HANDLERS_BY_JUNIORS_CLASS = "by_class";
+    
+    private static final String PATH_ALL_RINGS = "rings";
+    
     
     
     /**
@@ -105,6 +107,16 @@ public class DogshowContract {
     	String RING_UPDATED = SyncColumns.UPDATED;
     }
     
+    interface AllRingColumns {
+    	public static final String ALL_RINGS_COUNT_AHEAD = "count_ahead";
+    	public static final String ALL_RINGS_BLOCK_START = "block_start";
+    	public static final String ALL_RINGS_RING_NUMBER = "ring_number";
+    	public static final String ALL_RINGS_IMAGE_PATH = "image_path";
+    	public static final String ALL_RINGS_TITLE = "title";
+    	public static final String ALL_RINGS_SUBTITLE = "subtitle";
+    	public static final String ALL_RINGS_JUDGE_TIME = "judge_time";
+    }
+    
     interface JuniorsRingsColumns {
     	String RING_BLOCK_START = "junior_ring_block_start";
     	String RING_JUNIOR_COUNT = "junior_ring_count";
@@ -139,7 +151,7 @@ public class DogshowContract {
 
 		public static Uri buildEnteredGroupedBreedUri()
 		{
-			return CONTENT_URI.buildUpon().appendPath(PATH_DOGS_ENTERED).build();
+			return CONTENT_URI.buildUpon().appendPath(PATH_ENTERED).build();
 		}
 
         // Builds selectionArgs for {@link AT_TIME_SELECTION}
@@ -196,6 +208,19 @@ public class DogshowContract {
         	return CONTENT_URI.buildUpon().appendPath(PATH_HANDLERS_JUNIORS).appendPath(PATH_HANDLERS_BY_JUNIORS_CLASS).build();
         }
     }
+    public static class AllRings implements BaseColumns, AllRingColumns{//Constructed table
+    	public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_ALL_RINGS).appendPath(PATH_ENTERED).build();
+    	public static final String CONTENT_TYPE =
+                "vnd.android.cursor.dir/vnd.dogshow.ring";
+        public static final String CONTENT_ITEM_TYPE =
+                "vnd.android.cursor.item/vnd.dogshow.ring";
+    	public static final String DEFAULT_SORT = ALL_RINGS_BLOCK_START + " ASC";
+    	public static final String UPCOMING_SELECTION = AllRings.ALL_RINGS_BLOCK_START + " > ? ";//TODO AND " + BreedRings.RING_BLOCK_START + " < ?";
+    	public static String[] buildUpcomingSelectionArgs(long currTime ) {
+            return new String[] { String.valueOf(currTime) };
+        }
+    	//TODO upcomming selection
+    }
     
     /**
      * Each Ring is a show ring that consists of multiple timeblocks and breed rings
@@ -212,6 +237,7 @@ public class DogshowContract {
                 "vnd.android.cursor.item/vnd.dogshow.breedring";
         
         /** Breed rings for which the user has dogs entered in the show*/
+        //TODO move this or rename
         public static final String ENTERED_BREED_RINGS = Dogs.DOG_IS_SHOWING + " IS NOT NULL AND " + Dogs.DOG_IS_SHOWING + "!=0";
         /** Default "ORDER BY" clause. */
         public static final String DEFAULT_SORT = BreedRingsColumns.RING_BLOCK_START + " ASC";
@@ -227,7 +253,7 @@ public class DogshowContract {
         
         public static Uri buildEnteredRingsUri()
         {
-        	return CONTENT_URI.buildUpon().appendPath(PATH_BREED_RINGS_WITH_DOGS).appendPath(PATH_BREED_RINGS_ENTERED).build();
+        	return CONTENT_URI.buildUpon().appendPath(PATH_BREED_RINGS_WITH_DOGS).appendPath(PATH_ENTERED).build();
         }
 
      // Builds selectionArgs for {@link PATH_BREED_RINGS_UPCOMING}
