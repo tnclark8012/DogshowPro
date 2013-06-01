@@ -230,9 +230,9 @@ public class FullShowFragment extends SherlockListFragment implements
 			String format = "h:mm";
 			String ampmFormat = "a";
 
-			((TextView) view.findViewById(R.id.list_item_ring_names))
+			((TextView) view.findViewById(R.id.list_item_ring_subtitle))
 					.setText(cursor.getString(BreedRingsQuery.DOG_CALL_NAME));
-			((TextView) view.findViewById(R.id.list_item_ring_breed))
+			((TextView) view.findViewById(R.id.list_item_ring_title))
 					.setText(cursor.getString(BreedRingsQuery.RING_BREED));
 			((TextView) view.findViewById(R.id.list_item_ring_number))
 					.setText(getString(R.string.template_ring_number, cursor.getInt(BreedRingsQuery.RING_NUMBER)));

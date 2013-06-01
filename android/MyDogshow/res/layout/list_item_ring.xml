@@ -29,27 +29,27 @@
         android:layout_marginLeft="@dimen/element_margin_normal"
         android:gravity="center_vertical">
         <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-                android:id="@+id/list_item_ring_breed"
+                android:id="@+id/list_item_ring_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_medium"
-                android:text="Papillons" />
+                android:text="_title_" />
         <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-                android:id="@+id/list_item_ring_names"
+                android:id="@+id/list_item_ring_subtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
-                android:layout_below="@+id/list_item_ring_breed"
+                android:layout_below="@+id/list_item_ring_title"
                 android:textSize="@dimen/text_small"
                 android:textColor="#777777"
-                android:text="Lotta, Michael" />
+                android:text="_subtitle_" />
         <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
                 android:id="@+id/list_item_ring_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#777777"
                 android:layout_marginLeft="2dp"
-                android:layout_below="@+id/list_item_ring_names"
+                android:layout_below="@+id/list_item_ring_subtitle"
                 android:textSize="@dimen/text_small"
                 android:text="Ring 2" />
         <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView 
@@ -59,7 +59,7 @@
                 android:textColor="#777777"
                 android:layout_marginLeft="2dp"
                 android:layout_toRightOf="@+id/list_item_ring_number"
-                android:layout_below="@+id/list_item_ring_names"
+                android:layout_below="@+id/list_item_ring_subtitle"
                 android:textSize="@dimen/text_small"
                 android:text="(11:45 am)"
             />

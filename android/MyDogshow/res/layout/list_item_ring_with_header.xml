@@ -43,19 +43,19 @@
             android:gravity="center_vertical" >
 
             <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-                android:id="@+id/list_item_ring_breed"
+                android:id="@+id/list_item_ring_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Papillons"
+                android:text="_title_"
                 android:textSize="@dimen/text_medium" />
 
             <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-                android:id="@+id/list_item_ring_names"
+                android:id="@+id/list_item_ring_subtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/list_item_ring_breed"
+                android:layout_below="@+id/list_item_ring_title"
                 android:layout_marginLeft="2dp"
-                android:text="Lotta, Michael"
+                android:text="_subtitle_"
                 android:textColor="#777777"
                 android:textSize="@dimen/text_small" />
 
@@ -63,7 +63,7 @@
                 android:id="@+id/list_item_ring_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/list_item_ring_names"
+                android:layout_below="@+id/list_item_ring_subtitle"
                 android:layout_marginLeft="2dp"
                 android:text="Ring 2"
                 android:textColor="#777777"
@@ -73,7 +73,7 @@
                 android:id="@+id/list_item_ring_start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/list_item_ring_names"
+                android:layout_below="@+id/list_item_ring_subtitle"
                 android:layout_marginLeft="2dp"
                 android:layout_toRightOf="@+id/list_item_ring_number"
                 android:text="(11:45 am)"

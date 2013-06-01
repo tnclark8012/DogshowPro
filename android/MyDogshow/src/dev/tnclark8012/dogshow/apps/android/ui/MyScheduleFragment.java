@@ -59,11 +59,13 @@ import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.AllRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.JuniorsRings;
 import dev.tnclark8012.dogshow.apps.android.ui.dialog.EditJudgeTimeDialog;
 import dev.tnclark8012.dogshow.apps.android.util.DebugUtils;
 import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
 import dev.tnclark8012.dogshow.apps.android.util.Utils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
+import dev.tnclark8012.dogshow.shared.DogshowEnums.JuniorClass;
 
 public class MyScheduleFragment extends SherlockListFragment implements LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback, OnSharedPreferenceChangeListener, OnItemLongClickListener, EditJudgeTimeDialog.Callback {
 	private static float defaultPerDogJudgingMinutes = 2;
@@ -73,7 +75,7 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 	private CursorAdapter mAdapter;
 	private int mRingQueryToken;
 	private View mRootView;
-	private TextView mViewBreed;
+	private TextView mViewTitle;
 	private TextView mViewTime;
 	private TextView mViewRing;
 	private RelativeLayout mBreedImage;
@@ -88,7 +90,7 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 		@Override
 		public void run() {
 			LoaderManager manager = getLoaderManager();
-			manager.restartLoader(UpcomingBreedRingQuery._TOKEN, getArguments(), MyScheduleFragment.this);
+			manager.restartLoader(UpcomingRingQuery._TOKEN, getArguments(), MyScheduleFragment.this);
 			manager.restartLoader(BreedRingsQuery._TOKEN, getArguments(), MyScheduleFragment.this);
 		}
 	};
@@ -100,7 +102,11 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 				return;
 			}
 
-			Loader<Cursor> loader = getLoaderManager().getLoader(mRingQueryToken);
+			Loader<Cursor> loader = getLoaderManager().getLoader(AllRingsQuery._TOKEN);
+			if (loader != null) {
+				loader.forceLoad();
+			}
+			loader = getLoaderManager().getLoader(UpcomingRingQuery._TOKEN);
 			if (loader != null) {
 				loader.forceLoad();
 			}
@@ -112,12 +118,12 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 		super.onCreate(savedInstanceState);
 		final Intent intent = BaseActivity.fragmentArgumentsToIntent(getArguments());
 		defaultPerDogJudgingMinutes = Prefs.getEstimatedJudgingTime(getActivity());
-		mRingQueryToken = BreedRingsQuery._TOKEN;
+		mRingQueryToken = AllRingsQuery._TOKEN;
 		mAdapter = new RingListAdapter(getActivity());
 		setListAdapter(mAdapter);
 		LoaderManager manager = getLoaderManager();
-//		manager.restartLoader(BreedRingsQuery._TOKEN, getArguments(), this);
-//		manager.restartLoader(UpcomingBreedRingQuery._TOKEN, getArguments(), this);
+		// manager.restartLoader(BreedRingsQuery._TOKEN, getArguments(), this);
+		 manager.restartLoader(UpcomingRingQuery._TOKEN, getArguments(), this);
 		manager.restartLoader(AllRingsQuery._TOKEN, getArguments(), this);
 	}
 
@@ -126,6 +132,7 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 		// TODO Use URI from arguments
 		super.onAttach(activity);
 		activity.getContentResolver().registerContentObserver(BreedRings.CONTENT_URI, true, mObserver);
+		activity.getContentResolver().registerContentObserver(JuniorsRings.CONTENT_URI, true, mObserver);
 
 	}
 
@@ -139,7 +146,7 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		mRootView = inflater.inflate(R.layout.fragment_schedule_list, container, false);
-		mViewBreed = (TextView) mRootView.findViewById(R.id.schedule_breed);
+		mViewTitle = (TextView) mRootView.findViewById(R.id.schedule_breed);
 		mViewRing = (TextView) mRootView.findViewById(R.id.schedule_ring);
 		mViewTime = (TextView) mRootView.findViewById(R.id.schedule_ring_time);
 		mBreedImage = (RelativeLayout) mRootView.findViewById(R.id.schedule_breed_image);
@@ -152,16 +159,14 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 		CursorLoader loader = null;
-//		String selection = BreedRings.UPCOMING_SELECTION;
-//		String[] selectionArgs = BreedRings.buildUpcomingSelectionArgs(0);
 		String selection = AllRings.UPCOMING_SELECTION;
 		String[] selectionArgs = AllRings.buildUpcomingSelectionArgs(0);
 		switch (id) {
 		case BreedRingsQuery._TOKEN:
 			loader = new CursorLoader(getActivity(), BreedRings.buildEnteredRingsUri(), BreedRingsQuery.PROJECTION, selection, selectionArgs, BreedRings.DEFAULT_SORT);
 			break;
-		case UpcomingBreedRingQuery._TOKEN:
-			loader = new CursorLoader(getActivity(), BreedRings.buildEnteredRingsUri(), UpcomingBreedRingQuery.PROJECTION, selection, selectionArgs, BreedRings.DEFAULT_SORT);
+		case UpcomingRingQuery._TOKEN:
+			loader = new CursorLoader(getActivity(), AllRings.CONTENT_URI, UpcomingRingQuery.PROJECTION, selection, selectionArgs, BreedRings.DEFAULT_SORT);
 			break;
 		case AllRingsQuery._TOKEN:
 			loader = new CursorLoader(getActivity(), AllRings.CONTENT_URI, AllRingsQuery.PROJECTION, null, null, AllRings.DEFAULT_SORT);
@@ -174,18 +179,17 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 		if (getActivity() == null) {
 			return;
 		}
-		
+
 		int token = loader.getId();
-		Log.v(TAG, "loader id " + token + " finished" );
+		Log.v(TAG, "loader id " + token + " finished");
 		if (token == BreedRingsQuery._TOKEN) {
 			Log.v(TAG, "Cursor contains " + cursor.getCount() + " breed rings");
 			onBreedRingsQueryComplete(cursor);
-		} else if (token == UpcomingBreedRingQuery._TOKEN) {
-			onBreedRingUpommingQueryComplete(cursor);
+		} else if (token == UpcomingRingQuery._TOKEN) {
+			onUpcomingRingQueryComplete(cursor);
 		} else if (token == AllRingsQuery._TOKEN) {
 			onAllRingsQueryComplete(cursor);
-		}
-		else{
+		} else {
 			Log.d(TAG, "Query complete, Not Actionable: " + token);
 			cursor.close();
 		}
@@ -213,12 +217,11 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 					prevBlockMillis = currentBlockMillis;
 				}
 			}
-			DebugUtils.logArray("DebugUtils", newPositions.toArray());
 			cursor.moveToPosition(-1);
 			mAdapter.changeCursor(cursor);
 		}
 	}
-	
+
 	public void onBreedRingsQueryComplete(Cursor cursor) {
 		int cursorSize = cursor.getCount();
 		ArrayList<Integer> newPositions = new ArrayList<Integer>();
@@ -247,16 +250,26 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 		}
 	}
 
-	public void onBreedRingUpommingQueryComplete(Cursor cursor) {
+	public void onUpcomingRingQueryComplete(Cursor cursor) {
 		if (cursor.moveToFirst()) {
 			mViewNoUpcomingHeader.setVisibility(View.GONE);
 			mViewUpcomingHeader.setVisibility(View.VISIBLE);
-			String breed = cursor.getString(UpcomingBreedRingQuery.RING_BREED);
-			mViewBreed.setText(Breeds.parse(breed).getPlural());
-			mViewRing.setText(getString(R.string.template_ring_number, cursor.getInt(UpcomingBreedRingQuery.RING_NUMBER)));
-			upcomingBreedRingStart = cursor.getLong(UpcomingBreedRingQuery.RING_BLOCK_START);
-			int countAhead = cursor.getInt(UpcomingBreedRingQuery.BREED_COUNT_AHEAD);
-			float judgeMinutesPerDog = Utils.getMaybeNull(cursor, BreedRingsQuery.RING_JUDGE_TIME, defaultPerDogJudgingMinutes);
+			String title = cursor.getString(UpcomingRingQuery.RING_TITLE);
+
+			switch(cursor.getInt(UpcomingRingQuery.RING_TYPE))
+			{
+			case AllRings.TYPE_BREED_RING:
+				title = Breeds.parse(title).getPlural();
+				break;
+			case AllRings.TYPE_JUNIORS_RING:
+				title = JuniorClass.parse(title).getPrimaryName();
+				break;
+			}
+			mViewTitle.setText(title);
+			mViewRing.setText(getString(R.string.template_ring_number, cursor.getInt(UpcomingRingQuery.RING_NUMBER)));
+			upcomingBreedRingStart = cursor.getLong(UpcomingRingQuery.RING_BLOCK_START);
+			int countAhead = cursor.getInt(UpcomingRingQuery.BREED_COUNT_AHEAD);
+			float judgeMinutesPerDog = Utils.getMaybeNull(cursor, UpcomingRingQuery.RING_JUDGE_TIME, defaultPerDogJudgingMinutes);
 			long estimatedStart = Utils.estimateBlockStart(countAhead, upcomingBreedRingStart, judgeMinutesPerDog);
 
 			mViewTime.setText(UIUtils.timeStringFromMillis(estimatedStart, true));
@@ -265,7 +278,7 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 			delay = (delay > 0) ? delay : 0;
 			if (Utils.isSameDay(estimatedStart + upcomingAllowedWindow, System.currentTimeMillis()))// FIXME
 				handler.postDelayed(updateUpcomingRunnable, delay);
-			String imagePath = cursor.getString(UpcomingBreedRingQuery.DOG_IMAGE_PATH);
+			String imagePath = cursor.getString(UpcomingRingQuery.DOG_IMAGE_PATH);
 			if (imagePath != null) {
 				Resources res = getResources();
 				int height = res.getDimensionPixelSize(R.dimen.header_icon_height);
@@ -300,16 +313,16 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 
 		@Override
 		public void bindView(View view, Context context, Cursor cursor) {
-			
+
 			int countAhead = cursor.getInt(AllRingsQuery.COUNT_AHEAD);
 			long blockTimeMillis = cursor.getLong(AllRingsQuery.BLOCK_START);
 			float judgeMinutesPerDog = Utils.getMaybeNull(cursor, AllRingsQuery.JUDGE_TIME, defaultPerDogJudgingMinutes);
 			long estMillis = Utils.estimateBlockStart(countAhead, blockTimeMillis, judgeMinutesPerDog);
 			int cursorPosition = cursor.getPosition();
-//			Log.d("DebugUtils", "binding position " + cursorPosition);
-			Log.d(TAG, "position " + cursorPosition + " judge minutes: " + judgeMinutesPerDog);
+			// Log.d("DebugUtils", "binding position " + cursorPosition);
+			Log.d(TAG, "position " + cursorPosition + " is type: " + cursor.getInt(AllRingsQuery.RING_TYPE));
 			if (newDayPositions.get(cursorPosition)) {
-//				Log.d("DebugUtils", cursorPosition + " was a new day");
+				// Log.d("DebugUtils", cursorPosition + " was a new day");
 				ViewStub stub = (ViewStub) view.findViewById(R.id.list_item_ring_header_stub);
 				RelativeLayout header = null;
 				if (stub != null) {
@@ -325,9 +338,14 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 					header.setVisibility(View.GONE);
 				}
 			}
-			((TextView) view.findViewById(R.id.list_item_ring_names)).setText(cursor.getString(AllRingsQuery.SUBTITLE));
+			((TextView) view.findViewById(R.id.list_item_ring_subtitle)).setText(cursor.getString(AllRingsQuery.SUBTITLE));
 			String title = cursor.getString(AllRingsQuery.TITLE);
-			((TextView) view.findViewById(R.id.list_item_ring_breed)).setText(title);
+			if (cursor.getInt(AllRingsQuery.RING_TYPE) == AllRings.TYPE_BREED_RING) {
+				title = Breeds.parse(title).getPrimaryName();
+			} else {
+				title = JuniorClass.parse(title).getPrimaryName();
+			}
+			((TextView) view.findViewById(R.id.list_item_ring_title)).setText(title);
 			((TextView) view.findViewById(R.id.list_item_ring_number)).setText(getString(R.string.template_ring_number, cursor.getInt(AllRingsQuery.RING_NUMBER)));
 
 			((TextView) view.findViewById(R.id.list_item_ring_start)).setText(String.format("(%s)", UIUtils.timeStringFromMillis(blockTimeMillis, true)));
@@ -336,44 +354,44 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 
 			((TextView) view.findViewById(R.id.list_item_ring_time)).setText(time);
 		}
-//		@Override
-//		public void bindView(View view, Context context, Cursor cursor) {
-//			
-//			int countAhead = cursor.getInt(BreedRingsQuery.BREED_COUNT_AHEAD);
-//			long blockTimeMillis = cursor.getLong(BreedRingsQuery.RING_BLOCK_START);
-//			float judgeMinutesPerDog = Utils.getMaybeNull(cursor, BreedRingsQuery.RING_JUDGE_TIME, defaultPerDogJudgingMinutes);
-//			long estMillis = Utils.estimateBlockStart(countAhead, blockTimeMillis, judgeMinutesPerDog);
-//			int cursorPosition = cursor.getPosition();
-////			Log.d("DebugUtils", "binding position " + cursorPosition);
-//			Log.d(TAG, "position " + cursorPosition + " judge minutes: " + judgeMinutesPerDog);
-//			if (newDayPositions.get(cursorPosition)) {
-////				Log.d("DebugUtils", cursorPosition + " was a new day");
-//				ViewStub stub = (ViewStub) view.findViewById(R.id.list_item_ring_header_stub);
-//				RelativeLayout header = null;
-//				if (stub != null) {
-//					header = (RelativeLayout) stub.inflate();
-//				} else {
-//					header = (RelativeLayout) view.findViewById(R.id.list_item_ring_header);
-//				}
-//				((TextView) header.findViewById(R.id.list_item_ring_header_date)).setText(DateUtils.formatDateTime(mContext, blockTimeMillis, DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NO_YEAR) + "");
-//				header.setVisibility(View.VISIBLE);
-//			} else {
-//				RelativeLayout header = (RelativeLayout) view.findViewById(R.id.list_item_ring_header);
-//				if (header != null) {
-//					header.setVisibility(View.GONE);
-//				}
-//			}
-//			((TextView) view.findViewById(R.id.list_item_ring_names)).setText(cursor.getString(BreedRingsQuery.ENTERED_CALL_NAMES));
-//			String breedName = cursor.getString(BreedRingsQuery.RING_BREED);
-//			((TextView) view.findViewById(R.id.list_item_ring_breed)).setText(Breeds.parse(breedName).getPlural());
-//			((TextView) view.findViewById(R.id.list_item_ring_number)).setText(getString(R.string.template_ring_number, cursor.getInt(BreedRingsQuery.RING_NUMBER)));
-//
-//			((TextView) view.findViewById(R.id.list_item_ring_start)).setText(String.format("(%s)", UIUtils.timeStringFromMillis(blockTimeMillis, true)));
-//
-//			String time = String.format("%s\n%s", UIUtils.timeStringFromMillis(estMillis, false), UIUtils.timeAmPmFromMillis(estMillis));
-//
-//			((TextView) view.findViewById(R.id.list_item_ring_time)).setText(time);
-		
+
+		// @Override
+		// public void bindView(View view, Context context, Cursor cursor) {
+		//
+		// int countAhead = cursor.getInt(BreedRingsQuery.BREED_COUNT_AHEAD);
+		// long blockTimeMillis = cursor.getLong(BreedRingsQuery.RING_BLOCK_START);
+		// float judgeMinutesPerDog = Utils.getMaybeNull(cursor, BreedRingsQuery.RING_JUDGE_TIME, defaultPerDogJudgingMinutes);
+		// long estMillis = Utils.estimateBlockStart(countAhead, blockTimeMillis, judgeMinutesPerDog);
+		// int cursorPosition = cursor.getPosition();
+		// // Log.d("DebugUtils", "binding position " + cursorPosition);
+		// Log.d(TAG, "position " + cursorPosition + " judge minutes: " + judgeMinutesPerDog);
+		// if (newDayPositions.get(cursorPosition)) {
+		// // Log.d("DebugUtils", cursorPosition + " was a new day");
+		// ViewStub stub = (ViewStub) view.findViewById(R.id.list_item_ring_header_stub);
+		// RelativeLayout header = null;
+		// if (stub != null) {
+		// header = (RelativeLayout) stub.inflate();
+		// } else {
+		// header = (RelativeLayout) view.findViewById(R.id.list_item_ring_header);
+		// }
+		// ((TextView) header.findViewById(R.id.list_item_ring_header_date)).setText(DateUtils.formatDateTime(mContext, blockTimeMillis, DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NO_YEAR) + "");
+		// header.setVisibility(View.VISIBLE);
+		// } else {
+		// RelativeLayout header = (RelativeLayout) view.findViewById(R.id.list_item_ring_header);
+		// if (header != null) {
+		// header.setVisibility(View.GONE);
+		// }
+		// }
+		// ((TextView) view.findViewById(R.id.list_item_ring_names)).setText(cursor.getString(BreedRingsQuery.ENTERED_CALL_NAMES));
+		// String breedName = cursor.getString(BreedRingsQuery.RING_BREED);
+		// ((TextView) view.findViewById(R.id.list_item_ring_breed)).setText(Breeds.parse(breedName).getPlural());
+		// ((TextView) view.findViewById(R.id.list_item_ring_number)).setText(getString(R.string.template_ring_number, cursor.getInt(BreedRingsQuery.RING_NUMBER)));
+		//
+		// ((TextView) view.findViewById(R.id.list_item_ring_start)).setText(String.format("(%s)", UIUtils.timeStringFromMillis(blockTimeMillis, true)));
+		//
+		// String time = String.format("%s\n%s", UIUtils.timeStringFromMillis(estMillis, false), UIUtils.timeAmPmFromMillis(estMillis));
+		//
+		// ((TextView) view.findViewById(R.id.list_item_ring_time)).setText(time);
 
 		@Override
 		public View newView(Context context, Cursor cursor, ViewGroup parent) {
@@ -382,7 +400,7 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 	}
 
 	/**
-	 * TODO Why can't this be the same query as {@link UpcomingBreedRingQuery}? How much would we save?
+	 * TODO Why can't this be the same query as {@link UpcomingRingQuery}? How much would we save?
 	 * 
 	 * @author Taylor
 	 * 
@@ -399,10 +417,10 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 		int ENTERED_CALL_NAMES = 5;
 		int BREED_COUNT_AHEAD = 6;
 	}
-	
+
 	private interface AllRingsQuery {
 		int _TOKEN = 0x3;
-		String [] PROJECTION = { AllRings._ID, AllRings.ALL_RINGS_BLOCK_START, AllRings.ALL_RINGS_COUNT_AHEAD, AllRings.ALL_RINGS_IMAGE_PATH, AllRings.ALL_RINGS_RING_NUMBER, AllRings.ALL_RINGS_SUBTITLE, AllRings.ALL_RINGS_TITLE, AllRings.ALL_RINGS_JUDGE_TIME};
+		String[] PROJECTION = { AllRings._ID, AllRings.RING_BLOCK_START, AllRings.RING_COUNT_AHEAD, AllRings.ALL_RINGS_IMAGE_PATH, AllRings.RING_NUMBER, AllRings.ALL_RINGS_SUBTITLE, AllRings.ALL_RINGS_TITLE, AllRings.RING_JUDGE_TIME, AllRings.ALL_RINGS_TYPE };
 		int _ID = 0;
 		int BLOCK_START = 1;
 		int COUNT_AHEAD = 2;
@@ -411,19 +429,21 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 		int SUBTITLE = 5;
 		int TITLE = 6;
 		int JUDGE_TIME = 7;
+		int RING_TYPE = 8;
 	}
 
-	private interface UpcomingBreedRingQuery {
+	private interface UpcomingRingQuery {
 		int _TOKEN = 0x2;
 
-		String[] PROJECTION = { DogshowContract.BreedRings._ID, DogshowContract.BreedRings.RING_BREED, DogshowContract.BreedRings.RING_BLOCK_START, DogshowContract.BreedRings.RING_NUMBER, DogshowContract.Dogs.DOG_IMAGE_PATH, DogshowContract.BreedRings.RING_COUNT_AHEAD, DogshowContract.BreedRings.RING_JUDGE_TIME };
+		String[] PROJECTION = { AllRings._ID, AllRings.ALL_RINGS_TITLE, AllRings.RING_BLOCK_START, AllRings.RING_NUMBER, AllRings.ALL_RINGS_IMAGE_PATH, AllRings.RING_COUNT_AHEAD, AllRings.RING_JUDGE_TIME, AllRings.ALL_RINGS_TYPE };
 		int _ID = 0;
-		int RING_BREED = 1;
+		int RING_TITLE = 1;
 		int RING_BLOCK_START = 2;
 		int RING_NUMBER = 3;
 		int DOG_IMAGE_PATH = 4;
 		int BREED_COUNT_AHEAD = 5;
 		int RING_JUDGE_TIME = 6;
+		int RING_TYPE = 7;
 
 	}
 
@@ -459,33 +479,50 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 		if (key.equals(Prefs.KEY_JUDGE_TIME)) {
 			defaultPerDogJudgingMinutes = Prefs.getEstimatedJudgingTime(getActivity());
 			LoaderManager manager = getLoaderManager();
-			manager.restartLoader(BreedRingsQuery._TOKEN, getArguments(), this);
-			manager.restartLoader(UpcomingBreedRingQuery._TOKEN, getArguments(), this);
+			manager.restartLoader(AllRingsQuery._TOKEN, getArguments(), this);
+			manager.restartLoader(UpcomingRingQuery._TOKEN, getArguments(), this);
 		}
 
 	}
 
-	
 	@Override
 	public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 		Cursor cursor = (Cursor) mAdapter.getItem(position);
 		Bundle b = new Bundle();
-		float minutes = Utils.getMaybeNull(cursor, BreedRingsQuery.RING_JUDGE_TIME, defaultPerDogJudgingMinutes);
+		float minutes = Utils.getMaybeNull(cursor, AllRingsQuery.JUDGE_TIME, defaultPerDogJudgingMinutes);
+		int ringType = cursor.getInt(AllRingsQuery.RING_TYPE);
+		String typeName = (ringType==AllRings.TYPE_BREED_RING) ? "breed" : "juniors";
+		Log.v(TAG, "pressed on " + typeName + " ring");
 		long dogId = Utils.getMaybeNull(cursor, BreedRingsQuery._ID, -1);
 		b.putLong(EditJudgeTimeDialog.BUNDLE_KEY_ID, dogId);
 		b.putFloat(EditJudgeTimeDialog.BUNDLE_KEY_TIME, minutes);
-		EditJudgeTimeDialog d = EditJudgeTimeDialog.newInstance(dogId, minutes, this);
+		b.putInt(EditJudgeTimeDialog.BUNDLE_KEY_TYPE, ringType);
+
+		EditJudgeTimeDialog d = new EditJudgeTimeDialog();
+		//.newInstance(dogId, minutes, this);
+		d.setArguments(b);
+		d.setCallback(this);
 		d.show(getFragmentManager(), "dialog");
 		return true;
 	}
 
 	@Override
-	public void onFinishEditDialog(long id, float minutes) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		Log.d(TAG, "Setting minutes to " + minutes);
-		map.put(BreedRings.RING_JUDGE_TIME, minutes);
-		new PersistHelper(getActivity()).updateBreedRing(id, map);
-		
+	public void onFinishEditDialog(int status, long id, int ringType, float minutes) {
+		if (status == EditJudgeTimeDialog.STATUS_SAVE) {
+			Map<String, Object> map = new HashMap<String, Object>();
+			Log.d(TAG, "Setting minutes to " + minutes);
+			map.put(AllRings.RING_JUDGE_TIME, minutes);
+			switch (ringType) {
+			case AllRings.TYPE_BREED_RING:
+				Log.v(TAG, "updating judge time for breed ring");
+				new PersistHelper(getActivity()).updateBreedRing(id, map);
+				break;
+			case AllRings.TYPE_JUNIORS_RING:
+				Log.v(TAG, "updating judge time for juniors ring");
+				new PersistHelper(getActivity()).updateJuniorsRing(id, map);
+				break;
+			}
+		}
 	}
 
 }

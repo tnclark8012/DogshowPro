@@ -49,10 +49,7 @@ public class Utils {
 		int oneMonth = time.month;
 		int oneMonthDay = time.monthDay;
 		time.set(two);
-		boolean same = (oneYear == time.year) && (oneMonth == time.month) && (oneMonthDay == time.monthDay);
-		Log.d(TAG, oneMonth+"/"+oneMonthDay + "/" + oneYear + " is same as " + time.month + "/" + time.monthDay + "/" +time.year+ ": " + same);
-		Log.d(TAG, one + " is same as " + two + ": " + same);
-		return same;
+		return(oneYear == time.year) && (oneMonth == time.month) && (oneMonthDay == time.monthDay);
 	}
 
 	public static long getMaybeNull(Cursor cursor, int columnIndex, long defaultValue) {

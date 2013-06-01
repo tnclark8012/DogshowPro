@@ -3,7 +3,7 @@
     android:layout_width="wrap_content" android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/lbl_edit_time" android:text="Minutes to judge 1 dog" 
+        android:id="@+id/lbl_edit_time" android:text="Ring judging minutes per dog" 
         android:layout_width="wrap_content" android:layout_height="wrap_content" />
       
     <EditText

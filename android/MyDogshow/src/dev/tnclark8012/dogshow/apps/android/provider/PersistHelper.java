@@ -14,6 +14,7 @@ import android.os.RemoteException;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.JuniorsRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.SyncColumns;
 import dev.tnclark8012.dogshow.apps.android.util.Utils;
 
@@ -31,6 +32,10 @@ public class PersistHelper {
 
 	public void updateBreedRing(long id, Map<String, Object> updateValues) {
 		updateTable(BreedRings.CONTENT_URI, updateValues, BreedRings._ID + "=?", new String[] { String.valueOf(id) });
+	}
+
+	public void updateJuniorsRing(long id, Map<String, Object> updateValues) {
+		updateTable(JuniorsRings.CONTENT_URI, updateValues, JuniorsRings._ID + "=?", new String[] { String.valueOf(id) });
 	}
 
 	public void updateDog(Map<String, Object> updateValues, String selection, String[] selectionArgs) {

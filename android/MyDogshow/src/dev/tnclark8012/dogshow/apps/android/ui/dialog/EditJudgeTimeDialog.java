@@ -19,20 +19,25 @@ import dev.tnclark8012.dogshow.apps.android.util.Utils;
 
 public class EditJudgeTimeDialog extends SherlockDialogFragment implements OnClickListener {
 	public interface Callback {
-		void onFinishEditDialog(long id, float minutes);
+		void onFinishEditDialog(int status, long id, int type, float minutes);
 	}
 
 	private EditText mEditText;
 	private float mDefaultMinutes = -1;
 	private long mId = -1;
+	private int mRingType = -1;
 	public static final String BUNDLE_KEY_ID = "id";
 	public static final String BUNDLE_KEY_TIME = "time";
+	public static final String BUNDLE_KEY_TYPE = "type";
 	private Callback mCallback = null;
+	public static final int STATUS_CANCELLED = -1;
+	public static final int STATUS_SAVE = 0;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		Bundle args = getArguments();
 		mId = args.getLong(BUNDLE_KEY_ID);
+		mRingType = args.getInt(BUNDLE_KEY_TYPE);
 		mDefaultMinutes = args.getFloat(BUNDLE_KEY_TIME);
 		View view = inflater.inflate(R.layout.dialog_schedule_edit_judge_time, container);
 		mEditText = (EditText) view.findViewById(R.id.txt_time);
@@ -49,11 +54,11 @@ public class EditJudgeTimeDialog extends SherlockDialogFragment implements OnCli
 		if (mCallback != null) {
 			switch (v.getId()) {
 			case R.id.dialog_save: {
-				mCallback.onFinishEditDialog(mId, Utils.parseSafely(mEditText.getText().toString(), mDefaultMinutes));
+				mCallback.onFinishEditDialog(STATUS_SAVE, mId, mRingType, Utils.parseSafely(mEditText.getText().toString(), mDefaultMinutes));
 				break;
 			}
 			case R.id.dialog_cancel: {
-				mCallback.onFinishEditDialog(mId, mDefaultMinutes);
+				mCallback.onFinishEditDialog(STATUS_CANCELLED, mId, mRingType, mDefaultMinutes);
 				break;
 			}
 			}

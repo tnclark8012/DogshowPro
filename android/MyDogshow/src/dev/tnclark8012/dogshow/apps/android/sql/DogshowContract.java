@@ -37,7 +37,7 @@ public class DogshowContract {
     private static final String PATH_GROUP = "group";
     private static final String PATH_BREEDS = "breeds";
     
-    private static final String PATH_JUNIORS_RINGS = "juniorsrings";
+    private static final String PATH_JUNIORS_RINGS = "juniorsrings";//TODO: HIGH make rings "super" path, then use that for ContentObservers
     
     private static final String PATH_HANDLERS_JUNIORS= "juniors";
     private static final String PATH_HANDLERS_BY_JUNIORS_CLASS = "by_class";
@@ -61,6 +61,16 @@ public class DogshowContract {
     public interface SyncColumns {
         /** Last time this entry was updated or synchronized. */
         String UPDATED = "updated";
+    }
+    
+    interface RingColumns {
+    	public static final String RING_COUNT_AHEAD = "ring_count_ahead";
+    	public static final String RING_DATE = "ring_date";
+    	public static final String RING_BLOCK_START = "ring_block_start";
+    	public static final String RING_NUMBER = "ring_number";
+    	public static final String RING_JUDGE_TIME = "ring_judge_time";
+    	public static final String RING_JUDGE = "ring_judge";
+    	public static final String RING_SHOW_ID = "ring_show_id";
     }
 
     interface DogsColumns {
@@ -87,47 +97,27 @@ public class DogshowContract {
     	String HANDLER_JUNIOR_CLASS = "handler_junior_level";
     	String HANDLER_IS_SHOWING = "handler_is_showing";
     	String HANDLER_IS_SHOWING_JUNIORS = "handler_is_showing_juniors";
-    	String HANDLER_UPDATED = SyncColumns.UPDATED;
     }
     
     interface BreedRingsColumns {
     	String RING_BITCH_COUNT = "breed_ring_bitch_count";
-    	String RING_BLOCK_START = "breed_ring_block_start";
-    	String RING_BREED = "breed_ring_breed";
+       	String RING_BREED = "breed_ring_breed";
     	String RING_BREED_COUNT = "breed_ring_count";
-    	String RING_COUNT_AHEAD = "breed_ring_count_ahead";
-    	String RING_DATE = "breed_ring_date";
-    	String RING_DOG_COUNT = "breed_ring_dog_count";
-    	String RING_JUDGE = "breed_ring_judge";
-    	String RING_JUDGE_TIME = "breed_ring_judge_time";
-    	String RING_NUMBER = "breed_ring_number";
-    	String RING_SHOW_ID = "breed_ring_show_id";
+       	String RING_DOG_COUNT = "breed_ring_dog_count";
     	String RING_SPECIAL_DOG_COUNT = "breed_ring_special_dog_count";
     	String RING_SPECIAL_BITCH_COUNT = "breed_ring_special_bitch_count";
-    	String RING_UPDATED = SyncColumns.UPDATED;
     }
     
     interface AllRingColumns {
-    	public static final String ALL_RINGS_COUNT_AHEAD = "count_ahead";
-    	public static final String ALL_RINGS_BLOCK_START = "block_start";
-    	public static final String ALL_RINGS_RING_NUMBER = "ring_number";
     	public static final String ALL_RINGS_IMAGE_PATH = "image_path";
     	public static final String ALL_RINGS_TITLE = "title";
     	public static final String ALL_RINGS_SUBTITLE = "subtitle";
-    	public static final String ALL_RINGS_JUDGE_TIME = "judge_time";
+    	public static final String ALL_RINGS_TYPE = "ring_type";
     }
     
     interface JuniorsRingsColumns {
-    	String RING_BLOCK_START = "junior_ring_block_start";
     	String RING_JUNIOR_COUNT = "junior_ring_count";
     	String RING_JUNIOR_CLASS_NAME = "junior_ring_class_name";
-    	String RING_COUNT_AHEAD = "junior_ring_count_ahead";
-    	String RING_DATE = "junior_ring_date";
-    	String RING_JUDGE = "junior_ring_judge";
-    	String RING_JUDGE_TIME = "junior_ring_judge_time";
-    	String RING_NUMBER = "junior_ring_number";
-    	String RING_SHOW_ID = "junior_ring_show_id";
-    	String RING_UPDATED = SyncColumns.UPDATED;
     }
     
     /**
@@ -208,24 +198,27 @@ public class DogshowContract {
         	return CONTENT_URI.buildUpon().appendPath(PATH_HANDLERS_JUNIORS).appendPath(PATH_HANDLERS_BY_JUNIORS_CLASS).build();
         }
     }
-    public static class AllRings implements BaseColumns, AllRingColumns{//Constructed table
+    public static class AllRings implements BaseColumns, AllRingColumns, RingColumns{//Constructed table
     	public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_ALL_RINGS).appendPath(PATH_ENTERED).build();
     	public static final String CONTENT_TYPE =
                 "vnd.android.cursor.dir/vnd.dogshow.ring";
         public static final String CONTENT_ITEM_TYPE =
                 "vnd.android.cursor.item/vnd.dogshow.ring";
-    	public static final String DEFAULT_SORT = ALL_RINGS_BLOCK_START + " ASC";
-    	public static final String UPCOMING_SELECTION = AllRings.ALL_RINGS_BLOCK_START + " > ? ";//TODO AND " + BreedRings.RING_BLOCK_START + " < ?";
+    	public static final String DEFAULT_SORT =  RING_BLOCK_START + " ASC";
+    	public static final String UPCOMING_SELECTION = RING_BLOCK_START + " > ? ";//TODO AND " + BreedRings.RING_BLOCK_START + " < ?";
     	public static String[] buildUpcomingSelectionArgs(long currTime ) {
             return new String[] { String.valueOf(currTime) };
         }
+    	public static final int TYPE_BREED_RING = 0;
+    	public static final int TYPE_JUNIORS_RING = 1;
+    	
     	//TODO upcomming selection
     }
     
     /**
      * Each Ring is a show ring that consists of multiple timeblocks and breed rings
      */
-    public static class BreedRings implements BreedRingsColumns,
+    public static class BreedRings implements RingColumns, BreedRingsColumns,
             SyncColumns, BaseColumns {
     	
         public static final Uri CONTENT_URI =
@@ -240,7 +233,7 @@ public class DogshowContract {
         //TODO move this or rename
         public static final String ENTERED_BREED_RINGS = Dogs.DOG_IS_SHOWING + " IS NOT NULL AND " + Dogs.DOG_IS_SHOWING + "!=0";
         /** Default "ORDER BY" clause. */
-        public static final String DEFAULT_SORT = BreedRingsColumns.RING_BLOCK_START + " ASC";
+        public static final String DEFAULT_SORT = BreedRings.RING_BLOCK_START + " ASC";
 
 		public static final String UPCOMING_SELECTION = BreedRings.RING_BLOCK_START + " > ? ";//TODO AND " + BreedRings.RING_BLOCK_START + " < ?";
 
@@ -272,7 +265,7 @@ public class DogshowContract {
     /**
      * Each Ring is a show ring that consists of multiple timeblocks and breed rings
      */
-    public static class JuniorsRings implements JuniorsRingsColumns,
+    public static class JuniorsRings implements RingColumns, JuniorsRingsColumns,
             SyncColumns, BaseColumns {
     	
         public static final Uri CONTENT_URI =
@@ -284,9 +277,9 @@ public class DogshowContract {
                 "vnd.android.cursor.item/vnd.dogshow.juniorring";
         
         
-        public static final String DEFAULT_SORT = JuniorsRingsColumns.RING_BLOCK_START + " ASC";
+        public static final String DEFAULT_SORT = RING_BLOCK_START + " ASC";
 
-		public static final String UPCOMING_SELECTION = JuniorsRingsColumns.RING_BLOCK_START + " > ? ";//TODO AND " + BreedRings.RING_BLOCK_START + " < ?";
+		public static final String UPCOMING_SELECTION = RING_BLOCK_START + " > ? ";//TODO AND " + BreedRings.RING_BLOCK_START + " < ?";
 
         
         /** Build {@link Uri} for requested Ring ID. */
@@ -298,7 +291,7 @@ public class DogshowContract {
             return new String[] { String.valueOf(currTime) };
         }
         
-        /** Read _ID from {@link BreedRings} {@link Uri}. */
+        /** Read _ID from {@link JuniorsRings} {@link Uri}. */
         public static String getRingId(Uri uri) {
             return uri.getPathSegments().get(1);
         }
