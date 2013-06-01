@@ -1,8 +1,5 @@
 package dev.tnclark8012.dogshow.apps.android.sql;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -23,10 +20,7 @@ import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.SyncColumns;
 public class DogshowDatabase extends SQLiteOpenHelper {
 	private static final String TAG = DogshowDatabase.class.getSimpleName();
 	private static final String DATABASE_NAME = "mydogshow.db";
-	// public static final String TABLE_DOGS = "dogs";
-	public static final String COLUMN_ID = "_id";
 	private static final int VER_LAUNCH = 1;
-	// private static final int VER_SESSION_TYPE = 2;
 
 	private static final int DATABASE_VERSION = VER_LAUNCH;
 
@@ -35,16 +29,12 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 		String BREED_RINGS = "breed_rings";
 		String HANDLERS = "handlers";
 		String JUNIORS_RINGS = "juniors_rings";
-		//TODO dog. qualified in ENTERED_DOGS_BY_BREED
-		String ENTERED_DOGS_BY_BREED = "(SELECT *, " + Dogs.DOG_BREED + " as " + Dogs.ENTERED_DOGS_BREED + ", group_concat(dogs." + Dogs.DOG_CALL_NAME + ", \", \" ) as " + Dogs.ENTERED_DOGS_NAMES + " FROM " + Tables.DOGS + " GROUP BY " + Dogs.DOG_BREED +")";
-		String ENTERED_JUNIORS_RINGS = JUNIORS_RINGS + " JOIN " + Subquery.ENTERED_JUNIOR_HANDLERS + " ON " + Handlers.HANDLER_JUNIOR_CLASS + "=" +JuniorsRings.RING_JUNIOR_CLASS_NAME;
-		String BREED_RINGS_JOIN_DOGS = BREED_RINGS + " " + "JOIN " + ENTERED_DOGS_BY_BREED
-				+ " ON " + Qualified.BREED_RINGS_RING_BREED + "=" + Dogs.ENTERED_DOGS_BREED;			
-		
-//		String ALL_ENTERED_RINGS = "SELECT * FROM (" + Subquery.BREED_RING_OVERVIEW + " UNION ALL " + Subquery.JUNIOR_RING_OVERVIEW + ") as pp";
-		String ALL_ENTERED_RINGS = "(select * from (SELECT breed_rings._id, 0 as ring_type, ring_number, (breed_ring_breed) as title,(entered_dogs_names) as subtitle,ring_block_start, ring_count_ahead,(dog_image_path) as image_path,ring_judge_time FROM ( (breed_rings JOIN (SELECT *, dog_breed as entered_dogs_breed, group_concat(dog_call_name, \", \" ) as entered_dogs_names FROM dogs AS BLAH GROUP BY dog_breed ) AS Bd ON breed_ring_breed=entered_dogs_breed ) ) UNION ALL SELECT juniors_rings._id, 1 as ring_type, ring_number, junior_ring_class_name,class_entered_handlers, ring_block_start, ring_count_ahead,NULL,ring_judge_time FROM (juniors_rings JOIN ( SELECT *,group_concat(handler_name, \", \" ) as class_entered_handlers FROM handlers AS handlerTabl WHERE handler_is_showing_juniors=1 AND handler_junior_level IS NOT NULL ) as b ON handler_junior_level=junior_ring_class_name))) as pp";
+		String ENTERED_DOGS_BY_BREED = "(SELECT *, " + Dogs.DOG_BREED + " as " + Dogs.ENTERED_DOGS_BREED + ", group_concat(" + Qualified.DOG_CALL_NAME + ", \", \" ) as " + Dogs.ENTERED_DOGS_NAMES + " FROM " + Tables.DOGS + " GROUP BY " + Dogs.DOG_BREED +")";
+		String ENTERED_JUNIORS_RINGS = "(" + JUNIORS_RINGS + " JOIN " + Subquery.ENTERED_JUNIOR_HANDLERS + " as entered_junior_handlers ON " + Handlers.HANDLER_JUNIOR_CLASS + "=" +JuniorsRings.RING_JUNIOR_CLASS_NAME + ")";
+		String ENTERED_BREED_RINGS_JOIN_DOGS = "(" + BREED_RINGS + " " + "JOIN " + ENTERED_DOGS_BY_BREED
+				+ " as entered_breed_rings_dogs ON " + Qualified.BREED_RINGS_RING_BREED + "=" + Dogs.ENTERED_DOGS_BREED + ")";			
+		String ALL_ENTERED_RINGS = "(select * from (" + Subquery.BREED_RING_OVERVIEW + " UNION ALL " + Subquery.JUNIOR_RING_OVERVIEW + " )) as all_entered_rings";
 	}
-
 	public DogshowDatabase(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
@@ -125,40 +115,6 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				+ RingColumns.RING_NUMBER+ " INTEGER NOT NULL,"
 				+ RingColumns.RING_SHOW_ID + " TEXT NOT NULL,"
 				+ SyncColumns.UPDATED + " INTEGER NOT NULL)");
-		Calendar today = new GregorianCalendar();
-		today.set(Calendar.HOUR, 0);
-		today.set(Calendar.MINUTE, 0);
-		today.set(Calendar.SECOND, 0);
-		today.set(Calendar.MILLISECOND, 0);
-//		db.execSQL("INSERT INTO " + Tables.BREED_RINGS + "("
-//				+ BreedRingsColumns.RING_BITCH_COUNT + ","
-//				+ BreedRingsColumns.RING_BLOCK_START + ","
-//				+ BreedRingsColumns.RING_BREED + ","
-//				+ BreedRingsColumns.RING_BREED_COUNT + ","
-//				+ BreedRingsColumns.RING_COUNT_AHEAD + ","
-//				+ BreedRingsColumns.RING_DATE + ","
-//				+ BreedRingsColumns.RING_DOG_COUNT + ","
-//				+ BreedRingsColumns.RING_JUDGE + ","
-//				+ BreedRingsColumns.RING_NUMBER+ ","
-//				+ BreedRingsColumns.RING_SHOW_ID + ","
-//				+ BreedRingsColumns.RING_SPECIAL_BITCH_COUNT + ","
-//				+ BreedRingsColumns.RING_SPECIAL_DOG_COUNT + ","
-//				+ BreedRingsColumns.RING_UPDATED + ")" + " VALUES ("
-//				+ "2,"
-//				+ (new GregorianCalendar().getTimeInMillis()+2*60*1000)
-//				+ ",\"PAPILLON\","
-//				+ "10,"
-//				+ "15,"
-//				+ (today.getTimeInMillis()) +","
-//				+ "5,"
-//				+ "\"Dr. Steve Keating\","
-//				+ "3,"
-//				+ "\"dummy\","
-//				+ "2,"
-//				+ "1,"
-//				+ System.currentTimeMillis()
-//				+ ")");
-
 	}
 
 	@Override

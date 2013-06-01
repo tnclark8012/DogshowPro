@@ -30,19 +30,14 @@ public class DogshowContract {
     private static final String PATH_DOGS = "dogs";
     private static final String PATH_ENTERED = "entered";
     private static final String PATH_HANDLERS = "handlers";
-    private static final String PATH_BREED_RINGS = "breedrings";
+    private static final String PATH_RINGS_BREED = "breed";
     private static final String PATH_BREED_RINGS_WITH_DOGS = "with_dogs";
-    
     private static final String PATH_BREED_RINGS_UPCOMING = "upcoming";
-    private static final String PATH_GROUP = "group";
-    private static final String PATH_BREEDS = "breeds";
-    
-    private static final String PATH_JUNIORS_RINGS = "juniorsrings";//TODO: HIGH make rings "super" path, then use that for ContentObservers
-    
+    private static final String PATH_RINGS_GROUP = "group";
+    private static final String PATH_RINGS_JUNIORS = "juniors";
     private static final String PATH_HANDLERS_JUNIORS= "juniors";
     private static final String PATH_HANDLERS_BY_JUNIORS_CLASS = "by_class";
-    
-    private static final String PATH_ALL_RINGS = "rings";
+    private static final String PATH_RINGS = "rings";
     
     
     
@@ -108,11 +103,11 @@ public class DogshowContract {
     	String RING_SPECIAL_BITCH_COUNT = "breed_ring_special_bitch_count";
     }
     
-    interface AllRingColumns {
-    	public static final String ALL_RINGS_IMAGE_PATH = "image_path";
-    	public static final String ALL_RINGS_TITLE = "title";
-    	public static final String ALL_RINGS_SUBTITLE = "subtitle";
-    	public static final String ALL_RINGS_TYPE = "ring_type";
+    interface EnteredRingsColumns {
+    	public static final String ENTERED_RINGS_IMAGE_PATH = "image_path";
+    	public static final String ENTERED_RINGS_TITLE = "title";
+    	public static final String ENTERED_RINGS_SUBTITLE = "subtitle";
+    	public static final String ENTERED_RINGS_TYPE = "ring_type";
     }
     
     interface JuniorsRingsColumns {
@@ -179,6 +174,7 @@ public class DogshowContract {
                 "vnd.android.cursor.dir/vnd.dogshow.handler";
         public static final String CONTENT_ITEM_TYPE =
                 "vnd.android.cursor.item/vnd.dogshow.handler";
+        public static final String ENTERED_JUNIOR_HANDLER_NAMES = "class_entered_handlers";
 
         /** Default "ORDER BY" clause. */
         public static final String DEFAULT_SORT = HandlersColumns.HANDLER_NAME + " COLLATE NOCASE ASC";
@@ -198,8 +194,8 @@ public class DogshowContract {
         	return CONTENT_URI.buildUpon().appendPath(PATH_HANDLERS_JUNIORS).appendPath(PATH_HANDLERS_BY_JUNIORS_CLASS).build();
         }
     }
-    public static class AllRings implements BaseColumns, AllRingColumns, RingColumns{//Constructed table
-    	public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_ALL_RINGS).appendPath(PATH_ENTERED).build();
+    public static class EnteredRings implements BaseColumns, EnteredRingsColumns, RingColumns{//Constructed table
+    	public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_RINGS).appendPath(PATH_ENTERED).build();
     	public static final String CONTENT_TYPE =
                 "vnd.android.cursor.dir/vnd.dogshow.ring";
         public static final String CONTENT_ITEM_TYPE =
@@ -222,12 +218,12 @@ public class DogshowContract {
             SyncColumns, BaseColumns {
     	
         public static final Uri CONTENT_URI =
-                BASE_CONTENT_URI.buildUpon().appendPath(PATH_BREED_RINGS).build();
+                BASE_CONTENT_URI.buildUpon().appendPath(PATH_RINGS).appendPath(PATH_RINGS_BREED).build();
        
         public static final String CONTENT_TYPE =
-                "vnd.android.cursor.dir/vnd.dogshow.breedring";
+                "vnd.android.cursor.dir/vnd.dogshow.ring.breed";
         public static final String CONTENT_ITEM_TYPE =
-                "vnd.android.cursor.item/vnd.dogshow.breedring";
+                "vnd.android.cursor.item/vnd.dogshow.ring.breed";
         
         /** Breed rings for which the user has dogs entered in the show*/
         //TODO move this or rename
@@ -269,12 +265,12 @@ public class DogshowContract {
             SyncColumns, BaseColumns {
     	
         public static final Uri CONTENT_URI =
-                BASE_CONTENT_URI.buildUpon().appendPath(PATH_JUNIORS_RINGS).build();
+                BASE_CONTENT_URI.buildUpon().appendPath(PATH_RINGS).appendPath(PATH_RINGS_JUNIORS).build();
        
         public static final String CONTENT_TYPE =
-                "vnd.android.cursor.dir/vnd.dogshow.juniorring";
+                "vnd.android.cursor.dir/vnd.dogshow.ring.juniors";
         public static final String CONTENT_ITEM_TYPE =
-                "vnd.android.cursor.item/vnd.dogshow.juniorring";
+                "vnd.android.cursor.item/vnd.dogshow.ring.juniors";
         
         
         public static final String DEFAULT_SORT = RING_BLOCK_START + " ASC";

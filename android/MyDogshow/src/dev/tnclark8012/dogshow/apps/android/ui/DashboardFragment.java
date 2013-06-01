@@ -35,7 +35,7 @@ public class DashboardFragment extends SherlockFragment
 			public void onClick(View view)
 			{
 				startActivity(new Intent(Intent.ACTION_VIEW,
-		                DogshowContract.BreedRings.CONTENT_URI));
+		                DogshowContract.EnteredRings.CONTENT_URI));
 //					Intent intent = new Intent(getActivity(), ScheduleActivity.class);
 //					startActivity(intent);
 			}
