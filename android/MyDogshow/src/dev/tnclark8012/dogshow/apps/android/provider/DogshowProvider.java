@@ -80,10 +80,10 @@ public class DogshowProvider extends ContentProvider {
 		matcher.addURI(authority, "dogs/*", DOGS_ID);
 		matcher.addURI(authority, "rings/breed", BREED_RINGS);
 		matcher.addURI(authority, "rings/breed/with_dogs", BREED_RINGS_WITH_DOGS);
-		matcher.addURI(authority, "rings/breedrings/with_dogs/entered", BREED_RINGS_WITH_DOGS_ENTERED);
+		matcher.addURI(authority, "rings/breed/with_dogs/entered", BREED_RINGS_WITH_DOGS_ENTERED);
 		matcher.addURI(authority, "handlers", HANDLERS);
 		matcher.addURI(authority, "handlers/juniors/by_class", HANDLERS_BY_JUNIORS_CLASS);
-		matcher.addURI(authority, "rings/juniorsrings", JUNIORS_RINGS );
+		matcher.addURI(authority, "rings/juniors", JUNIORS_RINGS );
 		matcher.addURI(authority, "rings/entered", ALL_RINGS_ENTERED );
 
 		return matcher;

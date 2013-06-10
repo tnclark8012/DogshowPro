@@ -227,7 +227,7 @@ public class DogshowContract {
         
         /** Breed rings for which the user has dogs entered in the show*/
         //TODO move this or rename
-        public static final String ENTERED_BREED_RINGS = Dogs.DOG_IS_SHOWING + " IS NOT NULL AND " + Dogs.DOG_IS_SHOWING + "!=0";
+        public static final String ENTERED_BREED_RINGS = Dogs.DOG_IS_SHOWING + " IS NOT NULL AND " + Dogs.DOG_IS_SHOWING + "=1";
         /** Default "ORDER BY" clause. */
         public static final String DEFAULT_SORT = BreedRings.RING_BLOCK_START + " ASC";
 

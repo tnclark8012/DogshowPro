@@ -55,6 +55,10 @@ public class Utils {
 	public static long getMaybeNull(Cursor cursor, int columnIndex, long defaultValue) {
 		return (cursor.isNull(columnIndex)) ? defaultValue : cursor.getLong(columnIndex);
 	}
+	
+	public static int getMaybeNull(Cursor cursor, int columnIndex, int defaultValue) {
+		return (cursor.isNull(columnIndex)) ? defaultValue : cursor.getInt(columnIndex);
+	}
 
 	public static String getMaybeNull(Cursor cursor, int columnIndex, String defaultValue) {
 		return (cursor.isNull(columnIndex)) ? defaultValue : cursor.getString(columnIndex);

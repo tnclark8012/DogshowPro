@@ -37,6 +37,10 @@ public class PersistHelper {
 	public void updateJuniorsRing(long id, Map<String, Object> updateValues) {
 		updateTable(JuniorsRings.CONTENT_URI, updateValues, JuniorsRings._ID + "=?", new String[] { String.valueOf(id) });
 	}
+	
+	public void updateDog(long id, Map<String, Object> updateValues) {
+		updateTable(Dogs.CONTENT_URI, updateValues, Dogs._ID + "=?", new String[] { String.valueOf(id) });
+	}
 
 	public void updateDog(Map<String, Object> updateValues, String selection, String[] selectionArgs) {
 		updateTable(Dogs.CONTENT_URI, updateValues, selection, selectionArgs);
@@ -74,7 +78,8 @@ public class PersistHelper {
 	}
 
 	public void updateDog(String dogId, String breedName, String callName, String imagePath, String majors, String ownerId, String points, int sex) {
-		// TODO LOW: move these calls to a Service
+		// TODO HIGH: move this to the fragment and use other updateDog method
+		//TODO LOW: move these calls to a Service
 		Map<String, Object> values = new HashMap<String, Object>();
 		values.put(Dogs.DOG_IS_SHOWING, 1);//FIXME implement a selection
 		values.put(Dogs.DOG_BREED, breedName);

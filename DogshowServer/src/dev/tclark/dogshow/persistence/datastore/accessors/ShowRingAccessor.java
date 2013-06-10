@@ -27,7 +27,14 @@ public class ShowRingAccessor {
 			}
 			else
 			{
-				throw new RuntimeException("Couldn't match ring to type!");
+				if( ring == null )
+				{
+					System.err.println("null ring");
+				}
+				else
+				{
+					throw new RuntimeException("Couldn't match ring to type! " + ring);
+				}
 			}
 		}
 	}

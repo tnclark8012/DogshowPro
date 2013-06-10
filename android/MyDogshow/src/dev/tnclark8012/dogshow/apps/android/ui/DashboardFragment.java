@@ -67,7 +67,8 @@ public class DashboardFragment extends SherlockFragment
 		{
 			public void onClick(View view)
 			{
-					Intent intent = new Intent(getActivity(), FindShowActivity.class);
+					Intent intent = new Intent(getActivity(), ShowSetupActivity.class);
+					intent.setData(DogshowContract.Dogs.CONTENT_URI);
 					startActivity(intent);
 			}
 
