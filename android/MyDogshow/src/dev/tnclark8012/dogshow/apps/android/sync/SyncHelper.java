@@ -112,7 +112,7 @@ public class SyncHelper {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		requestJuniorsRingsTask.execute("KTDC1");
+		requestJuniorsRingsTask.execute(showId);
 
 	}
 

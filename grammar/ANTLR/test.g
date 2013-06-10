@@ -404,6 +404,7 @@ fragment FRAG_BREED_NAME_CATEGORY //Breed's that are listed under categories rat
     :   
         '13 Inch'|//beagles
         '15 Inch'|//beagles
+        'American Water'|
         'Boykin'|//spaniels
         'B & P C'|
         'Chesapeake Bay'|

@@ -37,33 +37,6 @@ class Show(object):
             + "\n\t program code: " + self._programcode
             + "\n\t pdf link: " + self.programName
             + "\n\t PDF Path: " + str(self._pdfPath) + ' or ' + str(self.pdfFilePath)  );
-<<<<<<< HEAD
-=======
-
-    @property
-    def parsedFilePath(self):
-        return self._parsedPath
-
-    @property
-    def showCode(self):
-        return self._programcode;
-
-    @parsedFilePath.setter
-    def parsedFilePath(self, value):
-        self._parsedPath = value
-
-    @property
-    def pdfFilePath(self):
-        return self._pdfPath
-
-    @property
-    def cleanedFilePath(self):
-        return self._cleanedPath
-
-    @cleanedFilePath.setter
-    def cleanedFilePath(self, value):
-        self._cleanedPath = value
->>>>>>> origin/Scraper
 
     @property
     def parsedFilePath(self):

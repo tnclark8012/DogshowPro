@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/layout_background" >
+
+    <TextView
+        android:paddingTop="@dimen/element_margin_normal"
+        android:paddingLeft="@dimen/element_margin_normal"
+        android:id="@+id/header_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/element_padding_normal"
+        android:text="Entered dogs"
+        android:textColor="#999999" >
+    </TextView>
+
+    <View
+        android:layout_marginLeft="@dimen/element_margin_normal"
+        android:layout_marginRight="@dimen/element_margin_normal"
+        android:layout_marginBottom="@dimen/element_margin_normal"
+        android:layout_below="@+id/header_text"
+        android:id="@+id/header_line"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#B7B7B7" />
+
+    <ListView
+        android:layout_below="@+id/header_line"
+        android:id="@+id/fragment_entry_dogs_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="?android:attr/listDivider"
+        tools:listitem="@layout/list_item_dog_entry" >
+    </ListView>
+
+    <LinearLayout
+        android:id="@+id/button_bar"
+        style="@style/Compat.ButtonBar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/button_bar_button_left"
+            style="@style/Compat.ButtonBarButton"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="Back" />
+
+        <Button
+            android:id="@+id/button_bar_button_right"
+            style="@style/Compat.ButtonBarButton"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="Next" />
+    </LinearLayout>
+
+</RelativeLayout>

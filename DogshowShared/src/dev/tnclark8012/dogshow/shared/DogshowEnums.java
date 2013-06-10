@@ -40,7 +40,7 @@ public class DogshowEnums {
 				"Appenzeller Sennenhundes"), BARBET("FSS", "Barbet",
 				"Barbets"), BERGER_PICARD("FSS", "Berger Picard",
 				"Berger Picards", "Berger Picards (Misc. Dog)",
-				"Berger Picards (Misc. Bitch)", "Berger Picards (Misc. Dog)",
+				"Berger Picards (Misc. Bitch)", "Berger Picards (Misc. Dogs)",
 				"Berger Picards (Misc. Bitches)"), BOERBOEL("FSS",
 				"Boerboel", "Boerboels"), BOLOGNESE("FSS",
 				"Bolognese", "Bologneses"), BRACCO_ITALIANO("FSS",
@@ -77,7 +77,7 @@ public class DogshowEnums {
 				"Karelian Bear Dog", "Karelian Bear Dogs"), KISHU_KEN(
 				"FSS", "Kishu Ken", "Kishu Kens"), KOOIKERHONDJE(
 				"FSS", "Kooikerhondje", "Kooikerhondjes"), LAGOTTO_ROMAGNOLO(
-				"FSS", "Lagotto Romagnolo", "Lagotto Romagnolos"), LANCASHIRE_HEELER(
+				"FSS", "Lagotto Romagnolo", "Lagotto Romagnolos","Lagotto Romagnolo (Misc. Bitch)","Lagotto Romagnolo (Misc. Dog)","Lagotto Romagnolos (Misc. Bitches)","Lagotto Romagnolos (Misc. Dogs)"), LANCASHIRE_HEELER(
 				"FSS", "Lancashire Heeler", "Lancashire Heelers"), MINIATURE_AMERICAN_SHEPHERD(
 				"FSS", "Miniature American Shepherd",
 				"Miniature American Shepherds",
@@ -239,16 +239,16 @@ public class DogshowEnums {
 				"SPORTING", "Chesapeake Bay Retriever",
 				"Chesapeake Bay Retrievers", "Retriever (Chesapeake Bay)",
 				"Retrievers (Chesapeake Bay)"), CLUMBER_SPANIEL(
-				"SPORTING", "Clumber Spaniel", "Clumber Spaniels"), COCKER_SPANIEL_BLACK(
+				"SPORTING", "Clumber Spaniel", "Clumber Spaniels","Spaniels (Clumber)"), COCKER_SPANIEL_BLACK(
 				"SPORTING", "Cocker Spaniel (Black)",
-				"Cocker Spaniels (Black)"), COCKER_SPANIEL_ASCOB(
+				"Cocker Spaniels (Black)", "Spaniels (Cocker) Black"), COCKER_SPANIEL_ASCOB(
 				"SPORTING", "Cocker Spaniel (ASCOB)",
-				"Cocker Spaniels (ASCOB)"), COCKER_SPANIEL_PARTI_COLOR(
+				"Cocker Spaniels (ASCOB)", "Spaniels (Cocker) Ascob"), COCKER_SPANIEL_PARTI_COLOR(
 				"SPORTING", "Cocker Spaniel (Parti-Color)",
 				"Cocker Spaniels (Parti-Color)",
 				"Spaniel (Cocker) Parti-Color", "Spaniels (Cocker) Parti-Color"), CURLY_COATED_RETRIEVER(
 				"SPORTING", "Curly-Coated Retriever",
-				"Curly-Coated Retrievers"), ENGLISH_COCKER_SPANIEL(
+				"Curly-Coated Retrievers", "Retrievers (Curly-Coated)"), ENGLISH_COCKER_SPANIEL(
 				"SPORTING", "English Cocker Spaniel",
 				"English Cocker Spaniels", "Spaniel (English Cocker)",
 				"Spaniels (English Cocker)"), ENGLISH_SETTER(
@@ -276,12 +276,12 @@ public class DogshowEnums {
 				"Irish Red & White Setters"), IRISH_SETTER("SPORTING",
 				"Irish Setter", "Irish Setters", "Setter (Irish)",
 				"Setters (Irish)"), IRISH_WATER_SPANIEL("SPORTING",
-				"Irish Water Spaniel", "Irish Water Spaniels"), LABRADOR_RETRIEVER(
+				"Irish Water Spaniel", "Irish Water Spaniels", "Spaniels (Irish Water)"), LABRADOR_RETRIEVER(
 				"SPORTING", "Labrador Retriever",
 				"Labrador Retrievers", "Retriever (Labrador)",
 				"Retrievers (Labrador)"), NOVA_SCOTIA_DUCK_TOLLING_RETRIEVER(
 				"SPORTING", "Nova Scotia Duck Tolling Retriever",
-				"Nova Scotia Duck Tolling Retrievers"), POINTER(
+				"Nova Scotia Duck Tolling Retrievers", "Retrievers (Nova Scotia Duck Tolling)"), POINTER(
 				"SPORTING", "Pointer", "Pointers"), SPINONE_ITALIANO(
 				"SPORTING", "Spinone Italiano", "Spinoni Italiani"), SUSSEX_SPANIEL(
 				"SPORTING", "Sussex Spaniel", "Sussex Spaniels"), VIZSLA(
@@ -428,13 +428,18 @@ public class DogshowEnums {
 		}
 
 		public static Breeds parse(String breedName) {
-			breedName = breedName.trim();
+			breedName = sanitize(breedName);
 			for (Breeds breed : Breeds.values()) {
 				if (breed.hasName(breedName)) {
 					return breed;
 				}
 			}
 			return null;
+		}
+		
+		public static String sanitize(String breedName)
+		{
+			return breedName.replaceAll("(\\(Misc. .*\\))|(Veteran.*)", "").trim();
 		}
 
 		public String getPrimaryName() {
