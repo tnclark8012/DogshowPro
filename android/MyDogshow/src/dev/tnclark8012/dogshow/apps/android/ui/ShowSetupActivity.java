@@ -5,6 +5,8 @@ import java.util.Map;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
+
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.provider.PersistHelper;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
@@ -41,6 +43,7 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 		PersistHelper helper = new PersistHelper(this);
 		Map<String, Object> values = new HashMap<String, Object>();
 		for (Integer id : enteredDogs.keySet()) {
+            Log.d(TAG, "Is " + id + " showing? " + enteredDogs.get(id));
 			values.put(Dogs.DOG_IS_SHOWING, (enteredDogs.get(id) ? 1 : 0));
 			helper.updateDog(id, values);
 		}

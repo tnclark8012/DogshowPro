@@ -429,6 +429,7 @@ fragment FRAG_BREED_NAME_CATEGORY //Breed's that are listed under categories rat
         'Longhaired'|//dachshunds
         'Miniature'|//poodles
         'Nova Scotia Duck Tolling'|
+		'Irish Red And White'|
         'Rough'|//Collie
         'Smooth'|//Collie,dachshund,fox terriers
         'Smooth Coat'|//chihuahuas
@@ -439,7 +440,6 @@ fragment FRAG_BREED_NAME_CATEGORY //Breed's that are listed under categories rat
         'White'|//bull terrier
         'Wire'|
         'Wirehaired'//Dachshund
-        
         
         
         

@@ -146,12 +146,13 @@ public class DogsFragment extends SherlockListFragment implements LoaderManager.
 	private interface DogsQuery {
 		int _TOKEN = 0x1;
 
-		String[] PROJECTION = { BaseColumns._ID, Dogs.DOG_CALL_NAME, Dogs.DOG_BREED, Dogs.DOG_IMAGE_PATH };
+		String[] PROJECTION = { BaseColumns._ID, Dogs.DOG_CALL_NAME, Dogs.DOG_BREED, Dogs.DOG_IMAGE_PATH, Dogs.DOG_IS_SHOWING };
 
 		int _ID = 0;
 		int DOG_CALL_NAME = 1;
 		int DOG_BREED = 2;
 		int DOG_IMAGE_PATH = 3;
+        int DOG_IS_SHOWING = 4;
 	}
 
 	@Override
@@ -211,6 +212,7 @@ public class DogsFragment extends SherlockListFragment implements LoaderManager.
 		@SuppressLint("NewApi")
 		@Override
 		public void bindView(View view, Context context, Cursor cursor) {
+            //TODO LOW: Denote entered dogs
 			((TextView) view.findViewById(R.id.list_item_dog_name)).setText(cursor.getString(DogsQuery.DOG_CALL_NAME));
 			String breedStr = cursor.getString(DogsQuery.DOG_BREED);
 			((TextView) view.findViewById(R.id.list_item_dog_breed)).setText(Breeds.parse(breedStr).getPrimaryName());
