@@ -25,6 +25,7 @@ import dev.tnclark8012.dogshow.apps.android.model.ShowsResponse;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Handlers;
 import dev.tnclark8012.dogshow.apps.android.util.AccountUtils;
+import dev.tnclark8012.dogshow.shared.DogshowEnums;
 
 public class SyncHelper {
 	private final static String TAG = SyncHelper.class.getSimpleName();
@@ -71,11 +72,16 @@ public class SyncHelper {
 	public Show[] getShows() {
 			Log.v(TAG, "getShows using base url, " + Config.GET_SHOW_URL);
 			String responseStr = makeSimpleGetRequest(mContext, Config.GET_SHOW_URL);
-			Log.v(TAG, "Response: " + responseStr);
+			Log.w(TAG, "Response: " + responseStr);
 			if (responseStr == null) {
-				return null;
+                throw new RuntimeException("Couldn't load shows! Null response!");
+//				return null;
 			}
 			ShowsResponse response = new Gson().fromJson(responseStr, ShowsResponse.class);
+            if(response.shows == null)
+            {
+                throw new RuntimeException("Couldn't parse shows! Response: " + responseStr );
+            }
 			return response.shows;
 	}
 
@@ -94,7 +100,7 @@ public class SyncHelper {
 			while (breedsCursor.moveToNext()) {
 				breedName = breedsCursor.getString(0);
 				Log.v(TAG, "Requesting breed ring: " + breedName);
-				batch.addAll(executeGet(Config.buildGetBreedRingsUrl(showId, breedName), handler, auth));
+				batch.addAll(executeGet(Config.buildGetBreedRingsUrl(showId, DogshowEnums.Breeds.parse(breedName).toString()), handler, auth));
 				numBreeds++;
 			}
 			Log.v(TAG, "Pulled breed rings for " + numBreeds + " breeds");
@@ -161,8 +167,7 @@ public class SyncHelper {
 			ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
 			try {
 				boolean auth = AccountUtils.isAuthenticated(mContext);
-				
-				Cursor juniorsCursor = resolver.query(Handlers.buildEnteredJuniorsClassesUri(),new String[] { Handlers.HANDLER_JUNIOR_CLASS }, Handlers.HANDLER_IS_SHOWING + "=?", new String[]{"1"}, null);
+                Cursor juniorsCursor = resolver.query(Handlers.buildEnteredJuniorsClassesUri(), new String[]{Handlers.HANDLER_JUNIOR_CLASS}, Handlers.HANDLER_IS_SHOWING + "=?", new String[]{"1"}, null);
 				batch = new ArrayList<ContentProviderOperation>();
 				String className = null;
 				Log.i(TAG, "Syncing junior rings for " + juniorsCursor.getCount() + " classes");
@@ -171,7 +176,7 @@ public class SyncHelper {
 				while (juniorsCursor.moveToNext()) {
 					className = juniorsCursor.getString(0);
 					Log.v(TAG, "Requesting juniors ring: " + className);
-					batch.addAll(executeGet(Config.buildGetJuniorRingsUrl(params[0], className), handler, auth));
+					batch.addAll(executeGet(Config.buildGetJuniorRingsUrl(params[0], DogshowEnums.JuniorClass.parse(className).toString()), handler, auth));
 					numClasses++;
 				}
 				Log.v(TAG, "Pulled juniors rings for " + numClasses + " classes");

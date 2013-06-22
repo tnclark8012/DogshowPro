@@ -26,6 +26,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockListFragment;
 
@@ -54,12 +55,13 @@ public class FindShowFragment extends SherlockListFragment {
 	private AsyncTask<Void, Void, Show[]> getShowsTask = new AsyncTask<Void, Void, Show[]>() {
 		protected void onPostExecute(Show[] result) {
 			if (result != null) {
+                Toast.makeText(getActivity(), "Populating list...", Toast.LENGTH_LONG).show();
 				mAdapter = new ShowListAdapter(getActivity(), result);
 				setListAdapter(mAdapter);
 				mAdapter.notifyDataSetChanged();
 			} else {
-
-			}
+                Toast.makeText(getActivity(), "No Shows Found.", Toast.LENGTH_LONG).show();
+            }
 		}
 
 		@Override

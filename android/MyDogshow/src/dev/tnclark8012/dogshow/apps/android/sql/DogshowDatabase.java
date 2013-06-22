@@ -5,6 +5,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 import android.util.Log;
+
+import dev.tnclark8012.dogshow.apps.android.Config;
 import dev.tnclark8012.dogshow.apps.android.provider.DogshowProvider.Qualified;
 import dev.tnclark8012.dogshow.apps.android.provider.DogshowProvider.Subquery;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRingsColumns;
@@ -52,12 +54,14 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				+ HandlersColumns.HANDLER_IS_SHOWING + " INTEGER NOT NULL,"
 				+ HandlersColumns.HANDLER_IS_SHOWING_JUNIORS + " INTEGER NOT NULL,"
 				+ SyncColumns.UPDATED + " INTEGER NOT NULL)");
-		db.execSQL("INSERT INTO " + Tables.HANDLERS + "("
+		//TODO HIGH: move to insertDebugEntities
+
+        db.execSQL("INSERT INTO " + Tables.HANDLERS + "("
 				+ HandlersColumns.HANDLER_NAME + "," + HandlersColumns.HANDLER_JUNIOR_CLASS + "," 
 				+ HandlersColumns.HANDLER_IS_SHOWING + "," 
 				+ HandlersColumns.HANDLER_IS_SHOWING_JUNIORS+ "," 
 				+ SyncColumns.UPDATED + ") VALUES ("
-				+ "\"Tanner\"," + "\"OPEN_SENIOR\", 1, 1," + System.currentTimeMillis() + ")");
+				+ "\"Tanner\"," + "\"MASTER_CLASS\", 1, 1," + System.currentTimeMillis() + ")");
 		
 		db.execSQL("CREATE TABLE " + Tables.DOGS + " (" + BaseColumns._ID
 				+ " INTEGER PRIMARY KEY AUTOINCREMENT," + DogsColumns.DOG_BREED
@@ -70,21 +74,6 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				+ DogsColumns.DOG_IS_SHOWING + " INTEGER,"
 				+ DogsColumns.DOG_UPDATED + " INTEGER NOT NULL)");
 
-		db.execSQL("INSERT INTO " + Tables.DOGS + " (" + DogsColumns.DOG_BREED
-				+ "," + DogsColumns.DOG_CALL_NAME + ","
-				+ DogsColumns.DOG_MAJORS + "," + DogsColumns.DOG_OWNER_ID + ","
-				+ DogsColumns.DOG_POINTS + "," + DogsColumns.DOG_SEX + ","
-				+ DogsColumns.DOG_IS_SHOWING + "," + DogsColumns.DOG_UPDATED
-				+ ")" + " VALUES (" + "\"PAPILLON\"," + "\"Lotta\"," + "2,"
-				+ "0," + "15," + "0," + "1," + System.currentTimeMillis() + ")");
-		
-		db.execSQL("INSERT INTO " + Tables.DOGS + " (" + DogsColumns.DOG_BREED
-				+ "," + DogsColumns.DOG_CALL_NAME + ","
-				+ DogsColumns.DOG_MAJORS + "," + DogsColumns.DOG_OWNER_ID + ","
-				+ DogsColumns.DOG_POINTS + "," + DogsColumns.DOG_SEX + ","
-				+ DogsColumns.DOG_IS_SHOWING + "," + DogsColumns.DOG_UPDATED
-				+ ")" + " VALUES (" + "\"SHETLAND_SHEEPDOG\"," + "\"Jay\"," + "2,"
-				+ "0," + "20," + "1," + "1," + System.currentTimeMillis() + ")");
 
 		db.execSQL("CREATE TABLE " + Tables.BREED_RINGS + " ("
 				+ BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -115,7 +104,31 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				+ RingColumns.RING_NUMBER+ " INTEGER NOT NULL,"
 				+ RingColumns.RING_SHOW_ID + " TEXT NOT NULL,"
 				+ SyncColumns.UPDATED + " INTEGER NOT NULL)");
-	}
+	    if(Config.DEBUG_BUILD)
+        {
+            insertDebugEntities(db);
+        }
+
+    }
+
+    private void insertDebugEntities(SQLiteDatabase db)
+    {
+        db.execSQL("INSERT INTO " + Tables.DOGS + " (" + DogsColumns.DOG_BREED
+                + "," + DogsColumns.DOG_CALL_NAME + ","
+                + DogsColumns.DOG_MAJORS + "," + DogsColumns.DOG_OWNER_ID + ","
+                + DogsColumns.DOG_POINTS + "," + DogsColumns.DOG_SEX + ","
+                + DogsColumns.DOG_IS_SHOWING + "," + DogsColumns.DOG_UPDATED
+                + ")" + " VALUES (" + "\"PAPILLON\"," + "\"Lotta\"," + "2,"
+                + "0," + "15," + "0," + "1," + System.currentTimeMillis() + ")");
+
+        db.execSQL("INSERT INTO " + Tables.DOGS + " (" + DogsColumns.DOG_BREED
+                + "," + DogsColumns.DOG_CALL_NAME + ","
+                + DogsColumns.DOG_MAJORS + "," + DogsColumns.DOG_OWNER_ID + ","
+                + DogsColumns.DOG_POINTS + "," + DogsColumns.DOG_SEX + ","
+                + DogsColumns.DOG_IS_SHOWING + "," + DogsColumns.DOG_UPDATED
+                + ")" + " VALUES (" + "\"SHETLAND_SHEEPDOG\"," + "\"Jay\"," + "2,"
+                + "0," + "20," + "1," + "1," + System.currentTimeMillis() + ")");
+    }
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

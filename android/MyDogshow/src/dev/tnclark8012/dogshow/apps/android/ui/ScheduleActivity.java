@@ -81,8 +81,8 @@ public class ScheduleActivity extends BaseActivity implements ActionBar.TabListe
 			final ActionBar actionBar = getSupportActionBar();
 			actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 			actionBar.addTab(actionBar.newTab().setText(R.string.title_my_schedule).setTabListener(this));
-			actionBar.addTab(actionBar.newTab().setText(R.string.title_team_schedule).setTabListener(this));
-			actionBar.addTab(actionBar.newTab().setText(R.string.title_full_schedule).setTabListener(this));
+//			actionBar.addTab(actionBar.newTab().setText(R.string.title_team_schedule).setTabListener(this));
+//			actionBar.addTab(actionBar.newTab().setText(R.string.title_full_schedule).setTabListener(this));
 
 			homeScreenLabel = getString(R.string.title_my_schedule);
 
@@ -213,7 +213,7 @@ public class ScheduleActivity extends BaseActivity implements ActionBar.TabListe
 
 		@Override
 		public int getCount() {
-			return 3;
+			return 1;//TODO HIGH: 3
 		}
 	}
 

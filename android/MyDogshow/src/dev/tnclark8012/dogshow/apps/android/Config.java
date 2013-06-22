@@ -21,13 +21,12 @@ public class Config {
 	public static final String APP_NAME = "Your-App-Name";
 	public static final String API_KEY = "API_KEY"; // from the APIs console
 	public static final String CLIENT_ID = "0000000000000.apps.googleusercontent.com"; // from
-																						// the
+																				// the
 																						// APIs
-																						// console
-
+																				// console
 	public static final boolean DEBUG_LOCAL = false;
 	public static final boolean DEBUG_OFFLINE = false;//TODO implement
-	public static final boolean DEBUG_BUILD = true;
+	public static final boolean DEBUG_BUILD = false;
 	// Conference API-specific config
 	// NOTE: the backend used for the Google I/O 2012 Android app is not
 	// currently open source, so

@@ -43,9 +43,6 @@ import dev.tnclark8012.dogshow.apps.android.sql.DogshowDatabase;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowDatabase.Tables;
 import dev.tnclark8012.dogshow.apps.android.util.SelectionBuilder;
 
-/**
- * Provider that stores {@link ScheduleContract} data. Data is usually inserted by {@link com.google.android.apps.iosched.sync.SyncHelper}, and queried by various {@link Activity} instances.
- */
 public class DogshowProvider extends ContentProvider {
 	private static final String TAG = DogshowProvider.class.getSimpleName();
 
@@ -145,6 +142,7 @@ public class DogshowProvider extends ContentProvider {
 		{
 			final SelectionBuilder exBuilder = buildSimpleSelection(uri);
 			String groupBy = Dogs.DOG_BREED;
+            exBuilder.where(Dogs.DOG_IS_SHOWING + "=?", String.valueOf(1));
 			return exBuilder.where(selection, selectionArgs).query(db, projection, groupBy, null, sortOrder, null);
 		}
 		case HANDLERS_BY_JUNIORS_CLASS:

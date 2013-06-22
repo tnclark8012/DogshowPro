@@ -45,9 +45,9 @@ public class ShowServlet {
 		String response = "Called create for id " + showId;
 		System.out.println(response);
 		Calendar date = Utils.getCalendar();
-		date.set(2013, 5, 7);
+		date.set(2013, 5, 20);
 		response += ". Setting date to " + date + ". In millis is: " + date.getTimeInMillis();
-		ShowManager.createShow(new Show("Lake Minnetonka Kennel Club", date.getTimeInMillis(), "Jordan", "MN", showId));
+		ShowManager.createShow(new Show("Cambridge, Minnesota Kennel Club", date.getTimeInMillis(), "Cambridge", "MN", showId));
 		return Response.ok(response).build();
 	}
 

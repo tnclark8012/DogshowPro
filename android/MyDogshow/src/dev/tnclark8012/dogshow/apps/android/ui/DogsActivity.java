@@ -48,6 +48,7 @@ public class DogsActivity extends SimpleSinglePaneActivity implements
 
 	@Override
 	public boolean onAddDogClick() {
+
 		swapFragments(true);
 		return true;
 	}
