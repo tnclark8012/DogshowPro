@@ -43,17 +43,20 @@ public class BreedSelectFragment extends SherlockListFragment {
 		super.onActivityCreated(savedInstanceState);
 		String[] breeds = mGroup.getBreedNames();
 		Log.d(TAG, "Group: " + mGroup);
-		DebugUtils.logArray(TAG, breeds);
-
 		setListAdapter(new ArrayAdapter<String>(getActivity(),
 				android.R.layout.simple_list_item_1, android.R.id.text1, breeds));
 	}
 
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
-		if (mListener != null) {
+		Log.v(TAG,"clicked position " + position);
+        if (mListener != null) {
 			mListener.onBreedSelected(mGroup.getBreeds()[position]);
 		}
+        else
+        {
+            Log.w(TAG, "No listener!");
+        }
 	}
 
 	public void setOnBreedSelectListener(BreedSelectListener selectListener) {

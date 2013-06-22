@@ -91,8 +91,8 @@ public class DogViewFragment extends SherlockFragment implements
 				.findViewById(R.id.dog_view_section_majors_text);
 		mViewPoints = (TextView) mRootView
 				.findViewById(R.id.dog_view_section_points_text);
-		mViewOwner = (TextView) mRootView
-				.findViewById(R.id.dog_view_section_owner_text);
+//		mViewOwner = (TextView) mRootView
+//				.findViewById(R.id.dog_view_section_owner_text);
 		mViewImage = (RelativeLayout) mRootView
 				.findViewById(R.id.dog_view_image);
 		mViewSex = (TextView) mRootView.findViewById(R.id.dog_view_section_sex_text);

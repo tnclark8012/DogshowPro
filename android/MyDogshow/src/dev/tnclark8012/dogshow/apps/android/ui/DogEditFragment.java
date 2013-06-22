@@ -105,7 +105,7 @@ public class DogEditFragment extends SherlockFragment implements LoaderManager.L
 		mViewBreed = (TextView) mRootView.findViewById(R.id.dog_edit_section_breed_text);
 		mViewMajors = (TextView) mRootView.findViewById(R.id.dog_edit_section_majors_text);
 		mViewPoints = (TextView) mRootView.findViewById(R.id.dog_edit_section_points_text);
-		mViewOwner = (TextView) mRootView.findViewById(R.id.dog_edit_section_owner_text);
+//		mViewOwner = (TextView) mRootView.findViewById(R.id.dog_edit_section_owner_text);
 		mViewSex = (RadioGroup) mRootView.findViewById(R.id.dog_edit_sex_radio);
 
 		getSherlockActivity().getSupportActionBar().setTitle("Edit Dog");
@@ -294,10 +294,14 @@ public class DogEditFragment extends SherlockFragment implements LoaderManager.L
 			int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
 			mImagePath = cursor.getString(columnIndex);
 			cursor.close();
+            Resources res = getResources();
+            int height = res.getDimensionPixelSize(R.dimen.header_icon_height);
+            int width = res.getDimensionPixelSize(R.dimen.header_icon_width);
+            BitmapDrawable image = new BitmapDrawable(res, UIUtils.loadBitmap(mImagePath, width, height));
 			if (Utils.isJellybean()) {
-				mViewImage.setBackground(Drawable.createFromPath(mImagePath));
+				mViewImage.setBackground(image);
 			} else {
-				mViewImage.setBackgroundDrawable(Drawable.createFromPath(mImagePath));
+				mViewImage.setBackgroundDrawable(image);
 			}
 			break;
 		}

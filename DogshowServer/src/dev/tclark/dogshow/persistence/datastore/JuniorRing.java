@@ -11,13 +11,14 @@ import com.google.appengine.labs.repackaged.org.json.JSONException;
 import com.google.appengine.labs.repackaged.org.json.JSONObject;
 
 import dev.tclark.dogshow.util.Utils;
+import dev.tnclark8012.dogshow.shared.DogshowEnums.JuniorClass;
 
 @XmlRootElement
 public class JuniorRing extends ShowRing {
 	@XmlElement
 	long blockStartMillis;
 	@XmlElement
-	String className;
+	JuniorClass className;
 	@XmlElement
 	int countAhead;
 	@XmlElement
@@ -39,7 +40,7 @@ public class JuniorRing extends ShowRing {
 			cal.setTimeInMillis(dateMillis);
 			long blockStartMillis = Utils.millisFromTimeString(cal, timeString);
 			ring.blockStartMillis = blockStartMillis;
-			ring.className = json.getString("ClassName");
+			ring.className = JuniorClass.parse(json.getString("ClassName"));
 			ring.countAhead = json.getInt("CountAhead");
 			ring.ringNumber = json.getInt("Number");
 			ring.count = json.getInt("Count");
@@ -62,7 +63,7 @@ public class JuniorRing extends ShowRing {
 		e.setProperty("judge", judge);
 		e.setProperty("ringNumber", ringNumber);
 		e.setProperty("count", count);
-		e.setProperty("className", className);
+		e.setProperty("className", className.toString());
 		e.setProperty("countAhead", countAhead);
 		return e;
 	}
@@ -73,7 +74,7 @@ public class JuniorRing extends ShowRing {
 		judge = (String) entity.getProperty("judge");
 		ringNumber = ((Long) entity.getProperty("ringNumber")).intValue();
 		count = ((Long) entity.getProperty("count")).intValue();
-		className = (String) entity.getProperty("className");
+		className = JuniorClass.parse((String) entity.getProperty("className"));
 		countAhead = ((Long) entity.getProperty("countAhead")).intValue();
 	}
 

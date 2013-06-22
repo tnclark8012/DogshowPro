@@ -422,6 +422,7 @@ fragment FRAG_BREED_NAME_CATEGORY //Breed's that are listed under categories rat
         'Golden'|//retriever
         'Gordon'|//setters
         'Irish'|//Setters
+		'Irish Red And White'|//Setters
         'Irish Water'|//spaniels
         'K C & R'|
         'Labrador'|//Retriever
@@ -429,7 +430,6 @@ fragment FRAG_BREED_NAME_CATEGORY //Breed's that are listed under categories rat
         'Longhaired'|//dachshunds
         'Miniature'|//poodles
         'Nova Scotia Duck Tolling'|
-		'Irish Red And White'|
         'Rough'|//Collie
         'Smooth'|//Collie,dachshund,fox terriers
         'Smooth Coat'|//chihuahuas
