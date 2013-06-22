@@ -44,6 +44,7 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -214,6 +215,10 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 			cursor.moveToPosition(-1);
 			mAdapter.changeCursor(cursor);
 		}
+        else
+        {
+            getListView().setEmptyView(new View(getActivity()));
+        }
 	}
 
 	public void onBreedRingsQueryComplete(Cursor cursor) {
@@ -403,6 +408,7 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 		super.onActivityCreated(savedInstanceState);
 		Prefs.get(getActivity()).registerOnSharedPreferenceChangeListener(this);
 		getListView().setOnItemLongClickListener(this);
+        getListView().setEmptyView(getActivity().getLayoutInflater().inflate(R.layout.empty_waiting_for_sync, null));
 	}
 
 	@Override

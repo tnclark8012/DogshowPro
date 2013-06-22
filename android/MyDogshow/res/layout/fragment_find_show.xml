@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-
+    <!--
     <dev.tnclark8012.dogshow.apps.android.widget.TypefacedEditText
         xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
         android:id="@+id/find_show_search_box"
@@ -20,6 +20,7 @@
 
         <requestFocus />
     </dev.tnclark8012.dogshow.apps.android.widget.TypefacedEditText>
+    -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="2dp"
@@ -41,6 +42,6 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="No Results" />
+        android:text="Loading..." />
 
 </LinearLayout>

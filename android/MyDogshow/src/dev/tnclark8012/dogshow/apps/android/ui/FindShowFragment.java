@@ -55,12 +55,13 @@ public class FindShowFragment extends SherlockListFragment {
 	private AsyncTask<Void, Void, Show[]> getShowsTask = new AsyncTask<Void, Void, Show[]>() {
 		protected void onPostExecute(Show[] result) {
 			if (result != null) {
-                Toast.makeText(getActivity(), "Populating list...", Toast.LENGTH_LONG).show();
 				mAdapter = new ShowListAdapter(getActivity(), result);
 				setListAdapter(mAdapter);
 				mAdapter.notifyDataSetChanged();
 			} else {
-                Toast.makeText(getActivity(), "No Shows Found.", Toast.LENGTH_LONG).show();
+//                TextView empty = new TextView(getActivity());
+                setEmptyText("No shows found");
+//                Toast.makeText(getActivity(), "No Shows Found.", Toast.LENGTH_LONG).show();
             }
 		}
 
@@ -70,7 +71,13 @@ public class FindShowFragment extends SherlockListFragment {
 		};
 	};
 
-	private static Callbacks sDummyCallbacks = new Callbacks() {
+    @Override
+    public void setEmptyText(CharSequence text) {
+        TextView empty = (TextView)mRootView.findViewById(android.R.id.empty);
+        empty.setText(text);
+    }
+
+    private static Callbacks sDummyCallbacks = new Callbacks() {
 		@Override
 		public void onShowSelected(String showId) {
 		}
@@ -96,7 +103,15 @@ public class FindShowFragment extends SherlockListFragment {
 		mCallbacks = (Callbacks) activity;
 	}
 
-	@Override
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        setEmptyText("Finding shows near you...");
+        getShowsTask.execute();
+
+        super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
 	public void onDetach() {
 		super.onDetach();
 		mCallbacks = sDummyCallbacks;
@@ -105,7 +120,6 @@ public class FindShowFragment extends SherlockListFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		mRootView = inflater.inflate(R.layout.fragment_find_show, container, false);
-		getShowsTask.execute();
 		return mRootView;
 	}
 
