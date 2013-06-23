@@ -1,24 +1,28 @@
-package dev.tnclark8012.dogshow.apps.android.ui;
+package dev.tnclark8012.dogshow.apps.android.ui.phone;
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.net.Uri;
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Handlers;
+import dev.tnclark8012.dogshow.apps.android.ui.HandlerEditFragment;
+import dev.tnclark8012.dogshow.apps.android.ui.HandlerListFragment;
+import dev.tnclark8012.dogshow.apps.android.ui.base.BaseEditableEntityEditFragment;
+import dev.tnclark8012.dogshow.apps.android.ui.base.BaseEntityListActivity;
+import dev.tnclark8012.dogshow.apps.android.ui.base.BaseEntityListFragment;
 
-public class HandlerActivity extends SimpleSinglePaneActivity implements HandlerListFragment.Callbacks{
+public class HandlerListActivity extends BaseEntityListActivity{
+
 	@Override
-	protected Fragment onCreatePane() {
-		
+	protected BaseEntityListFragment getListFragment() {
 		return new HandlerListFragment();
 	}
 
 	@Override
-	public boolean onHandlerSelected(String handlerId) {
-		// TODO Auto-generated method stub
-		return false;
+	protected BaseEditableEntityEditFragment getEditFragment() {
+		return new HandlerEditFragment();
 	}
 
 	@Override
-	public boolean onAddHandlerClick() {
-		// TODO Auto-generated method stub
-		return false;
+	protected Uri getEntityUri(String entityId) {
+		return Handlers.buildHandlerUri(entityId);
 	}
+	
 }

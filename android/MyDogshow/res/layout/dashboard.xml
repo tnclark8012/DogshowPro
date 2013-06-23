@@ -30,13 +30,14 @@
         android:clickable="true"
         android:drawableTop="@drawable/home_doghouse"
         android:text="@string/dashboard_doghouse" />
-<!--
+
     <dev.tnclark8012.dogshow.apps.android.widget.TypefacedButton
         android:id="@+id/dashboard_handlers"
         style="@style/DashboardButton"
         android:drawableTop="@drawable/home_handler"
+        android:visibility="gone"
         android:text="@string/dashboard_handlers" />
--->
+
     
     <dev.tnclark8012.dogshow.apps.android.widget.TypefacedButton
         android:id="@+id/dashboard_find_show"

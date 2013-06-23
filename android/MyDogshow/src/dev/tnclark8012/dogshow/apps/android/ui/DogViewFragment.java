@@ -27,14 +27,32 @@ import com.actionbarsherlock.view.MenuItem;
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
+import dev.tnclark8012.dogshow.apps.android.ui.base.BaseEditableEntityViewFragment;
 import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
-public class DogViewFragment extends SherlockFragment implements
-		LoaderManager.LoaderCallbacks<Cursor> {
+public class DogViewFragment extends BaseEditableEntityViewFragment {
 	private static final String TAG = DogViewFragment.class.getSimpleName();
-	private String mDogId;
-	private Uri mDogUri;
+	private interface DogQuery {
+		int _TOKEN = 0x1;
+
+		String[] PROJECTION = { DogshowContract.Dogs._ID,
+				DogshowContract.Dogs.DOG_BREED,
+				DogshowContract.Dogs.DOG_CALL_NAME,
+				DogshowContract.Dogs.DOG_IMAGE_PATH,
+				DogshowContract.Dogs.DOG_MAJORS,
+				DogshowContract.Dogs.DOG_POINTS,
+				DogshowContract.Dogs.DOG_SEX,
+				DogshowContract.Dogs.DOG_IS_SHOWING};
+		int DOG_ID = 0;
+		int DOG_BREED = 1;
+		int DOG_CALL_NAME = 2;
+		int DOG_IMAGE_PATH = 3;
+		int DOG_MAJORS = 4;
+		int DOG_POINTS = 5;
+		int DOG_SEX = 6;
+		int DOG_IS_SHOWING = 7;
+	}
 	private String mCallName;
 	private String mBreedName;
 	private String mImagePath;
@@ -51,33 +69,6 @@ public class DogViewFragment extends SherlockFragment implements
 	private TextView mViewMajors;
 	private TextView mViewOwner;
 	private TextView mViewSex;
-
-	private Menu mMenu;
-	private Callbacks mCallbacks;
-	private int mDogQueryToken;
-
-	public interface Callbacks {
-		public void onEdit();
-	}
-
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-
-		super.onCreate(savedInstanceState);
-		setHasOptionsMenu(true);
-		final Intent intent = BaseActivity
-				.fragmentArgumentsToIntent(getArguments());
-		mDogUri = intent.getData();
-
-		if (mDogUri == null) {
-			return;
-		}
-
-		mDogId = DogshowContract.Dogs.getDogId(mDogUri);
-
-		LoaderManager manager = getLoaderManager();
-		manager.restartLoader(DogQuery._TOKEN, null, this);
-	};
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -99,27 +90,7 @@ public class DogViewFragment extends SherlockFragment implements
 		return mRootView;
 	}
 
-	@Override
-	public void onAttach(Activity activity) {
-		super.onAttach(activity);
-		if (!(activity instanceof Callbacks)) {
-			throw new ClassCastException(
-					"Activity must implement fragment's callbacks.");
-		}
-
-		mCallbacks = (Callbacks) activity;
-		activity.getContentResolver().registerContentObserver(
-				DogshowContract.Dogs.CONTENT_URI, true, mObserver);
-
-	}
-
-	@Override
-	public void onDetach() {
-		super.onDetach();
-		getActivity().getContentResolver().unregisterContentObserver(mObserver);
-	}
-
-	private void onDogQueryComplete(Cursor cursor) {
+	protected void onQueryComplete(Cursor cursor) {
 		cursor.moveToFirst();
 		mBreedName = cursor.getString(DogQuery.DOG_BREED);
 		mCallName = cursor.getString(DogQuery.DOG_CALL_NAME);
@@ -155,81 +126,18 @@ public class DogViewFragment extends SherlockFragment implements
 
 	}
 
-	private final ContentObserver mObserver = new ContentObserver(new Handler()) {
-		@Override
-		public void onChange(boolean selfChange) {
-			if (getActivity() == null) {
-				return;
-			}
-
-			Loader<Cursor> loader = getLoaderManager()
-					.getLoader(mDogQueryToken);
-			if (loader != null) {
-				loader.forceLoad();
-			}
-		}
-	};
-
 	@Override
-	public Loader<Cursor> onCreateLoader(int id, Bundle data) {
-		CursorLoader loader = null;
-		if (id == DogQuery._TOKEN) {
-			loader = new CursorLoader(getActivity(), mDogUri,
-					DogQuery.PROJECTION, null, null, null);
-		}
-		return loader;
+	protected int getQueryToken() {
+		return DogQuery._TOKEN;
 	}
 
 	@Override
-	public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
-		if (getActivity() == null) {
-			return;
-		}
-
-		if (loader.getId() == DogQuery._TOKEN) {
-			onDogQueryComplete(cursor);
-		}
+	protected CursorLoader getCursorLoader(Activity activity, Uri uri) {
+		return new CursorLoader(activity, uri, DogQuery.PROJECTION, null, null, null);
 	}
 
 	@Override
-	public void onLoaderReset(Loader<Cursor> arg0) {
+	protected Uri getContentUri() {
+		return Dogs.CONTENT_URI;
 	}
-
-	@Override
-	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		super.onCreateOptionsMenu(menu, inflater);
-		mMenu = menu;
-		inflater.inflate(R.menu.dog_view, menu);
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.getItemId() == R.id.menu_edit_dog) {
-			mCallbacks.onEdit();
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-
-	private interface DogQuery {
-		int _TOKEN = 0x1;
-
-		String[] PROJECTION = { DogshowContract.Dogs._ID,
-				DogshowContract.Dogs.DOG_BREED,
-				DogshowContract.Dogs.DOG_CALL_NAME,
-				DogshowContract.Dogs.DOG_IMAGE_PATH,
-				DogshowContract.Dogs.DOG_MAJORS,
-				DogshowContract.Dogs.DOG_POINTS,
-				DogshowContract.Dogs.DOG_SEX,
-				DogshowContract.Dogs.DOG_IS_SHOWING};
-		int DOG_ID = 0;
-		int DOG_BREED = 1;
-		int DOG_CALL_NAME = 2;
-		int DOG_IMAGE_PATH = 3;
-		int DOG_MAJORS = 4;
-		int DOG_POINTS = 5;
-		int DOG_SEX = 6;
-		int DOG_IS_SHOWING = 7;
-	}
-
 }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.tnclark8012.dogshow.apps.android.ui;
+package dev.tnclark8012.dogshow.apps.android.ui.base;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -29,6 +29,7 @@ import com.actionbarsherlock.view.MenuItem;
 
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.preferences.PrefsActivity;
+import dev.tnclark8012.dogshow.apps.android.ui.phone.HomeActivity;
 import dev.tnclark8012.dogshow.apps.android.util.AccountUtils;
 
 /**
@@ -42,7 +43,7 @@ public abstract class BaseActivity extends SherlockFragmentActivity {
 		// If we're not on Google TV and we're not authenticated, finish this
 		// activity
 		// and show the authentication screen.
-			if (!AccountUtils.isAuthenticated(this)) {
+			if (false && !AccountUtils.isAuthenticated(this)) {//TODO implement
 //				new Intent(this, DogActivity.class)
 
 				AccountUtils.startAuthenticationFlow(this, getIntent());

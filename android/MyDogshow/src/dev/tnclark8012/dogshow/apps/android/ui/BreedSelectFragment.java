@@ -11,6 +11,7 @@ import android.widget.ListView;
 import com.actionbarsherlock.app.SherlockListFragment;
 
 import dev.tnclark8012.dogshow.apps.android.adapters.BreedAdapter;
+import dev.tnclark8012.dogshow.apps.android.ui.phone.BreedSelectActivity;
 import dev.tnclark8012.dogshow.apps.android.util.DebugUtils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.BreedGroup;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;

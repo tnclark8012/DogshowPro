@@ -59,7 +59,8 @@ public class DogshowProvider extends ContentProvider {
 	private static final int BREED_RINGS_WITH_DOGS_ENTERED = 203;
 	
 	private static final int HANDLERS = 300;
-	private static final int HANDLERS_BY_JUNIORS_CLASS = 301;
+	private static final int HANDLERS_ID = 301;
+	private static final int HANDLERS_BY_JUNIORS_CLASS = 302;
 	
 	private static final int JUNIORS_RINGS = 400;
 	
@@ -261,10 +262,13 @@ public class DogshowProvider extends ContentProvider {
 			return builder.table(Tables.DOGS);
 		}
 		case DOGS_ID:
-			final String dogId = Dogs.getDogId(uri);
+			final String dogId = String.valueOf(Dogs.getDogId(uri));
 			return builder.table(Tables.DOGS).where(Dogs._ID + "=?", dogId);
 		case HANDLERS:
 			return builder.table(Tables.HANDLERS);
+		case HANDLERS_ID:
+			final String handlerId = String.valueOf(Handlers.getHandlerId(uri));
+			return builder.table(Tables.HANDLERS).where(Handlers._ID + "=?", handlerId);
 		case HANDLERS_BY_JUNIORS_CLASS:
 			return builder.table(Tables.HANDLERS);
 		case JUNIORS_RINGS:

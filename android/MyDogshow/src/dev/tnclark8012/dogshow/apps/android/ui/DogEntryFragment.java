@@ -36,6 +36,7 @@ import com.actionbarsherlock.view.MenuInflater;
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
+import dev.tnclark8012.dogshow.apps.android.ui.base.BaseActivity;
 import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
 import dev.tnclark8012.dogshow.apps.android.util.Utils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
@@ -133,11 +134,6 @@ public class DogEntryFragment extends SherlockFragment implements LoaderManager.
 		reloadFromArguments(getArguments());
 	}
 
-	@Override
-	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		super.onCreateOptionsMenu(menu, inflater);
-		inflater.inflate(R.menu.list_dogs, menu);
-	}
 
 	protected void reloadFromArguments(Bundle arguments) {
 //		setListAdapter(null);

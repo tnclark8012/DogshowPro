@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.tnclark8012.dogshow.apps.android.ui;
+package dev.tnclark8012.dogshow.apps.android.ui.phone;
 
 import static dev.tnclark8012.dogshow.apps.android.util.LogUtils.LOGD;
 import android.accounts.Account;
@@ -36,6 +36,10 @@ import com.actionbarsherlock.view.MenuItem;
 
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
+import dev.tnclark8012.dogshow.apps.android.ui.ExploreFragment;
+import dev.tnclark8012.dogshow.apps.android.ui.IncompleteFragment;
+import dev.tnclark8012.dogshow.apps.android.ui.MyScheduleFragment;
+import dev.tnclark8012.dogshow.apps.android.ui.base.BaseActivity;
 import dev.tnclark8012.dogshow.apps.android.util.AccountUtils;
 
 /**

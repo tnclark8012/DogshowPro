@@ -11,7 +11,7 @@ import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
 import dev.tnclark8012.dogshow.apps.android.R;
-import dev.tnclark8012.dogshow.apps.android.ui.HomeActivity;
+import dev.tnclark8012.dogshow.apps.android.ui.phone.HomeActivity;
 
 
 /**

@@ -20,6 +20,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import dev.tnclark8012.dogshow.apps.android.R;
+import dev.tnclark8012.dogshow.apps.android.ui.base.BaseActivity;
 
 /**
  * A {@link BaseActivity} that simply contains a single fragment. The intent used to invoke this

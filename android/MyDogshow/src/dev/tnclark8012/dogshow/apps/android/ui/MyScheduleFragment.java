@@ -44,7 +44,6 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,12 +51,13 @@ import android.widget.Toast;
 import com.actionbarsherlock.app.SherlockListFragment;
 import com.actionbarsherlock.view.ActionMode;
 
+import dev.tnclark8012.dogshow.apps.android.BuildConfig;
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.preferences.Prefs;
 import dev.tnclark8012.dogshow.apps.android.provider.PersistHelper;
-import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.EnteredRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.EnteredRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.JuniorsRings;
 import dev.tnclark8012.dogshow.apps.android.ui.dialog.EditJudgeTimeDialog;
 import dev.tnclark8012.dogshow.apps.android.util.DebugUtils;
@@ -155,7 +155,8 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 		CursorLoader loader = null;
 		String selection = EnteredRings.UPCOMING_SELECTION;
-		String[] selectionArgs = EnteredRings.buildUpcomingSelectionArgs(0);
+		long now = (BuildConfig.DEBUG) ? 0 : System.currentTimeMillis();
+		String[] selectionArgs = EnteredRings.buildUpcomingSelectionArgs(now);
 		switch (id) {
 		case BreedRingsQuery._TOKEN:
 			loader = new CursorLoader(getActivity(), BreedRings.buildEnteredRingsUri(), BreedRingsQuery.PROJECTION, selection, selectionArgs, BreedRings.DEFAULT_SORT);

@@ -1,20 +1,19 @@
 package dev.tnclark8012.dogshow.apps.android.ui;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.database.ContentObserver;
 import android.database.Cursor;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
-import android.support.v4.content.Loader;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,24 +24,19 @@ import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import com.actionbarsherlock.app.SherlockFragment;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-
 import dev.tnclark8012.dogshow.apps.android.R;
-import dev.tnclark8012.dogshow.apps.android.provider.PersistHelper;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
+import dev.tnclark8012.dogshow.apps.android.ui.base.BaseEditableEntityEditFragment;
+import dev.tnclark8012.dogshow.apps.android.ui.phone.BreedSelectActivity;
 import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
 import dev.tnclark8012.dogshow.apps.android.util.Utils;
+import dev.tnclark8012.dogshow.shared.DogshowEnums;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
-public class DogEditFragment extends SherlockFragment implements LoaderManager.LoaderCallbacks<Cursor>, OnClickListener, OnCheckedChangeListener {
+public class DogEditFragment extends BaseEditableEntityEditFragment implements LoaderManager.LoaderCallbacks<Cursor>, OnClickListener, OnCheckedChangeListener {
 	private static final String TAG = DogEditFragment.class.getSimpleName();
-	private String mDogId = "-1";
-	private Uri mDogUri;
+
 	private String mCallName;
 	private String mBreedName;
 	private int mSexId;
@@ -60,42 +54,10 @@ public class DogEditFragment extends SherlockFragment implements LoaderManager.L
 	private RadioGroup mViewSex;
 
 	private String mImagePath;
-	private Callbacks mCallbacks;
-	private int mDogQueryToken;
 
 	private final int TAG_BREED = 0;
 	private final int TAG_IMAGE = 1;
 	public final int REQUEST_CODE_IMAGE = 2;
-	private boolean createNew = false;
-	public static final String INTENT_EXTRA_NEW_DOG = "dev.tnclark8012.dogshow.apps.android.extra.NEW_DOG";
-
-	public interface Callbacks {
-		public void onSave();
-
-		public void onCancel();
-	}
-
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setHasOptionsMenu(true);
-
-		final Intent intent = BaseActivity.fragmentArgumentsToIntent(getArguments());
-		if (intent.getBooleanExtra(INTENT_EXTRA_NEW_DOG, false)) {
-			createNew = true;
-		} else {
-			mDogUri = intent.getData();
-
-			if (mDogUri == null) {
-				return;
-			}
-
-			mDogId = DogshowContract.Dogs.getDogId(mDogUri);
-
-			LoaderManager manager = getLoaderManager();
-			manager.restartLoader(DogQuery._TOKEN, null, this);
-		}
-	};
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -105,7 +67,7 @@ public class DogEditFragment extends SherlockFragment implements LoaderManager.L
 		mViewBreed = (TextView) mRootView.findViewById(R.id.dog_edit_section_breed_text);
 		mViewMajors = (TextView) mRootView.findViewById(R.id.dog_edit_section_majors_text);
 		mViewPoints = (TextView) mRootView.findViewById(R.id.dog_edit_section_points_text);
-//		mViewOwner = (TextView) mRootView.findViewById(R.id.dog_edit_section_owner_text);
+		// mViewOwner = (TextView) mRootView.findViewById(R.id.dog_edit_section_owner_text);
 		mViewSex = (RadioGroup) mRootView.findViewById(R.id.dog_edit_sex_radio);
 
 		getSherlockActivity().getSupportActionBar().setTitle("Edit Dog");
@@ -115,125 +77,6 @@ public class DogEditFragment extends SherlockFragment implements LoaderManager.L
 		mViewImage.setOnClickListener(this);
 		mViewSex.setOnCheckedChangeListener(this);
 		return mRootView;
-	}
-
-	@Override
-	public void onAttach(Activity activity) {
-		super.onAttach(activity);
-		if (!(activity instanceof Callbacks)) {
-			throw new ClassCastException("Activity must implement fragment's callbacks.");
-		}
-
-		mCallbacks = (Callbacks) activity;
-		activity.getContentResolver().registerContentObserver(DogshowContract.Dogs.CONTENT_URI, true, mObserver);
-	}
-
-	@Override
-	public void onDetach() {
-		super.onDetach();
-		getActivity().getContentResolver().unregisterContentObserver(mObserver);
-	}
-
-	@SuppressLint("NewApi")
-	@SuppressWarnings("deprecation")
-	private void onDogQueryComplete(Cursor cursor) {
-		cursor.moveToFirst();
-		Log.v(TAG, "onDogQueryComplete() called from thread " + Thread.currentThread().getName());
-		mBreedName = cursor.getString(DogQuery.DOG_BREED);
-		mCallName = cursor.getString(DogQuery.DOG_CALL_NAME);
-		mMajors = String.valueOf(cursor.getInt(DogQuery.DOG_MAJORS));
-		mPoints = String.valueOf(cursor.getInt(DogQuery.DOG_POINTS));
-		mViewBreed.setText(Breeds.parse(mBreedName).getPrimaryName());
-		mViewName.setText(mCallName);
-		mSexId = getRadioIdFromSex(cursor.getInt(DogQuery.DOG_SEX));
-		mViewSex.check(mSexId);
-		String imagePath = cursor.getString(DogQuery.DOG_IMAGE_PATH);
-		if (imagePath != null) {
-			mImagePath = imagePath;
-			Resources res = getResources();
-			int height = res.getDimensionPixelSize(R.dimen.header_icon_height);
-			int width = res.getDimensionPixelSize(R.dimen.header_icon_width);
-			// TODO move to AsyncTask
-			BitmapDrawable image = new BitmapDrawable(res, UIUtils.loadBitmap(imagePath, width, height));
-			if (Utils.isJellybean()) {
-				mViewImage.setBackground(image);
-			} else {
-				mViewImage.setBackgroundDrawable(image);
-			}
-		} else {
-			mViewImage.setBackgroundResource(R.drawable.dog);
-		}
-	}
-
-	private final ContentObserver mObserver = new ContentObserver(new Handler()) {
-		@Override
-		public void onChange(boolean selfChange) {
-			if (getActivity() == null) {
-				return;
-			}
-
-			Loader<Cursor> loader = getLoaderManager().getLoader(mDogQueryToken);
-			if (loader != null) {
-				loader.forceLoad();
-			}
-		}
-	};
-
-	@Override
-	public Loader<Cursor> onCreateLoader(int id, Bundle data) {
-		CursorLoader loader = null;
-		if (id == DogQuery._TOKEN) {
-			loader = new CursorLoader(getActivity(), mDogUri, DogQuery.PROJECTION, null, null, null);
-
-		}
-		return loader;
-	}
-
-	@Override
-	public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
-		if (getActivity() == null) {
-			return;
-		}
-		if (loader.getId() == DogQuery._TOKEN) {
-			onDogQueryComplete(cursor);
-		}
-	}
-
-	@Override
-	public void onLoaderReset(Loader<Cursor> arg0) {
-	}
-
-	@Override
-	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		super.onCreateOptionsMenu(menu, inflater);
-		inflater.inflate(R.menu.dog_edit, menu);
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case android.R.id.home:
-		case R.id.menu_dog_edit_cancel:
-			mCallbacks.onCancel();
-			return true;
-		case R.id.menu_dog_edit_save:
-			save();
-			mCallbacks.onSave();
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-
-	private void save() {
-		mBreedName = mViewBreed.getText().toString();
-		mCallName = mViewName.getText().toString();
-		mMajors = mViewMajors.getText().toString();
-		mPoints = mViewPoints.getText().toString();
-		if (createNew) {
-			new PersistHelper(getActivity()).createDog(mDogId, mBreedName, mCallName, mImagePath, mMajors, mOwnerId, mPoints, getSexFromRadioId(mSexId));
-		} else {
-			new PersistHelper(getActivity()).updateDog(mDogId, mBreedName, mCallName, mImagePath, mMajors, mOwnerId, mPoints, getSexFromRadioId(mSexId));
-		}
 	}
 
 	private int getSexFromRadioId(int id) {
@@ -294,10 +137,10 @@ public class DogEditFragment extends SherlockFragment implements LoaderManager.L
 			int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
 			mImagePath = cursor.getString(columnIndex);
 			cursor.close();
-            Resources res = getResources();
-            int height = res.getDimensionPixelSize(R.dimen.header_icon_height);
-            int width = res.getDimensionPixelSize(R.dimen.header_icon_width);
-            BitmapDrawable image = new BitmapDrawable(res, UIUtils.loadBitmap(mImagePath, width, height));
+			Resources res = getResources();
+			int height = res.getDimensionPixelSize(R.dimen.header_icon_height);
+			int width = res.getDimensionPixelSize(R.dimen.header_icon_width);
+			BitmapDrawable image = new BitmapDrawable(res, UIUtils.loadBitmap(mImagePath, width, height));
 			if (Utils.isJellybean()) {
 				mViewImage.setBackground(image);
 			} else {
@@ -324,5 +167,76 @@ public class DogEditFragment extends SherlockFragment implements LoaderManager.L
 	@Override
 	public void onCheckedChanged(RadioGroup group, int checkedId) {
 		mSexId = checkedId;
+	}
+
+	@Override
+	protected int getEntityIdFromUri(Uri uri) {
+		return Dogs.getDogId(uri);
+	}
+
+	@Override
+	protected int getQueryToken() {
+		return DogQuery._TOKEN;
+	}
+
+	@Override
+	protected CursorLoader getCursorLoader(Activity activity, Uri uri) {
+		return new CursorLoader(activity, uri, DogQuery.PROJECTION, null, null, null);
+	}
+
+	@SuppressLint("NewApi")
+	@SuppressWarnings("deprecation")
+	@Override
+	protected void onQueryComplete(Cursor cursor) {
+		cursor.moveToFirst();
+		Log.v(TAG, "onDogQueryComplete() called from thread " + Thread.currentThread().getName());
+		mBreedName = cursor.getString(DogQuery.DOG_BREED);
+		mCallName = cursor.getString(DogQuery.DOG_CALL_NAME);
+		mMajors = String.valueOf(cursor.getInt(DogQuery.DOG_MAJORS));
+		mPoints = String.valueOf(cursor.getInt(DogQuery.DOG_POINTS));
+		mViewBreed.setText(Breeds.parse(mBreedName).getPrimaryName());
+		mViewName.setText(mCallName);
+		mSexId = getRadioIdFromSex(cursor.getInt(DogQuery.DOG_SEX));
+		mViewSex.check(mSexId);
+		String imagePath = cursor.getString(DogQuery.DOG_IMAGE_PATH);
+		if (imagePath != null) {
+			mImagePath = imagePath;
+			Resources res = getResources();
+			int height = res.getDimensionPixelSize(R.dimen.header_icon_height);
+			int width = res.getDimensionPixelSize(R.dimen.header_icon_width);
+			// TODO move to AsyncTask
+			BitmapDrawable image = new BitmapDrawable(res, UIUtils.loadBitmap(imagePath, width, height));
+			if (Utils.isJellybean()) {
+				mViewImage.setBackground(image);
+			} else {
+				mViewImage.setBackgroundDrawable(image);
+			}
+		} else {
+			mViewImage.setBackgroundResource(R.drawable.dog);
+		}
+	}
+
+	@Override
+	protected Uri getContentUri() {
+		return Dogs.CONTENT_URI;
+	}
+
+	@Override
+	protected Map<String, Object> getEntityValueMap() {
+		mBreedName = mViewBreed.getText().toString();
+		mCallName = mViewName.getText().toString();
+		mMajors = mViewMajors.getText().toString();
+		mPoints = mViewPoints.getText().toString();
+		Map<String, Object> values = new HashMap<String, Object>();
+		values.put(Dogs.DOG_IS_SHOWING, 1);// FIXME implement a selection
+		values.put(Dogs.DOG_BREED, DogshowEnums.Breeds.parse(mBreedName).toString());
+		values.put(Dogs.DOG_IMAGE_PATH, mImagePath);
+		values.put(Dogs.DOG_CALL_NAME, mCallName);
+		values.put(Dogs.DOG_MAJORS, Utils.parseSafely(mMajors, 0));
+		values.put(Dogs.DOG_POINTS, Utils.parseSafely(mPoints, 0));
+		values.put(Dogs.DOG_OWNER_ID, Integer.parseInt(mOwnerId));
+		values.put(Dogs.DOG_SEX, getSexFromRadioId(mSexId));
+		values.put(Dogs.UPDATED, System.currentTimeMillis());
+		return values;
 	}
 }

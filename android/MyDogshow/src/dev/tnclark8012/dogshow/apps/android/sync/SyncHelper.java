@@ -43,9 +43,9 @@ public class SyncHelper {
 			HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 			urlConnection.setRequestProperty("Content-Type", "application/json");
 			urlConnection.setRequestProperty("Authorization", "Bearer " + mAuthToken);
-			urlConnection.setDoOutput(true);
+//			urlConnection.setDoOutput(true);
 
-			Log.d(TAG, "Posting to URL: " + url);
+			Log.d(TAG, "Getting from URL: " + url);
 
 			urlConnection.connect();
 			throwErrors(urlConnection);

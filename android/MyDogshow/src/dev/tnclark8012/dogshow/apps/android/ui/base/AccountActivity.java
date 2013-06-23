@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.tnclark8012.dogshow.apps.android.ui;
+package dev.tnclark8012.dogshow.apps.android.ui.base;
 
 import java.util.Arrays;
 import java.util.List;
@@ -49,6 +49,7 @@ import com.actionbarsherlock.view.MenuItem;
 
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.preferences.Prefs;
+import dev.tnclark8012.dogshow.apps.android.ui.phone.HomeActivity;
 import dev.tnclark8012.dogshow.apps.android.util.AccountUtils;
 
 /**

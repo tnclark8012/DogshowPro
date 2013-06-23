@@ -28,7 +28,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
-import dev.tnclark8012.dogshow.apps.android.ui.AccountActivity;
+import dev.tnclark8012.dogshow.apps.android.ui.base.AccountActivity;
 
 /**
  * An assortment of authentication and login helper utilities.

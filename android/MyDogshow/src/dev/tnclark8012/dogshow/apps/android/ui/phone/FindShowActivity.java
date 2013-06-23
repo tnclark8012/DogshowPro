@@ -1,6 +1,9 @@
-package dev.tnclark8012.dogshow.apps.android.ui;
+package dev.tnclark8012.dogshow.apps.android.ui.phone;
 
 import dev.tnclark8012.dogshow.apps.android.sync.SyncHelper;
+import dev.tnclark8012.dogshow.apps.android.ui.FindShowFragment;
+import dev.tnclark8012.dogshow.apps.android.ui.SimpleSinglePaneActivity;
+import dev.tnclark8012.dogshow.apps.android.ui.FindShowFragment.Callbacks;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;

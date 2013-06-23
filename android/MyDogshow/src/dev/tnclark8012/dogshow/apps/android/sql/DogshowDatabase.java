@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 import android.util.Log;
 
+import dev.tnclark8012.dogshow.apps.android.BuildConfig;
 import dev.tnclark8012.dogshow.apps.android.Config;
 import dev.tnclark8012.dogshow.apps.android.provider.DogshowProvider.Qualified;
 import dev.tnclark8012.dogshow.apps.android.provider.DogshowProvider.Subquery;
@@ -104,7 +105,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				+ RingColumns.RING_NUMBER+ " INTEGER NOT NULL,"
 				+ RingColumns.RING_SHOW_ID + " TEXT NOT NULL,"
 				+ SyncColumns.UPDATED + " INTEGER NOT NULL)");
-	    if(Config.DEBUG_BUILD)
+	    if(BuildConfig.DEBUG)
         {
             insertDebugEntities(db);
         }

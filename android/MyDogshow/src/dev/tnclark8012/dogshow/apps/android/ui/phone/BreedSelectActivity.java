@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.tnclark8012.dogshow.apps.android.ui;
+package dev.tnclark8012.dogshow.apps.android.ui.phone;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,7 +27,9 @@ import android.support.v4.view.ViewPager;
 import com.actionbarsherlock.app.ActionBar;
 
 import dev.tnclark8012.dogshow.apps.android.R;
+import dev.tnclark8012.dogshow.apps.android.ui.BreedSelectFragment;
 import dev.tnclark8012.dogshow.apps.android.ui.BreedSelectFragment.BreedSelectListener;
+import dev.tnclark8012.dogshow.apps.android.ui.base.BaseActivity;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.BreedGroup;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 

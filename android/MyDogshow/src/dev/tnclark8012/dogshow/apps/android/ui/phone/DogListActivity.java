@@ -1,66 +1,30 @@
-package dev.tnclark8012.dogshow.apps.android.ui;
+package dev.tnclark8012.dogshow.apps.android.ui.phone;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import dev.tnclark8012.dogshow.apps.android.R;
-import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
+import android.net.Uri;
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
+import dev.tnclark8012.dogshow.apps.android.ui.DogEditFragment;
+import dev.tnclark8012.dogshow.apps.android.ui.DogListFragment;
+import dev.tnclark8012.dogshow.apps.android.ui.base.BaseEditableEntityEditFragment;
+import dev.tnclark8012.dogshow.apps.android.ui.base.BaseEntityListActivity;
+import dev.tnclark8012.dogshow.apps.android.ui.base.BaseEntityListFragment;
 
-public class DogsActivity extends SimpleSinglePaneActivity implements
-		DogsFragment.Callbacks, DogEditFragment.Callbacks {
-	DogsFragment mDogsFragment;
+public class DogListActivity extends BaseEntityListActivity {
 
-	// TODO Create SQL Create URI for dog
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		if (mDogsFragment == null)
-			mDogsFragment = new DogsFragment();
+	protected BaseEntityListFragment getListFragment() {
+		// TODO Auto-generated method stub
+		return new DogListFragment();
 	}
 
 	@Override
-	protected Fragment onCreatePane() {
-		if (mDogsFragment == null)
-			mDogsFragment = new DogsFragment();
-		return mDogsFragment;
-	}
-
-	private void swapFragments(boolean toAdd) {
-		Fragment swapIn;
-		Bundle args = intentToFragmentArguments(getIntent());
-		if (toAdd) {
-			swapIn = new DogEditFragment();
-			args.putBoolean(DogEditFragment.INTENT_EXTRA_NEW_DOG, true);
-		} else {
-			swapIn = mDogsFragment;
-		}
-		swapIn.setArguments(args);
-		getSupportFragmentManager().beginTransaction()
-				.replace(R.id.root_container, swapIn, "single_pane").commit();
+	protected BaseEditableEntityEditFragment getEditFragment() {
+		// TODO Auto-generated method stub
+		return new DogEditFragment();
 	}
 
 	@Override
-	public boolean onDogSelected(String dogId) {
-		startActivity(new Intent(Intent.ACTION_VIEW,
-				DogshowContract.Dogs.buildDogUri(dogId)));
-		return false;
-	}
-
-	@Override
-	public boolean onAddDogClick() {
-
-		swapFragments(true);
-		return true;
-	}
-
-	@Override
-	public void onSave() {
-		swapFragments(false);
-
-	}
-
-	@Override
-	public void onCancel() {
-		swapFragments(false);
+	protected Uri getEntityUri(String entityId) {
+		// TODO Auto-generated method stub
+		return Dogs.buildDogUri(entityId);
 	}
 }

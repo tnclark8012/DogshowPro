@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-package dev.tnclark8012.dogshow.apps.android.ui;
+package dev.tnclark8012.dogshow.apps.android.ui.phone;
 
 import android.os.Bundle;
 import android.util.Log;
 import dev.tnclark8012.dogshow.apps.android.R;
+import dev.tnclark8012.dogshow.apps.android.ui.base.BaseActivity;
 
 /**
  * The landing screen for the app, once the user has logged in.

@@ -1,17 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?> 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dev.tnclark8012.dogshow.apps.android"
-    android:versionCode="5"
-    android:versionName="0.2a" >
+    android:versionCode="8"
+    android:versionName="0.1.1.2a" >
 
     <uses-sdk
         android:minSdkVersion="10"
         android:targetSdkVersion="17" />
-<permission
+
+    <permission
         android:name="dev.tnclark8012.dogshow.apps.android.permission.WRITE_DOGSHOW"
-        android:protectionLevel="normal"
         android:label="write permission"
-         />
+        android:protectionLevel="normal" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
@@ -25,7 +26,7 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.Dogshow" >
         <activity
-            android:name=".ui.HomeActivity"
+            android:name=".ui.phone.HomeActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.Dogshow" >
             <intent-filter>
@@ -35,51 +36,26 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.AccountActivity"
+            android:name=".ui.base.AccountActivity"
             android:configChanges="orientation|keyboardHidden"
             android:theme="@style/Theme.Dogshow" />
         <activity
-            android:name=".ui.HandlerActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:theme="@style/Theme.Dogshow" >
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="vnd.android.cursor.dir/vnd.dogshow.handler" />
-            </intent-filter>
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.HomeActivity" />
-        </activity>
-        <activity
-            android:name=".ui.ScheduleActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Dogshow" >
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="vnd.android.cursor.dir/vnd.dogshow.ring" />
-            </intent-filter>
-            
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.HomeActivity" />
-        </activity>
-        <activity
-            android:name=".ui.BreedSelectActivity"
+            android:name=".ui.phone.BreedSelectActivity"
             android:label="Select Breed"
             android:theme="@style/Theme.Dogshow" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.DogActivity" />
+                android:value=".ui.phone.DogActivity" />
         </activity>
         <activity
-            android:name=".ui.DogActivity"
+            android:name=".ui.phone.DogActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.Dogshow" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="vnd.android.cursor.item/vnd.dogshow.dog" />
             </intent-filter>
             <intent-filter android:priority="100" >
@@ -94,46 +70,105 @@
                 <action android:name="android.intent.action.CALL_PRIVILEGED" />
 
                 <category android:name="android.intent.category.DEFAULT" />
-				
+
                 <data android:scheme="tel" />
             </intent-filter>
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.HomeActivity" />
+                android:value=".ui.phone.HomeActivity" />
         </activity>
-        <activity android:name=".ui.DogsActivity"
-            android:label="Dog list">
+        <activity
+            android:name=".ui.phone.DogListActivity"
+            android:label="Dog list" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="vnd.android.cursor.dir/vnd.dogshow.dog" />
             </intent-filter>
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.HomeActivity" />
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.phone.HomeActivity" />
         </activity>
-        <activity android:name=".ui.FindShowActivity"
-            android:label="Find Show">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.HomeActivity" />
+        <activity
+            android:name=".ui.phone.FindShowActivity"
+            android:label="Find Show" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.phone.HomeActivity" />
         </activity>
-        <activity android:name=".ui.ShowSetupActivity"
-            android:label="Setup Show">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.HomeActivity" />
+        <activity
+            android:name=".ui.phone.HandlerActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Dogshow" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="vnd.android.cursor.item/vnd.dogshow.handler" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.phone.HomeActivity" />
         </activity>
-        <activity android:name=".preferences.PrefsActivity"
-            android:label="Settings">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.HomeActivity" />
+        <activity
+            android:name=".ui.phone.HandlerListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/Theme.Dogshow" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="vnd.android.cursor.dir/vnd.dogshow.handler" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.phone.HomeActivity" />
         </activity>
-        
+        <activity
+            android:name=".ui.phone.ScheduleActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Dogshow" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="vnd.android.cursor.dir/vnd.dogshow.ring" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.phone.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".ui.phone.ShowSetupActivity"
+            android:label="Setup Show" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.phone.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".preferences.PrefsActivity"
+            android:label="Settings" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.phone.HomeActivity" />
+        </activity>
+
         <provider
             android:name=".provider.DogshowProvider"
             android:authorities="dev.tnclark8012.dogshow.apps.android"
-            android:writePermission="dev.tnclark8012.dogshow.apps.android.permission.WRITE_DOGSHOW"
+            android:label="@string/app_name"
             android:syncable="true"
-            android:label="@string/app_name" />
+            android:writePermission="dev.tnclark8012.dogshow.apps.android.permission.WRITE_DOGSHOW" />
     </application>
 
 </manifest>

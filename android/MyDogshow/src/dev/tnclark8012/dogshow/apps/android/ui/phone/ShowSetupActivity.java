@@ -1,4 +1,4 @@
-package dev.tnclark8012.dogshow.apps.android.ui;
+package dev.tnclark8012.dogshow.apps.android.ui.phone;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,6 +11,10 @@ import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.provider.PersistHelper;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
 import dev.tnclark8012.dogshow.apps.android.sync.SyncHelper;
+import dev.tnclark8012.dogshow.apps.android.ui.DogEntryFragment;
+import dev.tnclark8012.dogshow.apps.android.ui.FindShowFragment;
+import dev.tnclark8012.dogshow.apps.android.ui.SimpleSinglePaneActivity;
+import dev.tnclark8012.dogshow.apps.android.ui.DogEntryFragment.Callbacks;
 
 public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEntryFragment.Callbacks, FindShowFragment.Callbacks {
 	private static final String TAG = ShowSetupActivity.class.getSimpleName();

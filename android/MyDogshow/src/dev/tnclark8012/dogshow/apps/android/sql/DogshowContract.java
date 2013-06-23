@@ -1,5 +1,6 @@
 package dev.tnclark8012.dogshow.apps.android.sql;
 
+import dev.tnclark8012.dogshow.apps.android.util.Utils;
 import android.net.Uri;
 import android.provider.BaseColumns;
 import android.provider.ContactsContract;
@@ -156,8 +157,8 @@ public class DogshowContract {
         }
 
         /** Read {@link #SESSION_ID} from {@link Sessions} {@link Uri}. */
-        public static String getDogId(Uri uri) {
-            return uri.getPathSegments().get(1);
+        public static int getDogId(Uri uri) {
+            return Utils.parseSafely(uri.getPathSegments().get(1), -1);
         }
     }
 
@@ -185,8 +186,8 @@ public class DogshowContract {
         }
 
         /** Read _ID from {@link Handlers} {@link Uri}. */
-        public static String getHandlerId(Uri uri) {
-            return uri.getPathSegments().get(1);
+        public static int getHandlerId(Uri uri) {
+            return Utils.parseSafely(uri.getPathSegments().get(1), -1);
         }
         
         public static Uri buildEnteredJuniorsClassesUri()
