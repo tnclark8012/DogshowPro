@@ -17,6 +17,7 @@ import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Handlers;
 import dev.tnclark8012.dogshow.apps.android.ui.base.BaseEditableEntityViewFragment;
 import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
+import dev.tnclark8012.dogshow.apps.android.util.Utils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.JuniorClass;
 
 public class HandlerViewFragment extends BaseEditableEntityViewFragment {
@@ -26,7 +27,8 @@ public class HandlerViewFragment extends BaseEditableEntityViewFragment {
 
 		String[] PROJECTION = { Handlers._ID,
 				Handlers.HANDLER_NAME,
-				Handlers.HANDLER_JUNIOR_CLASS
+				Handlers.HANDLER_JUNIOR_CLASS,
+				Handlers.HANDLER_IMAGE_PATH
 				};
 		int HANDLER_ID = 0;
 		int HANDLER_NAME = 1;
@@ -58,9 +60,9 @@ public class HandlerViewFragment extends BaseEditableEntityViewFragment {
 	protected void onQueryComplete(Cursor cursor) {
 		cursor.moveToFirst();
 		mClassName = cursor.getString(HandlerQuery.HANDLER_JUNIOR_CLASS);
+		mClassName = (Utils.isNullOrEmpty(mClassName)) ? "None" : JuniorClass.parse(mClassName).getPrimaryName();
 		mName = cursor.getString(HandlerQuery.HANDLER_NAME);
-		mImagePath = null;//cursor.getString(HandlerQuery.HANDLER_IMAGE_PATH);
-		mClassName = (mClassName==null) ? "None" : JuniorClass.parse(mClassName).getPrimaryName();
+		mImagePath = cursor.getString(HandlerQuery.HANDLER_IMAGE_PATH);
 		mViewClass.setText(mClassName);
 		mViewName.setText(mName);
 		if (mImagePath != null) {
@@ -73,7 +75,7 @@ public class HandlerViewFragment extends BaseEditableEntityViewFragment {
 			mViewImage.setBackgroundDrawable(image);
 		} else {
 			Log.w(TAG, "Image path was null");
-			mViewImage.setBackgroundResource(R.drawable.dog);
+			mViewImage.setBackgroundResource(R.drawable.ic_default_handler);
 
 		}
 	}

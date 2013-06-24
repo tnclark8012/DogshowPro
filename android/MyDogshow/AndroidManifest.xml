@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?> 
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dev.tnclark8012.dogshow.apps.android"
     android:versionCode="8"
@@ -131,6 +131,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.phone.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".ui.phone.JuniorClassSelectActivity"
+            android:label="Select Class"
+            android:theme="@style/Theme.Dogshow" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.phone.HandlerActivity" />
         </activity>
         <activity
             android:name=".ui.phone.ScheduleActivity"

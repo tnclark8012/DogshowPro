@@ -148,7 +148,6 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements L
 			}
 			break;
 		}
-
 	}
 
 	private interface DogQuery {

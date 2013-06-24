@@ -52,17 +52,10 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				+ BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
 				+ HandlersColumns.HANDLER_NAME + " INTEGER NOT NULL,"
 				+ HandlersColumns.HANDLER_JUNIOR_CLASS + " TEXT,"
+				+ HandlersColumns.HANDLER_IMAGE_PATH + " TEXT,"
 				+ HandlersColumns.HANDLER_IS_SHOWING + " INTEGER NOT NULL,"
 				+ HandlersColumns.HANDLER_IS_SHOWING_JUNIORS + " INTEGER NOT NULL,"
 				+ SyncColumns.UPDATED + " INTEGER NOT NULL)");
-		//TODO HIGH: move to insertDebugEntities
-
-        db.execSQL("INSERT INTO " + Tables.HANDLERS + "("
-				+ HandlersColumns.HANDLER_NAME + "," + HandlersColumns.HANDLER_JUNIOR_CLASS + "," 
-				+ HandlersColumns.HANDLER_IS_SHOWING + "," 
-				+ HandlersColumns.HANDLER_IS_SHOWING_JUNIORS+ "," 
-				+ SyncColumns.UPDATED + ") VALUES ("
-				+ "\"Tanner\"," + "\"MASTER_CLASS\", 1, 1," + System.currentTimeMillis() + ")");
 		
 		db.execSQL("CREATE TABLE " + Tables.DOGS + " (" + BaseColumns._ID
 				+ " INTEGER PRIMARY KEY AUTOINCREMENT," + DogsColumns.DOG_BREED
@@ -129,6 +122,13 @@ public class DogshowDatabase extends SQLiteOpenHelper {
                 + DogsColumns.DOG_IS_SHOWING + "," + DogsColumns.DOG_UPDATED
                 + ")" + " VALUES (" + "\"SHETLAND_SHEEPDOG\"," + "\"Jay\"," + "2,"
                 + "0," + "20," + "1," + "1," + System.currentTimeMillis() + ")");
+
+        db.execSQL("INSERT INTO " + Tables.HANDLERS + "("
+				+ HandlersColumns.HANDLER_NAME + "," + HandlersColumns.HANDLER_JUNIOR_CLASS + "," 
+				+ HandlersColumns.HANDLER_IS_SHOWING + "," 
+				+ HandlersColumns.HANDLER_IS_SHOWING_JUNIORS+ "," 
+				+ SyncColumns.UPDATED + ") VALUES ("
+				+ "\"Tanner\"," + "\"MASTER_CLASS\", 1, 1," + System.currentTimeMillis() + ")");
     }
 
 	@Override

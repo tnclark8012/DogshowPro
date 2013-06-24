@@ -93,6 +93,7 @@ public class DogshowContract {
     	String HANDLER_JUNIOR_CLASS = "handler_junior_level";
     	String HANDLER_IS_SHOWING = "handler_is_showing";
     	String HANDLER_IS_SHOWING_JUNIORS = "handler_is_showing_juniors";
+    	String HANDLER_IMAGE_PATH = "handler_image_path";
     }
     
     interface BreedRingsColumns {
