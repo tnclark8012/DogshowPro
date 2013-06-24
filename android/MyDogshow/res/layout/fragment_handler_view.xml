@@ -22,8 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="4dp"
                 android:layout_alignParentBottom="true"
-                android:background="@color/accent_1" >
-            </View>
+                android:background="@color/accent_1" />
         </RelativeLayout>
 
         <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
@@ -62,19 +61,18 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@drawable/accent_bar"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin" >
-    </View>
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:background="@drawable/accent_bar" />
 
     <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
         android:id="@+id/handler_view_section_juniors_text"
         android:layout_width="match_parent"
         android:layout_height="@dimen/element_inner_height"
-        android:paddingLeft="@dimen/element_padding_normal"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/element_spacing_normal"
+        android:paddingLeft="@dimen/element_padding_normal"
         android:text="None"
         android:textSize="@dimen/text_medium" />
 
