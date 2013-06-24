@@ -69,6 +69,7 @@
         android:id="@+id/handler_edit_section_juniors_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/element_padding_normal"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/element_tv_spinner_margin_top_normal"

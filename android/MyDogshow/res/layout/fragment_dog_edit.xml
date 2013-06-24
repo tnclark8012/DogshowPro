@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/layout_background" >
+    android:background="@color/layout_background"
+    android:orientation="vertical" >
 
     <RelativeLayout
         android:id="@+id/dog_edit_header"
@@ -23,12 +24,11 @@
                 android:layout_alignParentRight="true" />
         </RelativeLayout>
 
-        <RelativeLayout
+        <View
             android:layout_width="@dimen/header_icon_width"
             android:layout_height="4dp"
             android:layout_alignParentBottom="true"
-            android:background="@color/accent_1" >
-        </RelativeLayout>
+            android:background="@color/accent_1" />
 
         <dev.tnclark8012.dogshow.apps.android.widget.TypefacedEditText
             xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
@@ -46,217 +46,149 @@
             android:textSize="@dimen/text_large"
             ttv:typeface="Roboto-Medium.ttf" />
 
-        <RelativeLayout
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="2dp"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/accent_bar" >
-        </RelativeLayout>
+            android:background="@drawable/accent_bar" />
     </RelativeLayout>
 
-    <ScrollView
+    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+        xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+        android:id="@+id/dog_edit_section_sex_label"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@+id/dog_edit_header" >
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:paddingLeft="@dimen/element_padding_normal"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:text="SEX"
+        android:textColor="@color/accent_1"
+        android:textSize="@dimen/text_small"
+        ttv:typeface="Roboto-Bold.ttf" />
 
-        <RelativeLayout
-            android:id="@+id/dog_edit_contents"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:background="@drawable/accent_bar" />
+
+    <RadioGroup
+        android:id="@+id/dog_edit_sex_radio"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/element_spacing_normal"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/dog_edit_sex_radio_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Male" />
+
+        <RadioButton
+            android:id="@+id/dog_edit_sex_radio_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female" />
+    </RadioGroup>
+
+    <RelativeLayout
+        android:id="@+id/dog_edit_section_breed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dog_edit_sex_radio"
+        android:layout_marginTop="@dimen/element_padding_normal" >
+
+        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+            android:id="@+id/dog_edit_section_breed_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/dog_edit_header"
-            android:paddingBottom="@dimen/activity_vertical_margin"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin" >
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:paddingLeft="@dimen/element_padding_normal"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:text="BREED"
+            android:textColor="@color/accent_1"
+            android:textSize="@dimen/text_small"
+            ttv:typeface="Roboto-Bold.ttf" />
 
-            <RelativeLayout
-                android:id="@+id/dog_edit_section_sex"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/dog_edit_section_breed_label"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:background="@drawable/accent_bar" />
+    </RelativeLayout>
 
-                <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-                    xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
-                    android:id="@+id/dog_edit_section_sex_label"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/element_spacing_normal"
-                    android:text="SEX"
-                    android:textColor="@color/accent_1"
-                    android:textSize="@dimen/text_small"
-                    ttv:typeface="Roboto-Bold.ttf" />
+    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+        android:id="@+id/dog_edit_section_breed_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/element_spacing_normal"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:background="@drawable/spinner_default_holo_light"
+        android:clickable="true"
+        android:paddingLeft="@dimen/element_padding_normal"
+        android:textSize="@dimen/text_medium" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/dog_edit_section_sex_label"
-                    android:background="@drawable/accent_bar" >
-                </RelativeLayout>
-            </RelativeLayout>
+    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+        xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+        android:id="@+id/dog_edit_section_points_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:paddingLeft="@dimen/element_padding_normal"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:text="POINTS"
+        android:textColor="@color/accent_1"
+        android:textSize="@dimen/text_small"
+        ttv:typeface="Roboto-Bold.ttf" />
 
-            <RadioGroup
-                android:id="@+id/dog_edit_sex_radio"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/dog_edit_section_sex"
-                android:layout_marginTop="@dimen/element_spacing_normal"
-                android:orientation="horizontal" >
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:background="@drawable/accent_bar" />
 
-                <RadioButton
-                    android:id="@+id/dog_edit_sex_radio_male"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:text="Male" />
+    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedEditText
+        android:id="@+id/dog_edit_section_points_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/element_margin_normal"
+        android:paddingLeft="@dimen/element_padding_normal"
+        android:background="@color/layout_background"
+        android:hint="points won"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="@dimen/text_medium" />
 
-                <RadioButton
-                    android:id="@+id/dog_edit_sex_radio_female"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Female" />
-            </RadioGroup>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginBottom="@dimen/element_spacing_normal"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/element_spacing_normal"
+        android:background="@drawable/list_divider" />
 
-            <RelativeLayout
-                android:id="@+id/dog_edit_section_breed"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/dog_edit_sex_radio"
-                android:layout_marginTop="@dimen/element_padding_normal" >
+    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedEditText
+        android:id="@+id/dog_edit_section_majors_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/element_padding_normal"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:background="@color/layout_background"
+        android:hint="majors won"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="@dimen/text_medium" />
 
-                <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-                    xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
-                    android:id="@+id/dog_edit_section_breed_label"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/element_spacing_normal"
-                    android:text="BREED"
-                    android:textColor="@color/accent_1"
-                    android:textSize="@dimen/text_small"
-                    ttv:typeface="Roboto-Bold.ttf" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/dog_edit_section_breed_label"
-                    android:background="@drawable/accent_bar" >
-                </RelativeLayout>
-            </RelativeLayout>
-
-            <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-                android:id="@+id/dog_edit_section_breed_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/dog_edit_section_breed"
-                android:layout_marginBottom="@dimen/element_tv_spinner_margin_bottom_normal"
-                android:layout_marginLeft="@dimen/element_padding_normal"
-                android:layout_marginTop="@dimen/element_tv_spinner_margin_top_normal"
-                android:background="@drawable/spinner_default_holo_light"
-                android:clickable="true"
-                android:textSize="@dimen/text_medium" />
-
-            <RelativeLayout
-                android:id="@+id/dog_edit_section_points"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/dog_edit_section_breed_text"
-                android:layout_marginTop="@dimen/element_spacing_normal" >
-
-                <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-                    xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
-                    android:id="@+id/dog_edit_section_points_label"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/element_spacing_normal"
-                    android:text="POINTS"
-                    android:textColor="@color/accent_1"
-                    android:textSize="@dimen/text_small"
-                    ttv:typeface="Roboto-Bold.ttf" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/dog_edit_section_points_label"
-                    android:background="@drawable/accent_bar" >
-                </RelativeLayout>
-            </RelativeLayout>
-
-            <dev.tnclark8012.dogshow.apps.android.widget.TypefacedEditText
-                android:id="@+id/dog_edit_section_points_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/dog_edit_section_points"
-                android:layout_marginLeft="@dimen/element_spacing_normal"
-                android:layout_marginTop="@dimen/element_margin_normal"
-                android:background="@color/layout_background"
-                android:hint="points won"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="@dimen/text_medium" />
-
-            <RelativeLayout
-                android:id="@+id/points_bezel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/dog_edit_section_points_text"
-                android:layout_marginBottom="@dimen/element_spacing_normal"
-                android:layout_marginTop="@dimen/element_spacing_normal"
-                android:background="@drawable/list_divider" />
-
-            <dev.tnclark8012.dogshow.apps.android.widget.TypefacedEditText
-                android:id="@+id/dog_edit_section_majors_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/points_bezel"
-                android:layout_marginLeft="@dimen/element_spacing_normal"
-                android:background="@color/layout_background"
-                android:hint="majors won"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="@dimen/text_medium" />
-            <!--
-            <RelativeLayout
-                android:id="@+id/dog_edit_section_owner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/dog_edit_section_majors_text"
-                android:layout_marginTop="@dimen/element_margin_normal" >
-
-                <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-                    xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
-                    android:id="@+id/dog_edit_section_owner_label"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/element_spacing_normal"
-                    android:text="OWNER"
-                    android:textColor="@color/accent_1"
-                    android:textSize="@dimen/text_small"
-                    ttv:typeface="Roboto-Bold.ttf" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/dog_edit_section_owner_label"
-                    android:background="@drawable/accent_bar" >
-                </RelativeLayout>
-            </RelativeLayout>
-
-            <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-                android:id="@+id/dog_edit_section_owner_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/dog_edit_section_owner"
-                android:layout_marginLeft="@dimen/element_spacing_normal"
-                android:layout_marginTop="@dimen/element_margin_normal"
-                android:text="Taylor Clark"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="@dimen/text_medium" />
-
-            <QuickContactBadge
-                android:id="@+id/dog_edit_owner_contact_badge"
-                android:layout_width="@dimen/element_height_normal"
-                android:layout_height="@dimen/element_height_normal"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/dog_edit_section_owner"
-                android:layout_toRightOf="@+id/dog_edit_section_owner_text" />
-            -->
-        </RelativeLayout>
-    </ScrollView>
-
-</RelativeLayout>
+</LinearLayout>
