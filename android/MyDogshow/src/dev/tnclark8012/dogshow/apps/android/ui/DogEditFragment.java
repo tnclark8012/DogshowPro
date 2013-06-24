@@ -45,7 +45,7 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements L
 	private String mMajors;
 
 	private ViewGroup mRootView;
-	private RelativeLayout mViewImage;
+	private View mViewImage;
 	private EditText mViewName;
 	private TextView mViewBreed;
 	private TextView mViewPoints;
@@ -62,7 +62,7 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements L
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		mRootView = (ViewGroup) inflater.inflate(R.layout.fragment_dog_edit, null);
-		mViewImage = (RelativeLayout) mRootView.findViewById(R.id.dog_edit_image);
+		mViewImage = mRootView.findViewById(R.id.dog_edit_image);
 		mViewName = (EditText) mRootView.findViewById(R.id.dog_edit_name);
 		mViewBreed = (TextView) mRootView.findViewById(R.id.dog_edit_section_breed_text);
 		mViewMajors = (TextView) mRootView.findViewById(R.id.dog_edit_section_majors_text);

@@ -81,6 +81,7 @@ public class DogshowProvider extends ContentProvider {
 		matcher.addURI(authority, "rings/breed/with_dogs/entered", BREED_RINGS_WITH_DOGS_ENTERED);
 		matcher.addURI(authority, "handlers", HANDLERS);
 		matcher.addURI(authority, "handlers/juniors/by_class", HANDLERS_BY_JUNIORS_CLASS);
+		matcher.addURI(authority, "handlers/*", HANDLERS_ID);
 		matcher.addURI(authority, "rings/juniors", JUNIORS_RINGS );
 		matcher.addURI(authority, "rings/entered", ALL_RINGS_ENTERED );
 
@@ -114,6 +115,8 @@ public class DogshowProvider extends ContentProvider {
 			return BreedRings.CONTENT_TYPE;
 		case HANDLERS:
 			return Handlers.CONTENT_TYPE;
+		case HANDLERS_ID:
+			return Handlers.CONTENT_ITEM_TYPE;
 		case JUNIORS_RINGS:
 			return JuniorsRings.CONTENT_TYPE;
 		case ALL_RINGS_ENTERED:

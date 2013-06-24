@@ -16,7 +16,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockFragment;
@@ -62,7 +61,7 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 	private int mMajors;
 
 	private ViewGroup mRootView;
-	private RelativeLayout mViewImage;
+	private View mViewImage;
 	private TextView mViewName;
 	private TextView mViewBreed;
 	private TextView mViewPoints;
@@ -84,7 +83,7 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 				.findViewById(R.id.dog_view_section_points_text);
 //		mViewOwner = (TextView) mRootView
 //				.findViewById(R.id.dog_view_section_owner_text);
-		mViewImage = (RelativeLayout) mRootView
+		mViewImage = mRootView
 				.findViewById(R.id.dog_view_image);
 		mViewSex = (TextView) mRootView.findViewById(R.id.dog_view_section_sex_text);
 		return mRootView;
