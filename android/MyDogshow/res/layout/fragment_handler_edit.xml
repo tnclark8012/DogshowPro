@@ -17,7 +17,8 @@
             android:layout_height="@dimen/header_icon_height"
             android:background="@drawable/spinner_default_holo_dark" >
 
-            <View
+            <ImageView
+                android:contentDescription="handler image"
                 android:id="@+id/handler_edit_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />

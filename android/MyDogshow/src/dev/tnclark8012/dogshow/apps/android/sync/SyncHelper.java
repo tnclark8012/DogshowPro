@@ -167,7 +167,7 @@ public class SyncHelper {
 			ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
 			try {
 				boolean auth = AccountUtils.isAuthenticated(mContext);
-                Cursor juniorsCursor = resolver.query(Handlers.buildEnteredJuniorsClassesUri(), new String[]{Handlers.HANDLER_JUNIOR_CLASS}, Handlers.HANDLER_IS_SHOWING + "=?", new String[]{"1"}, null);
+                Cursor juniorsCursor = resolver.query(Handlers.buildEnteredJuniorsClassesUri(), new String[]{Handlers.HANDLER_JUNIOR_CLASS}, Handlers.HANDLER_IS_SHOWING + "=? AND " + Handlers.HANDLER_IS_SHOWING_JUNIORS + "=?", new String[]{"1", "1"}, null);
 				batch = new ArrayList<ContentProviderOperation>();
 				String className = null;
 				Log.i(TAG, "Syncing junior rings for " + juniorsCursor.getCount() + " classes");

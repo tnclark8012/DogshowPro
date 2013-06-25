@@ -6,31 +6,45 @@ import java.util.Map;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-
+import android.util.SparseBooleanArray;
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.provider.PersistHelper;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Handlers;
 import dev.tnclark8012.dogshow.apps.android.sync.SyncHelper;
 import dev.tnclark8012.dogshow.apps.android.ui.DogEntryFragment;
 import dev.tnclark8012.dogshow.apps.android.ui.FindShowFragment;
+import dev.tnclark8012.dogshow.apps.android.ui.HandlerEntryFragment;
 import dev.tnclark8012.dogshow.apps.android.ui.SimpleSinglePaneActivity;
-import dev.tnclark8012.dogshow.apps.android.ui.DogEntryFragment.Callbacks;
 
-public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEntryFragment.Callbacks, FindShowFragment.Callbacks {
+public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEntryFragment.Callbacks, FindShowFragment.Callbacks, HandlerEntryFragment.Callbacks {
 	private static final String TAG = ShowSetupActivity.class.getSimpleName();
 	DogEntryFragment mDogsFragment;
+	HandlerEntryFragment mHandlerFragment;
 	FindShowFragment mFindShowFragment;
+	int active = 1;
 	String showId;
+	
 	Map<Integer, Boolean> enteredDogs;
-
+	Map<Integer, Boolean> enteredHandlers;
+	SparseBooleanArray enteredJuniors;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		if (enteredDogs == null) {
 			enteredDogs = new HashMap<Integer, Boolean>();
 		}
+		if (enteredHandlers == null) {
+			enteredHandlers = new HashMap<Integer, Boolean>();
+		}
+		if (enteredJuniors== null) {
+			enteredJuniors = new SparseBooleanArray();
+		}
 		if (mDogsFragment == null)
 			mDogsFragment = new DogEntryFragment();
+		if (mHandlerFragment == null)
+			mHandlerFragment = new HandlerEntryFragment();
 		if (mFindShowFragment == null)
 			mFindShowFragment = new FindShowFragment();
 	}
@@ -44,21 +58,52 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 
 	@Override
 	public boolean onNextClick() {
-		PersistHelper helper = new PersistHelper(this);
-		Map<String, Object> values = new HashMap<String, Object>();
-		for (Integer id : enteredDogs.keySet()) {
-            Log.d(TAG, "Is " + id + " showing? " + enteredDogs.get(id));
-			values.put(Dogs.DOG_IS_SHOWING, (enteredDogs.get(id) ? 1 : 0));
-			helper.updateDog(id, values);
+		switch(active){
+		case 1:
+			getSupportFragmentManager().beginTransaction().replace(R.id.root_container, mDogsFragment, "single_pane").commit();
+			break;
+		case 2:
+			getSupportFragmentManager().beginTransaction().replace(R.id.root_container, mHandlerFragment, "single_pane").commit();
+
+			break;
+		case 3:
+			PersistHelper helper = new PersistHelper(this);
+			Map<String, Object> values = new HashMap<String, Object>();
+			for (Integer id : enteredDogs.keySet()) {
+				Log.d(TAG, "Is " + id + " showing? " + enteredDogs.get(id));
+				values.put(Dogs.DOG_IS_SHOWING, (enteredDogs.get(id) ? 1 : 0));
+				helper.updateDog(id, values);
+			}
+			values.clear();
+			for(Integer id: enteredHandlers.keySet())
+			{
+				values.put(Handlers.HANDLER_IS_SHOWING, enteredHandlers.get(id) ? 1 : 0);
+				values.put(Handlers.HANDLER_IS_SHOWING_JUNIORS, enteredJuniors.get(id) ? 1 : 0);
+				helper.updateEntity(Handlers.CONTENT_URI, id, values);
+			}
+			new SyncHelper(this).executeSync(showId);
+			finish();
+			break;
 		}
-		new SyncHelper(this).executeSync(showId);
-		finish();
+		active++;
 		return false;
 	}
 
 	@Override
 	public boolean onBackClick() {
-		getSupportFragmentManager().beginTransaction().replace(R.id.root_container, mFindShowFragment, "single_pane").commit();
+		switch(active)
+		{
+		case 1:
+			finish();
+			break;
+		case 2:
+			getSupportFragmentManager().beginTransaction().replace(R.id.root_container, mFindShowFragment, "single_pane").commit();
+			break;
+		case 3:
+			getSupportFragmentManager().beginTransaction().replace(R.id.root_container, mDogsFragment, "single_pane").commit();
+			break;
+		}
+		active--;
 		return false;
 	}
 
@@ -71,14 +116,25 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 	@Override
 	public void onShowSelected(String showId) {
 		this.showId = showId;
-		getSupportFragmentManager().beginTransaction().replace(R.id.root_container, mDogsFragment, "single_pane").commit();
-
+		onNextClick();
 	}
 
 	@Override
 	public void onShowSynced() {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public boolean onHandlerSelected(int handlerId, boolean checked) {
+		enteredHandlers.put(handlerId, checked);
+		return true;
+	}
+
+	@Override
+	public boolean onHandlerEnteredJuniorsClicked(int handlerId, boolean checked) {
+		enteredJuniors.put(handlerId, checked);
+		return true;
 	}
 
 }

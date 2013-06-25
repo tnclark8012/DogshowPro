@@ -6,14 +6,16 @@
     android:paddingTop="@dimen/element_spacing_normal"
     android:paddingLeft="@dimen/element_spacing_normal"
     android:orientation="vertical" >
-<ImageView 
+
+<ImageView
     android:id="@+id/list_item_dog_entry_thumb"
-    android:layout_toRightOf="@+id/list_item_dog_entry_checkbox"
     android:layout_width="@dimen/element_width_normal"
-    android:layout_marginLeft="@dimen/element_margin_normal"
     android:layout_height="@dimen/element_height_normal"
+    android:layout_marginLeft="@dimen/element_margin_normal"
+    android:layout_toRightOf="@+id/list_item_dog_entry_checkbox"
     android:contentDescription="dog image"
-    android:src="@drawable/dog"/>
+    android:src="@drawable/dog" />
+
     <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
      android:layout_width="wrap_content"
      android:id="@+id/list_item_dog_entry_name"

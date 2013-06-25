@@ -5,34 +5,38 @@
     android:layout_height="match_parent"
     android:background="@color/layout_background" >
 
-    <TextView
-        android:paddingTop="@dimen/element_margin_normal"
-        android:paddingLeft="@dimen/element_margin_normal"
+    <!-- TODO share this layout across dog and handler entry -->
+
+    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+        xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
         android:id="@+id/header_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/element_padding_normal"
-        android:text="Entered dogs"
-        android:textColor="#999999" >
-    </TextView>
+        android:paddingLeft="@dimen/element_margin_normal"
+        android:paddingTop="@dimen/element_margin_normal"
+        android:text="Available handlers"
+        android:textColor="#999999"
+        ttv:typeface="Roboto-Medium.ttf" >
+    </dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView>
 
     <View
-        android:layout_marginLeft="@dimen/element_margin_normal"
-        android:layout_marginRight="@dimen/element_margin_normal"
-        android:layout_marginBottom="@dimen/element_margin_normal"
-        android:layout_below="@+id/header_text"
         android:id="@+id/header_line"
         android:layout_width="fill_parent"
         android:layout_height="2dip"
+        android:layout_below="@+id/header_text"
+        android:layout_marginBottom="@dimen/element_margin_normal"
+        android:layout_marginLeft="@dimen/element_margin_normal"
+        android:layout_marginRight="@dimen/element_margin_normal"
         android:background="#B7B7B7" />
 
     <ListView
-        android:layout_below="@+id/header_line"
-        android:id="@+id/fragment_entry_dogs_list"
+        android:id="@+id/fragment_entry_handlers_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/header_line"
         android:divider="?android:attr/listDivider"
-        tools:listitem="@layout/list_item_dog_entry" >
+        tools:listitem="@layout/list_item_handler_entry" >
     </ListView>
 
     <LinearLayout
@@ -57,7 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:text="Next" />
+            android:text="Finish" />
     </LinearLayout>
 
 </RelativeLayout>

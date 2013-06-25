@@ -11,7 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Handlers;
@@ -40,7 +40,7 @@ public class HandlerViewFragment extends BaseEditableEntityViewFragment {
 	private String mImagePath;
 
 	private ViewGroup mRootView;
-	private RelativeLayout mViewImage;
+	private ImageView mViewImage;
 	private TextView mViewName;
 	private TextView mViewClass;
 
@@ -52,7 +52,7 @@ public class HandlerViewFragment extends BaseEditableEntityViewFragment {
 		mViewName = (TextView) mRootView.findViewById(R.id.handler_view_name);
 		mViewClass = (TextView) mRootView
 				.findViewById(R.id.handler_view_section_juniors_text);
-		mViewImage = (RelativeLayout) mRootView
+		mViewImage = (ImageView) mRootView
 				.findViewById(R.id.handler_view_image);
 		return mRootView;
 	}
@@ -72,7 +72,7 @@ public class HandlerViewFragment extends BaseEditableEntityViewFragment {
 
 			BitmapDrawable image = new BitmapDrawable(res, UIUtils.loadBitmap(
 					mImagePath, width, height));
-			mViewImage.setBackgroundDrawable(image);
+			mViewImage.setImageDrawable(image);
 		} else {
 			Log.w(TAG, "Image path was null");
 			mViewImage.setBackgroundResource(R.drawable.ic_default_handler);

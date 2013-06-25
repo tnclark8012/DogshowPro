@@ -52,32 +52,15 @@ public class FindShowFragment extends SherlockListFragment {
 		void onShowSynced();
 	}
 
-	private AsyncTask<Void, Void, Show[]> getShowsTask = new AsyncTask<Void, Void, Show[]>() {
-		protected void onPostExecute(Show[] result) {
-			if (result != null) {
-				mAdapter = new ShowListAdapter(getActivity(), result);
-				setListAdapter(mAdapter);
-				mAdapter.notifyDataSetChanged();
-			} else {
-//                TextView empty = new TextView(getActivity());
-                setEmptyText("No shows found");
-//                Toast.makeText(getActivity(), "No Shows Found.", Toast.LENGTH_LONG).show();
-            }
-		}
+	private AsyncTask<Void, Void, Show[]> getShowsTask;// TODO = createGetShowsTask();
 
-		@Override
-		protected Show[] doInBackground(Void... params) {
-			return new SyncHelper(getActivity()).getShows();
-		};
-	};
+	@Override
+	public void setEmptyText(CharSequence text) {
+		TextView empty = (TextView) mRootView.findViewById(android.R.id.empty);
+		empty.setText(text);
+	}
 
-    @Override
-    public void setEmptyText(CharSequence text) {
-        TextView empty = (TextView)mRootView.findViewById(android.R.id.empty);
-        empty.setText(text);
-    }
-
-    private static Callbacks sDummyCallbacks = new Callbacks() {
+	private static Callbacks sDummyCallbacks = new Callbacks() {
 		@Override
 		public void onShowSelected(String showId) {
 		}
@@ -86,12 +69,37 @@ public class FindShowFragment extends SherlockListFragment {
 		public void onShowSynced() {
 		}
 	};
+
+	private AsyncTask<Void, Void, Show[]> createGetShowsTask() {
+		return new AsyncTask<Void, Void, Show[]>() {
+			protected void onPostExecute(Show[] result) {
+				if (result != null) {
+					mAdapter = new ShowListAdapter(getActivity(), result);
+					setListAdapter(mAdapter);
+					mAdapter.notifyDataSetChanged();
+				} else {
+					// TextView empty = new TextView(getActivity());
+					setEmptyText("No shows found");
+					// Toast.makeText(getActivity(), "No Shows Found.", Toast.LENGTH_LONG).show();
+				}
+			}
+
+			@Override
+			protected Show[] doInBackground(Void... params) {
+				return new SyncHelper(getActivity()).getShows();
+			};
+		};
+
+	}
+
 	private Callbacks mCallbacks = sDummyCallbacks;
 
 	@Override
 	public void onPause() {
 		super.onPause();
-		getShowsTask.cancel(true);
+		if (getShowsTask != null) {
+			getShowsTask.cancel(true);
+		}
 	}
 
 	@Override
@@ -103,15 +111,15 @@ public class FindShowFragment extends SherlockListFragment {
 		mCallbacks = (Callbacks) activity;
 	}
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        setEmptyText("Finding shows near you...");
-        getShowsTask.execute();
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		setEmptyText("Finding shows near you...");
+		(getShowsTask = createGetShowsTask()).execute();
 
-        super.onActivityCreated(savedInstanceState);
-    }
+		super.onActivityCreated(savedInstanceState);
+	}
 
-    @Override
+	@Override
 	public void onDetach() {
 		super.onDetach();
 		mCallbacks = sDummyCallbacks;
@@ -142,7 +150,7 @@ public class FindShowFragment extends SherlockListFragment {
 
 		@Override
 		public Show getItem(int position) {
-				return mArray[position];
+			return mArray[position];
 		}
 
 		@Override
