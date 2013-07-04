@@ -336,6 +336,6 @@ public class DogshowProvider extends ContentProvider {
 				",NULL," +//image path
 				JuniorsRings.RING_JUDGE_TIME+
 				" FROM " + Tables.ENTERED_JUNIORS_RINGS;
-		public static final String ENTERED_JUNIOR_HANDLERS = "(SELECT *,group_concat(" + Handlers.HANDLER_NAME + ", \", \" ) as " + Handlers.ENTERED_JUNIOR_HANDLER_NAMES + " FROM " + Tables.HANDLERS +" AS handlerTable WHERE " + Handlers.HANDLER_IS_SHOWING_JUNIORS + "=1 AND " + Handlers.HANDLER_JUNIOR_CLASS + " IS NOT NULL )";
+		public static final String ENTERED_JUNIOR_HANDLERS = "(SELECT *,group_concat(" + Handlers.HANDLER_NAME + ", \", \" ) as " + Handlers.ENTERED_JUNIOR_HANDLER_NAMES + " FROM " + Tables.HANDLERS + " AS handlerTable " + " WHERE " + Handlers.HANDLER_IS_SHOWING_JUNIORS + "=1 AND " + Handlers.HANDLER_JUNIOR_CLASS + " IS NOT NULL " +" GROUP BY " + Handlers.HANDLER_JUNIOR_CLASS+")";
 	}
 }
