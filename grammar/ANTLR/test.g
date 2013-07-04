@@ -27,6 +27,7 @@ public boolean mRelational = true;
 JsonArray mShowRings = new JsonArray();
 String mCurrentJudge = null;
 int mCurrentRingNumber = -1;
+String mLastBreedName = null;
 // end non-relational
 
 public void setRelationalParse(boolean value)
@@ -98,6 +99,21 @@ Pattern groupPattern = Pattern.compile("((?:(?:TERRIER|HERDING|NON-SPORTING|SPOR
 		json.addProperty("SpecialBitchCount", countArray[3]);
 		return countArray[0]+countArray[1]+countArray[2]+countArray[3];
 	}
+	/**
+	* Is breedName is a veteran entry?
+	*/
+	private boolean isVeteran(String breedName)
+	{
+		return breedName.contains("Veteran");
+	}
+	
+	/**
+	* Is breed name if breedName is a sweepsatakes entry?
+	*/
+	private boolean isSweepstakes(String breedName)
+	{
+		return breedName.contains("Sweepstakes");
+	}
   
   
 }
@@ -144,12 +160,22 @@ timeblock returns [JsonObject json]
 inner_timeblock returns [JsonArray array]
 	@init {array = new JsonArray();int countAhead = 0;}
 	:	(mSpecialRing=special_ring{mSpecialRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mSpecialRing.get("Count").getAsInt();array.add(mSpecialRing);}|mJuniorRing=junior_ring{mJuniorRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mJuniorRing.get("Count").getAsInt();array.add(mJuniorRing);}|((breed_ring)=>mBreedRing=breed_ring{mBreedRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mBreedRing.get("Count").getAsInt();array.add(mBreedRing);})|ring_comment)+;
-special_ring returns [JsonObject json]
-	@init {json = new JsonObject(); json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}String breedName = "";}
-	:   INT{json.addProperty("Count", parseIntSafely($INT.text, 0));} (BREED_NAME{breedName+=$BREED_NAME.text;})? (SPECIAL_SUFFIX{breedName+= " " +$SPECIAL_SUFFIX.text;})+ {json.addProperty("BreedName", breedName);};
+
 junior_ring returns [JsonObject json]
 	@init{json = new JsonObject();json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}}
 	:    INT{json.addProperty("Count",parseIntSafely($INT.text, 0));} JUNIOR_CLASS{json.addProperty("ClassName", $JUNIOR_CLASS.text);};
+special_ring returns [JsonObject json]
+	@init {json = new JsonObject(); String suffix = ""; json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}String breedName = "";}
+	:   INT{json.addProperty("Count", parseIntSafely($INT.text, 0));} (BREED_NAME{breedName+=$BREED_NAME.text;})? (SPECIAL_SUFFIX
+		{suffix+= " " + $SPECIAL_SUFFIX.text;})+ {
+		//breedName+= $SPECIAL_SUFFIX.text;
+		if(isVeteran(suffix)){
+			json.addProperty("IsVeteran",true);
+		}
+		json.addProperty("IsSweepstakes",true);
+		mLastBreedName = breedName;
+		json.addProperty("BreedName", breedName);
+		};
 
 group_ring returns [String str]
 	:	 GROUP_RING{str=$GROUP_RING.text;};
@@ -158,7 +184,15 @@ group_block returns [JsonObject json]
 	:	TIME{currentBlockTime=$TIME.text;json.addProperty("TIME", currentBlockTime);} STANDALONE_COMMENT? (mRing=group_ring {if(!mRelational){json = new JsonObject();String[] arr = parseGroupRing(mRing);json.addProperty("Group", arr[0]);json.addProperty("Judge",arr[1]);json.addProperty("Time",currentBlockTime);mShowRings.add(json);}else{rings.add(new JsonPrimitive(mRing));}})+ {if(mRelational){json.add("Rings", rings);}};
 breed_ring returns [JsonObject json]
 	@init{json = new JsonObject();json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}String breedName = "";int total = 0;}
-    :   INT{total = parseIntSafely($INT.text, 0);json.addProperty("Count", total);} BREED_NAME{breedName+=$BREED_NAME.text;} (BREED_NAME_SUFFIX{breedName += " " + $BREED_NAME_SUFFIX.text;})? {json.addProperty("BreedName", breedName);} (BREED_COUNT{int counted = addBreedCountToJson(json, $BREED_COUNT.text);assert (counted==total);})?;
+    :   INT{total = parseIntSafely($INT.text, 0);json.addProperty("Count", total);} BREED_NAME{
+    		breedName+=$BREED_NAME.text;
+    		if(isVeteran(breedName)){
+    			breedName=mLastBreedName;
+    			json.addProperty("IsVeteran",true);
+    		}
+    		else{
+    			mLastBreedName=breedName;
+    		}} (BREED_NAME_SUFFIX{breedName += " " + $BREED_NAME_SUFFIX.text;})? {json.addProperty("BreedName", breedName);} (BREED_COUNT{int counted = addBreedCountToJson(json, $BREED_COUNT.text);assert (counted==total);})?;
 
 
 
@@ -422,7 +456,7 @@ fragment FRAG_BREED_NAME_CATEGORY //Breed's that are listed under categories rat
         'Golden'|//retriever
         'Gordon'|//setters
         'Irish'|//Setters
-		'Irish Red And White'|//Setters
+	'Irish Red And White'|//Setters
         'Irish Water'|//spaniels
         'K C & R'|
         'Labrador'|//Retriever

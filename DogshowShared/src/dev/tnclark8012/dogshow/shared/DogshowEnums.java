@@ -234,7 +234,7 @@ public class DogshowEnums {
 		// ****BEGIN Sporting****
 		AMERICAN_WATER_SPANIEL("SPORTING", "American Water Spaniel",
 				"American Water Spaniels"), BOYKIN_SPANIEL("SPORTING",
-				"Boykin Spaniel", "Boykin Spaniels"), BRITTANY(
+				"Boykin Spaniel", "Boykin Spaniels", "Spaniels (Boykin)"), BRITTANY(
 				"SPORTING", "Brittany", "Brittanys"), CHESAPEAKE_BAY_RETRIEVER(
 				"SPORTING", "Chesapeake Bay Retriever",
 				"Chesapeake Bay Retrievers", "Retriever (Chesapeake Bay)",
@@ -648,7 +648,7 @@ public class DogshowEnums {
 
 		void setBreeds(Breeds... breeds) {
 			Breeds[] allBreeds = Breeds.values();
-			System.out.println("First breed = " + allBreeds);
+//			System.out.println("First breed = " + allBreeds);
 			mBreeds = breeds;
 			mBreedNames = new String[breeds.length];
 			for (int i = 0; i < mBreeds.length; i++) {

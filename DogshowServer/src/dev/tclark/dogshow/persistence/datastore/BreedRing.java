@@ -35,6 +35,10 @@ public class BreedRing extends ShowRing {
 	int specialBitchCount;
 	@XmlElement
 	int countAhead;
+	@XmlElement
+	boolean isVeteran;
+	@XmlElement
+	boolean isSweepstakes;
 
 	private BreedRing() {
 	}
@@ -58,18 +62,14 @@ public class BreedRing extends ShowRing {
 				System.err.println("Couldn't parse "
 						+ json.getString("BreedName"));
 			}
-			if (json.has("DogCount")) {
-				ring.dogCount = json.getInt("DogCount");
-			}
-			if (json.has("DogCount")) {
-				ring.bitchCount = json.getInt("BitchCount");
-			}
-			if (json.has("DogCount")) {
-				ring.specialDogCount = json.getInt("SpecialDogCount");
-			}
-			if (json.has("DogCount")) {
-				ring.specialBitchCount = json.getInt("SpecialBitchCount");
-			}
+			//Not all rings have the count "broken down"
+			ring.dogCount = getMaybe(json, "DogCount", 0);
+			ring.bitchCount = getMaybe(json, "BitchCount", 0);
+			ring.specialDogCount = getMaybe(json,"SpecialDogCount", 0);
+			ring.specialBitchCount = getMaybe(json,"SpecialBitchCount", 0);
+			//Not all rings are veteran or sweepstakes
+			ring.isVeteran = getMaybe(json, "IsVeteran", false);
+			ring.isSweepstakes = getMaybe(json, "IsSweepstakes", false);
 			ring.countAhead = json.getInt("CountAhead");
 
 		} catch (JSONException e) {
@@ -99,6 +99,8 @@ public class BreedRing extends ShowRing {
 		e.setProperty("specialDogCount", specialDogCount);
 		e.setProperty("specialBitchCount", specialBitchCount);
 		e.setProperty("countAhead", countAhead);
+		e.setProperty("isSweepstakes", isSweepstakes);
+		e.setProperty("isVeteran", isVeteran);
 		return e;
 	}
 
@@ -116,5 +118,11 @@ public class BreedRing extends ShowRing {
 		specialDogCount = ((Long) entity.getProperty("specialDogCount")).intValue();
 		specialBitchCount = ((Long) entity.getProperty("specialBitchCount")).intValue();
 		countAhead =((Long) entity.getProperty("countAhead")).intValue();
+		if(!entity.hasProperty("isSweepstakes"))
+		{
+			int i=1;
+		}
+		isSweepstakes = (Boolean) entity.getProperty("isSweepstakes");
+		isVeteran = (Boolean) entity.getProperty("isVeteran");
 	}
 }

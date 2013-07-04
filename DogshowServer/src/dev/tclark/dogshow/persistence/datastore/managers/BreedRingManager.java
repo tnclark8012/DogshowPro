@@ -17,7 +17,15 @@ public class BreedRingManager {
 
 	public static List<BreedRing> getBreedRingsByShowId(String showId,
 			Breeds breed) {
-		return BreedRingAccessor.getBreedRingsByShowId(showId, breed);
+		return getBreedRingsByShowId(showId, breed);
+	}
+	public static List<BreedRing> getBreedRingsByShowId(String showId,
+			Breeds breed, boolean sweepstakes) {
+		return getBreedRingsByShowId(showId, breed, sweepstakes, false);
+	}
+	public static List<BreedRing> getBreedRingsByShowId(String showId,
+			Breeds breed, Boolean sweepstakes, Boolean veteran) {
+		return BreedRingAccessor.getBreedRingsByShowId(showId, breed, sweepstakes, veteran);
 	}
 
 	public static void deleteAllBreedRings(boolean sure, boolean reallySure,

@@ -1,5 +1,6 @@
 package dev.tclark.dogshow.persistence.datastore.accessors;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -25,6 +26,25 @@ public class BreedRingAccessor {
 		datastore.put(ring.toDatastoreEntity());
 	}
 
+	public static List<BreedRing> getBreedRingsByShowId(String showId, boolean veteran, boolean sweepstakes) {
+		DatastoreService datastore = DatastoreServiceFactory
+				.getDatastoreService();
+		System.out.println("Looking for all veteran breed rings for showId=" + showId);
+		Filter idFilter = new FilterPredicate("showId", FilterOperator.EQUAL,
+				showId);
+		Filter veteranFilter = new FilterPredicate("isVeteran", FilterOperator.EQUAL,
+				veteran);
+		Filter sweepstakesFilter = new FilterPredicate("isSweepstakes", FilterOperator.EQUAL,
+				sweepstakes);
+		Query q = new Query(BreedRing.class.getSimpleName()).setFilter(new CompositeFilter(CompositeFilterOperator.AND, Arrays.asList(idFilter,veteranFilter,sweepstakesFilter)));
+		PreparedQuery pq = datastore.prepare(q);
+		List<BreedRing> results = new LinkedList<BreedRing>();
+		for (Entity result : pq.asIterable()) {
+			results.add(new BreedRing(result));
+		}
+		return results;
+	}
+	
 	public static List<BreedRing> getBreedRingsByShowId(String showId) {
 		DatastoreService datastore = DatastoreServiceFactory
 				.getDatastoreService();
@@ -40,14 +60,27 @@ public class BreedRingAccessor {
 		return results;
 	}
 	
-	public static List<BreedRing> getBreedRingsByShowId(String showId, Breeds breed) {
+	public static List<BreedRing> getBreedRingsByShowId(String showId, Breeds breed, Boolean sweepstakes, Boolean veteran) {
 		DatastoreService datastore = DatastoreServiceFactory
 				.getDatastoreService();
-		System.out.println("Looking for " + breed + " rings for show " + showId);
+		System.out.println("Looking for " + breed + " rings for show " + showId +". Veteran: " + veteran + ", Sweeps: " + sweepstakes);
+		ArrayList<Filter> filterList = new ArrayList<Filter>(4);
 		Filter idFilter = new FilterPredicate("showId", FilterOperator.EQUAL,
 				showId);
 		Filter breedFilter = new FilterPredicate("breed", FilterOperator.EQUAL, breed.toString());
-		Query q = new Query(BreedRing.class.getSimpleName()).setFilter(new CompositeFilter(CompositeFilterOperator.AND, Arrays.asList(idFilter,breedFilter)));
+		filterList.add(idFilter);
+		filterList.add(breedFilter);
+		if(sweepstakes != null)
+		{
+			Filter sweepstakesFilter = new FilterPredicate("isSweepstakes", FilterOperator.EQUAL, sweepstakes);
+			filterList.add(sweepstakesFilter);
+		}
+		if(veteran != null)
+		{
+				Filter veteranFilter = new FilterPredicate("isVeteran", FilterOperator.EQUAL, veteran);
+				filterList.add(veteranFilter);
+		}
+		Query q = new Query(BreedRing.class.getSimpleName()).setFilter(new CompositeFilter(CompositeFilterOperator.AND, filterList));
 		PreparedQuery pq = datastore.prepare(q);
 		List<BreedRing> results = new LinkedList<BreedRing>();
 		for (Entity result : pq.asIterable()) {

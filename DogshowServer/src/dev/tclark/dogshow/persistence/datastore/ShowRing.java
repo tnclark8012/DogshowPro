@@ -10,7 +10,7 @@ import com.google.appengine.labs.repackaged.org.json.JSONException;
 import com.google.appengine.labs.repackaged.org.json.JSONObject;
 
 @XmlRootElement
-public abstract class ShowRing implements Storable, CustomKeyName {
+public abstract class ShowRing extends AbstractJsonModel implements Storable, CustomKeyName {
 	@XmlElement
 	protected String showId;
 	@XmlElement

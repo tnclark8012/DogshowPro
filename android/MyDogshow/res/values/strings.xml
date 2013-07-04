@@ -22,12 +22,15 @@
     <string name="menu_select_none">Select None</string>
 	<string name="menu_delete">Delete</string>
 	<string name="template_ring_number">Ring %1$d</string>
-	<plurals name="template_points">
-        <item quantity="one">%d point (15 needed)</item>
-        <item quantity="other">%d points (15 needed)</item>
+	<plurals name="template_points_needed">
+        <item quantity="zero">No points (15 needed)</item>
+        <item quantity="one">%1$d point (%2$d needed)</item>
+        <item quantity="other">%1$d points (%2$d needed)</item>
     </plurals>
+    <string name="template_points_finished">%1$d points</string>
     <plurals name="template_majors">
-        <item quantity="one">%d major (2 needed)</item>
-        <item quantity="other">%d majors (2 needed)</item>
+        <item quantity="zero">No majors (2 needed)</item>
+        <item quantity="one">1 major (1 needed)</item>
+        <item quantity="other">%d majors</item>
     </plurals>
 </resources>
