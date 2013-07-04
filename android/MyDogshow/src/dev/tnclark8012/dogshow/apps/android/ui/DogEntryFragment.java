@@ -62,7 +62,6 @@ public class DogEntryFragment extends SherlockFragment implements LoaderManager.
 		});
 		Button next = (Button) root.findViewById(R.id.button_bar_button_right);
 		next.setOnClickListener(new OnClickListener() {
-			
 			@Override
 			public void onClick(View v) {
 				mCallbacks.onNextClick();

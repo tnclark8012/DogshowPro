@@ -3,6 +3,7 @@ package dev.tnclark8012.dogshow.apps.android.ui.phone;
 import java.util.HashMap;
 import java.util.Map;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -81,7 +82,15 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 				values.put(Handlers.HANDLER_IS_SHOWING_JUNIORS, enteredJuniors.get(id) ? 1 : 0);
 				helper.updateEntity(Handlers.CONTENT_URI, id, values);
 			}
-			new SyncHelper(this).executeSync(showId);
+			new AsyncTask<String, Void, Void>() {
+
+				@Override
+				protected Void doInBackground(String... params) {
+					new SyncHelper(ShowSetupActivity.this).executeSync(params[0]);
+					return null;
+				}
+			}.execute(showId);
+//			new SyncHelper(this).executeSync(showId);
 			finish();
 			break;
 		}

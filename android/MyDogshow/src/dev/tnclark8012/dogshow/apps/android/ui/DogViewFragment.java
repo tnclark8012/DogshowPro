@@ -119,9 +119,18 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 		// String majorsTemplate = ;
 		Resources res = getResources();
 		mViewMajors.setText(res.getQuantityString(R.plurals.template_majors,
-				mMajors, mMajors));
-		mViewPoints.setText(res.getQuantityString(R.plurals.template_points,
-				mPoints, mPoints));
+				mMajors, mMajors ));
+		Log.d(TAG, "Points: " + mPoints);
+		if(mPoints >= 15)
+		{
+			mViewPoints.setText(res.getString(R.string.template_points_finished,
+					mPoints));
+		}
+		else
+		{
+			mViewPoints.setText(res.getQuantityString(R.plurals.template_points_needed,
+					mPoints, mPoints, 15- mPoints));
+		}
 
 	}
 
