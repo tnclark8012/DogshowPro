@@ -7,7 +7,7 @@ import string
 import sys
 import time
 from bs4 import BeautifulSoup
-from show import Show
+import model.show
 from showutils import urlopen_with_retry
 
 class ShowScraper(object):
@@ -17,9 +17,15 @@ class ShowScraper(object):
         self.VERBOSE = verbose;
         self.OFFLINE = offline;
         self.DO_DOWNLOAD = config.Env.DO_DOWNLOAD;
-        self._allshows = self._pullShowsFromOnofrio()
-        self._uniqueshows = self._getUniqueShows();
+        #self._allshows = self._pullShowsFromOnofrio()
+        #self._uniqueshows = self._getUniqueShows();
     
+    def pullShow(self, showCode):
+        pass;
+
+    def getClosedShowLinks(self):
+        showLinks = list();
+        return showLinks;
    
     def _getAnchorText(self, anchor):
         found = anchor.findAll(text=True);

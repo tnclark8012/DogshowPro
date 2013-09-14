@@ -87,6 +87,8 @@ class Show(object):
         if config.Env.VERBOSE:
             print("Pretty location: " + pretty)
         return pretty;
+
+
     def _parseStartDate(self, pool): 
         headings = pool.findAll('h2', attrs={'align':'CENTER'});
         raw = headings[1].findAll(text=True)[0]
@@ -97,6 +99,7 @@ class Show(object):
             print("Pretty date: " + pretty)
         return pretty;
     
+
     def _checkIfProgram(self, pool):
         notAvailable = pool.findAll(text="Judging Program Not Available");
         if notAvailable is None or len(notAvailable) is 0:
@@ -122,6 +125,19 @@ class Show(object):
         self._date = self._parseStartDate(pool);
         self._location = self._parseLocation(pool);
         self._hasProgram = self._checkIfProgram(pool);
+
+    def _parseCompanionShows(self, pool):
+        descLine = pool.findAll('dl', attrs={'align':'CENTER'})[0];
+        clubNames=desLine.findAll('dt',text=True);
+        locationTime=descLine.findAll('dd',text=True)
+        raw = headings[1].findAll(text=True)[0]
+        if config.Env.VERBOSE:
+            print("Raw date: " + raw);
+        pretty = re.search("- (?P<date>("+config.MONTH_REGEX+") .*)", raw).group('date');
+        if config.Env.VERBOSE:
+            print("Pretty date: " + pretty)
+        return pretty;
+
 
     def downloadProgram(self):
         print("setting pdf path...")
