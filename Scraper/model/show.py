@@ -9,12 +9,14 @@ import time
 class Show(object):
     VERBOSE = False;
     
-    def __init__(self, club, location, date):
-        self._club = club;
-        self._location = location;
-        self._date = date;
+    def __init__(self, code, club, locations, dates):
+        self.code = code;
+        self.clubs = set();
+        self.clubs.add(club);
+        self.locations = set();
+        self.dates = set();
+        self.pdfLink = None;
         self._hasProgram = False;
-        self._pdfLink = None;
         self.programName = None;
         self_city = None;
         self._state = None;
@@ -22,9 +24,21 @@ class Show(object):
         self._pdfPath = None;
         self._cleanedPath = None;
         #self._parseShowPage();
-        
+    def toJson(self):
+        dateTimes=[int(time.mktime(d.timetuple())*1000) for d in self.dates]
+        return {'id':self.code, 'clubs':str(self.clubs), 'locations':str(self.locations), 'dates':str(dateTimes)}
     def __str__(self):
-        return str(self._club) + "\n\t"  + str(self._date) + "\n\t"  + str(self._location);
+        return str(self.clubs) + "\n\t, dates:"  + str(self.dates) + "\n\t, locations:"  + str(self.locations);
+
+    def addLocation(self, location):
+        self.locations.add(location);
+        
+    
+    def addDate(self, date):
+        self.dates.add(date);
+
+    def addClub(self, club):
+        self.clubs.add(club);
 
     @property
     def parsedFilePath(self):
@@ -93,8 +107,9 @@ class Show(object):
         if notAvailable is None or len(notAvailable) is 0:
             results = pool.findAll('a', href=True, text='Judging Program (PDF Format)');
             if results:
-                self._pdfLink = results[0]['href'];
-                self.programName = re.search("(?P<name>[A-Z]+[0-9]\JP.pdf)", self._pdfLink).group('name')
+                self.pdfLink = results[0]['href'];
+                print("link is " + self.pdfLink);
+                self.programName = re.search("(?P<name>[A-Z]+[0-9]\JP.pdf)", self.pdfLink).group('name')
                 return True;
             else:
                 print("died: " + str(results) + " " + self._pagelink)

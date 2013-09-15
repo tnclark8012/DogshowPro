@@ -5,7 +5,7 @@ MONTH_REGEX = "January|February|March|April|May|June|July|August|September|Octob
 
 
 class Env(object):
-    OFFLINE = True;
+    OFFLINE = False;
     DEBUG = True
     DO_DOWNLOAD = False;
     VERBOSE = True;
@@ -17,7 +17,8 @@ class AppServer(object):
 class Onofrio(object):
     BASE_URL = "http://www.onofrio.com"
     CLOSED_SHOWS = BASE_URL + "/execpgm/index?index=JP";
-    LOCAL_PAGE = 'file:///C|'+ os.getcwd()[3:] + '/local/showpage.htm';
+    LOCAL_PAGE   = 'file:///C|'+ os.getcwd()[3:] + '/local/showpage.htm';
+    LOCAL_CLOSED = 'file:///C|'+ os.getcwd()[3:] + '/local/closedshows.htm';
     def showPage(link):
         return Onofrio.BASE_URL+link;
     def pdfUrl(pdfLink):
