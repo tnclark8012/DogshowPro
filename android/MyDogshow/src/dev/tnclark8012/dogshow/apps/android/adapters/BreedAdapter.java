@@ -1,7 +1,6 @@
 package dev.tnclark8012.dogshow.apps.android.adapters;
 
 import android.content.Context;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.BreedGroup;
 

@@ -1,16 +1,14 @@
 package dev.tnclark8012.dogshow.apps.android.ui;
 
+import android.app.ListFragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
-import com.actionbarsherlock.app.SherlockListFragment;
-
 import dev.tnclark8012.dogshow.shared.DogshowEnums.JuniorClass;
 
-public class JuniorClassSelectFragment extends SherlockListFragment {
+public class JuniorClassSelectFragment extends ListFragment {
 	private static final String TAG = JuniorClassSelectFragment.class.getSimpleName();
 
 	public interface Callback {

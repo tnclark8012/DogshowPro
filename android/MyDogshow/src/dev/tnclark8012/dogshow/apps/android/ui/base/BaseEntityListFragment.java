@@ -3,28 +3,26 @@ package dev.tnclark8012.dogshow.apps.android.ui.base;
 import java.util.Random;
 
 import android.app.Activity;
+import android.app.ListFragment;
+import android.app.LoaderManager;
+import android.content.CursorLoader;
 import android.content.Intent;
+import android.content.Loader;
 import android.database.ContentObserver;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.CursorLoader;
-import android.support.v4.content.Loader;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
-
-import com.actionbarsherlock.app.SherlockListFragment;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-
 import dev.tnclark8012.dogshow.apps.android.R;
 
-public abstract class BaseEntityListFragment extends SherlockListFragment implements LoaderManager.LoaderCallbacks<Cursor> {
+public abstract class BaseEntityListFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor> {
 	//TODO HIGH
 	public interface Callbacks
 	{

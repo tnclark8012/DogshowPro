@@ -1,12 +1,11 @@
 package dev.tnclark8012.dogshow.apps.android.ui.dialog;
 
 import android.app.Dialog;
+import android.support.v4.app.DialogFragment;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 
-import com.actionbarsherlock.app.SherlockDialogFragment;
-
-public class WaitDialogFragment extends SherlockDialogFragment
+public class WaitDialogFragment extends DialogFragment
 {
     /**
 	 * Constructor

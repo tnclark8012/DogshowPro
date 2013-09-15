@@ -5,9 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 import android.util.Log;
-
 import dev.tnclark8012.dogshow.apps.android.BuildConfig;
-import dev.tnclark8012.dogshow.apps.android.Config;
 import dev.tnclark8012.dogshow.apps.android.provider.DogshowProvider.Qualified;
 import dev.tnclark8012.dogshow.apps.android.provider.DogshowProvider.Subquery;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRingsColumns;

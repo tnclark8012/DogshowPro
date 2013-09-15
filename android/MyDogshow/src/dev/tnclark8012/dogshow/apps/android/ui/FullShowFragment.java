@@ -20,27 +20,27 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import android.app.Activity;
+import android.app.ListFragment;
+import android.app.LoaderManager;
 import android.content.Context;
+import android.content.CursorLoader;
+import android.content.Loader;
 import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.database.Cursor;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.CursorLoader;
-import android.support.v4.content.Loader;
-import android.support.v4.widget.CursorAdapter;
 import android.util.Log;
+import android.view.ActionMode;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CursorAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import com.actionbarsherlock.app.SherlockListFragment;
-import com.actionbarsherlock.view.ActionMode;
-
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
@@ -50,7 +50,7 @@ import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
  * @author Taylor
  *
  */
-public class FullShowFragment extends SherlockListFragment implements
+public class FullShowFragment extends ListFragment implements
 		LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback {
 	private final long upcomingAllowedWindow = 1 * 60 * 1000;
 	private long upcomingBreedRingStart = 0;
@@ -293,19 +293,19 @@ public class FullShowFragment extends SherlockListFragment implements
 
 	@Override
 	public boolean onCreateActionMode(ActionMode mode,
-			com.actionbarsherlock.view.Menu menu) {
+			Menu menu) {
 		return false;
 	}
 
 	@Override
 	public boolean onPrepareActionMode(ActionMode mode,
-			com.actionbarsherlock.view.Menu menu) {
+			Menu menu) {
 		return false;
 	}
 
 	@Override
 	public boolean onActionItemClicked(ActionMode mode,
-			com.actionbarsherlock.view.MenuItem item) {
+			MenuItem item) {
 		return false;
 	}
 

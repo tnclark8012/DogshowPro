@@ -16,16 +16,14 @@
 
 package dev.tnclark8012.dogshow.apps.android.ui.phone;
 
+import android.app.ActionBar;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-
-import com.actionbarsherlock.app.ActionBar;
-
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.ui.BreedSelectFragment;
 import dev.tnclark8012.dogshow.apps.android.ui.BreedSelectFragment.BreedSelectListener;
@@ -54,13 +52,13 @@ public class BreedSelectActivity extends BaseActivity implements
         if (mViewPager != null) {
             // Phone setup
             mViewPager.setAdapter(new BreedSelectPagerAdapter(
-                    getSupportFragmentManager()));
+                    getFragmentManager()));
             mViewPager.setOnPageChangeListener(this);
             mViewPager.setPageMarginDrawable(R.drawable.grey_border_inset_lr);
             mViewPager.setPageMargin(getResources().getDimensionPixelSize(
                     R.dimen.page_margin_width));
 
-            final ActionBar actionBar = getSupportActionBar();
+            final ActionBar actionBar = getActionBar();
             actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
             actionBar
                     .addTab(actionBar.newTab()
@@ -91,7 +89,7 @@ public class BreedSelectActivity extends BaseActivity implements
                     .setText(BreedGroup.FSS.getName()).setTabListener(this));
 
         }
-        getSupportActionBar().setHomeButtonEnabled(true);
+        getActionBar().setHomeButtonEnabled(true);
     }
 
     @Override
@@ -121,7 +119,7 @@ public class BreedSelectActivity extends BaseActivity implements
 
     @Override
     public void onPageSelected(int position) {
-        getSupportActionBar().setSelectedNavigationItem(position);
+        getActionBar().setSelectedNavigationItem(position);
     }
 
     @Override

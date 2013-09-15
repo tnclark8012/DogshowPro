@@ -1,8 +1,8 @@
 package dev.tnclark8012.dogshow.apps.android.sql;
 
+import android.content.AsyncTaskLoader;
 import android.content.Context;
 import android.database.Cursor;
-import android.support.v4.content.AsyncTaskLoader;
 
 /**
  * Used to write apps that run on platforms prior to Android 3.0. When running

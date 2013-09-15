@@ -58,6 +58,17 @@ def scrapeAndDownload():
     shows = scraper.getUniqueShows()
     print("downloading " + str(len(shows)) + " programs...")
     downloadPrograms(shows)
+    
+    prevLink = None;
+    uniqueShowList = list();
+    for show in shows:
+        if show.programName is not prevLink:
+            uniqueShowList.append(show);
+            prevLink = show.programName;
+        else:
+            uniqueShows[-1:].dateList.append(show.date);
+    for show in uniqueShowList:
+        print( str(show.programName) + " lasts " + str(len(show.dateList)) + " days" );
     return (allshows, shows);
 
 def doParseAndClean(show):

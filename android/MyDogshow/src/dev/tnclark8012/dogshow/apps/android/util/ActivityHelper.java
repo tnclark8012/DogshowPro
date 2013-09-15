@@ -1,17 +1,9 @@
 package dev.tnclark8012.dogshow.apps.android.util;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.preference.PreferenceActivity;
-import android.util.Log;
-
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-
+import android.view.Menu;
+import android.view.MenuItem;
 import dev.tnclark8012.dogshow.apps.android.R;
-import dev.tnclark8012.dogshow.apps.android.ui.phone.HomeActivity;
 
 
 /**

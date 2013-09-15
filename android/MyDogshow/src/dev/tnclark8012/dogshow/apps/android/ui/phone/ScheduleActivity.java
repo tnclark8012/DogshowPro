@@ -18,22 +18,20 @@ package dev.tnclark8012.dogshow.apps.android.ui.phone;
 
 import static dev.tnclark8012.dogshow.apps.android.util.LogUtils.LOGD;
 import android.accounts.Account;
+import android.app.ActionBar;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.ContentResolver;
 import android.content.SyncStatusObserver;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.util.Log;
-
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-
+import android.view.Menu;
+import android.view.MenuItem;
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.ui.ExploreFragment;
@@ -71,18 +69,18 @@ public class ScheduleActivity extends BaseActivity implements ActionBar.TabListe
 			return;
 		}
 		setContentView(R.layout.activity_schedule);
-		FragmentManager fm = getSupportFragmentManager();
+		FragmentManager fm = getFragmentManager();
 
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		String homeScreenLabel;
 		if (mViewPager != null) {
 			// Phone setup
-			mViewPager.setAdapter(new HomePagerAdapter(getSupportFragmentManager()));
+			mViewPager.setAdapter(new HomePagerAdapter(getFragmentManager()));
 			mViewPager.setOnPageChangeListener(this);
 			mViewPager.setPageMarginDrawable(R.drawable.grey_border_inset_lr);
 			mViewPager.setPageMargin(getResources().getDimensionPixelSize(R.dimen.page_margin_width));
 
-			final ActionBar actionBar = getSupportActionBar();
+			final ActionBar actionBar = getActionBar();
 			actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 			actionBar.addTab(actionBar.newTab().setText(R.string.title_my_schedule).setTabListener(this));
 //			actionBar.addTab(actionBar.newTab().setText(R.string.title_team_schedule).setTabListener(this));
@@ -91,7 +89,7 @@ public class ScheduleActivity extends BaseActivity implements ActionBar.TabListe
 			homeScreenLabel = getString(R.string.title_my_schedule);
 
 		}
-		getSupportActionBar().setHomeButtonEnabled(true);
+		getActionBar().setHomeButtonEnabled(true);
 
 		// Sync data on load
 		if (savedInstanceState == null) {
@@ -127,7 +125,7 @@ public class ScheduleActivity extends BaseActivity implements ActionBar.TabListe
 
 	@Override
 	public void onPageSelected(int position) {
-		getSupportActionBar().setSelectedNavigationItem(position);
+		getActionBar().setSelectedNavigationItem(position);
 
 		int titleId = -1;
 		switch (position) {
@@ -170,7 +168,7 @@ public class ScheduleActivity extends BaseActivity implements ActionBar.TabListe
 		// the stream across
 		// orientation changes.
 		// if (mSocialStreamFragment != null) {
-		// getSupportFragmentManager().putFragment(outState, "stream_fragment",
+		// getFragmentManager().putFragment(outState, "stream_fragment",
 		// mSocialStreamFragment);
 		// }
 	}
@@ -180,19 +178,20 @@ public class ScheduleActivity extends BaseActivity implements ActionBar.TabListe
 		super.onRestoreInstanceState(savedInstanceState);
 		// if (mSocialStreamFragment == null) {
 		// mSocialStreamFragment = (SocialStreamFragment)
-		// getSupportFragmentManager()
+		// getFragmentManager()
 		// .getFragment(savedInstanceState, "stream_fragment");
 		// }
 	}
 
 	private class HomePagerAdapter extends FragmentPagerAdapter {
+		public HomePagerAdapter(FragmentManager fm) {
+			super(fm);
+			// TODO Auto-generated constructor stub
+		}
+
 		MyScheduleFragment mMyScheduleFragment;
 		IncompleteFragment mTeamFragment;
 		IncompleteFragment mFullShowFragment;
-
-		public HomePagerAdapter(FragmentManager fm) {
-			super(fm);
-		}
 
 		@Override
 		public Fragment getItem(int position) {
@@ -225,7 +224,7 @@ public class ScheduleActivity extends BaseActivity implements ActionBar.TabListe
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 		mOptionsMenu = menu;
-		getSupportMenuInflater().inflate(R.menu.home, menu);
+		getMenuInflater().inflate(R.menu.home, menu);
 		return true;
 	}
 

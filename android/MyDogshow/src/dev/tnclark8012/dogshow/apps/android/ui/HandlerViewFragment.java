@@ -1,12 +1,12 @@
 package dev.tnclark8012.dogshow.apps.android.ui;
 
 import android.app.Activity;
+import android.content.CursorLoader;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.content.CursorLoader;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;

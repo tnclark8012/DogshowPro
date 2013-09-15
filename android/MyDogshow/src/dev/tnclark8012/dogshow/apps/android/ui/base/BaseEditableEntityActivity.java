@@ -1,13 +1,14 @@
 package dev.tnclark8012.dogshow.apps.android.ui.base;
 
+import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.ui.SimpleSinglePaneActivity;
 
 public abstract class BaseEditableEntityActivity extends SimpleSinglePaneActivity implements BaseEditableEntityViewFragment.Callbacks, BaseEditableEntityEditFragment.Callbacks {
 	private static final String TAG = BaseEditableEntityActivity.class.getSimpleName();
 	private boolean isEditing = false;
+	private Bundle mIntentBundle;
 	private BaseEditableEntityViewFragment mViewFragment;
 	private BaseEditableEntityEditFragment mEditFragment;
 
@@ -16,12 +17,15 @@ public abstract class BaseEditableEntityActivity extends SimpleSinglePaneActivit
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
-
+		mIntentBundle = intentToFragmentArguments(getIntent());
 		if (mViewFragment == null)
 			mViewFragment = getViewFragment();
 		if (mEditFragment == null)
 			mEditFragment = getEditFragment();
+		mViewFragment.setArguments(mIntentBundle);
+		mEditFragment.setArguments(mIntentBundle);
 
 	}
 
@@ -38,8 +42,8 @@ public abstract class BaseEditableEntityActivity extends SimpleSinglePaneActivit
 
 	private void swapFragments(boolean toEdit) {
 		Fragment swapIn = (toEdit) ? mEditFragment : mViewFragment;
-		swapIn.setArguments(intentToFragmentArguments(getIntent()));
-		getSupportFragmentManager().beginTransaction().replace(R.id.root_container, swapIn, "single_pane").commit();
+		swapIn.setArguments(mIntentBundle);
+		getFragmentManager().beginTransaction().replace(R.id.root_container, swapIn, "single_pane").commit();
 	}
 
 	@Override

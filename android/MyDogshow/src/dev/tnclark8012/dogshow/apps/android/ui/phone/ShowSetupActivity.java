@@ -3,9 +3,9 @@ package dev.tnclark8012.dogshow.apps.android.ui.phone;
 import java.util.HashMap;
 import java.util.Map;
 
+import android.app.Fragment;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import dev.tnclark8012.dogshow.apps.android.R;
@@ -61,10 +61,10 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 	public boolean onNextClick() {
 		switch(active){
 		case 1:
-			getSupportFragmentManager().beginTransaction().replace(R.id.root_container, mDogsFragment, "single_pane").commit();
+			getFragmentManager().beginTransaction().replace(R.id.root_container, mDogsFragment, "single_pane").commit();
 			break;
 		case 2:
-			getSupportFragmentManager().beginTransaction().replace(R.id.root_container, mHandlerFragment, "single_pane").commit();
+			getFragmentManager().beginTransaction().replace(R.id.root_container, mHandlerFragment, "single_pane").commit();
 
 			break;
 		case 3:
@@ -106,10 +106,10 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 			finish();
 			break;
 		case 2:
-			getSupportFragmentManager().beginTransaction().replace(R.id.root_container, mFindShowFragment, "single_pane").commit();
+			getFragmentManager().beginTransaction().replace(R.id.root_container, mFindShowFragment, "single_pane").commit();
 			break;
 		case 3:
-			getSupportFragmentManager().beginTransaction().replace(R.id.root_container, mDogsFragment, "single_pane").commit();
+			getFragmentManager().beginTransaction().replace(R.id.root_container, mDogsFragment, "single_pane").commit();
 			break;
 		}
 		active--;

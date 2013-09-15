@@ -5,6 +5,8 @@ import java.util.Map;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.LoaderManager;
+import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
@@ -12,8 +14,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.CursorLoader;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +22,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
@@ -70,7 +69,7 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements L
 		// mViewOwner = (TextView) mRootView.findViewById(R.id.dog_edit_section_owner_text);
 		mViewSex = (RadioGroup) mRootView.findViewById(R.id.dog_edit_sex_radio);
 
-		getSherlockActivity().getSupportActionBar().setTitle("Edit Dog");
+		getActivity().getActionBar().setTitle("Edit Dog");
 		mViewBreed.setTag(TAG_BREED);
 		mViewBreed.setOnClickListener(this);
 		mViewImage.setTag(TAG_IMAGE);

@@ -20,7 +20,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import android.app.Activity;
 import android.content.ContentProvider;
 import android.content.ContentProviderOperation;
 import android.content.ContentProviderResult;
@@ -34,9 +33,9 @@ import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.util.Log;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
-import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.EnteredRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
+import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.EnteredRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Handlers;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.JuniorsRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowDatabase;

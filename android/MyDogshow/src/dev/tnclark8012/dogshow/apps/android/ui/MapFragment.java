@@ -16,18 +16,17 @@
 
 package dev.tnclark8012.dogshow.apps.android.ui;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 
-import com.actionbarsherlock.app.SherlockFragment;
-
 /**
  * Shows a {@link WebView} with a map of the conference venue.
  */
-public class MapFragment extends SherlockFragment {
+public class MapFragment extends Fragment {
     private static final String TAG = MapFragment.class.getSimpleName();
 
     /**

@@ -18,37 +18,32 @@ package dev.tnclark8012.dogshow.apps.android.ui.base;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.UUID;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.app.Activity;
+import android.app.ListFragment;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.app.Fragment;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.actionbarsherlock.app.SherlockFragment;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.app.SherlockListFragment;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-
 import dev.tnclark8012.dogshow.apps.android.R;
-import dev.tnclark8012.dogshow.apps.android.preferences.Prefs;
 import dev.tnclark8012.dogshow.apps.android.ui.phone.HomeActivity;
 import dev.tnclark8012.dogshow.apps.android.util.AccountUtils;
 
@@ -57,7 +52,7 @@ import dev.tnclark8012.dogshow.apps.android.util.AccountUtils;
  * an account selection fragment ({@link ChooseAccountFragment}), and then an
  * authentication progress fragment ({@link AuthProgressFragment}).
  */
-public class AccountActivity extends SherlockFragmentActivity implements
+public class AccountActivity extends Activity implements
 		AccountUtils.AuthenticateCallback {
 
 	private static final String TAG = AccountActivity.class.getSimpleName();
@@ -83,7 +78,7 @@ public class AccountActivity extends SherlockFragmentActivity implements
 		}
 
 		if (savedInstanceState == null) {
-			getSupportFragmentManager()
+			getFragmentManager()
 					.beginTransaction()
 					.add(R.id.fragment_container, new ChooseAccountFragment(),
 							"choose_account").commit();
@@ -100,7 +95,7 @@ public class AccountActivity extends SherlockFragmentActivity implements
 				mHandler.post(new Runnable() {
 					@Override
 					public void run() {
-						getSupportFragmentManager().popBackStack();
+						getFragmentManager().popBackStack();
 					}
 				});
 			}
@@ -155,7 +150,7 @@ public class AccountActivity extends SherlockFragmentActivity implements
 	 * Once an account is selected, we move on to the login progress fragment (
 	 * {@link AuthProgressFragment}).
 	 */
-	public static class ChooseAccountFragment extends SherlockListFragment {
+	public static class ChooseAccountFragment extends ListFragment {
 		public ChooseAccountFragment() {
 		}
 
@@ -215,10 +210,12 @@ public class AccountActivity extends SherlockFragmentActivity implements
 		}
 
 		private class AccountListAdapter extends ArrayAdapter<Account> {
+			Context mContext;
 			private static final int LAYOUT_RESOURCE = android.R.layout.simple_list_item_1;
 
 			public AccountListAdapter(Context context, List<Account> accounts) {
 				super(context, LAYOUT_RESOURCE, accounts);
+				mContext = context;
 			}
 
 			private class ViewHolder {
@@ -229,7 +226,7 @@ public class AccountActivity extends SherlockFragmentActivity implements
 				ViewHolder holder;
 
 				if (convertView == null) {
-					convertView = getLayoutInflater(null).inflate(
+					convertView = ((LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(
 							LAYOUT_RESOURCE, null);
 
 					holder = new ViewHolder();
@@ -267,7 +264,7 @@ public class AccountActivity extends SherlockFragmentActivity implements
 
 			activity.mCancelAuth = false;
 			activity.mChosenAccount = mAccountListAdapter.getItem(position);
-			activity.getSupportFragmentManager()
+			activity.getFragmentManager()
 					.beginTransaction()
 					.replace(R.id.fragment_container,
 							new AuthProgressFragment(), "loading")
@@ -281,7 +278,7 @@ public class AccountActivity extends SherlockFragmentActivity implements
 	 * This fragment shows a login progress spinner. Upon reaching a timeout of
 	 * 7 seconds (in case of a poor network connection), the user can try again.
 	 */
-	public static class AuthProgressFragment extends SherlockFragment {
+	public static class AuthProgressFragment extends Fragment {
 		private static final int TRY_AGAIN_DELAY_MILLIS = 7 * 1000; // 7 seconds
 
 		private final Handler mHandler = new Handler();

@@ -17,6 +17,7 @@
 package dev.tnclark8012.dogshow.apps.android.ui;
 
 import android.app.Activity;
+import android.app.ListFragment;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -26,10 +27,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.actionbarsherlock.app.SherlockListFragment;
-
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.model.Show;
 import dev.tnclark8012.dogshow.apps.android.sync.SyncHelper;
@@ -40,7 +37,7 @@ import dev.tnclark8012.dogshow.apps.android.sync.SyncHelper;
  * @author Taylor
  * 
  */
-public class FindShowFragment extends SherlockListFragment {
+public class FindShowFragment extends ListFragment {
 	private static final String TAG = FindShowFragment.class.getSimpleName();
 	private ShowListAdapter mAdapter;
 	private View mRootView;

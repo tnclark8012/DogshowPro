@@ -16,9 +16,9 @@
 
 package dev.tnclark8012.dogshow.apps.android.ui;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.ui.base.BaseActivity;
 
@@ -45,11 +45,11 @@ public abstract class SimpleSinglePaneActivity extends BaseActivity {
         if (savedInstanceState == null) {
             mFragment = onCreatePane();
             mFragment.setArguments(intentToFragmentArguments(getIntent()));
-            getSupportFragmentManager().beginTransaction()
+			getFragmentManager().beginTransaction()
                     .add(R.id.root_container, mFragment, "single_pane")
                     .commit();
         } else {
-            mFragment = getSupportFragmentManager().findFragmentByTag("single_pane");
+            mFragment = getFragmentManager().findFragmentByTag("single_pane");
         }
     }
 

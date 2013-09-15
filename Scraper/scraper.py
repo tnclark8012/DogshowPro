@@ -73,16 +73,21 @@ class ShowScraper(object):
     def _getUniqueShows(self):
         uniqueShows = list();
         prevProgram = None;
+        prevShow = None;
         for show in self._allshows:
-            if show.programName is not None and show.programName != prevProgram: 
+            if show.programName != prevProgram and show.programName is not None: 
+                print("( " + str(prevProgram) + " != " + str(show.programName) + " ) =>" + str(show.programName != prevProgram))
                 uniqueShows.append(show);
                 prevProgram = show.programName
             else:
+                if uniqueShows:
+                    uniqueShows[-1].dateList.append(show.date);
+                print("found day for " + str(show.showCode))
                 if show._hasProgram:
-                    if show.programName is None and self.VERBOSE :
+                    if show.showCode is None and self.VERBOSE :
                         print("program but no name in " + show._pagelink)
-                    elif self.VERBOSE:
-                        print("duplicate: " + show.programName)
+                    elif self.VERBOSE or True:
+                        print("duplicate: " + show.showCode)
 
         return uniqueShows;
 
@@ -90,5 +95,3 @@ class ShowScraper(object):
         return self._allshows;
     def getUniqueShows(self):
         return self._uniqueshows;
-
-

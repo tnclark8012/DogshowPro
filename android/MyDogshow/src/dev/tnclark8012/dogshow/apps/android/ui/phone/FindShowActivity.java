@@ -1,12 +1,11 @@
 package dev.tnclark8012.dogshow.apps.android.ui.phone;
 
+import android.app.Fragment;
+import android.os.Bundle;
+import android.util.Log;
 import dev.tnclark8012.dogshow.apps.android.sync.SyncHelper;
 import dev.tnclark8012.dogshow.apps.android.ui.FindShowFragment;
 import dev.tnclark8012.dogshow.apps.android.ui.SimpleSinglePaneActivity;
-import dev.tnclark8012.dogshow.apps.android.ui.FindShowFragment.Callbacks;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.util.Log;
 
 public class FindShowActivity extends SimpleSinglePaneActivity implements FindShowFragment.Callbacks{
 	private static final String TAG = FindShowActivity.class.getSimpleName();

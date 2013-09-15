@@ -31,8 +31,8 @@ public class HomeActivity extends BaseActivity  {
     protected void onCreate(Bundle savedInstanceState) {
     	Log.d(TAG, "onCreate");
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setHomeButtonEnabled(false);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getActionBar().setHomeButtonEnabled(false);
+        getActionBar().setDisplayHomeAsUpEnabled(false);
         setContentView(R.layout.activity_home);
     }
 }

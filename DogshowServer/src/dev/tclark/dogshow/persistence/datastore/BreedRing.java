@@ -1,8 +1,5 @@
 package dev.tclark.dogshow.persistence.datastore;
 
-import java.text.ParseException;
-import java.util.Calendar;
-
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -10,17 +7,11 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.labs.repackaged.org.json.JSONException;
 import com.google.appengine.labs.repackaged.org.json.JSONObject;
 
-import dev.tclark.dogshow.util.Utils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
 @XmlRootElement
 public class BreedRing extends ShowRing {
-	@XmlElement
-	String judge;
-	@XmlElement
-	int ringNumber;
-	@XmlElement
-	long blockStartMillis;
+
 	@XmlElement
 	int count;
 	@XmlElement
@@ -40,6 +31,7 @@ public class BreedRing extends ShowRing {
 	@XmlElement
 	boolean isSweepstakes;
 
+
 	private BreedRing() {
 	}
 
@@ -48,16 +40,16 @@ public class BreedRing extends ShowRing {
 		long dateMillis;
 		String timeString;
 		try {
-			dateMillis = json.getLong("DateMillis");
-			timeString = json.getString("BlockStart");
-			Calendar cal = Utils.getCalendar();
-			cal.setTimeInMillis(dateMillis);
-			long blockStartMillis = Utils.millisFromTimeString(cal, timeString);
-			ring.blockStartMillis = blockStartMillis;
-			ring.judge = json.getString("Judge");
-			ring.ringNumber = json.getInt("Number");
 			ring.count = json.getInt("Count");
 			ring.breed = Breeds.parse(json.getString("BreedName"));
+			if(ring.judge.contains("KERR"))
+			{
+				int j = 0;
+			}
+			if(ring.breed == Breeds.PAPILLON)
+			{
+				int j=1;
+			}
 			if (ring.breed == null) {
 				System.err.println("Couldn't parse "
 						+ json.getString("BreedName"));
@@ -74,9 +66,6 @@ public class BreedRing extends ShowRing {
 
 		} catch (JSONException e) {
 			e.printStackTrace();
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		return ring;
 	}
@@ -88,9 +77,6 @@ public class BreedRing extends ShowRing {
 	@Override
 	protected Entity toEntity() {
 		Entity e = new Entity(BreedRing.class.getSimpleName(), getKeyName());
-		e.setProperty("blockStart", blockStartMillis);
-		e.setProperty("judge", judge);
-		e.setProperty("ringNumber", ringNumber);
 		e.setProperty("count", count);
 		
 		e.setProperty("breed", (breed !=null)?breed.toString(): null);
@@ -101,16 +87,16 @@ public class BreedRing extends ShowRing {
 		e.setProperty("countAhead", countAhead);
 		e.setProperty("isSweepstakes", isSweepstakes);
 		e.setProperty("isVeteran", isVeteran);
+		if(judge.contains("KERR") && breed == Breeds.PAPILLON)
+		{
+			int i = 0;
+		}
 		return e;
 	}
 
+
 	public BreedRing(Entity entity) {
 		super(entity);
-		
-		blockStartMillis = (Long) entity.getProperty("blockStart");
-		judge = (String) entity.getProperty("judge");
-		//TODO .intValue is used to combat widening of GAE. Is it really an issue? should I just use longs? 
-		ringNumber = ((Long) entity.getProperty("ringNumber")).intValue();
 		count = ((Long) entity.getProperty("count")).intValue();
 		breed = Breeds.parse((String) entity.getProperty("breed"));
 		dogCount = ((Long) entity.getProperty("dogCount")).intValue();
@@ -124,5 +110,10 @@ public class BreedRing extends ShowRing {
 		}
 		isSweepstakes = (Boolean) entity.getProperty("isSweepstakes");
 		isVeteran = (Boolean) entity.getProperty("isVeteran");
+	}
+	
+	@Override
+	public String getTypeString() {
+		return breed.toString();
 	}
 }
