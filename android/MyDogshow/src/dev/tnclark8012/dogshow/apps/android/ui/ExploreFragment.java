@@ -16,26 +16,23 @@
 
 package dev.tnclark8012.dogshow.apps.android.ui;
 
+import android.app.ListFragment;
+import android.app.LoaderManager;
+import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.ListFragment;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-
-import com.actionbarsherlock.app.SherlockListFragment;
-
 import dev.tnclark8012.dogshow.apps.android.R;
 
 /**
  * A simple {@link ListFragment} that renders a list of tracks and a map button
  * at the top.
  */
-public class ExploreFragment extends SherlockListFragment implements
+public class ExploreFragment extends ListFragment implements
 		LoaderManager.LoaderCallbacks<Cursor> {
 
 	@Override

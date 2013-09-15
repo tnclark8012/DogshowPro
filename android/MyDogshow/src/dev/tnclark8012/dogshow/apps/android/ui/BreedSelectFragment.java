@@ -1,5 +1,6 @@
 package dev.tnclark8012.dogshow.apps.android.ui;
 
+import android.app.ListFragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -7,16 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
-import com.actionbarsherlock.app.SherlockListFragment;
-
-import dev.tnclark8012.dogshow.apps.android.adapters.BreedAdapter;
 import dev.tnclark8012.dogshow.apps.android.ui.phone.BreedSelectActivity;
-import dev.tnclark8012.dogshow.apps.android.util.DebugUtils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.BreedGroup;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
-public class BreedSelectFragment extends SherlockListFragment {
+public class BreedSelectFragment extends ListFragment {
 	private static final String TAG = BreedSelectFragment.class.getSimpleName();
 
 	public interface BreedSelectListener {

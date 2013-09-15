@@ -19,6 +19,7 @@ class Show(object):
         self._programcode = programcode;
         self._location = None;
         self._date = None;
+        self._dateList = list();
         self._hasProgram = False;
         self._pdfLink = None;
         self.programName = None;
@@ -31,11 +32,11 @@ class Show(object):
         
     def __str__(self):
         return(self._club
-            + "\n\t"  + self._date
-            + "\n\t"  + self._location 
-            + "\n\t" + "page link:" + self._pagelink 
-            + "\n\t program code: " + self._programcode
-            + "\n\t pdf link: " + self.programName
+            + "\n\t"  + str(self._date)
+            + "\n\t"  + str(self._location) 
+            + "\n\t" + "page link:" + str(self._pagelink) 
+            + "\n\t program code: " + str(self._programcode)
+            + "\n\t program file name: " + str(self.programName)
             + "\n\t PDF Path: " + str(self._pdfPath) + ' or ' + str(self.pdfFilePath)  );
 
     @property
@@ -57,6 +58,9 @@ class Show(object):
     @property
     def cleanedFilePath(self):
         return self._cleanedPath
+    @property
+    def dateList(self):
+        return self._dateList;
 
     @cleanedFilePath.setter
     def cleanedFilePath(self, value):
@@ -120,6 +124,7 @@ class Show(object):
         the_page = response.read()
         pool = BeautifulSoup(the_page)
         self._date = self._parseStartDate(pool);
+        self._dateList.append(self._date);
         self._location = self._parseLocation(pool);
         self._hasProgram = self._checkIfProgram(pool);
 

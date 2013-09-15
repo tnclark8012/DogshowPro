@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import dev.tnclark8012.dogshow.apps.android.BuildConfig;
-import dev.tnclark8012.dogshow.apps.android.Config;
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
 import dev.tnclark8012.dogshow.apps.android.util.UIUtils;

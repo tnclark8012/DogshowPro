@@ -14,6 +14,7 @@ package dev.tnclark8012.dogshow.apps.android.util;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.ResultReceiver;

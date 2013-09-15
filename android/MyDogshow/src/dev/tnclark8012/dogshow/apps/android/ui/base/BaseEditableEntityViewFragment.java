@@ -1,24 +1,22 @@
 package dev.tnclark8012.dogshow.apps.android.ui.base;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.LoaderManager;
+import android.content.CursorLoader;
 import android.content.Intent;
+import android.content.Loader;
 import android.database.ContentObserver;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.CursorLoader;
-import android.support.v4.content.Loader;
-
-import com.actionbarsherlock.app.SherlockFragment;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import dev.tnclark8012.dogshow.apps.android.R;
 
-public abstract class BaseEditableEntityViewFragment extends SherlockFragment implements
+public abstract class BaseEditableEntityViewFragment extends Fragment implements
 LoaderManager.LoaderCallbacks<Cursor>{
 	public static final String INTENT_EXTRA_NEW_ENTITY = "dev.tnclark8012.dogshow.intent.extra.NEW_ENTITY";
 	private Uri mEntityUri;

@@ -1,8 +1,8 @@
 package dev.tnclark8012.dogshow.apps.android.ui;
 
 import android.app.Activity;
+import android.content.CursorLoader;
 import android.net.Uri;
-import android.support.v4.content.CursorLoader;
 import android.widget.CursorAdapter;
 import dev.tnclark8012.dogshow.apps.android.adapters.DogListAdapter;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;

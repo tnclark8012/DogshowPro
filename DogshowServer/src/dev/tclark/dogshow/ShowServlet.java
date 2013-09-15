@@ -1,8 +1,6 @@
 package dev.tclark.dogshow;
 
 import java.util.Calendar;
-import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -14,15 +12,11 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
-import com.google.appengine.labs.repackaged.org.json.JSONArray;
 import com.google.appengine.labs.repackaged.org.json.JSONException;
 import com.google.appengine.labs.repackaged.org.json.JSONObject;
 
-import dev.tclark.dogshow.models.show.ShowDay;
 import dev.tclark.dogshow.persistence.datastore.Show;
-import dev.tclark.dogshow.persistence.datastore.ShowRing;
 import dev.tclark.dogshow.persistence.datastore.managers.ShowManager;
-import dev.tclark.dogshow.persistence.datastore.managers.ShowRingManager;
 import dev.tclark.dogshow.util.Utils;
 
 @Path("shows")
@@ -30,13 +24,6 @@ public class ShowServlet {
 	private static final long serialVersionUID = -9014811090548638110L;
 	private static final Logger log = Logger.getLogger(ShowServlet.class.getName());
 
-	@GET
-	@Produces("application/json")
-	@Path("{id}")
-	public ShowDay getShowsById(@PathParam("id") long id) {
-		ShowDay day = new ShowDay();
-		return day;
-	}
 
 	@GET
 	@Produces("application/json")

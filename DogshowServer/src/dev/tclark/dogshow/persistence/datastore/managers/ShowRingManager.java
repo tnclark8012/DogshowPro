@@ -13,6 +13,8 @@ import dev.tclark.dogshow.persistence.datastore.Show;
 import dev.tclark.dogshow.persistence.datastore.ShowRing;
 import dev.tclark.dogshow.persistence.datastore.accessors.ShowRingAccessor;
 import dev.tclark.dogshow.util.Utils;
+import dev.tclark.dogshow.util.datedetection.DateDetector;
+import dev.tclark.dogshow.util.datedetection.ShowSection;
 
 public class ShowRingManager {
 	public static void createShowRings(List<ShowRing> rings) {
@@ -22,7 +24,7 @@ public class ShowRingManager {
 	public static boolean createShowRingsForShow(String showId, JSONObject json) {
 		Show match = ShowManager.getSingleShowById(showId);
 		if (match != null) {
-			//TODO preprocessing JSON stinks...
+			//TODO pre-processing JSON stinks...
 			System.out.println("Creating rings for " + "(" + showId
 					+ ") starting on " + new Date(match.getStartDate()));
 			Calendar cal = Utils.getCalendar();
@@ -30,6 +32,8 @@ public class ShowRingManager {
 			cal.add(Calendar.DAY_OF_MONTH, -1);
 			JSONArray ringsArray = null;
 			List<ShowRing> showRings = new LinkedList<ShowRing>();
+			ShowSection section = new ShowSection();
+			List<ShowSection> showSections = new LinkedList<ShowSection>();
 			try {
 				ringsArray = json.getJSONArray("Rings");
 				int ringCount = ringsArray.length();
@@ -37,18 +41,32 @@ public class ShowRingManager {
 
 				for (int i = 0; i < ringCount; i++) {
 					JSONObject ring = ringsArray.getJSONObject(i);
+					ring.put("ShowId", showId);
 					if (ring.has("Number")) {
 						int num = ring.getInt("Number");
 						if (num < lastRing && num != -1 || num > lastRing
 								&& lastRing == -1) {
-							cal.add(Calendar.DAY_OF_MONTH, 1);
+						//Ring number has gone down, we're in a new section
+							showSections.add(section);
+							section = new ShowSection();
+							
+//							cal.add(Calendar.DAY_OF_MONTH, 1);
 						}
+						
 						lastRing = num;
 					}
+					section.pushRing(ShowRing.fromJson(showId, ring));
 					ring.put("DateMillis", cal.getTimeInMillis());
-					ring.put("ShowId", showId);
+					
 					showRings.add(ShowRing.fromJson(showId, ring));
 				}
+				if(!section.isEmpty())
+				{
+					showSections.add(section);
+				}
+				DateDetector d = new DateDetector(showSections);
+				d.getShowDays();
+				
 				ShowRingAccessor.createShowRings(showRings);
 			} catch (JSONException e) {
 				e.printStackTrace();

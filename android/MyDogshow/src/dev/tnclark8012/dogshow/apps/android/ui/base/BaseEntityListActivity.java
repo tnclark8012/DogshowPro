@@ -1,9 +1,9 @@
 package dev.tnclark8012.dogshow.apps.android.ui.base;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.ui.SimpleSinglePaneActivity;
 
@@ -36,7 +36,7 @@ public abstract class BaseEntityListActivity extends SimpleSinglePaneActivity im
 			swapIn = mListFragment;
 		}
 		swapIn.setArguments(args);
-		getSupportFragmentManager().beginTransaction()
+		getFragmentManager().beginTransaction()
 				.replace(R.id.root_container, swapIn, "single_pane").commit();
 	}
 

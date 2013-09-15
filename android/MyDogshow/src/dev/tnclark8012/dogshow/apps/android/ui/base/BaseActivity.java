@@ -16,17 +16,14 @@
 
 package dev.tnclark8012.dogshow.apps.android.ui.base;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
 import android.util.Log;
-
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.preferences.PrefsActivity;
 import dev.tnclark8012.dogshow.apps.android.ui.phone.HomeActivity;
@@ -35,7 +32,7 @@ import dev.tnclark8012.dogshow.apps.android.util.AccountUtils;
 /**
  * A base activity that handles common functionality in the app.
  */
-public abstract class BaseActivity extends SherlockFragmentActivity {
+public abstract class BaseActivity extends Activity {
 	private static final String TAG = BaseActivity.class.getSimpleName();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +50,11 @@ public abstract class BaseActivity extends SherlockFragmentActivity {
 			{
 				Log.i(TAG, "Is authenticated");
 			}
-
-		getSupportActionBar().setHomeButtonEnabled(true);
+		getActionBar().setHomeButtonEnabled(true);
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
-	    MenuInflater inflater = getSupportMenuInflater();
+	    MenuInflater inflater = getMenuInflater();
 	    inflater.inflate(R.menu.base, menu);
 	    return true;
 	}
@@ -70,8 +66,6 @@ public abstract class BaseActivity extends SherlockFragmentActivity {
 			if (this instanceof HomeActivity) {
 				return false;
 			}
-
-			NavUtils.navigateUpFromSameTask(this);
 			return true;
 		case R.id.menu_preferences:
 			startActivity(new Intent(this, PrefsActivity.class));
@@ -124,12 +118,12 @@ public abstract class BaseActivity extends SherlockFragmentActivity {
 	}
 
 	@Override
-	protected void onStart() {
+	public void onStart() {
 		super.onStart();
 	}
 
 	@Override
-	protected void onStop() {
+	public void onStop() {
 		super.onStop();
 	}
 }

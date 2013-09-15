@@ -12,7 +12,6 @@ import dev.tnclark8012.dogshow.apps.android.model.BreedRing;
 import dev.tnclark8012.dogshow.apps.android.model.BreedRingsResponse;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
-import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.SyncColumns;
 
 public class BreedRingsHandler extends JsonHandler {

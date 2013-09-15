@@ -2,11 +2,11 @@ package dev.tnclark8012.dogshow.apps.android.ui;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.CursorLoader;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
-import android.support.v4.content.CursorLoader;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;

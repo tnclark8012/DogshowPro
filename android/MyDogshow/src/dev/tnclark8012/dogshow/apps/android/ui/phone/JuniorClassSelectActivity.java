@@ -16,24 +16,10 @@
 
 package dev.tnclark8012.dogshow.apps.android.ui.phone;
 
+import android.app.Fragment;
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
-
-import com.actionbarsherlock.app.ActionBar;
-
-import dev.tnclark8012.dogshow.apps.android.R;
-import dev.tnclark8012.dogshow.apps.android.ui.BreedSelectFragment;
-import dev.tnclark8012.dogshow.apps.android.ui.BreedSelectFragment.BreedSelectListener;
 import dev.tnclark8012.dogshow.apps.android.ui.JuniorClassSelectFragment;
 import dev.tnclark8012.dogshow.apps.android.ui.SimpleSinglePaneActivity;
-import dev.tnclark8012.dogshow.apps.android.ui.base.BaseActivity;
-import dev.tnclark8012.dogshow.shared.DogshowEnums.BreedGroup;
-import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.JuniorClass;
 
 public class JuniorClassSelectActivity extends SimpleSinglePaneActivity implements JuniorClassSelectFragment.Callback{

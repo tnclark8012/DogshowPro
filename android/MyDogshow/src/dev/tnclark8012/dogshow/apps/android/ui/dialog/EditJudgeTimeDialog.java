@@ -1,23 +1,16 @@
 package dev.tnclark8012.dogshow.apps.android.ui.dialog;
 
+import android.app.DialogFragment;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.TextView.OnEditorActionListener;
-
-import com.actionbarsherlock.app.SherlockDialogFragment;
-
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.util.Utils;
 
-public class EditJudgeTimeDialog extends SherlockDialogFragment implements OnClickListener {
+public class EditJudgeTimeDialog extends DialogFragment implements OnClickListener {
 	public interface Callback {
 		void onFinishEditDialog(int status, long id, int type, float minutes);
 	}

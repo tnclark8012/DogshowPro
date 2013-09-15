@@ -22,7 +22,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import android.app.Activity;
+import android.app.ListFragment;
+import android.app.LoaderManager;
 import android.content.Context;
+import android.content.CursorLoader;
+import android.content.Loader;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.Resources;
@@ -31,26 +35,22 @@ import android.database.Cursor;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.CursorLoader;
-import android.support.v4.content.Loader;
-import android.support.v4.widget.CursorAdapter;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.util.SparseBooleanArray;
+import android.view.ActionMode;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.CursorAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.actionbarsherlock.app.SherlockListFragment;
-import com.actionbarsherlock.view.ActionMode;
-
 import dev.tnclark8012.dogshow.apps.android.BuildConfig;
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.preferences.Prefs;
@@ -66,7 +66,7 @@ import dev.tnclark8012.dogshow.apps.android.util.Utils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.JuniorClass;
 
-public class MyScheduleFragment extends SherlockListFragment implements LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback, OnSharedPreferenceChangeListener, OnItemLongClickListener, EditJudgeTimeDialog.Callback {
+public class MyScheduleFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback, OnSharedPreferenceChangeListener, OnItemLongClickListener, EditJudgeTimeDialog.Callback {
 	private static float defaultPerDogJudgingMinutes = 2;
 	private final long upcomingAllowedWindow = 1 * 60 * 1000;
 	private long upcomingBreedRingStart = 0;
@@ -325,7 +325,7 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 				} else {
 					header = (RelativeLayout) view.findViewById(R.id.list_item_ring_header);
 				}
-				((TextView) header.findViewById(R.id.list_item_ring_header_date)).setText(DateUtils.formatDateTime(mContext, blockTimeMillis, DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NO_YEAR) + "");
+				((TextView) header.findViewById(R.id.list_item_ring_header_date)).setText(DateUtils.formatDateTime(getActivity(), blockTimeMillis, DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NO_YEAR) + "");
 				header.setVisibility(View.VISIBLE);
 			} else {
 				RelativeLayout header = (RelativeLayout) view.findViewById(R.id.list_item_ring_header);
@@ -413,17 +413,17 @@ public class MyScheduleFragment extends SherlockListFragment implements LoaderMa
 	}
 
 	@Override
-	public boolean onCreateActionMode(ActionMode mode, com.actionbarsherlock.view.Menu menu) {
+	public boolean onCreateActionMode(ActionMode mode, Menu menu) {
 		return false;
 	}
 
 	@Override
-	public boolean onPrepareActionMode(ActionMode mode, com.actionbarsherlock.view.Menu menu) {
+	public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
 		return false;
 	}
 
 	@Override
-	public boolean onActionItemClicked(ActionMode mode, com.actionbarsherlock.view.MenuItem item) {
+	public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
 		return false;
 	}
 

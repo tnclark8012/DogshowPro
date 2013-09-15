@@ -5,7 +5,6 @@ import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.widget.AutoCompleteTextView;
-import android.widget.TextView;
 import dev.tnclark8012.dogshow.apps.android.R;
 
 public class TypefacedAutoCompleteTextView extends AutoCompleteTextView {

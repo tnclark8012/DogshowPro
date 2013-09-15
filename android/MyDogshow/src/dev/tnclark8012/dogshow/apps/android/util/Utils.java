@@ -2,7 +2,6 @@ package dev.tnclark8012.dogshow.apps.android.util;
 
 import android.database.Cursor;
 import android.text.format.Time;
-import android.util.Log;
 
 public class Utils {
 	private static final String TAG = Utils.class.getSimpleName();
