@@ -3,6 +3,7 @@ import config
 import datetime
 import os
 import re
+import json
 from showutils import urlopen_with_retry
 import time
 
@@ -12,7 +13,7 @@ class Show(object):
     def __init__(self, code, club, locations, dates):
         self.code = code;
         self.clubs = set();
-        self.clubs.add(club);
+        self.addClub(club);
         self.locations = set();
         self.dates = set();
         self.pdfLink = None;
@@ -25,19 +26,34 @@ class Show(object):
         self._cleanedPath = None;
         #self._parseShowPage();
     def toJson(self):
+        #json.dumps(self.clubs);
         dateTimes=[int(time.mktime(d.timetuple())*1000) for d in self.dates]
-        return {'id':self.code, 'clubs':str(self.clubs), 'locations':str(self.locations), 'dates':str(dateTimes)}
+        clubList = list()
+        dateList = list()
+        [clubList.append(c) for c in self.clubs]
+        [dateList.append(d) for d in self.dates]
+        return {'id':self.code, 'clubs':json.loads(json.dumps(clubList)), 'locations':str(self.locations), 'dates':json.loads(json.dumps(dateTimes))}
     def __str__(self):
         return str(self.clubs) + "\n\t, dates:"  + str(self.dates) + "\n\t, locations:"  + str(self.locations);
 
     def addLocation(self, location):
         self.locations.add(location);
         
+    def getDateList(self):
+        dateList = list()
+        time.mktime(datetime.datetime.now().timetuple()) * 1000
+        [dateList.append(int(time.mktime(d.timetuple()) * 1000)) for d in self.dates]
+        return dateList;
+    def getClubList(self):
+        clubList = list()
+        [clubList.append(c) for c in self.clubs]
+        return clubList;
     
     def addDate(self, date):
         self.dates.add(date);
 
     def addClub(self, club):
+        club = re.sub(" ?\(\d+\)", "", club);
         self.clubs.add(club);
 
     @property

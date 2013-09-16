@@ -1,3 +1,5 @@
+import json
+
 class Location(object):
 	def __init__(self, city, state):
 		self.city  = city;
@@ -12,3 +14,6 @@ class Location(object):
 
 	def __hash__(self):
 		return hash((self.city, self.state))
+
+	def toJson(self):
+		return {'city':self.city, 'state':self.state}

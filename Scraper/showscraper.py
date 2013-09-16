@@ -54,7 +54,6 @@ class ShowScraper(object):
                 show.addLocation(c.location);
                 show.addDate(c.date);
                 show.addClub(c.club);
-            print("Show JSON= " + str(show.toJson()));
             return show;
         #self._parseCompanionShows(pool);
 

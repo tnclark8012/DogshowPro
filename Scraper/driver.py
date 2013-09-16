@@ -1,6 +1,6 @@
 from appserver_accessor import AppServerAccessor
 import urllib
-import sys, getopt
+import sys, getopt, json
 import config
 import grammar
 from parserunner import ParseRunner
@@ -13,11 +13,18 @@ def postShow(show):
     url = config.AppServer.SHOW_POST_URL
     
     values = show.toJson();#{'id':show.code, 'clubs':str(show.clubs), 'locations':str(locations) 'date':int(show.dates[0])}
+    locationList = list();
+    [locationList.append(l.toJson()) for l in show.locations];
+    print(json.loads(json.dumps(locationList)))
+    print(show.getDateList())
+    print(str(values));
+    values = {'code':show.code, 'locations':json.loads(json.dumps(locationList)), 'clubs':show.getClubList(), 'show':values, 'dates':show.getDateList()}
     #values = {'city': 'Columbiana', 'date': 1365138000.0, 'name': 'Northeast Oklahoma Kennel Club', 'state': 'AL'}
     response = urlopen_with_retry(url, values)
 
     #response = urlopen_with_retry(url, data.encode('utf8'))
     the_page = response.read()
+    print(the_page);
 
 def postShows(shows):
     for show in shows:
@@ -115,7 +122,8 @@ def main(argv):
             show = ShowScraper(True, True).pullShow("blah");
             if show:
                 print(show.pdfLink)
-                downloadProgram(show);
+                #downloadProgram(show);
+                postShow(show);
             sys.exit()
          if arg == 'closed':
             print("closed");

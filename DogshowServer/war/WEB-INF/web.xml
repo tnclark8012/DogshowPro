@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<servlet>
 		<servlet-name>DogshowServer</servlet-name>
-		<servlet-class>dev.tclark.dogshow.DogshowServerServlet</servlet-class>
+		<servlet-class>dev.tnclark8012.dogshow.DogshowServerServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>DogshowServer</servlet-name>
@@ -15,19 +15,11 @@
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
 	<servlet>
-		<servlet-name>Handler</servlet-name>
-		<servlet-class>dev.tclark.dogshow.HandlerServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Handler</servlet-name>
-		<url-pattern>/handler</url-pattern>
-	</servlet-mapping>
-	<servlet>
 		<servlet-name>API</servlet-name>
 		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
 		<init-param>
 			<param-name>com.sun.jersey.config.property.packages</param-name>
-			<param-value>dev.tclark.dogshow</param-value>
+			<param-value>dev.tnclark8012.dogshow</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
