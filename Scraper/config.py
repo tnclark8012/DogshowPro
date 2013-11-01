@@ -31,5 +31,7 @@ class Parse(object):
     OUTPUT_DIR = os.getcwd() + "/parsed/"
 
 class Grammar(object):
+    FORCE = True;
     GRAMMAR_JAR = os.getcwd() + "/bin/grammar.jar"
     CLEANED_PROGRAM_DIR = os.getcwd() + "/cleaned/"
+    JSON_OUTPUT_DIR = os.getcwd() + "/json/"

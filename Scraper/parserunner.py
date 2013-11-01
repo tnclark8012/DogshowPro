@@ -1,6 +1,8 @@
 import config
 import os
 import subprocess
+from util import RegexHelper
+import codecs
 
 class ParseRunner(object):
     def __init__(self):
@@ -14,12 +16,36 @@ class ParseRunner(object):
             print("filename: " + filename + " parsed to " + outputLocation );
             subprocess.call(['java', '-jar', 'pdfbox-app-1.7.1.jar', 'ExtractText', pdf, outputLocation])
 
-    def parseProgram(self, show):
-        if show.pdfFilePath is not None:
-            fullPdfPath = show.pdfFilePath
-            output = show.programName[:-3] + "txt"
+    """
+    Parse a PDF using Apache PdfBox.
+    returns: the parsed file location
+    """
+    def parseProgramPdfBox(self, fullPdfPath):
+        print("pdfbox on path: " +str(fullPdfPath))
+        if fullPdfPath is not None:
+            output = os.path.basename(fullPdfPath)[:-3] + "pdfbox.txt"
             outputLocation = config.Parse.OUTPUT_DIR + output
-            show.parsedPath = outputLocation;
-            subprocess.call(['java', '-jar', 'pdfbox-app-1.7.1.jar', 'ExtractText', fullPdfPath, outputLocation])
-        else:
-            pass
+            #show.parsedPath = outputLocation;
+            if os.path.isfile(outputLocation):
+                print("Already exists: " + outputLocation)
+            else:
+                subprocess.call(['java', '-jar', 'pdfbox-app-1.7.1.jar', 'ExtractText', fullPdfPath, outputLocation])
+            return outputLocation;
+
+    """
+    Parse a PDF using Pdf2Txt.py - Line parsing order is (mostly) left-to-right, top-to-bottom
+    Returns: the parsed text
+    """
+    def parseProgramPdf2Txt(self, fullPdfPath):
+        if fullPdfPath is not None:
+            output = os.path.basename(fullPdfPath)[:-3] + "pdf2txt.txt"
+            outputLocation = config.Parse.OUTPUT_DIR + output
+            if not os.path.isfile(outputLocation):
+                #TODO save these? Move these process calls and paths somewhere easier to manage
+                proc = subprocess.Popen(['python27', './libs/pdfminer-20110515/tools/pdf2txt.py', fullPdfPath],  stdout=open(outputLocation, "w"))
+            else:
+                print("Already exists: " + outputLocation + "; reading from file.");
+            #with codecs.open (outputLocation, "r", 'UTF-8') as outputFile:
+            #    text = outputFile.read();
+            #    return text;
+            return outputLocation;

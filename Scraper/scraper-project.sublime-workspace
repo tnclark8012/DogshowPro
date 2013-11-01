@@ -1,0 +1,1271 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"clean",
+				"cleanPdf2Txt"
+			],
+			[
+				"currend",
+				"currentDateNumRings"
+			],
+			[
+				"current",
+				"currentDate"
+			],
+			[
+				"ouput",
+				"outputLocation"
+			],
+			[
+				"curre",
+				"currentDateNumRings"
+			],
+			[
+				"currentD",
+				"currentDate"
+			],
+			[
+				"Off",
+				"OFFLINE"
+			],
+			[
+				"assign",
+				"assignedRingsCurrentDate"
+			],
+			[
+				"currentDate",
+				"currentDateIndex"
+			],
+			[
+				"curr",
+				"currentDate"
+			],
+			[
+				"assig",
+				"assignedRingsCurrentDate"
+			],
+			[
+				"curren",
+				"currentDateIndex"
+			],
+			[
+				"showDeta",
+				"showDetailList"
+			],
+			[
+				"showDet",
+				"showDetailList"
+			],
+			[
+				"date",
+				"datemap"
+			],
+			[
+				"NE",
+				"nextDate"
+			],
+			[
+				"Date",
+				"DATE"
+			],
+			[
+				"Rege",
+				"RegexPatternDef"
+			],
+			[
+				"Reg",
+				"RegexPatternDef"
+			],
+			[
+				"Ring",
+				"RINGS_AND_DATES"
+			],
+			[
+				"RING",
+				"RINGS_AND_DATES"
+			],
+			[
+				"REG",
+				"RegexPatternDef"
+			],
+			[
+				"loc",
+				"locationList"
+			],
+			[
+				"location",
+				"locationsList"
+			],
+			[
+				"post",
+				"postShow"
+			],
+			[
+				"uni",
+				"uniqueShowList"
+			],
+			[
+				"AppS",
+				"AppServerAccessor"
+			],
+			[
+				"_pdf",
+				"_pdfPath"
+			],
+			[
+				"pdf",
+				"pdfFilePath"
+			],
+			[
+				"program",
+				"programName"
+			],
+			[
+				"par",
+				"parsedPath"
+			],
+			[
+				"output",
+				"outputLocation"
+			],
+			[
+				"file",
+				"filename"
+			],
+			[
+				"do",
+				"downloadPrograms"
+			],
+			[
+				"postS",
+				"postShows"
+			],
+			[
+				"progra",
+				"programName"
+			],
+			[
+				"_get",
+				"_getUniqueShows"
+			],
+			[
+				"Show",
+				"ShowScraper"
+			],
+			[
+				"url",
+				"urlopen_with_retry"
+			],
+			[
+				"pullShow",
+				"pullShowsFromOnofrio"
+			],
+			[
+				"pull",
+				"pullShowsFromOnofrio"
+			],
+			[
+				"close",
+				"closedShowsPage"
+			],
+			[
+				"_",
+				"_pagelink"
+			],
+			[
+				"prog",
+				"programName"
+			],
+			[
+				"base",
+				"baseUrl"
+			],
+			[
+				"bas",
+				"baseJP"
+			],
+			[
+				"parse",
+				"parseShowPage"
+			],
+			[
+				"find",
+				"findStartDate"
+			],
+			[
+				"_p",
+				"_pagelink"
+			],
+			[
+				"fin",
+				"findStartDate"
+			],
+			[
+				"pu",
+				"pullShowCode"
+			],
+			[
+				"an",
+				"anchor"
+			],
+			[
+				"ancho",
+				"anchor"
+			],
+			[
+				"anc",
+				"anchors"
+			],
+			[
+				"minim",
+				"Minimum"
+			],
+			[
+				"print",
+				"printRecord"
+			],
+			[
+				"suppor",
+				"supportsIndexing"
+			],
+			[
+				"random",
+				"randomWPs"
+			],
+			[
+				"wpre",
+				"WPRecord"
+			],
+			[
+				"WPRe",
+				"WPRecord"
+			],
+			[
+				"noPel",
+				"noPelletsMap"
+			],
+			[
+				"noP",
+				"noPelletsMap"
+			],
+			[
+				"checkPe",
+				"checkPellets"
+			],
+			[
+				"Pellet",
+				"PelletTopRow"
+			],
+			[
+				"cout",
+				"countAll"
+			],
+			[
+				"check",
+				"checkInnerBorders"
+			],
+			[
+				"pacm",
+				"pacmanToGhost"
+			],
+			[
+				"removeGhost",
+				"removeGhostFromMap"
+			],
+			[
+				"rep",
+				"replaceElement"
+			],
+			[
+				"checkH",
+				"checkHelp"
+			],
+			[
+				"NewGhost",
+				"NewGhostType"
+			],
+			[
+				"NewGho",
+				"NewGhostType"
+			],
+			[
+				"ghost",
+				"ghostReplacement"
+			],
+			[
+				"stat",
+				"statsTable"
+			],
+			[
+				"moveG",
+				"moveGhostSet"
+			],
+			[
+				"ghos",
+				"ghostLocations"
+			],
+			[
+				"tupl",
+				"tupleFourth"
+			],
+			[
+				"moveGhost",
+				"moveGhosts"
+			],
+			[
+				"valid",
+				"validCoords"
+			],
+			[
+				"tuple",
+				"tupleSecond"
+			],
+			[
+				"start",
+				"startCol"
+			],
+			[
+				"seco",
+				"second"
+			],
+			[
+				"pac",
+				"pacmanLocation"
+			],
+			[
+				"place",
+				"placeElementInMatrix"
+			],
+			[
+				"secon",
+				"secondIn3"
+			],
+			[
+				"first",
+				"firstIn3"
+			],
+			[
+				"target",
+				"targetRow"
+			],
+			[
+				"min",
+				"minDistance"
+			],
+			[
+				"vali",
+				"validCoords"
+			],
+			[
+				"level",
+				"levelUp"
+			],
+			[
+				"DRRRR",
+				"DRRRRURRRDD"
+			],
+			[
+				"minus",
+				"minusCorners"
+			],
+			[
+				"rese",
+				"resetPowerPellets"
+			],
+			[
+				"sub",
+				"subMiddleNthMatrixRow"
+			],
+			[
+				"replace",
+				"replaceNthElement"
+			],
+			[
+				"sum",
+				"subMiddleList"
+			],
+			[
+				"subMiddle",
+				"subMiddleMatrixRow"
+			],
+			[
+				"subMid",
+				"subMiddleMatrix"
+			],
+			[
+				"re",
+				"moveAndReplaceElement"
+			],
+			[
+				"elem",
+				"elementAtCoords"
+			],
+			[
+				"eleme",
+				"elementAt"
+			],
+			[
+				"Int",
+				"Int"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "dogshowprogramworker.py",
+			"settings":
+			{
+				"buffer_size": 8305,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "showscraper.py",
+			"settings":
+			{
+				"buffer_size": 7711,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "grammar.py",
+			"settings":
+			{
+				"buffer_size": 680,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "parserunner.py",
+			"settings":
+			{
+				"buffer_size": 2211,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "cleaned/GRMS1.pdfbox.txt",
+			"settings":
+			{
+				"buffer_size": 32388,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Searching 75 files for \"self.clean\"\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\ringcleaner.py:\n   25  	\"\"\"\n   26  	def collectRingDates(self, filePath):\n   27: 		text = self._runner.parseProgramPdf2Txt(self.clean(filePath))\n   28  		dateRingMap = self._getDateRingMap(text);\n   29  		return dateRingMap\n   ..\n   31  	def parseShowJson(self, filePath):\n   32  		parsedFilePath = self._runner.parseProgramPdfBox(filePath);\n   33: 		cleanedPath = self.clean(parsedFilePath);\n   34  		if cleanedPath:\n   35  			return grammar.getShowJson(cleanedPath);\n\n2 matches in 1 file\n\n\nSearching 75 files for \"lines after\"\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\ringcleaner.py:\n   49  		lineArr = str(text).split('\\\\n');\n   50  \n   51: 		print(str(len(lineArr)) + \" lines after split\");\n   52  		dateRingList = [line for line in lineArr if re.match(RegexPatternDef.DATE, line) or re.match(\"RING \\d+\", line)]\n   53  		print(len(dateRingList));\n\n1 match in 1 file\n\n\nSearching 75 files for \"clean\"\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\config.py:\n   33  class Grammar(object):\n   34      GRAMMAR_JAR = os.getcwd() + \"/bin/grammar.jar\"\n   35:     CLEANED_PROGRAM_DIR = os.getcwd() + \"/cleaned/\"\n   36      JSON_OUTPUT_DIR = os.getcwd() + \"/json/\"\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\dogshowprogramworker.py:\n    6  from parserunner import ParseRunner\n    7  from showscraper import ShowScraper\n    8: from ringcleaner import RingCleaner\n    9  import model.show\n   10  from showutils import urlopen_with_retry\n   ..\n   19          #       download PDF * Yields path\n   20          #       Parse pdf w/ PDF-box * Yields parsed path\n   21:         #       TODO **Run cleaner to prepare for grammar * Yields cleaned path\n   22          #       Run grammer * Yields JSON Object\n   23          #       Parse pdf w/ pdf2txt * Yields parsed text (or path)\n   ..\n   29          #   Post show to server!\n   30          self.scraper = ShowScraper()\n   31:         self._cleaner = RingCleaner();\n   32          urlList = self.getClosedShowUrls();\n   33          if showLimit:\n   ..\n  116          return showJson;\n  117      def getShowJson(self, pdfPath):\n  118:         return self._cleaner.parseShowJson(pdfPath);\n  119  \n  120      def getRingDates(self, pdfPath):\n  121:         return self._cleaner.collectRingDates(pdfPath);\n  122      \n  123      def postShows(self, showList):\n  ...\n  201          return (allshows, shows);\n  202  \n  203:     def doParseAndClean(self, show):\n  204          runner = ParseRunner()\n  205          runner.parseProgram(show);\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\driver.py:\n    6  from parserunner import ParseRunner\n    7  from showscraper import ShowScraper\n    8: from ringcleaner import RingCleaner\n    9  from dogshowprogramworker import DogshowProgramWorker\n   10  import model.show\n   ..\n   62      return (allshows, shows);\n   63  \n   64: def doParseAndClean(show):\n   65      runner = ParseRunner()\n   66      runner.parseProgram(show);\n   ..\n   68  \n   69      print(\"Running grammar\")\n   70:     path = \"./cleaned/KTDC1JP.txt\"\n   71      json = grammar.getShowJson(path);\n   72      return json;\n   ..\n   78  def main(argv):\n   79      #requestedPage=None;\n   80:     #obj = RingCleaner();\n   81:     #obj.clean(\"{\\\"Rings\\\":[{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (151)\\\",\\\"Number\\\":1,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Miniature American Shepherds (Misc. Bitch)\\\",\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (151)\\\",\\\"Number\\\":1,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Berger Picards (Misc. Dogs)\\\",\\\"CountAhead\\\":1},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (151)\\\",\\\"Number\\\":1,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Berger Picards (Misc. Bitches)\\\",\\\"CountAhead\\\":3},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (151)\\\",\\\"Number\\\":1,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Lagotto Romagnolo (Misc. Dogs)\\\",\\\"CountAhead\\\":6},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (151)\\\",\\\"Number\\\":1,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Lagotto Romagnolo (Misc. Bitch)\\\",\\\"CountAhead\\\":8},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (151)\\\",\\\"Number\\\":1,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Mastiffs \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":9},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (151)\\\",\\\"Number\\\":1,\\\"Count\\\":21,\\\"BreedName\\\":\\\"Great Danes \\\",\\\"DogCount\\\":9,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":14},{\\\"BlockStart\\\":\\\"9:55 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (151)\\\",\\\"Number\\\":1,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Rottweilers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:55 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (151)\\\",\\\"Number\\\":1,\\\"Count\\\":11,\\\"BreedName\\\":\\\"Siberian Huskies \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":6},{\\\"BlockStart\\\":\\\"9:55 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (151)\\\",\\\"Number\\\":1,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Newfoundlands \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":17},{\\\"BlockStart\\\":\\\"10:55 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (151)\\\",\\\"Number\\\":1,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Tibetan Mastiffs \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"10:55 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (151)\\\",\\\"Number\\\":1,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Akitas \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":5},{\\\"BlockStart\\\":\\\"10:55 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (151)\\\",\\\"Number\\\":1,\\\"Count\\\":17,\\\"BreedName\\\":\\\"Bernese Mountain Dogs \\\",\\\"DogCount\\\":8,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":14},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (160)\\\",\\\"Number\\\":3,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Weimaraners \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (160)\\\",\\\"Number\\\":3,\\\"Count\\\":23,\\\"BreedName\\\":\\\"Doberman Pinschers \\\",\\\"DogCount\\\":10,\\\"BitchCount\\\":8,\\\"SpecialDogCount\\\":4,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":7},{\\\"BlockStart\\\":\\\"9:40 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (160)\\\",\\\"Number\\\":3,\\\"Count\\\":16,\\\"BreedName\\\":\\\"Setters (Gordon) \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":8,\\\"SpecialDogCount\\\":5,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:40 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (160)\\\",\\\"Number\\\":3,\\\"Count\\\":35,\\\"BreedName\\\":\\\"Retrievers (Nova Scotia Duck Tolling) \\\",\\\"DogCount\\\":14,\\\"BitchCount\\\":11,\\\"SpecialDogCount\\\":5,\\\"SpecialBitchCount\\\":5,\\\"CountAhead\\\":16},{\\\"BlockStart\\\":\\\"12:55 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (160)\\\",\\\"Number\\\":3,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Old English Sheepdogs \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:55 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (160)\\\",\\\"Number\\\":3,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Setters (English) \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":3},{\\\"BlockStart\\\":\\\"12:55 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (160)\\\",\\\"Number\\\":3,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Vizslas \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":8},{\\\"BlockStart\\\":\\\"12:55 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (160)\\\",\\\"Number\\\":3,\\\"Count\\\":14,\\\"BreedName\\\":\\\"Setters (Irish) \\\",\\\"DogCount\\\":6,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":11},{\\\"BlockStart\\\":\\\"2:05 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS\\\\r\\\\n\\\",\\\"Number\\\":3,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Great Pyrenees \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"2:05 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS\\\\r\\\\n\\\",\\\"Number\\\":3,\\\"Count\\\":8,\\\"BreedName\\\":\\\"Portuguese Water Dogs \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":5},{\\\"BlockStart\\\":\\\"2:05 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS\\\\r\\\\n\\\",\\\"Number\\\":3,\\\"Count\\\":19,\\\"BreedName\\\":\\\"Samoyeds \\\",\\\"DogCount\\\":8,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":13},{\\\"BlockStart\\\":\\\"2:05 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS\\\\r\\\\n\\\",\\\"Number\\\":3,\\\"Count\\\":1,\\\"BreedName\\\":\\\"German Pinschers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":32},{\\\"BlockStart\\\":\\\"2:05 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS\\\\r\\\\n\\\",\\\"Number\\\":3,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Bullmastiffs \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":33},{\\\"BlockStart\\\":\\\"2:05 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS\\\\r\\\\n\\\",\\\"Number\\\":3,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Cane Corso \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":34},{\\\"BlockStart\\\":\\\"2:05 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS\\\\r\\\\n\\\",\\\"Number\\\":3,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Saint Bernards \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":35},{\\\"BlockStart\\\":\\\"2:05 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS\\\\r\\\\n\\\",\\\"Number\\\":3,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Standard Schnauzers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":36},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (157)\\\",\\\"Number\\\":4,\\\"Count\\\":17,\\\"BreedName\\\":\\\"Rhodesian Ridgebacks \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":9,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (157)\\\",\\\"Number\\\":4,\\\"Count\\\":27,\\\"BreedName\\\":\\\"Whippets \\\",\\\"DogCount\\\":9,\\\"BitchCount\\\":13,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":4,\\\"CountAhead\\\":17},{\\\"BlockStart\\\":\\\"12:25 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (157)\\\",\\\"Number\\\":4,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Dachshunds (Wirehaired) \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:25 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (157)\\\",\\\"Number\\\":4,\\\"Count\\\":4,\\\"BreedName\\\":\\\"Beagles (13 Inch) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":5},{\\\"BlockStart\\\":\\\"12:25 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (157)\\\",\\\"Number\\\":4,\\\"Count\\\":13,\\\"BreedName\\\":\\\"Dachshunds (Smooth) \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":9},{\\\"BlockStart\\\":\\\"12:25 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (157)\\\",\\\"Number\\\":4,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Beagles (15 Inch) \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":22},{\\\"BlockStart\\\":\\\"1:30 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (157)\\\",\\\"Number\\\":4,\\\"Count\\\":19,\\\"BreedName\\\":\\\"Dachshunds (Longhaired) \\\",\\\"DogCount\\\":6,\\\"BitchCount\\\":9,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"1:30 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (157)\\\",\\\"Number\\\":4,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Portuguese Podengo Pequenos \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":19},{\\\"BlockStart\\\":\\\"1:30 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (157)\\\",\\\"Number\\\":4,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Bloodhounds \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":20},{\\\"BlockStart\\\":\\\"1:30 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (157)\\\",\\\"Number\\\":4,\\\"Count\\\":4,\\\"BreedName\\\":\\\"Salukis \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":22},{\\\"BlockStart\\\":\\\"2:35 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (157)\\\",\\\"Number\\\":4,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Scottish Deerhounds \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"2:35 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (157)\\\",\\\"Number\\\":4,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Borzois \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":2},{\\\"BlockStart\\\":\\\"2:35 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (157)\\\",\\\"Number\\\":4,\\\"Count\\\":15,\\\"BreedName\\\":\\\"Afghan Hounds \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":4,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":7},{\\\"BlockStart\\\":\\\"2:35 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (157)\\\",\\\"Number\\\":4,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Norwegian Elkhounds \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":22},{\\\"BlockStart\\\":\\\"2:35 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (157)\\\",\\\"Number\\\":4,\\\"Count\\\":1,\\\"BreedName\\\":\\\"American Foxhounds \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":23},{\\\"BlockStart\\\":\\\"2:35 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (157)\\\",\\\"Number\\\":4,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Greyhounds \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":24},{\\\"BlockStart\\\":\\\"2:35 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (157)\\\",\\\"Number\\\":4,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Pharaoh Hounds \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":25},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MRS DANELLE M BROWN (153)\\\",\\\"Number\\\":5,\\\"Count\\\":14,\\\"BreedName\\\":\\\"Retrievers (Labrador) \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":6,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MRS DANELLE M BROWN (153)\\\",\\\"Number\\\":5,\\\"Count\\\":11,\\\"BreedName\\\":\\\"Collies (Smooth) \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":14},{\\\"BlockStart\\\":\\\"9:30 am\\\",\\\"Judge\\\":\\\"MRS DANELLE M BROWN (153)\\\",\\\"Number\\\":5,\\\"Count\\\":15,\\\"BreedName\\\":\\\"German Shepherd Dogs \\\",\\\"DogCount\\\":7,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:30 am\\\",\\\"Judge\\\":\\\"MRS DANELLE M BROWN (153)\\\",\\\"Number\\\":5,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Australian Cattle Dogs \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":15},{\\\"BlockStart\\\":\\\"9:30 am\\\",\\\"Judge\\\":\\\"MRS DANELLE M BROWN (153)\\\",\\\"Number\\\":5,\\\"Count\\\":8,\\\"BreedName\\\":\\\"Boxers \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":20},{\\\"BlockStart\\\":\\\"10:35 am\\\",\\\"Judge\\\":\\\"MRS DANELLE M BROWN (153)\\\",\\\"Number\\\":5,\\\"Count\\\":18,\\\"BreedName\\\":\\\"Australian Shepherds \\\",\\\"DogCount\\\":7,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"10:35 am\\\",\\\"Judge\\\":\\\"MRS DANELLE M BROWN (153)\\\",\\\"Number\\\":5,\\\"Count\\\":4,\\\"BreedName\\\":\\\"Bouviers des Flandres \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":18},{\\\"BlockStart\\\":\\\"10:35 am\\\",\\\"Judge\\\":\\\"MRS DANELLE M BROWN (153)\\\",\\\"Number\\\":5,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Collies (Rough) \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":22},{\\\"BlockStart\\\":\\\"12:30 pm\\\",\\\"Judge\\\":\\\"MRS DANELLE M BROWN (153)\\\",\\\"Number\\\":5,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Briards \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:30 pm\\\",\\\"Judge\\\":\\\"MRS DANELLE M BROWN (153)\\\",\\\"Number\\\":5,\\\"Count\\\":4,\\\"BreedName\\\":\\\"Bearded Collies \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":2},{\\\"BlockStart\\\":\\\"12:30 pm\\\",\\\"Judge\\\":\\\"MRS DANELLE M BROWN (153)\\\",\\\"Number\\\":5,\\\"Count\\\":13,\\\"BreedName\\\":\\\"Border Collies \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":6},{\\\"BlockStart\\\":\\\"12:30 pm\\\",\\\"Judge\\\":\\\"MRS DANELLE M BROWN (153)\\\",\\\"Number\\\":5,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Pembroke Welsh Corgis \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":19},{\\\"BlockStart\\\":\\\"1:40 pm\\\",\\\"Judge\\\":\\\"MRS DANELLE M BROWN (153)\\\",\\\"Number\\\":5,\\\"Count\\\":35,\\\"BreedName\\\":\\\"Shetland Sheepdogs \\\",\\\"DogCount\\\":13,\\\"BitchCount\\\":19,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"1:40 pm\\\",\\\"Judge\\\":\\\"MRS DANELLE M BROWN (153)\\\",\\\"Number\\\":5,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Cardigan Welsh Corgis \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":35},{\\\"BlockStart\\\":\\\"1:40 pm\\\",\\\"Judge\\\":\\\"MRS DANELLE M BROWN (153)\\\",\\\"Number\\\":5,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Belgian Sheepdogs \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":41},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (142)\\\",\\\"Number\\\":6,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Pointers (German Shorthaired) \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (142)\\\",\\\"Number\\\":6,\\\"Count\\\":4,\\\"BreedName\\\":\\\"Spinoni Italiani \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":9},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (142)\\\",\\\"Number\\\":6,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Retrievers (Flat-Coated) \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":13},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (142)\\\",\\\"Number\\\":6,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Spaniels (Clumber) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":20},{\\\"BlockStart\\\":\\\"9:30 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (142)\\\",\\\"Number\\\":6,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Spaniels (English Springer) \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:30 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (142)\\\",\\\"Number\\\":6,\\\"Count\\\":11,\\\"BreedName\\\":\\\"Brittanys \\\",\\\"DogCount\\\":7,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":6},{\\\"BlockStart\\\":\\\"9:30 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (142)\\\",\\\"Number\\\":6,\\\"Count\\\":12,\\\"BreedName\\\":\\\"Spaniels (Cocker) Black\\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":17},{\\\"BlockStart\\\":\\\"10:40 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (142)\\\",\\\"Number\\\":6,\\\"Count\\\":1,\\\"ClassName\\\":\\\"Master Class\\\",\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"10:40 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (142)\\\",\\\"Number\\\":6,\\\"Count\\\":8,\\\"ClassName\\\":\\\"Open Senior\\\",\\\"CountAhead\\\":1},{\\\"BlockStart\\\":\\\"10:40 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (142)\\\",\\\"Number\\\":6,\\\"Count\\\":13,\\\"ClassName\\\":\\\"Open Intermediate\\\",\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"10:40 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (142)\\\",\\\"Number\\\":6,\\\"Count\\\":3,\\\"ClassName\\\":\\\"Open Junior\\\",\\\"CountAhead\\\":13},{\\\"BlockStart\\\":\\\"10:40 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (142)\\\",\\\"Number\\\":6,\\\"Count\\\":2,\\\"ClassName\\\":\\\"Novice Intermediate\\\",\\\"CountAhead\\\":16},{\\\"BlockStart\\\":\\\"10:40 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (142)\\\",\\\"Number\\\":6,\\\"Count\\\":6,\\\"ClassName\\\":\\\"Novice Junior\\\",\\\"CountAhead\\\":18},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (142)\\\",\\\"Number\\\":6,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Spaniels (Cocker) Ascob\\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (142)\\\",\\\"Number\\\":6,\\\"Count\\\":8,\\\"BreedName\\\":\\\"Spaniels (English Cocker) \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":10},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (142)\\\",\\\"Number\\\":6,\\\"Count\\\":23,\\\"BreedName\\\":\\\"Retrievers (Golden) \\\",\\\"DogCount\\\":11,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":18},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (142)\\\",\\\"Number\\\":6,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Spaniels (Boykin) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":41},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (142)\\\",\\\"Number\\\":6,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Pointers (German Wirehaired) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":42},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (142)\\\",\\\"Number\\\":6,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Spaniels (Irish Water) \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":43},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (142)\\\",\\\"Number\\\":6,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Spaniels (Cocker) Parti-Color\\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":44},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (102)\\\",\\\"Number\\\":7,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Italian Greyhounds \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (102)\\\",\\\"Number\\\":7,\\\"Count\\\":13,\\\"BreedName\\\":\\\"Chihuahuas (Smooth Coat) \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":3},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (102)\\\",\\\"Number\\\":7,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Japanese Chin \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":16},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (102)\\\",\\\"Number\\\":7,\\\"Count\\\":12,\\\"BreedName\\\":\\\"Chihuahuas (Long Coat) \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":23},{\\\"BlockStart\\\":\\\"9:55 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (102)\\\",\\\"Number\\\":7,\\\"Count\\\":13,\\\"BreedName\\\":\\\"Papillons \\\",\\\"DogCount\\\":6,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:55 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (102)\\\",\\\"Number\\\":7,\\\"Count\\\":15,\\\"BreedName\\\":\\\"Cavalier King Charles Spaniels \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":4,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":13},{\\\"BlockStart\\\":\\\"11:00 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (102)\\\",\\\"Number\\\":7,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Brussels Griffons \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"11:00 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (102)\\\",\\\"Number\\\":7,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Havanese \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":3},{\\\"BlockStart\\\":\\\"11:00 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (102)\\\",\\\"Number\\\":7,\\\"Count\\\":4,\\\"BreedName\\\":\\\"Miniature Pinschers \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":12},{\\\"BlockStart\\\":\\\"12:25 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (102)\\\",\\\"Number\\\":7,\\\"Count\\\":4,\\\"BreedName\\\":\\\"Pekingese \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:25 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (102)\\\",\\\"Number\\\":7,\\\"Count\\\":17,\\\"BreedName\\\":\\\"Chinese Cresteds \\\",\\\"DogCount\\\":6,\\\"BitchCount\\\":8,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":4},{\\\"BlockStart\\\":\\\"12:25 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (102)\\\",\\\"Number\\\":7,\\\"Count\\\":1,\\\"BreedName\\\":\\\"English Toy Spaniels (K C & R) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":21},{\\\"BlockStart\\\":\\\"12:25 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (102)\\\",\\\"Number\\\":7,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Maltese \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":22},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Border Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Lakeland Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":2},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Scottish Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":5},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Fox Terriers (Wire) \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":8},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":4,\\\"BreedName\\\":\\\"West Highland White Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":11},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Cairn Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":15},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Fox Terriers (Smooth) \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":22},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Parson Russell Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":31},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Airedale Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":32},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":1,\\\"BreedName\\\":\\\"American Staffordshire Terriers \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":38},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Kerry Blue Terriers \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":39},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Soft Coated Wheaten Terriers \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":40},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (124)\\\",\\\"Number\\\":8,\\\"Count\\\":17,\\\"BreedName\\\":\\\"Bulldogs \\\",\\\"DogCount\\\":7,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":4,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (124)\\\",\\\"Number\\\":8,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Boston Terriers \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":17},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (124)\\\",\\\"Number\\\":8,\\\"Count\\\":16,\\\"BreedName\\\":\\\"French Bulldogs \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":8,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":24},{\\\"BlockStart\\\":\\\"10:05 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (124)\\\",\\\"Number\\\":8,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Shiba Inu \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"10:05 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (124)\\\",\\\"Number\\\":8,\\\"Count\\\":8,\\\"BreedName\\\":\\\"Schipperkes \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":2},{\\\"BlockStart\\\":\\\"10:05 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (124)\\\",\\\"Number\\\":8,\\\"Count\\\":4,\\\"BreedName\\\":\\\"American Eskimo Dogs \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":10},{\\\"BlockStart\\\":\\\"10:05 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (124)\\\",\\\"Number\\\":8,\\\"Count\\\":8,\\\"BreedName\\\":\\\"Lowchen \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":14},{\\\"BlockStart\\\":\\\"10:05 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (124)\\\",\\\"Number\\\":8,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Tibetan Terriers \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":22},{\\\"BlockStart\\\":\\\"11:20 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (124)\\\",\\\"Number\\\":8,\\\"Count\\\":12,\\\"BreedName\\\":\\\"Lhasa Apsos \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"11:20 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (124)\\\",\\\"Number\\\":8,\\\"Count\\\":4,\\\"BreedName\\\":\\\"Chow Chows \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":12},{\\\"BlockStart\\\":\\\"12:45 pm\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (124)\\\",\\\"Number\\\":8,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Chinese Shar-Pei \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:45 pm\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (124)\\\",\\\"Number\\\":8,\\\"Count\\\":17,\\\"BreedName\\\":\\\"Keeshonden \\\",\\\"DogCount\\\":9,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":7},{\\\"BlockStart\\\":\\\"12:45 pm\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (124)\\\",\\\"Number\\\":8,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Dalmatians \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":24},{\\\"BlockStart\\\":\\\"12:45 pm\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (124)\\\",\\\"Number\\\":8,\\\"Count\\\":11,\\\"BreedName\\\":\\\"Bichons Frises \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":25},{\\\"BlockStart\\\":\\\"12:45 pm\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (124)\\\",\\\"Number\\\":8,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Tibetan Spaniels \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":36},{\\\"BlockStart\\\":\\\"10:20 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Pugs \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"10:20 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Toy Fox Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":7},{\\\"BlockStart\\\":\\\"10:20 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Shih Tzu \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":9},{\\\"BlockStart\\\":\\\"10:20 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":14,\\\"BreedName\\\":\\\"Pomeranians \\\",\\\"DogCount\\\":7,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":18},{\\\"BlockStart\\\":\\\"10:20 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Yorkshire Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":32},{\\\"BlockStart\\\":\\\"11:50 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Australian Terriers \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:15 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Poodles (Miniature) \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"1:25 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Poodles (Standard) \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"1:25 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Poodles (Toy) \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":9},{\\\"Group\\\":\\\"TOY GROUP\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK\\\",\\\"Time\\\":\\\"2:30 pm\\\"},{\\\"Group\\\":\\\"NON-SPORTING GROUP\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT\\\",\\\"Time\\\":\\\"2:30 pm\\\"},{\\\"Group\\\":\\\"SPORTING GROUP\\\",\\\"Judge\\\":\\\"MS GLORIA KERR\\\",\\\"Time\\\":\\\"2:30 pm\\\"},{\\\"Group\\\":\\\"HERDING GROUP\\\",\\\"Judge\\\":\\\"MRS DANELLE M BROWN\\\",\\\"Time\\\":\\\"2:30 pm\\\"},{\\\"Group\\\":\\\"WORKING GROUP\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON\\\",\\\"Time\\\":\\\"2:30 pm\\\"},{\\\"Group\\\":\\\"HOUND GROUP\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\",\\\"Time\\\":\\\"2:30 pm\\\"},{\\\"Group\\\":\\\"TERRIER GROUP\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON\\\",\\\"Time\\\":\\\"2:30 pm\\\"},{\\\"Group\\\":\\\"BEST IN SHOW\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS\\\",\\\"Time\\\":\\\"2:30 pm\\\"},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (141)\\\",\\\"Number\\\":1,\\\"Count\\\":4,\\\"BreedName\\\":\\\"Vizslas \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (141)\\\",\\\"Number\\\":1,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Setters (English) \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":4},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (141)\\\",\\\"Number\\\":1,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Weimaraners \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":9},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (141)\\\",\\\"Number\\\":1,\\\"Count\\\":20,\\\"BreedName\\\":\\\"Setters (Gordon) \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":12,\\\"SpecialDogCount\\\":5,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":18},{\\\"BlockStart\\\":\\\"10:05 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (141)\\\",\\\"Number\\\":1,\\\"Count\\\":57,\\\"BreedName\\\":\\\"Retrievers (Nova Scotia Duck Tolling) \\\",\\\"DogCount\\\":20,\\\"BitchCount\\\":13,\\\"SpecialDogCount\\\":8,\\\"SpecialBitchCount\\\":5,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"10:05 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (141)\\\",\\\"Number\\\":1,\\\"Count\\\":2,\\\"IsVeteran\\\":true,\\\"BreedName\\\":\\\"Retrievers (Nova Scotia Duck Tolling) \\\",\\\"CountAhead\\\":57},{\\\"BlockStart\\\":\\\"10:05 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (141)\\\",\\\"Number\\\":1,\\\"Count\\\":2,\\\"IsVeteran\\\":true,\\\"BreedName\\\":\\\"Retrievers (Nova Scotia Duck Tolling) \\\",\\\"CountAhead\\\":59},{\\\"BlockStart\\\":\\\"1:10 pm\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (141)\\\",\\\"Number\\\":1,\\\"Count\\\":16,\\\"BreedName\\\":\\\"Setters (Irish) \\\",\\\"DogCount\\\":7,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (141)\\\",\\\"Number\\\":2,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Mastiffs \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (141)\\\",\\\"Number\\\":2,\\\"Count\\\":22,\\\"BreedName\\\":\\\"Great Danes \\\",\\\"DogCount\\\":9,\\\"BitchCount\\\":8,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":6},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (141)\\\",\\\"Number\\\":2,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Bullmastiffs \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (141)\\\",\\\"Number\\\":2,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Tibetan Mastiffs \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":2},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (141)\\\",\\\"Number\\\":2,\\\"Count\\\":8,\\\"BreedName\\\":\\\"Boxers \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":7},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (141)\\\",\\\"Number\\\":2,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Akitas \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":15},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (141)\\\",\\\"Number\\\":2,\\\"Count\\\":13,\\\"BreedName\\\":\\\"Siberian Huskies \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":24},{\\\"BlockStart\\\":\\\"11:05 am\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (141)\\\",\\\"Number\\\":2,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Newfoundlands \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"11:05 am\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (141)\\\",\\\"Number\\\":2,\\\"Count\\\":21,\\\"BreedName\\\":\\\"Bernese Mountain Dogs \\\",\\\"DogCount\\\":10,\\\"BitchCount\\\":8,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":10},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (141)\\\",\\\"Number\\\":2,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Rottweilers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (141)\\\",\\\"Number\\\":2,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Great Pyrenees \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":6},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (141)\\\",\\\"Number\\\":2,\\\"Count\\\":8,\\\"BreedName\\\":\\\"Portuguese Water Dogs \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":11},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (141)\\\",\\\"Number\\\":2,\\\"Count\\\":18,\\\"BreedName\\\":\\\"Samoyeds \\\",\\\"DogCount\\\":7,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":19},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (141)\\\",\\\"Number\\\":2,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Standard Schnauzers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":37},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (141)\\\",\\\"Number\\\":2,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Saint Bernards \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":38},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (141)\\\",\\\"Number\\\":2,\\\"Count\\\":1,\\\"BreedName\\\":\\\"German Pinschers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":39},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (141)\\\",\\\"Number\\\":2,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Cane Corso \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":40},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"DR STEPHEN LEONARD BLOOM MD (15)\\\",\\\"Number\\\":3,\\\"Count\\\":15,\\\"BreedName\\\":\\\"German Shepherd Dogs \\\",\\\"DogCount\\\":7,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:05 am\\\",\\\"Judge\\\":\\\"MARISSASHEPHERD(37)\\\",\\\"Number\\\":3,\\\"Count\\\":1,\\\"ClassName\\\":\\\"Master Class\\\",\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:05 am\\\",\\\"Judge\\\":\\\"MARISSASHEPHERD(37)\\\",\\\"Number\\\":3,\\\"Count\\\":11,\\\"ClassName\\\":\\\"Open Senior\\\",\\\"CountAhead\\\":1},{\\\"BlockStart\\\":\\\"9:05 am\\\",\\\"Judge\\\":\\\"MARISSASHEPHERD(37)\\\",\\\"Number\\\":3,\\\"Count\\\":15,\\\"ClassName\\\":\\\"Open Intermediate\\\",\\\"CountAhead\\\":12},{\\\"BlockStart\\\":\\\"9:05 am\\\",\\\"Judge\\\":\\\"MARISSASHEPHERD(37)\\\",\\\"Number\\\":3,\\\"Count\\\":4,\\\"ClassName\\\":\\\"Open Junior\\\",\\\"CountAhead\\\":27},{\\\"BlockStart\\\":\\\"9:05 am\\\",\\\"Judge\\\":\\\"MARISSASHEPHERD(37)\\\",\\\"Number\\\":3,\\\"Count\\\":1,\\\"ClassName\\\":\\\"Novice Intermediate\\\",\\\"CountAhead\\\":31},{\\\"BlockStart\\\":\\\"9:05 am\\\",\\\"Judge\\\":\\\"MARISSASHEPHERD(37)\\\",\\\"Number\\\":3,\\\"Count\\\":5,\\\"ClassName\\\":\\\"Novice Junior\\\",\\\"CountAhead\\\":32},{\\\"BlockStart\\\":\\\"10:55 am\\\",\\\"Judge\\\":\\\"MS DAWN DANNER (30)\\\",\\\"Number\\\":3,\\\"Count\\\":30,\\\"BreedName\\\":\\\"Doberman Pinschers \\\",\\\"DogCount\\\":14,\\\"BitchCount\\\":10,\\\"SpecialDogCount\\\":5,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (145)\\\",\\\"Number\\\":4,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Australian Cattle Dogs \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (145)\\\",\\\"Number\\\":4,\\\"Count\\\":11,\\\"BreedName\\\":\\\"Collies (Smooth) \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":5},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (145)\\\",\\\"Number\\\":4,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Canaan Dogs \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":16},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (145)\\\",\\\"Number\\\":4,\\\"Count\\\":13,\\\"BreedName\\\":\\\"Border Collies \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":19},{\\\"BlockStart\\\":\\\"9:45 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (145)\\\",\\\"Number\\\":4,\\\"Count\\\":19,\\\"BreedName\\\":\\\"Australian Shepherds \\\",\\\"DogCount\\\":8,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:45 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (145)\\\",\\\"Number\\\":4,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Belgian Tervuren \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":19},{\\\"BlockStart\\\":\\\"9:45 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (145)\\\",\\\"Number\\\":4,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Collies (Rough) \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":22},{\\\"BlockStart\\\":\\\"10:55 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (145)\\\",\\\"Number\\\":4,\\\"Count\\\":4,\\\"BreedName\\\":\\\"Bouviers des Flandres \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"10:55 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (145)\\\",\\\"Number\\\":4,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Bearded Collies \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":4},{\\\"BlockStart\\\":\\\"10:55 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (145)\\\",\\\"Number\\\":4,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Briards \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":9},{\\\"BlockStart\\\":\\\"10:55 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (145)\\\",\\\"Number\\\":4,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Old English Sheepdogs \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":11},{\\\"BlockStart\\\":\\\"10:55 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (145)\\\",\\\"Number\\\":4,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Cardigan Welsh Corgis \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":14},{\\\"BlockStart\\\":\\\"11:45 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (65)\\\",\\\"Number\\\":4,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Berger Picards (Misc. Dogs)\\\",\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"11:45 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (65)\\\",\\\"Number\\\":4,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Berger Picards (Misc. Bitches)\\\",\\\"CountAhead\\\":2},{\\\"BlockStart\\\":\\\"11:45 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (65)\\\",\\\"Number\\\":4,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Lagotto Romagnolo (Misc. Dogs)\\\",\\\"CountAhead\\\":5},{\\\"BlockStart\\\":\\\"11:45 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (65)\\\",\\\"Number\\\":4,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Lagotto Romagnolo (Misc. Bitch)\\\",\\\"CountAhead\\\":7},{\\\"BlockStart\\\":\\\"11:45 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (65)\\\",\\\"Number\\\":4,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Miniature American Shepherds (Misc. Bitch)\\\",\\\"CountAhead\\\":8},{\\\"BlockStart\\\":\\\"1:15 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS\\\\r\\\\n\\\",\\\"Number\\\":4,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Belgian Malinois \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"1:15 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS\\\\r\\\\n\\\",\\\"Number\\\":4,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Belgian Sheepdogs \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":1},{\\\"BlockStart\\\":\\\"1:15 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS\\\\r\\\\n\\\",\\\"Number\\\":4,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Pembroke Welsh Corgis \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":2},{\\\"BlockStart\\\":\\\"1:15 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS\\\\r\\\\n\\\",\\\"Number\\\":4,\\\"Count\\\":36,\\\"BreedName\\\":\\\"Shetland Sheepdogs \\\",\\\"DogCount\\\":14,\\\"BitchCount\\\":19,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":11},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (137)\\\",\\\"Number\\\":5,\\\"Count\\\":36,\\\"BreedName\\\":\\\"Whippets \\\",\\\"DogCount\\\":10,\\\"BitchCount\\\":15,\\\"SpecialDogCount\\\":5,\\\"SpecialBitchCount\\\":6,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:55 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (137)\\\",\\\"Number\\\":5,\\\"Count\\\":18,\\\"BreedName\\\":\\\"Rhodesian Ridgebacks \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":9,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":4,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:55 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (137)\\\",\\\"Number\\\":5,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Borzois \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":18},{\\\"BlockStart\\\":\\\"11:05 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (137)\\\",\\\"Number\\\":5,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Salukis \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"11:05 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (137)\\\",\\\"Number\\\":5,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Scottish Deerhounds \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":5},{\\\"BlockStart\\\":\\\"11:05 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (137)\\\",\\\"Number\\\":5,\\\"Count\\\":16,\\\"BreedName\\\":\\\"Afghan Hounds \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":4,\\\"SpecialBitchCount\\\":4,\\\"CountAhead\\\":7},{\\\"BlockStart\\\":\\\"11:05 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (137)\\\",\\\"Number\\\":5,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Pharaoh Hounds \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":23},{\\\"BlockStart\\\":\\\"11:05 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (137)\\\",\\\"Number\\\":5,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Greyhounds \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":24},{\\\"BlockStart\\\":\\\"12:50 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (137)\\\",\\\"Number\\\":5,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Dachshunds (Wirehaired) \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:50 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (137)\\\",\\\"Number\\\":5,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Beagles (13 Inch) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":6},{\\\"BlockStart\\\":\\\"12:50 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (137)\\\",\\\"Number\\\":5,\\\"Count\\\":17,\\\"BreedName\\\":\\\"Dachshunds (Longhaired) \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":9,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":11},{\\\"BlockStart\\\":\\\"12:50 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (137)\\\",\\\"Number\\\":5,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Beagles (15 Inch) \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":28},{\\\"BlockStart\\\":\\\"12:50 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (137)\\\",\\\"Number\\\":5,\\\"Count\\\":12,\\\"BreedName\\\":\\\"Dachshunds (Smooth) \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":33},{\\\"BlockStart\\\":\\\"12:50 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (137)\\\",\\\"Number\\\":5,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Portuguese Podengo Pequenos \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":45},{\\\"BlockStart\\\":\\\"12:50 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (137)\\\",\\\"Number\\\":5,\\\"Count\\\":1,\\\"BreedName\\\":\\\"American Foxhounds \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":46},{\\\"BlockStart\\\":\\\"12:50 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (137)\\\",\\\"Number\\\":5,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Norwegian Elkhounds \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":47},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (138)\\\",\\\"Number\\\":6,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Pointers (German Shorthaired) \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (138)\\\",\\\"Number\\\":6,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Spinoni Italiani \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":7},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (138)\\\",\\\"Number\\\":6,\\\"Count\\\":15,\\\"BreedName\\\":\\\"Retrievers (Labrador) \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":6,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":12},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (138)\\\",\\\"Number\\\":6,\\\"Count\\\":8,\\\"BreedName\\\":\\\"Brittanys \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (138)\\\",\\\"Number\\\":6,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Retrievers (Flat-Coated) \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":8},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (138)\\\",\\\"Number\\\":6,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Spaniels (English Springer) \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":18},{\\\"BlockStart\\\":\\\"10:40 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (138)\\\",\\\"Number\\\":6,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Bloodhounds \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"10:40 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (138)\\\",\\\"Number\\\":6,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Spaniels (Clumber) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":2},{\\\"BlockStart\\\":\\\"10:40 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (138)\\\",\\\"Number\\\":6,\\\"Count\\\":14,\\\"BreedName\\\":\\\"Spaniels (Cocker) Black\\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":8,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":7},{\\\"BlockStart\\\":\\\"10:40 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (138)\\\",\\\"Number\\\":6,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Spaniels (Cocker) Parti-Color\\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":21},{\\\"BlockStart\\\":\\\"12:40 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (138)\\\",\\\"Number\\\":6,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Spaniels (Cocker) Ascob\\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:40 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (138)\\\",\\\"Number\\\":6,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Spaniels (English Cocker) \\\",\\\"DogCount\\\":6,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":9},{\\\"BlockStart\\\":\\\"12:40 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (138)\\\",\\\"Number\\\":6,\\\"Count\\\":29,\\\"BreedName\\\":\\\"Retrievers (Golden) \\\",\\\"DogCount\\\":15,\\\"BitchCount\\\":8,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":18},{\\\"BlockStart\\\":\\\"12:40 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (138)\\\",\\\"Number\\\":6,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Pointers (German Wirehaired) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":47},{\\\"BlockStart\\\":\\\"12:40 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (138)\\\",\\\"Number\\\":6,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Spaniels (Boykin) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":48},{\\\"BlockStart\\\":\\\"12:40 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (138)\\\",\\\"Number\\\":6,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Retrievers (Curly-Coated) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":49},{\\\"BlockStart\\\":\\\"12:40 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (138)\\\",\\\"Number\\\":6,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Spaniels (Irish Water) \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":50},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (134)\\\",\\\"Number\\\":7,\\\"Count\\\":11,\\\"BreedName\\\":\\\"Miniature Pinschers \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":4,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (134)\\\",\\\"Number\\\":7,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Italian Greyhounds \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":11},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (134)\\\",\\\"Number\\\":7,\\\"Count\\\":14,\\\"BreedName\\\":\\\"Papillons \\\",\\\"DogCount\\\":6,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":14},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (134)\\\",\\\"Number\\\":7,\\\"Count\\\":8,\\\"BreedName\\\":\\\"Pugs \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (134)\\\",\\\"Number\\\":7,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Toy Fox Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":8},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (134)\\\",\\\"Number\\\":7,\\\"Count\\\":4,\\\"BreedName\\\":\\\"Brussels Griffons \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":10},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (134)\\\",\\\"Number\\\":7,\\\"Count\\\":23,\\\"BreedName\\\":\\\"Cavalier King Charles Spaniels \\\",\\\"DogCount\\\":8,\\\"BitchCount\\\":9,\\\"SpecialDogCount\\\":4,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":14},{\\\"BlockStart\\\":\\\"11:05 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (134)\\\",\\\"Number\\\":7,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Havanese \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"11:05 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (134)\\\",\\\"Number\\\":7,\\\"Count\\\":14,\\\"BreedName\\\":\\\"Chihuahuas (Smooth Coat) \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":7},{\\\"BlockStart\\\":\\\"12:40 pm\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (134)\\\",\\\"Number\\\":7,\\\"Count\\\":13,\\\"BreedName\\\":\\\"Chihuahuas (Long Coat) \\\",\\\"DogCount\\\":6,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:40 pm\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (134)\\\",\\\"Number\\\":7,\\\"Count\\\":4,\\\"BreedName\\\":\\\"Pekingese \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":13},{\\\"BlockStart\\\":\\\"12:40 pm\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (134)\\\",\\\"Number\\\":7,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Shih Tzu \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":17},{\\\"BlockStart\\\":\\\"12:40 pm\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (134)\\\",\\\"Number\\\":7,\\\"Count\\\":21,\\\"BreedName\\\":\\\"Pomeranians \\\",\\\"DogCount\\\":10,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":26},{\\\"BlockStart\\\":\\\"12:40 pm\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (134)\\\",\\\"Number\\\":7,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Yorkshire Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":47},{\\\"BlockStart\\\":\\\"2:55 pm\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":4,\\\"BreedName\\\":\\\"West Highland White Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (143)\\\",\\\"Number\\\":8,\\\"Count\\\":18,\\\"BreedName\\\":\\\"Bulldogs \\\",\\\"DogCount\\\":8,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":4,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (143)\\\",\\\"Number\\\":8,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Boston Terriers \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":18},{\\\"BlockStart\\\":\\\"9:30 am\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (143)\\\",\\\"Number\\\":8,\\\"Count\\\":15,\\\"BreedName\\\":\\\"French Bulldogs \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:30 am\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (143)\\\",\\\"Number\\\":8,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Shiba Inu \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":15},{\\\"BlockStart\\\":\\\"9:30 am\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (143)\\\",\\\"Number\\\":8,\\\"Count\\\":8,\\\"BreedName\\\":\\\"Schipperkes \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":18},{\\\"BlockStart\\\":\\\"10:30 am\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (143)\\\",\\\"Number\\\":8,\\\"Count\\\":4,\\\"BreedName\\\":\\\"American Eskimo Dogs \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"10:30 am\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (143)\\\",\\\"Number\\\":8,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Tibetan Terriers \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":4},{\\\"BlockStart\\\":\\\"10:30 am\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (143)\\\",\\\"Number\\\":8,\\\"Count\\\":8,\\\"BreedName\\\":\\\"Lowchen \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":10},{\\\"BlockStart\\\":\\\"10:30 am\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (143)\\\",\\\"Number\\\":8,\\\"Count\\\":13,\\\"BreedName\\\":\\\"Lhasa Apsos \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":18},{\\\"BlockStart\\\":\\\"12:30 pm\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (143)\\\",\\\"Number\\\":8,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Poodles (Toy) \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:30 pm\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (143)\\\",\\\"Number\\\":8,\\\"Count\\\":11,\\\"BreedName\\\":\\\"Bichons Frises \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":6},{\\\"BlockStart\\\":\\\"12:30 pm\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (143)\\\",\\\"Number\\\":8,\\\"Count\\\":12,\\\"BreedName\\\":\\\"Poodles (Miniature) \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":17},{\\\"BlockStart\\\":\\\"1:40 pm\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (143)\\\",\\\"Number\\\":8,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Tibetan Spaniels \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"1:40 pm\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (143)\\\",\\\"Number\\\":8,\\\"Count\\\":20,\\\"BreedName\\\":\\\"Keeshonden \\\",\\\"DogCount\\\":10,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":1},{\\\"BlockStart\\\":\\\"1:40 pm\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (143)\\\",\\\"Number\\\":8,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Poodles (Standard) \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":8,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":21},{\\\"BlockStart\\\":\\\"1:40 pm\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (143)\\\",\\\"Number\\\":8,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Dalmatians \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":31},{\\\"BlockStart\\\":\\\"12:30 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":12,\\\"BreedName\\\":\\\"Chinese Shar-Pei \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:30 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Chow Chows \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":12},{\\\"BlockStart\\\":\\\"1:55 pm\\\",\\\"Judge\\\":\\\"MS GLORIA KERR\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Japanese Chin \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"1:55 pm\\\",\\\"Judge\\\":\\\"MS GLORIA KERR\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":19,\\\"BreedName\\\":\\\"Chinese Cresteds \\\",\\\"DogCount\\\":6,\\\"BitchCount\\\":9,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":7},{\\\"BlockStart\\\":\\\"1:55 pm\\\",\\\"Judge\\\":\\\"MS GLORIA KERR\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":1,\\\"BreedName\\\":\\\"English Toy Spaniels (K C & R) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":26},{\\\"BlockStart\\\":\\\"1:55 pm\\\",\\\"Judge\\\":\\\"MS GLORIA KERR\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Maltese \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":27},{\\\"BlockStart\\\":\\\"12:10 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":10,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Australian Terriers \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:10 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":10,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Cairn Terriers \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":9},{\\\"BlockStart\\\":\\\"12:10 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":10,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Fox Terriers (Smooth) \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":18},{\\\"BlockStart\\\":\\\"1:15 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":10,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Scottish Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"1:15 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":10,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Border Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":3},{\\\"BlockStart\\\":\\\"1:15 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":10,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Fox Terriers (Wire) \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":5},{\\\"BlockStart\\\":\\\"1:15 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":10,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Lakeland Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":10},{\\\"BlockStart\\\":\\\"1:15 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":10,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Parson Russell Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":13},{\\\"BlockStart\\\":\\\"1:15 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":10,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Norwich Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":14},{\\\"BlockStart\\\":\\\"1:15 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":10,\\\"Count\\\":2,\\\"BreedName\\\":\\\"American Staffordshire Terriers \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":15},{\\\"BlockStart\\\":\\\"1:15 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":10,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Soft Coated Wheaten Terriers \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":17},{\\\"BlockStart\\\":\\\"1:15 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":10,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Airedale Terriers \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":20},{\\\"BlockStart\\\":\\\"1:15 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":10,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Kerry Blue Terriers \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":27},{\\\"Group\\\":\\\"SPORTING GROUP\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON\\\",\\\"Time\\\":\\\"2:45 pm\\\"},{\\\"Group\\\":\\\"HOUND GROUP\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK\\\",\\\"Time\\\":\\\"2:45 pm\\\"},{\\\"Group\\\":\\\"WORKING GROUP\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE\\\",\\\"Time\\\":\\\"2:45 pm\\\"},{\\\"Group\\\":\\\"TOY GROUP\\\",\\\"Judge\\\":\\\"MS GLORIA KERR\\\",\\\"Time\\\":\\\"2:45 pm\\\"},{\\\"Group\\\":\\\"TERRIER GROUP\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE\\\",\\\"Time\\\":\\\"2:45 pm\\\"},{\\\"Group\\\":\\\"HERDING GROUP\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS\\\",\\\"Time\\\":\\\"2:45 pm\\\"},{\\\"Group\\\":\\\"NON-SPORTING GROUP\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN\\\",\\\"Time\\\":\\\"2:45 pm\\\"},{\\\"Group\\\":\\\"BEST IN SHOW\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT\\\",\\\"Time\\\":\\\"2:45 pm\\\"},{\\\"BlockStart\\\":\\\"12:15 pm\\\",\\\"Judge\\\":\\\"MRS PATRICIA A JUNG (7)\\\",\\\"Number\\\":3,\\\"Count\\\":7,\\\"IsSweepstakes\\\":true,\\\"BreedName\\\":\\\"Doberman Pinschers \\\",\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:30 pm\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (36)\\\",\\\"Number\\\":3,\\\"Count\\\":1,\\\"ClassName\\\":\\\"Open Intermediate\\\",\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:30 pm\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (36)\\\",\\\"Number\\\":3,\\\"Count\\\":1,\\\"ClassName\\\":\\\"Novice Intermediate\\\",\\\"CountAhead\\\":1},{\\\"BlockStart\\\":\\\"12:30 pm\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (36)\\\",\\\"Number\\\":3,\\\"Count\\\":34,\\\"BreedName\\\":\\\"Doberman Pinschers \\\",\\\"DogCount\\\":15,\\\"BitchCount\\\":13,\\\"SpecialDogCount\\\":5,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":2},{\\\"BlockStart\\\":\\\"3:15 pm\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (6)\\\",\\\"Number\\\":9,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Chow Chows \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"3:15 pm\\\",\\\"Judge\\\":\\\"MR LARRY F MACKAI (15)\\\",\\\"Number\\\":9,\\\"Count\\\":2,\\\"ClassName\\\":\\\"Novice Intermediate\\\",\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"3:15 pm\\\",\\\"Judge\\\":\\\"MR LARRY F MACKAI (15)\\\",\\\"Number\\\":9,\\\"Count\\\":13,\\\"BreedName\\\":\\\"Chinese Shar-Pei \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":2},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"MS DEB LEE STINER (7)\\\",\\\"Number\\\":3,\\\"Count\\\":7,\\\"IsSweepstakes\\\":true,\\\"BreedName\\\":\\\"Doberman Pinschers \\\",\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"2:15 pm\\\",\\\"Judge\\\":\\\"MRS PATRICIA A JUNG (2)\\\",\\\"Number\\\":3,\\\"Count\\\":1,\\\"ClassName\\\":\\\"Open Intermediate\\\",\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"2:15 pm\\\",\\\"Judge\\\":\\\"MRS PATRICIA A JUNG (2)\\\",\\\"Number\\\":3,\\\"Count\\\":1,\\\"ClassName\\\":\\\"Novice Intermediate\\\",\\\"CountAhead\\\":1},{\\\"BlockStart\\\":\\\"2:15 pm\\\",\\\"Judge\\\":\\\"MRS PATRICIA A JUNG (2)\\\",\\\"Number\\\":3,\\\"Count\\\":33,\\\"BreedName\\\":\\\"Doberman Pinschers \\\",\\\"DogCount\\\":16,\\\"BitchCount\\\":12,\\\"SpecialDogCount\\\":4,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":2},{\\\"BlockStart\\\":\\\"1:30 pm\\\",\\\"Judge\\\":\\\"MR CURTIS VAN LEUR (6)\\\",\\\"Number\\\":6,\\\"Count\\\":4,\\\"IsSweepstakes\\\":true,\\\"BreedName\\\":\\\"Weimaraners \\\",\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"1:30 pm\\\",\\\"Judge\\\":\\\"MR CURTIS VAN LEUR (6)\\\",\\\"Number\\\":6,\\\"Count\\\":2,\\\"IsVeteran\\\":true,\\\"IsSweepstakes\\\":true,\\\"BreedName\\\":\\\"Weimaraners \\\",\\\"CountAhead\\\":4},{\\\"BlockStart\\\":\\\"1:45 pm\\\",\\\"Judge\\\":\\\"MRS KATHY A RUST (14)\\\",\\\"Number\\\":6,\\\"Count\\\":14,\\\"BreedName\\\":\\\"Weimaraners \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"1:45 pm\\\",\\\"Judge\\\":\\\"MRS KATHY A RUST (14)\\\",\\\"Number\\\":6,\\\"Count\\\":1,\\\"IsVeteran\\\":true,\\\"BreedName\\\":\\\"Weimaraners \\\",\\\"CountAhead\\\":14},{\\\"BlockStart\\\":\\\"1:45 pm\\\",\\\"Judge\\\":\\\"MRS KATHY A RUST (14)\\\",\\\"Number\\\":6,\\\"Count\\\":1,\\\"IsVeteran\\\":true,\\\"BreedName\\\":\\\"Weimaraners \\\",\\\"CountAhead\\\":15},{\\\"BlockStart\\\":\\\"3:15 pm\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (25)\\\",\\\"Number\\\":9,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Poodles (Toy) \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"3:15 pm\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (25)\\\",\\\"Number\\\":9,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Poodles (Miniature) \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":6},{\\\"BlockStart\\\":\\\"3:15 pm\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (25)\\\",\\\"Number\\\":9,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Poodles (Standard) \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":15},{\\\"BlockStart\\\":\\\"2:15 pm\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (6)\\\",\\\"Number\\\":10,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Chow Chows \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"3:15 pm\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM (24)\\\",\\\"Number\\\":10,\\\"Count\\\":2,\\\"ClassName\\\":\\\"Open Intermediate\\\",\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"3:15 pm\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM (24)\\\",\\\"Number\\\":10,\\\"Count\\\":1,\\\"ClassName\\\":\\\"Novice Senior\\\",\\\"CountAhead\\\":2},{\\\"BlockStart\\\":\\\"3:15 pm\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM (24)\\\",\\\"Number\\\":10,\\\"Count\\\":21,\\\"BreedName\\\":\\\"Miniature Pinschers \\\",\\\"DogCount\\\":7,\\\"BitchCount\\\":8,\\\"SpecialDogCount\\\":4,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":3},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (122)\\\",\\\"Number\\\":1,\\\"Count\\\":23,\\\"BreedName\\\":\\\"Retrievers (Labrador) \\\",\\\"DogCount\\\":10,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":7,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (122)\\\",\\\"Number\\\":1,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Spinoni Italiani \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":23},{\\\"BlockStart\\\":\\\"9:40 am\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (122)\\\",\\\"Number\\\":1,\\\"Count\\\":20,\\\"BreedName\\\":\\\"Setters (Irish) \\\",\\\"DogCount\\\":8,\\\"BitchCount\\\":10,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:40 am\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (122)\\\",\\\"Number\\\":1,\\\"Count\\\":24,\\\"BreedName\\\":\\\"Retrievers (Golden) \\\",\\\"DogCount\\\":11,\\\"BitchCount\\\":9,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":20},{\\\"BlockStart\\\":\\\"11:30 am\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (122)\\\",\\\"Number\\\":1,\\\"Count\\\":17,\\\"BreedName\\\":\\\"Spaniels (Cocker) Black\\\",\\\"DogCount\\\":6,\\\"BitchCount\\\":9,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:55 pm\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (122)\\\",\\\"Number\\\":1,\\\"Count\\\":11,\\\"BreedName\\\":\\\"Spaniels (Cocker) Parti-Color\\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:55 pm\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (122)\\\",\\\"Number\\\":1,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Spaniels (Irish Water) \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":11},{\\\"BlockStart\\\":\\\"12:55 pm\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (122)\\\",\\\"Number\\\":1,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Setters (English) \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":13},{\\\"BlockStart\\\":\\\"12:55 pm\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (122)\\\",\\\"Number\\\":1,\\\"Count\\\":13,\\\"BreedName\\\":\\\"Spaniels (Cocker) Ascob\\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":18},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (136)\\\",\\\"Number\\\":2,\\\"Count\\\":25,\\\"BreedName\\\":\\\"Rhodesian Ridgebacks \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":12,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":6,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:30 am\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (136)\\\",\\\"Number\\\":2,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Salukis \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:30 am\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (136)\\\",\\\"Number\\\":2,\\\"Count\\\":15,\\\"BreedName\\\":\\\"Borzois \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":8,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":6},{\\\"BlockStart\\\":\\\"9:30 am\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (136)\\\",\\\"Number\\\":2,\\\"Count\\\":4,\\\"BreedName\\\":\\\"Greyhounds \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":21},{\\\"BlockStart\\\":\\\"10:30 am\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (136)\\\",\\\"Number\\\":2,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Pharaoh Hounds \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"10:30 am\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (136)\\\",\\\"Number\\\":2,\\\"Count\\\":24,\\\"BreedName\\\":\\\"Afghan Hounds \\\",\\\"DogCount\\\":9,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":4,\\\"SpecialBitchCount\\\":5,\\\"CountAhead\\\":1},{\\\"BlockStart\\\":\\\"11:30 am\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (136)\\\",\\\"Number\\\":2,\\\"Count\\\":19,\\\"BreedName\\\":\\\"Dachshunds (Longhaired) \\\",\\\"DogCount\\\":7,\\\"BitchCount\\\":8,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"1:00 pm\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (136)\\\",\\\"Number\\\":2,\\\"Count\\\":8,\\\"BreedName\\\":\\\"Dachshunds (Wirehaired) \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"1:00 pm\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (136)\\\",\\\"Number\\\":2,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Beagles (13 Inch) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":8},{\\\"BlockStart\\\":\\\"1:00 pm\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (136)\\\",\\\"Number\\\":2,\\\"Count\\\":14,\\\"BreedName\\\":\\\"Dachshunds (Smooth) \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":8,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":14},{\\\"BlockStart\\\":\\\"1:00 pm\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (136)\\\",\\\"Number\\\":2,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Beagles (15 Inch) \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":28},{\\\"BlockStart\\\":\\\"1:00 pm\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (136)\\\",\\\"Number\\\":2,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Portuguese Podengo Pequenos \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":35},{\\\"BlockStart\\\":\\\"1:00 pm\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (136)\\\",\\\"Number\\\":2,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Norwegian Elkhounds \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":36},{\\\"BlockStart\\\":\\\"1:00 pm\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (136)\\\",\\\"Number\\\":2,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Bloodhounds \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":38},{\\\"BlockStart\\\":\\\"1:00 pm\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (136)\\\",\\\"Number\\\":2,\\\"Count\\\":1,\\\"BreedName\\\":\\\"American Foxhounds \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":40},{\\\"BlockStart\\\":\\\"1:00 pm\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN (136)\\\",\\\"Number\\\":2,\\\"Count\\\":1,\\\"BreedName\\\":\\\"English Foxhounds \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":41},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (115)\\\",\\\"Number\\\":3,\\\"Count\\\":15,\\\"BreedName\\\":\\\"Collies (Smooth) \\\",\\\"DogCount\\\":6,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (115)\\\",\\\"Number\\\":3,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Australian Cattle Dogs \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":15},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (115)\\\",\\\"Number\\\":3,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Canaan Dogs \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":24},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (115)\\\",\\\"Number\\\":3,\\\"Count\\\":13,\\\"BreedName\\\":\\\"Border Collies \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (115)\\\",\\\"Number\\\":3,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Belgian Tervuren \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":13},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (115)\\\",\\\"Number\\\":3,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Collies (Rough) \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":16},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (115)\\\",\\\"Number\\\":3,\\\"Count\\\":4,\\\"BreedName\\\":\\\"Bouviers des Flandres \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":23},{\\\"BlockStart\\\":\\\"10:40 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (115)\\\",\\\"Number\\\":3,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Bearded Collies \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"10:40 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (115)\\\",\\\"Number\\\":3,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Briards \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":6},{\\\"BlockStart\\\":\\\"10:40 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (115)\\\",\\\"Number\\\":3,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Belgian Malinois \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":8},{\\\"BlockStart\\\":\\\"10:40 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (115)\\\",\\\"Number\\\":3,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Old English Sheepdogs \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":9},{\\\"BlockStart\\\":\\\"10:40 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (115)\\\",\\\"Number\\\":3,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Belgian Sheepdogs \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":12},{\\\"BlockStart\\\":\\\"10:40 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (115)\\\",\\\"Number\\\":3,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Cardigan Welsh Corgis \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":13},{\\\"BlockStart\\\":\\\"12:15 pm\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (115)\\\",\\\"Number\\\":3,\\\"Count\\\":1,\\\"ClassName\\\":\\\"Master Class\\\",\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:15 pm\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (115)\\\",\\\"Number\\\":3,\\\"Count\\\":12,\\\"ClassName\\\":\\\"Open Senior\\\",\\\"CountAhead\\\":1},{\\\"BlockStart\\\":\\\"12:15 pm\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (115)\\\",\\\"Number\\\":3,\\\"Count\\\":13,\\\"ClassName\\\":\\\"Open Intermediate\\\",\\\"CountAhead\\\":13},{\\\"BlockStart\\\":\\\"12:15 pm\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (115)\\\",\\\"Number\\\":3,\\\"Count\\\":4,\\\"ClassName\\\":\\\"Open Junior\\\",\\\"CountAhead\\\":26},{\\\"BlockStart\\\":\\\"12:15 pm\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (115)\\\",\\\"Number\\\":3,\\\"Count\\\":1,\\\"ClassName\\\":\\\"Novice Senior\\\",\\\"CountAhead\\\":30},{\\\"BlockStart\\\":\\\"12:15 pm\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (115)\\\",\\\"Number\\\":3,\\\"Count\\\":3,\\\"ClassName\\\":\\\"Novice Intermediate\\\",\\\"CountAhead\\\":31},{\\\"BlockStart\\\":\\\"12:15 pm\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (115)\\\",\\\"Number\\\":3,\\\"Count\\\":5,\\\"ClassName\\\":\\\"Novice Junior\\\",\\\"CountAhead\\\":34},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (167)\\\",\\\"Number\\\":4,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Mastiffs \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (167)\\\",\\\"Number\\\":4,\\\"Count\\\":22,\\\"BreedName\\\":\\\"Great Danes \\\",\\\"DogCount\\\":9,\\\"BitchCount\\\":8,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":7},{\\\"BlockStart\\\":\\\"9:40 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (167)\\\",\\\"Number\\\":4,\\\"Count\\\":8,\\\"BreedName\\\":\\\"Boxers \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:40 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (167)\\\",\\\"Number\\\":4,\\\"Count\\\":11,\\\"BreedName\\\":\\\"Newfoundlands \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":8},{\\\"BlockStart\\\":\\\"9:40 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (167)\\\",\\\"Number\\\":4,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Tibetan Mastiffs \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":19},{\\\"BlockStart\\\":\\\"9:40 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (167)\\\",\\\"Number\\\":4,\\\"Count\\\":25,\\\"BreedName\\\":\\\"Bernese Mountain Dogs \\\",\\\"DogCount\\\":11,\\\"BitchCount\\\":10,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":24},{\\\"BlockStart\\\":\\\"12:25 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (167)\\\",\\\"Number\\\":4,\\\"Count\\\":16,\\\"BreedName\\\":\\\"Siberian Huskies \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:25 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (167)\\\",\\\"Number\\\":4,\\\"Count\\\":12,\\\"BreedName\\\":\\\"Akitas \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":9,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":16},{\\\"BlockStart\\\":\\\"1:30 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (167)\\\",\\\"Number\\\":4,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Saint Bernards \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"1:30 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (167)\\\",\\\"Number\\\":4,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Alaskan Malamutes \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":3},{\\\"BlockStart\\\":\\\"1:30 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (167)\\\",\\\"Number\\\":4,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Great Pyrenees \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":5},{\\\"BlockStart\\\":\\\"1:30 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (167)\\\",\\\"Number\\\":4,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Standard Schnauzers \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":11},{\\\"BlockStart\\\":\\\"1:30 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (167)\\\",\\\"Number\\\":4,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Portuguese Water Dogs \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":18},{\\\"BlockStart\\\":\\\"2:30 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (167)\\\",\\\"Number\\\":4,\\\"Count\\\":13,\\\"BreedName\\\":\\\"Rottweilers \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"2:30 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (167)\\\",\\\"Number\\\":4,\\\"Count\\\":21,\\\"BreedName\\\":\\\"Samoyeds \\\",\\\"DogCount\\\":8,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":4,\\\"CountAhead\\\":13},{\\\"BlockStart\\\":\\\"2:30 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (167)\\\",\\\"Number\\\":4,\\\"Count\\\":1,\\\"BreedName\\\":\\\"German Pinschers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":34},{\\\"BlockStart\\\":\\\"2:30 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (167)\\\",\\\"Number\\\":4,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Bullmastiffs \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":35},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM (148)\\\",\\\"Number\\\":5,\\\"Count\\\":40,\\\"BreedName\\\":\\\"Whippets \\\",\\\"DogCount\\\":11,\\\"BitchCount\\\":18,\\\"SpecialDogCount\\\":5,\\\"SpecialBitchCount\\\":6,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"10:05 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (153)\\\",\\\"Number\\\":5,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Miniature American Shepherds (Misc. Bitches)\\\",\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"10:05 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (153)\\\",\\\"Number\\\":5,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Lagotto Romagnolo (Misc. Dogs)\\\",\\\"CountAhead\\\":2},{\\\"BlockStart\\\":\\\"10:05 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (153)\\\",\\\"Number\\\":5,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Lagotto Romagnolo (Misc. Bitch)\\\",\\\"CountAhead\\\":4},{\\\"BlockStart\\\":\\\"10:05 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (153)\\\",\\\"Number\\\":5,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Berger Picards (Misc. Dogs)\\\",\\\"CountAhead\\\":5},{\\\"BlockStart\\\":\\\"10:05 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (153)\\\",\\\"Number\\\":5,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Berger Picards (Misc. Bitches)\\\",\\\"CountAhead\\\":7},{\\\"BlockStart\\\":\\\"10:05 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (153)\\\",\\\"Number\\\":5,\\\"Count\\\":29,\\\"BreedName\\\":\\\"Doberman Pinschers \\\",\\\"DogCount\\\":15,\\\"BitchCount\\\":9,\\\"SpecialDogCount\\\":4,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":10},{\\\"BlockStart\\\":\\\"12:15 pm\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM\\\\r\\\\n\\\",\\\"Number\\\":5,\\\"Count\\\":25,\\\"BreedName\\\":\\\"Australian Shepherds \\\",\\\"DogCount\\\":9,\\\"BitchCount\\\":12,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"1:15 pm\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM\\\\r\\\\n\\\",\\\"Number\\\":5,\\\"Count\\\":15,\\\"BreedName\\\":\\\"Pembroke Welsh Corgis \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":10,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"1:15 pm\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM\\\\r\\\\n\\\",\\\"Number\\\":5,\\\"Count\\\":35,\\\"BreedName\\\":\\\"Shetland Sheepdogs \\\",\\\"DogCount\\\":14,\\\"BitchCount\\\":18,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":15},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (105)\\\",\\\"Number\\\":6,\\\"Count\\\":26,\\\"BreedName\\\":\\\"Retrievers (Nova Scotia Duck Tolling) \\\",\\\"DogCount\\\":14,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:30 am\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (105)\\\",\\\"Number\\\":6,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Vizslas \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:30 am\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (105)\\\",\\\"Number\\\":6,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Pointers (German Shorthaired) \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":10},{\\\"BlockStart\\\":\\\"9:30 am\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (105)\\\",\\\"Number\\\":6,\\\"Count\\\":12,\\\"BreedName\\\":\\\"Weimaraners \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":17},{\\\"BlockStart\\\":\\\"10:40 am\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (105)\\\",\\\"Number\\\":6,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Brittanys \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"10:40 am\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (105)\\\",\\\"Number\\\":6,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Retrievers (Flat-Coated) \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":7},{\\\"BlockStart\\\":\\\"10:40 am\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (105)\\\",\\\"Number\\\":6,\\\"Count\\\":12,\\\"BreedName\\\":\\\"Spaniels (English Springer) \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":17},{\\\"BlockStart\\\":\\\"12:35 pm\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (105)\\\",\\\"Number\\\":6,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Spaniels (English Cocker) \\\",\\\"DogCount\\\":6,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:35 pm\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (105)\\\",\\\"Number\\\":6,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Spaniels (Clumber) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":10},{\\\"BlockStart\\\":\\\"12:35 pm\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (105)\\\",\\\"Number\\\":6,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Pointers (German Wirehaired) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":17},{\\\"BlockStart\\\":\\\"12:35 pm\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (105)\\\",\\\"Number\\\":6,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Spaniels (Welsh Springer) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":18},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":11,\\\"BreedName\\\":\\\"Pugs \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Toy Fox Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":11},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":15,\\\"BreedName\\\":\\\"Papillons \\\",\\\"DogCount\\\":6,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":13},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (74)\\\",\\\"Number\\\":7,\\\"Count\\\":3,\\\"BreedName\\\":\\\"American Staffordshire Terriers \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (74)\\\",\\\"Number\\\":7,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Staffordshire Bull Terriers \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":3},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (74)\\\",\\\"Number\\\":7,\\\"Count\\\":11,\\\"BreedName\\\":\\\"Fox Terriers (Smooth) \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":5},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (74)\\\",\\\"Number\\\":7,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Border Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":16},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (74)\\\",\\\"Number\\\":7,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Cairn Terriers \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":19},{\\\"BlockStart\\\":\\\"10:45 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (74)\\\",\\\"Number\\\":7,\\\"Count\\\":4,\\\"BreedName\\\":\\\"West Highland White Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"10:45 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (74)\\\",\\\"Number\\\":7,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Lakeland Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":4},{\\\"BlockStart\\\":\\\"10:45 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (74)\\\",\\\"Number\\\":7,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Scottish Terriers \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":7},{\\\"BlockStart\\\":\\\"10:45 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (74)\\\",\\\"Number\\\":7,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Australian Terriers \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":14},{\\\"BlockStart\\\":\\\"12:25 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (74)\\\",\\\"Number\\\":7,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Fox Terriers (Wire) \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:25 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (74)\\\",\\\"Number\\\":7,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Parson Russell Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":6},{\\\"BlockStart\\\":\\\"12:25 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (74)\\\",\\\"Number\\\":7,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Norwich Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":7},{\\\"BlockStart\\\":\\\"12:25 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (74)\\\",\\\"Number\\\":7,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Soft Coated Wheaten Terriers \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":8},{\\\"BlockStart\\\":\\\"12:25 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (74)\\\",\\\"Number\\\":7,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Kerry Blue Terriers \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":11},{\\\"BlockStart\\\":\\\"12:25 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (74)\\\",\\\"Number\\\":7,\\\"Count\\\":8,\\\"BreedName\\\":\\\"Airedale Terriers \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":13},{\\\"BlockStart\\\":\\\"12:25 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (74)\\\",\\\"Number\\\":7,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Bull Terriers (White) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":21},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (94)\\\",\\\"Number\\\":8,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Italian Greyhounds \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (94)\\\",\\\"Number\\\":8,\\\"Count\\\":14,\\\"BreedName\\\":\\\"Chihuahuas (Smooth Coat) \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":6},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (94)\\\",\\\"Number\\\":8,\\\"Count\\\":4,\\\"BreedName\\\":\\\"Brussels Griffons \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":20},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (94)\\\",\\\"Number\\\":8,\\\"Count\\\":14,\\\"BreedName\\\":\\\"Chihuahuas (Long Coat) \\\",\\\"DogCount\\\":6,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":24},{\\\"BlockStart\\\":\\\"10:00 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (94)\\\",\\\"Number\\\":8,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Japanese Chin \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"10:00 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (94)\\\",\\\"Number\\\":8,\\\"Count\\\":19,\\\"BreedName\\\":\\\"Cavalier King Charles Spaniels \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":4,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":6},{\\\"BlockStart\\\":\\\"11:00 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (94)\\\",\\\"Number\\\":8,\\\"Count\\\":20,\\\"BreedName\\\":\\\"Chinese Cresteds \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":9,\\\"SpecialDogCount\\\":4,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"11:00 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (94)\\\",\\\"Number\\\":8,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Havanese \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":20},{\\\"BlockStart\\\":\\\"11:00 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (94)\\\",\\\"Number\\\":8,\\\"Count\\\":1,\\\"BreedName\\\":\\\"English Toy Spaniels (K C & R) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":29},{\\\"BlockStart\\\":\\\"11:00 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (94)\\\",\\\"Number\\\":8,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Maltese \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":30},{\\\"BlockStart\\\":\\\"10:10 am\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":26,\\\"BreedName\\\":\\\"Bulldogs \\\",\\\"DogCount\\\":13,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":5,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"11:10 am\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Boston Terriers \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:25 pm\\\",\\\"Judge\\\":\\\"MS GLORIA KERR\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Poodles (Toy) \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:25 pm\\\",\\\"Judge\\\":\\\"MS GLORIA KERR\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":21,\\\"BreedName\\\":\\\"Miniature Pinschers \\\",\\\"DogCount\\\":7,\\\"BitchCount\\\":8,\\\"SpecialDogCount\\\":4,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":9},{\\\"BlockStart\\\":\\\"1:35 pm\\\",\\\"Judge\\\":\\\"MS GLORIA KERR\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":12,\\\"BreedName\\\":\\\"Poodles (Miniature) \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"1:35 pm\\\",\\\"Judge\\\":\\\"MS GLORIA KERR\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":21,\\\"BreedName\\\":\\\"Pomeranians \\\",\\\"DogCount\\\":10,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":12},{\\\"BlockStart\\\":\\\"2:55 pm\\\",\\\"Judge\\\":\\\"MS GLORIA KERR\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Shih Tzu \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"2:55 pm\\\",\\\"Judge\\\":\\\"MS GLORIA KERR\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Pekingese \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":10},{\\\"BlockStart\\\":\\\"2:55 pm\\\",\\\"Judge\\\":\\\"MS GLORIA KERR\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Yorkshire Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":11},{\\\"BlockStart\\\":\\\"2:55 pm\\\",\\\"Judge\\\":\\\"MS GLORIA KERR\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":11,\\\"BreedName\\\":\\\"Poodles (Standard) \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":8,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":12},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (111)\\\",\\\"Number\\\":10,\\\"Count\\\":14,\\\"BreedName\\\":\\\"French Bulldogs \\\",\\\"DogCount\\\":6,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (111)\\\",\\\"Number\\\":10,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Shiba Inu \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":14},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (111)\\\",\\\"Number\\\":10,\\\"Count\\\":4,\\\"BreedName\\\":\\\"Schipperkes \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (111)\\\",\\\"Number\\\":10,\\\"Count\\\":7,\\\"BreedName\\\":\\\"American Eskimo Dogs \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":4},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (111)\\\",\\\"Number\\\":10,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Lowchen \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (111)\\\",\\\"Number\\\":10,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Tibetan Terriers \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":9},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (111)\\\",\\\"Number\\\":10,\\\"Count\\\":22,\\\"BreedName\\\":\\\"Keeshonden \\\",\\\"DogCount\\\":10,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":4,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":18},{\\\"BlockStart\\\":\\\"11:10 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (111)\\\",\\\"Number\\\":10,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Chow Chows \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"11:10 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (111)\\\",\\\"Number\\\":10,\\\"Count\\\":15,\\\"BreedName\\\":\\\"Lhasa Apsos \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":9,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":5},{\\\"BlockStart\\\":\\\"12:45 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (111)\\\",\\\"Number\\\":10,\\\"Count\\\":12,\\\"BreedName\\\":\\\"Chinese Shar-Pei \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:45 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (111)\\\",\\\"Number\\\":10,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Dalmatians \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":12},{\\\"BlockStart\\\":\\\"12:45 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (111)\\\",\\\"Number\\\":10,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Bichons Frises \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":13},{\\\"BlockStart\\\":\\\"12:45 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (111)\\\",\\\"Number\\\":10,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Tibetan Spaniels \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":22},{\\\"Group\\\":\\\"SPORTING GROUP\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE\\\",\\\"Time\\\":\\\"2:45 pm\\\"},{\\\"Group\\\":\\\"TERRIER GROUP\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS\\\",\\\"Time\\\":\\\"2:45 pm\\\"},{\\\"Group\\\":\\\"HOUND GROUP\\\",\\\"Judge\\\":\\\"MRS MOLLY MARTIN\\\",\\\"Time\\\":\\\"2:45 pm\\\"},{\\\"Group\\\":\\\"HERDING GROUP\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT\\\",\\\"Time\\\":\\\"2:45 pm\\\"},{\\\"Group\\\":\\\"TOY GROUP\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON\\\",\\\"Time\\\":\\\"2:45 pm\\\"},{\\\"Group\\\":\\\"WORKING GROUP\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK\\\",\\\"Time\\\":\\\"2:45 pm\\\"},{\\\"Group\\\":\\\"NON-SPORTING GROUP\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\",\\\"Time\\\":\\\"2:45 pm\\\"},{\\\"Group\\\":\\\"BEST IN SHOW\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS\\\",\\\"Time\\\":\\\"2:45 pm\\\"},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (83)\\\",\\\"Number\\\":1,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Miniature American Shepherds (Misc. Bitches)\\\",\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (83)\\\",\\\"Number\\\":1,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Berger Picards (Misc. Dogs)\\\",\\\"CountAhead\\\":2},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (83)\\\",\\\"Number\\\":1,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Berger Picards (Misc. Bitches)\\\",\\\"CountAhead\\\":4},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (83)\\\",\\\"Number\\\":1,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Lagotto Romagnolo (Misc. Dogs)\\\",\\\"CountAhead\\\":7},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT (83)\\\",\\\"Number\\\":1,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Lagotto Romagnolo (Misc. Bitch)\\\",\\\"CountAhead\\\":9},{\\\"BlockStart\\\":\\\"9:20 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (118)\\\",\\\"Number\\\":1,\\\"Count\\\":1,\\\"ClassName\\\":\\\"Master Class\\\",\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:20 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (118)\\\",\\\"Number\\\":1,\\\"Count\\\":13,\\\"ClassName\\\":\\\"Open Senior\\\",\\\"CountAhead\\\":1},{\\\"BlockStart\\\":\\\"9:20 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (118)\\\",\\\"Number\\\":1,\\\"Count\\\":12,\\\"ClassName\\\":\\\"Open Intermediate\\\",\\\"CountAhead\\\":14},{\\\"BlockStart\\\":\\\"9:20 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (118)\\\",\\\"Number\\\":1,\\\"Count\\\":4,\\\"ClassName\\\":\\\"Open Junior\\\",\\\"CountAhead\\\":26},{\\\"BlockStart\\\":\\\"9:20 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (118)\\\",\\\"Number\\\":1,\\\"Count\\\":1,\\\"ClassName\\\":\\\"Novice Senior\\\",\\\"CountAhead\\\":30},{\\\"BlockStart\\\":\\\"9:20 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (118)\\\",\\\"Number\\\":1,\\\"Count\\\":3,\\\"ClassName\\\":\\\"Novice Intermediate\\\",\\\"CountAhead\\\":31},{\\\"BlockStart\\\":\\\"9:20 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK (118)\\\",\\\"Number\\\":1,\\\"Count\\\":6,\\\"ClassName\\\":\\\"Novice Junior\\\",\\\"CountAhead\\\":34},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (154)\\\",\\\"Number\\\":2,\\\"Count\\\":22,\\\"BreedName\\\":\\\"Retrievers (Labrador) \\\",\\\"DogCount\\\":10,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":6,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (154)\\\",\\\"Number\\\":2,\\\"Count\\\":19,\\\"BreedName\\\":\\\"Setters (Gordon) \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":10,\\\"SpecialDogCount\\\":5,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":22},{\\\"BlockStart\\\":\\\"10:10 am\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (154)\\\",\\\"Number\\\":2,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Spaniels (Cocker) Ascob\\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"10:10 am\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (154)\\\",\\\"Number\\\":2,\\\"Count\\\":24,\\\"BreedName\\\":\\\"Retrievers (Golden) \\\",\\\"DogCount\\\":11,\\\"BitchCount\\\":9,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":10},{\\\"BlockStart\\\":\\\"11:35 am\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (154)\\\",\\\"Number\\\":2,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Setters (English) \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"11:35 am\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (154)\\\",\\\"Number\\\":2,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Spaniels (Cocker) Parti-Color\\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":5},{\\\"BlockStart\\\":\\\"12:55 pm\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (154)\\\",\\\"Number\\\":2,\\\"Count\\\":20,\\\"BreedName\\\":\\\"Setters (Irish) \\\",\\\"DogCount\\\":8,\\\"BitchCount\\\":10,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:55 pm\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE (154)\\\",\\\"Number\\\":2,\\\"Count\\\":15,\\\"BreedName\\\":\\\"Spaniels (Cocker) Black\\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":8,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":20},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (171)\\\",\\\"Number\\\":3,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Canaan Dogs \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (171)\\\",\\\"Number\\\":3,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Australian Cattle Dogs \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":5},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (171)\\\",\\\"Number\\\":3,\\\"Count\\\":13,\\\"BreedName\\\":\\\"Collies (Smooth) \\\",\\\"DogCount\\\":6,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":14},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (171)\\\",\\\"Number\\\":3,\\\"Count\\\":13,\\\"BreedName\\\":\\\"Border Collies \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (171)\\\",\\\"Number\\\":3,\\\"Count\\\":27,\\\"BreedName\\\":\\\"Doberman Pinschers \\\",\\\"DogCount\\\":14,\\\"BitchCount\\\":8,\\\"SpecialDogCount\\\":5,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":13},{\\\"BlockStart\\\":\\\"11:10 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (171)\\\",\\\"Number\\\":3,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Belgian Tervuren \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"11:10 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (171)\\\",\\\"Number\\\":3,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Collies (Rough) \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":2},{\\\"BlockStart\\\":\\\"11:10 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (171)\\\",\\\"Number\\\":3,\\\"Count\\\":4,\\\"BreedName\\\":\\\"Bouviers des Flandres \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":8},{\\\"BlockStart\\\":\\\"11:10 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (171)\\\",\\\"Number\\\":3,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Old English Sheepdogs \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":12},{\\\"BlockStart\\\":\\\"11:10 am\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (171)\\\",\\\"Number\\\":3,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Cardigan Welsh Corgis \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":15},{\\\"BlockStart\\\":\\\"12:45 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (171)\\\",\\\"Number\\\":3,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Briards \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:45 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (171)\\\",\\\"Number\\\":3,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Bearded Collies \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":2},{\\\"BlockStart\\\":\\\"12:45 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (171)\\\",\\\"Number\\\":3,\\\"Count\\\":24,\\\"BreedName\\\":\\\"Australian Shepherds \\\",\\\"DogCount\\\":9,\\\"BitchCount\\\":11,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":8},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (171)\\\",\\\"Number\\\":3,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Belgian Malinois \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (171)\\\",\\\"Number\\\":3,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Belgian Sheepdogs \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":1},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (171)\\\",\\\"Number\\\":3,\\\"Count\\\":13,\\\"BreedName\\\":\\\"Pembroke Welsh Corgis \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":9,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":2},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK (171)\\\",\\\"Number\\\":3,\\\"Count\\\":36,\\\"BreedName\\\":\\\"Shetland Sheepdogs \\\",\\\"DogCount\\\":14,\\\"BitchCount\\\":19,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":15},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (164)\\\",\\\"Number\\\":4,\\\"Count\\\":12,\\\"BreedName\\\":\\\"Pointers (German Shorthaired) \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":4,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (164)\\\",\\\"Number\\\":4,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Vizslas \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":12},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (164)\\\",\\\"Number\\\":4,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Spinoni Italiani \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":21},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (164)\\\",\\\"Number\\\":4,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Weimaraners \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (164)\\\",\\\"Number\\\":4,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Brittanys \\\",\\\"DogCount\\\":7,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":10},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (164)\\\",\\\"Number\\\":4,\\\"Count\\\":37,\\\"BreedName\\\":\\\"Retrievers (Nova Scotia Duck Tolling) \\\",\\\"DogCount\\\":18,\\\"BitchCount\\\":9,\\\"SpecialDogCount\\\":5,\\\"SpecialBitchCount\\\":5,\\\"CountAhead\\\":20},{\\\"BlockStart\\\":\\\"12:35 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (164)\\\",\\\"Number\\\":4,\\\"Count\\\":36,\\\"BreedName\\\":\\\"Whippets \\\",\\\"DogCount\\\":11,\\\"BitchCount\\\":17,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":5,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (164)\\\",\\\"Number\\\":4,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Spaniels (English Cocker) \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (164)\\\",\\\"Number\\\":4,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Spaniels (Irish Water) \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":9},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (164)\\\",\\\"Number\\\":4,\\\"Count\\\":11,\\\"BreedName\\\":\\\"Spaniels (English Springer) \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":11},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (164)\\\",\\\"Number\\\":4,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Spaniels (Clumber) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":22},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (164)\\\",\\\"Number\\\":4,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Retrievers (Flat-Coated) \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":29},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (164)\\\",\\\"Number\\\":4,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Pointers (German Wirehaired) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":39},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (164)\\\",\\\"Number\\\":4,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Retrievers (Curly-Coated) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":40},{\\\"BlockStart\\\":\\\"2:00 pm\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS (164)\\\",\\\"Number\\\":4,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Spaniels (Welsh Springer) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":41},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (165)\\\",\\\"Number\\\":5,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Mastiffs \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (165)\\\",\\\"Number\\\":5,\\\"Count\\\":26,\\\"BreedName\\\":\\\"Great Danes \\\",\\\"DogCount\\\":10,\\\"BitchCount\\\":10,\\\"SpecialDogCount\\\":4,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":7},{\\\"BlockStart\\\":\\\"9:50 am\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (165)\\\",\\\"Number\\\":5,\\\"Count\\\":14,\\\"BreedName\\\":\\\"Rottweilers \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":4,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:50 am\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (165)\\\",\\\"Number\\\":5,\\\"Count\\\":15,\\\"BreedName\\\":\\\"Siberian Huskies \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":14},{\\\"BlockStart\\\":\\\"11:00 am\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (165)\\\",\\\"Number\\\":5,\\\"Count\\\":23,\\\"BreedName\\\":\\\"Bernese Mountain Dogs \\\",\\\"DogCount\\\":11,\\\"BitchCount\\\":9,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"11:00 am\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (165)\\\",\\\"Number\\\":5,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Newfoundlands \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":23},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (165)\\\",\\\"Number\\\":5,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Saint Bernards \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (165)\\\",\\\"Number\\\":5,\\\"Count\\\":12,\\\"BreedName\\\":\\\"Akitas \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":9,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":3},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (165)\\\",\\\"Number\\\":5,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Boxers \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":15},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (165)\\\",\\\"Number\\\":5,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Great Pyrenees \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":24},{\\\"BlockStart\\\":\\\"2:15 pm\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (165)\\\",\\\"Number\\\":5,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Standard Schnauzers \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"2:15 pm\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (165)\\\",\\\"Number\\\":5,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Tibetan Mastiffs \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":7},{\\\"BlockStart\\\":\\\"2:15 pm\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (165)\\\",\\\"Number\\\":5,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Alaskan Malamutes \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":12},{\\\"BlockStart\\\":\\\"2:15 pm\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (165)\\\",\\\"Number\\\":5,\\\"Count\\\":4,\\\"BreedName\\\":\\\"Portuguese Water Dogs \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":14},{\\\"BlockStart\\\":\\\"2:15 pm\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (165)\\\",\\\"Number\\\":5,\\\"Count\\\":20,\\\"BreedName\\\":\\\"Samoyeds \\\",\\\"DogCount\\\":8,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":4,\\\"CountAhead\\\":18},{\\\"BlockStart\\\":\\\"2:15 pm\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (165)\\\",\\\"Number\\\":5,\\\"Count\\\":1,\\\"BreedName\\\":\\\"German Pinschers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":38},{\\\"BlockStart\\\":\\\"2:15 pm\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS (165)\\\",\\\"Number\\\":5,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Bullmastiffs \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":39},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM (132)\\\",\\\"Number\\\":6,\\\"Count\\\":22,\\\"BreedName\\\":\\\"Dachshunds (Longhaired) \\\",\\\"DogCount\\\":7,\\\"BitchCount\\\":11,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM (132)\\\",\\\"Number\\\":6,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Beagles (13 Inch) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":22},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM (132)\\\",\\\"Number\\\":6,\\\"Count\\\":8,\\\"BreedName\\\":\\\"Dachshunds (Wirehaired) \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM (132)\\\",\\\"Number\\\":6,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Beagles (15 Inch) \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":8},{\\\"BlockStart\\\":\\\"9:35 am\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM (132)\\\",\\\"Number\\\":6,\\\"Count\\\":12,\\\"BreedName\\\":\\\"Dachshunds (Smooth) \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":15},{\\\"BlockStart\\\":\\\"10:40 am\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM (132)\\\",\\\"Number\\\":6,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Bloodhounds \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"10:40 am\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM (132)\\\",\\\"Number\\\":6,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Salukis \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":2},{\\\"BlockStart\\\":\\\"10:40 am\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM (132)\\\",\\\"Number\\\":6,\\\"Count\\\":24,\\\"BreedName\\\":\\\"Rhodesian Ridgebacks \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":12,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":6,\\\"CountAhead\\\":8},{\\\"BlockStart\\\":\\\"12:45 pm\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM (132)\\\",\\\"Number\\\":6,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Norwegian Elkhounds \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:45 pm\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM (132)\\\",\\\"Number\\\":6,\\\"Count\\\":4,\\\"BreedName\\\":\\\"Greyhounds \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":2},{\\\"BlockStart\\\":\\\"12:45 pm\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM (132)\\\",\\\"Number\\\":6,\\\"Count\\\":15,\\\"BreedName\\\":\\\"Borzois \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":8,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":6},{\\\"BlockStart\\\":\\\"12:45 pm\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM (132)\\\",\\\"Number\\\":6,\\\"Count\\\":20,\\\"BreedName\\\":\\\"Afghan Hounds \\\",\\\"DogCount\\\":8,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":4,\\\"SpecialBitchCount\\\":4,\\\"CountAhead\\\":21},{\\\"BlockStart\\\":\\\"12:45 pm\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM (132)\\\",\\\"Number\\\":6,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Otterhounds \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":41},{\\\"BlockStart\\\":\\\"12:45 pm\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM (132)\\\",\\\"Number\\\":6,\\\"Count\\\":1,\\\"BreedName\\\":\\\"American Foxhounds \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":42},{\\\"BlockStart\\\":\\\"12:45 pm\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM (132)\\\",\\\"Number\\\":6,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Pharaoh Hounds \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":43},{\\\"BlockStart\\\":\\\"12:45 pm\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM (132)\\\",\\\"Number\\\":6,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Portuguese Podengo Pequenos \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":44},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Boston Terriers \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Italian Greyhounds \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":7},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":6,\\\"BreedName\\\":\\\"Japanese Chin \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":12},{\\\"BlockStart\\\":\\\"9:10 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (58)\\\",\\\"Number\\\":7,\\\"Count\\\":14,\\\"BreedName\\\":\\\"Chihuahuas (Smooth Coat) \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:10 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (58)\\\",\\\"Number\\\":7,\\\"Count\\\":4,\\\"BreedName\\\":\\\"Brussels Griffons \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":14},{\\\"BlockStart\\\":\\\"9:10 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (58)\\\",\\\"Number\\\":7,\\\"Count\\\":8,\\\"BreedName\\\":\\\"Havanese \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":18},{\\\"BlockStart\\\":\\\"10:15 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (58)\\\",\\\"Number\\\":7,\\\"Count\\\":13,\\\"BreedName\\\":\\\"Chihuahuas (Long Coat) \\\",\\\"DogCount\\\":6,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"10:15 am\\\",\\\"Judge\\\":\\\"MS GLORIA KERR (58)\\\",\\\"Number\\\":7,\\\"Count\\\":19,\\\"BreedName\\\":\\\"Cavalier King Charles Spaniels \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":4,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":13},{\\\"BlockStart\\\":\\\"2:45 pm\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Shiba Inu \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"2:45 pm\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Tibetan Terriers \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":3},{\\\"BlockStart\\\":\\\"2:45 pm\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Bichons Frises \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":12},{\\\"BlockStart\\\":\\\"2:45 pm\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Chow Chows \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":21},{\\\"BlockStart\\\":\\\"2:45 pm\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE\\\\r\\\\n\\\",\\\"Number\\\":7,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Dalmatians \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":26},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (174)\\\",\\\"Number\\\":8,\\\"Count\\\":11,\\\"BreedName\\\":\\\"Pugs \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"8:30 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (174)\\\",\\\"Number\\\":8,\\\"Count\\\":15,\\\"BreedName\\\":\\\"French Bulldogs \\\",\\\"DogCount\\\":6,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":11},{\\\"BlockStart\\\":\\\"9:30 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (174)\\\",\\\"Number\\\":8,\\\"Count\\\":26,\\\"BreedName\\\":\\\"Bulldogs \\\",\\\"DogCount\\\":12,\\\"BitchCount\\\":8,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":5,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"10:35 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (174)\\\",\\\"Number\\\":8,\\\"Count\\\":21,\\\"BreedName\\\":\\\"Keeshonden \\\",\\\"DogCount\\\":10,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":4,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"10:35 am\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (174)\\\",\\\"Number\\\":8,\\\"Count\\\":8,\\\"BreedName\\\":\\\"Poodles (Toy) \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":6,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":21},{\\\"BlockStart\\\":\\\"12:30 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (174)\\\",\\\"Number\\\":8,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Chinese Shar-Pei \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"12:30 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (174)\\\",\\\"Number\\\":8,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Toy Fox Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":9},{\\\"BlockStart\\\":\\\"12:30 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (174)\\\",\\\"Number\\\":8,\\\"Count\\\":16,\\\"BreedName\\\":\\\"Pomeranians \\\",\\\"DogCount\\\":8,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":11},{\\\"BlockStart\\\":\\\"1:35 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (174)\\\",\\\"Number\\\":8,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Shih Tzu \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"1:35 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (174)\\\",\\\"Number\\\":8,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Yorkshire Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":10},{\\\"BlockStart\\\":\\\"1:35 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (174)\\\",\\\"Number\\\":8,\\\"Count\\\":12,\\\"BreedName\\\":\\\"Poodles (Miniature) \\\",\\\"DogCount\\\":5,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":11},{\\\"BlockStart\\\":\\\"1:35 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (174)\\\",\\\"Number\\\":8,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Tibetan Spaniels \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":23},{\\\"BlockStart\\\":\\\"2:35 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (174)\\\",\\\"Number\\\":8,\\\"Count\\\":7,\\\"BreedName\\\":\\\"American Eskimo Dogs \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"2:35 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (174)\\\",\\\"Number\\\":8,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Lowchen \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":7},{\\\"BlockStart\\\":\\\"2:35 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (174)\\\",\\\"Number\\\":8,\\\"Count\\\":15,\\\"BreedName\\\":\\\"Lhasa Apsos \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":9,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":16},{\\\"BlockStart\\\":\\\"2:35 pm\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON (174)\\\",\\\"Number\\\":8,\\\"Count\\\":10,\\\"BreedName\\\":\\\"Poodles (Standard) \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":7,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":31},{\\\"BlockStart\\\":\\\"9:00 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":2,\\\"BreedName\\\":\\\"Staffordshire Bull Terriers \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"9:00 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":3,\\\"BreedName\\\":\\\"American Staffordshire Terriers \\\",\\\"DogCount\\\":3,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":2},{\\\"BlockStart\\\":\\\"9:00 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Border Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":5},{\\\"BlockStart\\\":\\\"9:00 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Fox Terriers (Smooth) \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":8},{\\\"BlockStart\\\":\\\"9:00 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":11,\\\"BreedName\\\":\\\"Cairn Terriers \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":3,\\\"CountAhead\\\":17},{\\\"BlockStart\\\":\\\"10:05 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Lakeland Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"10:05 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":7,\\\"BreedName\\\":\\\"Scottish Terriers \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":2,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":3},{\\\"BlockStart\\\":\\\"10:05 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":5,\\\"BreedName\\\":\\\"Fox Terriers (Wire) \\\",\\\"DogCount\\\":4,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":10},{\\\"BlockStart\\\":\\\"10:05 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":4,\\\"BreedName\\\":\\\"West Highland White Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":3,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":15},{\\\"BlockStart\\\":\\\"10:05 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":8,\\\"BreedName\\\":\\\"Airedale Terriers \\\",\\\"DogCount\\\":2,\\\"BitchCount\\\":4,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":19},{\\\"BlockStart\\\":\\\"11:10 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Soft Coated Wheaten Terriers \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"11:10 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":3,\\\"BreedName\\\":\\\"Kerry Blue Terriers \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":2,\\\"CountAhead\\\":3},{\\\"BlockStart\\\":\\\"11:10 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Bull Terriers (White) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":1,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":6},{\\\"BlockStart\\\":\\\"11:10 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":9,\\\"BreedName\\\":\\\"Australian Terriers \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":2,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":7},{\\\"BlockStart\\\":\\\"11:10 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Parson Russell Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":16},{\\\"BlockStart\\\":\\\"11:10 am\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT\\\\r\\\\n\\\",\\\"Number\\\":9,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Norwich Terriers \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":17},{\\\"BlockStart\\\":\\\"11:25 am\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":10,\\\"Count\\\":22,\\\"BreedName\\\":\\\"Chinese Cresteds \\\",\\\"DogCount\\\":6,\\\"BitchCount\\\":11,\\\"SpecialDogCount\\\":4,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":10,\\\"Count\\\":19,\\\"BreedName\\\":\\\"Miniature Pinschers \\\",\\\"DogCount\\\":7,\\\"BitchCount\\\":8,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":0},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":10,\\\"Count\\\":16,\\\"BreedName\\\":\\\"Papillons \\\",\\\"DogCount\\\":7,\\\"BitchCount\\\":5,\\\"SpecialDogCount\\\":3,\\\"SpecialBitchCount\\\":1,\\\"CountAhead\\\":19},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":10,\\\"Count\\\":1,\\\"BreedName\\\":\\\"English Toy Spaniels (K C & R) \\\",\\\"DogCount\\\":0,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":1,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":35},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":10,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Pekingese \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":36},{\\\"BlockStart\\\":\\\"1:05 pm\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\\r\\\\n\\\",\\\"Number\\\":10,\\\"Count\\\":1,\\\"BreedName\\\":\\\"Maltese \\\",\\\"DogCount\\\":1,\\\"BitchCount\\\":0,\\\"SpecialDogCount\\\":0,\\\"SpecialBitchCount\\\":0,\\\"CountAhead\\\":37},{\\\"Group\\\":\\\"TERRIER GROUP\\\",\\\"Judge\\\":\\\"MR FRED C BASSETT\\\",\\\"Time\\\":\\\"2:45 pm\\\"},{\\\"Group\\\":\\\"HOUND GROUP\\\",\\\"Judge\\\":\\\"MR ALLEN L ODOM\\\",\\\"Time\\\":\\\"2:45 pm\\\"},{\\\"Group\\\":\\\"TOY GROUP\\\",\\\"Judge\\\":\\\"MRS HOUSTON (TODDIE) CLARK\\\",\\\"Time\\\":\\\"2:45 pm\\\"},{\\\"Group\\\":\\\"SPORTING GROUP\\\",\\\"Judge\\\":\\\"MR SERGIO DE SOUZA QUEIROZ CAPPS\\\",\\\"Time\\\":\\\"2:45 pm\\\"},{\\\"Group\\\":\\\"WORKING GROUP\\\",\\\"Judge\\\":\\\"MRS FAYE STRAUSS\\\",\\\"Time\\\":\\\"2:45 pm\\\"},{\\\"Group\\\":\\\"HERDING GROUP\\\",\\\"Judge\\\":\\\"MR HOUSTON CLARK\\\",\\\"Time\\\":\\\"2:45 pm\\\"},{\\\"Group\\\":\\\"NON-SPORTING GROUP\\\",\\\"Judge\\\":\\\"DR JOHN A REEVE-NEWSON\\\",\\\"Time\\\":\\\"2:45 pm\\\"},{\\\"Group\\\":\\\"BEST IN SHOW\\\",\\\"Judge\\\":\\\"MR ROBERT J SHREVE\\\",\\\"Time\\\":\\\"2:45 pm\\\"}]}\");\n   82      #obj.collectRingDates(\"./programs/ANOK1JP.pdf\");\n   83      #sys.exit();\n   ..\n  140          kansas = None\n  141          for show in allshows:\n  142:             doParseAndClean(show);\n  143              print(\"programName: \" + show.programName)\n  144              if show.showCode == \"KTDC1\":\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\programcleaner.py:\n    1: class ProgramCleaner(object):\n    2      def __init__(self):\n    3          pass;\n    4:     def clean(self,parsedPath):\n    5          pass;\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\ringcleaner.py:\n   10  #TODO move re to regexhelper methods if possible\n   11  \n   12: class RingCleaner(object):\n   13  	def __init__(self):\n   14  		self._runner = ParseRunner();\n   15: 	def clean(self, pdfPath):\n   16: 		cleanedPath = config.Grammar.CLEANED_PROGRAM_DIR + os.path.basename(pdfPath)\n   17: 		if not os.path.isfile(cleanedPath):\n   18: 			shutil.copyfile(pdfPath, cleanedPath)\n   19: 		return cleanedPath\n   20  		#print(string['Rings']);\n   21  	\n   ..\n   32  	def parseShowJson(self, filePath):\n   33  		parsedFilePath = self._runner.parseProgramPdfBox(filePath);\n   34: 		cleanedPath = self.clean(parsedFilePath);\n   35: 		if cleanedPath:\n   36: 			return grammar.getShowJson(cleanedPath);\n   37  		else:\n   38  			print('!!! failed to parse ' + str(parsedFilePath) + '!!!');\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\show.py:\n   28          self._parsedPath = None;\n   29          self._pdfPath = None;\n   30:         self._cleanedPath = None;\n   31          self._parseShowPage();\n   32          \n   ..\n   57  \n   58      @property\n   59:     def cleanedFilePath(self):\n   60:         return self._cleanedPath\n   61      @property\n   62      def dateList(self):\n   63          return self._dateList;\n   64  \n   65:     @cleanedFilePath.setter\n   66:     def cleanedFilePath(self, value):\n   67:         self._cleanedPath = value\n   68  \n   69      #Converts date string to millis\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\model\\show.py:\n   24          self._parsedPath = None;\n   25          self._pdfPath = None;\n   26:         self._cleanedPath = None;\n   27          #self._parseShowPage();\n   28      def toJson(self):\n   ..\n   74  \n   75      @property\n   76:     def cleanedFilePath(self):\n   77:         return self._cleanedPath\n   78  \n   79:     @cleanedFilePath.setter\n   80:     def cleanedFilePath(self, value):\n   81:         self._cleanedPath = value\n   82  \n   83      #Converts date string to millis\n\n43 matches across 7 files\n",
+			"settings":
+			{
+				"buffer_size": 132181,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "ringcleaner.py",
+			"settings":
+			{
+				"buffer_size": 3292,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/json/GRMS1.pdfbox.json",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/GRMS1.pdf2txt.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parsed/GRMS1.pdf2txt.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parsed/GRMS1.pdfbox.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/ringcleaner.py",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/model/show.py",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/config.py",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parserunner.py",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/GRMS1.pdf",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/grammar.py",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/driver.py",
+		"/C/Users/Taylor/SkyDrive/Public/myout.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/showscraper.py",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/dogshowprogramworker.py",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parsed/dogshowprogramworker",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/scraper.py",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/local/closedshows.htm",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parsed/pdf2txt_ANOK1JP.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/programcleaner.py",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/util.py",
+		"/C/Users/Taylor/Desktop/pdfminer/dist/pdfminer-20110515/README.txt",
+		"/C/Users/Taylor/Desktop/pdfminer/dist/pdfminer-20110515/tools/pdf2txt.py",
+		"/C/Users/Taylor/Desktop/ANOK1JP.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/PDF-Parsing/PLUM1JP.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/PDF-Parsing/SACS1JP.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/KTDC1JP.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parsed/ANOK1JP.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/PDF-Parsing/TRIN1JP.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/location.py",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/show.py",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/showutils.py",
+		"/C/Users/Taylor/Documents/Download.txt",
+		"/C/Users/Taylor/Documents/wedding-thankyou",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/android/MyDogshow/gradle/wrapper/gradle-wrapper.properties",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/android/MyDogshow/local.properties",
+		"/C/Users/Taylor/Documents/GitHub/MyApplicationProject/local.properties",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/android/MyDogshow/project.properties",
+		"/C/Users/Taylor/Documents/Jessica/Blue-Return-Address.avery",
+		"/C/Users/Taylor/Documents/GitHub/BlankProject/.idea/scopes/scope_settings.xml",
+		"/C/Users/Taylor/Documents/GitHub/BlankProject/build.gradle",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/android/MyDogshow/build.gradle",
+		"/C/Users/Taylor/Desktop/Raikes/2011/Spring 2011/W1.txt",
+		"/C/Users/Taylor/Documents/iTunes.txt",
+		"/C/Users/Taylor/Documents/AndroidUX",
+		"/C/Users/Taylor/Documents/Lee Griffin - IBM.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/retry_decorator.py",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/appserver_accessor.py",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/android/JakeWharton-ActionBarSherlock-e5c2d1c/.idea/libraries/android_support_v42.xml",
+		"/C/Users/Taylor/workspace/AssurityAlert/res/layout/empty_message_list.xml",
+		"/C/Users/Taylor/workspace/AssurityAlert/src/com/assurity/alertcenter/ui/MessageListFragment.java",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/android/MyDogshow/store.keystore",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/android/MyDogshow/.idea/workspace.xml",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/android/MyDogshow/src/dev/tnclark8012/dogshow/apps/android/provider/PersistHelper.java",
+		"/C/Program Files (x86)/Android/android-sdk/extras/android/support/README.txt",
+		"/C/Users/Taylor/workspace/AssurityAlert/src/com/assurity/alertcenter/ui/dialog/WaitDialogFragment.java",
+		"/C/Users/Taylor/AppData/Local/GitHub/shell.ps1",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/android/MyDogshow/src/dev/tnclark8012/dogshow/apps/android/ui/ShowSetupActivity.java",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/DogshowServer/src/dev/tclark/dogshow/ShowRingServlet.java",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/DogshowServer/src/dev/tclark/dogshow/ShowServlet.java",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/android/MyDogshow/res/layout/fragment_entry_dogs.xml",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/ANTLR/test.g",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parsed/MINN1JP.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/programs/ANOK1JP.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/out.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/README.md",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/grammar/testParser.java",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/DogshowServer/src/dev/tclark/dogshow/persistence/datastore/ShowRing.java",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/DogshowShared/.classpath",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/android/MyDogshow/src/dev/tnclark8012/dogshow/apps/android/ui/MyScheduleFragment.java",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/DogshowServer/src/dev/tclark/dogshow/persistence/datastore/Show.java",
+		"/C/Users/Taylor/Desktop/log.txt",
+		"/C/Users/Taylor/Desktop/Raikes/2013/Algorithms/HW2/homework2.tex",
+		"/C/Users/Taylor/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/gwlafspi.a21.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/android/JakeWharton-ActionBarSherlock-e5c2d1c/library/.gitignore",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/local/showpage.htm",
+		"/C/Users/Taylor/workspace/Python/scrapping/config.py",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/JavaTest/src/dev/tclark/dogshow/grammar/testLexer.java",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/.gitignore",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/ANTLR/output/dogshowcomboParser.java",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/ANTLR/output/dogshowcomboLexer.java",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parsed/KTDC1JP.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/.gitignore",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/DogshowServer/war/WEB-INF/.gitignore",
+		"/C/Users/Taylor/workspace/Python/scrapping/parsed/TDTC1JP.txt",
+		"/C/Users/Taylor/workspace/Python/scrapping/parserunner.py",
+		"/C/Users/Taylor/workspace/Python/scrapping/driver.py",
+		"/C/Users/Taylor/workspace/Python/scrapping/show.py",
+		"/C/Users/Taylor/workspace/Python/scrapping/scraper.py",
+		"/C/Users/Taylor/workspace/Python/scrapping/showutils.py",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/JavaTest/.gitignore",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/JavaTest/.classpath",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/JavaTest/testcase/examples/LEAV1JP.txt",
+		"/C/Users/Taylor/workspace/Python/scrapping/New Text Document.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/PDF-Parsing/README.md",
+		"/C/Users/Taylor/workspace/Python/scrapping/retry_decorator.py",
+		"/C/Users/Taylor/workspace/Python/scrapping/local/showpage.htm",
+		"/C/Users/Taylor/workspace/Python/scrapping/Show.py",
+		"/C/Users/Taylor/workspace/Python/scrapping/demo.py",
+		"/C/Users/Taylor/Desktop/Raikes/2013/CS 311/Homework 5/akoch/akoch5.py",
+		"/C/Users/Taylor/Desktop/Raikes/2013/CS 311/Homework 5/record",
+		"/C/Users/Taylor/Desktop/Raikes/2013/CS 311/Homework 5/mazes/mazefile5.txt",
+		"/C/Users/Taylor/Desktop/Raikes/2013/CS 311/Homework 5/mazes/mazefile1.txt",
+		"/C/Users/Taylor/Desktop/jersey-archive-1.17/jersey-archive-1.17/testrules.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/.git/rebase-apply/patch",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/JavaTest/src/dev/tclark/dogshow/grammar/test/LexerTest.java",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/JavaTest/src/testParser.java",
+		"/C/Users/Taylor/Desktop/Raikes/2013/CS 311/Homework 5/rmead/readme.txt",
+		"/C/Users/Taylor/Desktop/Raikes/2013/CS 311/Homework 5/mbravo/mbravo5.py",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Libraries/objectify-3.1/edit-this-to-build.properties",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/android/UI-Design/Android_Design_Color_Swatches/Android_Design_Color_Swatches_20120229/values.txt",
+		"/C/Users/Taylor/workspace/AssurityAlert/src/com/assurity/alertcenter/util/MessageListActionMode.java",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/JavaTest/testcase/PLUM1JP.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/JavaTest/testcase/TRIN1JP.txt",
+		"/C/Users/Taylor/workspace/AssurityAlert/src/com/assurity/alertcenter/adapters/MessageOverviewArrayAdapter.java",
+		"/C/Users/Taylor/workspace/AssurityAlert/src/com/assurity/alertcenter/adapters/RequirementArrayAdapter.java",
+		"/C/Users/Taylor/workspace/AssurityAlert/src/com/assurity/alertcenter/registration/RegistrationActivity.java",
+		"/C/Users/Taylor/workspace/AssurityAlert/src/com/assurity/alertcenter/ui/HomeActivity.java",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/JavaTest/testcase/SACS1JP.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/android/UI-Design/Android_Design_Color_Swatches/Android_Design_Color_Swatches_20120229/NOTICE.txt",
+		"/C/Users/Taylor/workspace/AssurityAlert/src/com/assurity/alertcenter/adapters/MessageListSpinnerAdapter.java",
+		"/C/Users/Taylor/workspace/AssurityAlert/src/com/assurity/alertcenter/adapters/MessageModelAdapter.java",
+		"/C/Users/Taylor/workspace/AssurityAlert/src/com/assurity/alertcenter/registration/SetupActivity.java",
+		"/C/Users/Taylor/appengine-java-sdk-1.7.5/appengine-java-sdk-1.7.5/demos/helloservers/src/com/google/appengine/demos/helloservers/HelloServers.java",
+		"/C/Users/Taylor/appengine-java-sdk-1.7.5/appengine-java-sdk-1.7.5/demos/jdoexamples/src/com/google/appengine/demos/jdoexamples/FriendServlet.java",
+		"/C/Users/Taylor/appengine-java-sdk-1.7.5/appengine-java-sdk-1.7.5/demos/jdoexamples/src/com/google/appengine/demos/jdoexamples/NamedCounterServlet.java",
+		"/C/Users/Taylor/appengine-java-sdk-1.7.5/appengine-java-sdk-1.7.5/demos/guestbook/src/guestbook/GuestbookServlet.java",
+		"/C/Users/Taylor/appengine-java-sdk-1.7.5/appengine-java-sdk-1.7.5/demos/guestbook/src/guestbook/SignGuestbookServlet.java"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"*.py",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"Ring \\d+",
+			"ring \\d+",
+			"\"]}}}]}",
+			"ring \\d+",
+			"rally",
+			"clean",
+			"getringdates",
+			"_getDateRingMap",
+			"lines after",
+			"That’sAll",
+			"rally",
+			"all",
+			"self.clean",
+			"parseProgramPdf2Txt",
+			"getshowjson",
+			"getShowJson",
+			"popen",
+			"subproc",
+			"pdfbox.",
+			"pdf.json",
+			"pdf.",
+			"jsonfile",
+			"open(",
+			"with",
+			"jsonobj",
+			"getdate",
+			"collectrin",
+			"collectrings",
+			"parseshowjson",
+			"getShowJson",
+			"getshowjson",
+			"getShowJson",
+			"subprocess",
+			"parseProgramPdfBox",
+			"parseShowJson",
+			"getShowJson",
+			"pdfbox-app",
+			"isfile",
+			"getRingDates",
+			"collectringdates",
+			"collectRingDates",
+			"_getDateRingMap",
+			"+ \" rings\"",
+			"+ \"rings\"",
+			"found",
+			"grammar",
+			"getshowjson",
+			"did not down",
+			"did not download the ",
+			"config.",
+			"config",
+			"pullclosed",
+			"get closed show",
+			"++",
+			"group",
+			"obj.",
+			"obj/",
+			"obj.",
+			"obj",
+			"grammar",
+			"getshowjson",
+			"datemap",
+			"_pdfPath",
+			"pdfFilePath",
+			"downloadprograms",
+			"collectRingDates",
+			"parseProgramPdf2Txt",
+			"OFFLINE",
+			"offline",
+			"_pullShowCode",
+			"code",
+			"pulled ",
+			"download",
+			"downloadProgram",
+			"downloadprograms",
+			"postshows",
+			"postshow",
+			"worker",
+			"('*******************')\n",
+			"split",
+			"split(",
+			"friday",
+			"print",
+			"print(",
+			"else if",
+			"parserunner",
+			"^(?!(Thursday|Friday|Saturday|Sunday|(RING \\d+)))(.*\\n*)$\\n",
+			"^(?!(Thursday|Friday|Saturday|Sunday|(RING \\d+)))(.+\\n*)$\\n",
+			"^(?!(Thursday|Friday|Saturday|Sunday|(RING \\d+)))(.+)$\\n",
+			"^(?!.*(Thursday|Friday|Saturday|Sunday|(RING \\d+)))(.+)$\\n",
+			"^(?!.*(Thursday|Friday|Saturday|Sunday|(RING \\d+))).*$\\n",
+			"^(?!.*(Thursday|Friday|Saturday|Sunday|(RING \\d+))).*$",
+			"^(?!.*(Thursday|Friday|Saturday|Sunday|(RING \\d+)).*$",
+			"^((?!(Thursday|Friday|Saturday|Sunday|(RING \\d+))).)*$\\n",
+			"^((?!(Thursday|Friday|Saturday|Sunday|RING)).)*$\\n",
+			"\\n",
+			"^\\d+\\n",
+			"^\\d\\n",
+			"Thursday",
+			"^((?!(Thursday|Friday|Saturday|Sunday|ring|\\:|-)).)*$\\n",
+			"^((?!(Thursday|Friday|Saturday|Sunday|ring|\\:)).)*$\\n",
+			"^((?!(Thursday|Friday|Saturday|Sunday|ring|:)).)*$\\n",
+			"thursday",
+			"^((?!(Thursday|Friday|Saturday|Sunday|ring)).)*$\\n",
+			"^((?!(Thursday|Friday|Saturday|Sunday|-|ring)).)*$\\n",
+			"Thursday",
+			"^((?!(Thursday|Friday|Saturday|Sunday|-|ring)).)*$\\n",
+			"^((?!(Thursday|Friday|Saturday|Sunday|-|ring)).)*$",
+			".*\\b^(Friday|Saturday|Sunday)\\b.*",
+			"MONDAY",
+			"SERGIO",
+			"*1000",
+			"show json",
+			"showjson",
+			"addclub",
+			"head",
+			"gramname",
+			"programc",
+			"get request",
+			"downloadpro",
+			"getallshows",
+			"date",
+			"_date",
+			"date",
+			"weimaraner",
+			"issweeps",
+			"(7)",
+			"issweepstakes"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"",
+			"-",
+			"",
+			"Pdf.DOWNLOAD_DIR",
+			"AppServer.SHOW_POST_URL",
+			"AppServer.SERVER_URL",
+			"config.Env.DO_DOWNLOAD",
+			"config.Env.VERBOSE",
+			"config.Env.OFFLINE",
+			"config.",
+			"VERBOSE",
+			"2009070100",
+			"2009070300",
+			"2009070200",
+			"'|\\n",
+			"print(\"",
+			"print(",
+			"and",
+			"ghostReplacement",
+			"'ghostReplacement",
+			"subMiddleList",
+			"'"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "dogshowprogramworker.py",
+					"settings":
+					{
+						"buffer_size": 8305,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3881,
+								3881
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1110.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "showscraper.py",
+					"settings":
+					{
+						"buffer_size": 7711,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4135,
+								4135
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 948.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "grammar.py",
+					"settings":
+					{
+						"buffer_size": 680,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								680,
+								680
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "parserunner.py",
+					"settings":
+					{
+						"buffer_size": 2211,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2176,
+								2040
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 102.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "cleaned/GRMS1.pdfbox.txt",
+					"settings":
+					{
+						"buffer_size": 32388,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								31264,
+								31264
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 13650.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"settings":
+					{
+						"buffer_size": 132181,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										209,
+										219
+									],
+									[
+										451,
+										461
+									],
+									[
+										769,
+										780
+									],
+									[
+										1158,
+										1163
+									],
+									[
+										1196,
+										1201
+									],
+									[
+										1435,
+										1440
+									],
+									[
+										1454,
+										1459
+									],
+									[
+										1690,
+										1695
+									],
+									[
+										1730,
+										1735
+									],
+									[
+										1985,
+										1990
+									],
+									[
+										1999,
+										2004
+									],
+									[
+										2199,
+										2204
+									],
+									[
+										2311,
+										2316
+									],
+									[
+										2480,
+										2485
+									],
+									[
+										2742,
+										2747
+									],
+									[
+										2761,
+										2766
+									],
+									[
+										2927,
+										2932
+									],
+									[
+										3083,
+										3088
+									],
+									[
+										3256,
+										3261
+									],
+									[
+										3283,
+										3288
+									],
+									[
+										129810,
+										129815
+									],
+									[
+										130021,
+										130026
+									],
+									[
+										130105,
+										130110
+									],
+									[
+										130297,
+										130302
+									],
+									[
+										130393,
+										130398
+									],
+									[
+										130424,
+										130429
+									],
+									[
+										130453,
+										130458
+									],
+									[
+										130532,
+										130537
+									],
+									[
+										130581,
+										130586
+									],
+									[
+										130610,
+										130615
+									],
+									[
+										130792,
+										130797
+									],
+									[
+										130811,
+										130816
+									],
+									[
+										130846,
+										130851
+									],
+									[
+										130896,
+										130901
+									],
+									[
+										131153,
+										131158
+									],
+									[
+										131277,
+										131282
+									],
+									[
+										131328,
+										131333
+									],
+									[
+										131450,
+										131455
+									],
+									[
+										131488,
+										131493
+									],
+									[
+										131539,
+										131544
+									],
+									[
+										131773,
+										131778
+									],
+									[
+										131911,
+										131916
+									],
+									[
+										131962,
+										131967
+									],
+									[
+										131994,
+										131999
+									],
+									[
+										132032,
+										132037
+									],
+									[
+										132083,
+										132088
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								130829,
+								130829
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 3,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 17132.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "ringcleaner.py",
+					"settings":
+					{
+						"buffer_size": 3292,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1270,
+								1270
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 738.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 25.0
+	},
+	"replace":
+	{
+		"height": 65.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 225.0,
+	"status_bar_visible": true
+}

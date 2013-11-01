@@ -12,19 +12,21 @@ import com.google.appengine.labs.repackaged.org.json.JSONObject;
 
 import dev.tnclark8012.dogshow.shared.DogshowEnums.BreedGroup;
 import dev.tnclark8012.dogshow.util.Utils;
+
 @XmlRootElement
 public class GroupRing extends ShowRing {
 	@XmlElement
 	BreedGroup group;
 
 	private GroupRing() {
+		ringNumber = Integer.MAX_VALUE;
 	}
+
 	public static GroupRing fromJson(JSONObject json) {
 		try {
 			GroupRing ring = new GroupRing();
 			ring.group = BreedGroup.parse(json.getString("Group"));
-			if(ring.group == null )
-			{
+			if (ring.group == null) {
 				System.err.println("Couldn't parse group: " + json.getString("Group"));
 			}
 			return ring;
@@ -36,24 +38,27 @@ public class GroupRing extends ShowRing {
 	}
 
 	@Override
-	protected Entity toEntity()
-	{
+	protected Entity toEntity() {
 		Entity e = new Entity(GroupRing.class.getSimpleName(), getKeyName());
-		e.setProperty("group", (group !=null)?group.toString(): null);
+		e.setProperty("group", (group != null) ? group.toString() : null);
 		return e;
 	}
-	
-	public GroupRing(Entity entity)
-	{
+
+	public GroupRing(Entity entity) {
 		super(entity);
 		group = BreedGroup.parse((String) entity.getProperty("group"));
 	}
+
 	@Override
 	public String getKeyName() {
 		return KeyNameHelper.generateKeyName(showId, group, blockStartMillis);
 	}
+
 	@Override
 	public String getTypeString() {
-		return group.toString();
+		if (group != null) {
+			return group.toString();
+		}
+		return null;
 	}
 }

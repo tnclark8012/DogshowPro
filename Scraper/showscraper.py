@@ -6,6 +6,7 @@ import re
 import string
 import sys
 import time
+from datetime import datetime
 from location import Location
 from bs4 import BeautifulSoup
 from model.show import Show
@@ -15,10 +16,15 @@ from util import ScrapeHelper, RegexPattern, RegexHelper
 class ShowScraper(object):
 
     
-    def __init__(self, offline, verbose ):
-        self.VERBOSE = verbose;
-        self.OFFLINE = offline;
+    def __init__(self, offline=None, verbose=None ):
+        self.OFFLINE = config.Env.OFFLINE;
+        self.VERBOSE = config.Env.VERBOSE;
         self.DO_DOWNLOAD = config.Env.DO_DOWNLOAD;
+        if offline:
+            self.OFFLINE = offline;
+        if verbose:
+            self.VERBOSE = verbose;
+        
         #self._allshows = self._pullShowsFromOnofrio()
         #self._uniqueshows = self._getUniqueShows();
     
@@ -43,14 +49,18 @@ class ShowScraper(object):
             #self._hasProgram = self._checkIfProgram(pool);
             code = self._pullShowCode(pool);
             if self.VERBOSE:
-                print(code);
+                print('code:' + str(code));
             pdfLink = self._pullPdfLink(pool);
             if self.VERBOSE:
-                print(pdfLink);
+                print('pdf link: ' + str(pdfLink));
             show = Show(code, club, location, date);
             show.pdfLink = pdfLink;
+            print("************************************")
+            print("*   finding companions to " + str(club) + "  *")
+            print("************************************")
             companionShows = self._parseCompanionShows(pool);
             for c in companionShows:
+                print('found a companion')
                 show.addLocation(c.location);
                 show.addDate(c.date);
                 show.addClub(c.club);
@@ -79,7 +89,7 @@ class ShowScraper(object):
         pretty = re.search("- (?P<date>("+config.MONTH_REGEX+") .*)", raw).group('date');
         if config.Env.VERBOSE:
             print("Pretty date: " + pretty)
-        return pretty;
+        return datetime.strptime(raw, "%A - %B %d, %Y")
 
 
     def _hasProgram(self, pool):
@@ -104,16 +114,23 @@ class ShowScraper(object):
         descLine = pool.findAll('dl')[0];
         clubNames=descLine.findAll('a',text=True);
         clubNames = [club.findAll(text=True)[0] for club in clubNames ]
+        print( "club names: " + str(clubNames))
         locationTimes=descLine.findAll('dd',text=True)
+        print( "locationTimes: " + str(locationTimes))
         locationDatePairs = list();
         for locationTime in locationTimes:
             raw = locationTime.findAll(text=True)[0];
             if config.Env.VERBOSE:
                 print("Raw date/location: " + str(raw));
             locationDatePair = RegexHelper().getLocationDate(raw); 
-            locationDatePairs.append(locationDatePair); 
+            locationDatePairs.append(locationDatePair);
+            print("locationDatePairs: " + str(locationDatePairs))
         companionShows = list()
         for i in range(0,len(clubNames)):
+            print("i: " + str(i))
+            print("club: " + str(clubNames[i]));
+            print("pair one: " + str(locationDatePairs[i][1]));
+            print("pair zero: " + str(locationDatePairs[i][0]));
             companionShows.append(CompanionShow(clubNames[i], locationDatePairs[i][1], locationDatePairs[i][0]))
         return companionShows;
 
@@ -142,6 +159,7 @@ class ShowScraper(object):
         if notAvailable is None or len(notAvailable) is 0:
             results = pool.findAll('a', href=True, text='Judging Program (PDF Format)');
             if results:
+                print('_pullShowCode found the program anchor');
                 self.pdfLink = results[0]['href'];
                 code = re.search("(?P<name>(?P<code>[A-Z]+[0-9])\JP.pdf)", self.pdfLink).group('code')
                 return code;
@@ -149,6 +167,7 @@ class ShowScraper(object):
                 print("died: " + str(results) + " " + self._pagelink)
                 return None;
         else:
+            print('show code not available')
             None;
 
     def _pullPdfLink(self, pool):
@@ -161,10 +180,8 @@ class ShowScraper(object):
                 return results[0]['href'];
 
     def pullClosedShows(self):
-        values = {'s' : sys.argv[0] }
-        data = urllib.parse.urlencode(values)
         url = config.Onofrio.CLOSED_SHOWS
-        if self.OFFLINE:
+        if config.Env.OFFLINE:
             url = config.Onofrio.LOCAL_CLOSED;
         response = urlopen_with_retry(url, None);
 

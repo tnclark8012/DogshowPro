@@ -18,7 +18,8 @@ class RegexPatternDef(object):
 	STATE = "(?:AL|AK|AS|AZ|AR|CA|CO|CT|DE|DC|FM|FL|GA|GU|HI|ID|IL|IN|IA|KS|KY|LA|ME|MH|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|MP|OH|OK|OR|PW|PA|PR|RI|SC|SD|TN|TX|UT|VT|VI|VA|WA|WV|WI|WY)";
 	CITY_STATE = "(?:([a-zA-Z ]+) (" + STATE + "))";
 	SHOW_LOCATION_DATE= CITY_STATE + ", " + DATE;
-
+	#RINGS_AND_DATES = "/^(?!(Thursday|Friday|Saturday|Sunday|(RING \d+)))(.*\n*)$\n/";
+	RINGS_AND_DATES = r"(?!\\r\\n(Thursday|(RING [0-9]+))).+"
 
 class RegexHelper(object):
 	regexMap = { 
@@ -34,6 +35,8 @@ class RegexHelper(object):
 	 		location = Location(match.group(1), match.group(2))
 	 		date = datetime.strptime(match.group(3), "%A, %B %d, %Y")
 	 		return location, date;
+
+	
 
 class ScrapeHelper(object):
 	def pullAnchorText(self, anchor, pattern, group):

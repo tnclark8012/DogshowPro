@@ -109,4 +109,9 @@ public class Show implements Storable, CustomKeyName {
 	public String getKeyName() {
 		return KeyNameHelper.generateKeyName(showId);
 	}
+	
+	public long[] getDates()
+	{
+		return dates;
+	}
 }

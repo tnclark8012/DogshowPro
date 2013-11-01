@@ -229,7 +229,7 @@ fragment FRAG_BREED_NAME_SINGLE
     'American Eskimo Dog'|
     'American Foxhound'|
     'American Staffordshire Terrier'|
-    'American Water Spaniel'|
+//    Captured by "Spaniels (American Water)" 'American Water Spaniel'|
     'Anatolian Shepherd Dog'|
 	'Appenzeller Sennenhunde'|
     'Australian Cattle Dog'|

@@ -15,7 +15,9 @@ class Show(object):
         self.clubs = set();
         self.addClub(club);
         self.locations = set();
+        print('initializing dates with ' + str(dates))
         self.dates = set();
+        self.dates.add(dates)
         self.pdfLink = None;
         self._hasProgram = False;
         self.programName = None;
@@ -34,7 +36,7 @@ class Show(object):
         [dateList.append(d) for d in self.dates]
         return {'id':self.code, 'clubs':json.loads(json.dumps(clubList)), 'locations':str(self.locations), 'dates':json.loads(json.dumps(dateTimes))}
     def __str__(self):
-        return str(self.clubs) + "\n\t, dates:"  + str(self.dates) + "\n\t, locations:"  + str(self.locations);
+        return str(self.clubs) + "\n\t, dates:"  + str(self.dates) + "\n\t, locations:"  + str(self.locations) + ', clubs:' + str(self.clubs);
 
     def addLocation(self, location):
         self.locations.add(location);
@@ -50,7 +52,9 @@ class Show(object):
         return clubList;
     
     def addDate(self, date):
+        print('adding date ' + str(date));
         self.dates.add(date);
+        print('now dates has ' + str(len(self.dates)))
 
     def addClub(self, club):
         club = re.sub(" ?\(\d+\)", "", club);
@@ -132,7 +136,11 @@ class Show(object):
                 return False;
         else:
             False;
-       
+    
+    def __eq__(self, other):
+        return self.code == other.code;
 
-
+    def __hash__(self):
+        #This is not portable, or persistable, but it's fine for our case
+        return hash(self.code);
 

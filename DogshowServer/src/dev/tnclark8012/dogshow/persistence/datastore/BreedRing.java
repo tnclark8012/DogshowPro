@@ -42,10 +42,7 @@ public class BreedRing extends ShowRing {
 		try {
 			ring.count = json.getInt("Count");
 			ring.breed = Breeds.parse(json.getString("BreedName"));
-			if(ring.judge.contains("KERR"))
-			{
-				int j = 0;
-			}
+
 			if(ring.breed == Breeds.PAPILLON)
 			{
 				int j=1;
