@@ -3,11 +3,12 @@ options{
 backtrack=true;
 }
 @header {
+//TODO Puppy groups
 package dev.tclark.dogshow.grammar;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import java.util.regex.Pattern;
+import java.util.regex.Pattern;          
 import java.util.regex.Matcher;
 }
 @lexer::header {
@@ -145,7 +146,6 @@ big_comment returns [String str]
 comment returns [String str]
 		@init{str="";}
 		: (TIME{str=$TIME.text;}|COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|INT{str=$INT.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;});
-
 timeblock_comment returns [String str]//No time
 		@init{str="";}
 		: (COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|INT{str=$INT.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;});
@@ -159,7 +159,7 @@ timeblock returns [JsonObject json]
 	: (TIME{currentBlockTime=$TIME.text;json.addProperty("Time", currentBlockTime);}) (rings=inner_timeblock{if(json.has("Rings")){JsonArray already=json.getAsJsonArray("Rings");already.addAll(rings);json.add("Rings",already);}else{json.add("Rings", rings);}} (mComment=timeblock_comment{comment+=$mComment.str;})*{if(!comment.equals("")){json.add("timeblock_comment",new JsonPrimitive(comment));}})*{if(!mRelational&&json.has("Rings")){mShowRings.addAll(json.getAsJsonArray("Rings"));}};
 inner_timeblock returns [JsonArray array]
 	@init {array = new JsonArray();int countAhead = 0;}
-	:	(mSpecialRing=special_ring{mSpecialRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mSpecialRing.get("Count").getAsInt();array.add(mSpecialRing);}|mJuniorRing=junior_ring{mJuniorRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mJuniorRing.get("Count").getAsInt();array.add(mJuniorRing);}|((breed_ring)=>mBreedRing=breed_ring{mBreedRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mBreedRing.get("Count").getAsInt();array.add(mBreedRing);})|ring_comment)+;
+	:	(mSpecialRing=special_ring{mSpecialRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mSpecialRing.get("Count").getAsInt();array.add(mSpecialRing);}|mJuniorRing=junior_ring{mJuniorRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mJuniorRing.get("Count").getAsInt();array.add(mJuniorRing);}|((breed_ring)=>mBreedRing=breed_ring{mBreedRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mBreedRing.get("Count").getAsInt();array.add(mBreedRing);})|(mConformation=non_conformation_ring{array.add(mConformation);})|(mRallyRing=rally_ring_block{array.add(mRallyRing);})|(ring_comment))+;
 
 junior_ring returns [JsonObject json]
 	@init{json = new JsonObject();json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}}
@@ -196,10 +196,16 @@ breed_ring returns [JsonObject json]
 
 
 
-
-//junior_ring   :   JUNIOR_RING+ EOF;
-    
-//test_breed_ring:  BREED_RING;
+non_conformation_ring returns [JsonObject json]
+	@init{json = new JsonObject();json.addProperty("Empty","obedience: not captured"); json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}}
+	: (INT NON_CONFORMATION_CLASS_NAME (NON_CONF_SECOND_LINE|INT) (NON_CONF_SECOND_LINE_COMMENT)*);
+rally_ring_block returns [JsonObject json]
+@init{json = new JsonObject();json.addProperty("Empty","rally: not captured"); json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}}
+ 	:	(rally_comment)|( rally_ring_name RALLY_RING_LINE*);
+rally_ring_name
+	:	INT RALLY_TOKEN RALLY_CLASS_TYPE;
+rally_comment
+	:(RALLY_TOKEN RALLY_CLASS_TYPE?)? RALLY_STANDALONE_COMMENT RALLY_CLASS_TYPE?;
 /******************************
 *
 *
@@ -499,6 +505,97 @@ fragment FRAG_SPECIAL_GROUP_NAME
 GROUP_RING
 	:	(FRAG_GROUP_NAME ' - ' JUDGE_NAME)|FRAG_SPECIAL_GROUP_NAME;
 //Dog breed names in singular form
+/*
+Rally Excellent B Walkthrough
+12:50 pm
+7 Rally Excellent B
+12 inch: R7
+16 inch: R9-R12;R15-R17
+To follow Rally Excellent B
+7 Rally Advanced B
+3 Rally Advanced A
+12 inch: R7
+16 inch: R9-R18
+To follow Rally Advanced
+5 Rally Novice B
+3 Rally Novice A
+R19-R26
+*/
+NON_CONFORMATION_CLASS_NAME : 
+	NON_CONFORMATION_CLASS_LEVEL (WS 'Class')?;
+/*
+	'Beginner Novice A Class'|
+	'Beginner Novice B Class'|
+	'Utility A Class' | 
+	'Utility B Class' | 
+	'Pre Open Class'|
+	'Pre Utility Class'|
+	'Open A Class' | 
+	'Open B Class' |
+	'Novice A Class' |
+	'Novice B Class' |
+	'Wild Card Novice'|
+	'Wild Card Utility'|
+	'Graduate Novice Class'|
+	'Versatility Class'|
+	'Veterans Class';
+	*/
+fragment NON_CONFORMATION_CLASS_LEVEL
+	:
+	'Beginner Novice A'|
+	'Beginner Novice B'|
+	'Utility A' | 
+	'Utility B' | 
+	'Pre Open'|
+	'Pre Utility'|
+	'Open A' | 
+	'Open B' |
+	'Novice A' |
+	'Novice B' |
+	'Wild Card Novice'|
+	'Wild Card Utility'|
+	'Graduate Novice'|
+	'Versatility'|
+	'Veterans';
+	
+
+NON_CONF_SECOND_LINE
+	:	NON_CONFORMATION_SECOND_LINE;
+NON_CONF_SECOND_LINE_COMMENT
+	:	
+	'To follow' WS NON_CONFORMATION_CLASS_LEVEL;
+RALLY_TOKEN_WITH_TYPE
+	:	RALLY_CLASS_WITH_TYPE;
+
+
+RALLY_STANDALONE_COMMENT
+	:	('Walkthrough')|
+	('To follow' WS RALLY_CLASS_NAME);
+	
+
+
+RALLY_TOKEN
+	:	RALLY_CLASS;
+
+fragment RALLY_CLASS_WITH_TYPE
+	:	 RALLY_CLASS_NAME RALLY_CLASS_TYPE;
+fragment RALLY_CLASS: RALLY_CLASS_NAME;
+fragment RALLY_CLASS_LEVEL
+	:	'Excellent'|'Novice'|'Advanced';
+fragment RALLY_CLASS_NAME
+	:	'Rally' WS RALLY_CLASS_LEVEL;
+RALLY_CLASS_TYPE
+	:	'A'|'B';
+RALLY_RING_LINE
+	:	INT 'inch:' 'R''0'..'9'+ ('-R''0'..'9'+)? (';''R''0'..'9'+ ('-R''0'..'9'+)?)+;
+	/*
+	08 inch: R6
+12 inch: R7-R8
+16 inch: R9-R11;R15-R17
+	*/
+fragment NON_CONFORMATION_SECOND_LINE:
+	('0'..'9'+'-''0'..'9'+)|('0'..'9'+(('-''0'..'9'+)?(';''0'..'9'+('-''0'..'9'+)?))+);
+	// 14;12     1-23;23;23-232
 
 fragment FRAG_MONTH   :   'January'|'JANUARY'|
              'February'|'FEBRUARY'|

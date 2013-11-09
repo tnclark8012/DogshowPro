@@ -8,7 +8,7 @@ class Env(object):
     OFFLINE = False;
     DEBUG = True
     DO_DOWNLOAD = False;
-    VERBOSE = True;
+    VERBOSE = False;
 
 class AppServer(object):
     SERVER_URL = "http://localhost:8888/rest/" if Env.DEBUG else 'http://dogshow-manager.appspot.com/rest/'

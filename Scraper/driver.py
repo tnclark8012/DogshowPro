@@ -125,7 +125,7 @@ def main(argv):
         print('offline')
       elif opt == '-d':
          worker = DogshowProgramWorker();
-         worker.run(showLimit);
+         worker.run(showLimit, 10);
          sys.exit(0);
          if arg == 'showpage':
             print('show page')

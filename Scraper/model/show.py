@@ -5,6 +5,7 @@ import os
 import re
 import json
 from showutils import urlopen_with_retry
+from util import printv
 import time
 
 class Show(object):
@@ -52,9 +53,9 @@ class Show(object):
         return clubList;
     
     def addDate(self, date):
-        print('adding date ' + str(date));
+        printv('adding date ' + str(date));
         self.dates.add(date);
-        print('now dates has ' + str(len(self.dates)))
+        printv('now dates has ' + str(len(self.dates)))
 
     def addClub(self, club):
         club = re.sub(" ?\(\d+\)", "", club);

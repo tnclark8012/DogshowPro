@@ -8,10 +8,11 @@ from showscraper import ShowScraper
 from ringcleaner import RingCleaner
 import model.show
 from showutils import urlopen_with_retry
+from util import printv;
 
 class DogshowProgramWorker(object):
 
-    def run(self, showLimit):
+    def run(self, showLimit, scrapeLimit):
         #Pull closed shows listed on Onofrio * Yields URL list
         # For each URL:
         #   parse its page for details and a judging program * Yields Show object with PDF path link
@@ -30,19 +31,25 @@ class DogshowProgramWorker(object):
         self.scraper = ShowScraper()
         self._cleaner = RingCleaner();
         urlList = self.getClosedShowUrls();
+        if scrapeLimit is not None:
+            print("scrape link limit: " + str(scrapeLimit));
         if showLimit:
             print('limit of ' + str(showLimit) + ' shows')
-            urlList = urlList[:showLimit];
+            urlList = urlList[:scrapeLimit];
         showDetailList = list();
         for url in urlList:
             showDetail = self.getShowDetails(url);
-            print(showDetail)
-            showDetailList.append(showDetail);
-            print("url: " + url)
+            if showDetail.code is None:
+                print("No program currently available for " + str(url));
+            else:
+                showDetailList.append(showDetail);
+                printv("url: " + url)
         oldShowCount = len(showDetailList)
         showDetailList = set(showDetailList);
         duplicateShowCount =  oldShowCount - len(showDetailList);
         print("found " + str(duplicateShowCount) + " duplicate show entries")
+        if len(showDetailList) > showLimit:
+            showDetailList = list(showDetailList)[:showLimit];
         showJsonList = [self.collectShowJson(showDetail) for showDetail in showDetailList]
         showJsonList = [x for x in showJsonList if x is not None]
         #self.postShows(showJsonList);
@@ -56,7 +63,7 @@ class DogshowProgramWorker(object):
         print('Get Closed Show Urls')
         print('********************')
         links = self.scraper.pullClosedShows();
-        print('pulled ' + str(len(links)) + 'links');
+        print('pulled ' + str(len(links)) + ' links');
         return links;
 
     """
@@ -111,7 +118,8 @@ class DogshowProgramWorker(object):
         # TODO 
         # [1,2,3,4,4,5] represents 6 judge changes
         # Condense ringDates[i] into a set so [1,2,3,4,4,4,5] -> [1,2,3,4,5]
-        [dates[d]=set(dates[d]) for d in dates]
+        dates = [set(dates[d]) for d in dates]
+        print("Condensed dats: " + str(dates))
         # Then track the rings so that after each ring number has appeared, jump to the next day 
         
         print('not implemented!')

@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 from model.show import Show
 from model.companionshow import CompanionShow
 from showutils import urlopen_with_retry
-from util import ScrapeHelper, RegexPattern, RegexHelper
+from util import ScrapeHelper, RegexPattern, RegexHelper, printv;
 class ShowScraper(object):
 
     
@@ -33,8 +33,6 @@ class ShowScraper(object):
     """
     def pullShow(self, showPageUrl):
         #open page
-        if self.VERBOSE:
-            print("Searching " + showPageUrl)
         if self.OFFLINE:
             showPageUrl = config.Onofrio.LOCAL_PAGE 
         response = urlopen_with_retry(showPageUrl, None)
@@ -55,12 +53,13 @@ class ShowScraper(object):
                 print('pdf link: ' + str(pdfLink));
             show = Show(code, club, location, date);
             show.pdfLink = pdfLink;
-            print("************************************")
-            print("*   finding companions to " + str(club) + "  *")
-            print("************************************")
+            if config.Env.VERBOSE:
+                print("************************************")
+                print("*   finding companions to " + str(club) + "  *")
+                print("************************************")
             companionShows = self._parseCompanionShows(pool);
             for c in companionShows:
-                print('found a companion')
+                printv('found a companion')
                 show.addLocation(c.location);
                 show.addDate(c.date);
                 show.addClub(c.club);
@@ -70,25 +69,21 @@ class ShowScraper(object):
     def _parseLocation(self, pool):
         headings = pool.findAll('h2', attrs={'align':'CENTER'});
         raw = headings[0].findAll(text=True)[0];
-        if config.Env.VERBOSE:
-            print("Raw location: " + raw);
+        printv("Raw location: " + raw);
         match = re.search("(?P<city>.*) (?P<state>[A-Z][A-Z])", raw);
         pretty = match.group('city') + ", " + match.group('state')
         self._city = match.group('city')
         self._state = match.group('state')
-        if config.Env.VERBOSE:
-            print("Pretty location: " + pretty)
+        printv("Pretty location: " + pretty)
         return pretty;
 
 
     def _parseStartDate(self, pool): 
         headings = pool.findAll('h2', attrs={'align':'CENTER'});
         raw = headings[1].findAll(text=True)[0]
-        if config.Env.VERBOSE:
-            print("Raw date: " + raw);
+        printv("Raw date: " + raw);
         pretty = re.search("- (?P<date>("+config.MONTH_REGEX+") .*)", raw).group('date');
-        if config.Env.VERBOSE:
-            print("Pretty date: " + pretty)
+        printv("Pretty date: " + pretty)
         return datetime.strptime(raw, "%A - %B %d, %Y")
 
 
@@ -111,26 +106,31 @@ class ShowScraper(object):
  #           False;
 
     def _parseCompanionShows(self, pool):
-        descLine = pool.findAll('dl')[0];
+        descLine = pool.findAll('dl');
+        if(descLine and len(descLine)>0):
+            descLine = descLine[0];
+        else:
+            printv("show has no companions")
+            return list();
+        printv("descLine: " + str(descLine))
         clubNames=descLine.findAll('a',text=True);
         clubNames = [club.findAll(text=True)[0] for club in clubNames ]
-        print( "club names: " + str(clubNames))
-        locationTimes=descLine.findAll('dd',text=True)
-        print( "locationTimes: " + str(locationTimes))
+        printv( "club names: " + str(clubNames))
+        locationTimes=descLine.findAll('dd')
+        printv( "locationTimes: " + str(locationTimes))
         locationDatePairs = list();
         for locationTime in locationTimes:
             raw = locationTime.findAll(text=True)[0];
-            if config.Env.VERBOSE:
-                print("Raw date/location: " + str(raw));
+            printv("Raw date/location: " + str(raw));
             locationDatePair = RegexHelper().getLocationDate(raw); 
             locationDatePairs.append(locationDatePair);
             print("locationDatePairs: " + str(locationDatePairs))
         companionShows = list()
         for i in range(0,len(clubNames)):
-            print("i: " + str(i))
-            print("club: " + str(clubNames[i]));
-            print("pair one: " + str(locationDatePairs[i][1]));
-            print("pair zero: " + str(locationDatePairs[i][0]));
+            printv("i: " + str(i))
+            printv("club: " + str(clubNames[i]));
+            printv("pair one: " + str(locationDatePairs[i][1]));
+            printv("pair zero: " + str(locationDatePairs[i][0]));
             companionShows.append(CompanionShow(clubNames[i], locationDatePairs[i][1], locationDatePairs[i][0]))
         return companionShows;
 
@@ -159,7 +159,7 @@ class ShowScraper(object):
         if notAvailable is None or len(notAvailable) is 0:
             results = pool.findAll('a', href=True, text='Judging Program (PDF Format)');
             if results:
-                print('_pullShowCode found the program anchor');
+                printv('_pullShowCode found the program anchor');
                 self.pdfLink = results[0]['href'];
                 code = re.search("(?P<name>(?P<code>[A-Z]+[0-9])\JP.pdf)", self.pdfLink).group('code')
                 return code;

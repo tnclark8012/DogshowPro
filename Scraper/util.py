@@ -1,6 +1,11 @@
 import re;
+import config;
 from datetime import datetime
 from location import Location
+
+def printv(string):
+	if config.Env.VERBOSE:
+		print(str(string));
 
 class RegexPattern(object):
 	KENNEL_CLUB = "kennel_club";
