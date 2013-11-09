@@ -138,7 +138,7 @@ judge_block returns [JsonObject json]
     :   mName=judge_name{json.addProperty("Judge", mName); if(!mRelational){mCurrentJudge = mName;}} (mBlock=timeblock{array.add(mBlock);})+ {json.add("TimeBlocks", array);};
 judge_name returns [String str]
 	@init {str = "";}
-	:	(JUDGE_NAME{str=$JUDGE_NAME.text;})|((COMMENT{str += $COMMENT.text;})+ PARENTHETICAL{str += $PARENTHETICAL.text;}){}; 
+	:	(JUDGE_NAME{str=$JUDGE_NAME.text;})+|(COMMENT|PARENTHETICAL)+; 
 big_comment returns [String str]
 		@init {str = "";}
 		:   (mComment=comment{str = mComment;}|TIME{str=$TIME.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|BREED_NAME{str=$BREED_NAME.text;}|SPECIAL_SUFFIX{str=$SPECIAL_SUFFIX.text;}|GROUP_RING{str=$GROUP_RING.text;});
@@ -203,9 +203,9 @@ rally_ring_block returns [JsonObject json]
 @init{json = new JsonObject();json.addProperty("Empty","rally: not captured"); json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}}
  	:	(rally_comment)|( rally_ring_name RALLY_RING_LINE*);
 rally_ring_name
-	:	INT RALLY_TOKEN RALLY_CLASS_TYPE;
+	:	INT RALLY_TOKEN_WITH_TYPE|RALLY_TOKEN;
 rally_comment
-	:(RALLY_TOKEN RALLY_CLASS_TYPE?)? RALLY_STANDALONE_COMMENT RALLY_CLASS_TYPE?;
+	:(RALLY_TOKEN RALLY_CLASS_TYPE?)? RALLY_STANDALONE_COMMENT;
 /******************************
 *
 *
@@ -432,8 +432,11 @@ BREED_NAME
 SPECIAL_SUFFIX
     :   (FRAG_BREED_NAME_SPECIAL_SUFFIX);//Could be more matching, so keep BREED_NAME_SPECIAL_SUFFIX a fragment
     
-BREED_NAME_SUFFIX
-    :   '(Misc. Dog)'|'(Misc. Dogs)'|'(Misc. Bitch)'|'(Misc. Bitches)';
+fragment BREED_NAME_SUFFIX
+    :   ('('BREED_MISC')')|BREED_MISC;
+
+fragment BREED_MISC
+:'Misc. Dog'|'Misc. Dogs'|'Misc. Bitch'|'Misc. Bitches';
 
 fragment FRAG_BREED_NAME_SPECIAL_SUFFIX
     :   ('Sweepstakes'|'Entry'|'Entries'|'Veterans');
@@ -570,7 +573,7 @@ RALLY_TOKEN_WITH_TYPE
 
 RALLY_STANDALONE_COMMENT
 	:	('Walkthrough')|
-	('To follow' WS RALLY_CLASS_NAME);
+	('To follow' WS RALLY_CLASS_NAME) RALLY_CLASS_TYPE?;
 	
 
 
@@ -584,7 +587,7 @@ fragment RALLY_CLASS_LEVEL
 	:	'Excellent'|'Novice'|'Advanced';
 fragment RALLY_CLASS_NAME
 	:	'Rally' WS RALLY_CLASS_LEVEL;
-RALLY_CLASS_TYPE
+fragment RALLY_CLASS_TYPE
 	:	'A'|'B';
 RALLY_RING_LINE
 	:	INT 'inch:' 'R''0'..'9'+ ('-R''0'..'9'+)? (';''R''0'..'9'+ ('-R''0'..'9'+)?)+;
@@ -649,7 +652,7 @@ fragment FRAG_WEEK_DAY:   'Sunday'|'SUNDAY'|
 STANDALONE_COMMENT
     :   'LUNCH'|'VARIETY GROUP JUDGING';  
 BREED_COUNT  :  INT '-' INT '-' INT '-' INT;
-JUDGE_NAME: {allowJudge}?=>(FRAG_TITLE WS FRAG_PROPER_NAME (' ' (PARENTHETICAL_NAME|FRAG_PROPER_NAME))* (WS? PARENTHETICAL_INT?));
+JUDGE_NAME: {allowJudge}?=>(FRAG_TITLE WS FRAG_PROPER_NAME (' ' (PARENTHETICAL_NAME|FRAG_PROPER_NAME))+ (WS? PARENTHETICAL_INT?));
 //JUDGE_NAME: FRAG_PROPER_NAME (' ' (PARENTHETICAL_NAME|FRAG_PROPER_NAME))* (' ' PARENTHETICAL_INT)?;
 
 WS :(' ' |'\t' |'\n' |'\r' )+ {$channel=HIDDEN;} ;  

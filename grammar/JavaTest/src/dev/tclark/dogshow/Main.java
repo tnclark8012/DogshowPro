@@ -24,9 +24,10 @@ public class Main {
 		String file = args[0];
 		LexerRunner lexerRunner = new LexerRunner(file);
 		TokenStream ts = lexerRunner.getTokenStream(file);
-		// for (int i = 0; i < ts.size(); i++) {
-		// System.out.println(ts.get(i).getText());
-		// }
+		lexerRunner.printTokens();
+		 for (int i = 0; i < ts.size(); i++) {
+		 System.out.println(ts.get(i).getText());
+		 }
 
 		ParserRunner parserRunner = new ParserRunner(lexerRunner);
 		parserRunner.setRelationalParsing(false);
