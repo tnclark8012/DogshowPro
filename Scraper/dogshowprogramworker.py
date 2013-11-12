@@ -11,7 +11,9 @@ from showutils import urlopen_with_retry
 from util import printv;
 
 class DogshowProgramWorker(object):
-
+    def __init__(self):
+        self.scraper = ShowScraper()
+        self._cleaner = RingCleaner();
     def run(self, showLimit, scrapeLimit):
         #Pull closed shows listed on Onofrio * Yields URL list
         # For each URL:
@@ -28,8 +30,7 @@ class DogshowProgramWorker(object):
         #           assign the same number of listed rings that date
         #           process make sure each ring was assigned. 
         #   Post show to server!
-        self.scraper = ShowScraper()
-        self._cleaner = RingCleaner();
+        
         urlList = self.getClosedShowUrls();
         if scrapeLimit is not None:
             print("scrape link limit: " + str(scrapeLimit));
@@ -93,7 +94,6 @@ class DogshowProgramWorker(object):
             print(str("collected ring dates: ") + str(ringDates is not None))
             if showJson and ringDates:
                 return self.assignDates(showJson, ringDates);
-
     """
     Assigns dates to each ring in a show JSON object.
     returns: showJson with dates assigned.
@@ -118,13 +118,13 @@ class DogshowProgramWorker(object):
         # TODO 
         # [1,2,3,4,4,5] represents 6 judge changes
         # Condense ringDates[i] into a set so [1,2,3,4,4,4,5] -> [1,2,3,4,5]
-        dates = [set(dates[d]) for d in dates]
-        print("Condensed dats: " + str(dates))
+        #dates = [set(dates[d]) for d in dates]
+        #print("Condensed dats: " + str(dates))
         # Then track the rings so that after each ring number has appeared, jump to the next day 
         
-        print('not implemented!')
+        #print('not implemented!')
        
-        sys.exit(0)
+        #sys.exit(0)
         for ringIndex in range(0, numRings):
             #If we have already assigned enough rings this date and we're not at a group ring, use the next date
             #TODO is it 'GROUP' or 'Group'?

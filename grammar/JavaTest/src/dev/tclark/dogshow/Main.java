@@ -23,12 +23,9 @@ public class Main {
 		String[] programs = { "testparse", "TRIN1JP.txt", "PLUM1JP.txt", "SACS1JP.txt", "LEAV1JP.txt", "KTDC1JP.txt" };
 		String file = args[0];
 		LexerRunner lexerRunner = new LexerRunner(file);
-		TokenStream ts = lexerRunner.getTokenStream(file);
-		lexerRunner.printTokens();
-		 for (int i = 0; i < ts.size(); i++) {
-		 System.out.println(ts.get(i).getText());
-		 }
-
+		//TokenStream ts = lexerRunner.getTokenStream(file);
+		// lexerRunner.printTokens();
+//
 		ParserRunner parserRunner = new ParserRunner(lexerRunner);
 		parserRunner.setRelationalParsing(false);
 		JsonObject result = parserRunner.parseStart(file);

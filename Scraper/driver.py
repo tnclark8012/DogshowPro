@@ -1,6 +1,6 @@
 from appserver_accessor import AppServerAccessor
 import urllib
-import sys, getopt, json
+import sys, getopt, json, os
 import config
 import grammar
 from parserunner import ParseRunner
@@ -115,9 +115,14 @@ def main(argv):
             if show:
                 print(show.pdfLink)
             sys.exit()
-         if arg == 'closed':
-            print("closed");
-            links = ShowScraper(False, True).pullClosedShows();
+         if arg == 'json':
+            print("running on local json");
+            worker = DogshowProgramWorker();
+            folder = config.Pdf.DOWNLOAD_DIR;
+            for filename in os.listdir(folder):
+                print(os.path.splitext(filename)[1])
+                if os.path.splitext(filename)[1] == '.pdf':
+                    worker.getRingDates(folder + filename);
          sys.exit()
       elif opt == '-p':
          requestedPage=arg

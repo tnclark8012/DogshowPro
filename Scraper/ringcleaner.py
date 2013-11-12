@@ -14,7 +14,7 @@ import subprocess
 
 
 class RingCleaner(object):
-	pdfBoxSedCommands = ['s/.* GOES TO LUNCH/d\''];
+	pdfBoxSedCommands = ['/.* GOES TO LUNCH/d', '/[0-9]+ [0-9]+-[0-9]+-[0-9]+-[0-9]+$/d'];
 	pdf2TxtSedCommands = ['/\'.* MOVES TO RING [0-9]+$/d'];
 	def __init__(self):
 		self._runner = ParseRunner();
@@ -24,11 +24,12 @@ class RingCleaner(object):
 			shutil.copyfile(pdfPath, cleanedPath)
 			#TODO build into one big command
 			for sedCommand in RingCleaner.pdfBoxSedCommands:
-				sub = subprocess.call(['sed', '-i','-e', sedCommand, cleanedPath])
+				sub = subprocess.call(['sed', '-i','-e','-r', sedCommand, cleanedPath])
 		return cleanedPath
 		#print(string['Rings']);
 	
 	def cleanPdf2Txt(self, pdfPath):
+		print("Cleaning Pdf2Txt Output: " + str(pdfPath))
 		cleanedPath = config.Grammar.CLEANED_PROGRAM_DIR + os.path.basename(pdfPath)
 		if not os.path.isfile(cleanedPath):
 			shutil.copyfile(pdfPath, cleanedPath)
@@ -44,6 +45,7 @@ class RingCleaner(object):
 	Ring numbers are NOT guaranteed to be in chronological order, but they are guaranteed to be listed in the proper day. Group rings are not present
 	"""
 	def collectRingDates(self, filePath):
+		print("collecting dates (running pdf2txt) on " + filePath)
 		parsedFilePath = self._runner.parseProgramPdf2Txt(filePath)
 		cleanedPath = self.cleanPdf2Txt(parsedFilePath)
 		text = None;

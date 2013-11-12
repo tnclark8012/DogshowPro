@@ -38,6 +38,9 @@ class ParseRunner(object):
     """
     def parseProgramPdf2Txt(self, fullPdfPath):
         if fullPdfPath is not None:
+            print("**************************")
+            print("*     Parsing PDF2Txt    *")
+            print("**************************")
             output = os.path.basename(fullPdfPath)[:-3] + "pdf2txt.txt"
             outputLocation = config.Parse.OUTPUT_DIR + output
             if not os.path.isfile(outputLocation):
@@ -49,3 +52,7 @@ class ParseRunner(object):
             #    text = outputFile.read();
             #    return text;
             return outputLocation;
+        else:
+            print("!!!!!!!!!!!!!!!!!!!!!!!!")
+            print("!  No path for PDF2TXT !")
+            print("!!!!!!!!!!!!!!!!!!!!!!!!")

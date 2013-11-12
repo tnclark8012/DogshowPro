@@ -148,11 +148,11 @@ comment returns [String str]
 		: (TIME{str=$TIME.text;}|COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|INT{str=$INT.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;});
 timeblock_comment returns [String str]//No time
 		@init{str="";}
-		: (COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|INT{str=$INT.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;});
+		: (COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|INT{str=$INT.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|SPECIAL_SUFFIX);
 
 		
 ring_comment returns [String str]
-    :   STANDALONE_COMMENT{str=$STANDALONE_COMMENT.text;};
+    :   STANDALONE_COMMENT{str=$STANDALONE_COMMENT.text;}|timeblock_comment;
 
 timeblock returns [JsonObject json] 
 	@init {json = new JsonObject(); String comment = ""; String time = "";}	
@@ -198,14 +198,17 @@ breed_ring returns [JsonObject json]
 
 non_conformation_ring returns [JsonObject json]
 	@init{json = new JsonObject();json.addProperty("Empty","obedience: not captured"); json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}}
-	: (INT NON_CONFORMATION_CLASS_NAME (NON_CONF_SECOND_LINE|INT) (NON_CONF_SECOND_LINE_COMMENT)*);
+	: (INT NON_CONFORMATION_CLASS_NAME (NON_CONFORMATION_SECOND_LINE|INT) (NON_CONF_SECOND_LINE_COMMENT)*);
 rally_ring_block returns [JsonObject json]
 @init{json = new JsonObject();json.addProperty("Empty","rally: not captured"); json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}}
- 	:	(rally_comment)|( rally_ring_name RALLY_RING_LINE*);
+ 	:	(rally_comment)|( rally_ring_name rally_entry_line*);
 rally_ring_name
-	:	INT RALLY_TOKEN_WITH_TYPE|RALLY_TOKEN;
+	:	INT? RALLY_CLASS;
+	
+rally_entry_line
+	:	(INT? RALLY_ENTRY);
 rally_comment
-	:(RALLY_TOKEN RALLY_CLASS_TYPE?)? RALLY_STANDALONE_COMMENT;
+	:NON_CONF_SECOND_LINE_COMMENT+;
 /******************************
 *
 *
@@ -440,7 +443,7 @@ fragment BREED_MISC
 
 fragment FRAG_BREED_NAME_SPECIAL_SUFFIX
     :   ('Sweepstakes'|'Entry'|'Entries'|'Veterans');
-fragment FRAG_BREED_NAME_ALT:   'Veteran Dog'|'Veteran Bitch'|'Veteran Bitche';//used to handle BREED_RING with no breed count after
+fragment FRAG_BREED_NAME_ALT:   'Brood Bitch'|'Brood Bitche'|'Veteran Dog'|'Veteran Bitch'|'Veteran Bitche';//used to handle BREED_RING with no breed count after
 fragment FRAG_BREED_NAME_CATEGORY_SUFFIX
     :   'Ascob'|'Parti-Color'|'Black';//Spaniels (Cocker) Ascob
 fragment FRAG_BREED_NAME_CATEGORY //Breed's that are listed under categories rather than full name. Ex: Spaniels (Cocker)
@@ -525,7 +528,7 @@ To follow Rally Advanced
 R19-R26
 */
 NON_CONFORMATION_CLASS_NAME : 
-	NON_CONFORMATION_CLASS_LEVEL (WS 'Class')?;
+	NON_CONFORMATION_CLASS_LEVEL (' 'NON_CONFORMATION_CLASS_LEVEL)* (' 'NON_CONFORMATION_CLASS_SECTION)? (' 'NON_CONFORMATION_CLASS_SUFFIX)?;
 /*
 	'Beginner Novice A Class'|
 	'Beginner Novice B Class'|
@@ -543,61 +546,52 @@ NON_CONFORMATION_CLASS_NAME :
 	'Versatility Class'|
 	'Veterans Class';
 	*/
+fragment NON_CONFORMATION_CLASS_SECTION
+	:	('A'|'B');
+fragment NON_CONFORMATION_CLASS_SUFFIX
+	:	'Class'|'Walkthrough';
 fragment NON_CONFORMATION_CLASS_LEVEL
 	:
-	'Beginner Novice A'|
-	'Beginner Novice B'|
-	'Utility A' | 
-	'Utility B' | 
-	'Pre Open'|
-	'Pre Utility'|
-	'Open A' | 
-	'Open B' |
-	'Novice A' |
-	'Novice B' |
-	'Wild Card Novice'|
-	'Wild Card Utility'|
-	'Graduate Novice'|
-	'Versatility'|
-	'Veterans';
+	'Advanced'|
+	'Beginner'|
+	'Excellent'|
+	'Utility' | 
+	'Pre'|
+	'Open' | 
+	'Novice' |
+	'Wild Card'|
+	('Pair''s'?)|
+	'Graduate'|
+	'Walkthrough'|
+	'Versatility'
+	//|'Veterans'
+	;
 	
-
-NON_CONF_SECOND_LINE
-	:	NON_CONFORMATION_SECOND_LINE;
 NON_CONF_SECOND_LINE_COMMENT
 	:	
-	'To follow' WS NON_CONFORMATION_CLASS_LEVEL;
-RALLY_TOKEN_WITH_TYPE
-	:	RALLY_CLASS_WITH_TYPE;
-
-
-RALLY_STANDALONE_COMMENT
-	:	('Walkthrough')|
-	('To follow' WS RALLY_CLASS_NAME) RALLY_CLASS_TYPE?;
-	
-
-
-RALLY_TOKEN
-	:	RALLY_CLASS;
-
-fragment RALLY_CLASS_WITH_TYPE
-	:	 RALLY_CLASS_NAME RALLY_CLASS_TYPE;
-fragment RALLY_CLASS: RALLY_CLASS_NAME;
-fragment RALLY_CLASS_LEVEL
-	:	'Excellent'|'Novice'|'Advanced';
-fragment RALLY_CLASS_NAME
-	:	'Rally' WS RALLY_CLASS_LEVEL;
-fragment RALLY_CLASS_TYPE
-	:	'A'|'B';
-RALLY_RING_LINE
-	:	INT 'inch:' 'R''0'..'9'+ ('-R''0'..'9'+)? (';''R''0'..'9'+ ('-R''0'..'9'+)?)+;
+	 FRAG_TO_FOLLOW WS (NON_CONFORMATION_CLASS_NAME|RALLY_CLASS);
+fragment FRAG_TO_FOLLOW
+	:	'To follow';
+RALLY_CLASS
+	: FRAG_RALLY_CLASS_NAME ;	
+fragment FRAG_RALLY_CLASS_NAME
+	:	'Rally ' NON_CONFORMATION_CLASS_NAME;
+fragment FRAG_RALLY_CLASS_SECTION
+	:	'Walkthrough';
+	RALLY_ENTRY
+	:	'inch: '? FRAG_RALLY_ENTRANT_GROUP (';'FRAG_RALLY_ENTRANT_GROUP)*;
 	/*
 	08 inch: R6
 12 inch: R7-R8
 16 inch: R9-R11;R15-R17
+08 inch	: R7,R8
 	*/
-fragment NON_CONFORMATION_SECOND_LINE:
-	('0'..'9'+'-''0'..'9'+)|('0'..'9'+(('-''0'..'9'+)?(';''0'..'9'+('-''0'..'9'+)?))+);
+NON_CONFORMATION_SECOND_LINE:('0'..'9'+'-''0'..'9'+)|('0'..'9'+(('-''0'..'9'+)?(';''0'..'9'+('-''0'..'9'+)?))+);
+
+fragment FRAG_RALLY_SINGLE_ENTRANT
+	:	'R''0'..'9'+;
+fragment FRAG_RALLY_ENTRANT_GROUP:
+	FRAG_RALLY_SINGLE_ENTRANT ((','|'-') FRAG_RALLY_SINGLE_ENTRANT)*; 
 	// 14;12     1-23;23;23-232
 
 fragment FRAG_MONTH   :   'January'|'JANUARY'|
@@ -680,11 +674,11 @@ fragment WORD  : ('a'..'z'|FRAG_SPEC_CHAR|FRAG_SPEC_WORD_CHAR)+ END_PUNCTUATION?
 COMMENT :   ((FRAG_PROPER_NAME|WORD|PARENTHETICAL|INT|ELLIPSIS){allowBreed=false; allowGroup=false;allowJudge=false;})+;//Sometimes they mention sweepstakes in comment
 fragment END_WORD
 	:	WORD END_PUNCTUATION;
-fragment PARENTHETICAL_NAME: '(' FRAG_PROPER_NAME ')';
+fragment PARENTHETICAL_NAME: '(' (FRAG_TITLE WS)? FRAG_PROPER_NAME ')';
 
 FallThrough
 @after{
-  System.err.println("Ooops! " + getText() + " fell through");
+  //System.err.println("Ooops! " + getText() + " fell through");
 }
   :  . // match any char not matched by Number, Id or Space
   {$channel=HIDDEN;};
