@@ -55,28 +55,4 @@ public abstract class GrammarTest {
 		return new File("testcase/tests/" + mGrammarComponent.getTestFolder() +"/test-outputs", inputFile.getName() + "-test-output.txt");
 	}
 	
-	protected static final boolean compareFiles(File f1, File f2) {
-		String str1;
-		String str2;
-		try {
-			str1 = fileToString(f1);
-			str2 = fileToString(f2);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-		return str1.equals(str2);
-	}
-
-	protected static final String fileToString(File file) throws IOException {
-		String line;
-		BufferedReader reader = new BufferedReader(new InputStreamReader(
-				new FileInputStream(file)));
-		StringBuilder sb = new StringBuilder();
-		while ((line = reader.readLine()) != null) {
-			sb.append(line);
-		}
-		reader.close();
-		return sb.toString();
-	}
 }

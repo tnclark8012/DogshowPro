@@ -33,22 +33,22 @@ class DogshowProgramWorker(object):
         
         urlList = self.getClosedShowUrls();
         if scrapeLimit is not None:
-            print("scrape link limit: " + str(scrapeLimit));
+            printv("scrape link limit: " + str(scrapeLimit));
         if showLimit:
-            print('limit of ' + str(showLimit) + ' shows')
+            printv('limit of ' + str(showLimit) + ' shows')
             urlList = urlList[:scrapeLimit];
         showDetailList = list();
         for url in urlList:
             showDetail = self.getShowDetails(url);
             if showDetail.code is None:
-                print("No program currently available for " + str(url));
+                printv("No program currently available for " + str(url));
             else:
                 showDetailList.append(showDetail);
                 printv("url: " + url)
         oldShowCount = len(showDetailList)
         showDetailList = set(showDetailList);
         duplicateShowCount =  oldShowCount - len(showDetailList);
-        print("found " + str(duplicateShowCount) + " duplicate show entries")
+        printv("found " + str(duplicateShowCount) + " duplicate show entries")
         if len(showDetailList) > showLimit:
             showDetailList = list(showDetailList)[:showLimit];
         showJsonList = [self.collectShowJson(showDetail) for showDetail in showDetailList]
@@ -56,15 +56,22 @@ class DogshowProgramWorker(object):
         #self.postShows(showJsonList);
 
     """
+    Dumps JSON to file 
+    """
+    def dumpJson(self, data, filename):
+        filepath = config.AppServer.DUMP_DIR + filename;
+        
+
+    """
     Get a list of closed show page URLs
     returns: list of Urls
     """
     def getClosedShowUrls(self):
-        print('********************')
-        print('Get Closed Show Urls')
-        print('********************')
+        printv('********************')
+        printv('Get Closed Show Urls')
+        printv('********************')
         links = self.scraper.pullClosedShows();
-        print('pulled ' + str(len(links)) + ' links');
+        printv('pulled ' + str(len(links)) + ' links');
         return links;
 
     """
@@ -79,19 +86,22 @@ class DogshowProgramWorker(object):
     """
     def collectShowJson(self, showDetail):
         pdfPath = self.downloadProgram(showDetail);
+        return generateJson(pdfPath);
+        
+    def generateJson(self, pdfPath):
         if pdfPath:
             showJson = self.getShowJson(pdfPath);
-            print(str("collected show JSON: ") + str(showJson is not None))
+            printv(str("collected show JSON: ") + str(showJson is not None))
             if 'Rings' not in showJson:
-                print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-                print("!!           ERROR                !!")
-                print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-                print("Couldn't get JSON from " + pdfPath )
-                print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                printv("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                printv("!!           ERROR                !!")
+                printv("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                printv("Couldn't get JSON from " + pdfPath )
+                printv("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                 return None;
             
             ringDates = self.getRingDates(pdfPath);
-            print(str("collected ring dates: ") + str(ringDates is not None))
+            printv(str("collected ring dates: ") + str(ringDates is not None))
             if showJson and ringDates:
                 return self.assignDates(showJson, ringDates);
     """
@@ -99,53 +109,69 @@ class DogshowProgramWorker(object):
     returns: showJson with dates assigned.
     """
     def assignDates(self, showJson, ringDates):
-        print("*******************")
-        print("* Assigning dates *");
-        print("*******************")
+        printv("*******************")
+        printv("* Assigning dates *");
+        printv("*******************")
         ringsList = showJson['Rings'];
         numRings = len(ringsList)
         dates = list(ringDates.keys());
-        print(str(dates))
+        printv(str(dates))
         currentDateIndex = 0;
         currentDate = dates[currentDateIndex];
         currentDateNumRings = len(ringDates[currentDate])
         assignedRingsCurrentDate = 0;
-        print("date list:           " + str(dates));
-        print("numRings in JSON:    " + str(numRings))
-        print("currentDate:         " + str(currentDate))
-        print("currentDateNumRings: " + str(currentDateNumRings))
+        printv("date list:           " + str(dates));
+        printv("numRings in JSON:    " + str(numRings))
+        printv("currentDate:         " + str(currentDate))
+        printv("currentDateNumRings: " + str(currentDateNumRings))
 
         # TODO 
         # [1,2,3,4,4,5] represents 6 judge changes
-        # Condense ringDates[i] into a set so [1,2,3,4,4,4,5] -> [1,2,3,4,5]
-        #dates = [set(dates[d]) for d in dates]
-        #print("Condensed dats: " + str(dates))
+        # Start with the first judge. Verify this ring appears in the list.
+        # Each time the judge changes remove the ring for which he is judging.
+
         # Then track the rings so that after each ring number has appeared, jump to the next day 
-        
-        #print('not implemented!')
-       
-        #sys.exit(0)
-        for ringIndex in range(0, numRings):
-            #If we have already assigned enough rings this date and we're not at a group ring, use the next date
-            #TODO is it 'GROUP' or 'Group'?
-            if not (assignedRingsCurrentDate < currentDateNumRings or 'GROUP' in ringsList[ringIndex]):
-                print(str(currentDate) + 'has ' + str(currentDateNumRings) + ' rings.');
-                currentDateIndex=currentDateIndex+1;
-                currentDate = dates[currentDateIndex];
-                currentDateNumRings = len(ringDates[currentDate]);
-                assignedRingsCurrentDate = 0;
-            #assign the current ring the current date
-            ringsList[ringIndex]['Date'] = currentDate;
-            assignedRingsCurrentDate=assignedRingsCurrentDate+1;
-        showJson = dict()
-        showJson['Rings'] = ringsList;
-        print("JSON")
-        print("----")
-        print(str(showJson))
-        # start with first date.
-        # assign first n rings that date.
-        # assign date to group rings immediately following.
-        # go to next date 
+
+        printv('not implemented!')
+        currentJudge = (None, None);
+        previousJudge = (None, None); 
+        judgeRingCount = 0;
+        currentDateRingNumbers = ringDates[currentDate];
+        printv('*******************')
+        printv(str(currentDate))
+        printv('*******************')
+        groupsAppeared = False;
+        for i in range(0, numRings):
+            if "Number" not in ringsList[i]:
+                groupsAppeared = True;
+            else:
+                previousJudge = currentJudge;
+                printv('current ring: ' + str(ringsList[i]))
+                currentJudge = (ringsList[i]["Judge"], ringsList[i]["Number"]);
+                if currentJudge != previousJudge or groupsAppeared:
+                    if groupsAppeared:
+                        groupsAppeared = False;
+                    printv('RING ' + str(previousJudge[1]) + ' : ' + str(previousJudge[0]) + ' judges ' + str(judgeRingCount) + ' rings.');
+                    judgeRingCount = 0;
+                    printv("current: " + str(currentJudge) + " previous: " + str(previousJudge))
+                    #remove ring number from list
+                    if previousJudge[1] is not None:
+                        #printv("Removing ring number: " + str(previousJudge[1]) + '. From ' + str(currentDateRingNumbers))
+                        currentDateRingNumbers.remove(previousJudge[1])
+                        printv('remaining: ' + str(ringDates[currentDate]))
+                    if not currentDateRingNumbers:#list is empty
+                        currentDateIndex += 1
+                        currentDate = dates[currentDateIndex]
+                        printv('*******************')
+                        printv(str(currentDate))
+                        printv('*******************')
+                        currentDateRingNumbers = ringDates[currentDate]
+                judgeRingCount += 1;
+            ringsList[i]["Date"] = currentDate;
+
+
+        #printv(str(ringsList))
+        self.dumpJson(showJson,'ANOK1JP');
         return showJson;
     def getShowJson(self, pdfPath):
         return self._cleaner.parseShowJson(pdfPath);
@@ -163,20 +189,20 @@ class DogshowProgramWorker(object):
         values = show.toJson();#{'id':show.code, 'clubs':str(show.clubs), 'locations':str(locations) 'date':int(show.dates[0])}
         locationList = list();
         [locationList.append(l.toJson()) for l in show.locations];
-        print(json.loads(json.dumps(locationList)))
-        print(show.getDateList())
-        print(str(values));
+        printv(json.loads(json.dumps(locationList)))
+        printv(show.getDateList())
+        printv(str(values));
         values = {'code':show.code, 'locations':json.loads(json.dumps(locationList)), 'clubs':show.getClubList(), 'show':values, 'dates':show.getDateList()}
         #values = {'city': 'Columbiana', 'date': 1365138000.0, 'name': 'Northeast Oklahoma Kennel Club', 'state': 'AL'}
         response = urlopen_with_retry(url, values)
 
         #response = urlopen_with_retry(url, data.encode('utf8'))
         the_page = response.read()
-        print(the_page);
+        printv(the_page);
 
     def downloadPrograms(self, shows):
         for show in shows:
-            print("Show code: " + show.code)
+            printv("Show code: " + show.code)
             show.downloadProgram()
         return shows
 
@@ -185,40 +211,40 @@ class DogshowProgramWorker(object):
     returns: downloaded PDF path
     """
     def downloadProgram(self, show):
-        print("setting pdf path...")
+        printv("setting pdf path...")
         pdfPath = config.Pdf.DOWNLOAD_DIR+show.code+".pdf";
-        print("pdf path is " + pdfPath)
+        printv("pdf path is " + pdfPath)
         if not config.Env.OFFLINE and config.Env.DO_DOWNLOAD:
             if  os.path.isfile(pdfPath):
-                print("Skipping... file already downloaded");
+                printv("Skipping... file already downloaded");
                 return pdfPath;
             pdfName = show.code;         
-            print("*** Downloading ***" + config.Onofrio.pdfUrl(show.pdfLink));
+            printv("*** Downloading ***" + config.Onofrio.pdfUrl(show.pdfLink));
             (filename, headers) = urllib.request.urlretrieve(config.Onofrio.pdfUrl(show.pdfLink),pdfPath)
             f = open(filename)
             f.close();
             pdfPath = filename
-            print("pdf path: " + pdfPath)
+            printv("pdf path: " + pdfPath)
             if config.Env.VERBOSE:
-                print(filename)
+                printv(filename)
             return pdfPath;
         else:
-            print("Did not download program!")
-            print("Does it exist? " + str(os.path.isfile(pdfPath)))
+            printv("Did not download program!")
+            printv("Does it exist? " + str(os.path.isfile(pdfPath)))
             if os.path.isfile(pdfPath):
-                print("program exists at: " + pdfPath)
+                printv("program exists at: " + pdfPath)
                 return pdfPath;
             return False; 
 
     def scrapeAndDownload(self):
-        print("scrape and download");
+        printv("scrape and download");
         scraper = ShowScraper(False, False);
-        print("pulling shows...");
+        printv("pulling shows...");
         allshows = scraper.getAllShows()
-        print("posting shows...");
+        printv("posting shows...");
 
         shows = scraper.getUniqueShows()
-        print("downloading " + str(len(shows)) + " programs...")
+        printv("downloading " + str(len(shows)) + " programs...")
         downloadPrograms(shows)
         
         prevLink = None;
@@ -230,7 +256,7 @@ class DogshowProgramWorker(object):
             else:
                 uniqueShows[-1:].dateList.append(show.date);
         for show in uniqueShowList:
-            print( str(show.programName) + " lasts " + str(len(show.dateList)) + " days" );
+            printv( str(show.programName) + " lasts " + str(len(show.dateList)) + " days" );
         return (allshows, shows);
 
     def doParseAndClean(self, show):

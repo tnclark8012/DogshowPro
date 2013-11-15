@@ -35,7 +35,7 @@ public class ParserTest extends GrammarTest {
 			PrintWriter outStream = new PrintWriter(outFile);
 			outStream.println(output);
 			outStream.close();
-			boolean areSame = compareFiles(outFile, testOutputs.get(i));
+			boolean areSame = TestUtils.compareFiles(outFile, testOutputs.get(i));
 			if (!areSame)
 				System.err.println(outFile.getAbsolutePath());
 				System.err.println("VS. " + testOutputs.get(i).getAbsolutePath());

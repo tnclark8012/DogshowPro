@@ -138,10 +138,10 @@ judge_block returns [JsonObject json]
     :   mName=judge_name{json.addProperty("Judge", mName); if(!mRelational){mCurrentJudge = mName;}} (mBlock=timeblock{array.add(mBlock);})+ {json.add("TimeBlocks", array);};
 judge_name returns [String str]
 	@init {str = "";}
-	:	(JUDGE_NAME{str=$JUDGE_NAME.text;})+|(COMMENT|PARENTHETICAL)+; 
+	:	(JUDGE_NAME{str+=$JUDGE_NAME.text;})+|(COMMENT{str+=$COMMENT.text+" ";}|PARENTHETICAL{str+=$PARENTHETICAL.text+" ";})+; 
 big_comment returns [String str]
 		@init {str = "";}
-		:   (mComment=comment{str = mComment;}|TIME{str=$TIME.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|BREED_NAME{str=$BREED_NAME.text;}|SPECIAL_SUFFIX{str=$SPECIAL_SUFFIX.text;}|GROUP_RING{str=$GROUP_RING.text;});
+		:   (mComment=comment{str = mComment;}|TIME{str=$TIME.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|BREED_NAME{str=$BREED_NAME.text;}|SPECIAL_SUFFIX{str=$SPECIAL_SUFFIX.text;}|GROUP_RING{str=$GROUP_RING.text;}|NON_CONFORMATION_SECOND_LINE{str=$NON_CONFORMATION_SECOND_LINE.text;});
 
 comment returns [String str]
 		@init{str="";}
@@ -159,7 +159,7 @@ timeblock returns [JsonObject json]
 	: (TIME{currentBlockTime=$TIME.text;json.addProperty("Time", currentBlockTime);}) (rings=inner_timeblock{if(json.has("Rings")){JsonArray already=json.getAsJsonArray("Rings");already.addAll(rings);json.add("Rings",already);}else{json.add("Rings", rings);}} (mComment=timeblock_comment{comment+=$mComment.str;})*{if(!comment.equals("")){json.add("timeblock_comment",new JsonPrimitive(comment));}})*{if(!mRelational&&json.has("Rings")){mShowRings.addAll(json.getAsJsonArray("Rings"));}};
 inner_timeblock returns [JsonArray array]
 	@init {array = new JsonArray();int countAhead = 0;}
-	:	(mSpecialRing=special_ring{mSpecialRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mSpecialRing.get("Count").getAsInt();array.add(mSpecialRing);}|mJuniorRing=junior_ring{mJuniorRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mJuniorRing.get("Count").getAsInt();array.add(mJuniorRing);}|((breed_ring)=>mBreedRing=breed_ring{mBreedRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mBreedRing.get("Count").getAsInt();array.add(mBreedRing);})|(mConformation=non_conformation_ring{array.add(mConformation);})|(mRallyRing=rally_ring_block{array.add(mRallyRing);})|(ring_comment))+;
+	:	(mSpecialRing=special_ring{mSpecialRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mSpecialRing.get("Count").getAsInt();array.add(mSpecialRing);}|mJuniorRing=junior_ring{mJuniorRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mJuniorRing.get("Count").getAsInt();array.add(mJuniorRing);}|((empty_breed_ring)=>mEmptyBreedRing=empty_breed_ring{mEmptyBreedRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mEmptyBreedRing.get("Count").getAsInt();array.add(mEmptyBreedRing);})|((breed_ring)=>mBreedRing=breed_ring{mBreedRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mBreedRing.get("Count").getAsInt();array.add(mBreedRing);})|(mConformation=non_conformation_ring{array.add(mConformation);})|(mRallyRing=rally_ring_block{array.add(mRallyRing);})|(ring_comment))+;
 
 junior_ring returns [JsonObject json]
 	@init{json = new JsonObject();json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}}
@@ -182,6 +182,12 @@ group_ring returns [String str]
 group_block returns [JsonObject json]
 	@init {json = new JsonObject(); JsonArray rings = new JsonArray();}
 	:	TIME{currentBlockTime=$TIME.text;json.addProperty("TIME", currentBlockTime);} STANDALONE_COMMENT? (mRing=group_ring {if(!mRelational){json = new JsonObject();String[] arr = parseGroupRing(mRing);json.addProperty("Group", arr[0]);json.addProperty("Judge",arr[1]);json.addProperty("Time",currentBlockTime);mShowRings.add(json);}else{rings.add(new JsonPrimitive(mRing));}})+ {if(mRelational){json.add("Rings", rings);}};
+empty_breed_ring returns [JsonObject json]
+	@init{json = new JsonObject();json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}String breedName = "";int total = 0;}
+    :   INT{total = parseIntSafely($INT.text, 0);json.addProperty("Count", total);} (BREED_COUNT{int counted = addBreedCountToJson(json, $BREED_COUNT.text);assert (counted==total);});
+
+
+
 breed_ring returns [JsonObject json]
 	@init{json = new JsonObject();json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}String breedName = "";int total = 0;}
     :   INT{total = parseIntSafely($INT.text, 0);json.addProperty("Count", total);} BREED_NAME{
@@ -645,6 +651,7 @@ fragment FRAG_WEEK_DAY:   'Sunday'|'SUNDAY'|
 **********************************/   
 STANDALONE_COMMENT
     :   'LUNCH'|'VARIETY GROUP JUDGING';  
+
 BREED_COUNT  :  INT '-' INT '-' INT '-' INT;
 JUDGE_NAME: {allowJudge}?=>(FRAG_TITLE WS FRAG_PROPER_NAME (' ' (PARENTHETICAL_NAME|FRAG_PROPER_NAME))+ (WS? PARENTHETICAL_INT?));
 //JUDGE_NAME: FRAG_PROPER_NAME (' ' (PARENTHETICAL_NAME|FRAG_PROPER_NAME))* (' ' PARENTHETICAL_INT)?;

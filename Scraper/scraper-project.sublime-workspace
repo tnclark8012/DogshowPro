@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"datema",
+				"datemap"
+			],
+			[
+				"sed",
+				"sedCommand"
+			],
+			[
 				"scrap",
 				"scrapeLimit"
 			],
@@ -423,63 +431,39 @@
 			"file": "dogshowprogramworker.py",
 			"settings":
 			{
-				"buffer_size": 9954,
+				"buffer_size": 10038,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "import config\nimport os\nimport urllib.request\nimport urllib.parse\nimport re\nimport string\nimport sys\nimport time\nfrom datetime import datetime\nfrom location import Location\nfrom bs4 import BeautifulSoup\nfrom model.show import Show\nfrom model.companionshow import CompanionShow\nfrom showutils import urlopen_with_retry\nfrom util import ScrapeHelper, RegexPattern, RegexHelper, printv;\nclass ShowScraper(object):\n\n    \n    def __init__(self, offline=None, verbose=None ):\n        self.OFFLINE = config.Env.OFFLINE;\n        self.VERBOSE = config.Env.VERBOSE;\n        self.DO_DOWNLOAD = config.Env.DO_DOWNLOAD;\n        if offline:\n            self.OFFLINE = offline;\n        if verbose:\n            self.VERBOSE = verbose;\n        \n        #self._allshows = self._pullShowsFromOnofrio()\n        #self._uniqueshows = self._getUniqueShows();\n    \n    \"\"\"\n    Pulls a Show model object from a given show page\n    \"\"\"\n    def pullShow(self, showPageUrl):\n        #open page\n        if self.OFFLINE:\n            showPageUrl = config.Onofrio.LOCAL_PAGE \n        response = urlopen_with_retry(showPageUrl, None)\n        page = response.read()\n        pool = BeautifulSoup(page)\n        if self._hasProgram:\n            club = self._pullKennelClub(pool);\n            if self.VERBOSE:\n                print(club);\n            date = self._parseStartDate(pool);\n            location = self._parseLocation(pool);\n            #self._hasProgram = self._checkIfProgram(pool);\n            code = self._pullShowCode(pool);\n            if self.VERBOSE:\n                print('code:' + str(code));\n            pdfLink = self._pullPdfLink(pool);\n            if self.VERBOSE:\n                print('pdf link: ' + str(pdfLink));\n            show = Show(code, club, location, date);\n            show.pdfLink = pdfLink;\n            if config.Env.VERBOSE:\n                print(\"************************************\")\n                print(\"*   finding companions to \" + str(club) + \"  *\")\n                print(\"************************************\")\n            companionShows = self._parseCompanionShows(pool);\n            for c in companionShows:\n                printv('found a companion')\n                show.addLocation(c.location);\n                show.addDate(c.date);\n                show.addClub(c.club);\n            return show;\n        #self._parseCompanionShows(pool);\n\n    def _parseLocation(self, pool):\n        headings = pool.findAll('h2', attrs={'align':'CENTER'});\n        raw = headings[0].findAll(text=True)[0];\n        printv(\"Raw location: \" + raw);\n        match = re.search(\"(?P<city>.*) (?P<state>[A-Z][A-Z])\", raw);\n        pretty = match.group('city') + \", \" + match.group('state')\n        self._city = match.group('city')\n        self._state = match.group('state')\n        printv(\"Pretty location: \" + pretty)\n        return pretty;\n\n\n    def _parseStartDate(self, pool): \n        headings = pool.findAll('h2', attrs={'align':'CENTER'});\n        raw = headings[1].findAll(text=True)[0]\n        printv(\"Raw date: \" + raw);\n        pretty = re.search(\"- (?P<date>(\"+config.MONTH_REGEX+\") .*)\", raw).group('date');\n        printv(\"Pretty date: \" + pretty)\n        return datetime.strptime(raw, \"%A - %B %d, %Y\")\n\n\n    def _hasProgram(self, pool):\n        notAvailable = pool.findAll(text=\"Judging Program Not Available\");\n        if notAvailable:\n            return False;\n        else:\n            return True;\n #       if notAvailable is None or len(notAvailable) is 0:\n #           results = pool.findAll('a', href=True, text='Judging Program (PDF Format)');\n #           if results:\n #               self._pdfLink = results[0]['href'];\n #               self.programName = re.search(\"(?P<name>[A-Z]+[0-9]\\JP.pdf)\", self._pdfLink).group('name')\n #               return True;\n #           else:\n #               print(\"died: \" + str(results) + \" \" + self._pagelink)\n #               return False;\n #       else:\n #           False;\n\n    def _parseCompanionShows(self, pool):\n        descLine = pool.findAll('dl');\n        if(descLine and len(descLine)>0):\n            descLine = descLine[0];\n        else:\n            printv(\"show has no companions\")\n            return list();\n        printv(\"descLine: \" + str(descLine))\n        clubNames=descLine.findAll('a',text=True);\n        clubNames = [club.findAll(text=True)[0] for club in clubNames ]\n        printv( \"club names: \" + str(clubNames))\n        locationTimes=descLine.findAll('dd')\n        printv( \"locationTimes: \" + str(locationTimes))\n        locationDatePairs = lazsist();\n        for locationTime in locationTimes:\n            raw = locationTime.findAll(text=True)[0];\n            printv(\"Raw date/location: \" + str(raw));\n            locationDatePair = RegexHelper().getLocationDate(raw); \n            locationDatePairs.append(locationDatePair);\n            print(\"locationDatePairs: \" + str(locationDatePairs))\n        companionShows = list()\n        for i in range(0,len(clubNames)):\n            printv(\"i: \" + str(i))\n            printv(\"club: \" + str(clubNames[i]));\n            printv(\"pair one: \" + str(locationDatePairs[i][1]));\n            printv(\"pair zero: \" + str(locationDatePairs[i][0]));\n            companionShows.append(CompanionShow(clubNames[i], locationDatePairs[i][1], locationDatePairs[i][0]))\n        return companionShows;\n\n    \"\"\"\n    Gets a list of show page links from the closed show sites\n    \"\"\"\n    def getClosedShowLinks(self):\n        showLinks = list();\n        return showLinks;\n\n    \"\"\"\n    Gets the name of the kennel club from the show page\n    \"\"\"\n    def _pullKennelClub(self, pool):\n        results = pool.findAll('h1', attrs={'align':'CENTER'});\n        if results:\n            return results[0].findAll(text=True)[0];\n        #sys.exit(2)\n        #link = anchor['href']\n        #return ScrapeHelper.pullAnchorText(link, RegexHelper.getPattern(RegexPattern.KENNEL_CLUB));\n\n    def _pullShowCode(self, pool):\n        #print(\"_pullShowCode not implemented\")\n        #sys.exit(1);\n        notAvailable = pool.findAll(text=\"Judging Program Not Available\");\n        if notAvailable is None or len(notAvailable) is 0:\n            results = pool.findAll('a', href=True, text='Judging Program (PDF Format)');\n            if results:\n                printv('_pullShowCode found the program anchor');\n                self.pdfLink = results[0]['href'];\n                code = re.search(\"(?P<name>(?P<code>[A-Z]+[0-9])\\JP.pdf)\", self.pdfLink).group('code')\n                return code;\n            else:\n                print(\"died: \" + str(results) + \" \" + self._pagelink)\n                return None;\n        else:\n            print('show code not available')\n            None;\n\n    def _pullPdfLink(self, pool):\n        #print(\"_pullShowCode not implemented\")\n        #sys.exit(1);\n        notAvailable = pool.findAll(text=\"Judging Program Not Available\");\n        if notAvailable is None or len(notAvailable) is 0:\n            results = pool.findAll('a', href=True, text='Judging Program (PDF Format)');\n            if results:\n                return results[0]['href'];\n\n    def pullClosedShows(self):\n        url = config.Onofrio.CLOSED_SHOWS\n        if config.Env.OFFLINE:\n            url = config.Onofrio.LOCAL_CLOSED;\n        response = urlopen_with_retry(url, None);\n\n        the_page = response.read()\n        pool = BeautifulSoup(the_page)\n\n        anchors = pool.findAll('a', href=True, target=True)\n        showPages = list();\n        for anchor in anchors:\n            link = anchor['href']\n            showPages.append(link);\n        showPages = [config.Onofrio.BASE_URL + link for link in showPages]\n        return showPages;\n            \n    def _getUniqueShows(self):\n        uniqueShows = list();\n        prevProgram = None;\n        for show in self._allshows:\n            if show.programName is not None and show.programName != prevProgram: \n                uniqueShows.append(show);\n                prevProgram = show.programName\n            else:\n                if show._hasProgram:\n                    if show.programName is None and self.VERBOSE :\n                        print(\"program but no name in \" + show._pagelink)\n                    elif self.VERBOSE:\n                        print(\"duplicate: \" + show.programName)\n\n        return uniqueShows;\n\n    def getAllShows(self):\n        return self._allshows;\n    def getUniqueShows(self):\n        return self._uniqueshows;\n\n\n",
-			"file": "showscraper.py",
-			"file_size": 8616,
-			"file_write_time": 130278518609735674,
-			"settings":
-			{
-				"buffer_size": 8399,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "parserunner.py",
-			"settings":
-			{
-				"buffer_size": 2507,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "Searching 75 files for \"parseProgramPdf2Txt\"\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\parserunner.py:\n   37      Returns: the parsed text\n   38      \"\"\"\n   39:     def parseProgramPdf2Txt(self, fullPdfPath):\n   40          if fullPdfPath is not None:\n   41              print(\"**************************\")\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\ringcleaner.py:\n   46  	\"\"\"\n   47  	def collectRingDates(self, filePath):\n   48: 		parsedFilePath = self._runner.parseProgramPdf2Txt(filePath)\n   49  		cleanedPath = self.cleanPdf2Txt(parsedFilePath)\n   50  		text = None;\n\n2 matches across 2 files\n",
-			"settings":
-			{
-				"buffer_size": 613,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
 			}
 		},
 		{
 			"file": "ringcleaner.py",
 			"settings":
 			{
-				"buffer_size": 3968,
+				"buffer_size": 4334,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "cleaned/COUN1.pdfbox.txt",
+			"settings":
+			{
+				"buffer_size": 30058,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "driver.py",
 			"settings":
 			{
-				"buffer_size": 131741,
+				"buffer_size": 131762,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "udging Programs\nWichita Kennel Club, Inc. has been nominated in 2005 & 2006 as \nTop Dog Show by Dogs in Review\nKANSAS COLISEUM I & II\n85th St N & I-135 Hwy • Valley Center, Kansas 67147\nl OUR FACILITY HAS COMPLETE HANDICAP ACCESSIBILITY\nl ALL BUILDINGS ARE NON-SMOKING FACILITIES\nl THESE SHOWS WILL BE HELD INDOORS • UNBENCHED\n• Nominated as the Best Dog Show in the Nation by Dogs in ReviewMagazine\nTHESE SHOWS ARE BEING HELD UNDER \nAMERICAN KENNEL CLUB \nRULES AND REGULATIONS\n2Specialty Shows, Obedience Trials & Rally Trials\nSUNFLOWER CLUSTER\nCOMBINED SPECIALTIES OF KANSAS\nAll clubs are licensed by the American Kennel Club\nTHURSDAY, APRIL 4, 2013 • Pages 14-15\nSHOW HOURS: 12:00 noon to 10:00 pm\nAll Breed Dog Show, Obedience Trial & Rally Trial\nHUTCHINSON KENNEL CLUB, INC.\nMember of the American Kennel Club\nConformation & Obedience  - 2013106001 • Rally - 2013106002\nFRIDAY, APRIL 5, 2013 • Pages 16-18\nAll Breed Dog Show, Obedience Trial & Rally Trial\nSALINA KENNEL CLUB, INC.\nMember of the American Kennel Club\nConformation & Obedience - 2013136001 • Rally - 2013136002\nSATURDAY, APRIL 6, 2013 • Pages 19-22\nAll Breed Dog Shows\nWICHITA KENNEL CLUB, INC.\nMember of the American Kennel Club\nSUNDAY, APRIL 7, 2013 - 2013060001 • Pages 23-25\nSupported Entry • National Shiba Club of America \nMONDAY, APRIL 8, 2013 - 2013060002 • Pages 27-28\nAll Breed Obedience Trial & Rally Trial\nWICHITA DOG TRAINING CLUB, INC.\nLicensed by the American Kennel Club\nObedience  - 2013012504 • Rally - 201301250600\nSUNDAY, APRIL 7, 2013 • Page 26\nTHE CLUSTER COORDINATOR & JUDGES LIAISON WILL NOT PERSONALLY EXHIBIT THEIR DOGS ON\nTHE CLUSTER WEEKEND. THE SHOW CHAIRMAN & OFFICERS OF THE CLUSTER CLUBS WILL NOT\nPERSONALLY EXHIBIT THEIR DOGS ON THE DAY OF THEIR RESPECTIVE SHOW.\nALL BREED SHOW HOURS: 6:00 am to 6:00 pm\nNEW EXHIBITOR BRIEFING\nA new Exhibitor Briefing will be held 30 minutes prior to the published start of\njudging on Saturday. The briefing location will be posted at the Superintendent’s\ntable. Spectators are welcome to attend.\nJACK ONOFRIO DOG SHOWS, L.L.C.\n3ROUTES TO THE SHOW\nFROM THE NORTH OR SOUTH - I-135 to 85th St N (EXIT 17). One block east to\nColiseum Pavilion.\nFROM THE EAST OR WEST - US 54 (Kellogg St) to I-135; north on I-135 to 85th St N\n(EXIT 17). One block east to Coliseum Pavilion.\n4Approximately\n150 ft between buildings!\nSU\nN\nFL\nO\nW\nER\n C\nLU\nST\nER\n 2\n0\n1\n3\n5SU\nN\nFL\nO\nW\nER\n C\nLU\nST\nER\n 2\n0\n1\n3\n6SU\nN\nFL\nO\nW\nER\n C\nLU\nST\nER\n 2\n0\n1\n3\n7\n8Wheatland \nGolden Retriever Club \nof Wichita \nInvites you to our \nObedience C MATCH \n!\nFriday April 5th, 2013 \nand  \nSaturday April 6th, 2013 \n!\n30 minutes after HIT \nKansas Coliseum, Pavilion II \n5 minutes $5.00 \nEntries taken days of matches \nin Obedience area \n!\nInfo:  manyk9s@sbcglobal.net \n9JUDGING PROGRAM BY ALPHABETICAL ORDER\nFRI SAT SUN MON\nBREED RING TIME RING TIME RING TIME RING TIME\nAFFENPIN 6 1:00 pm 7 1:10 pm 1 9:35 am 2 12:50 pm\nAFGHAN 7 12:35 pm 6 1:15 pm 6 12:50 pm 6 12:50 pm\nAIREDALE 1 1:00 pm 3 10:50 am 5 9:40 am 4 11:15 am\nAKITA 10 8:30 am 10 9:40 am 10 12:35 pm 10 8:30 am\nALAS MAL 10 12:25 pm 10 1:40 pm 10 1:45 pm 10 12:40 pm\nAMER ESK DOG 2 1:05 pm 2 2:25 pm\nAUST SHEP 4 10:00 am 4 10:15 am 4 10:40 am 5 10:00 am\nAUSTR CATTDOG 9 12:25 pm 9 12:40 pm 9 12:40 pm\nBASENJI 3 8:30 am 6 2:30 pm 3 8:30 am 6 12:50 pm\nBASSET 7 2:00 pm 5 11:55 am 6 1:55 pm 6 8:30 am\nBEAGLE-13 IN 7 2:00 pm 6 2:30 pm 6 1:55 pm\nBEAGLE-15 IN 7 2:00 pm 6 2:30 pm 6 1:55 pm 6 12:50 pm\nBEARD COLL 9 12:25 pm 9 12:40 pm 9 12:40 pm 9 11:40 am\nBEAUCERON 9 12:25 pm 9 12:40 pm 9 12:40 pm 9 11:40 am\nBEDLINGTON 1 10:45 am 3 10:50 am 5 9:40 am 4 10:00 am\nBEL MAL 11 12:55 pm 9 10:10 am 9 8:30 am 9 11:40 am\nBEL SHP 11 12:55 pm 9 10:10 am 9 8:30 am 9 11:40 am\nBEL TERV 11 12:55 pm 9 10:10 am 9 12:40 pm 9 10:40 am\nBERG PICARD 9 8:30 am 11 1:15 pm 7 12:35 pm\nBERNS MTN 10 12:25 pm 10 1:40 pm 10 11:00 am 10 12:40 pm\nBICHON 2 2:00 pm 2 1:05 pm 2 1:10 pm 1 1:55 pm\nBLACK RUSS 10 9:30 am 10 11:20 am 10 1:45 pm 10 9:35 am\nBLOODHND 7 2:00 pm 5 11:55 am 6 1:55 pm 6 9:35 am\nBORDER COLL 9 8:30 am 9 12:40 pm 9 8:30 am 9 10:40 am\nBORDER TERR 1 1:00 pm 3 10:50 am 5 9:40 am 4 11:15 am\nBORZOI 7 9:40 am 6 10:00 am 6 9:55 am 6 9:35 am\nBOSTON TERR 2 9:30 am 2 9:45 am 2 10:05 am 1 9:45 am\nBOUV DES FLAN 11 12:55 pm 10 1:40 pm 9 12:40 pm 9 11:40 am\nBOXER 9 8:30 am 8 10:30 am 10 9:30 am 11 9:30 am\nBRITTANY 3 12:55 pm 1 8:30 am 3 12:50 pm 3 9:40 am\nBRUSS GRIF 6 2:05 pm 7 11:05 am 1 9:35 am 2 12:50 pm\nBULL TER WHITE 3 10:50 am 5 9:40 am\nBULLDOG 2 8:30 am 2 8:30 am 2 9:05 am 1 8:30 am\nBULLMASTIFF 9 9:55 am 11 1:15 pm 10 8:30 am 10 8:30 am\nCAIRN TERR 1 1:00 pm 3 9:50 am 5 8:30 am 4 11:15 am\nCANE CORSO 11 1:15 pm 10 1:45 pm\nCARD WELSH CORG 11 11:20 am 9 8:30 am 8 8:30 am 9 9:30 am\nCAV KING CH 2 12:55 pm 5 12:30 pm 1 10:35 am 2 10:45 am\nCHES BAY RET 3 1:55 pm 1 8:30 am 3 11:20 am 3 9:40 am\nCHIHUA LONG 2 12:55 pm 3 8:30 am 1 8:30 am 2 8:30 am\nCHIHUA SMOOTH 2 10:40 am 3 8:30 am 1 8:30 am 2 12:50 pm\nCHIN CREST 6 11:10 am 7 1:10 pm 1 1:35 pm 2 10:45 am\nCHIN SHAR-PEI 2 9:30 am 2 11:45 am 2 10:05 am 1 1:55 pm\nCIRNECO D’ET 9 8:30 am 11 1:15 pm 7 12:35 pm 11 10:50 am\nCKR SPN PARTI 3 1:55 pm 1 12:40 pm 5 10:55 am 3 10:40 am\nCOLL ROUGH 9 12:40 pm\nCOLL SMOOTH 9 12:40 pm 11 12:25 pm 9 10:40 am\nDACH LONG 7 2:00 pm 6 2:30 pm 6 1:55 pm 6 12:50 pm\nDACH SMOOTH 7 2:00 pm 6 1:15 pm 6 1:55 pm 6 12:50 pm\nDACH WIRE 7 2:00 pm 6 2:30 pm 6 1:55 pm 6 12:50 pm\nDALMATIAN 4 8:30 am 2 8:30 am 2 1:10 pm 1 8:30 am\nDOBERMAN 11 8:40 am 11 9:00 am 11 8:30 am 11 8:30 am\nDOGUES DE BOR 9 12:25 pm 11 1:15 pm 10 1:45 pm 10 12:40 pm\nENG SETT 3 1:55 pm 4 12:55 pm 5 10:55 am 3 9:40 am\nENG SPRINGER 3 12:55 pm 1 10:40 am 5 10:55 am 3 9:40 am\nENGLISH COCKER 3 1:55 pm 1 12:40 pm 5 10:55 am 3 10:40 am\nENGTOYSP KC&R 2 2:00 pm 6 2:30 pm 1 9:35 am 2 9:30 am\nENTL MTN 9 12:40 pm 9 12:40 pm 9 10:40 am\nFIELD SPN 3 12:55 pm 1 12:40 pm 3 12:50 pm 3 9:40 am\nFINNISH SPITZ 2 2:00 pm\n10\nJUDGING PROGRAM BY ALPHABETICAL ORDER\nFRI SAT SUN MON\nBREED RING TIME RING TIME RING TIME RING TIME\nFLAT COAT RET 3 12:55 pm 1 8:30 am 3 12:50 pm 3 9:40 am\nFOX TER SMOOTH 1 9:30 am 3 8:30 am 5 8:30 am 4 10:00 am\nFOX TER WIRE 1 10:45 am 3 9:50 am 5 9:40 am 4 10:00 am\nFRENCH BULL 2 10:40 am 2 9:45 am 2 11:15 am 1 9:45 am\nGERM PIN 10 8:30 am 10 11:20 am 10 12:35 pm 10 8:30 am\nGERM SHEPHERD 11 8:40 am 11 8:30 am 11 9:50 am 9 8:30 am\nGERM SHT PNT 3 8:35 am 1 8:30 am 3 10:05 am 3 8:30 am\nGERM WIRE PNT 3 1:55 pm 1 8:30 am 3 12:50 pm\nGIANT SCHN 10 12:25 pm 10 1:40 pm 10 1:45 pm 10 12:40 pm\nGOLD RET 8 9:55 am 8 8:30 am 8 1:35 pm 8 11:00 am\nGORD SETT 3 1:55 pm 1 12:40 pm 5 10:55 am 3 10:40 am\nGREAT DANE 9 9:55 am 10 8:30 am 10 8:30 am 10 8:30 am\nGREYHND 7 2:00 pm 6 10:00 am 6 9:55 am 6 12:50 pm\nGRT PYRENEES 9 9:55 am 10 1:40 pm 6 12:50 pm 10 10:35 am\nHARRIER 7 2:00 pm 6 1:15 pm 6 1:55 pm 6 9:35 am\nHAVANESE 6 1:00 pm 7 11:05 am 1 1:35 pm 2 9:30 am\nIBIZAN HND 7 9:40 am 6 10:00 am 6 9:55 am 6 12:50 pm\nICELANDIC SHEEP 9 12:40 pm 9 10:00 am\nIRISH SETT 3 12:55 pm 1 10:40 am 5 10:55 am 3 9:40 am\nIRISH WOLFHND 7 9:40 am 6 11:25 am 6 9:55 am 6 9:35 am\nITAL GRYHND 6 8:30 am 7 8:30 am 7 8:30 am 2 8:30 am\nJAP CHIN 6 11:10 am 7 2:25 pm 7 9:35 am 2 10:45 am\nJR SHOW MASTER 9 12:25 pm 7 1:30 pm\nJR SHOW NV IN 9 12:25 pm 7 1:30 pm 11 10:50 am\nJR SHOW NV JR 9 12:25 pm 7 1:30 pm 11 10:50 am\nJR SHOW OP IN 9 12:25 pm 7 1:30 pm 11 10:50 am\nJR SHOW OP JR 9 12:25 pm 7 1:30 pm 11 10:50 am\nJR SHOW OP SR 9 12:25 pm 7 1:30 pm 11 10:50 am\nKEESHOND 2 2:00 pm 2 1:05 pm 2 1:10 pm 1 1:55 pm\nKERRY BLUE 1 10:45 am 3 10:50 am 5 9:40 am 4 11:15 am\nKUVASZ 10 8:30 am 10 11:20 am 10 1:45 pm 10 10:35 am\nLABRADOR 3 8:35 am 1 10:40 am 3 10:05 am 3 8:30 am\nLHASA 2 2:00 pm 2 1:05 pm 2 2:25 pm 1 1:55 pm\nLOWCHEN 2 2:00 pm 2 1:05 pm 2 2:25 pm 1 1:55 pm\nMALTESE 6 2:05 pm 7 2:25 pm 7 12:35 pm 2 12:50 pm\nMANCH TERR-STD 1 1:00 pm 3 10:50 am\nMANCH TERR-TOY 6 8:30 am 7 9:50 am 7 9:35 am 2 8:30 am\nMASTIFF 9 9:55 am 10 8:30 am 10 9:30 am 10 8:30 am\nMIN AM SHEPHERD 9 8:30 am 11 1:15 pm 7 12:35 pm 11 10:50 am\nMIN PIN 6 8:30 am 7 8:30 am 7 8:30 am 2 8:30 am\nMIN SCHN 1 9:30 am 3 9:50 am 5 8:30 am 4 10:00 am\nMINI BULL TERR 1 1:00 pm 3 10:50 am 5 9:40 am 4 11:15 am\nNEWF 10 9:30 am 8 12:50 pm 10 12:35 pm 10 10:35 am\nNORWICH TERR 1 9:30 am 3 9:50 am 5 8:30 am 4 10:00 am\nOBED BEG NV A 12 10:25 am 12 9:20 am\nOBED BEG NV B 12 10:25 am 12 8:30 am\nOBED NV A 13 11:00 am 13 11:25 am\nOBED NV B 12 8:30 am 12 11:50 am\nOBED OP A 13 10:15 am 13 10:15 am\nOBED OP B 12 10:25 am 12 10:20 am\nOBED PRE NV 13 11:55 am 13 11:25 am\nOBED UT A 12 9:50 am 12 9:50 am\nOBED UT B 13 8:30 am 13 8:30 am\nOBED VET 13 11:55 am\nOBED WILDCARDOP 13 11:55 am 13 11:25 am\nOBED WILDCARDUT 13 11:55 am 13 11:25 am\nOLD ENGLISH SHP 11 12:55 pm 9 12:40 pm 9 12:40 pm 9 11:40 am\nPAPILLON 6 9:35 am 7 9:50 am 7 10:45 am 2 9:30 am\nPARSON RUSSELL 1 1:00 pm 3 10:50 am 5 9:40 am 4 11:15 am\nPEKINGESE 6 2:05 pm 7 2:25 pm 7 1:30 pm 2 12:50 pm\n11\nJUDGING PROGRAM BY ALPHABETICAL ORDER\nFRI SAT SUN MON\nBREED RING TIME RING TIME RING TIME RING TIME\nPEMB WELSH CORG 11 10:10 am 9 8:30 am 9 8:30 am 9 8:30 am\nPET BAS GRI VEN 7 2:00 pm 6 2:30 pm 3 12:50 pm 6 12:50 pm\nPHARAOH HND 7 9:40 am 6 10:00 am 6 9:55 am 6 9:35 am\nPOINTER 3 8:35 am 1 8:30 am 5 10:55 am 3 8:30 am\nPOL LOW SHEEP 11 12:55 pm 9 12:40 pm 9 12:40 pm 9 11:40 am\nPOM 6 2:05 pm 7 2:25 pm 7 1:30 pm 2 12:50 pm\nPOOD MIN 1 10:45 am 1 10:40 am 1 9:35 am 1 11:30 am\nPOOD STD 1 1:00 pm 1 3:00 pm 1 12:15 pm 1 12:55 pm\nPOOD TOY 1 9:30 am 1 12:40 pm 1 10:35 am 1 9:45 am\nPORT PODE PEQU 7 9:40 am 6 10:00 am 6 8:30 am 6 12:50 pm\nPORT WATERDOG 10 11:05 am 8 11:30 am 11 12:25 pm 10 12:40 pm\nPUG 6 8:30 am 7 8:30 am 7 8:30 am 2 8:30 am\nPULIK 11 10:10 am 8 12:50 pm 11 12:25 pm 9 10:40 am\nPYRN SHEP 11 12:55 pm 10 1:40 pm 9 12:40 pm 9 11:40 am\nRALLY ADV A 13 1:30 pm 13 1:35 pm\nRALLY ADV B 13 1:30 pm 13 1:35 pm\nRALLY EX A 13 1:30 pm 13 1:35 pm\nRALLY EX B 13 1:30 pm 13 1:35 pm\nRALLY NV A 13 1:30 pm 13 1:35 pm\nRALLY NV B 13 1:30 pm 13 1:35 pm\nREGIONAL JRSHOW 4 8:30 am\nRHORIDGE 7 9:40 am 5 10:35 am 6 8:30 am 6 8:30 am\nROTTWEILER 10 8:30 am 8 11:30 am 11 9:50 am 11 9:30 am\nSALUKI 7 12:35 pm 6 11:25 am 6 11:10 am 6 9:35 am\nSAMOYED 10 9:30 am 8 1:55 pm 11 9:50 am 10 9:35 am\nSCHIPPERKE 2 2:25 pm 1 1:55 pm\nSCOTDEERHND 6 1:15 pm 3 10:05 am\nSCOTTISH TERR 4 10:00 am\nSHETLD SHEEP 11 11:20 am 9 12:40 pm 9 10:00 am 9 10:40 am\nSHIBA INU 2 2:00 pm 2 1:05 pm 2 2:25 pm 1 11:30 am\nSHIH TZU 6 2:05 pm 7 1:10 pm 7 12:35 pm 2 12:50 pm\nSIB HUSKY 10 12:25 pm 10 9:40 am 10 1:45 pm 10 10:35 am\nSILKY TERR 2 2:00 pm 1 9:40 am 7 9:35 am 2 10:45 am\nSOFT-CTD WHEAT 1 10:45 am 3 10:50 am 5 9:40 am 4 11:15 am\nSPINONE ITAL 3 12:55 pm 7 1:10 pm 3 11:20 am 3 8:30 am\nST BERN 10 12:25 pm 8 11:30 am 10 1:45 pm\nSTAF BULL 1 1:00 pm 3 10:50 am 5 9:40 am 4 11:15 am\nSTD SCHN 9 12:25 pm 11 1:15 pm 9 10:30 am 10 12:40 pm\nTIB SPAN 2 2:00 pm 2 1:05 pm 2 2:25 pm 1 1:55 pm\nTIB TERR 2 2:00 pm 2 1:05 pm 2 2:25 pm 1 1:55 pm\nTOY FOX 6 9:35 am 1 9:40 am 7 9:35 am 2 8:30 am\nVIZSLA 3 8:35 am 4 12:55 pm 3 10:05 am 3 8:30 am\nWEIM 3 8:35 am 4 12:55 pm 3 10:05 am\nWEL SPR SPN 3 1:55 pm 1 12:40 pm 3 11:20 am 3 8:30 am\nWEST HIGHLND 1 1:00 pm 3 9:50 am 5 8:30 am\nWHIPPET 7 8:30 am 6 8:30 am 3 8:30 am 6 11:05 am\nWIRE VIZ 9 8:30 am 11 1:15 pm 7 12:35 pm\nXOLOS 2 2:00 pm 2 1:05 pm 2 2:25 pm 1 1:55 pm\nYORKSH TERR 6 2:05 pm 1 9:40 am 7 12:35 pm 2 12:50 pm\nAKC’s Event Cancellation Hotline: call (877) 252-3229 or visit\nakc.org to find information about cancellation of AKC Events.\n12\nJUDGES\nMs Karen J Anderson......................................................9724 County Road 5 NE, North Branch MN 55056\nMiss Tiffany Atherton-Hiebsch..............................................................540 S West View Dr, Derby KS 67037\nMs Peggy Beisel-McIlwaine ...............................................................6225 N Maple Rd, Ann Arbor MI 48105\nMrs Judy Bennett................................................................644 E Castle Harbour Dr, Friendswood TX 77546\nDr Stephen Leonard Bloom MD .............................................................1216 S Ridge Rd, Duluth MN 55804\nMs Barbara Brown.............................................................................3608 Lake Tahoe Dr, Arlington  TX 76016\nMrs Frances H Colonna....................................................................................700 Maple Ln, Lansing KS 66043\nMrs Carole Corbin ....................................................................................RR 6 Box 6545, Saylorsburg PA 18353\nMr Michael J Dachel .......................................................540 Maitland Dr Apt 39, Chippewa Falls WI 54729\nMr William DeVilleneuve ..........................................................................5 Whispering Ct, Dix Hills NY 11746\nDr Daniel W Dowling...................................................................................433 Buzzel Hill Rd, Hope ME 04847\nMrs Janice L Earl ............................................................185 Point Seven Rd # 6, Kimberling City MO 65686\nDr Daniel W Fleitas.....................................................................533 Highland Forest Dr, Charlotte NC 28270\nMs Grace M Fritz..........................................................................................18135 Mission Rd, Stilwell KS 66085\nMs Andrea Georgi..........................................................1535 Superior Ave # 39, Newport Beach CA 92663\nMr Carl E Gomes.....................................................................................4408 White Plains Rd, Bronx NY 10470\nMr David W Haddock.........................................................................1410 Chickering Rd, Nashville TN 37215\nMs Carol Ann Hartnagle......................................................................12121 Potomac St, Birghton CO 80601\nMs Theresa L Hundt.................................................................................16 Old Castle Dr, Newtown CT 06470\nMr Robert E Hutton............................................................................216 W Kenwood Dr, Louisville KY 40214\nMr Jerry Iermiero ............................................4672 Riverwalk Village Ct, Unit 8301, Ponce Inlet FL 32127\nDr Jerry Klein......................................................................................3933 N Hermitage Ave, Chicago IL 60613\nMs Patricia W Laurans .................................................................54 Mount Pleasant Rd, Newtown CT 06470\nMr Dana L Plonkey ............................................................................13710 Manor Way, Lynnwood WA 98037\nMrs Sheila Polk ..................................................................................................170 Nardi Ln, Martinez CA 94553\nMr Charles E Robinson.......................................................................15834 SW Butler Rd, Rose Hill KS 67133\nDavid G Rogers ........................................................................................862 Wood Dale Dr, Mt Olive AL 35117\nMrs Nancy C Russell............................................................................601 Big Horn Dr, Walsenburg CO 81089\nMr John R Shoemaker .............................................................5989 Sierra Medina Ave, Las Vegas NV 89139\nMrs Susan St John-Brown ...........................................................3815 State Route 350, Lebanon OH 45036\nMs Nancy E Talbott ................................................................................43220 51st St W, Quartz Hill CA 93536\nMr Robert L Vandiver .............................................................................128 Fox Trace, Simpsonville SC 29680\nMrs Julie Virosteck ..................................................................................4424 Vermont Rd, Wellsville KS 66092\nVARIETY GROUP JUDGES\nALL BREED VARIETY GROUPS ARE LISTED UNDER GROUP RING\nKANSAS TOY DOG CLUB-THURSDAY\nMr Robert E Hutton......................................................................................................................................Toy Group\nEMERGENCY NUMBER: (316) 755-2560 (Staffed during show hours)\nDIRECTIONS TO THE CHISHOLM TRAIL ANIMAL HEALTH CARE CENTER: South on Hydraulic\nfrom Show Grounds to 61st; East on 61st 1/2 block to Veterinarian.\nDIRECTIONS TO THE EMERGENCY VET CLINIC: South on I-135 to Kellogg; West on Kellogg to\nWashington; South on Washington 1/2 mile to Emergency Vet Clinic (next to Hephner TV).\nSHOW VETERINARIAN\n(ON CALL)\nChisholm Trail Animal Health Care Center\n1726 E 61st St N, Wichita KS 67219\n(316) 744-0501 or (316) 744-0443\nEMERGENCY VET CLINIC\n737 S Washington\n(316) 262-5321 MUST CALL AHEAD\nHOURS: Monday-Friday: 5:30 pm - 8:00 am\nSaturday 11:00 am - Monday 8:00 am\n13\nOBEDIENCE CONTACT INFORMATION\nSUNFLOWER CLUSTER COMBINED SPECIALTIES OF KANSAS\nCELL NUMBERS\n(316) 204-9893 • (316) 833-1677\nHUTCHINSON KENNEL CLUB, INC.\n(620) 899-0681 CELL\nSALINA KENNEL CLUB, INC.\n(785) 819-5353 CELL\nWICHITA DOG TRAINING CLUB, INC.\n(306) 644-0205 CELL\nRegarding unentered dogs...\nONLY THOSE DOGS THAT ARE ENTERED AT THESE SHOWS OR OTHERWISE\nENGAGED IN SPECIAL ATTRACTIONS WILL BE ALLOWED ON THE SHOW\nGROUNDS EXCEPT FOR SERVICE DOGS & SERVICE DOGS IN TRAINING AT\nLEAST SIX (6) MONTHS OF AGE & WEARING THEIR IDENTIFICATION (SUCH\nAS CAPES).\n– Sunflower Cluster Clubs\nGREATER WICHITA POODLE CLUB, INC. -\n2013009701 (1ST SHOW)\nRING 1\nMR DANA L PLONKEY (52)\n2:00 pm\n9 Poodles (Toy) 0-5-3-1\n12 Poodles (Miniature) 2-5-3-2\n31 Poodles (Standard) 7-21-2-1\n10 minute break following Poodles (Standard)\nGREATER WICHITA POODLE CLUB, INC. -\n2013009702 (2ND SHOW)\nRING 1\nMR MICHAEL J DACHEL (52)\n4:30 pm\n31 Poodles (Standard) 8-20-2-1\n12 Poodles (Miniature) 2-5-3-2\n9 Poodles (Toy) 0-5-3-1\nKANSAS TOY DOG CLUB - 2013571901\nRING 4\nMR ROBERT E HUTTON (90)\n1:00 pm\n5 Pugs 0-1-1-3\n7 Brussels Griffons 2-4-0-1\n3 Manchester Terriers (Toy) 1-1-0-0\n1 Veteran Dog\n11 Miniature Pinschers 5-4-0-2\n2:00 pm\n5 English Toy Spaniels (K C & R) 1-3-1-0\n21 Papillons 7-7-5-2\n3:05 pm\n4 Silky Terriers 0-1-1-1\n1 Veteran Dog\n2 Affenpinschers 1-0-1-0\n4 Shih Tzu 1-1-1-1\n12 Cavalier King Charles Spaniels 4-5-2-1\n16 Chinese Cresteds 5-6-1-3\n1 Veteran Bitch\nRING 5\nMRS JANICE L EARL (115)\n1:00 pm\n17 Chihuahuas (Long Coat) 2-11-4-0\n8 Italian Greyhounds 3-4-1-0\n2:00 pm\n16 Chihuahuas (Smooth Coat) 7-4-3-2\n21 Havanese 6-7-4-4\n3:30 pm\n9 Toy Fox Terriers 2-4-2-1\n11 Japanese Chin 2-4-4-1\n6 Maltese 1-4-1-0\n4:30 pm\n2 Pekingese 2-0-0-0\n17 Pomeranians 9-6-0-2\n7 Yorkshire Terriers 2-4-1-0\n1 Novice Junior\nRING 13\nMR JERRY IERMIERO (18)\n12:00 pm\n1 Open B Class\n237\nTo follow Open B\n4 Open A Class\n175-176;178;188\nTo follow Open A\n1 Graduate Open Class\n665\nTo follow Graduate Open\n6 Novice B Class\n87;89-90;93;99;103\nTo follow Novice B\n1 Novice A Class\n9\nTo follow Novice A\n1 Pre Novice\n596\nTo follow Pre Novice\n3 Beginner Novice B Class\n87;952;957\nTo follow Beginner Novice B\n1 Brace Class\n93,680\nRING 13\nMR JERRY IERMIERO (10)\n2:20 pm\nRally Excellent Walkthrough\n2:30 pm\n1 Rally Excellent B\n1 Rally Excellent A\n08 inch: R11-R12\nTo follow Rally Excellent\n1 Rally Advanced B\n08 inch: R10\nTo follow Rally Advanced B\n7 Rally Novice B\nR49-R53;R60;R65\n5:30 pm\nTOY GROUP\nJUDGING PROGRAM\nThe number before each Breed (Variety) indicates the number of dogs entered in that Breed (Variety). The num-\nbers following each Breed (Variety) indicates the number of Regular Class Dogs, Regular Class Bitches, Best of\nBreed (Variety) (Dogs-Bitches).\nThere are 487 dogs entered in this show with a total of 521 entries plus 12 dogs and 14 entries in Rally.\n14\nSUNFLOWER CLUSTER COMBINED SPECIALTIES OF KANSAS\nThursday, April 4, 2013\nGREATER WICHITA AUSTRALIAN \nSHEPHERD CLUB - 2013552401 (1ST SHOW)\nRING 6\nMRS JUDY BENNETT (46)\n1:00 pm\n46 Australian Shepherds 20-18-3-5\nGREATER WICHITA AUSTRALIAN \nSHEPHERD CLUB - 2013552402 (2ND SHOW)\nRING 6\nMS CAROL ANN HARTNAGLE (10)\n3:15 pm\n10 Australian Shepherds Sweepstakes Entries\nMRS SHEILA POLK (47)\n3:45 pm\n47 Australian Shepherds 22-17-3-5\nWHEATLAND GOLDEN RETRIEVER CLUB\nOF WICHITA - 2013614701\nRING 8\nMS BARBARA BROWN (12)\n1:00 pm\n10 Retrievers (Golden) Sweepstakes Entries\n2 Retrievers (Golden) Veterans Sweepstakes\nEntries\nMS NANCY E TALBOTT (61)\n1:30 pm\n61 Retrievers (Golden) 20-28-7-4\n1 Veteran Dog\n1 Veteran Bitch\nRING 12\nMS KAREN J ANDERSON (18)\n2:30 pm\n1 Utility A Class\n456\nTo follow Utility A\n4 Utility B Class\n235;387;393;396\nTo follow Utility B\n6 Open B Class\n235;238-239;387;393;396\nTo follow Open B\n2 Open A Class\n179;185\nTo follow Open A\n1 Graduate Open Class\n456\nTo follow Graduate Open\n2 Novice B Class\n97;102\nTo follow Novice B\n1 Novice A Class\n12\nTo follow Novice A\n1 Veterans Class\n681\nRING 12\nMS KAREN J ANDERSON (3)\n5:10 pm\nRally Excellent B Walkthrough\n5:20 pm\n1 Rally Excellent B\n16 inch: R29\nTo follow Rally Excellent B\n1 Rally Advanced B\n16 inch: R29\nTo follow Rally Advanced B\n1 Rally Novice A\nR67\n15\nSUNFLOWER CLUSTER COMBINED SPECIALTIES OF KANSAS\nThursday, April 4, 2013\nRING 1\nMR ROBERT E HUTTON (109)\n9:30 am\n6 Fox Terriers (Smooth) 1-1-3-1\n5 Norwich Terriers 2-1-2-0\n11 Miniature Schnauzers 5-5-1-0\n10 Poodles (Toy) 2-5-2-1\n10:45 am\n2 Fox Terriers (Wire) 1-0-1-0\n8 Bedlington Terriers 2-5-1-0\n6 Kerry Blue Terriers 0-1-2-3\n8 Soft Coated Wheaten Terriers 1-3-3-1\n13 Poodles (Miniature) 3-5-3-2\n12:15 pm\nLUNCH\n1:00 pm\n1 West Highland White Terriers 1-0-0-0\n1 Cairn Terriers 0-1-0-0\n1 Border Terriers 0-0-0-1\n1 Parson Russell Terriers 0-0-1-0\n1 Manchester Terriers (Standard) 1-0-0-0\n1 Miniature Bull Terriers 0-0-1-0\n1 Staffordshire Bull Terriers 0-0-1-0\n1 Airedale Terriers 1-0-0-0\n32 Poodles (Standard) 7-22-2-1\nRING 2\nMR MICHAEL J DACHEL (166)\n8:30 am\n25 Bulldogs 12-9-4-0\n9:30 am\n12 Chinese Shar-Pei 3-5-1-2\n1 Veteran Bitch\n18 Boston Terriers 4-6-5-3\n10:40 am\n23 French Bulldogs 7-12-2-2\n14 Chihuahuas (Smooth Coat) 5-4-3-2\n12:10 pm\nLUNCH\n12:55 pm\n16 Chihuahuas (Long Coat) 2-10-4-0\n11 Cavalier King Charles Spaniels 3-5-2-1\n2:00 pm\n3 Silky Terriers 0-1-1-1\n5 English Toy Spaniels (K C & R) 1-3-1-0\n3 Tibetan Spaniels 3-0-0-0\n15 Shiba Inu 5-5-3-2\n2 Lowchen 0-0-2-0\n11 Bichons Frises 3-5-1-2\n1 Tibetan Terriers 0-0-0-1\n1 Lhasa Apsos 0-0-1-0\n1 Xoloitzcuintli 0-0-0-1\n4 Keeshonden 1-0-2-1\n1 Finnish Spitz 0-0-1-0\nRING 3\nMS PATRICIA W LAURANS (109)\n8:30 am\n1 Basenjis 1-0-0-0\nMS LAURANS MOVES TO RING 11\nRING 3\nMS PEGGY BEISEL-MCILWAINE (139)\n8:35 am\n5 Vizslas 1-1-1-2\n4 Pointers 0-1-2-1\n7 Weimaraners 3-2-2-0\n8 Pointers (German Shorthaired) 1-2-3-2\n8 Retrievers (Labrador) 4-3-1-0\nMS BEISEL-MCILWAINE MOVES TO RING 8\n12:55 pm\n2 Retrievers (Flat-Coated) 1-0-1-0\n3 Spaniels (Field) 0-2-0-1\n7 Spaniels (English Springer) 1-5-1-0\n4 Setters (Irish) 1-2-1-0\n3 Spinoni Italiani 0-0-2-1\n7 Brittanys 1-5-1-0\n1:55 pm\n4 Retrievers (Chesapeake Bay) 0-1-2-1\n3 Setters (English) 0-1-0-1\n1 Veteran Dog\n11 Spaniels (Welsh Springer) 6-2-3-0\n1 Pointers (German Wirehaired) 1-0-0-0\n1 Setters (Gordon) 0-0-1-0\n3 Spaniels (English Cocker) 1-1-1-0\n1 Spaniels (Cocker) Parti-Color 1-0-0-0\nRING 4\nDAVID G ROGERS (8)\n8:30 am\n8 Dalmatians 2-3-1-1\n1 Veteran Dog\nRING 4\nMR ROBERT L VANDIVER (114)\n10:00 am\n42 Australian Shepherds 19-15-3-5\nMR VANDIVER GOES TO LUNCH\nMR VANDIVER MOVES TO RING 9\nRING 6\nMR DANA L PLONKEY (165)\n8:30 am\n6 Pugs 1-1-1-3\n5 Italian Greyhounds 1-3-1-0\n11 Miniature Pinschers 5-4-0-2\n6 Manchester Terriers (Toy) 1-3-0-1\n1 Veteran Dog\nJUDGING PROGRAM\nThe number before each Breed (Variety) indicates the number of dogs entered in that Breed (Variety). The num-\nbers following each Breed (Variety) indicates the number of Regular Class Dogs, Regular Class Bitches, Best of\nBreed (Variety) (Dogs-Bitches).\nThere are 1144 dogs entered in this show with a total of 1193 entries plus 42 dogs and 47 entries in Rally.\n16\nHUTCHINSON KENNEL CLUB, INC.\nFriday, April 5, 2013\n9:35 am\n11 Toy Fox Terriers 3-4-2-2\n27 Papillons 10-8-6-3\n11:10 am\n10 Japanese Chin 2-3-4-1\n17 Chinese Cresteds 7-4-1-3\n1 Veteran Bitch\n12:15 pm\nLUNCH\n1:00 pm\n3 Affenpinschers 1-0-1-1\n24 Havanese 6-9-4-5\n2:05 pm\n4 Shih Tzu 1-1-1-1\n9 Yorkshire Terriers 2-6-1-0\n7 Brussels Griffons 2-4-0-1\n5 Maltese 1-3-1-0\n19 Pomeranians 9-7-1-2\n1 Pekingese 1-0-0-0\nRING 7\nMRS FRANCES H COLONNA (165)\n8:30 am\n30 Whippets 12-10-4-4\n9:40 am\n2 Portuguese Podengo Pequenos 1-0-1-0\n12 Borzois 2-5-4-0\n1 Veteran Bitch\n2 Pharaoh Hounds 0-0-2-0\n3 Ibizan Hounds 1-0-1-1\n4 Irish Wolfhounds 1-1-2-0\n31 Rhodesian Ridgebacks 8-15-5-3\n11:50 am\nLUNCH\n12:35 pm\n20 Salukis 4-6-4-6\n15 Afghan Hounds 3-5-5-2\n2:00 pm\n1 Greyhounds 0-0-0-1\n5 Bloodhounds 2-0-2-1\n3 Harriers 0-2-1-0\n11 Dachshunds (Wirehaired) 3-4-3-0\n1 Beagles (13 Inch) 0-0-0-1\n2 Petits Bassets Griffons Vendeens 0-0-1-1\n7 Dachshunds (Longhaired) 3-2-2-0\n6 Dachshunds (Smooth) 1-2-2-1\n2 Beagles (15 Inch) 0-0-1-1\n8 Basset Hounds 1-5-2-0\nRING 8\nMS PEGGY BEISEL-MCILWAINE\n9:55 am\n57 Retrievers (Golden) 18-27-7-4\n1 Veteran Dog\nMS BEISEL-MCILWAINE GOES TO LUNCH\nMS BEISEL-MCILWAINE MOVES TO RING 3\nRING 9\nMR ROBERT L VANDIVER\n8:30 am\n2 Miniature American Shepherds (Misc. Bitches)\n2 Berger Picards (Misc. Dogs)\n1 Berger Picards (Misc. Bitch)\n1 Cirneco dell’Etna (Misc. Bitch)\n1 Wirehaired Vizslas (Misc. Dog)\n1 Wirehaired Vizslas (Misc. Bitch)\n3 Border Collies 1-1-1-0\n24 Boxers 3-16-2-3\nMR VANDIVER MOVES TO RING 4\nRING 9\nMR DAVID W HADDOCK (21)\n9:55 am\n5 Bullmastiffs 2-2-0-1\n10 Great Danes 3-4-1-2\n5 Mastiffs 1-2-2-0\n1 Great Pyrenees 0-0-1-0\nRING 9\nMR ROBERT L VANDIVER\n12:25 pm\n10 Standard Schnauzers 2-2-5-1\n2 Bearded Collies 0-0-1-1\n1 Beaucerons 0-1-0-0\n1 Australian Cattle Dogs 0-1-0-0\n1 Dogues de Bordeaux 1-0-0-0\n3 Master Class\n4 Open Senior\n7 Open Intermediate\n2 Open Junior\n3 Novice Intermediate\n3 Novice Junior\nRING 10\nMS THERESA L HUNDT (122)\n8:30 am\n2 German Pinschers 0-1-0-1\n9 Rottweilers 3-3-1-2\n4 Kuvaszok 1-1-2-0\n11 Akitas 3-7-1-0\n9:30 am\n5 Newfoundlands 0-2-2-1\n10 Black Russian Terriers 2-8-0-0\n24 Samoyeds 7-11-3-3\n11:05 am\n14 Portuguese Water Dogs 4-7-2-1\n11:40 am\nLUNCH\n12:25 pm\n17 Siberian Huskies 4-7-4-2\n18 Bernese Mountain Dogs 4-9-3-2\n6 Giant Schnauzers 1-1-2-2\n1 Saint Bernards 0-1-0-0\n1 Alaskan Malamutes 1-0-0-0\nRING 11\nMS PATRICIA W LAURANS\n8:40 am\n6 German Shepherd Dogs 3-3-0-0\n31 Doberman Pinschers 8-13-4-5\n1 Veteran Bitch\n10:10 am\n23 Pembroke Welsh Corgis 11-9-1-1\n1 Veteran Bitch\n6 Pulik 0-4-2-0\n17\nHUTCHINSON KENNEL CLUB, INC.\nFriday, April 5, 2013\n11:20 am\n10 Shetland Sheepdogs 5-4-1-0\n11 Cardigan Welsh Corgis 2-4-3-2\n12:10 pm\nLUNCH\n12:55 pm\n2 Belgian Malinois 0-1-1-0\n2 Bouviers des Flandres 0-1-1-0\n4 Belgian Tervuren 1-2-1-0\n6 Old English Sheepdogs 1-1-1-3\n5 Belgian Sheepdogs 0-2-3-0\n1 Polish Lowland Sheepdogs 0-0-1-0\n1 Pyrenean Shepherds 0-0-1-0\nMS LAURANS IS ALSO IN RING 3\nRING 12\nMR JERRY IERMIERO (41)\n8:30 am\n12 Novice B Class\n85-95;99-101\n9:50 am\n4 Utility A Class\n455-459\n10:25 am\n15 Open B Class\n235-239;385-396\nTo follow Open B\n7 Beginner Novice B Class\n87;951-958\nTo follow Beginner Novice B\n3 Beginner Novice A Class\n926-929\n45 minute Lunch Break at judge’s discretion\nRING 13\nMS KAREN J ANDERSON (34)\n8:30 am\n12 Utility B Class\n235;385-396\n10:15 am\n6 Open A Class\n175;179-181;184-186\n11:00 am\n8 Novice A Class\n5-14\n11:55 am\n2 Pre Novice\n595-596\nTo follow Pre Novice\n1 Veterans Class\n680\nTo follow Veterans\n4 Wild Card Open\n101;180;184;825\nTo follow Wild Card Open\n1 Wild Card Utility\n385\nRING 13\nMS KAREN J ANDERSON (47)\n1:20 pm\nRally Excellent Walkthrough\n1:30 pm\n8 Rally Excellent B\n2 Rally Excellent A\n08 inch: R6;R9-R12\n12 inch: R14-R16\n16 inch: R21-R22;R27\nTo follow Rally Excellent\n8 Rally Advanced B\n6 Rally Advanced A\n08 inch: R5-R6;R9\n12 inch: R14;R17-R19\n16 inch: R20-R27;R30\nTo follow Rally Advanced\n15 Rally Novice B\nR32-R39;R42-R46;R52;R55-R59;R65-R66\nTo follow Rally Novice B\n8 Rally Novice A\nR35;R40-R45;R58;R61;R67\n45 minute Lunch Break at judge’s discretion\nGROUP RING\n3:00 pm\nVARIETY GROUP JUDGING\nTERRIER GROUP - MR ROBERT E HUTTON\nWORKING GROUP - MS THERESA L HUNDT\nHERDING GROUP - MS PATRICIA W LAURANS\nSPORTING GROUP - MS PEGGY BEISEL-MCILWAINE\nTOY GROUP - MR DANA L PLONKEY\nHOUND GROUP - MRS FRANCES H COLONNA\nNON-SPORTING GROUP - MR MICHAEL J DACHEL\nBEST IN SHOW - MR ROBERT L VANDIVER\nUnless otherwise announced by 2:30 pm\n18\nHUTCHINSON KENNEL CLUB, INC.\nFriday, April 5, 2013\nRING 1\nMRS SUSAN ST JOHN-BROWN (52)\n8:30 am\n2 Pointers (German Wirehaired) 2-0-0-0\n5 Pointers 0-1-2-2\n10 Pointers (German Shorthaired) 3-2-3-2\n2 Retrievers (Flat-Coated) 1-0-1-0\n3 Retrievers (Chesapeake Bay) 0-1-1-1\n7 Brittanys 1-5-1-0\n9:40 am\n4 Silky Terriers 0-1-1-1\n1 Veteran Dog\n12 Toy Fox Terriers 3-5-2-2\n7 Yorkshire Terriers 2-4-1-0\nRING 1\nMS PATRICIA W LAURANS (175)\n10:40 am\n6 Retrievers (Labrador) 3-2-1-0\n8 Spaniels (English Springer) 2-5-1-0\n4 Setters (Irish) 1-2-1-0\n14 Poodles (Miniature) 3-5-4-2\n11:55 am\nLUNCH\n12:40 pm\n10 Poodles (Toy) 2-5-2-1\n3 Spaniels (English Cocker) 1-1-1-0\n1 Spaniels (Cocker) Parti-Color 1-0-0-0\n3 Spaniels (Field) 0-2-0-1\n1 Setters (Gordon) 0-0-1-0\n12 Spaniels (Welsh Springer) 7-2-3-0\nMS LAURANS MOVES TO RING 8\n3:00 pm\n36 Poodles (Standard) 10-23-2-1\nRING 2\nMR ROBERT E HUTTON (144)\n8:30 am\n8 Dalmatians 2-3-1-1\n1 Veteran Dog\n23 Bulldogs 10-8-4-1\n9:45 am\n19 Boston Terriers 4-6-5-4\n31 French Bulldogs 9-15-5-2\n11:45 am\n14 Chinese Shar-Pei 3-7-1-2\n1 Veteran Bitch\n12:20 pm\nLUNCH\n1:05 pm\n11 Keeshonden 5-2-2-2\n2 Lowchen 0-0-2-0\n3 Tibetan Spaniels 3-0-0-0\n18 Shiba Inu 5-6-5-2\n11 Bichons Frises 3-5-1-2\n1 American Eskimo Dogs 0-0-0-1\n1 Tibetan Terriers 0-0-0-1\n1 Lhasa Apsos 0-0-1-0\n1 Xoloitzcuintli 0-0-0-1\nRING 3\nMS PEGGY BEISEL-MCILWAINE (104)\n8:30 am\n15 Chihuahuas (Smooth Coat) 5-6-2-2\n6 Fox Terriers (Smooth) 1-1-3-1\n13 Chihuahuas (Long Coat) 2-8-3-0\n9:50 am\n2 Cairn Terriers 0-1-0-1\n5 Norwich Terriers 2-1-2-0\n2 Fox Terriers (Wire) 1-0-1-0\n4 West Highland White Terriers 2-2-0-0\n12 Miniature Schnauzers 6-5-1-0\n10:50 am\n8 Bedlington Terriers 2-5-1-0\n1 Miniature Bull Terriers 0-0-1-0\n1 Manchester Terriers (Standard) 1-0-0-0\n1 Parson Russell Terriers 0-0-1-0\n1 Border Terriers 0-0-0-1\n2 Bull Terriers (White) 1-0-0-1\n7 Kerry Blue Terriers 0-2-2-3\n1 Airedale Terriers 1-0-0-0\n1 Staffordshire Bull Terriers 0-0-1-0\n8 Soft Coated Wheaten Terriers 1-3-3-1\nMS BEISEL-MCILWAINE GOES TO LUNCH\nMS BEISEL-MCILWAINE MOVES TO RING 8\nRING 4\nMS GRACE M FRITZ (13)\n8:30 am\n13 Regional Junior Showmanship Competition\nTop Junior Preliminary 1\n5,11,12,400,500,506,507,510,602,604,751,900,903\nJUDGING PROGRAM\nThe number before each Breed (Variety) indicates the number of dogs entered in that Breed (Variety). The num-\nbers following each Breed (Variety) indicates the number of Regular Class Dogs, Regular Class Bitches, Best of\nBreed (Variety) (Dogs-Bitches).\nOFFICIAL NOTICE: Additional Judges.\nReference Chapter 7, Section 13 of AKC Rules: Owner has the right to withdraw his entry and have his entry fee\nrefunded provided notification of his withdrawal is received no later than one half-hour prior to the start of any\nregular conformation judging.\nMr Robert L Vandiver will judge Setters (English), Vizslas & Weimaraners; Mr Michael J Dachel will judge Spinoni\nItaliani; Ms Peggy Beisel-McIlwaine will judge Newfoundlands in place of Ms Patricia W Laurans.\nThere are 1321 dogs entered in this show with a total of 1370 entries plus 49 dogs and 55 entries in Rally.\n19\nSALINA KENNEL CLUB, INC.\nSaturday, April 6, 2013\nRING 4\nMRS TIFFANY ATHERTON-HIEBSCH (12)\n9:00 am\n12 Regional Junior Showmanship Competition\nTop Junior Preliminary 2\n502,511,600,603,750,752,902,905,906,907,908,909\nTop Junior Handler will be judged in the Group\nRing at 2:15 pm\nRING 4\nDR DANIEL W FLEITAS (121)\n10:15 am\n42 Australian Shepherds 19-15-3-5\nDR FLEITAS GOES TO LUNCH\nDR FLEITAS MOVES TO RING 9\nRING 4\nMR ROBERT L VANDIVER (138)\n12:55 pm\n6 Vizslas 1-1-2-2\n2 Setters (English) 0-1-0-1\n7 Weimaraners 3-2-2-0\nMR VANDIVER MOVES TO RING 10\nRING 5\nMS THERESA L HUNDT (112)\n10:35 am\n34 Rhodesian Ridgebacks 9-17-4-3\n1 Veteran Dog\n11:55 am\n5 Bloodhounds 2-0-2-1\n9 Basset Hounds 1-6-2-0\nMS HUNDT GOES TO LUNCH\nMS HUNDT MOVES TO RING 11\nRING 5\nMR CHARLES E ROBINSON (12)\n12:30 pm\n12 Cavalier King Charles Spaniels 4-5-2-1\nRING 6\nDR DANIEL W DOWLING (170)\n8:30 am\n38 Whippets 14-14-5-5\n10:00 am\n2 Portuguese Podengo Pequenos 1-0-1-0\n2 Greyhounds 1-0-0-1\n2 Pharaoh Hounds 0-0-2-0\n9 Ibizan Hounds 3-3-1-2\n20 Borzois 5-8-4-1\n1 Veteran Dog\n1 Veteran Bitch\n11:25 am\n4 Irish Wolfhounds 1-1-2-0\n22 Salukis 4-7-4-7\n12:30 pm\nLUNCH\n1:15 pm\n20 Afghan Hounds 6-7-5-2\n1 Scottish Deerhounds 0-1-0-0\n3 Harriers 0-2-1-0\n7 Dachshunds (Smooth) 1-2-2-2\n2:30 pm\n5 English Toy Spaniels (K C & R) 1-3-1-0\n9 Dachshunds (Longhaired) 4-3-2-0\n1 Beagles (13 Inch) 0-0-0-1\n3 Basenjis 1-1-0-1\n2 Petits Bassets Griffons Vendeens 0-0-1-1\n4 Beagles (15 Inch) 0-0-2-1\n1 Veteran Dog\n16 Dachshunds (Wirehaired) 4-7-4-0\nRING 7\nMR MICHAEL J DACHEL (169)\n8:30 am\n8 Pugs 2-3-1-2\n9 Italian Greyhounds 3-5-1-0\n16 Miniature Pinschers 8-5-1-2\n9:50 am\n6 Manchester Terriers (Toy) 1-3-0-1\n1 Veteran Dog\n26 Papillons 11-7-6-2\n11:05 am\n4 Brussels Griffons 1-2-0-1\n29 Havanese 7-12-4-6\n12:25 pm\nLUNCH\n1:10 pm\n4 Spinoni Italiani 0-1-2-1\n4 Shih Tzu 1-1-1-1\n3 Affenpinschers 1-0-1-1\n21 Chinese Cresteds 8-7-1-3\n1 Veteran Bitch\n2:25 pm\n5 Maltese 1-3-1-0\n2 Pekingese 2-0-0-0\n12 Japanese Chin 3-4-4-1\n20 Pomeranians 10-8-0-2\nRING 8\nMS PATRICIA W LAURANS\n8:30 am\n51 Retrievers (Golden) 17-24-5-4\n1 Veteran Dog\nMS LAURANS MOVES TO RING 1\nRING 8\nMR DAVID W HADDOCK (48)\n10:30 am\n25 Boxers 3-16-3-3\n11:30 am\n9 Rottweilers 3-3-1-2\n13 Portuguese Water Dogs 4-7-2-0\n1 Saint Bernards 0-1-0-0\n20\nSALINA KENNEL CLUB, INC.\nSaturday, April 6, 2013\nRING 8\nMS PEGGY BEISEL-MCILWAINE\n12:50 pm\n5 Newfoundlands 0-2-2-1\n9 Pulik 2-5-2-0\nMS BEISEL-MCILWAINE IS ALSO IN RING 3\nRING 8\nMS PATRICIA W LAURANS\n1:55 pm\n26 Samoyeds 8-12-3-3\nMS LAURANS MOVES TO RING 1\nRING 9\nDR DANIEL W FLEITAS\n8:30 am\n11 Cardigan Welsh Corgis 2-4-3-2\n31 Pembroke Welsh Corgis 15-13-1-1\n1 Veteran Bitch\nDR FLEITAS MOVES TO RING 4\nRING 9\nMRS CAROLE CORBIN (15)\n10:10 am\n7 Belgian Tervuren 1-5-1-0\n5 Belgian Sheepdogs 0-2-3-0\n3 Belgian Malinois 0-1-2-0\nRING 9\nDR DANIEL W FLEITAS\n12:40 pm\n3 Collies (Rough) 1-2-0-0\n3 Bearded Collies 1-0-1-1\n4 Border Collies 1-1-2-0\n2 Entlebucher Mountain Dogs 0-0-0-2\n2 Icelandic Sheepdogs 0-1-1-0\n6 Old English Sheepdogs 1-1-1-3\n4 Collies (Smooth) 1-1-1-1\n1 Australian Cattle Dogs 0-1-0-0\n1 Polish Lowland Sheepdogs 0-0-1-0\n1 Beaucerons 0-1-0-0\n10 Shetland Sheepdogs 4-5-1-0\nRING 10\nMR ROBERT L VANDIVER\n8:30 am\n10 Mastiffs 2-5-2-1\n19 Great Danes 3-10-3-3\n9:40 am\n16 Akitas 3-11-2-0\n25 Siberian Huskies 5-10-7-3\n11:20 am\n6 German Pinschers 2-2-1-1\n4 Kuvaszok 1-1-2-0\n10 Black Russian Terriers 2-8-0-0\nMR VANDIVER GOES TO LUNCH\nMR VANDIVER MOVES TO RING 4\n1:40 pm\n1 Pyrenean Shepherds 0-0-1-0\n2 Alaskan Malamutes 1-0-1-0\n2 Bouviers des Flandres 0-1-1-0\n6 Giant Schnauzers 1-1-2-2\n21 Bernese Mountain Dogs 4-11-3-3\n1 Great Pyrenees 0-0-1-0\nRING 11\nDR STEPHEN LEONARD BLOOM MD (12)\n8:30 am\n12 German Shepherd Dogs 3-6-3-0\nRING 11\nMS THERESA L HUNDT\n9:00 am\n35 Doberman Pinschers 8-15-4-7\n1 Veteran Bitch\nMS HUNDT MOVES TO RING 5\n1:15 pm\n7 Bullmastiffs 2-3-1-1\n10 Standard Schnauzers 2-2-5-1\n2 Cane Corso 1-0-1-0\n1 Dogues de Bordeaux 1-0-0-0\n2 Berger Picards (Misc. Dogs)\n1 Berger Picards (Misc. Bitch)\n1 Cirneco dell’Etna (Misc. Bitch)\n1 Wirehaired Vizslas (Misc. Dog)\n1 Wirehaired Vizslas (Misc. Bitch)\n1 Miniature American Shepherds (Misc. Dog)\n2 Miniature American Shepherds (Misc. Bitches)\nRING 12\nMR JERRY IERMIERO (36)\n8:30 am\n8 Beginner Novice B Class\n87;597;951-953;956-958\n9:20 am\n5 Beginner Novice A Class\n925-929\n9:50 am\n3 Utility A Class\n457-459\n10:20 am\n12 Open B Class\n237-239;385-395\n11:50 am\n8 Novice B Class\n86-87;91-92;95;98-101\n45 minute Lunch Break at judge’s discretion\nRING 13\nMS KAREN J ANDERSON (37)\n8:30 am\n12 Utility B Class\n235;385-396\n10:15 am\n9 Open A Class\n176-177;180-187\n21\nSALINA KENNEL CLUB, INC.\nSaturday, April 6, 2013\n11:25 am\n9 Novice A Class\n5-12;15\nTo follow Novice A\n3 Pre Novice\n595-598\nTo follow Pre Novice\n3 Wild Card Open\n101;184;825\nTo follow Wild Card Open\n1 Wild Card Utility\n385\nRING 13\nMS KAREN J ANDERSON (55)\n1:25 pm\nRally Excellent Walkthrough\n1:35 pm\n8 Rally Excellent B\n2 Rally Excellent A\n08 inch: R7;R12\n12 inch: R14-R16\n16 inch: R21;R26-R31\nTo follow Rally Excellent\n11 Rally Advanced B\n5 Rally Advanced A\n08 inch: R7;R13\n12 inch: R14;R17-R19\n16 inch: R20;R23-R32\nTo follow Rally Advanced\n19 Rally Novice B\nR36-R59;R63-R66\nTo follow Rally Novice B\n10 Rally Novice A\nR40;R43-R45;R48;R54;R58;R61-R62;R67-R68\n45 minute Lunch Break at judge’s discretion\nGROUP RING\n2:15 pm\nTOP JUNIOR HANDLER\n2:45 pm\nVARIETY GROUP JUDGING\nHERDING GROUP - DR DANIEL W FLEITAS\nSPORTING GROUP - MRS SUSAN ST JOHN-BROWN\nTERRIER GROUP - MS PEGGY BEISEL-MCILWAINE\nWORKING GROUP - MR ROBERT L VANDIVER\nTOY GROUP - MR MICHAEL J DACHEL\nHOUND GROUP - DR DANIEL W DOWLING\nNON-SPORTING GROUP - MR ROBERT E HUTTON\nBEST IN SHOW - MS PATRICIA W LAURANS\nUnless otherwise announced by 2:15 pm\n22\nSALINA KENNEL CLUB, INC.\nSaturday, April 6, 2013\nRING 1\nMRS SUSAN ST JOHN-BROWN (156)\n8:30 am\n11 Chihuahuas (Smooth Coat) 3-5-1-2\n16 Chihuahuas (Long Coat) 3-10-3-0\n9:35 am\n13 Poodles (Miniature) 3-5-4-1\n4 Brussels Griffons 1-2-0-1\n5 English Toy Spaniels (K C & R) 1-3-1-0\n3 Affenpinschers 1-0-1-1\n10:35 am\n12 Cavalier King Charles Spaniels 4-5-2-1\n10 Poodles (Toy) 2-5-2-1\n11:30 am\nLUNCH\n12:15 pm\n33 Poodles (Standard) 9-21-2-1\n1:35 pm\n21 Chinese Cresteds 8-7-1-3\n1 Veteran Bitch\n28 Havanese 7-12-3-6\nRING 2\nMR CARL E GOMES (154)\n9:05 am\n25 Bulldogs 11-9-4-1\n10:05 am\n12 Chinese Shar-Pei 3-5-1-2\n1 Veteran Bitch\n17 Boston Terriers 2-5-5-5\n11:15 am\n29 French Bulldogs 8-14-5-2\n12:25 pm\nLUNCH\n1:10 pm\n9 Dalmatians 2-4-1-1\n1 Veteran Dog\n11 Keeshonden 5-2-2-2\n11 Bichons Frises 3-5-1-2\n2:25 pm\n2 Schipperkes 2-0-0-0\n3 Tibetan Spaniels 3-0-0-0\n2 Lowchen 0-0-2-0\n16 Shiba Inu 5-5-4-2\n1 American Eskimo Dogs 0-0-0-1\n1 Tibetan Terriers 0-0-0-1\n1 Lhasa Apsos 0-0-1-0\n1 Xoloitzcuintli 0-0-0-1\nMR GOMES IS ALSO IN RING 8\nRING 3\nMS THERESA L HUNDT (154)\n8:30 am\n3 Basenjis 1-1-0-1\n36 Whippets 12-14-5-5\n10:05 am\n1 Scottish Deerhounds 0-1-0-0\n6 Vizslas 1-1-2-2\n10 Pointers (German Shorthaired) 3-2-3-2\n7 Weimaraners 3-2-2-0\n8 Retrievers (Labrador) 3-4-1-0\n11:20 am\n4 Spinoni Italiani 0-1-2-1\n3 Retrievers (Chesapeake Bay) 0-1-1-1\n12 Spaniels (Welsh Springer) 7-2-3-0\n12:05 pm\nLUNCH\n12:50 pm\n2 Petits Bassets Griffons Vendeens 0-0-1-1\n6 Brittanys 1-4-1-0\n2 Retrievers (Flat-Coated) 1-0-1-0\n3 Spaniels (Field) 0-2-0-1\n1 Pointers (German Wirehaired) 1-0-0-0\nMS HUNDT MOVES TO RING 8\nRING 4\nMS PEGGY BEISEL-MCILWAINE (106)\n10:40 am\n32 Australian Shepherds 14-11-3-4\nMS BEISEL-MCILWAINE GOES TO LUNCH\nMS BEISEL-MCILWAINE MOVES TO RING 9\nRING 5\nMR WILLIAM DEVILLENEUVE (61)\n8:30 am\n6 Fox Terriers (Smooth) 1-1-3-1\n5 Norwich Terriers 2-1-2-0\n2 Cairn Terriers 0-1-0-1\n4 West Highland White Terriers 2-2-0-0\n12 Miniature Schnauzers 6-5-1-0\n9:40 am\n2 Fox Terriers (Wire) 1-0-1-0\n8 Bedlington Terriers 2-5-1-0\n1 Miniature Bull Terriers 0-0-1-0\n1 Parson Russell Terriers 0-0-1-0\n1 Border Terriers 0-0-0-1\n2 Bull Terriers (White) 1-0-0-1\n8 Soft Coated Wheaten Terriers 1-3-3-1\n7 Kerry Blue Terriers 0-2-2-3\n1 Staffordshire Bull Terriers 0-0-1-0\n1 Airedale Terriers 1-0-0-0\nRING 5\nMRS JULIE VIROSTECK (27)\n10:55 am\n2 Spaniels (Cocker) Parti-Color 2-0-0-0\n3 Spaniels (English Cocker) 1-1-1-0\n4 Setters (Irish) 1-2-1-0\n5 Pointers 0-1-2-2\n3 Setters (English) 0-2-0-0\n1 Veteran Dog\nJUDGING PROGRAM\nThe number before each Breed (Variety) indicates the number of dogs entered in that Breed (Variety). The num-\nbers following each Breed (Variety) indicates the number of Regular Class Dogs, Regular Class Bitches, Best of\nBreed (Variety) (Dogs-Bitches).\nThere are 1238 dogs entered in this show with a total of 1272 entries.\n23\nWICHITA KENNEL CLUB, INC.\nSunday, April 7, 2013\n8 Spaniels (English Springer) 2-5-1-0\n2 Setters (Gordon) 1-0-1-0\nRING 6\nMS PATRICIA W LAURANS (172)\n8:30 am\n2 Portuguese Podengo Pequenos 1-0-1-0\n34 Rhodesian Ridgebacks 9-17-5-3\n9:55 am\n2 Greyhounds 1-0-0-1\n2 Pharaoh Hounds 0-0-2-0\n8 Ibizan Hounds 2-3-1-2\n4 Irish Wolfhounds 1-1-2-0\n16 Borzois 5-5-4-1\n1 Veteran Dog\n11:10 am\n22 Salukis 4-7-4-7\n12:05 pm\nLUNCH\n12:50 pm\n20 Afghan Hounds 6-7-5-2\n8 Great Pyrenees 3-4-1-0\n1:55 pm\n3 Harriers 0-2-1-0\n5 Bloodhounds 2-0-2-1\n7 Dachshunds (Smooth) 1-2-2-2\n2 Beagles (13 Inch) 0-1-0-1\n16 Dachshunds (Wirehaired) 4-7-4-0\n3 Beagles (15 Inch) 0-0-2-1\n9 Dachshunds (Longhaired) 4-3-2-0\n9 Basset Hounds 1-6-2-0\nRING 7\nDR DANIEL W DOWLING (162)\n8:30 am\n4 Italian Greyhounds 1-2-1-0\n8 Pugs 2-3-1-2\n16 Miniature Pinschers 8-5-1-2\n9:35 am\n4 Manchester Terriers (Toy) 1-1-0-1\n1 Veteran Dog\n11 Japanese Chin 3-3-4-1\n9 Toy Fox Terriers 3-3-2-1\n4 Silky Terriers 0-1-1-1\n1 Veteran Dog\n10:45 am\n27 Papillons 12-7-6-2\n11:50 am\nLUNCH\n12:35 pm\n1 Berger Picards (Misc. Dog)\n1 Berger Picards (Misc. Bitch)\n1 Cirneco dell’Etna (Misc. Bitch)\n1 Wirehaired Vizslas (Misc. Dog)\n1 Wirehaired Vizslas (Misc. Bitch)\n1 Miniature American Shepherds (Misc. Dog)\n2 Miniature American Shepherds (Misc. Bitches)\n4 Shih Tzu 1-1-1-1\n4 Maltese 1-2-1-0\n7 Yorkshire Terriers 2-4-1-0\n1:30 pm\n23 Pomeranians 12-8-1-2\n1 Pekingese 1-0-0-0\n3 Master Class\n5 Open Senior\n12 Open Intermediate\n3 Open Junior\n3 Novice Intermediate\n6 Novice Junior\nRING 8\nMR CARL E GOMES\n8:30 am\n13 Cardigan Welsh Corgis 2-6-3-2\nMR GOMES MOVES TO RING 2\nRING 8\nMS THERESA L HUNDT\n1:35 pm\n50 Retrievers (Golden) 17-23-5-4\n1 Veteran Dog\nMS HUNDT IS ALSO IN RING 3\nRING 9\nMS PEGGY BEISEL-MCILWAINE\n8:30 am\n3 Belgian Malinois 0-1-2-0\n4 Border Collies 1-1-2-0\n5 Belgian Sheepdogs 0-2-3-0\n25 Pembroke Welsh Corgis 13-11-0-1\n10:00 am\n2 Icelandic Sheepdogs 0-1-1-0\n11 Shetland Sheepdogs 5-5-1-0\nMS BEISEL-MCILWAINE MOVES TO RING 4\nRING 9\nMR DAVID W HADDOCK (11)\n10:30 am\n11 Standard Schnauzers 2-2-6-1\nRING 9\nMS PEGGY BEISEL-MCILWAINE\n12:40 pm\n7 Belgian Tervuren 1-5-1-0\n2 Entlebucher Mountain Dogs 0-0-0-2\n3 Bearded Collies 1-0-1-1\n2 Bouviers des Flandres 0-1-1-0\n6 Old English Sheepdogs 1-1-1-3\n1 Beaucerons 0-1-0-0\n1 Polish Lowland Sheepdogs 0-0-1-0\n1 Australian Cattle Dogs 0-1-0-0\n1 Pyrenean Shepherds 0-0-1-0\nRING 10\nDR DANIEL W FLEITAS (163)\n8:30 am\n7 Bullmastiffs 2-3-1-1\n19 Great Danes 3-10-3-3\n24\nWICHITA KENNEL CLUB, INC.\nSunday, April 7, 2013\n9:30 am\n10 Mastiffs 2-5-2-1\n26 Boxers 3-16-4-3\n11:00 am\n21 Bernese Mountain Dogs 4-11-3-3\n11:50 am\nLUNCH\n12:35 pm\n6 German Pinschers 2-2-1-1\n5 Newfoundlands 0-2-2-1\n18 Akitas 3-12-2-1\n1:45 pm\n2 Cane Corso 1-0-1-0\n2 Alaskan Malamutes 1-0-1-0\n4 Kuvaszok 1-1-2-0\n6 Giant Schnauzers 1-1-2-2\n10 Black Russian Terriers 2-8-0-0\n25 Siberian Huskies 5-10-7-3\n1 Dogues de Bordeaux 1-0-0-0\n1 Saint Bernards 0-1-0-0\nRING 11\nMR ROBERT L VANDIVER (106)\n8:30 am\n34 Doberman Pinschers 7-15-4-7\n1 Veteran Bitch\n9:50 am\n10 German Shepherd Dogs 2-5-3-0\n9 Rottweilers 3-3-1-2\n26 Samoyeds 8-11-4-3\n11:40 am\nLUNCH\n12:25 pm\n9 Pulik 2-5-2-0\n4 Collies (Smooth) 1-1-1-1\n14 Portuguese Water Dogs 4-7-2-1\nGROUP RING\n2:30 pm\nVARIETY GROUP JUDGING\nTERRIER GROUP - MR WILLIAM DEVILLENEUVE\nHERDING GROUP - MS PEGGY BEISEL-MCILWAINE\nSPORTING GROUP - MS THERESA L HUNDT\nWORKING GROUP - DR DANIEL W FLEITAS\nNON-SPORTING GROUP - MR CARL E GOMES\nHOUND GROUP - MS PATRICIA W LAURANS\nTOY GROUP - DR DANIEL W DOWLING\nBEST IN SHOW - MRS SUSAN ST JOHN-BROWN\nUnless otherwise announced by 2:00 pm\n25\nWICHITA KENNEL CLUB, INC.\nSunday, April 7, 2013\n26\nRING 12\nMS KAREN J ANDERSON (36)\n8:30 am\n14 Open B Class\n239-241;385-396\n10:15 am\n3 Utility A Class\n457-459\n10:45 am\n9 Novice B Class\n86;90-101\n11:45 am\n5 Beginner Novice B Class\n952-958\nTo follow Beginner Novice B\n5 Beginner Novice A Class\n598;925-929\n45 minute Lunch Break at judge’s discretion\nRING 13\nMR JERRY IERMIERO (26)\n8:30 am\n8 Novice A Class\n5-11;14\n9:35 am\n6 Open A Class\n177-180;184-187\n10:20 am\n12 Utility B Class\n235;385-396\nRING 13\nMR JERRY IERMIERO (46)\n12:25 pm\nRally Excellent Walkthrough\n12:35 pm\n6 Rally Excellent B\n1 Rally Excellent A\n08 inch: R9\n12 inch: R14-R16\n16 inch: R21-R22;R27;R31\nTo follow Rally Excellent\n8 Rally Advanced B\n5 Rally Advanced A\n08 inch: R8-R9;R13\n12 inch: R14;R17-R19\n16 inch: R20-R27;R31\nTo follow Rally Advanced\n18 Rally Novice B\nR33-R39;R42-R59;R66\nTo follow Rally Novice B\n8 Rally Novice A\nR35;R43-R45;R48;R54;R58;R61-R62\n45 minute Lunch Break at judge’s discretion\nJUDGING PROGRAM\nThe number before each Breed (Variety) indicates the number of dogs entered in that Breed (Variety). The num-\nbers following each Breed (Variety) indicates the number of Regular Class Dogs, Regular Class Bitches, Best of\nBreed (Variety) (Dogs-Bitches).\nThere are 51 dogs entered in this show with a total of 62 entries plus 41 dogs and 46 entries in Rally.\nWICHITA DOG TRAINING CLUB, INC.\nSunday, April 7, 2013\nRING 1\nMR JOHN R SHOEMAKER (151)\n8:30 am\n8 Dalmatians 2-3-1-1\n1 Veteran Dog\n23 Bulldogs 10-9-4-0\n9:45 am\n17 Boston Terriers 4-4-5-4\n7 Poodles (Toy) 2-3-1-1\n19 French Bulldogs 4-11-2-2\n11:30 am\n10 Shiba Inu 3-3-3-1\n6 Poodles (Miniature) 1-3-2-0\n12:10 pm\nLUNCH\n12:55 pm\n25 Poodles (Standard) 6-17-1-1\n1:55 pm\n12 Chinese Shar-Pei 4-4-1-2\n1 Veteran Bitch\n4 Keeshonden 1-1-2-0\n2 Schipperkes 2-0-0-0\n2 Tibetan Spaniels 2-0-0-0\n2 Lowchen 0-0-2-0\n11 Bichons Frises 3-5-1-2\n1 Lhasa Apsos 0-0-1-0\n1 Tibetan Terriers 0-0-0-1\n1 Xoloitzcuintli 0-0-0-1\nRING 2\nMR WILLIAM DEVILLENEUVE (120)\n8:30 am\n4 Pugs 1-2-0-1\n4 Italian Greyhounds 1-2-1-0\n5 Miniature Pinschers 2-2-0-1\n2 Manchester Terriers (Toy) 0-0-0-1\n1 Veteran Dog\n5 Chihuahuas (Long Coat) 0-3-2-0\n5 Toy Fox Terriers 2-2-1-0\n9:30 am\n5 English Toy Spaniels (K C & R) 1-3-1-0\n12 Papillons 3-3-6-0\n14 Havanese 3-6-2-3\n10:45 am\n10 Japanese Chin 3-3-3-1\n4 Silky Terriers 0-1-1-1\n1 Veteran Dog\n10 Cavalier King Charles Spaniels 2-5-2-1\n9 Chinese Cresteds 4-2-1-2\n12:05 pm\nLUNCH\n12:50 pm\n2 Brussels Griffons 1-1-0-0\n2 Yorkshire Terriers 0-2-0-0\n3 Shih Tzu 1-1-1-0\n2 Affenpinschers 1-0-1-0\n19 Pomeranians 10-6-1-2\n1 Chihuahuas (Smooth Coat) 0-0-0-1\n1 Pekingese 1-0-0-0\n1 Maltese 0-0-1-0\nRING 3\nDR DANIEL W DOWLING (87)\n8:30 am\n2 Pointers 0-0-1-1\n5 Vizslas 1-1-1-2\n6 Pointers (German Shorthaired) 0-1-3-2\n7 Retrievers (Labrador) 2-4-1-0\n3 Spinoni Italiani 0-0-2-1\n7 Spaniels (Welsh Springer) 3-2-2-0\n9:40 am\n3 Setters (English) 0-2-0-0\n1 Veteran Dog\n2 Retrievers (Chesapeake Bay) 0-0-1-1\n4 Brittanys 0-3-1-0\n2 Retrievers (Flat-Coated) 1-0-1-0\n3 Spaniels (Field) 0-2-0-1\n4 Setters (Irish) 1-2-1-0\n7 Spaniels (English Springer) 1-5-1-0\n10:40 am\n1 Setters (Gordon) 0-0-1-0\n2 Spaniels (English Cocker) 0-1-1-0\n1 Spaniels (Cocker) Parti-Color 1-0-0-0\nDR DOWLING MOVES TO RING 8\nRING 4\nDR JERRY KLEIN (45)\n10:00 am\n3 Fox Terriers (Smooth) 0-1-1-1\n5 Norwich Terriers 2-1-2-0\n2 Scottish Terriers 1-1-0-0\n11 Miniature Schnauzers 5-5-1-0\n2 Fox Terriers (Wire) 1-0-1-0\n8 Bedlington Terriers 2-5-1-0\n11:15 am\n1 Miniature Bull Terriers 0-0-1-0\n1 Parson Russell Terriers 0-0-1-0\n1 Border Terriers 0-0-0-1\n1 Cairn Terriers 0-1-0-0\n2 Soft Coated Wheaten Terriers 1-0-1-0\n6 Kerry Blue Terriers 0-1-2-3\n1 Staffordshire Bull Terriers 0-0-1-0\n1 Airedale Terriers 1-0-0-0\nRING 5\nMS ANDREA GEORGI (87)\n10:00 am\n13 Australian Shepherds 6-4-0-3\nMS GEORGI MOVES TO RING 9\nJUDGING PROGRAM\nThe number before each Breed (Variety) indicates the number of dogs entered in that Breed (Variety). The num-\nbers following each Breed (Variety) indicates the number of Regular Class Dogs, Regular Class Bitches, Best of\nBreed (Variety) (Dogs-Bitches).\nThere are 812 dogs entered in this show with a total of 828 entries.\n27\nWICHITA KENNEL CLUB, INC.\nMonday, April 8, 2013\nRING 6\nMRS SUSAN ST JOHN-BROWN (129)\n8:30 am\n10 Basset Hounds 2-6-2-0\n18 Rhodesian Ridgebacks 5-7-4-2\n9:35 am\n2 Pharaoh Hounds 0-0-2-0\n5 Bloodhounds 2-0-2-1\n4 Irish Wolfhounds 1-1-2-0\n7 Borzois 2-2-2-0\n1 Veteran Dog\n3 Harriers 0-2-1-0\n15 Salukis 4-4-3-4\n11:05 am\n26 Whippets 11-9-2-4\n12:05 pm\nLUNCH\n12:50 pm\n5 Dachshunds (Smooth) 1-1-1-2\n3 Beagles (15 Inch) 0-0-2-1\n4 Dachshunds (Longhaired) 2-1-1-0\n2 Portuguese Podengo Pequenos 1-0-1-0\n2 Petits Bassets Griffons Vendeens 0-0-1-1\n7 Dachshunds (Wirehaired) 2-3-2-0\n1 Basenjis 0-1-0-0\n13 Afghan Hounds 3-5-5-0\n1 Ibizan Hounds 0-0-0-1\n1 Greyhounds 0-0-0-1\nRING 8\nDR DANIEL W DOWLING\n11:00 am\n28 Retrievers (Golden) 8-14-3-3\nDR DOWLING IS ALSO IN RING 3\nRING 9\nMS ANDREA GEORGI\n8:30 am\n4 German Shepherd Dogs 0-3-1-0\n21 Pembroke Welsh Corgis 11-7-1-1\n1 Veteran Bitch\n9:30 am\n11 Cardigan Welsh Corgis 1-6-3-1\nMS GEORGI MOVES TO RING 5\n10:40 am\n6 Pulik 0-4-2-0\n7 Shetland Sheepdogs 3-3-1-0\n5 Belgian Tervuren 1-3-1-0\n2 Collies (Smooth) 1-0-1-0\n2 Entlebucher Mountain Dogs 0-0-0-2\n3 Border Collies 0-1-2-0\n11:40 am\n6 Old English Sheepdogs 1-1-1-3\n1 Beaucerons 0-1-0-0\n1 Belgian Sheepdogs 0-0-1-0\n1 Bearded Collies 0-0-0-1\n1 Polish Lowland Sheepdogs 0-0-1-0\n1 Bouviers des Flandres 0-0-1-0\n1 Belgian Malinois 0-1-0-0\n1 Pyrenean Shepherds 0-0-1-0\nRING 10\nMRS NANCY C RUSSELL (133)\n8:30 am\n7 Mastiffs 1-4-1-1\n3 German Pinschers 0-1-1-1\n4 Great Danes 1-1-1-1\n9 Akitas 2-4-2-1\n5 Bullmastiffs 2-2-0-1\n9:35 am\n10 Black Russian Terriers 2-8-0-0\n15 Samoyeds 6-4-2-3\n10:35 am\n4 Kuvaszok 1-1-2-0\n5 Newfoundlands 0-2-2-1\n8 Great Pyrenees 3-4-1-0\n15 Siberian Huskies 5-5-3-2\n11:55 am\nLUNCH\n12:40 pm\n6 Giant Schnauzers 1-1-2-2\n14 Portuguese Water Dogs 4-7-2-1\n7 Standard Schnauzers 1-2-3-1\n19 Bernese Mountain Dogs 4-9-3-3\n1 Dogues de Bordeaux 1-0-0-0\n1 Alaskan Malamutes 1-0-0-0\nRING 11\nMR CARL E GOMES (76)\n8:30 am\n26 Doberman Pinschers 6-12-3-4\n1 Veteran Bitch\n9:30 am\n8 Rottweilers 3-2-1-2\n24 Boxers 3-14-4-3\n10:50 am\n1 Cirneco dell’Etna (Misc. Bitch)\n1 Miniature American Shepherds (Misc. Bitch)\n1 Open Senior\n9 Open Intermediate\n1 Open Junior\n3 Novice Intermediate\n2 Novice Junior\nGROUP RING\n1:00 pm\nVARIETY GROUP JUDGING\nTERRIER GROUP - DR JERRY KLEIN\nHERDING GROUP - MS ANDREA GEORGI\nSPORTING GROUP - DR DANIEL W DOWLING\nTOY GROUP - MR WILLIAM DEVILLENEUVE\nHOUND GROUP - MRS SUSAN ST JOHN-BROWN\nWORKING GROUP - MRS NANCY C RUSSELL\nNON-SPORTING GROUP - MR JOHN R SHOEMAKER\nBEST IN SHOW - MR CARL E GOMES\nUnless otherwise announced by 12:30 pm\n28\nWICHITA KENNEL CLUB, INC.\nMonday, April 8, 2013\n",
-			"file": "parsed/WICH1JP.txt",
-			"file_size": 51510,
-			"file_write_time": 130138450577254341,
+			"file": "json/COUN1.pdfbox.json",
 			"settings":
 			{
-				"buffer_size": 49705,
+				"buffer_size": 59450,
 				"line_ending": "Windows"
 			}
 		}
@@ -508,9 +492,17 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/json/COUN1.pdfbox.json",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/showscraper.py",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parserunner.py",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/COUN1.pdfbox.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/COUL1.pdfbox.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parsed/WICH1JP.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/json/COUL1.pdfbox.json",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/driver.py",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/json/ANOK1JP.pdfbox.json",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/BRAZ1.pdfbox.jpdf2txt.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/config.py",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/COUN1.pdfbox.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/ANTLR/bin/README.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parsed/COUL1.pdfbox.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/BRAZ1.pdfbox.txt",
@@ -521,19 +513,14 @@
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/COUN1.pdf2txt.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/json/BRAZ1.pdfbox.json",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/GRMS1.pdf2txt.txt",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/COUL1.pdfbox.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/demo.py",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/json/GRMS1.pdfbox.json",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/json/COUL1.pdfbox.json",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/GRMS1.pdfbox.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parsed/GRMS1.pdf2txt.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parsed/GRMS1.pdfbox.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/ringcleaner.py",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parserunner.py",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/GRMS1.pdf",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/driver.py",
 		"/C/Users/Taylor/SkyDrive/Public/myout.txt",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/showscraper.py",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/dogshowprogramworker.py",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parsed/dogshowprogramworker",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/scraper.py",
@@ -632,10 +619,7 @@
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Libraries/objectify-3.1/edit-this-to-build.properties",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/android/UI-Design/Android_Design_Color_Swatches/Android_Design_Color_Swatches_20120229/values.txt",
 		"/C/Users/Taylor/workspace/AssurityAlert/src/com/assurity/alertcenter/util/MessageListActionMode.java",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/JavaTest/testcase/PLUM1JP.txt",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/JavaTest/testcase/TRIN1JP.txt",
-		"/C/Users/Taylor/workspace/AssurityAlert/src/com/assurity/alertcenter/adapters/MessageOverviewArrayAdapter.java",
-		"/C/Users/Taylor/workspace/AssurityAlert/src/com/assurity/alertcenter/adapters/RequirementArrayAdapter.java"
+		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/JavaTest/testcase/PLUM1JP.txt"
 	],
 	"find":
 	{
@@ -655,6 +639,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"getring",
+			"mr wood",
+			"moves ",
+			"also in",
 			"parseProgramPdf2Txt",
 			"collect",
 			"txt.txt",
@@ -778,11 +766,7 @@
 			"getringdates",
 			"_getDateRingMap",
 			"lines after",
-			"That’sAll",
-			"rally",
-			"all",
-			"self.clean",
-			"parseProgramPdf2Txt"
+			"That’sAll"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -831,15 +815,15 @@
 					"file": "dogshowprogramworker.py",
 					"settings":
 					{
-						"buffer_size": 9954,
+						"buffer_size": 10038,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2209,
-								2209
+								4718,
+								4718
 							]
 						],
 						"settings":
@@ -849,128 +833,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 481.0,
+						"translation.y": 1578.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "showscraper.py",
-					"settings":
-					{
-						"buffer_size": 8399,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "parserunner.py",
-					"settings":
-					{
-						"buffer_size": 2507,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1421,
-								1440
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 224.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"settings":
-					{
-						"buffer_size": 613,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										177,
-										196
-									],
-									[
-										478,
-										497
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								483,
-								483
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "ringcleaner.py",
 					"settings":
 					{
-						"buffer_size": 3968,
+						"buffer_size": 4334,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								4063,
+								4063
 							]
 						],
 						"settings":
@@ -979,25 +860,51 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1293.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "driver.py",
+					"buffer": 2,
+					"file": "cleaned/COUN1.pdfbox.txt",
 					"settings":
 					{
-						"buffer_size": 131741,
+						"buffer_size": 30058,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								130454,
-								130454
+								14163,
+								14163
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 5490.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "driver.py",
+					"settings":
+					{
+						"buffer_size": 131762,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								130481,
+								130481
 							]
 						],
 						"settings":
@@ -1007,32 +914,32 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1576.0,
+						"translation.y": 1413.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "parsed/WICH1JP.txt",
+					"buffer": 4,
+					"file": "json/COUN1.pdfbox.json",
 					"settings":
 					{
-						"buffer_size": 49705,
+						"buffer_size": 59450,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								59367,
+								59367
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
 						},
-						"translation.x": 0.0,
+						"translation.x": 415569.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
@@ -1101,6 +1008,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 225.0,
+	"side_bar_width": 276.0,
 	"status_bar_visible": true
 }

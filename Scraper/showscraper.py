@@ -118,7 +118,7 @@ class ShowScraper(object):
         printv( "club names: " + str(clubNames))
         locationTimes=descLine.findAll('dd')
         printv( "locationTimes: " + str(locationTimes))
-        locationDatePairs = list();
+        locationDatePairs = lazsist();
         for locationTime in locationTimes:
             raw = locationTime.findAll(text=True)[0];
             printv("Raw date/location: " + str(raw));

@@ -9,6 +9,7 @@ from ringcleaner import RingCleaner
 from dogshowprogramworker import DogshowProgramWorker
 import model.show
 from showutils import urlopen_with_retry
+from util import printv, dumpJson
 
 
 def postShow(show):
@@ -17,16 +18,16 @@ def postShow(show):
     values = show.toJson();#{'id':show.code, 'clubs':str(show.clubs), 'locations':str(locations) 'date':int(show.dates[0])}
     locationList = list();
     [locationList.append(l.toJson()) for l in show.locations];
-    print(json.loads(json.dumps(locationList)))
-    print(show.getDateList())
-    print(str(values));
+    printv(json.loads(json.dumps(locationList)))
+    printv(show.getDateList())
+    printv(str(values));
     values = {'code':show.code, 'locations':json.loads(json.dumps(locationList)), 'clubs':show.getClubList(), 'show':values, 'dates':show.getDateList()}
     #values = {'city': 'Columbiana', 'date': 1365138000.0, 'name': 'Northeast Oklahoma Kennel Club', 'state': 'AL'}
     response = urlopen_with_retry(url, values)
 
     #response = urlopen_with_retry(url, data.encode('utf8'))
     the_page = response.read()
-    print(the_page);
+    printv(the_page);
 
 def postShows(shows):
     for show in shows:
@@ -34,19 +35,19 @@ def postShows(shows):
 
 def downloadPrograms(shows):
     for show in shows:
-        print("Show code: " + show.code)
+        printv("Show code: " + show.code)
         show.downloadProgram()
     return shows
 
 def scrapeAndDownload():
-    print("scrape and download");
+    printv("scrape and download");
     scraper = ShowScraper(False, False);
-    print("pulling shows...");
+    printv("pulling shows...");
     allshows = scraper.getAllShows()
-    print("posting shows...");
+    printv("posting shows...");
 
     shows = scraper.getUniqueShows()
-    print("downloading " + str(len(shows)) + " programs...")
+    printv("downloading " + str(len(shows)) + " programs...")
     downloadPrograms(shows)
     
     prevLink = None;
@@ -58,7 +59,7 @@ def scrapeAndDownload():
         else:
             uniqueShows[-1:].dateList.append(show.date);
     for show in uniqueShowList:
-        print( str(show.programName) + " lasts " + str(len(show.dateList)) + " days" );
+        printv( str(show.programName) + " lasts " + str(len(show.dateList)) + " days" );
     return (allshows, shows);
 
 def doParseAndClean(show):
@@ -66,7 +67,7 @@ def doParseAndClean(show):
     runner.parseProgram(show);
 def doRunGrammar(show):
 
-    print("Running grammar")
+    printv("Running grammar")
     path = "./cleaned/KTDC1JP.txt"
     json = grammar.getShowJson(path);
     return json;
@@ -85,73 +86,84 @@ def main(argv):
     #r = RingCleaner()
     #r.parseShowJson('C:/Users/Taylor/Documents/GitHub/dogshow/Scraper/programs/COUL1.pdf')
     #sys.exit(1);
-    opts, args = getopt.getopt(argv,"fp:r:od",['limit=','download=','offline='])
     try:
-      opts, args = getopt.getopt(argv,"fp:r:od",['limit=','download=','offline='])
+      opts, args = getopt.getopt(argv,"fp:r:odt:",['limit=','download=','offline=', 'forceall=', 'output='])
     except getopt.GetoptError:
       print('option error. No options?');
       sys.exit(2)
     showLimit = None;
-
+    outputfile = None;
     for opt, arg in opts:
       if opt == '--limit':
-        print('limit option of ' + arg)
+        printv('limit option of ' + arg)
         showLimit = int(arg);
       if opt == '--nodownload':
         config.Env.DO_DOWNLOAD = False;
       if opt == '--download':
         config.Env.DO_DOWNLOAD = arg=='true';
-        print('download: ' + str(config.Env.DO_DOWNLOAD))
+        printv('download: ' + str(config.Env.DO_DOWNLOAD))
       if opt == '--offline':
         config.Env.OFFLINE = arg=='true';
-        print('offline: ' + str(config.Env.OFFLINE))
+        printv('offline: ' + str(config.Env.OFFLINE))
+      if opt =='--forceall':
+        config.Env.FORCE_ALL = arg=='true';
+      if opt =='--output':
+        outputfile = arg;
 
     for opt, arg in opts:
-      print("opt: " + opt)
+      printv("opt: " + opt)
       if opt == '-r':
          if arg == 'showpage':
-            print('show page')
+            printv('show page')
             show = ShowScraper(False, True).pullShow(requestedPage);
             if show:
-                print(show.pdfLink)
+                printv(show.pdfLink)
             sys.exit()
          if arg == 'json':
-            print("running on local json");
+            printv("running on local pdfs");
             worker = DogshowProgramWorker();
             folder = config.Pdf.DOWNLOAD_DIR;
             for filename in os.listdir(folder):
-                print(os.path.splitext(filename)[1])
-                if os.path.splitext(filename)[1] == '.pdf':
-                    worker.getRingDates(folder + filename);
+                printv(os.path.splitext(filename)[1])
+                if os.path.splitext(filename)[1] == '.pdf' and 'COUN' in filename:
+                    worker.generateJson(folder+filename);
          sys.exit()
+      elif opt == '-t':
+        if outputfile is None:
+            print('No output file specified!')
+            sys.exit();
+        else:
+            worker = DogshowProgramWorker();
+            output = worker.generateJson(arg);
+            dumpJson(outputfile, output)
       elif opt == '-p':
          requestedPage=arg
       elif opt == '-o':
-        print('offline')
+        printv('offline')
       elif opt == '-d':
          worker = DogshowProgramWorker();
          worker.run(showLimit, 10);
          sys.exit(0);
          if arg == 'showpage':
-            print('show page')
+            printv('show page')
             show = ShowScraper(True, True).pullShow("blah");
             if show:
-                print(show.pdfLink)
+                printv(show.pdfLink)
                 #downloadProgram(show);
                 postShow(show);
             sys.exit()
          if arg == 'closed':
-            print("closed");
+            printv("closed");
             links = ShowScraper(False, True).pullClosedShows();
-            [print(str(link)) for link in links]
+            [printv(str(link)) for link in links]
       elif opt == '-f':
         (allshows, uniqueShows) = scrapeAndDownload();
         kansas = None
         for show in allshows:
             doParseAndClean(show);
-            print("programName: " + show.programName)
+            printv("programName: " + show.programName)
             if show.showCode == "KTDC1":
-                print("found KTDC1")
+                printv("found KTDC1")
                 json = doRunGrammar(show);
                 AppServerAccessor().postShow(show, json)
             #doRunGrammar(show);

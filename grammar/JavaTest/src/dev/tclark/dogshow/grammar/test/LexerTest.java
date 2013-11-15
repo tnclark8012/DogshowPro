@@ -55,7 +55,7 @@ public class LexerTest extends GrammarTest {
 			File outFile = new File("testcase/tests/lexer/test-outputs",
 					file.getName() + "-test-output.txt");
 			lexer.printTokens(file.getAbsolutePath(), new PrintStream(outFile));
-			boolean areSame = compareFiles(outFile, testOutputs.get(i));
+			boolean areSame = TestUtils.compareFiles(outFile, testOutputs.get(i));
 			if (!areSame)
 				System.err.println(outFile.getAbsolutePath());
 			Assert.assertEquals(true, areSame);

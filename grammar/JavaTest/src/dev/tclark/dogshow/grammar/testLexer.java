@@ -1,4 +1,4 @@
-// $ANTLR null C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2013-11-09 18:04:40
+// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2013-11-14 19:49:45
 
 package dev.tclark.dogshow.grammar;
 
@@ -89,7 +89,7 @@ public class testLexer extends Lexer {
 		try {
 			int _type = JUNIOR_CLASS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:233:5: ( 'Master Class' | 'Open Senior' | 'Open Intermediate' | 'Open Junior' | 'Novice Senior' | 'Novice Junior' | 'Novice Intermediate' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:239:5: ( 'Master Class' | 'Open Senior' | 'Open Intermediate' | 'Open Junior' | 'Novice Senior' | 'Novice Junior' | 'Novice Intermediate' )
 			int alt1=7;
 			switch ( input.LA(1) ) {
 			case 'M':
@@ -126,9 +126,8 @@ public class testLexer extends Lexer {
 								default:
 									int nvaeMark = input.mark();
 									try {
-										for (int nvaeConsume = 0; nvaeConsume < 6 - 1; nvaeConsume++) {
+										for (int nvaeConsume = 0; nvaeConsume < 6 - 1; nvaeConsume++)
 											input.consume();
-										}
 										NoViableAltException nvae =
 											new NoViableAltException("", 1, 10, input);
 										throw nvae;
@@ -137,13 +136,11 @@ public class testLexer extends Lexer {
 									}
 								}
 							}
-
 							else {
 								int nvaeMark = input.mark();
 								try {
-									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++) {
+									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++)
 										input.consume();
-									}
 									NoViableAltException nvae =
 										new NoViableAltException("", 1, 8, input);
 									throw nvae;
@@ -151,15 +148,12 @@ public class testLexer extends Lexer {
 									input.rewind(nvaeMark);
 								}
 							}
-
 						}
-
 						else {
 							int nvaeMark = input.mark();
 							try {
-								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
+								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++)
 									input.consume();
-								}
 								NoViableAltException nvae =
 									new NoViableAltException("", 1, 6, input);
 								throw nvae;
@@ -167,15 +161,12 @@ public class testLexer extends Lexer {
 								input.rewind(nvaeMark);
 							}
 						}
-
 					}
-
 					else {
 						int nvaeMark = input.mark();
 						try {
-							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++)
 								input.consume();
-							}
 							NoViableAltException nvae =
 								new NoViableAltException("", 1, 4, input);
 							throw nvae;
@@ -183,9 +174,7 @@ public class testLexer extends Lexer {
 							input.rewind(nvaeMark);
 						}
 					}
-
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -197,7 +186,6 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 				}
 				break;
 			case 'N':
@@ -233,9 +221,8 @@ public class testLexer extends Lexer {
 										default:
 											int nvaeMark = input.mark();
 											try {
-												for (int nvaeConsume = 0; nvaeConsume < 8 - 1; nvaeConsume++) {
+												for (int nvaeConsume = 0; nvaeConsume < 8 - 1; nvaeConsume++)
 													input.consume();
-												}
 												NoViableAltException nvae =
 													new NoViableAltException("", 1, 16, input);
 												throw nvae;
@@ -244,13 +231,11 @@ public class testLexer extends Lexer {
 											}
 										}
 									}
-
 									else {
 										int nvaeMark = input.mark();
 										try {
-											for (int nvaeConsume = 0; nvaeConsume < 7 - 1; nvaeConsume++) {
+											for (int nvaeConsume = 0; nvaeConsume < 7 - 1; nvaeConsume++)
 												input.consume();
-											}
 											NoViableAltException nvae =
 												new NoViableAltException("", 1, 15, input);
 											throw nvae;
@@ -258,15 +243,12 @@ public class testLexer extends Lexer {
 											input.rewind(nvaeMark);
 										}
 									}
-
 								}
-
 								else {
 									int nvaeMark = input.mark();
 									try {
-										for (int nvaeConsume = 0; nvaeConsume < 6 - 1; nvaeConsume++) {
+										for (int nvaeConsume = 0; nvaeConsume < 6 - 1; nvaeConsume++)
 											input.consume();
-										}
 										NoViableAltException nvae =
 											new NoViableAltException("", 1, 11, input);
 										throw nvae;
@@ -274,15 +256,12 @@ public class testLexer extends Lexer {
 										input.rewind(nvaeMark);
 									}
 								}
-
 							}
-
 							else {
 								int nvaeMark = input.mark();
 								try {
-									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++) {
+									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++)
 										input.consume();
-									}
 									NoViableAltException nvae =
 										new NoViableAltException("", 1, 9, input);
 									throw nvae;
@@ -290,15 +269,12 @@ public class testLexer extends Lexer {
 									input.rewind(nvaeMark);
 								}
 							}
-
 						}
-
 						else {
 							int nvaeMark = input.mark();
 							try {
-								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
+								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++)
 									input.consume();
-								}
 								NoViableAltException nvae =
 									new NoViableAltException("", 1, 7, input);
 								throw nvae;
@@ -306,15 +282,12 @@ public class testLexer extends Lexer {
 								input.rewind(nvaeMark);
 							}
 						}
-
 					}
-
 					else {
 						int nvaeMark = input.mark();
 						try {
-							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++)
 								input.consume();
-							}
 							NoViableAltException nvae =
 								new NoViableAltException("", 1, 5, input);
 							throw nvae;
@@ -322,9 +295,7 @@ public class testLexer extends Lexer {
 							input.rewind(nvaeMark);
 						}
 					}
-
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -336,7 +307,6 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 				}
 				break;
 			default:
@@ -346,49 +316,49 @@ public class testLexer extends Lexer {
 			}
 			switch (alt1) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:233:9: 'Master Class'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:239:9: 'Master Class'
 					{
 					match("Master Class"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:234:9: 'Open Senior'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:240:9: 'Open Senior'
 					{
 					match("Open Senior"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:235:9: 'Open Intermediate'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:241:9: 'Open Intermediate'
 					{
 					match("Open Intermediate"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:236:9: 'Open Junior'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:242:9: 'Open Junior'
 					{
 					match("Open Junior"); 
 
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:237:9: 'Novice Senior'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:243:9: 'Novice Senior'
 					{
 					match("Novice Senior"); 
 
 					}
 					break;
 				case 6 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:238:9: 'Novice Junior'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:244:9: 'Novice Junior'
 					{
 					match("Novice Junior"); 
 
 					}
 					break;
 				case 7 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:239:9: 'Novice Intermediate'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:245:9: 'Novice Intermediate'
 					{
 					match("Novice Intermediate"); 
 
@@ -408,1397 +378,1397 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_BREED_NAME_SINGLE"
 	public final void mFRAG_BREED_NAME_SINGLE() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:232:5: ({...}? => ( 'Affenpinscher' | 'Afghan Hound' | 'Airedale Terrier' | 'Akita' | 'Alaskan Malamute' | 'American English Coonhound' | 'American Eskimo Dog' | 'American Foxhound' | 'American Staffordshire Terrier' | 'Anatolian Shepherd Dog' | 'Appenzeller Sennenhunde' | 'Australian Cattle Dog' | 'Australian Shepherd' | 'Australian Terrier' | 'Basenji' | 'Basset Hound' | 'Beagle' | 'Bearded Collie' | 'Beauceron' | 'Bedlington Terrier' | 'Belgian Malinois' | 'Belgian Sheepdog' | 'Belgian Tervuren' | 'Berger Picard' | 'Bernese Mountain Dog' | 'Bichon Frise' | 'Bichons Frise' | 'Black and Tan Coonhound' | 'Black & Tan Coonhound' | 'Black Russian Terrier' | 'Bloodhound' | 'Bluetick Coonhound' | 'Border Collie' | 'Border Terrier' | 'Borzoi' | 'Boston Terrier' | 'Bouvier des Flandres' | 'Bouviers des Flandres' | 'Boxer' | 'Boykin Spaniel' | 'Brace' | 'Briard' | 'Brittany' | 'Brussels Griffon' | 'Bull Terrier' | 'Bulldog' | 'Bullmastiff' | 'Cairn Terrier' | 'Canaan Dog' | 'Cane Corso' | 'Cardigan Welsh Corgi' | 'Cavalier King Charles Spaniel' | 'Cesky Terrier' | 'Chesapeake Bay Retriever' | 'Chihuahua' | 'Chinese Crested' | 'Chinese Shar-Pei' | 'Cirneco dell’Etna' | 'Chow Chow' | 'Clumber Spaniel' | 'Cocker Spaniel' | 'Collie' | 'Curly-Coated Retriever' | 'Dachshund' | 'Dalmatian' | 'Dandie Dinmont Terrier' | 'Doberman Pinscher' | 'Dogo Argentine' | 'Dogue de Bordeaux' | 'Dogues de Bordeaux' | 'English Cocker Spaniel' | 'English Foxhound' | 'English Setter' | 'English Springer Spaniel' | 'English Toy Spaniel' | 'Entlebucher Mountain Dog' | 'Field Spaniel' | 'Finnish Lapphund' | 'Finnish Spitz' | 'Flat-Coated Retriever' | 'Fox Terrier' | 'French Bulldog' | 'German Pinscher' | 'German Shepherd Dog' | 'German Shorthaired Pointer' | 'German Wirehaired Pointer' | 'Giant Schnauzer' | 'Glen of Imaal Terrier' | 'Golden Retriever' | 'Gordon Setter' | 'Great Dane' | 'Great Pyrenees' | 'Greater Swiss Mountain Dog' | 'Greyhound' | 'Harrier' | 'Havanese' | 'Ibizan Hound' | 'Icelandic Sheepdog' | 'Irish Red and White Setter' | 'Irish Setter' | 'Irish Terrier' | 'Irish Water Spaniel' | 'Irish Wolfhound' | 'Italian Greyhound' | 'Japanese Chin' | 'Keeshond' | 'Keeshonden' | 'Kerry Blue Terrier' | 'Komondor' | 'Kuvasz' | 'Kuvaszok' | 'Labrador Retriever' | 'Lagotto Romagnolo' | 'Lakeland Terrier' | 'Leonberger' | 'Lhasa Apso' | 'Löwchen' | 'Lowchen' | 'Maltese' | 'Manchester Terrier' | 'Mastiff' | 'Miniature American Shepherd' | 'Miniature Bull Terrier' | 'Miniature Pinscher' | 'Miniature Schnauzer' | 'Neapolitan Mastiff' | 'Newfoundland' | 'Norfolk Terrier' | 'Norwegian Buhund' | 'Norwegian Elkhound' | 'Norwegian Lundehund' | 'Norwich Terrier' | 'Nova Scotia Duck Tolling Retriever' | 'Old English Sheepdog' | 'Otterhound' | 'Papillon' | 'Parson Russell Terrier' | 'Pekingese' | 'Pembroke Welsh Corgi' | 'Petit Basset Griffon Vendéen' | 'Petits Bassets Griffons Vendeen' | 'Pharaoh Hound' | 'Plott' | 'Pointer' | 'Polish Lowland Sheepdog' | 'Pomeranian' | 'Poodle' | 'Portuguese Podengo Pequenos' | 'Portuguese Water Dog' | 'Pug' | 'Puli' | 'Pulik' | 'Pyrenean Shepherd' | 'Rat Terrier' | 'Redbone Coonhound' | 'Retrievers' | 'Rhodesian Ridgeback' | 'Rottweiler' | 'Russell Terrier' | 'Saint Bernard' | 'Saluki' | 'Samoyed' | 'Schipperke' | 'Scottish Deerhound' | 'Scottish Terrier' | 'Sealyham Terrier' | 'Setters' | 'Shetland Sheepdog' | 'Shiba Inu' | 'Shih Tzu' | 'Siberian Husky' | 'Siberian Huskies' | 'Silky Terrier' | 'Skye Terrier' | 'Soft Coated Wheaten Terrier' | 'Spaniels' | 'Spinone Italiano' | 'Spinoni Italiani' | 'Staffordshire Bull Terrier' | 'Standard Schnauzer' | 'Sussex Spaniel' | 'Swedish Vallhund' | 'Tibetan Mastiff' | 'Tibetan Spaniel' | 'Tibetan Terrier' | 'Toy Fox Terrier' | 'Treeing Walker Coonhound' | 'Vizsla' | 'Weimaraner' | 'Welsh Springer Spaniel' | 'Welsh Terrier' | 'West Highland White Terrier' | 'Whippet' | 'Wire Fox Terrier' | 'Wirehaired Pointing Griffon' | 'Wirehaired Vizsla' | 'Xoloitzcuintli' | 'Yorkshire Terrier' ) )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:232:7: {...}? => ( 'Affenpinscher' | 'Afghan Hound' | 'Airedale Terrier' | 'Akita' | 'Alaskan Malamute' | 'American English Coonhound' | 'American Eskimo Dog' | 'American Foxhound' | 'American Staffordshire Terrier' | 'Anatolian Shepherd Dog' | 'Appenzeller Sennenhunde' | 'Australian Cattle Dog' | 'Australian Shepherd' | 'Australian Terrier' | 'Basenji' | 'Basset Hound' | 'Beagle' | 'Bearded Collie' | 'Beauceron' | 'Bedlington Terrier' | 'Belgian Malinois' | 'Belgian Sheepdog' | 'Belgian Tervuren' | 'Berger Picard' | 'Bernese Mountain Dog' | 'Bichon Frise' | 'Bichons Frise' | 'Black and Tan Coonhound' | 'Black & Tan Coonhound' | 'Black Russian Terrier' | 'Bloodhound' | 'Bluetick Coonhound' | 'Border Collie' | 'Border Terrier' | 'Borzoi' | 'Boston Terrier' | 'Bouvier des Flandres' | 'Bouviers des Flandres' | 'Boxer' | 'Boykin Spaniel' | 'Brace' | 'Briard' | 'Brittany' | 'Brussels Griffon' | 'Bull Terrier' | 'Bulldog' | 'Bullmastiff' | 'Cairn Terrier' | 'Canaan Dog' | 'Cane Corso' | 'Cardigan Welsh Corgi' | 'Cavalier King Charles Spaniel' | 'Cesky Terrier' | 'Chesapeake Bay Retriever' | 'Chihuahua' | 'Chinese Crested' | 'Chinese Shar-Pei' | 'Cirneco dell’Etna' | 'Chow Chow' | 'Clumber Spaniel' | 'Cocker Spaniel' | 'Collie' | 'Curly-Coated Retriever' | 'Dachshund' | 'Dalmatian' | 'Dandie Dinmont Terrier' | 'Doberman Pinscher' | 'Dogo Argentine' | 'Dogue de Bordeaux' | 'Dogues de Bordeaux' | 'English Cocker Spaniel' | 'English Foxhound' | 'English Setter' | 'English Springer Spaniel' | 'English Toy Spaniel' | 'Entlebucher Mountain Dog' | 'Field Spaniel' | 'Finnish Lapphund' | 'Finnish Spitz' | 'Flat-Coated Retriever' | 'Fox Terrier' | 'French Bulldog' | 'German Pinscher' | 'German Shepherd Dog' | 'German Shorthaired Pointer' | 'German Wirehaired Pointer' | 'Giant Schnauzer' | 'Glen of Imaal Terrier' | 'Golden Retriever' | 'Gordon Setter' | 'Great Dane' | 'Great Pyrenees' | 'Greater Swiss Mountain Dog' | 'Greyhound' | 'Harrier' | 'Havanese' | 'Ibizan Hound' | 'Icelandic Sheepdog' | 'Irish Red and White Setter' | 'Irish Setter' | 'Irish Terrier' | 'Irish Water Spaniel' | 'Irish Wolfhound' | 'Italian Greyhound' | 'Japanese Chin' | 'Keeshond' | 'Keeshonden' | 'Kerry Blue Terrier' | 'Komondor' | 'Kuvasz' | 'Kuvaszok' | 'Labrador Retriever' | 'Lagotto Romagnolo' | 'Lakeland Terrier' | 'Leonberger' | 'Lhasa Apso' | 'Löwchen' | 'Lowchen' | 'Maltese' | 'Manchester Terrier' | 'Mastiff' | 'Miniature American Shepherd' | 'Miniature Bull Terrier' | 'Miniature Pinscher' | 'Miniature Schnauzer' | 'Neapolitan Mastiff' | 'Newfoundland' | 'Norfolk Terrier' | 'Norwegian Buhund' | 'Norwegian Elkhound' | 'Norwegian Lundehund' | 'Norwich Terrier' | 'Nova Scotia Duck Tolling Retriever' | 'Old English Sheepdog' | 'Otterhound' | 'Papillon' | 'Parson Russell Terrier' | 'Pekingese' | 'Pembroke Welsh Corgi' | 'Petit Basset Griffon Vendéen' | 'Petits Bassets Griffons Vendeen' | 'Pharaoh Hound' | 'Plott' | 'Pointer' | 'Polish Lowland Sheepdog' | 'Pomeranian' | 'Poodle' | 'Portuguese Podengo Pequenos' | 'Portuguese Water Dog' | 'Pug' | 'Puli' | 'Pulik' | 'Pyrenean Shepherd' | 'Rat Terrier' | 'Redbone Coonhound' | 'Retrievers' | 'Rhodesian Ridgeback' | 'Rottweiler' | 'Russell Terrier' | 'Saint Bernard' | 'Saluki' | 'Samoyed' | 'Schipperke' | 'Scottish Deerhound' | 'Scottish Terrier' | 'Sealyham Terrier' | 'Setters' | 'Shetland Sheepdog' | 'Shiba Inu' | 'Shih Tzu' | 'Siberian Husky' | 'Siberian Huskies' | 'Silky Terrier' | 'Skye Terrier' | 'Soft Coated Wheaten Terrier' | 'Spaniels' | 'Spinone Italiano' | 'Spinoni Italiani' | 'Staffordshire Bull Terrier' | 'Standard Schnauzer' | 'Sussex Spaniel' | 'Swedish Vallhund' | 'Tibetan Mastiff' | 'Tibetan Spaniel' | 'Tibetan Terrier' | 'Toy Fox Terrier' | 'Treeing Walker Coonhound' | 'Vizsla' | 'Weimaraner' | 'Welsh Springer Spaniel' | 'Welsh Terrier' | 'West Highland White Terrier' | 'Whippet' | 'Wire Fox Terrier' | 'Wirehaired Pointing Griffon' | 'Wirehaired Vizsla' | 'Xoloitzcuintli' | 'Yorkshire Terrier' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:238:5: ({...}? => ( 'Affenpinscher' | 'Afghan Hound' | 'Airedale Terrier' | 'Akita' | 'Alaskan Malamute' | 'American English Coonhound' | 'American Eskimo Dog' | 'American Foxhound' | 'American Staffordshire Terrier' | 'Anatolian Shepherd Dog' | 'Appenzeller Sennenhunde' | 'Australian Cattle Dog' | 'Australian Shepherd' | 'Australian Terrier' | 'Basenji' | 'Basset Hound' | 'Beagle' | 'Bearded Collie' | 'Beauceron' | 'Bedlington Terrier' | 'Belgian Malinois' | 'Belgian Sheepdog' | 'Belgian Tervuren' | 'Berger Picard' | 'Bernese Mountain Dog' | 'Bichon Frise' | 'Bichons Frise' | 'Black and Tan Coonhound' | 'Black & Tan Coonhound' | 'Black Russian Terrier' | 'Bloodhound' | 'Bluetick Coonhound' | 'Border Collie' | 'Border Terrier' | 'Borzoi' | 'Boston Terrier' | 'Bouvier des Flandres' | 'Bouviers des Flandres' | 'Boxer' | 'Boykin Spaniel' | 'Brace' | 'Briard' | 'Brittany' | 'Brussels Griffon' | 'Bull Terrier' | 'Bulldog' | 'Bullmastiff' | 'Cairn Terrier' | 'Canaan Dog' | 'Cane Corso' | 'Cardigan Welsh Corgi' | 'Cavalier King Charles Spaniel' | 'Cesky Terrier' | 'Chesapeake Bay Retriever' | 'Chihuahua' | 'Chinese Crested' | 'Chinese Shar-Pei' | 'Cirneco dell’Etna' | 'Chow Chow' | 'Clumber Spaniel' | 'Cocker Spaniel' | 'Collie' | 'Curly-Coated Retriever' | 'Dachshund' | 'Dalmatian' | 'Dandie Dinmont Terrier' | 'Doberman Pinscher' | 'Dogo Argentine' | 'Dogue de Bordeaux' | 'Dogues de Bordeaux' | 'English Cocker Spaniel' | 'English Foxhound' | 'English Setter' | 'English Springer Spaniel' | 'English Toy Spaniel' | 'Entlebucher Mountain Dog' | 'Field Spaniel' | 'Finnish Lapphund' | 'Finnish Spitz' | 'Flat-Coated Retriever' | 'Fox Terrier' | 'French Bulldog' | 'German Pinscher' | 'German Shepherd Dog' | 'German Shorthaired Pointer' | 'German Wirehaired Pointer' | 'Giant Schnauzer' | 'Glen of Imaal Terrier' | 'Golden Retriever' | 'Gordon Setter' | 'Great Dane' | 'Great Pyrenees' | 'Greater Swiss Mountain Dog' | 'Greyhound' | 'Harrier' | 'Havanese' | 'Ibizan Hound' | 'Icelandic Sheepdog' | 'Irish Red and White Setter' | 'Irish Setter' | 'Irish Terrier' | 'Irish Water Spaniel' | 'Irish Wolfhound' | 'Italian Greyhound' | 'Japanese Chin' | 'Keeshond' | 'Keeshonden' | 'Kerry Blue Terrier' | 'Komondor' | 'Kuvasz' | 'Kuvaszok' | 'Labrador Retriever' | 'Lagotto Romagnolo' | 'Lakeland Terrier' | 'Leonberger' | 'Lhasa Apso' | 'Löwchen' | 'Lowchen' | 'Maltese' | 'Manchester Terrier' | 'Mastiff' | 'Miniature American Shepherd' | 'Miniature Bull Terrier' | 'Miniature Pinscher' | 'Miniature Schnauzer' | 'Neapolitan Mastiff' | 'Newfoundland' | 'Norfolk Terrier' | 'Norwegian Buhund' | 'Norwegian Elkhound' | 'Norwegian Lundehund' | 'Norwich Terrier' | 'Nova Scotia Duck Tolling Retriever' | 'Old English Sheepdog' | 'Otterhound' | 'Papillon' | 'Parson Russell Terrier' | 'Pekingese' | 'Pembroke Welsh Corgi' | 'Petit Basset Griffon Vendéen' | 'Petits Bassets Griffons Vendeen' | 'Pharaoh Hound' | 'Plott' | 'Pointer' | 'Polish Lowland Sheepdog' | 'Pomeranian' | 'Poodle' | 'Portuguese Podengo Pequenos' | 'Portuguese Water Dog' | 'Pug' | 'Puli' | 'Pulik' | 'Pyrenean Shepherd' | 'Rat Terrier' | 'Redbone Coonhound' | 'Retrievers' | 'Rhodesian Ridgeback' | 'Rottweiler' | 'Russell Terrier' | 'Saint Bernard' | 'Saluki' | 'Samoyed' | 'Schipperke' | 'Scottish Deerhound' | 'Scottish Terrier' | 'Sealyham Terrier' | 'Setters' | 'Shetland Sheepdog' | 'Shiba Inu' | 'Shih Tzu' | 'Siberian Husky' | 'Siberian Huskies' | 'Silky Terrier' | 'Skye Terrier' | 'Soft Coated Wheaten Terrier' | 'Spaniels' | 'Spinone Italiano' | 'Spinoni Italiani' | 'Staffordshire Bull Terrier' | 'Standard Schnauzer' | 'Sussex Spaniel' | 'Swedish Vallhund' | 'Tibetan Mastiff' | 'Tibetan Spaniel' | 'Tibetan Terrier' | 'Toy Fox Terrier' | 'Treeing Walker Coonhound' | 'Vizsla' | 'Weimaraner' | 'Welsh Springer Spaniel' | 'Welsh Terrier' | 'West Highland White Terrier' | 'Whippet' | 'Wire Fox Terrier' | 'Wirehaired Pointing Griffon' | 'Wirehaired Vizsla' | 'Xoloitzcuintli' | 'Yorkshire Terrier' ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:238:7: {...}? => ( 'Affenpinscher' | 'Afghan Hound' | 'Airedale Terrier' | 'Akita' | 'Alaskan Malamute' | 'American English Coonhound' | 'American Eskimo Dog' | 'American Foxhound' | 'American Staffordshire Terrier' | 'Anatolian Shepherd Dog' | 'Appenzeller Sennenhunde' | 'Australian Cattle Dog' | 'Australian Shepherd' | 'Australian Terrier' | 'Basenji' | 'Basset Hound' | 'Beagle' | 'Bearded Collie' | 'Beauceron' | 'Bedlington Terrier' | 'Belgian Malinois' | 'Belgian Sheepdog' | 'Belgian Tervuren' | 'Berger Picard' | 'Bernese Mountain Dog' | 'Bichon Frise' | 'Bichons Frise' | 'Black and Tan Coonhound' | 'Black & Tan Coonhound' | 'Black Russian Terrier' | 'Bloodhound' | 'Bluetick Coonhound' | 'Border Collie' | 'Border Terrier' | 'Borzoi' | 'Boston Terrier' | 'Bouvier des Flandres' | 'Bouviers des Flandres' | 'Boxer' | 'Boykin Spaniel' | 'Brace' | 'Briard' | 'Brittany' | 'Brussels Griffon' | 'Bull Terrier' | 'Bulldog' | 'Bullmastiff' | 'Cairn Terrier' | 'Canaan Dog' | 'Cane Corso' | 'Cardigan Welsh Corgi' | 'Cavalier King Charles Spaniel' | 'Cesky Terrier' | 'Chesapeake Bay Retriever' | 'Chihuahua' | 'Chinese Crested' | 'Chinese Shar-Pei' | 'Cirneco dell’Etna' | 'Chow Chow' | 'Clumber Spaniel' | 'Cocker Spaniel' | 'Collie' | 'Curly-Coated Retriever' | 'Dachshund' | 'Dalmatian' | 'Dandie Dinmont Terrier' | 'Doberman Pinscher' | 'Dogo Argentine' | 'Dogue de Bordeaux' | 'Dogues de Bordeaux' | 'English Cocker Spaniel' | 'English Foxhound' | 'English Setter' | 'English Springer Spaniel' | 'English Toy Spaniel' | 'Entlebucher Mountain Dog' | 'Field Spaniel' | 'Finnish Lapphund' | 'Finnish Spitz' | 'Flat-Coated Retriever' | 'Fox Terrier' | 'French Bulldog' | 'German Pinscher' | 'German Shepherd Dog' | 'German Shorthaired Pointer' | 'German Wirehaired Pointer' | 'Giant Schnauzer' | 'Glen of Imaal Terrier' | 'Golden Retriever' | 'Gordon Setter' | 'Great Dane' | 'Great Pyrenees' | 'Greater Swiss Mountain Dog' | 'Greyhound' | 'Harrier' | 'Havanese' | 'Ibizan Hound' | 'Icelandic Sheepdog' | 'Irish Red and White Setter' | 'Irish Setter' | 'Irish Terrier' | 'Irish Water Spaniel' | 'Irish Wolfhound' | 'Italian Greyhound' | 'Japanese Chin' | 'Keeshond' | 'Keeshonden' | 'Kerry Blue Terrier' | 'Komondor' | 'Kuvasz' | 'Kuvaszok' | 'Labrador Retriever' | 'Lagotto Romagnolo' | 'Lakeland Terrier' | 'Leonberger' | 'Lhasa Apso' | 'Löwchen' | 'Lowchen' | 'Maltese' | 'Manchester Terrier' | 'Mastiff' | 'Miniature American Shepherd' | 'Miniature Bull Terrier' | 'Miniature Pinscher' | 'Miniature Schnauzer' | 'Neapolitan Mastiff' | 'Newfoundland' | 'Norfolk Terrier' | 'Norwegian Buhund' | 'Norwegian Elkhound' | 'Norwegian Lundehund' | 'Norwich Terrier' | 'Nova Scotia Duck Tolling Retriever' | 'Old English Sheepdog' | 'Otterhound' | 'Papillon' | 'Parson Russell Terrier' | 'Pekingese' | 'Pembroke Welsh Corgi' | 'Petit Basset Griffon Vendéen' | 'Petits Bassets Griffons Vendeen' | 'Pharaoh Hound' | 'Plott' | 'Pointer' | 'Polish Lowland Sheepdog' | 'Pomeranian' | 'Poodle' | 'Portuguese Podengo Pequenos' | 'Portuguese Water Dog' | 'Pug' | 'Puli' | 'Pulik' | 'Pyrenean Shepherd' | 'Rat Terrier' | 'Redbone Coonhound' | 'Retrievers' | 'Rhodesian Ridgeback' | 'Rottweiler' | 'Russell Terrier' | 'Saint Bernard' | 'Saluki' | 'Samoyed' | 'Schipperke' | 'Scottish Deerhound' | 'Scottish Terrier' | 'Sealyham Terrier' | 'Setters' | 'Shetland Sheepdog' | 'Shiba Inu' | 'Shih Tzu' | 'Siberian Husky' | 'Siberian Huskies' | 'Silky Terrier' | 'Skye Terrier' | 'Soft Coated Wheaten Terrier' | 'Spaniels' | 'Spinone Italiano' | 'Spinoni Italiani' | 'Staffordshire Bull Terrier' | 'Standard Schnauzer' | 'Sussex Spaniel' | 'Swedish Vallhund' | 'Tibetan Mastiff' | 'Tibetan Spaniel' | 'Tibetan Terrier' | 'Toy Fox Terrier' | 'Treeing Walker Coonhound' | 'Vizsla' | 'Weimaraner' | 'Welsh Springer Spaniel' | 'Welsh Terrier' | 'West Highland White Terrier' | 'Whippet' | 'Wire Fox Terrier' | 'Wirehaired Pointing Griffon' | 'Wirehaired Vizsla' | 'Xoloitzcuintli' | 'Yorkshire Terrier' )
 			{
 			if ( !((allowBreed)) ) {
 				throw new FailedPredicateException(input, "FRAG_BREED_NAME_SINGLE", "allowBreed");
 			}
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:232:23: ( 'Affenpinscher' | 'Afghan Hound' | 'Airedale Terrier' | 'Akita' | 'Alaskan Malamute' | 'American English Coonhound' | 'American Eskimo Dog' | 'American Foxhound' | 'American Staffordshire Terrier' | 'Anatolian Shepherd Dog' | 'Appenzeller Sennenhunde' | 'Australian Cattle Dog' | 'Australian Shepherd' | 'Australian Terrier' | 'Basenji' | 'Basset Hound' | 'Beagle' | 'Bearded Collie' | 'Beauceron' | 'Bedlington Terrier' | 'Belgian Malinois' | 'Belgian Sheepdog' | 'Belgian Tervuren' | 'Berger Picard' | 'Bernese Mountain Dog' | 'Bichon Frise' | 'Bichons Frise' | 'Black and Tan Coonhound' | 'Black & Tan Coonhound' | 'Black Russian Terrier' | 'Bloodhound' | 'Bluetick Coonhound' | 'Border Collie' | 'Border Terrier' | 'Borzoi' | 'Boston Terrier' | 'Bouvier des Flandres' | 'Bouviers des Flandres' | 'Boxer' | 'Boykin Spaniel' | 'Brace' | 'Briard' | 'Brittany' | 'Brussels Griffon' | 'Bull Terrier' | 'Bulldog' | 'Bullmastiff' | 'Cairn Terrier' | 'Canaan Dog' | 'Cane Corso' | 'Cardigan Welsh Corgi' | 'Cavalier King Charles Spaniel' | 'Cesky Terrier' | 'Chesapeake Bay Retriever' | 'Chihuahua' | 'Chinese Crested' | 'Chinese Shar-Pei' | 'Cirneco dell’Etna' | 'Chow Chow' | 'Clumber Spaniel' | 'Cocker Spaniel' | 'Collie' | 'Curly-Coated Retriever' | 'Dachshund' | 'Dalmatian' | 'Dandie Dinmont Terrier' | 'Doberman Pinscher' | 'Dogo Argentine' | 'Dogue de Bordeaux' | 'Dogues de Bordeaux' | 'English Cocker Spaniel' | 'English Foxhound' | 'English Setter' | 'English Springer Spaniel' | 'English Toy Spaniel' | 'Entlebucher Mountain Dog' | 'Field Spaniel' | 'Finnish Lapphund' | 'Finnish Spitz' | 'Flat-Coated Retriever' | 'Fox Terrier' | 'French Bulldog' | 'German Pinscher' | 'German Shepherd Dog' | 'German Shorthaired Pointer' | 'German Wirehaired Pointer' | 'Giant Schnauzer' | 'Glen of Imaal Terrier' | 'Golden Retriever' | 'Gordon Setter' | 'Great Dane' | 'Great Pyrenees' | 'Greater Swiss Mountain Dog' | 'Greyhound' | 'Harrier' | 'Havanese' | 'Ibizan Hound' | 'Icelandic Sheepdog' | 'Irish Red and White Setter' | 'Irish Setter' | 'Irish Terrier' | 'Irish Water Spaniel' | 'Irish Wolfhound' | 'Italian Greyhound' | 'Japanese Chin' | 'Keeshond' | 'Keeshonden' | 'Kerry Blue Terrier' | 'Komondor' | 'Kuvasz' | 'Kuvaszok' | 'Labrador Retriever' | 'Lagotto Romagnolo' | 'Lakeland Terrier' | 'Leonberger' | 'Lhasa Apso' | 'Löwchen' | 'Lowchen' | 'Maltese' | 'Manchester Terrier' | 'Mastiff' | 'Miniature American Shepherd' | 'Miniature Bull Terrier' | 'Miniature Pinscher' | 'Miniature Schnauzer' | 'Neapolitan Mastiff' | 'Newfoundland' | 'Norfolk Terrier' | 'Norwegian Buhund' | 'Norwegian Elkhound' | 'Norwegian Lundehund' | 'Norwich Terrier' | 'Nova Scotia Duck Tolling Retriever' | 'Old English Sheepdog' | 'Otterhound' | 'Papillon' | 'Parson Russell Terrier' | 'Pekingese' | 'Pembroke Welsh Corgi' | 'Petit Basset Griffon Vendéen' | 'Petits Bassets Griffons Vendeen' | 'Pharaoh Hound' | 'Plott' | 'Pointer' | 'Polish Lowland Sheepdog' | 'Pomeranian' | 'Poodle' | 'Portuguese Podengo Pequenos' | 'Portuguese Water Dog' | 'Pug' | 'Puli' | 'Pulik' | 'Pyrenean Shepherd' | 'Rat Terrier' | 'Redbone Coonhound' | 'Retrievers' | 'Rhodesian Ridgeback' | 'Rottweiler' | 'Russell Terrier' | 'Saint Bernard' | 'Saluki' | 'Samoyed' | 'Schipperke' | 'Scottish Deerhound' | 'Scottish Terrier' | 'Sealyham Terrier' | 'Setters' | 'Shetland Sheepdog' | 'Shiba Inu' | 'Shih Tzu' | 'Siberian Husky' | 'Siberian Huskies' | 'Silky Terrier' | 'Skye Terrier' | 'Soft Coated Wheaten Terrier' | 'Spaniels' | 'Spinone Italiano' | 'Spinoni Italiani' | 'Staffordshire Bull Terrier' | 'Standard Schnauzer' | 'Sussex Spaniel' | 'Swedish Vallhund' | 'Tibetan Mastiff' | 'Tibetan Spaniel' | 'Tibetan Terrier' | 'Toy Fox Terrier' | 'Treeing Walker Coonhound' | 'Vizsla' | 'Weimaraner' | 'Welsh Springer Spaniel' | 'Welsh Terrier' | 'West Highland White Terrier' | 'Whippet' | 'Wire Fox Terrier' | 'Wirehaired Pointing Griffon' | 'Wirehaired Vizsla' | 'Xoloitzcuintli' | 'Yorkshire Terrier' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:238:23: ( 'Affenpinscher' | 'Afghan Hound' | 'Airedale Terrier' | 'Akita' | 'Alaskan Malamute' | 'American English Coonhound' | 'American Eskimo Dog' | 'American Foxhound' | 'American Staffordshire Terrier' | 'Anatolian Shepherd Dog' | 'Appenzeller Sennenhunde' | 'Australian Cattle Dog' | 'Australian Shepherd' | 'Australian Terrier' | 'Basenji' | 'Basset Hound' | 'Beagle' | 'Bearded Collie' | 'Beauceron' | 'Bedlington Terrier' | 'Belgian Malinois' | 'Belgian Sheepdog' | 'Belgian Tervuren' | 'Berger Picard' | 'Bernese Mountain Dog' | 'Bichon Frise' | 'Bichons Frise' | 'Black and Tan Coonhound' | 'Black & Tan Coonhound' | 'Black Russian Terrier' | 'Bloodhound' | 'Bluetick Coonhound' | 'Border Collie' | 'Border Terrier' | 'Borzoi' | 'Boston Terrier' | 'Bouvier des Flandres' | 'Bouviers des Flandres' | 'Boxer' | 'Boykin Spaniel' | 'Brace' | 'Briard' | 'Brittany' | 'Brussels Griffon' | 'Bull Terrier' | 'Bulldog' | 'Bullmastiff' | 'Cairn Terrier' | 'Canaan Dog' | 'Cane Corso' | 'Cardigan Welsh Corgi' | 'Cavalier King Charles Spaniel' | 'Cesky Terrier' | 'Chesapeake Bay Retriever' | 'Chihuahua' | 'Chinese Crested' | 'Chinese Shar-Pei' | 'Cirneco dell’Etna' | 'Chow Chow' | 'Clumber Spaniel' | 'Cocker Spaniel' | 'Collie' | 'Curly-Coated Retriever' | 'Dachshund' | 'Dalmatian' | 'Dandie Dinmont Terrier' | 'Doberman Pinscher' | 'Dogo Argentine' | 'Dogue de Bordeaux' | 'Dogues de Bordeaux' | 'English Cocker Spaniel' | 'English Foxhound' | 'English Setter' | 'English Springer Spaniel' | 'English Toy Spaniel' | 'Entlebucher Mountain Dog' | 'Field Spaniel' | 'Finnish Lapphund' | 'Finnish Spitz' | 'Flat-Coated Retriever' | 'Fox Terrier' | 'French Bulldog' | 'German Pinscher' | 'German Shepherd Dog' | 'German Shorthaired Pointer' | 'German Wirehaired Pointer' | 'Giant Schnauzer' | 'Glen of Imaal Terrier' | 'Golden Retriever' | 'Gordon Setter' | 'Great Dane' | 'Great Pyrenees' | 'Greater Swiss Mountain Dog' | 'Greyhound' | 'Harrier' | 'Havanese' | 'Ibizan Hound' | 'Icelandic Sheepdog' | 'Irish Red and White Setter' | 'Irish Setter' | 'Irish Terrier' | 'Irish Water Spaniel' | 'Irish Wolfhound' | 'Italian Greyhound' | 'Japanese Chin' | 'Keeshond' | 'Keeshonden' | 'Kerry Blue Terrier' | 'Komondor' | 'Kuvasz' | 'Kuvaszok' | 'Labrador Retriever' | 'Lagotto Romagnolo' | 'Lakeland Terrier' | 'Leonberger' | 'Lhasa Apso' | 'Löwchen' | 'Lowchen' | 'Maltese' | 'Manchester Terrier' | 'Mastiff' | 'Miniature American Shepherd' | 'Miniature Bull Terrier' | 'Miniature Pinscher' | 'Miniature Schnauzer' | 'Neapolitan Mastiff' | 'Newfoundland' | 'Norfolk Terrier' | 'Norwegian Buhund' | 'Norwegian Elkhound' | 'Norwegian Lundehund' | 'Norwich Terrier' | 'Nova Scotia Duck Tolling Retriever' | 'Old English Sheepdog' | 'Otterhound' | 'Papillon' | 'Parson Russell Terrier' | 'Pekingese' | 'Pembroke Welsh Corgi' | 'Petit Basset Griffon Vendéen' | 'Petits Bassets Griffons Vendeen' | 'Pharaoh Hound' | 'Plott' | 'Pointer' | 'Polish Lowland Sheepdog' | 'Pomeranian' | 'Poodle' | 'Portuguese Podengo Pequenos' | 'Portuguese Water Dog' | 'Pug' | 'Puli' | 'Pulik' | 'Pyrenean Shepherd' | 'Rat Terrier' | 'Redbone Coonhound' | 'Retrievers' | 'Rhodesian Ridgeback' | 'Rottweiler' | 'Russell Terrier' | 'Saint Bernard' | 'Saluki' | 'Samoyed' | 'Schipperke' | 'Scottish Deerhound' | 'Scottish Terrier' | 'Sealyham Terrier' | 'Setters' | 'Shetland Sheepdog' | 'Shiba Inu' | 'Shih Tzu' | 'Siberian Husky' | 'Siberian Huskies' | 'Silky Terrier' | 'Skye Terrier' | 'Soft Coated Wheaten Terrier' | 'Spaniels' | 'Spinone Italiano' | 'Spinoni Italiani' | 'Staffordshire Bull Terrier' | 'Standard Schnauzer' | 'Sussex Spaniel' | 'Swedish Vallhund' | 'Tibetan Mastiff' | 'Tibetan Spaniel' | 'Tibetan Terrier' | 'Toy Fox Terrier' | 'Treeing Walker Coonhound' | 'Vizsla' | 'Weimaraner' | 'Welsh Springer Spaniel' | 'Welsh Terrier' | 'West Highland White Terrier' | 'Whippet' | 'Wire Fox Terrier' | 'Wirehaired Pointing Griffon' | 'Wirehaired Vizsla' | 'Xoloitzcuintli' | 'Yorkshire Terrier' )
 			int alt2=198;
 			alt2 = dfa2.predict(input);
 			switch (alt2) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:232:24: 'Affenpinscher'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:238:24: 'Affenpinscher'
 					{
 					match("Affenpinscher"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:233:5: 'Afghan Hound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:239:5: 'Afghan Hound'
 					{
 					match("Afghan Hound"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:234:5: 'Airedale Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:240:5: 'Airedale Terrier'
 					{
 					match("Airedale Terrier"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:235:5: 'Akita'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:241:5: 'Akita'
 					{
 					match("Akita"); 
 
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:236:5: 'Alaskan Malamute'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:242:5: 'Alaskan Malamute'
 					{
 					match("Alaskan Malamute"); 
 
 					}
 					break;
 				case 6 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:237:5: 'American English Coonhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:243:5: 'American English Coonhound'
 					{
 					match("American English Coonhound"); 
 
 					}
 					break;
 				case 7 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:238:5: 'American Eskimo Dog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:244:5: 'American Eskimo Dog'
 					{
 					match("American Eskimo Dog"); 
 
 					}
 					break;
 				case 8 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:239:5: 'American Foxhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:245:5: 'American Foxhound'
 					{
 					match("American Foxhound"); 
 
 					}
 					break;
 				case 9 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:240:5: 'American Staffordshire Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:246:5: 'American Staffordshire Terrier'
 					{
 					match("American Staffordshire Terrier"); 
 
 					}
 					break;
 				case 10 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:242:5: 'Anatolian Shepherd Dog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:248:5: 'Anatolian Shepherd Dog'
 					{
 					match("Anatolian Shepherd Dog"); 
 
 					}
 					break;
 				case 11 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:243:2: 'Appenzeller Sennenhunde'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:249:2: 'Appenzeller Sennenhunde'
 					{
 					match("Appenzeller Sennenhunde"); 
 
 					}
 					break;
 				case 12 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:244:5: 'Australian Cattle Dog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:250:5: 'Australian Cattle Dog'
 					{
 					match("Australian Cattle Dog"); 
 
 					}
 					break;
 				case 13 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:245:5: 'Australian Shepherd'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:251:5: 'Australian Shepherd'
 					{
 					match("Australian Shepherd"); 
 
 					}
 					break;
 				case 14 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:246:5: 'Australian Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:252:5: 'Australian Terrier'
 					{
 					match("Australian Terrier"); 
 
 					}
 					break;
 				case 15 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:247:5: 'Basenji'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:253:5: 'Basenji'
 					{
 					match("Basenji"); 
 
 					}
 					break;
 				case 16 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:248:5: 'Basset Hound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:254:5: 'Basset Hound'
 					{
 					match("Basset Hound"); 
 
 					}
 					break;
 				case 17 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:249:5: 'Beagle'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:255:5: 'Beagle'
 					{
 					match("Beagle"); 
 
 					}
 					break;
 				case 18 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:250:5: 'Bearded Collie'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:256:5: 'Bearded Collie'
 					{
 					match("Bearded Collie"); 
 
 					}
 					break;
 				case 19 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:251:5: 'Beauceron'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:257:5: 'Beauceron'
 					{
 					match("Beauceron"); 
 
 					}
 					break;
 				case 20 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:252:5: 'Bedlington Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:258:5: 'Bedlington Terrier'
 					{
 					match("Bedlington Terrier"); 
 
 					}
 					break;
 				case 21 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:253:5: 'Belgian Malinois'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:259:5: 'Belgian Malinois'
 					{
 					match("Belgian Malinois"); 
 
 					}
 					break;
 				case 22 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:254:5: 'Belgian Sheepdog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:260:5: 'Belgian Sheepdog'
 					{
 					match("Belgian Sheepdog"); 
 
 					}
 					break;
 				case 23 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:255:5: 'Belgian Tervuren'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:261:5: 'Belgian Tervuren'
 					{
 					match("Belgian Tervuren"); 
 
 					}
 					break;
 				case 24 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:256:5: 'Berger Picard'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:262:5: 'Berger Picard'
 					{
 					match("Berger Picard"); 
 
 					}
 					break;
 				case 25 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:257:5: 'Bernese Mountain Dog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:263:5: 'Bernese Mountain Dog'
 					{
 					match("Bernese Mountain Dog"); 
 
 					}
 					break;
 				case 26 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:258:5: 'Bichon Frise'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:264:5: 'Bichon Frise'
 					{
 					match("Bichon Frise"); 
 
 					}
 					break;
 				case 27 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:259:5: 'Bichons Frise'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:265:5: 'Bichons Frise'
 					{
 					match("Bichons Frise"); 
 
 					}
 					break;
 				case 28 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:260:5: 'Black and Tan Coonhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:266:5: 'Black and Tan Coonhound'
 					{
 					match("Black and Tan Coonhound"); 
 
 					}
 					break;
 				case 29 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:261:5: 'Black & Tan Coonhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:267:5: 'Black & Tan Coonhound'
 					{
 					match("Black & Tan Coonhound"); 
 
 					}
 					break;
 				case 30 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:262:5: 'Black Russian Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:268:5: 'Black Russian Terrier'
 					{
 					match("Black Russian Terrier"); 
 
 					}
 					break;
 				case 31 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:263:5: 'Bloodhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:269:5: 'Bloodhound'
 					{
 					match("Bloodhound"); 
 
 					}
 					break;
 				case 32 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:264:5: 'Bluetick Coonhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:270:5: 'Bluetick Coonhound'
 					{
 					match("Bluetick Coonhound"); 
 
 					}
 					break;
 				case 33 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:265:5: 'Border Collie'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:271:5: 'Border Collie'
 					{
 					match("Border Collie"); 
 
 					}
 					break;
 				case 34 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:266:5: 'Border Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:272:5: 'Border Terrier'
 					{
 					match("Border Terrier"); 
 
 					}
 					break;
 				case 35 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:267:5: 'Borzoi'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:273:5: 'Borzoi'
 					{
 					match("Borzoi"); 
 
 					}
 					break;
 				case 36 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:268:5: 'Boston Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:274:5: 'Boston Terrier'
 					{
 					match("Boston Terrier"); 
 
 					}
 					break;
 				case 37 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:269:5: 'Bouvier des Flandres'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:275:5: 'Bouvier des Flandres'
 					{
 					match("Bouvier des Flandres"); 
 
 					}
 					break;
 				case 38 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:270:5: 'Bouviers des Flandres'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:276:5: 'Bouviers des Flandres'
 					{
 					match("Bouviers des Flandres"); 
 
 					}
 					break;
 				case 39 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:271:5: 'Boxer'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:277:5: 'Boxer'
 					{
 					match("Boxer"); 
 
 					}
 					break;
 				case 40 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:272:5: 'Boykin Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:278:5: 'Boykin Spaniel'
 					{
 					match("Boykin Spaniel"); 
 
 					}
 					break;
 				case 41 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:273:5: 'Brace'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:279:5: 'Brace'
 					{
 					match("Brace"); 
 
 					}
 					break;
 				case 42 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:274:5: 'Briard'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:280:5: 'Briard'
 					{
 					match("Briard"); 
 
 					}
 					break;
 				case 43 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:275:5: 'Brittany'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:281:5: 'Brittany'
 					{
 					match("Brittany"); 
 
 					}
 					break;
 				case 44 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:276:5: 'Brussels Griffon'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:282:5: 'Brussels Griffon'
 					{
 					match("Brussels Griffon"); 
 
 					}
 					break;
 				case 45 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:277:5: 'Bull Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:283:5: 'Bull Terrier'
 					{
 					match("Bull Terrier"); 
 
 					}
 					break;
 				case 46 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:278:5: 'Bulldog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:284:5: 'Bulldog'
 					{
 					match("Bulldog"); 
 
 					}
 					break;
 				case 47 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:279:5: 'Bullmastiff'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:285:5: 'Bullmastiff'
 					{
 					match("Bullmastiff"); 
 
 					}
 					break;
 				case 48 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:280:5: 'Cairn Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:286:5: 'Cairn Terrier'
 					{
 					match("Cairn Terrier"); 
 
 					}
 					break;
 				case 49 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:281:5: 'Canaan Dog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:287:5: 'Canaan Dog'
 					{
 					match("Canaan Dog"); 
 
 					}
 					break;
 				case 50 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:282:5: 'Cane Corso'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:288:5: 'Cane Corso'
 					{
 					match("Cane Corso"); 
 
 					}
 					break;
 				case 51 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:283:5: 'Cardigan Welsh Corgi'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:289:5: 'Cardigan Welsh Corgi'
 					{
 					match("Cardigan Welsh Corgi"); 
 
 					}
 					break;
 				case 52 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:284:5: 'Cavalier King Charles Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:290:5: 'Cavalier King Charles Spaniel'
 					{
 					match("Cavalier King Charles Spaniel"); 
 
 					}
 					break;
 				case 53 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:285:5: 'Cesky Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:291:5: 'Cesky Terrier'
 					{
 					match("Cesky Terrier"); 
 
 					}
 					break;
 				case 54 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:286:5: 'Chesapeake Bay Retriever'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:292:5: 'Chesapeake Bay Retriever'
 					{
 					match("Chesapeake Bay Retriever"); 
 
 					}
 					break;
 				case 55 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:287:5: 'Chihuahua'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:293:5: 'Chihuahua'
 					{
 					match("Chihuahua"); 
 
 					}
 					break;
 				case 56 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:288:5: 'Chinese Crested'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:294:5: 'Chinese Crested'
 					{
 					match("Chinese Crested"); 
 
 					}
 					break;
 				case 57 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:289:5: 'Chinese Shar-Pei'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:295:5: 'Chinese Shar-Pei'
 					{
 					match("Chinese Shar-Pei"); 
 
 					}
 					break;
 				case 58 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:290:5: 'Cirneco dell’Etna'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:296:5: 'Cirneco dell’Etna'
 					{
 					match("Cirneco dell’Etna"); 
 
 					}
 					break;
 				case 59 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:291:5: 'Chow Chow'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:297:5: 'Chow Chow'
 					{
 					match("Chow Chow"); 
 
 					}
 					break;
 				case 60 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:292:5: 'Clumber Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:298:5: 'Clumber Spaniel'
 					{
 					match("Clumber Spaniel"); 
 
 					}
 					break;
 				case 61 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:293:5: 'Cocker Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:299:5: 'Cocker Spaniel'
 					{
 					match("Cocker Spaniel"); 
 
 					}
 					break;
 				case 62 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:294:5: 'Collie'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:300:5: 'Collie'
 					{
 					match("Collie"); 
 
 					}
 					break;
 				case 63 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:295:5: 'Curly-Coated Retriever'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:301:5: 'Curly-Coated Retriever'
 					{
 					match("Curly-Coated Retriever"); 
 
 					}
 					break;
 				case 64 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:296:5: 'Dachshund'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:302:5: 'Dachshund'
 					{
 					match("Dachshund"); 
 
 					}
 					break;
 				case 65 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:297:5: 'Dalmatian'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:303:5: 'Dalmatian'
 					{
 					match("Dalmatian"); 
 
 					}
 					break;
 				case 66 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:298:5: 'Dandie Dinmont Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:304:5: 'Dandie Dinmont Terrier'
 					{
 					match("Dandie Dinmont Terrier"); 
 
 					}
 					break;
 				case 67 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:299:5: 'Doberman Pinscher'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:305:5: 'Doberman Pinscher'
 					{
 					match("Doberman Pinscher"); 
 
 					}
 					break;
 				case 68 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:300:5: 'Dogo Argentine'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:306:5: 'Dogo Argentine'
 					{
 					match("Dogo Argentine"); 
 
 					}
 					break;
 				case 69 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:301:5: 'Dogue de Bordeaux'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:307:5: 'Dogue de Bordeaux'
 					{
 					match("Dogue de Bordeaux"); 
 
 					}
 					break;
 				case 70 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:302:5: 'Dogues de Bordeaux'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:308:5: 'Dogues de Bordeaux'
 					{
 					match("Dogues de Bordeaux"); 
 
 					}
 					break;
 				case 71 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:303:5: 'English Cocker Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:309:5: 'English Cocker Spaniel'
 					{
 					match("English Cocker Spaniel"); 
 
 					}
 					break;
 				case 72 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:304:5: 'English Foxhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:310:5: 'English Foxhound'
 					{
 					match("English Foxhound"); 
 
 					}
 					break;
 				case 73 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:305:5: 'English Setter'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:311:5: 'English Setter'
 					{
 					match("English Setter"); 
 
 					}
 					break;
 				case 74 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:306:5: 'English Springer Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:312:5: 'English Springer Spaniel'
 					{
 					match("English Springer Spaniel"); 
 
 					}
 					break;
 				case 75 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:307:5: 'English Toy Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:313:5: 'English Toy Spaniel'
 					{
 					match("English Toy Spaniel"); 
 
 					}
 					break;
 				case 76 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:308:5: 'Entlebucher Mountain Dog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:314:5: 'Entlebucher Mountain Dog'
 					{
 					match("Entlebucher Mountain Dog"); 
 
 					}
 					break;
 				case 77 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:309:5: 'Field Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:315:5: 'Field Spaniel'
 					{
 					match("Field Spaniel"); 
 
 					}
 					break;
 				case 78 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:310:5: 'Finnish Lapphund'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:316:5: 'Finnish Lapphund'
 					{
 					match("Finnish Lapphund"); 
 
 					}
 					break;
 				case 79 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:311:5: 'Finnish Spitz'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:317:5: 'Finnish Spitz'
 					{
 					match("Finnish Spitz"); 
 
 					}
 					break;
 				case 80 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:312:5: 'Flat-Coated Retriever'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:318:5: 'Flat-Coated Retriever'
 					{
 					match("Flat-Coated Retriever"); 
 
 					}
 					break;
 				case 81 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:313:5: 'Fox Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:319:5: 'Fox Terrier'
 					{
 					match("Fox Terrier"); 
 
 					}
 					break;
 				case 82 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:314:5: 'French Bulldog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:320:5: 'French Bulldog'
 					{
 					match("French Bulldog"); 
 
 					}
 					break;
 				case 83 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:315:5: 'German Pinscher'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:321:5: 'German Pinscher'
 					{
 					match("German Pinscher"); 
 
 					}
 					break;
 				case 84 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:316:5: 'German Shepherd Dog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:322:5: 'German Shepherd Dog'
 					{
 					match("German Shepherd Dog"); 
 
 					}
 					break;
 				case 85 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:317:5: 'German Shorthaired Pointer'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:323:5: 'German Shorthaired Pointer'
 					{
 					match("German Shorthaired Pointer"); 
 
 					}
 					break;
 				case 86 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:318:5: 'German Wirehaired Pointer'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:324:5: 'German Wirehaired Pointer'
 					{
 					match("German Wirehaired Pointer"); 
 
 					}
 					break;
 				case 87 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:319:5: 'Giant Schnauzer'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:325:5: 'Giant Schnauzer'
 					{
 					match("Giant Schnauzer"); 
 
 					}
 					break;
 				case 88 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:320:5: 'Glen of Imaal Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:326:5: 'Glen of Imaal Terrier'
 					{
 					match("Glen of Imaal Terrier"); 
 
 					}
 					break;
 				case 89 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:321:5: 'Golden Retriever'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:327:5: 'Golden Retriever'
 					{
 					match("Golden Retriever"); 
 
 					}
 					break;
 				case 90 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:322:5: 'Gordon Setter'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:328:5: 'Gordon Setter'
 					{
 					match("Gordon Setter"); 
 
 					}
 					break;
 				case 91 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:323:5: 'Great Dane'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:329:5: 'Great Dane'
 					{
 					match("Great Dane"); 
 
 					}
 					break;
 				case 92 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:324:5: 'Great Pyrenees'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:330:5: 'Great Pyrenees'
 					{
 					match("Great Pyrenees"); 
 
 					}
 					break;
 				case 93 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:325:5: 'Greater Swiss Mountain Dog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:331:5: 'Greater Swiss Mountain Dog'
 					{
 					match("Greater Swiss Mountain Dog"); 
 
 					}
 					break;
 				case 94 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:326:5: 'Greyhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:332:5: 'Greyhound'
 					{
 					match("Greyhound"); 
 
 					}
 					break;
 				case 95 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:327:5: 'Harrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:333:5: 'Harrier'
 					{
 					match("Harrier"); 
 
 					}
 					break;
 				case 96 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:328:5: 'Havanese'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:334:5: 'Havanese'
 					{
 					match("Havanese"); 
 
 					}
 					break;
 				case 97 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:329:5: 'Ibizan Hound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:335:5: 'Ibizan Hound'
 					{
 					match("Ibizan Hound"); 
 
 					}
 					break;
 				case 98 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:330:5: 'Icelandic Sheepdog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:336:5: 'Icelandic Sheepdog'
 					{
 					match("Icelandic Sheepdog"); 
 
 					}
 					break;
 				case 99 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:331:5: 'Irish Red and White Setter'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:337:5: 'Irish Red and White Setter'
 					{
 					match("Irish Red and White Setter"); 
 
 					}
 					break;
 				case 100 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:332:5: 'Irish Setter'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:338:5: 'Irish Setter'
 					{
 					match("Irish Setter"); 
 
 					}
 					break;
 				case 101 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:333:5: 'Irish Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:339:5: 'Irish Terrier'
 					{
 					match("Irish Terrier"); 
 
 					}
 					break;
 				case 102 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:334:5: 'Irish Water Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:340:5: 'Irish Water Spaniel'
 					{
 					match("Irish Water Spaniel"); 
 
 					}
 					break;
 				case 103 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:335:5: 'Irish Wolfhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:341:5: 'Irish Wolfhound'
 					{
 					match("Irish Wolfhound"); 
 
 					}
 					break;
 				case 104 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:336:5: 'Italian Greyhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:342:5: 'Italian Greyhound'
 					{
 					match("Italian Greyhound"); 
 
 					}
 					break;
 				case 105 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:337:5: 'Japanese Chin'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:343:5: 'Japanese Chin'
 					{
 					match("Japanese Chin"); 
 
 					}
 					break;
 				case 106 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:338:5: 'Keeshond'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:344:5: 'Keeshond'
 					{
 					match("Keeshond"); 
 
 					}
 					break;
 				case 107 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:339:5: 'Keeshonden'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:345:5: 'Keeshonden'
 					{
 					match("Keeshonden"); 
 
 					}
 					break;
 				case 108 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:340:5: 'Kerry Blue Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:346:5: 'Kerry Blue Terrier'
 					{
 					match("Kerry Blue Terrier"); 
 
 					}
 					break;
 				case 109 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:341:5: 'Komondor'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:347:5: 'Komondor'
 					{
 					match("Komondor"); 
 
 					}
 					break;
 				case 110 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:342:5: 'Kuvasz'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:348:5: 'Kuvasz'
 					{
 					match("Kuvasz"); 
 
 					}
 					break;
 				case 111 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:343:5: 'Kuvaszok'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:349:5: 'Kuvaszok'
 					{
 					match("Kuvaszok"); 
 
 					}
 					break;
 				case 112 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:344:5: 'Labrador Retriever'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:350:5: 'Labrador Retriever'
 					{
 					match("Labrador Retriever"); 
 
 					}
 					break;
 				case 113 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:345:5: 'Lagotto Romagnolo'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:351:5: 'Lagotto Romagnolo'
 					{
 					match("Lagotto Romagnolo"); 
 
 					}
 					break;
 				case 114 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:346:5: 'Lakeland Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:352:5: 'Lakeland Terrier'
 					{
 					match("Lakeland Terrier"); 
 
 					}
 					break;
 				case 115 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:347:5: 'Leonberger'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:353:5: 'Leonberger'
 					{
 					match("Leonberger"); 
 
 					}
 					break;
 				case 116 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:348:5: 'Lhasa Apso'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:354:5: 'Lhasa Apso'
 					{
 					match("Lhasa Apso"); 
 
 					}
 					break;
 				case 117 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:349:5: 'Löwchen'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:355:5: 'Löwchen'
 					{
 					match("Löwchen"); 
 
 					}
 					break;
 				case 118 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:350:5: 'Lowchen'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:356:5: 'Lowchen'
 					{
 					match("Lowchen"); 
 
 					}
 					break;
 				case 119 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:351:5: 'Maltese'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:357:5: 'Maltese'
 					{
 					match("Maltese"); 
 
 					}
 					break;
 				case 120 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:352:5: 'Manchester Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:358:5: 'Manchester Terrier'
 					{
 					match("Manchester Terrier"); 
 
 					}
 					break;
 				case 121 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:353:5: 'Mastiff'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:359:5: 'Mastiff'
 					{
 					match("Mastiff"); 
 
 					}
 					break;
 				case 122 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:354:5: 'Miniature American Shepherd'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:360:5: 'Miniature American Shepherd'
 					{
 					match("Miniature American Shepherd"); 
 
 					}
 					break;
 				case 123 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:355:5: 'Miniature Bull Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:361:5: 'Miniature Bull Terrier'
 					{
 					match("Miniature Bull Terrier"); 
 
 					}
 					break;
 				case 124 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:356:5: 'Miniature Pinscher'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:362:5: 'Miniature Pinscher'
 					{
 					match("Miniature Pinscher"); 
 
 					}
 					break;
 				case 125 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:357:5: 'Miniature Schnauzer'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:363:5: 'Miniature Schnauzer'
 					{
 					match("Miniature Schnauzer"); 
 
 					}
 					break;
 				case 126 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:358:5: 'Neapolitan Mastiff'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:364:5: 'Neapolitan Mastiff'
 					{
 					match("Neapolitan Mastiff"); 
 
 					}
 					break;
 				case 127 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:359:5: 'Newfoundland'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:365:5: 'Newfoundland'
 					{
 					match("Newfoundland"); 
 
 					}
 					break;
 				case 128 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:360:5: 'Norfolk Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:366:5: 'Norfolk Terrier'
 					{
 					match("Norfolk Terrier"); 
 
 					}
 					break;
 				case 129 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:361:5: 'Norwegian Buhund'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:367:5: 'Norwegian Buhund'
 					{
 					match("Norwegian Buhund"); 
 
 					}
 					break;
 				case 130 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:362:5: 'Norwegian Elkhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:368:5: 'Norwegian Elkhound'
 					{
 					match("Norwegian Elkhound"); 
 
 					}
 					break;
 				case 131 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:363:5: 'Norwegian Lundehund'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:369:5: 'Norwegian Lundehund'
 					{
 					match("Norwegian Lundehund"); 
 
 					}
 					break;
 				case 132 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:364:5: 'Norwich Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:370:5: 'Norwich Terrier'
 					{
 					match("Norwich Terrier"); 
 
 					}
 					break;
 				case 133 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:365:5: 'Nova Scotia Duck Tolling Retriever'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:371:5: 'Nova Scotia Duck Tolling Retriever'
 					{
 					match("Nova Scotia Duck Tolling Retriever"); 
 
 					}
 					break;
 				case 134 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:366:5: 'Old English Sheepdog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:372:5: 'Old English Sheepdog'
 					{
 					match("Old English Sheepdog"); 
 
 					}
 					break;
 				case 135 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:367:5: 'Otterhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:373:5: 'Otterhound'
 					{
 					match("Otterhound"); 
 
 					}
 					break;
 				case 136 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:368:5: 'Papillon'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:374:5: 'Papillon'
 					{
 					match("Papillon"); 
 
 					}
 					break;
 				case 137 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:369:5: 'Parson Russell Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:375:5: 'Parson Russell Terrier'
 					{
 					match("Parson Russell Terrier"); 
 
 					}
 					break;
 				case 138 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:370:5: 'Pekingese'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:376:5: 'Pekingese'
 					{
 					match("Pekingese"); 
 
 					}
 					break;
 				case 139 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:371:5: 'Pembroke Welsh Corgi'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:377:5: 'Pembroke Welsh Corgi'
 					{
 					match("Pembroke Welsh Corgi"); 
 
 					}
 					break;
 				case 140 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:372:5: 'Petit Basset Griffon Vendéen'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:378:5: 'Petit Basset Griffon Vendéen'
 					{
 					match("Petit Basset Griffon Vendéen"); 
 
 					}
 					break;
 				case 141 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:373:5: 'Petits Bassets Griffons Vendeen'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:379:5: 'Petits Bassets Griffons Vendeen'
 					{
 					match("Petits Bassets Griffons Vendeen"); 
 
 					}
 					break;
 				case 142 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:374:5: 'Pharaoh Hound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:380:5: 'Pharaoh Hound'
 					{
 					match("Pharaoh Hound"); 
 
 					}
 					break;
 				case 143 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:375:5: 'Plott'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:381:5: 'Plott'
 					{
 					match("Plott"); 
 
 					}
 					break;
 				case 144 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:376:5: 'Pointer'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:382:5: 'Pointer'
 					{
 					match("Pointer"); 
 
 					}
 					break;
 				case 145 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:377:5: 'Polish Lowland Sheepdog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:383:5: 'Polish Lowland Sheepdog'
 					{
 					match("Polish Lowland Sheepdog"); 
 
 					}
 					break;
 				case 146 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:378:5: 'Pomeranian'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:384:5: 'Pomeranian'
 					{
 					match("Pomeranian"); 
 
 					}
 					break;
 				case 147 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:379:5: 'Poodle'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:385:5: 'Poodle'
 					{
 					match("Poodle"); 
 
 					}
 					break;
 				case 148 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:380:5: 'Portuguese Podengo Pequenos'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:386:5: 'Portuguese Podengo Pequenos'
 					{
 					match("Portuguese Podengo Pequenos"); 
 
 					}
 					break;
 				case 149 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:381:5: 'Portuguese Water Dog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:387:5: 'Portuguese Water Dog'
 					{
 					match("Portuguese Water Dog"); 
 
 					}
 					break;
 				case 150 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:382:5: 'Pug'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:388:5: 'Pug'
 					{
 					match("Pug"); 
 
 					}
 					break;
 				case 151 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:383:5: 'Puli'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:389:5: 'Puli'
 					{
 					match("Puli"); 
 
 					}
 					break;
 				case 152 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:384:5: 'Pulik'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:390:5: 'Pulik'
 					{
 					match("Pulik"); 
 
 					}
 					break;
 				case 153 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:385:5: 'Pyrenean Shepherd'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:391:5: 'Pyrenean Shepherd'
 					{
 					match("Pyrenean Shepherd"); 
 
 					}
 					break;
 				case 154 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:386:5: 'Rat Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:392:5: 'Rat Terrier'
 					{
 					match("Rat Terrier"); 
 
 					}
 					break;
 				case 155 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:387:5: 'Redbone Coonhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:393:5: 'Redbone Coonhound'
 					{
 					match("Redbone Coonhound"); 
 
 					}
 					break;
 				case 156 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:388:5: 'Retrievers'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:394:5: 'Retrievers'
 					{
 					match("Retrievers"); 
 
 					}
 					break;
 				case 157 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:389:5: 'Rhodesian Ridgeback'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:395:5: 'Rhodesian Ridgeback'
 					{
 					match("Rhodesian Ridgeback"); 
 
 					}
 					break;
 				case 158 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:390:5: 'Rottweiler'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:396:5: 'Rottweiler'
 					{
 					match("Rottweiler"); 
 
 					}
 					break;
 				case 159 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:391:5: 'Russell Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:397:5: 'Russell Terrier'
 					{
 					match("Russell Terrier"); 
 
 					}
 					break;
 				case 160 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:392:5: 'Saint Bernard'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:398:5: 'Saint Bernard'
 					{
 					match("Saint Bernard"); 
 
 					}
 					break;
 				case 161 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:393:5: 'Saluki'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:399:5: 'Saluki'
 					{
 					match("Saluki"); 
 
 					}
 					break;
 				case 162 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:394:5: 'Samoyed'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:400:5: 'Samoyed'
 					{
 					match("Samoyed"); 
 
 					}
 					break;
 				case 163 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:395:5: 'Schipperke'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:401:5: 'Schipperke'
 					{
 					match("Schipperke"); 
 
 					}
 					break;
 				case 164 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:396:5: 'Scottish Deerhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:402:5: 'Scottish Deerhound'
 					{
 					match("Scottish Deerhound"); 
 
 					}
 					break;
 				case 165 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:397:5: 'Scottish Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:403:5: 'Scottish Terrier'
 					{
 					match("Scottish Terrier"); 
 
 					}
 					break;
 				case 166 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:398:5: 'Sealyham Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:404:5: 'Sealyham Terrier'
 					{
 					match("Sealyham Terrier"); 
 
 					}
 					break;
 				case 167 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:399:5: 'Setters'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:405:5: 'Setters'
 					{
 					match("Setters"); 
 
 					}
 					break;
 				case 168 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:400:5: 'Shetland Sheepdog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:406:5: 'Shetland Sheepdog'
 					{
 					match("Shetland Sheepdog"); 
 
 					}
 					break;
 				case 169 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:401:5: 'Shiba Inu'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:407:5: 'Shiba Inu'
 					{
 					match("Shiba Inu"); 
 
 					}
 					break;
 				case 170 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:402:5: 'Shih Tzu'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:408:5: 'Shih Tzu'
 					{
 					match("Shih Tzu"); 
 
 					}
 					break;
 				case 171 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:403:5: 'Siberian Husky'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:409:5: 'Siberian Husky'
 					{
 					match("Siberian Husky"); 
 
 					}
 					break;
 				case 172 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:404:5: 'Siberian Huskies'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:410:5: 'Siberian Huskies'
 					{
 					match("Siberian Huskies"); 
 
 					}
 					break;
 				case 173 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:405:5: 'Silky Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:411:5: 'Silky Terrier'
 					{
 					match("Silky Terrier"); 
 
 					}
 					break;
 				case 174 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:406:5: 'Skye Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:412:5: 'Skye Terrier'
 					{
 					match("Skye Terrier"); 
 
 					}
 					break;
 				case 175 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:407:5: 'Soft Coated Wheaten Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:413:5: 'Soft Coated Wheaten Terrier'
 					{
 					match("Soft Coated Wheaten Terrier"); 
 
 					}
 					break;
 				case 176 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:408:5: 'Spaniels'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:414:5: 'Spaniels'
 					{
 					match("Spaniels"); 
 
 					}
 					break;
 				case 177 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:409:5: 'Spinone Italiano'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:415:5: 'Spinone Italiano'
 					{
 					match("Spinone Italiano"); 
 
 					}
 					break;
 				case 178 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:410:5: 'Spinoni Italiani'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:416:5: 'Spinoni Italiani'
 					{
 					match("Spinoni Italiani"); 
 
 					}
 					break;
 				case 179 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:411:5: 'Staffordshire Bull Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:417:5: 'Staffordshire Bull Terrier'
 					{
 					match("Staffordshire Bull Terrier"); 
 
 					}
 					break;
 				case 180 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:412:5: 'Standard Schnauzer'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:418:5: 'Standard Schnauzer'
 					{
 					match("Standard Schnauzer"); 
 
 					}
 					break;
 				case 181 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:413:5: 'Sussex Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:419:5: 'Sussex Spaniel'
 					{
 					match("Sussex Spaniel"); 
 
 					}
 					break;
 				case 182 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:414:5: 'Swedish Vallhund'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:420:5: 'Swedish Vallhund'
 					{
 					match("Swedish Vallhund"); 
 
 					}
 					break;
 				case 183 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:415:5: 'Tibetan Mastiff'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:421:5: 'Tibetan Mastiff'
 					{
 					match("Tibetan Mastiff"); 
 
 					}
 					break;
 				case 184 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:416:5: 'Tibetan Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:422:5: 'Tibetan Spaniel'
 					{
 					match("Tibetan Spaniel"); 
 
 					}
 					break;
 				case 185 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:417:5: 'Tibetan Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:423:5: 'Tibetan Terrier'
 					{
 					match("Tibetan Terrier"); 
 
 					}
 					break;
 				case 186 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:418:5: 'Toy Fox Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:424:5: 'Toy Fox Terrier'
 					{
 					match("Toy Fox Terrier"); 
 
 					}
 					break;
 				case 187 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:419:5: 'Treeing Walker Coonhound'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:425:5: 'Treeing Walker Coonhound'
 					{
 					match("Treeing Walker Coonhound"); 
 
 					}
 					break;
 				case 188 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:420:5: 'Vizsla'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:426:5: 'Vizsla'
 					{
 					match("Vizsla"); 
 
 					}
 					break;
 				case 189 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:421:5: 'Weimaraner'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:427:5: 'Weimaraner'
 					{
 					match("Weimaraner"); 
 
 					}
 					break;
 				case 190 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:422:5: 'Welsh Springer Spaniel'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:428:5: 'Welsh Springer Spaniel'
 					{
 					match("Welsh Springer Spaniel"); 
 
 					}
 					break;
 				case 191 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:423:5: 'Welsh Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:429:5: 'Welsh Terrier'
 					{
 					match("Welsh Terrier"); 
 
 					}
 					break;
 				case 192 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:424:5: 'West Highland White Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:430:5: 'West Highland White Terrier'
 					{
 					match("West Highland White Terrier"); 
 
 					}
 					break;
 				case 193 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:425:5: 'Whippet'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:431:5: 'Whippet'
 					{
 					match("Whippet"); 
 
 					}
 					break;
 				case 194 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:426:5: 'Wire Fox Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:432:5: 'Wire Fox Terrier'
 					{
 					match("Wire Fox Terrier"); 
 
 					}
 					break;
 				case 195 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:427:5: 'Wirehaired Pointing Griffon'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:433:5: 'Wirehaired Pointing Griffon'
 					{
 					match("Wirehaired Pointing Griffon"); 
 
 					}
 					break;
 				case 196 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:428:2: 'Wirehaired Vizsla'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:434:2: 'Wirehaired Vizsla'
 					{
 					match("Wirehaired Vizsla"); 
 
 					}
 					break;
 				case 197 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:429:5: 'Xoloitzcuintli'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:435:5: 'Xoloitzcuintli'
 					{
 					match("Xoloitzcuintli"); 
 
 					}
 					break;
 				case 198 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:430:5: 'Yorkshire Terrier'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:436:5: 'Yorkshire Terrier'
 					{
 					match("Yorkshire Terrier"); 
 
@@ -1821,13 +1791,13 @@ public class testLexer extends Lexer {
 		try {
 			int _type = BREED_NAME;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:433:5: ({...}? => ( FRAG_BREED_NAME_SINGLE | FRAG_BREED_NAME_ALT ) ( 's' )? ( WS )? ( '(' FRAG_BREED_NAME_CATEGORY ')' ( WS )? ( FRAG_BREED_NAME_CATEGORY_SUFFIX )? )? ( BREED_NAME_SUFFIX )? )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:433:7: {...}? => ( FRAG_BREED_NAME_SINGLE | FRAG_BREED_NAME_ALT ) ( 's' )? ( WS )? ( '(' FRAG_BREED_NAME_CATEGORY ')' ( WS )? ( FRAG_BREED_NAME_CATEGORY_SUFFIX )? )? ( BREED_NAME_SUFFIX )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:5: ({...}? => ( FRAG_BREED_NAME_SINGLE | FRAG_BREED_NAME_ALT ) ( 's' )? ( WS )? ( '(' FRAG_BREED_NAME_CATEGORY ')' ( WS )? ( FRAG_BREED_NAME_CATEGORY_SUFFIX )? )? ( BREED_NAME_SUFFIX )? )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:7: {...}? => ( FRAG_BREED_NAME_SINGLE | FRAG_BREED_NAME_ALT ) ( 's' )? ( WS )? ( '(' FRAG_BREED_NAME_CATEGORY ')' ( WS )? ( FRAG_BREED_NAME_CATEGORY_SUFFIX )? )? ( BREED_NAME_SUFFIX )?
 			{
 			if ( !((allowBreed)) ) {
 				throw new FailedPredicateException(input, "BREED_NAME", "allowBreed");
 			}
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:433:22: ( FRAG_BREED_NAME_SINGLE | FRAG_BREED_NAME_ALT )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:22: ( FRAG_BREED_NAME_SINGLE | FRAG_BREED_NAME_ALT )
 			int alt3=2;
 			int LA3_0 = input.LA(1);
 			if ( (LA3_0=='A'||(LA3_0 >= 'C' && LA3_0 <= 'P')||(LA3_0 >= 'R' && LA3_0 <= 'T')||(LA3_0 >= 'W' && LA3_0 <= 'Y')) && ((allowBreed))) {
@@ -1846,13 +1816,11 @@ public class testLexer extends Lexer {
 					else if ( (LA3_4=='o') ) {
 						alt3=2;
 					}
-
 					else {
 						int nvaeMark = input.mark();
 						try {
-							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++)
 								input.consume();
-							}
 							NoViableAltException nvae =
 								new NoViableAltException("", 3, 4, input);
 							throw nvae;
@@ -1860,9 +1828,7 @@ public class testLexer extends Lexer {
 							input.rewind(nvaeMark);
 						}
 					}
-
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -1874,7 +1840,6 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 			}
 			else if ( (LA3_0=='V') ) {
 				int LA3_3 = input.LA(2);
@@ -1884,7 +1849,6 @@ public class testLexer extends Lexer {
 				else if ( (LA3_3=='e') ) {
 					alt3=2;
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -1896,25 +1860,22 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 			}
-
 			else {
 				NoViableAltException nvae =
 					new NoViableAltException("", 3, 0, input);
 				throw nvae;
 			}
-
 			switch (alt3) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:433:23: FRAG_BREED_NAME_SINGLE
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:23: FRAG_BREED_NAME_SINGLE
 					{
 					mFRAG_BREED_NAME_SINGLE(); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:433:46: FRAG_BREED_NAME_ALT
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:46: FRAG_BREED_NAME_ALT
 					{
 					mFRAG_BREED_NAME_ALT(); 
 
@@ -1923,7 +1884,7 @@ public class testLexer extends Lexer {
 
 			}
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:433:67: ( 's' )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:67: ( 's' )?
 			int alt4=2;
 			int LA4_0 = input.LA(1);
 			if ( (LA4_0=='s') ) {
@@ -1931,7 +1892,7 @@ public class testLexer extends Lexer {
 			}
 			switch (alt4) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:433:67: 's'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:67: 's'
 					{
 					match('s'); 
 					}
@@ -1939,7 +1900,7 @@ public class testLexer extends Lexer {
 
 			}
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:433:72: ( WS )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:72: ( WS )?
 			int alt5=2;
 			int LA5_0 = input.LA(1);
 			if ( ((LA5_0 >= '\t' && LA5_0 <= '\n')||LA5_0=='\r'||LA5_0==' ') ) {
@@ -1947,7 +1908,7 @@ public class testLexer extends Lexer {
 			}
 			switch (alt5) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:433:72: WS
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:72: WS
 					{
 					mWS(); 
 
@@ -1956,7 +1917,7 @@ public class testLexer extends Lexer {
 
 			}
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:433:76: ( '(' FRAG_BREED_NAME_CATEGORY ')' ( WS )? ( FRAG_BREED_NAME_CATEGORY_SUFFIX )? )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:76: ( '(' FRAG_BREED_NAME_CATEGORY ')' ( WS )? ( FRAG_BREED_NAME_CATEGORY_SUFFIX )? )?
 			int alt8=2;
 			int LA8_0 = input.LA(1);
 			if ( (LA8_0=='(') ) {
@@ -1976,13 +1937,13 @@ public class testLexer extends Lexer {
 			}
 			switch (alt8) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:433:77: '(' FRAG_BREED_NAME_CATEGORY ')' ( WS )? ( FRAG_BREED_NAME_CATEGORY_SUFFIX )?
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:77: '(' FRAG_BREED_NAME_CATEGORY ')' ( WS )? ( FRAG_BREED_NAME_CATEGORY_SUFFIX )?
 					{
 					match('('); 
 					mFRAG_BREED_NAME_CATEGORY(); 
 
 					match(')'); 
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:433:110: ( WS )?
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:110: ( WS )?
 					int alt6=2;
 					int LA6_0 = input.LA(1);
 					if ( ((LA6_0 >= '\t' && LA6_0 <= '\n')||LA6_0=='\r'||LA6_0==' ') ) {
@@ -1990,7 +1951,7 @@ public class testLexer extends Lexer {
 					}
 					switch (alt6) {
 						case 1 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:433:110: WS
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:110: WS
 							{
 							mWS(); 
 
@@ -1999,7 +1960,7 @@ public class testLexer extends Lexer {
 
 					}
 
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:433:114: ( FRAG_BREED_NAME_CATEGORY_SUFFIX )?
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:114: ( FRAG_BREED_NAME_CATEGORY_SUFFIX )?
 					int alt7=2;
 					int LA7_0 = input.LA(1);
 					if ( ((LA7_0 >= 'A' && LA7_0 <= 'B')||LA7_0=='P') ) {
@@ -2007,7 +1968,7 @@ public class testLexer extends Lexer {
 					}
 					switch (alt7) {
 						case 1 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:433:114: FRAG_BREED_NAME_CATEGORY_SUFFIX
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:114: FRAG_BREED_NAME_CATEGORY_SUFFIX
 							{
 							mFRAG_BREED_NAME_CATEGORY_SUFFIX(); 
 
@@ -2021,7 +1982,7 @@ public class testLexer extends Lexer {
 
 			}
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:433:150: ( BREED_NAME_SUFFIX )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:150: ( BREED_NAME_SUFFIX )?
 			int alt9=2;
 			int LA9_0 = input.LA(1);
 			if ( (LA9_0=='('||LA9_0=='M') ) {
@@ -2029,7 +1990,7 @@ public class testLexer extends Lexer {
 			}
 			switch (alt9) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:433:150: BREED_NAME_SUFFIX
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:150: BREED_NAME_SUFFIX
 					{
 					mBREED_NAME_SUFFIX(); 
 
@@ -2054,11 +2015,11 @@ public class testLexer extends Lexer {
 		try {
 			int _type = SPECIAL_SUFFIX;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:436:5: ( ( FRAG_BREED_NAME_SPECIAL_SUFFIX ) )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:436:9: ( FRAG_BREED_NAME_SPECIAL_SUFFIX )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:5: ( ( FRAG_BREED_NAME_SPECIAL_SUFFIX ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:9: ( FRAG_BREED_NAME_SPECIAL_SUFFIX )
 			{
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:436:9: ( FRAG_BREED_NAME_SPECIAL_SUFFIX )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:436:10: FRAG_BREED_NAME_SPECIAL_SUFFIX
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:9: ( FRAG_BREED_NAME_SPECIAL_SUFFIX )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:10: FRAG_BREED_NAME_SPECIAL_SUFFIX
 			{
 			mFRAG_BREED_NAME_SPECIAL_SUFFIX(); 
 
@@ -2078,7 +2039,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "BREED_NAME_SUFFIX"
 	public final void mBREED_NAME_SUFFIX() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:5: ( ( '(' BREED_MISC ')' ) | BREED_MISC )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:445:5: ( ( '(' BREED_MISC ')' ) | BREED_MISC )
 			int alt10=2;
 			int LA10_0 = input.LA(1);
 			if ( (LA10_0=='(') ) {
@@ -2087,19 +2048,17 @@ public class testLexer extends Lexer {
 			else if ( (LA10_0=='M') ) {
 				alt10=2;
 			}
-
 			else {
 				NoViableAltException nvae =
 					new NoViableAltException("", 10, 0, input);
 				throw nvae;
 			}
-
 			switch (alt10) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:9: ( '(' BREED_MISC ')' )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:445:9: ( '(' BREED_MISC ')' )
 					{
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:9: ( '(' BREED_MISC ')' )
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:10: '(' BREED_MISC ')'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:445:9: ( '(' BREED_MISC ')' )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:445:10: '(' BREED_MISC ')'
 					{
 					match('('); 
 					mBREED_MISC(); 
@@ -2110,7 +2069,7 @@ public class testLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:439:28: BREED_MISC
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:445:28: BREED_MISC
 					{
 					mBREED_MISC(); 
 
@@ -2128,7 +2087,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "BREED_MISC"
 	public final void mBREED_MISC() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:2: ( 'Misc. Dog' | 'Misc. Dogs' | 'Misc. Bitch' | 'Misc. Bitches' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:448:2: ( 'Misc. Dog' | 'Misc. Dogs' | 'Misc. Bitch' | 'Misc. Bitches' )
 			int alt11=4;
 			int LA11_0 = input.LA(1);
 			if ( (LA11_0=='M') ) {
@@ -2152,19 +2111,15 @@ public class testLexer extends Lexer {
 												if ( (LA11_11=='s') ) {
 													alt11=2;
 												}
-
 												else {
 													alt11=1;
 												}
-
 											}
-
 											else {
 												int nvaeMark = input.mark();
 												try {
-													for (int nvaeConsume = 0; nvaeConsume < 9 - 1; nvaeConsume++) {
+													for (int nvaeConsume = 0; nvaeConsume < 9 - 1; nvaeConsume++)
 														input.consume();
-													}
 													NoViableAltException nvae =
 														new NoViableAltException("", 11, 9, input);
 													throw nvae;
@@ -2172,15 +2127,12 @@ public class testLexer extends Lexer {
 													input.rewind(nvaeMark);
 												}
 											}
-
 										}
-
 										else {
 											int nvaeMark = input.mark();
 											try {
-												for (int nvaeConsume = 0; nvaeConsume < 8 - 1; nvaeConsume++) {
+												for (int nvaeConsume = 0; nvaeConsume < 8 - 1; nvaeConsume++)
 													input.consume();
-												}
 												NoViableAltException nvae =
 													new NoViableAltException("", 11, 7, input);
 												throw nvae;
@@ -2188,7 +2140,6 @@ public class testLexer extends Lexer {
 												input.rewind(nvaeMark);
 											}
 										}
-
 									}
 									else if ( (LA11_6=='B') ) {
 										int LA11_8 = input.LA(8);
@@ -2203,19 +2154,15 @@ public class testLexer extends Lexer {
 														if ( (LA11_16=='e') ) {
 															alt11=4;
 														}
-
 														else {
 															alt11=3;
 														}
-
 													}
-
 													else {
 														int nvaeMark = input.mark();
 														try {
-															for (int nvaeConsume = 0; nvaeConsume < 11 - 1; nvaeConsume++) {
+															for (int nvaeConsume = 0; nvaeConsume < 11 - 1; nvaeConsume++)
 																input.consume();
-															}
 															NoViableAltException nvae =
 																new NoViableAltException("", 11, 15, input);
 															throw nvae;
@@ -2223,15 +2170,12 @@ public class testLexer extends Lexer {
 															input.rewind(nvaeMark);
 														}
 													}
-
 												}
-
 												else {
 													int nvaeMark = input.mark();
 													try {
-														for (int nvaeConsume = 0; nvaeConsume < 10 - 1; nvaeConsume++) {
+														for (int nvaeConsume = 0; nvaeConsume < 10 - 1; nvaeConsume++)
 															input.consume();
-														}
 														NoViableAltException nvae =
 															new NoViableAltException("", 11, 12, input);
 														throw nvae;
@@ -2239,15 +2183,12 @@ public class testLexer extends Lexer {
 														input.rewind(nvaeMark);
 													}
 												}
-
 											}
-
 											else {
 												int nvaeMark = input.mark();
 												try {
-													for (int nvaeConsume = 0; nvaeConsume < 9 - 1; nvaeConsume++) {
+													for (int nvaeConsume = 0; nvaeConsume < 9 - 1; nvaeConsume++)
 														input.consume();
-													}
 													NoViableAltException nvae =
 														new NoViableAltException("", 11, 10, input);
 													throw nvae;
@@ -2255,15 +2196,12 @@ public class testLexer extends Lexer {
 													input.rewind(nvaeMark);
 												}
 											}
-
 										}
-
 										else {
 											int nvaeMark = input.mark();
 											try {
-												for (int nvaeConsume = 0; nvaeConsume < 8 - 1; nvaeConsume++) {
+												for (int nvaeConsume = 0; nvaeConsume < 8 - 1; nvaeConsume++)
 													input.consume();
-												}
 												NoViableAltException nvae =
 													new NoViableAltException("", 11, 8, input);
 												throw nvae;
@@ -2271,15 +2209,12 @@ public class testLexer extends Lexer {
 												input.rewind(nvaeMark);
 											}
 										}
-
 									}
-
 									else {
 										int nvaeMark = input.mark();
 										try {
-											for (int nvaeConsume = 0; nvaeConsume < 7 - 1; nvaeConsume++) {
+											for (int nvaeConsume = 0; nvaeConsume < 7 - 1; nvaeConsume++)
 												input.consume();
-											}
 											NoViableAltException nvae =
 												new NoViableAltException("", 11, 6, input);
 											throw nvae;
@@ -2287,15 +2222,12 @@ public class testLexer extends Lexer {
 											input.rewind(nvaeMark);
 										}
 									}
-
 								}
-
 								else {
 									int nvaeMark = input.mark();
 									try {
-										for (int nvaeConsume = 0; nvaeConsume < 6 - 1; nvaeConsume++) {
+										for (int nvaeConsume = 0; nvaeConsume < 6 - 1; nvaeConsume++)
 											input.consume();
-										}
 										NoViableAltException nvae =
 											new NoViableAltException("", 11, 5, input);
 										throw nvae;
@@ -2303,15 +2235,12 @@ public class testLexer extends Lexer {
 										input.rewind(nvaeMark);
 									}
 								}
-
 							}
-
 							else {
 								int nvaeMark = input.mark();
 								try {
-									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++) {
+									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++)
 										input.consume();
-									}
 									NoViableAltException nvae =
 										new NoViableAltException("", 11, 4, input);
 									throw nvae;
@@ -2319,15 +2248,12 @@ public class testLexer extends Lexer {
 									input.rewind(nvaeMark);
 								}
 							}
-
 						}
-
 						else {
 							int nvaeMark = input.mark();
 							try {
-								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
+								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++)
 									input.consume();
-								}
 								NoViableAltException nvae =
 									new NoViableAltException("", 11, 3, input);
 								throw nvae;
@@ -2335,15 +2261,12 @@ public class testLexer extends Lexer {
 								input.rewind(nvaeMark);
 							}
 						}
-
 					}
-
 					else {
 						int nvaeMark = input.mark();
 						try {
-							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++)
 								input.consume();
-							}
 							NoViableAltException nvae =
 								new NoViableAltException("", 11, 2, input);
 							throw nvae;
@@ -2351,9 +2274,7 @@ public class testLexer extends Lexer {
 							input.rewind(nvaeMark);
 						}
 					}
-
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -2365,39 +2286,36 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 			}
-
 			else {
 				NoViableAltException nvae =
 					new NoViableAltException("", 11, 0, input);
 				throw nvae;
 			}
-
 			switch (alt11) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:2: 'Misc. Dog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:448:2: 'Misc. Dog'
 					{
 					match("Misc. Dog"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:14: 'Misc. Dogs'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:448:14: 'Misc. Dogs'
 					{
 					match("Misc. Dogs"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:27: 'Misc. Bitch'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:448:27: 'Misc. Bitch'
 					{
 					match("Misc. Bitch"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:442:41: 'Misc. Bitches'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:448:41: 'Misc. Bitches'
 					{
 					match("Misc. Bitches"); 
 
@@ -2415,10 +2333,10 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_BREED_NAME_SPECIAL_SUFFIX"
 	public final void mFRAG_BREED_NAME_SPECIAL_SUFFIX() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:445:5: ( ( 'Sweepstakes' | 'Entry' | 'Entries' | 'Veterans' ) )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:445:9: ( 'Sweepstakes' | 'Entry' | 'Entries' | 'Veterans' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:451:5: ( ( 'Sweepstakes' | 'Entry' | 'Entries' | 'Veterans' ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:451:9: ( 'Sweepstakes' | 'Entry' | 'Entries' | 'Veterans' )
 			{
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:445:9: ( 'Sweepstakes' | 'Entry' | 'Entries' | 'Veterans' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:451:9: ( 'Sweepstakes' | 'Entry' | 'Entries' | 'Veterans' )
 			int alt12=4;
 			switch ( input.LA(1) ) {
 			case 'S':
@@ -2441,13 +2359,11 @@ public class testLexer extends Lexer {
 							else if ( (LA12_6=='i') ) {
 								alt12=3;
 							}
-
 							else {
 								int nvaeMark = input.mark();
 								try {
-									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++) {
+									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++)
 										input.consume();
-									}
 									NoViableAltException nvae =
 										new NoViableAltException("", 12, 6, input);
 									throw nvae;
@@ -2455,15 +2371,12 @@ public class testLexer extends Lexer {
 									input.rewind(nvaeMark);
 								}
 							}
-
 						}
-
 						else {
 							int nvaeMark = input.mark();
 							try {
-								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
+								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++)
 									input.consume();
-								}
 								NoViableAltException nvae =
 									new NoViableAltException("", 12, 5, input);
 								throw nvae;
@@ -2471,15 +2384,12 @@ public class testLexer extends Lexer {
 								input.rewind(nvaeMark);
 							}
 						}
-
 					}
-
 					else {
 						int nvaeMark = input.mark();
 						try {
-							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++)
 								input.consume();
-							}
 							NoViableAltException nvae =
 								new NoViableAltException("", 12, 4, input);
 							throw nvae;
@@ -2487,9 +2397,7 @@ public class testLexer extends Lexer {
 							input.rewind(nvaeMark);
 						}
 					}
-
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -2501,7 +2409,6 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 				}
 				break;
 			case 'V':
@@ -2516,28 +2423,28 @@ public class testLexer extends Lexer {
 			}
 			switch (alt12) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:445:10: 'Sweepstakes'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:451:10: 'Sweepstakes'
 					{
 					match("Sweepstakes"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:445:24: 'Entry'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:451:24: 'Entry'
 					{
 					match("Entry"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:445:32: 'Entries'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:451:32: 'Entries'
 					{
 					match("Entries"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:445:42: 'Veterans'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:451:42: 'Veterans'
 					{
 					match("Veterans"); 
 
@@ -2558,7 +2465,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_BREED_NAME_ALT"
 	public final void mFRAG_BREED_NAME_ALT() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:446:29: ( 'Brood Bitch' | 'Brood Bitche' | 'Veteran Dog' | 'Veteran Bitch' | 'Veteran Bitche' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:452:29: ( 'Brood Bitch' | 'Brood Bitche' | 'Veteran Dog' | 'Veteran Bitch' | 'Veteran Bitche' )
 			int alt13=5;
 			int LA13_0 = input.LA(1);
 			if ( (LA13_0=='B') ) {
@@ -2586,19 +2493,15 @@ public class testLexer extends Lexer {
 														if ( (LA13_22=='e') ) {
 															alt13=2;
 														}
-
 														else {
 															alt13=1;
 														}
-
 													}
-
 													else {
 														int nvaeMark = input.mark();
 														try {
-															for (int nvaeConsume = 0; nvaeConsume < 11 - 1; nvaeConsume++) {
+															for (int nvaeConsume = 0; nvaeConsume < 11 - 1; nvaeConsume++)
 																input.consume();
-															}
 															NoViableAltException nvae =
 																new NoViableAltException("", 13, 20, input);
 															throw nvae;
@@ -2606,15 +2509,12 @@ public class testLexer extends Lexer {
 															input.rewind(nvaeMark);
 														}
 													}
-
 												}
-
 												else {
 													int nvaeMark = input.mark();
 													try {
-														for (int nvaeConsume = 0; nvaeConsume < 10 - 1; nvaeConsume++) {
+														for (int nvaeConsume = 0; nvaeConsume < 10 - 1; nvaeConsume++)
 															input.consume();
-														}
 														NoViableAltException nvae =
 															new NoViableAltException("", 13, 17, input);
 														throw nvae;
@@ -2622,15 +2522,12 @@ public class testLexer extends Lexer {
 														input.rewind(nvaeMark);
 													}
 												}
-
 											}
-
 											else {
 												int nvaeMark = input.mark();
 												try {
-													for (int nvaeConsume = 0; nvaeConsume < 9 - 1; nvaeConsume++) {
+													for (int nvaeConsume = 0; nvaeConsume < 9 - 1; nvaeConsume++)
 														input.consume();
-													}
 													NoViableAltException nvae =
 														new NoViableAltException("", 13, 15, input);
 													throw nvae;
@@ -2638,15 +2535,12 @@ public class testLexer extends Lexer {
 													input.rewind(nvaeMark);
 												}
 											}
-
 										}
-
 										else {
 											int nvaeMark = input.mark();
 											try {
-												for (int nvaeConsume = 0; nvaeConsume < 8 - 1; nvaeConsume++) {
+												for (int nvaeConsume = 0; nvaeConsume < 8 - 1; nvaeConsume++)
 													input.consume();
-												}
 												NoViableAltException nvae =
 													new NoViableAltException("", 13, 13, input);
 												throw nvae;
@@ -2654,15 +2548,12 @@ public class testLexer extends Lexer {
 												input.rewind(nvaeMark);
 											}
 										}
-
 									}
-
 									else {
 										int nvaeMark = input.mark();
 										try {
-											for (int nvaeConsume = 0; nvaeConsume < 7 - 1; nvaeConsume++) {
+											for (int nvaeConsume = 0; nvaeConsume < 7 - 1; nvaeConsume++)
 												input.consume();
-											}
 											NoViableAltException nvae =
 												new NoViableAltException("", 13, 11, input);
 											throw nvae;
@@ -2670,15 +2561,12 @@ public class testLexer extends Lexer {
 											input.rewind(nvaeMark);
 										}
 									}
-
 								}
-
 								else {
 									int nvaeMark = input.mark();
 									try {
-										for (int nvaeConsume = 0; nvaeConsume < 6 - 1; nvaeConsume++) {
+										for (int nvaeConsume = 0; nvaeConsume < 6 - 1; nvaeConsume++)
 											input.consume();
-										}
 										NoViableAltException nvae =
 											new NoViableAltException("", 13, 9, input);
 										throw nvae;
@@ -2686,15 +2574,12 @@ public class testLexer extends Lexer {
 										input.rewind(nvaeMark);
 									}
 								}
-
 							}
-
 							else {
 								int nvaeMark = input.mark();
 								try {
-									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++) {
+									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++)
 										input.consume();
-									}
 									NoViableAltException nvae =
 										new NoViableAltException("", 13, 7, input);
 									throw nvae;
@@ -2702,15 +2587,12 @@ public class testLexer extends Lexer {
 									input.rewind(nvaeMark);
 								}
 							}
-
 						}
-
 						else {
 							int nvaeMark = input.mark();
 							try {
-								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
+								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++)
 									input.consume();
-								}
 								NoViableAltException nvae =
 									new NoViableAltException("", 13, 5, input);
 								throw nvae;
@@ -2718,15 +2600,12 @@ public class testLexer extends Lexer {
 								input.rewind(nvaeMark);
 							}
 						}
-
 					}
-
 					else {
 						int nvaeMark = input.mark();
 						try {
-							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++)
 								input.consume();
-							}
 							NoViableAltException nvae =
 								new NoViableAltException("", 13, 3, input);
 							throw nvae;
@@ -2734,9 +2613,7 @@ public class testLexer extends Lexer {
 							input.rewind(nvaeMark);
 						}
 					}
-
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -2748,7 +2625,6 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 			}
 			else if ( (LA13_0=='V') ) {
 				int LA13_2 = input.LA(2);
@@ -2782,19 +2658,15 @@ public class testLexer extends Lexer {
 																if ( (LA13_27=='e') ) {
 																	alt13=5;
 																}
-
 																else {
 																	alt13=4;
 																}
-
 															}
-
 															else {
 																int nvaeMark = input.mark();
 																try {
-																	for (int nvaeConsume = 0; nvaeConsume < 13 - 1; nvaeConsume++) {
+																	for (int nvaeConsume = 0; nvaeConsume < 13 - 1; nvaeConsume++)
 																		input.consume();
-																	}
 																	NoViableAltException nvae =
 																		new NoViableAltException("", 13, 26, input);
 																	throw nvae;
@@ -2802,15 +2674,12 @@ public class testLexer extends Lexer {
 																	input.rewind(nvaeMark);
 																}
 															}
-
 														}
-
 														else {
 															int nvaeMark = input.mark();
 															try {
-																for (int nvaeConsume = 0; nvaeConsume < 12 - 1; nvaeConsume++) {
+																for (int nvaeConsume = 0; nvaeConsume < 12 - 1; nvaeConsume++)
 																	input.consume();
-																}
 																NoViableAltException nvae =
 																	new NoViableAltException("", 13, 23, input);
 																throw nvae;
@@ -2818,15 +2687,12 @@ public class testLexer extends Lexer {
 																input.rewind(nvaeMark);
 															}
 														}
-
 													}
-
 													else {
 														int nvaeMark = input.mark();
 														try {
-															for (int nvaeConsume = 0; nvaeConsume < 11 - 1; nvaeConsume++) {
+															for (int nvaeConsume = 0; nvaeConsume < 11 - 1; nvaeConsume++)
 																input.consume();
-															}
 															NoViableAltException nvae =
 																new NoViableAltException("", 13, 21, input);
 															throw nvae;
@@ -2834,15 +2700,12 @@ public class testLexer extends Lexer {
 															input.rewind(nvaeMark);
 														}
 													}
-
 												}
-
 												else {
 													int nvaeMark = input.mark();
 													try {
-														for (int nvaeConsume = 0; nvaeConsume < 10 - 1; nvaeConsume++) {
+														for (int nvaeConsume = 0; nvaeConsume < 10 - 1; nvaeConsume++)
 															input.consume();
-														}
 														NoViableAltException nvae =
 															new NoViableAltException("", 13, 19, input);
 														throw nvae;
@@ -2850,15 +2713,12 @@ public class testLexer extends Lexer {
 														input.rewind(nvaeMark);
 													}
 												}
-
 											}
-
 											else {
 												int nvaeMark = input.mark();
 												try {
-													for (int nvaeConsume = 0; nvaeConsume < 9 - 1; nvaeConsume++) {
+													for (int nvaeConsume = 0; nvaeConsume < 9 - 1; nvaeConsume++)
 														input.consume();
-													}
 													NoViableAltException nvae =
 														new NoViableAltException("", 13, 16, input);
 													throw nvae;
@@ -2866,15 +2726,12 @@ public class testLexer extends Lexer {
 													input.rewind(nvaeMark);
 												}
 											}
-
 										}
-
 										else {
 											int nvaeMark = input.mark();
 											try {
-												for (int nvaeConsume = 0; nvaeConsume < 8 - 1; nvaeConsume++) {
+												for (int nvaeConsume = 0; nvaeConsume < 8 - 1; nvaeConsume++)
 													input.consume();
-												}
 												NoViableAltException nvae =
 													new NoViableAltException("", 13, 14, input);
 												throw nvae;
@@ -2882,15 +2739,12 @@ public class testLexer extends Lexer {
 												input.rewind(nvaeMark);
 											}
 										}
-
 									}
-
 									else {
 										int nvaeMark = input.mark();
 										try {
-											for (int nvaeConsume = 0; nvaeConsume < 7 - 1; nvaeConsume++) {
+											for (int nvaeConsume = 0; nvaeConsume < 7 - 1; nvaeConsume++)
 												input.consume();
-											}
 											NoViableAltException nvae =
 												new NoViableAltException("", 13, 12, input);
 											throw nvae;
@@ -2898,15 +2752,12 @@ public class testLexer extends Lexer {
 											input.rewind(nvaeMark);
 										}
 									}
-
 								}
-
 								else {
 									int nvaeMark = input.mark();
 									try {
-										for (int nvaeConsume = 0; nvaeConsume < 6 - 1; nvaeConsume++) {
+										for (int nvaeConsume = 0; nvaeConsume < 6 - 1; nvaeConsume++)
 											input.consume();
-										}
 										NoViableAltException nvae =
 											new NoViableAltException("", 13, 10, input);
 										throw nvae;
@@ -2914,15 +2765,12 @@ public class testLexer extends Lexer {
 										input.rewind(nvaeMark);
 									}
 								}
-
 							}
-
 							else {
 								int nvaeMark = input.mark();
 								try {
-									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++) {
+									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++)
 										input.consume();
-									}
 									NoViableAltException nvae =
 										new NoViableAltException("", 13, 8, input);
 									throw nvae;
@@ -2930,15 +2778,12 @@ public class testLexer extends Lexer {
 									input.rewind(nvaeMark);
 								}
 							}
-
 						}
-
 						else {
 							int nvaeMark = input.mark();
 							try {
-								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
+								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++)
 									input.consume();
-								}
 								NoViableAltException nvae =
 									new NoViableAltException("", 13, 6, input);
 								throw nvae;
@@ -2946,15 +2791,12 @@ public class testLexer extends Lexer {
 								input.rewind(nvaeMark);
 							}
 						}
-
 					}
-
 					else {
 						int nvaeMark = input.mark();
 						try {
-							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++)
 								input.consume();
-							}
 							NoViableAltException nvae =
 								new NoViableAltException("", 13, 4, input);
 							throw nvae;
@@ -2962,9 +2804,7 @@ public class testLexer extends Lexer {
 							input.rewind(nvaeMark);
 						}
 					}
-
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -2976,46 +2816,43 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 			}
-
 			else {
 				NoViableAltException nvae =
 					new NoViableAltException("", 13, 0, input);
 				throw nvae;
 			}
-
 			switch (alt13) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:446:33: 'Brood Bitch'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:452:33: 'Brood Bitch'
 					{
 					match("Brood Bitch"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:446:47: 'Brood Bitche'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:452:47: 'Brood Bitche'
 					{
 					match("Brood Bitche"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:446:62: 'Veteran Dog'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:452:62: 'Veteran Dog'
 					{
 					match("Veteran Dog"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:446:76: 'Veteran Bitch'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:452:76: 'Veteran Bitch'
 					{
 					match("Veteran Bitch"); 
 
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:446:92: 'Veteran Bitche'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:452:92: 'Veteran Bitche'
 					{
 					match("Veteran Bitche"); 
 
@@ -3033,7 +2870,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_BREED_NAME_CATEGORY_SUFFIX"
 	public final void mFRAG_BREED_NAME_CATEGORY_SUFFIX() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:448:5: ( 'Ascob' | 'Parti-Color' | 'Black' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:454:5: ( 'Ascob' | 'Parti-Color' | 'Black' )
 			int alt14=3;
 			switch ( input.LA(1) ) {
 			case 'A':
@@ -3058,21 +2895,21 @@ public class testLexer extends Lexer {
 			}
 			switch (alt14) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:448:9: 'Ascob'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:454:9: 'Ascob'
 					{
 					match("Ascob"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:448:17: 'Parti-Color'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:454:17: 'Parti-Color'
 					{
 					match("Parti-Color"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:448:31: 'Black'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:454:31: 'Black'
 					{
 					match("Black"); 
 
@@ -3090,271 +2927,271 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_BREED_NAME_CATEGORY"
 	public final void mFRAG_BREED_NAME_CATEGORY() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:450:5: ( '13 Inch' | '15 Inch' | 'American Water' | 'Boykin' | 'B & P C' | 'Chesapeake Bay' | 'Clumber' | 'Cocker' | 'Colored' | 'Curly-Coated' | 'English' | 'English Cocker' | 'English Springer' | 'Field' | 'Flat-Coated' | 'German Shorthaired' | 'German Wirehaired' | 'Golden' | 'Gordon' | 'Irish' | 'Irish Red And White' | 'Irish Water' | 'K C & R' | 'Labrador' | 'Long Coat' | 'Longhaired' | 'Miniature' | 'Nova Scotia Duck Tolling' | 'Rough' | 'Smooth' | 'Smooth Coat' | 'Standard' | 'Sussex' | 'Toy' | 'Welsh Springer' | 'White' | 'Wire' | 'Wirehaired' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:456:5: ( '13 Inch' | '15 Inch' | 'American Water' | 'Boykin' | 'B & P C' | 'Chesapeake Bay' | 'Clumber' | 'Cocker' | 'Colored' | 'Curly-Coated' | 'English' | 'English Cocker' | 'English Springer' | 'Field' | 'Flat-Coated' | 'German Shorthaired' | 'German Wirehaired' | 'Golden' | 'Gordon' | 'Irish' | 'Irish Red And White' | 'Irish Water' | 'K C & R' | 'Labrador' | 'Long Coat' | 'Longhaired' | 'Miniature' | 'Nova Scotia Duck Tolling' | 'Rough' | 'Smooth' | 'Smooth Coat' | 'Standard' | 'Sussex' | 'Toy' | 'Welsh Springer' | 'White' | 'Wire' | 'Wirehaired' )
 			int alt15=38;
 			alt15 = dfa15.predict(input);
 			switch (alt15) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:451:9: '13 Inch'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:457:9: '13 Inch'
 					{
 					match("13 Inch"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:452:9: '15 Inch'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:458:9: '15 Inch'
 					{
 					match("15 Inch"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:453:9: 'American Water'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:459:9: 'American Water'
 					{
 					match("American Water"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:454:9: 'Boykin'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:460:9: 'Boykin'
 					{
 					match("Boykin"); 
 
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:455:9: 'B & P C'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:461:9: 'B & P C'
 					{
 					match("B & P C"); 
 
 					}
 					break;
 				case 6 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:456:9: 'Chesapeake Bay'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:9: 'Chesapeake Bay'
 					{
 					match("Chesapeake Bay"); 
 
 					}
 					break;
 				case 7 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:457:9: 'Clumber'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:463:9: 'Clumber'
 					{
 					match("Clumber"); 
 
 					}
 					break;
 				case 8 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:458:9: 'Cocker'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:464:9: 'Cocker'
 					{
 					match("Cocker"); 
 
 					}
 					break;
 				case 9 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:459:9: 'Colored'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:465:9: 'Colored'
 					{
 					match("Colored"); 
 
 					}
 					break;
 				case 10 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:460:9: 'Curly-Coated'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:9: 'Curly-Coated'
 					{
 					match("Curly-Coated"); 
 
 					}
 					break;
 				case 11 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:461:9: 'English'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:467:9: 'English'
 					{
 					match("English"); 
 
 					}
 					break;
 				case 12 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:462:9: 'English Cocker'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:468:9: 'English Cocker'
 					{
 					match("English Cocker"); 
 
 					}
 					break;
 				case 13 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:463:9: 'English Springer'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:469:9: 'English Springer'
 					{
 					match("English Springer"); 
 
 					}
 					break;
 				case 14 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:464:9: 'Field'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:470:9: 'Field'
 					{
 					match("Field"); 
 
 					}
 					break;
 				case 15 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:465:9: 'Flat-Coated'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:471:9: 'Flat-Coated'
 					{
 					match("Flat-Coated"); 
 
 					}
 					break;
 				case 16 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:466:9: 'German Shorthaired'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:472:9: 'German Shorthaired'
 					{
 					match("German Shorthaired"); 
 
 					}
 					break;
 				case 17 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:467:9: 'German Wirehaired'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:473:9: 'German Wirehaired'
 					{
 					match("German Wirehaired"); 
 
 					}
 					break;
 				case 18 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:468:9: 'Golden'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:474:9: 'Golden'
 					{
 					match("Golden"); 
 
 					}
 					break;
 				case 19 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:469:9: 'Gordon'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:475:9: 'Gordon'
 					{
 					match("Gordon"); 
 
 					}
 					break;
 				case 20 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:470:9: 'Irish'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:476:9: 'Irish'
 					{
 					match("Irish"); 
 
 					}
 					break;
 				case 21 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:471:2: 'Irish Red And White'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:477:2: 'Irish Red And White'
 					{
 					match("Irish Red And White"); 
 
 					}
 					break;
 				case 22 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:472:9: 'Irish Water'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:478:9: 'Irish Water'
 					{
 					match("Irish Water"); 
 
 					}
 					break;
 				case 23 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:473:9: 'K C & R'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:479:9: 'K C & R'
 					{
 					match("K C & R"); 
 
 					}
 					break;
 				case 24 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:474:9: 'Labrador'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:480:9: 'Labrador'
 					{
 					match("Labrador"); 
 
 					}
 					break;
 				case 25 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:475:9: 'Long Coat'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:481:9: 'Long Coat'
 					{
 					match("Long Coat"); 
 
 					}
 					break;
 				case 26 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:476:9: 'Longhaired'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:482:9: 'Longhaired'
 					{
 					match("Longhaired"); 
 
 					}
 					break;
 				case 27 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:477:9: 'Miniature'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:483:9: 'Miniature'
 					{
 					match("Miniature"); 
 
 					}
 					break;
 				case 28 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:478:9: 'Nova Scotia Duck Tolling'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:484:9: 'Nova Scotia Duck Tolling'
 					{
 					match("Nova Scotia Duck Tolling"); 
 
 					}
 					break;
 				case 29 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:479:9: 'Rough'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:485:9: 'Rough'
 					{
 					match("Rough"); 
 
 					}
 					break;
 				case 30 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:480:9: 'Smooth'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:486:9: 'Smooth'
 					{
 					match("Smooth"); 
 
 					}
 					break;
 				case 31 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:481:9: 'Smooth Coat'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:487:9: 'Smooth Coat'
 					{
 					match("Smooth Coat"); 
 
 					}
 					break;
 				case 32 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:482:9: 'Standard'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:488:9: 'Standard'
 					{
 					match("Standard"); 
 
 					}
 					break;
 				case 33 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:483:9: 'Sussex'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:489:9: 'Sussex'
 					{
 					match("Sussex"); 
 
 					}
 					break;
 				case 34 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:484:9: 'Toy'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:490:9: 'Toy'
 					{
 					match("Toy"); 
 
 					}
 					break;
 				case 35 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:485:9: 'Welsh Springer'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:491:9: 'Welsh Springer'
 					{
 					match("Welsh Springer"); 
 
 					}
 					break;
 				case 36 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:486:9: 'White'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:492:9: 'White'
 					{
 					match("White"); 
 
 					}
 					break;
 				case 37 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:487:9: 'Wire'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:493:9: 'Wire'
 					{
 					match("Wire"); 
 
 					}
 					break;
 				case 38 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:488:9: 'Wirehaired'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:494:9: 'Wirehaired'
 					{
 					match("Wirehaired"); 
 
@@ -3372,13 +3209,13 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_GROUP_NAME"
 	public final void mFRAG_GROUP_NAME() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:495:2: ({...}? => ( 'HERDING GROUP' | 'TERRIER GROUP' | 'NON-SPORTING GROUP' | 'SPORTING GROUP' | 'TOY GROUP' | 'HOUND GROUP' | 'WORKING GROUP' | ( 'BEST IN SHOW' ) ) )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:495:3: {...}? => ( 'HERDING GROUP' | 'TERRIER GROUP' | 'NON-SPORTING GROUP' | 'SPORTING GROUP' | 'TOY GROUP' | 'HOUND GROUP' | 'WORKING GROUP' | ( 'BEST IN SHOW' ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:501:2: ({...}? => ( 'HERDING GROUP' | 'TERRIER GROUP' | 'NON-SPORTING GROUP' | 'SPORTING GROUP' | 'TOY GROUP' | 'HOUND GROUP' | 'WORKING GROUP' | ( 'BEST IN SHOW' ) ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:501:3: {...}? => ( 'HERDING GROUP' | 'TERRIER GROUP' | 'NON-SPORTING GROUP' | 'SPORTING GROUP' | 'TOY GROUP' | 'HOUND GROUP' | 'WORKING GROUP' | ( 'BEST IN SHOW' ) )
 			{
 			if ( !((allowGroup)) ) {
 				throw new FailedPredicateException(input, "FRAG_GROUP_NAME", "allowGroup");
 			}
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:495:18: ( 'HERDING GROUP' | 'TERRIER GROUP' | 'NON-SPORTING GROUP' | 'SPORTING GROUP' | 'TOY GROUP' | 'HOUND GROUP' | 'WORKING GROUP' | ( 'BEST IN SHOW' ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:501:18: ( 'HERDING GROUP' | 'TERRIER GROUP' | 'NON-SPORTING GROUP' | 'SPORTING GROUP' | 'TOY GROUP' | 'HOUND GROUP' | 'WORKING GROUP' | ( 'BEST IN SHOW' ) )
 			int alt16=8;
 			switch ( input.LA(1) ) {
 			case 'H':
@@ -3390,7 +3227,6 @@ public class testLexer extends Lexer {
 				else if ( (LA16_1=='O') ) {
 					alt16=6;
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -3402,7 +3238,6 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 				}
 				break;
 			case 'T':
@@ -3414,7 +3249,6 @@ public class testLexer extends Lexer {
 				else if ( (LA16_2=='O') ) {
 					alt16=5;
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -3426,7 +3260,6 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 				}
 				break;
 			case 'N':
@@ -3456,59 +3289,59 @@ public class testLexer extends Lexer {
 			}
 			switch (alt16) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:495:20: 'HERDING GROUP'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:501:20: 'HERDING GROUP'
 					{
 					match("HERDING GROUP"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:496:3: 'TERRIER GROUP'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:502:3: 'TERRIER GROUP'
 					{
 					match("TERRIER GROUP"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:497:3: 'NON-SPORTING GROUP'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:503:3: 'NON-SPORTING GROUP'
 					{
 					match("NON-SPORTING GROUP"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:498:3: 'SPORTING GROUP'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:504:3: 'SPORTING GROUP'
 					{
 					match("SPORTING GROUP"); 
 
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:499:3: 'TOY GROUP'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:505:3: 'TOY GROUP'
 					{
 					match("TOY GROUP"); 
 
 					}
 					break;
 				case 6 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:500:3: 'HOUND GROUP'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:506:3: 'HOUND GROUP'
 					{
 					match("HOUND GROUP"); 
 
 					}
 					break;
 				case 7 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:501:3: 'WORKING GROUP'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:507:3: 'WORKING GROUP'
 					{
 					match("WORKING GROUP"); 
 
 					}
 					break;
 				case 8 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:502:3: ( 'BEST IN SHOW' )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:508:3: ( 'BEST IN SHOW' )
 					{
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:502:3: ( 'BEST IN SHOW' )
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:502:4: 'BEST IN SHOW'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:508:3: ( 'BEST IN SHOW' )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:508:4: 'BEST IN SHOW'
 					{
 					match("BEST IN SHOW"); 
 
@@ -3532,7 +3365,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_SPECIAL_GROUP_NAME"
 	public final void mFRAG_SPECIAL_GROUP_NAME() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:505:2: ( 'VETERAN SWEEPSTAKES GROUP' | 'SWEEPSTAKES GROUP' | 'REGULAR VARIETY GROUP' | 'Toy Variety Group' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:511:2: ( 'VETERAN SWEEPSTAKES GROUP' | 'SWEEPSTAKES GROUP' | 'REGULAR VARIETY GROUP' | 'Toy Variety Group' )
 			int alt17=4;
 			switch ( input.LA(1) ) {
 			case 'V':
@@ -3562,28 +3395,28 @@ public class testLexer extends Lexer {
 			}
 			switch (alt17) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:506:3: 'VETERAN SWEEPSTAKES GROUP'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:512:3: 'VETERAN SWEEPSTAKES GROUP'
 					{
 					match("VETERAN SWEEPSTAKES GROUP"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:507:3: 'SWEEPSTAKES GROUP'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:513:3: 'SWEEPSTAKES GROUP'
 					{
 					match("SWEEPSTAKES GROUP"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:508:3: 'REGULAR VARIETY GROUP'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:514:3: 'REGULAR VARIETY GROUP'
 					{
 					match("REGULAR VARIETY GROUP"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:509:3: 'Toy Variety Group'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:515:3: 'Toy Variety Group'
 					{
 					match("Toy Variety Group"); 
 
@@ -3603,7 +3436,7 @@ public class testLexer extends Lexer {
 		try {
 			int _type = GROUP_RING;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:512:2: ( ( FRAG_GROUP_NAME ' - ' JUDGE_NAME ) | FRAG_SPECIAL_GROUP_NAME )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:518:2: ( ( FRAG_GROUP_NAME ' - ' JUDGE_NAME ) | FRAG_SPECIAL_GROUP_NAME )
 			int alt18=2;
 			int LA18_0 = input.LA(1);
 			if ( (LA18_0=='B'||LA18_0=='H'||LA18_0=='N'||LA18_0=='W') && ((allowGroup))) {
@@ -3617,7 +3450,6 @@ public class testLexer extends Lexer {
 				else if ( (LA18_2=='o') ) {
 					alt18=2;
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -3629,7 +3461,6 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 			}
 			else if ( (LA18_0=='S') ) {
 				int LA18_3 = input.LA(2);
@@ -3639,7 +3470,6 @@ public class testLexer extends Lexer {
 				else if ( (LA18_3=='W') ) {
 					alt18=2;
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -3651,24 +3481,21 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 			}
 			else if ( (LA18_0=='R'||LA18_0=='V') ) {
 				alt18=2;
 			}
-
 			else {
 				NoViableAltException nvae =
 					new NoViableAltException("", 18, 0, input);
 				throw nvae;
 			}
-
 			switch (alt18) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:512:4: ( FRAG_GROUP_NAME ' - ' JUDGE_NAME )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:518:4: ( FRAG_GROUP_NAME ' - ' JUDGE_NAME )
 					{
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:512:4: ( FRAG_GROUP_NAME ' - ' JUDGE_NAME )
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:512:5: FRAG_GROUP_NAME ' - ' JUDGE_NAME
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:518:4: ( FRAG_GROUP_NAME ' - ' JUDGE_NAME )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:518:5: FRAG_GROUP_NAME ' - ' JUDGE_NAME
 					{
 					mFRAG_GROUP_NAME(); 
 
@@ -3681,7 +3508,7 @@ public class testLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:512:39: FRAG_SPECIAL_GROUP_NAME
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:518:39: FRAG_SPECIAL_GROUP_NAME
 					{
 					mFRAG_SPECIAL_GROUP_NAME(); 
 
@@ -3703,14 +3530,14 @@ public class testLexer extends Lexer {
 		try {
 			int _type = NON_CONFORMATION_CLASS_NAME;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:530:29: ( NON_CONFORMATION_CLASS_LEVEL ( ' ' NON_CONFORMATION_CLASS_LEVEL )* ( ' ' NON_CONFORMATION_CLASS_SECTION )? ( ' ' NON_CONFORMATION_CLASS_SUFFIX )? )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:531:2: NON_CONFORMATION_CLASS_LEVEL ( ' ' NON_CONFORMATION_CLASS_LEVEL )* ( ' ' NON_CONFORMATION_CLASS_SECTION )? ( ' ' NON_CONFORMATION_CLASS_SUFFIX )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:536:29: ( NON_CONFORMATION_CLASS_LEVEL ( ' ' NON_CONFORMATION_CLASS_LEVEL )* ( ' ' NON_CONFORMATION_CLASS_SECTION )? ( ' ' NON_CONFORMATION_CLASS_SUFFIX )? )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:537:2: NON_CONFORMATION_CLASS_LEVEL ( ' ' NON_CONFORMATION_CLASS_LEVEL )* ( ' ' NON_CONFORMATION_CLASS_SECTION )? ( ' ' NON_CONFORMATION_CLASS_SUFFIX )?
 			{
 			mNON_CONFORMATION_CLASS_LEVEL(); 
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:531:31: ( ' ' NON_CONFORMATION_CLASS_LEVEL )*
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:537:31: ( ' ' NON_CONFORMATION_CLASS_LEVEL )*
 			loop19:
-			while (true) {
+			do {
 				int alt19=2;
 				int LA19_0 = input.LA(1);
 				if ( (LA19_0==' ') ) {
@@ -3797,7 +3624,7 @@ public class testLexer extends Lexer {
 
 				switch (alt19) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:531:32: ' ' NON_CONFORMATION_CLASS_LEVEL
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:537:32: ' ' NON_CONFORMATION_CLASS_LEVEL
 					{
 					match(' '); 
 					mNON_CONFORMATION_CLASS_LEVEL(); 
@@ -3808,9 +3635,9 @@ public class testLexer extends Lexer {
 				default :
 					break loop19;
 				}
-			}
+			} while (true);
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:531:66: ( ' ' NON_CONFORMATION_CLASS_SECTION )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:537:66: ( ' ' NON_CONFORMATION_CLASS_SECTION )?
 			int alt20=2;
 			int LA20_0 = input.LA(1);
 			if ( (LA20_0==' ') ) {
@@ -3821,7 +3648,7 @@ public class testLexer extends Lexer {
 			}
 			switch (alt20) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:531:67: ' ' NON_CONFORMATION_CLASS_SECTION
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:537:67: ' ' NON_CONFORMATION_CLASS_SECTION
 					{
 					match(' '); 
 					mNON_CONFORMATION_CLASS_SECTION(); 
@@ -3831,7 +3658,7 @@ public class testLexer extends Lexer {
 
 			}
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:531:103: ( ' ' NON_CONFORMATION_CLASS_SUFFIX )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:537:103: ( ' ' NON_CONFORMATION_CLASS_SUFFIX )?
 			int alt21=2;
 			int LA21_0 = input.LA(1);
 			if ( (LA21_0==' ') ) {
@@ -3839,7 +3666,7 @@ public class testLexer extends Lexer {
 			}
 			switch (alt21) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:531:104: ' ' NON_CONFORMATION_CLASS_SUFFIX
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:537:104: ' ' NON_CONFORMATION_CLASS_SUFFIX
 					{
 					match(' '); 
 					mNON_CONFORMATION_CLASS_SUFFIX(); 
@@ -3863,7 +3690,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "NON_CONFORMATION_CLASS_SECTION"
 	public final void mNON_CONFORMATION_CLASS_SECTION() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:550:2: ( ( 'A' | 'B' ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:556:2: ( ( 'A' | 'B' ) )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'B') ) {
@@ -3886,7 +3713,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "NON_CONFORMATION_CLASS_SUFFIX"
 	public final void mNON_CONFORMATION_CLASS_SUFFIX() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:552:2: ( 'Class' | 'Walkthrough' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:558:2: ( 'Class' | 'Walkthrough' )
 			int alt22=2;
 			int LA22_0 = input.LA(1);
 			if ( (LA22_0=='C') ) {
@@ -3895,23 +3722,21 @@ public class testLexer extends Lexer {
 			else if ( (LA22_0=='W') ) {
 				alt22=2;
 			}
-
 			else {
 				NoViableAltException nvae =
 					new NoViableAltException("", 22, 0, input);
 				throw nvae;
 			}
-
 			switch (alt22) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:552:4: 'Class'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:558:4: 'Class'
 					{
 					match("Class"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:552:12: 'Walkthrough'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:558:12: 'Walkthrough'
 					{
 					match("Walkthrough"); 
 
@@ -3929,7 +3754,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "NON_CONFORMATION_CLASS_LEVEL"
 	public final void mNON_CONFORMATION_CLASS_LEVEL() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:554:2: ( 'Advanced' | 'Beginner' | 'Excellent' | 'Utility' | 'Pre' | 'Open' | 'Novice' | 'Wild Card' | ( 'Pair' ( 's' )? ) | 'Graduate' | 'Walkthrough' | 'Versatility' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:560:2: ( 'Advanced' | 'Beginner' | 'Excellent' | 'Utility' | 'Pre' | 'Open' | 'Novice' | 'Wild Card' | ( 'Pair' ( 's' )? ) | 'Graduate' | 'Walkthrough' | 'Versatility' )
 			int alt24=12;
 			switch ( input.LA(1) ) {
 			case 'A':
@@ -3961,7 +3786,6 @@ public class testLexer extends Lexer {
 				else if ( (LA24_5=='a') ) {
 					alt24=9;
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -3973,7 +3797,6 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 				}
 				break;
 			case 'O':
@@ -3995,7 +3818,6 @@ public class testLexer extends Lexer {
 				else if ( (LA24_8=='a') ) {
 					alt24=11;
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -4007,7 +3829,6 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 				}
 				break;
 			case 'G':
@@ -4027,70 +3848,70 @@ public class testLexer extends Lexer {
 			}
 			switch (alt24) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:555:2: 'Advanced'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:561:2: 'Advanced'
 					{
 					match("Advanced"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:556:2: 'Beginner'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:562:2: 'Beginner'
 					{
 					match("Beginner"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:557:2: 'Excellent'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:563:2: 'Excellent'
 					{
 					match("Excellent"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:558:2: 'Utility'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:564:2: 'Utility'
 					{
 					match("Utility"); 
 
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:559:2: 'Pre'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:565:2: 'Pre'
 					{
 					match("Pre"); 
 
 					}
 					break;
 				case 6 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:560:2: 'Open'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:566:2: 'Open'
 					{
 					match("Open"); 
 
 					}
 					break;
 				case 7 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:561:2: 'Novice'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:567:2: 'Novice'
 					{
 					match("Novice"); 
 
 					}
 					break;
 				case 8 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:562:2: 'Wild Card'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:568:2: 'Wild Card'
 					{
 					match("Wild Card"); 
 
 					}
 					break;
 				case 9 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:563:2: ( 'Pair' ( 's' )? )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:569:2: ( 'Pair' ( 's' )? )
 					{
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:563:2: ( 'Pair' ( 's' )? )
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:563:3: 'Pair' ( 's' )?
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:569:2: ( 'Pair' ( 's' )? )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:569:3: 'Pair' ( 's' )?
 					{
 					match("Pair"); 
 
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:563:9: ( 's' )?
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:569:9: ( 's' )?
 					int alt23=2;
 					int LA23_0 = input.LA(1);
 					if ( (LA23_0=='s') ) {
@@ -4098,7 +3919,7 @@ public class testLexer extends Lexer {
 					}
 					switch (alt23) {
 						case 1 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:563:9: 's'
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:569:9: 's'
 							{
 							match('s'); 
 							}
@@ -4111,21 +3932,21 @@ public class testLexer extends Lexer {
 					}
 					break;
 				case 10 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:564:2: 'Graduate'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:570:2: 'Graduate'
 					{
 					match("Graduate"); 
 
 					}
 					break;
 				case 11 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:565:2: 'Walkthrough'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:571:2: 'Walkthrough'
 					{
 					match("Walkthrough"); 
 
 					}
 					break;
 				case 12 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:566:2: 'Versatility'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:572:2: 'Versatility'
 					{
 					match("Versatility"); 
 
@@ -4145,14 +3966,14 @@ public class testLexer extends Lexer {
 		try {
 			int _type = NON_CONF_SECOND_LINE_COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:571:2: ( FRAG_TO_FOLLOW WS ( NON_CONFORMATION_CLASS_NAME | RALLY_CLASS ) )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:572:3: FRAG_TO_FOLLOW WS ( NON_CONFORMATION_CLASS_NAME | RALLY_CLASS )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:577:2: ( FRAG_TO_FOLLOW WS ( NON_CONFORMATION_CLASS_NAME | RALLY_CLASS ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:578:3: FRAG_TO_FOLLOW WS ( NON_CONFORMATION_CLASS_NAME | RALLY_CLASS )
 			{
 			mFRAG_TO_FOLLOW(); 
 
 			mWS(); 
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:572:21: ( NON_CONFORMATION_CLASS_NAME | RALLY_CLASS )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:578:21: ( NON_CONFORMATION_CLASS_NAME | RALLY_CLASS )
 			int alt25=2;
 			int LA25_0 = input.LA(1);
 			if ( ((LA25_0 >= 'A' && LA25_0 <= 'B')||LA25_0=='E'||LA25_0=='G'||(LA25_0 >= 'N' && LA25_0 <= 'P')||(LA25_0 >= 'U' && LA25_0 <= 'W')) ) {
@@ -4161,23 +3982,21 @@ public class testLexer extends Lexer {
 			else if ( (LA25_0=='R') ) {
 				alt25=2;
 			}
-
 			else {
 				NoViableAltException nvae =
 					new NoViableAltException("", 25, 0, input);
 				throw nvae;
 			}
-
 			switch (alt25) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:572:22: NON_CONFORMATION_CLASS_NAME
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:578:22: NON_CONFORMATION_CLASS_NAME
 					{
 					mNON_CONFORMATION_CLASS_NAME(); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:572:50: RALLY_CLASS
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:578:50: RALLY_CLASS
 					{
 					mRALLY_CLASS(); 
 
@@ -4200,8 +4019,8 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_TO_FOLLOW"
 	public final void mFRAG_TO_FOLLOW() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:574:2: ( 'To follow' )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:574:4: 'To follow'
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:580:2: ( 'To follow' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:580:4: 'To follow'
 			{
 			match("To follow"); 
 
@@ -4219,8 +4038,8 @@ public class testLexer extends Lexer {
 		try {
 			int _type = RALLY_CLASS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:576:2: ( FRAG_RALLY_CLASS_NAME )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:576:4: FRAG_RALLY_CLASS_NAME
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:582:2: ( FRAG_RALLY_CLASS_NAME )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:582:4: FRAG_RALLY_CLASS_NAME
 			{
 			mFRAG_RALLY_CLASS_NAME(); 
 
@@ -4238,8 +4057,8 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_RALLY_CLASS_NAME"
 	public final void mFRAG_RALLY_CLASS_NAME() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:578:2: ( 'Rally ' NON_CONFORMATION_CLASS_NAME )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:578:4: 'Rally ' NON_CONFORMATION_CLASS_NAME
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:584:2: ( 'Rally ' NON_CONFORMATION_CLASS_NAME )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:584:4: 'Rally ' NON_CONFORMATION_CLASS_NAME
 			{
 			match("Rally "); 
 
@@ -4257,8 +4076,8 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_RALLY_CLASS_SECTION"
 	public final void mFRAG_RALLY_CLASS_SECTION() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:580:2: ( 'Walkthrough' )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:580:4: 'Walkthrough'
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:586:2: ( 'Walkthrough' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:586:4: 'Walkthrough'
 			{
 			match("Walkthrough"); 
 
@@ -4276,10 +4095,10 @@ public class testLexer extends Lexer {
 		try {
 			int _type = RALLY_ENTRY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:582:2: ( ( 'inch: ' )? FRAG_RALLY_ENTRANT_GROUP ( ';' FRAG_RALLY_ENTRANT_GROUP )* )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:582:4: ( 'inch: ' )? FRAG_RALLY_ENTRANT_GROUP ( ';' FRAG_RALLY_ENTRANT_GROUP )*
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:588:2: ( ( 'inch: ' )? FRAG_RALLY_ENTRANT_GROUP ( ';' FRAG_RALLY_ENTRANT_GROUP )* )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:588:4: ( 'inch: ' )? FRAG_RALLY_ENTRANT_GROUP ( ';' FRAG_RALLY_ENTRANT_GROUP )*
 			{
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:582:4: ( 'inch: ' )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:588:4: ( 'inch: ' )?
 			int alt26=2;
 			int LA26_0 = input.LA(1);
 			if ( (LA26_0=='i') ) {
@@ -4287,7 +4106,7 @@ public class testLexer extends Lexer {
 			}
 			switch (alt26) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:582:4: 'inch: '
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:588:4: 'inch: '
 					{
 					match("inch: "); 
 
@@ -4298,9 +4117,9 @@ public class testLexer extends Lexer {
 
 			mFRAG_RALLY_ENTRANT_GROUP(); 
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:582:39: ( ';' FRAG_RALLY_ENTRANT_GROUP )*
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:588:39: ( ';' FRAG_RALLY_ENTRANT_GROUP )*
 			loop27:
-			while (true) {
+			do {
 				int alt27=2;
 				int LA27_0 = input.LA(1);
 				if ( (LA27_0==';') ) {
@@ -4309,7 +4128,7 @@ public class testLexer extends Lexer {
 
 				switch (alt27) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:582:40: ';' FRAG_RALLY_ENTRANT_GROUP
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:588:40: ';' FRAG_RALLY_ENTRANT_GROUP
 					{
 					match(';'); 
 					mFRAG_RALLY_ENTRANT_GROUP(); 
@@ -4320,7 +4139,7 @@ public class testLexer extends Lexer {
 				default :
 					break loop27;
 				}
-			}
+			} while (true);
 
 			}
 
@@ -4338,20 +4157,20 @@ public class testLexer extends Lexer {
 		try {
 			int _type = NON_CONFORMATION_SECOND_LINE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:589:29: ( ( ( '0' .. '9' )+ '-' ( '0' .. '9' )+ ) | ( ( '0' .. '9' )+ ( ( '-' ( '0' .. '9' )+ )? ( ';' ( '0' .. '9' )+ ( '-' ( '0' .. '9' )+ )? ) )+ ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:595:29: ( ( ( '0' .. '9' )+ '-' ( '0' .. '9' )+ ) | ( ( '0' .. '9' )+ ( ( '-' ( '0' .. '9' )+ )? ( ';' ( '0' .. '9' )+ ( '-' ( '0' .. '9' )+ )? ) )+ ) )
 			int alt37=2;
 			alt37 = dfa37.predict(input);
 			switch (alt37) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:589:30: ( ( '0' .. '9' )+ '-' ( '0' .. '9' )+ )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:595:30: ( ( '0' .. '9' )+ '-' ( '0' .. '9' )+ )
 					{
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:589:30: ( ( '0' .. '9' )+ '-' ( '0' .. '9' )+ )
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:589:31: ( '0' .. '9' )+ '-' ( '0' .. '9' )+
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:595:30: ( ( '0' .. '9' )+ '-' ( '0' .. '9' )+ )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:595:31: ( '0' .. '9' )+ '-' ( '0' .. '9' )+
 					{
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:589:31: ( '0' .. '9' )+
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:595:31: ( '0' .. '9' )+
 					int cnt28=0;
 					loop28:
-					while (true) {
+					do {
 						int alt28=2;
 						int LA28_0 = input.LA(1);
 						if ( ((LA28_0 >= '0' && LA28_0 <= '9')) ) {
@@ -4375,17 +4194,18 @@ public class testLexer extends Lexer {
 
 						default :
 							if ( cnt28 >= 1 ) break loop28;
-							EarlyExitException eee = new EarlyExitException(28, input);
-							throw eee;
+								EarlyExitException eee =
+									new EarlyExitException(28, input);
+								throw eee;
 						}
 						cnt28++;
-					}
+					} while (true);
 
 					match('-'); 
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:589:43: ( '0' .. '9' )+
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:595:43: ( '0' .. '9' )+
 					int cnt29=0;
 					loop29:
-					while (true) {
+					do {
 						int alt29=2;
 						int LA29_0 = input.LA(1);
 						if ( ((LA29_0 >= '0' && LA29_0 <= '9')) ) {
@@ -4409,26 +4229,27 @@ public class testLexer extends Lexer {
 
 						default :
 							if ( cnt29 >= 1 ) break loop29;
-							EarlyExitException eee = new EarlyExitException(29, input);
-							throw eee;
+								EarlyExitException eee =
+									new EarlyExitException(29, input);
+								throw eee;
 						}
 						cnt29++;
-					}
+					} while (true);
 
 					}
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:589:54: ( ( '0' .. '9' )+ ( ( '-' ( '0' .. '9' )+ )? ( ';' ( '0' .. '9' )+ ( '-' ( '0' .. '9' )+ )? ) )+ )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:595:54: ( ( '0' .. '9' )+ ( ( '-' ( '0' .. '9' )+ )? ( ';' ( '0' .. '9' )+ ( '-' ( '0' .. '9' )+ )? ) )+ )
 					{
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:589:54: ( ( '0' .. '9' )+ ( ( '-' ( '0' .. '9' )+ )? ( ';' ( '0' .. '9' )+ ( '-' ( '0' .. '9' )+ )? ) )+ )
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:589:55: ( '0' .. '9' )+ ( ( '-' ( '0' .. '9' )+ )? ( ';' ( '0' .. '9' )+ ( '-' ( '0' .. '9' )+ )? ) )+
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:595:54: ( ( '0' .. '9' )+ ( ( '-' ( '0' .. '9' )+ )? ( ';' ( '0' .. '9' )+ ( '-' ( '0' .. '9' )+ )? ) )+ )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:595:55: ( '0' .. '9' )+ ( ( '-' ( '0' .. '9' )+ )? ( ';' ( '0' .. '9' )+ ( '-' ( '0' .. '9' )+ )? ) )+
 					{
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:589:55: ( '0' .. '9' )+
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:595:55: ( '0' .. '9' )+
 					int cnt30=0;
 					loop30:
-					while (true) {
+					do {
 						int alt30=2;
 						int LA30_0 = input.LA(1);
 						if ( ((LA30_0 >= '0' && LA30_0 <= '9')) ) {
@@ -4452,16 +4273,17 @@ public class testLexer extends Lexer {
 
 						default :
 							if ( cnt30 >= 1 ) break loop30;
-							EarlyExitException eee = new EarlyExitException(30, input);
-							throw eee;
+								EarlyExitException eee =
+									new EarlyExitException(30, input);
+								throw eee;
 						}
 						cnt30++;
-					}
+					} while (true);
 
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:589:64: ( ( '-' ( '0' .. '9' )+ )? ( ';' ( '0' .. '9' )+ ( '-' ( '0' .. '9' )+ )? ) )+
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:595:64: ( ( '-' ( '0' .. '9' )+ )? ( ';' ( '0' .. '9' )+ ( '-' ( '0' .. '9' )+ )? ) )+
 					int cnt36=0;
 					loop36:
-					while (true) {
+					do {
 						int alt36=2;
 						int LA36_0 = input.LA(1);
 						if ( (LA36_0=='-'||LA36_0==';') ) {
@@ -4470,9 +4292,9 @@ public class testLexer extends Lexer {
 
 						switch (alt36) {
 						case 1 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:589:65: ( '-' ( '0' .. '9' )+ )? ( ';' ( '0' .. '9' )+ ( '-' ( '0' .. '9' )+ )? )
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:595:65: ( '-' ( '0' .. '9' )+ )? ( ';' ( '0' .. '9' )+ ( '-' ( '0' .. '9' )+ )? )
 							{
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:589:65: ( '-' ( '0' .. '9' )+ )?
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:595:65: ( '-' ( '0' .. '9' )+ )?
 							int alt32=2;
 							int LA32_0 = input.LA(1);
 							if ( (LA32_0=='-') ) {
@@ -4480,13 +4302,13 @@ public class testLexer extends Lexer {
 							}
 							switch (alt32) {
 								case 1 :
-									// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:589:66: '-' ( '0' .. '9' )+
+									// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:595:66: '-' ( '0' .. '9' )+
 									{
 									match('-'); 
-									// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:589:69: ( '0' .. '9' )+
+									// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:595:69: ( '0' .. '9' )+
 									int cnt31=0;
 									loop31:
-									while (true) {
+									do {
 										int alt31=2;
 										int LA31_0 = input.LA(1);
 										if ( ((LA31_0 >= '0' && LA31_0 <= '9')) ) {
@@ -4510,25 +4332,26 @@ public class testLexer extends Lexer {
 
 										default :
 											if ( cnt31 >= 1 ) break loop31;
-											EarlyExitException eee = new EarlyExitException(31, input);
-											throw eee;
+												EarlyExitException eee =
+													new EarlyExitException(31, input);
+												throw eee;
 										}
 										cnt31++;
-									}
+									} while (true);
 
 									}
 									break;
 
 							}
 
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:589:80: ( ';' ( '0' .. '9' )+ ( '-' ( '0' .. '9' )+ )? )
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:589:81: ';' ( '0' .. '9' )+ ( '-' ( '0' .. '9' )+ )?
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:595:80: ( ';' ( '0' .. '9' )+ ( '-' ( '0' .. '9' )+ )? )
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:595:81: ';' ( '0' .. '9' )+ ( '-' ( '0' .. '9' )+ )?
 							{
 							match(';'); 
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:589:84: ( '0' .. '9' )+
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:595:84: ( '0' .. '9' )+
 							int cnt33=0;
 							loop33:
-							while (true) {
+							do {
 								int alt33=2;
 								int LA33_0 = input.LA(1);
 								if ( ((LA33_0 >= '0' && LA33_0 <= '9')) ) {
@@ -4552,13 +4375,14 @@ public class testLexer extends Lexer {
 
 								default :
 									if ( cnt33 >= 1 ) break loop33;
-									EarlyExitException eee = new EarlyExitException(33, input);
-									throw eee;
+										EarlyExitException eee =
+											new EarlyExitException(33, input);
+										throw eee;
 								}
 								cnt33++;
-							}
+							} while (true);
 
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:589:93: ( '-' ( '0' .. '9' )+ )?
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:595:93: ( '-' ( '0' .. '9' )+ )?
 							int alt35=2;
 							int LA35_0 = input.LA(1);
 							if ( (LA35_0=='-') ) {
@@ -4569,13 +4393,13 @@ public class testLexer extends Lexer {
 							}
 							switch (alt35) {
 								case 1 :
-									// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:589:94: '-' ( '0' .. '9' )+
+									// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:595:94: '-' ( '0' .. '9' )+
 									{
 									match('-'); 
-									// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:589:97: ( '0' .. '9' )+
+									// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:595:97: ( '0' .. '9' )+
 									int cnt34=0;
 									loop34:
-									while (true) {
+									do {
 										int alt34=2;
 										int LA34_0 = input.LA(1);
 										if ( ((LA34_0 >= '0' && LA34_0 <= '9')) ) {
@@ -4599,11 +4423,12 @@ public class testLexer extends Lexer {
 
 										default :
 											if ( cnt34 >= 1 ) break loop34;
-											EarlyExitException eee = new EarlyExitException(34, input);
-											throw eee;
+												EarlyExitException eee =
+													new EarlyExitException(34, input);
+												throw eee;
 										}
 										cnt34++;
-									}
+									} while (true);
 
 									}
 									break;
@@ -4617,11 +4442,12 @@ public class testLexer extends Lexer {
 
 						default :
 							if ( cnt36 >= 1 ) break loop36;
-							EarlyExitException eee = new EarlyExitException(36, input);
-							throw eee;
+								EarlyExitException eee =
+									new EarlyExitException(36, input);
+								throw eee;
 						}
 						cnt36++;
-					}
+					} while (true);
 
 					}
 
@@ -4641,14 +4467,14 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_RALLY_SINGLE_ENTRANT"
 	public final void mFRAG_RALLY_SINGLE_ENTRANT() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:592:2: ( 'R' ( '0' .. '9' )+ )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:592:4: 'R' ( '0' .. '9' )+
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:598:2: ( 'R' ( '0' .. '9' )+ )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:598:4: 'R' ( '0' .. '9' )+
 			{
 			match('R'); 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:592:7: ( '0' .. '9' )+
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:598:7: ( '0' .. '9' )+
 			int cnt38=0;
 			loop38:
-			while (true) {
+			do {
 				int alt38=2;
 				int LA38_0 = input.LA(1);
 				if ( ((LA38_0 >= '0' && LA38_0 <= '9')) ) {
@@ -4672,11 +4498,12 @@ public class testLexer extends Lexer {
 
 				default :
 					if ( cnt38 >= 1 ) break loop38;
-					EarlyExitException eee = new EarlyExitException(38, input);
-					throw eee;
+						EarlyExitException eee =
+							new EarlyExitException(38, input);
+						throw eee;
 				}
 				cnt38++;
-			}
+			} while (true);
 
 			}
 
@@ -4690,14 +4517,14 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_RALLY_ENTRANT_GROUP"
 	public final void mFRAG_RALLY_ENTRANT_GROUP() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:593:34: ( FRAG_RALLY_SINGLE_ENTRANT ( ( ',' | '-' ) FRAG_RALLY_SINGLE_ENTRANT )* )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:594:2: FRAG_RALLY_SINGLE_ENTRANT ( ( ',' | '-' ) FRAG_RALLY_SINGLE_ENTRANT )*
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:599:34: ( FRAG_RALLY_SINGLE_ENTRANT ( ( ',' | '-' ) FRAG_RALLY_SINGLE_ENTRANT )* )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:600:2: FRAG_RALLY_SINGLE_ENTRANT ( ( ',' | '-' ) FRAG_RALLY_SINGLE_ENTRANT )*
 			{
 			mFRAG_RALLY_SINGLE_ENTRANT(); 
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:594:28: ( ( ',' | '-' ) FRAG_RALLY_SINGLE_ENTRANT )*
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:600:28: ( ( ',' | '-' ) FRAG_RALLY_SINGLE_ENTRANT )*
 			loop39:
-			while (true) {
+			do {
 				int alt39=2;
 				int LA39_0 = input.LA(1);
 				if ( ((LA39_0 >= ',' && LA39_0 <= '-')) ) {
@@ -4706,7 +4533,7 @@ public class testLexer extends Lexer {
 
 				switch (alt39) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:594:29: ( ',' | '-' ) FRAG_RALLY_SINGLE_ENTRANT
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:600:29: ( ',' | '-' ) FRAG_RALLY_SINGLE_ENTRANT
 					{
 					if ( (input.LA(1) >= ',' && input.LA(1) <= '-') ) {
 						input.consume();
@@ -4724,7 +4551,7 @@ public class testLexer extends Lexer {
 				default :
 					break loop39;
 				}
-			}
+			} while (true);
 
 			}
 
@@ -4738,7 +4565,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_MONTH"
 	public final void mFRAG_MONTH() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:597:23: ( 'January' | 'JANUARY' | 'February' | 'FEBRUARY' | 'March' | 'MARCH' | 'April' | 'APRIL' | 'May' | 'MAY' | 'June' | 'JUNE' | 'July' | 'JULY' | 'August' | 'AUGUST' | 'September' | 'SEPTEMBER' | 'October' | 'OCTOBER' | 'November' | 'NOVEMBER' | 'December' | 'DECEMBER' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:603:23: ( 'January' | 'JANUARY' | 'February' | 'FEBRUARY' | 'March' | 'MARCH' | 'April' | 'APRIL' | 'May' | 'MAY' | 'June' | 'JUNE' | 'July' | 'JULY' | 'August' | 'AUGUST' | 'September' | 'SEPTEMBER' | 'October' | 'OCTOBER' | 'November' | 'NOVEMBER' | 'December' | 'DECEMBER' )
 			int alt40=24;
 			switch ( input.LA(1) ) {
 			case 'J':
@@ -4763,13 +4590,11 @@ public class testLexer extends Lexer {
 					else if ( (LA40_11=='l') ) {
 						alt40=13;
 					}
-
 					else {
 						int nvaeMark = input.mark();
 						try {
-							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++)
 								input.consume();
-							}
 							NoViableAltException nvae =
 								new NoViableAltException("", 40, 11, input);
 							throw nvae;
@@ -4777,7 +4602,6 @@ public class testLexer extends Lexer {
 							input.rewind(nvaeMark);
 						}
 					}
-
 					}
 					break;
 				case 'U':
@@ -4789,13 +4613,11 @@ public class testLexer extends Lexer {
 					else if ( (LA40_12=='L') ) {
 						alt40=14;
 					}
-
 					else {
 						int nvaeMark = input.mark();
 						try {
-							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++)
 								input.consume();
-							}
 							NoViableAltException nvae =
 								new NoViableAltException("", 40, 12, input);
 							throw nvae;
@@ -4803,7 +4625,6 @@ public class testLexer extends Lexer {
 							input.rewind(nvaeMark);
 						}
 					}
-
 					}
 					break;
 				default:
@@ -4828,7 +4649,6 @@ public class testLexer extends Lexer {
 				else if ( (LA40_2=='E') ) {
 					alt40=4;
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -4840,7 +4660,6 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 				}
 				break;
 			case 'M':
@@ -4854,13 +4673,11 @@ public class testLexer extends Lexer {
 					else if ( (LA40_15=='y') ) {
 						alt40=9;
 					}
-
 					else {
 						int nvaeMark = input.mark();
 						try {
-							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++)
 								input.consume();
-							}
 							NoViableAltException nvae =
 								new NoViableAltException("", 40, 15, input);
 							throw nvae;
@@ -4868,7 +4685,6 @@ public class testLexer extends Lexer {
 							input.rewind(nvaeMark);
 						}
 					}
-
 				}
 				else if ( (LA40_3=='A') ) {
 					int LA40_16 = input.LA(3);
@@ -4878,13 +4694,11 @@ public class testLexer extends Lexer {
 					else if ( (LA40_16=='Y') ) {
 						alt40=10;
 					}
-
 					else {
 						int nvaeMark = input.mark();
 						try {
-							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++)
 								input.consume();
-							}
 							NoViableAltException nvae =
 								new NoViableAltException("", 40, 16, input);
 							throw nvae;
@@ -4892,9 +4706,7 @@ public class testLexer extends Lexer {
 							input.rewind(nvaeMark);
 						}
 					}
-
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -4906,7 +4718,6 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 				}
 				break;
 			case 'A':
@@ -4954,7 +4765,6 @@ public class testLexer extends Lexer {
 				else if ( (LA40_5=='E') ) {
 					alt40=18;
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -4966,7 +4776,6 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 				}
 				break;
 			case 'O':
@@ -4978,7 +4787,6 @@ public class testLexer extends Lexer {
 				else if ( (LA40_6=='C') ) {
 					alt40=20;
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -4990,7 +4798,6 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 				}
 				break;
 			case 'N':
@@ -5002,7 +4809,6 @@ public class testLexer extends Lexer {
 				else if ( (LA40_7=='O') ) {
 					alt40=22;
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -5014,7 +4820,6 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 				}
 				break;
 			case 'D':
@@ -5026,7 +4831,6 @@ public class testLexer extends Lexer {
 				else if ( (LA40_8=='E') ) {
 					alt40=24;
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -5038,7 +4842,6 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 				}
 				break;
 			default:
@@ -5048,168 +4851,168 @@ public class testLexer extends Lexer {
 			}
 			switch (alt40) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:597:27: 'January'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:603:27: 'January'
 					{
 					match("January"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:597:37: 'JANUARY'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:603:37: 'JANUARY'
 					{
 					match("JANUARY"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:598:14: 'February'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:604:14: 'February'
 					{
 					match("February"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:598:25: 'FEBRUARY'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:604:25: 'FEBRUARY'
 					{
 					match("FEBRUARY"); 
 
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:599:14: 'March'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:605:14: 'March'
 					{
 					match("March"); 
 
 					}
 					break;
 				case 6 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:599:22: 'MARCH'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:605:22: 'MARCH'
 					{
 					match("MARCH"); 
 
 					}
 					break;
 				case 7 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:600:14: 'April'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:606:14: 'April'
 					{
 					match("April"); 
 
 					}
 					break;
 				case 8 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:600:22: 'APRIL'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:606:22: 'APRIL'
 					{
 					match("APRIL"); 
 
 					}
 					break;
 				case 9 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:601:14: 'May'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:607:14: 'May'
 					{
 					match("May"); 
 
 					}
 					break;
 				case 10 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:601:20: 'MAY'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:607:20: 'MAY'
 					{
 					match("MAY"); 
 
 					}
 					break;
 				case 11 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:602:14: 'June'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:608:14: 'June'
 					{
 					match("June"); 
 
 					}
 					break;
 				case 12 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:602:21: 'JUNE'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:608:21: 'JUNE'
 					{
 					match("JUNE"); 
 
 					}
 					break;
 				case 13 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:603:14: 'July'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:609:14: 'July'
 					{
 					match("July"); 
 
 					}
 					break;
 				case 14 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:603:21: 'JULY'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:609:21: 'JULY'
 					{
 					match("JULY"); 
 
 					}
 					break;
 				case 15 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:604:14: 'August'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:610:14: 'August'
 					{
 					match("August"); 
 
 					}
 					break;
 				case 16 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:604:23: 'AUGUST'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:610:23: 'AUGUST'
 					{
 					match("AUGUST"); 
 
 					}
 					break;
 				case 17 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:605:14: 'September'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:611:14: 'September'
 					{
 					match("September"); 
 
 					}
 					break;
 				case 18 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:605:26: 'SEPTEMBER'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:611:26: 'SEPTEMBER'
 					{
 					match("SEPTEMBER"); 
 
 					}
 					break;
 				case 19 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:606:14: 'October'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:612:14: 'October'
 					{
 					match("October"); 
 
 					}
 					break;
 				case 20 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:606:24: 'OCTOBER'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:612:24: 'OCTOBER'
 					{
 					match("OCTOBER"); 
 
 					}
 					break;
 				case 21 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:607:14: 'November'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:613:14: 'November'
 					{
 					match("November"); 
 
 					}
 					break;
 				case 22 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:607:25: 'NOVEMBER'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:613:25: 'NOVEMBER'
 					{
 					match("NOVEMBER"); 
 
 					}
 					break;
 				case 23 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:608:14: 'December'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:614:14: 'December'
 					{
 					match("December"); 
 
 					}
 					break;
 				case 24 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:608:25: 'DECEMBER'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:614:25: 'DECEMBER'
 					{
 					match("DECEMBER"); 
 
@@ -5227,7 +5030,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "END_PUNCTUATION"
 	public final void mEND_PUNCTUATION() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:610:29: ( '!' | '?' | '.' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:616:29: ( '!' | '?' | '.' )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:
 			{
 			if ( input.LA(1)=='!'||input.LA(1)=='.'||input.LA(1)=='?' ) {
@@ -5250,7 +5053,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_RING"
 	public final void mFRAG_RING() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:611:25: ( 'RING' | 'Ring' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:617:25: ( 'RING' | 'Ring' )
 			int alt41=2;
 			int LA41_0 = input.LA(1);
 			if ( (LA41_0=='R') ) {
@@ -5261,7 +5064,6 @@ public class testLexer extends Lexer {
 				else if ( (LA41_1=='i') ) {
 					alt41=2;
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -5273,25 +5075,22 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 			}
-
 			else {
 				NoViableAltException nvae =
 					new NoViableAltException("", 41, 0, input);
 				throw nvae;
 			}
-
 			switch (alt41) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:611:29: 'RING'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:617:29: 'RING'
 					{
 					match("RING"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:611:36: 'Ring'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:617:36: 'Ring'
 					{
 					match("Ring"); 
 
@@ -5309,7 +5108,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_SPEC_CHAR"
 	public final void mFRAG_SPEC_CHAR() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:612:29: ( ',' | '_' | '-' | ';' | ':' | '\\'' | '’' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:618:29: ( ',' | '_' | '-' | ';' | ':' | '\\'' | '’' )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:
 			{
 			if ( input.LA(1)=='\''||(input.LA(1) >= ',' && input.LA(1) <= '-')||(input.LA(1) >= ':' && input.LA(1) <= ';')||input.LA(1)=='_'||input.LA(1)=='\u2019' ) {
@@ -5332,8 +5131,8 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_SPEC_WORD_CHAR"
 	public final void mFRAG_SPEC_WORD_CHAR() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:615:5: ( '&' )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:615:9: '&'
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:621:5: ( '&' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:621:9: '&'
 			{
 			match('&'); 
 			}
@@ -5348,7 +5147,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_TIME_LABEL"
 	public final void mFRAG_TIME_LABEL() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:618:5: ( 'am' | 'pm' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:624:5: ( 'am' | 'pm' )
 			int alt42=2;
 			int LA42_0 = input.LA(1);
 			if ( (LA42_0=='a') ) {
@@ -5357,23 +5156,21 @@ public class testLexer extends Lexer {
 			else if ( (LA42_0=='p') ) {
 				alt42=2;
 			}
-
 			else {
 				NoViableAltException nvae =
 					new NoViableAltException("", 42, 0, input);
 				throw nvae;
 			}
-
 			switch (alt42) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:618:9: 'am'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:624:9: 'am'
 					{
 					match("am"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:618:14: 'pm'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:624:14: 'pm'
 					{
 					match("pm"); 
 
@@ -5391,7 +5188,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_TITLE"
 	public final void mFRAG_TITLE() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:621:5: ( 'MR' | 'Mr' | 'MRS' | 'Mrs' | 'MS' | 'Ms' | 'MISS' | 'Miss' | 'DR' | 'Dr' | 'COL' | 'Col' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:627:5: ( 'MR' | 'Mr' | 'MRS' | 'Mrs' | 'MS' | 'Ms' | 'MISS' | 'Miss' | 'DR' | 'Dr' | 'COL' | 'Col' )
 			int alt43=12;
 			switch ( input.LA(1) ) {
 			case 'M':
@@ -5403,11 +5200,9 @@ public class testLexer extends Lexer {
 					if ( (LA43_4=='S') ) {
 						alt43=3;
 					}
-
 					else {
 						alt43=1;
 					}
-
 					}
 					break;
 				case 'r':
@@ -5416,11 +5211,9 @@ public class testLexer extends Lexer {
 					if ( (LA43_5=='s') ) {
 						alt43=4;
 					}
-
 					else {
 						alt43=2;
 					}
-
 					}
 					break;
 				case 'S':
@@ -5465,7 +5258,6 @@ public class testLexer extends Lexer {
 				else if ( (LA43_2=='r') ) {
 					alt43=10;
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -5477,7 +5269,6 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 				}
 				break;
 			case 'C':
@@ -5489,7 +5280,6 @@ public class testLexer extends Lexer {
 				else if ( (LA43_3=='o') ) {
 					alt43=12;
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -5501,7 +5291,6 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 				}
 				break;
 			default:
@@ -5511,84 +5300,84 @@ public class testLexer extends Lexer {
 			}
 			switch (alt43) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:621:9: 'MR'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:627:9: 'MR'
 					{
 					match("MR"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:621:14: 'Mr'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:627:14: 'Mr'
 					{
 					match("Mr"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:622:9: 'MRS'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:628:9: 'MRS'
 					{
 					match("MRS"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:622:15: 'Mrs'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:628:15: 'Mrs'
 					{
 					match("Mrs"); 
 
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:623:9: 'MS'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:629:9: 'MS'
 					{
 					match("MS"); 
 
 					}
 					break;
 				case 6 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:623:14: 'Ms'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:629:14: 'Ms'
 					{
 					match("Ms"); 
 
 					}
 					break;
 				case 7 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:624:9: 'MISS'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:630:9: 'MISS'
 					{
 					match("MISS"); 
 
 					}
 					break;
 				case 8 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:624:16: 'Miss'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:630:16: 'Miss'
 					{
 					match("Miss"); 
 
 					}
 					break;
 				case 9 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:625:10: 'DR'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:631:10: 'DR'
 					{
 					match("DR"); 
 
 					}
 					break;
 				case 10 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:625:15: 'Dr'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:631:15: 'Dr'
 					{
 					match("Dr"); 
 
 					}
 					break;
 				case 11 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:626:9: 'COL'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:632:9: 'COL'
 					{
 					match("COL"); 
 
 					}
 					break;
 				case 12 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:626:15: 'Col'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:632:15: 'Col'
 					{
 					match("Col"); 
 
@@ -5606,7 +5395,7 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_WEEK_DAY"
 	public final void mFRAG_WEEK_DAY() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:629:23: ( 'Sunday' | 'SUNDAY' | 'Monday' | 'MONDAY' | 'Tuesday' | 'TUESDAY' | 'Wednesday' | 'WEDNESDAY' | 'Thursday' | 'THURSDAY' | 'Friday' | 'FRIDAY' | 'Saturday' | 'SATURDAY' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:635:23: ( 'Sunday' | 'SUNDAY' | 'Monday' | 'MONDAY' | 'Tuesday' | 'TUESDAY' | 'Wednesday' | 'WEDNESDAY' | 'Thursday' | 'THURSDAY' | 'Friday' | 'FRIDAY' | 'Saturday' | 'SATURDAY' )
 			int alt44=14;
 			switch ( input.LA(1) ) {
 			case 'S':
@@ -5654,7 +5443,6 @@ public class testLexer extends Lexer {
 				else if ( (LA44_2=='O') ) {
 					alt44=4;
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -5666,7 +5454,6 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 				}
 				break;
 			case 'T':
@@ -5714,7 +5501,6 @@ public class testLexer extends Lexer {
 				else if ( (LA44_4=='E') ) {
 					alt44=8;
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -5726,7 +5512,6 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 				}
 				break;
 			case 'F':
@@ -5738,7 +5523,6 @@ public class testLexer extends Lexer {
 				else if ( (LA44_5=='R') ) {
 					alt44=12;
 				}
-
 				else {
 					int nvaeMark = input.mark();
 					try {
@@ -5750,7 +5534,6 @@ public class testLexer extends Lexer {
 						input.rewind(nvaeMark);
 					}
 				}
-
 				}
 				break;
 			default:
@@ -5760,98 +5543,98 @@ public class testLexer extends Lexer {
 			}
 			switch (alt44) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:629:27: 'Sunday'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:635:27: 'Sunday'
 					{
 					match("Sunday"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:629:36: 'SUNDAY'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:635:36: 'SUNDAY'
 					{
 					match("SUNDAY"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:630:9: 'Monday'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:636:9: 'Monday'
 					{
 					match("Monday"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:630:18: 'MONDAY'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:636:18: 'MONDAY'
 					{
 					match("MONDAY"); 
 
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:631:9: 'Tuesday'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:637:9: 'Tuesday'
 					{
 					match("Tuesday"); 
 
 					}
 					break;
 				case 6 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:631:19: 'TUESDAY'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:637:19: 'TUESDAY'
 					{
 					match("TUESDAY"); 
 
 					}
 					break;
 				case 7 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:632:9: 'Wednesday'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:638:9: 'Wednesday'
 					{
 					match("Wednesday"); 
 
 					}
 					break;
 				case 8 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:632:21: 'WEDNESDAY'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:638:21: 'WEDNESDAY'
 					{
 					match("WEDNESDAY"); 
 
 					}
 					break;
 				case 9 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:633:9: 'Thursday'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:639:9: 'Thursday'
 					{
 					match("Thursday"); 
 
 					}
 					break;
 				case 10 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:633:20: 'THURSDAY'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:639:20: 'THURSDAY'
 					{
 					match("THURSDAY"); 
 
 					}
 					break;
 				case 11 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:634:9: 'Friday'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:640:9: 'Friday'
 					{
 					match("Friday"); 
 
 					}
 					break;
 				case 12 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:634:18: 'FRIDAY'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:640:18: 'FRIDAY'
 					{
 					match("FRIDAY"); 
 
 					}
 					break;
 				case 13 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:635:9: 'Saturday'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:641:9: 'Saturday'
 					{
 					match("Saturday"); 
 
 					}
 					break;
 				case 14 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:635:20: 'SATURDAY'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:641:20: 'SATURDAY'
 					{
 					match("SATURDAY"); 
 
@@ -5871,7 +5654,7 @@ public class testLexer extends Lexer {
 		try {
 			int _type = STANDALONE_COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:652:5: ( 'LUNCH' | 'VARIETY GROUP JUDGING' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:658:5: ( 'LUNCH' | 'VARIETY GROUP JUDGING' )
 			int alt45=2;
 			int LA45_0 = input.LA(1);
 			if ( (LA45_0=='L') ) {
@@ -5880,23 +5663,21 @@ public class testLexer extends Lexer {
 			else if ( (LA45_0=='V') ) {
 				alt45=2;
 			}
-
 			else {
 				NoViableAltException nvae =
 					new NoViableAltException("", 45, 0, input);
 				throw nvae;
 			}
-
 			switch (alt45) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:652:9: 'LUNCH'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:658:9: 'LUNCH'
 					{
 					match("LUNCH"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:652:17: 'VARIETY GROUP JUDGING'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:658:17: 'VARIETY GROUP JUDGING'
 					{
 					match("VARIETY GROUP JUDGING"); 
 
@@ -5918,8 +5699,8 @@ public class testLexer extends Lexer {
 		try {
 			int _type = BREED_COUNT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:648:14: ( INT '-' INT '-' INT '-' INT )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:648:17: INT '-' INT '-' INT '-' INT
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:655:14: ( INT '-' INT '-' INT '-' INT )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:655:17: INT '-' INT '-' INT '-' INT
 			{
 			mINT(); 
 
@@ -5948,14 +5729,14 @@ public class testLexer extends Lexer {
 		try {
 			int _type = JUDGE_NAME;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:649:11: ({...}? => ( FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )+ ( ( WS )? ( PARENTHETICAL_INT )? ) ) )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:649:13: {...}? => ( FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )+ ( ( WS )? ( PARENTHETICAL_INT )? ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:656:11: ({...}? => ( FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )+ ( ( WS )? ( PARENTHETICAL_INT )? ) ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:656:13: {...}? => ( FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )+ ( ( WS )? ( PARENTHETICAL_INT )? ) )
 			{
 			if ( !((allowJudge)) ) {
 				throw new FailedPredicateException(input, "JUDGE_NAME", "allowJudge");
 			}
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:649:28: ( FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )+ ( ( WS )? ( PARENTHETICAL_INT )? ) )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:649:29: FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )+ ( ( WS )? ( PARENTHETICAL_INT )? )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:656:28: ( FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )+ ( ( WS )? ( PARENTHETICAL_INT )? ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:656:29: FRAG_TITLE WS FRAG_PROPER_NAME ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )+ ( ( WS )? ( PARENTHETICAL_INT )? )
 			{
 			mFRAG_TITLE(); 
 
@@ -5963,10 +5744,10 @@ public class testLexer extends Lexer {
 
 			mFRAG_PROPER_NAME(); 
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:649:60: ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )+
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:656:60: ( ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME ) )+
 			int cnt47=0;
 			loop47:
-			while (true) {
+			do {
 				int alt47=2;
 				int LA47_0 = input.LA(1);
 				if ( (LA47_0==' ') ) {
@@ -5986,10 +5767,10 @@ public class testLexer extends Lexer {
 
 				switch (alt47) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:649:61: ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:656:61: ' ' ( PARENTHETICAL_NAME | FRAG_PROPER_NAME )
 					{
 					match(' '); 
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:649:65: ( PARENTHETICAL_NAME | FRAG_PROPER_NAME )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:656:65: ( PARENTHETICAL_NAME | FRAG_PROPER_NAME )
 					int alt46=2;
 					int LA46_0 = input.LA(1);
 					if ( (LA46_0=='(') ) {
@@ -5998,23 +5779,21 @@ public class testLexer extends Lexer {
 					else if ( ((LA46_0 >= 'A' && LA46_0 <= 'Z')) ) {
 						alt46=2;
 					}
-
 					else {
 						NoViableAltException nvae =
 							new NoViableAltException("", 46, 0, input);
 						throw nvae;
 					}
-
 					switch (alt46) {
 						case 1 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:649:66: PARENTHETICAL_NAME
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:656:66: PARENTHETICAL_NAME
 							{
 							mPARENTHETICAL_NAME(); 
 
 							}
 							break;
 						case 2 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:649:85: FRAG_PROPER_NAME
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:656:85: FRAG_PROPER_NAME
 							{
 							mFRAG_PROPER_NAME(); 
 
@@ -6028,16 +5807,17 @@ public class testLexer extends Lexer {
 
 				default :
 					if ( cnt47 >= 1 ) break loop47;
-					EarlyExitException eee = new EarlyExitException(47, input);
-					throw eee;
+						EarlyExitException eee =
+							new EarlyExitException(47, input);
+						throw eee;
 				}
 				cnt47++;
-			}
+			} while (true);
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:649:105: ( ( WS )? ( PARENTHETICAL_INT )? )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:649:106: ( WS )? ( PARENTHETICAL_INT )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:656:105: ( ( WS )? ( PARENTHETICAL_INT )? )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:656:106: ( WS )? ( PARENTHETICAL_INT )?
 			{
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:649:106: ( WS )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:656:106: ( WS )?
 			int alt48=2;
 			int LA48_0 = input.LA(1);
 			if ( ((LA48_0 >= '\t' && LA48_0 <= '\n')||LA48_0=='\r'||LA48_0==' ') ) {
@@ -6045,7 +5825,7 @@ public class testLexer extends Lexer {
 			}
 			switch (alt48) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:649:106: WS
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:656:106: WS
 					{
 					mWS(); 
 
@@ -6054,7 +5834,7 @@ public class testLexer extends Lexer {
 
 			}
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:649:110: ( PARENTHETICAL_INT )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:656:110: ( PARENTHETICAL_INT )?
 			int alt49=2;
 			int LA49_0 = input.LA(1);
 			if ( (LA49_0=='(') ) {
@@ -6062,7 +5842,7 @@ public class testLexer extends Lexer {
 			}
 			switch (alt49) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:649:110: PARENTHETICAL_INT
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:656:110: PARENTHETICAL_INT
 					{
 					mPARENTHETICAL_INT(); 
 
@@ -6091,13 +5871,13 @@ public class testLexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:652:4: ( ( ' ' | '\\t' | '\\n' | '\\r' )+ )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:652:5: ( ' ' | '\\t' | '\\n' | '\\r' )+
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:659:4: ( ( ' ' | '\\t' | '\\n' | '\\r' )+ )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:659:5: ( ' ' | '\\t' | '\\n' | '\\r' )+
 			{
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:652:5: ( ' ' | '\\t' | '\\n' | '\\r' )+
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:659:5: ( ' ' | '\\t' | '\\n' | '\\r' )+
 			int cnt50=0;
 			loop50:
-			while (true) {
+			do {
 				int alt50=2;
 				int LA50_0 = input.LA(1);
 				if ( ((LA50_0 >= '\t' && LA50_0 <= '\n')||LA50_0=='\r'||LA50_0==' ') ) {
@@ -6121,11 +5901,12 @@ public class testLexer extends Lexer {
 
 				default :
 					if ( cnt50 >= 1 ) break loop50;
-					EarlyExitException eee = new EarlyExitException(50, input);
-					throw eee;
+						EarlyExitException eee =
+							new EarlyExitException(50, input);
+						throw eee;
 				}
 				cnt50++;
-			}
+			} while (true);
 
 			_channel=HIDDEN;
 			}
@@ -6144,10 +5925,10 @@ public class testLexer extends Lexer {
 		try {
 			int _type = RING_TITLE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:654:13: ( ( 'GROUP RING' | ( 'RING' WS INT ) ) )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:654:17: ( 'GROUP RING' | ( 'RING' WS INT ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:661:13: ( ( 'GROUP RING' | ( 'RING' WS INT ) ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:661:17: ( 'GROUP RING' | ( 'RING' WS INT ) )
 			{
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:654:17: ( 'GROUP RING' | ( 'RING' WS INT ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:661:17: ( 'GROUP RING' | ( 'RING' WS INT ) )
 			int alt51=2;
 			int LA51_0 = input.LA(1);
 			if ( (LA51_0=='G') ) {
@@ -6156,16 +5937,14 @@ public class testLexer extends Lexer {
 			else if ( (LA51_0=='R') ) {
 				alt51=2;
 			}
-
 			else {
 				NoViableAltException nvae =
 					new NoViableAltException("", 51, 0, input);
 				throw nvae;
 			}
-
 			switch (alt51) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:654:18: 'GROUP RING'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:661:18: 'GROUP RING'
 					{
 					match("GROUP RING"); 
 
@@ -6173,10 +5952,10 @@ public class testLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:654:49: ( 'RING' WS INT )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:661:49: ( 'RING' WS INT )
 					{
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:654:49: ( 'RING' WS INT )
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:654:50: 'RING' WS INT
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:661:49: ( 'RING' WS INT )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:661:50: 'RING' WS INT
 					{
 					match("RING"); 
 
@@ -6208,15 +5987,15 @@ public class testLexer extends Lexer {
 		try {
 			int _type = PHONE_NUMBER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:657:5: ( '(' '0' .. '9' '0' .. '9' '0' .. '9' ')' ( WS )? '0' .. '9' '0' .. '9' '0' .. '9' '-' '0' .. '9' '0' .. '9' '0' .. '9' '0' .. '9' )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:657:9: '(' '0' .. '9' '0' .. '9' '0' .. '9' ')' ( WS )? '0' .. '9' '0' .. '9' '0' .. '9' '-' '0' .. '9' '0' .. '9' '0' .. '9' '0' .. '9'
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:664:5: ( '(' '0' .. '9' '0' .. '9' '0' .. '9' ')' ( WS )? '0' .. '9' '0' .. '9' '0' .. '9' '-' '0' .. '9' '0' .. '9' '0' .. '9' '0' .. '9' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:664:9: '(' '0' .. '9' '0' .. '9' '0' .. '9' ')' ( WS )? '0' .. '9' '0' .. '9' '0' .. '9' '-' '0' .. '9' '0' .. '9' '0' .. '9' '0' .. '9'
 			{
 			match('('); 
 			matchRange('0','9'); 
 			matchRange('0','9'); 
 			matchRange('0','9'); 
 			match(')'); 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:657:42: ( WS )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:664:42: ( WS )?
 			int alt52=2;
 			int LA52_0 = input.LA(1);
 			if ( ((LA52_0 >= '\t' && LA52_0 <= '\n')||LA52_0=='\r'||LA52_0==' ') ) {
@@ -6224,7 +6003,7 @@ public class testLexer extends Lexer {
 			}
 			switch (alt52) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:657:42: WS
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:664:42: WS
 					{
 					mWS(); 
 
@@ -6257,8 +6036,8 @@ public class testLexer extends Lexer {
 		try {
 			int _type = TIME;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:659:9: ( INT ':' INT WS FRAG_TIME_LABEL )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:659:13: INT ':' INT WS FRAG_TIME_LABEL
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:666:9: ( INT ':' INT WS FRAG_TIME_LABEL )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:666:13: INT ':' INT WS FRAG_TIME_LABEL
 			{
 			mINT(); 
 
@@ -6286,8 +6065,8 @@ public class testLexer extends Lexer {
 		try {
 			int _type = DATE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:661:9: ( FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:661:13: FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:668:9: ( FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:668:13: FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT
 			{
 			mFRAG_WEEK_DAY(); 
 
@@ -6322,13 +6101,13 @@ public class testLexer extends Lexer {
 		try {
 			int _type = ELLIPSIS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:663:9: ( ( '.' )+ )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:663:13: ( '.' )+
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:670:9: ( ( '.' )+ )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:670:13: ( '.' )+
 			{
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:663:13: ( '.' )+
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:670:13: ( '.' )+
 			int cnt53=0;
 			loop53:
-			while (true) {
+			do {
 				int alt53=2;
 				int LA53_0 = input.LA(1);
 				if ( (LA53_0=='.') ) {
@@ -6337,7 +6116,7 @@ public class testLexer extends Lexer {
 
 				switch (alt53) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:663:13: '.'
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:670:13: '.'
 					{
 					match('.'); 
 					}
@@ -6345,11 +6124,12 @@ public class testLexer extends Lexer {
 
 				default :
 					if ( cnt53 >= 1 ) break loop53;
-					EarlyExitException eee = new EarlyExitException(53, input);
-					throw eee;
+						EarlyExitException eee =
+							new EarlyExitException(53, input);
+						throw eee;
 				}
 				cnt53++;
-			}
+			} while (true);
 
 			}
 
@@ -6367,13 +6147,13 @@ public class testLexer extends Lexer {
 		try {
 			int _type = INT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:665:5: ( ( '0' .. '9' )+ )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:665:6: ( '0' .. '9' )+
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:672:5: ( ( '0' .. '9' )+ )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:672:6: ( '0' .. '9' )+
 			{
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:665:6: ( '0' .. '9' )+
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:672:6: ( '0' .. '9' )+
 			int cnt54=0;
 			loop54:
-			while (true) {
+			do {
 				int alt54=2;
 				int LA54_0 = input.LA(1);
 				if ( ((LA54_0 >= '0' && LA54_0 <= '9')) ) {
@@ -6397,11 +6177,12 @@ public class testLexer extends Lexer {
 
 				default :
 					if ( cnt54 >= 1 ) break loop54;
-					EarlyExitException eee = new EarlyExitException(54, input);
-					throw eee;
+						EarlyExitException eee =
+							new EarlyExitException(54, input);
+						throw eee;
 				}
 				cnt54++;
-			}
+			} while (true);
 
 			}
 
@@ -6419,11 +6200,11 @@ public class testLexer extends Lexer {
 		try {
 			int _type = PARENTHETICAL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:668:5: ( '(' ( WORD | INT | FRAG_PROPER_NAME ) ( WS ( WORD | INT | FRAG_PROPER_NAME ) )* ')' )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:668:9: '(' ( WORD | INT | FRAG_PROPER_NAME ) ( WS ( WORD | INT | FRAG_PROPER_NAME ) )* ')'
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:675:5: ( '(' ( WORD | INT | FRAG_PROPER_NAME ) ( WS ( WORD | INT | FRAG_PROPER_NAME ) )* ')' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:675:9: '(' ( WORD | INT | FRAG_PROPER_NAME ) ( WS ( WORD | INT | FRAG_PROPER_NAME ) )* ')'
 			{
 			match('('); 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:668:13: ( WORD | INT | FRAG_PROPER_NAME )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:675:13: ( WORD | INT | FRAG_PROPER_NAME )
 			int alt55=3;
 			switch ( input.LA(1) ) {
 			case '&':
@@ -6515,21 +6296,21 @@ public class testLexer extends Lexer {
 			}
 			switch (alt55) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:668:14: WORD
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:675:14: WORD
 					{
 					mWORD(); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:668:19: INT
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:675:19: INT
 					{
 					mINT(); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:668:23: FRAG_PROPER_NAME
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:675:23: FRAG_PROPER_NAME
 					{
 					mFRAG_PROPER_NAME(); 
 
@@ -6538,9 +6319,9 @@ public class testLexer extends Lexer {
 
 			}
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:668:41: ( WS ( WORD | INT | FRAG_PROPER_NAME ) )*
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:675:41: ( WS ( WORD | INT | FRAG_PROPER_NAME ) )*
 			loop57:
-			while (true) {
+			do {
 				int alt57=2;
 				int LA57_0 = input.LA(1);
 				if ( ((LA57_0 >= '\t' && LA57_0 <= '\n')||LA57_0=='\r'||LA57_0==' ') ) {
@@ -6549,11 +6330,11 @@ public class testLexer extends Lexer {
 
 				switch (alt57) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:668:42: WS ( WORD | INT | FRAG_PROPER_NAME )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:675:42: WS ( WORD | INT | FRAG_PROPER_NAME )
 					{
 					mWS(); 
 
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:668:45: ( WORD | INT | FRAG_PROPER_NAME )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:675:45: ( WORD | INT | FRAG_PROPER_NAME )
 					int alt56=3;
 					switch ( input.LA(1) ) {
 					case '&':
@@ -6645,21 +6426,21 @@ public class testLexer extends Lexer {
 					}
 					switch (alt56) {
 						case 1 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:668:46: WORD
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:675:46: WORD
 							{
 							mWORD(); 
 
 							}
 							break;
 						case 2 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:668:51: INT
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:675:51: INT
 							{
 							mINT(); 
 
 							}
 							break;
 						case 3 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:668:55: FRAG_PROPER_NAME
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:675:55: FRAG_PROPER_NAME
 							{
 							mFRAG_PROPER_NAME(); 
 
@@ -6674,7 +6455,7 @@ public class testLexer extends Lexer {
 				default :
 					break loop57;
 				}
-			}
+			} while (true);
 
 			match(')'); 
 			}
@@ -6691,16 +6472,16 @@ public class testLexer extends Lexer {
 	// $ANTLR start "FRAG_PROPER_NAME"
 	public final void mFRAG_PROPER_NAME() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:669:26: ( ( 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )* ) ( END_PUNCTUATION )? )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:669:28: ( 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )* ) ( END_PUNCTUATION )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:676:26: ( ( 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )* ) ( END_PUNCTUATION )? )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:676:28: ( 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )* ) ( END_PUNCTUATION )?
 			{
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:669:28: ( 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )* )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:669:29: 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )*
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:676:28: ( 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )* )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:676:29: 'A' .. 'Z' ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )*
 			{
 			matchRange('A','Z'); 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:669:38: ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )*
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:676:38: ( 'a' .. 'z' | 'A' .. 'Z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )*
 			loop58:
-			while (true) {
+			do {
 				int alt58=2;
 				int LA58_0 = input.LA(1);
 				if ( ((LA58_0 >= '&' && LA58_0 <= '\'')||(LA58_0 >= ',' && LA58_0 <= '-')||(LA58_0 >= ':' && LA58_0 <= ';')||(LA58_0 >= 'A' && LA58_0 <= 'Z')||LA58_0=='_'||(LA58_0 >= 'a' && LA58_0 <= 'z')||LA58_0=='\u2019') ) {
@@ -6725,11 +6506,11 @@ public class testLexer extends Lexer {
 				default :
 					break loop58;
 				}
-			}
+			} while (true);
 
 			}
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:669:94: ( END_PUNCTUATION )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:676:94: ( END_PUNCTUATION )?
 			int alt59=2;
 			int LA59_0 = input.LA(1);
 			if ( (LA59_0=='!'||LA59_0=='.'||LA59_0=='?') ) {
@@ -6766,11 +6547,11 @@ public class testLexer extends Lexer {
 		try {
 			int _type = PARENTHETICAL_INT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:672:5: ( '(' ( WS )? INT ( WS )? ')' )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:672:9: '(' ( WS )? INT ( WS )? ')'
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:679:5: ( '(' ( WS )? INT ( WS )? ')' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:679:9: '(' ( WS )? INT ( WS )? ')'
 			{
 			match('('); 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:672:13: ( WS )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:679:13: ( WS )?
 			int alt60=2;
 			int LA60_0 = input.LA(1);
 			if ( ((LA60_0 >= '\t' && LA60_0 <= '\n')||LA60_0=='\r'||LA60_0==' ') ) {
@@ -6778,7 +6559,7 @@ public class testLexer extends Lexer {
 			}
 			switch (alt60) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:672:13: WS
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:679:13: WS
 					{
 					mWS(); 
 
@@ -6789,7 +6570,7 @@ public class testLexer extends Lexer {
 
 			mINT(); 
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:672:21: ( WS )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:679:21: ( WS )?
 			int alt61=2;
 			int LA61_0 = input.LA(1);
 			if ( ((LA61_0 >= '\t' && LA61_0 <= '\n')||LA61_0=='\r'||LA61_0==' ') ) {
@@ -6797,7 +6578,7 @@ public class testLexer extends Lexer {
 			}
 			switch (alt61) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:672:21: WS
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:679:21: WS
 					{
 					mWS(); 
 
@@ -6821,13 +6602,13 @@ public class testLexer extends Lexer {
 	// $ANTLR start "WORD"
 	public final void mWORD() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:673:16: ( ( 'a' .. 'z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )+ ( END_PUNCTUATION )? )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:673:18: ( 'a' .. 'z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )+ ( END_PUNCTUATION )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:680:16: ( ( 'a' .. 'z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )+ ( END_PUNCTUATION )? )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:680:18: ( 'a' .. 'z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )+ ( END_PUNCTUATION )?
 			{
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:673:18: ( 'a' .. 'z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )+
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:680:18: ( 'a' .. 'z' | FRAG_SPEC_CHAR | FRAG_SPEC_WORD_CHAR )+
 			int cnt62=0;
 			loop62:
-			while (true) {
+			do {
 				int alt62=2;
 				int LA62_0 = input.LA(1);
 				if ( ((LA62_0 >= '&' && LA62_0 <= '\'')||(LA62_0 >= ',' && LA62_0 <= '-')||(LA62_0 >= ':' && LA62_0 <= ';')||LA62_0=='_'||(LA62_0 >= 'a' && LA62_0 <= 'z')||LA62_0=='\u2019') ) {
@@ -6851,13 +6632,14 @@ public class testLexer extends Lexer {
 
 				default :
 					if ( cnt62 >= 1 ) break loop62;
-					EarlyExitException eee = new EarlyExitException(62, input);
-					throw eee;
+						EarlyExitException eee =
+							new EarlyExitException(62, input);
+						throw eee;
 				}
 				cnt62++;
-			}
+			} while (true);
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:673:65: ( END_PUNCTUATION )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:680:65: ( END_PUNCTUATION )?
 			int alt63=2;
 			int LA63_0 = input.LA(1);
 			if ( (LA63_0=='!'||LA63_0=='.'||LA63_0=='?') ) {
@@ -6894,13 +6676,13 @@ public class testLexer extends Lexer {
 		try {
 			int _type = COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:674:9: ( ( ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS ) )+ )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:674:13: ( ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS ) )+
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:681:9: ( ( ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS ) )+ )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:681:13: ( ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS ) )+
 			{
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:674:13: ( ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS ) )+
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:681:13: ( ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS ) )+
 			int cnt65=0;
 			loop65:
-			while (true) {
+			do {
 				int alt65=2;
 				int LA65_0 = input.LA(1);
 				if ( ((LA65_0 >= '&' && LA65_0 <= '(')||(LA65_0 >= ',' && LA65_0 <= '.')||(LA65_0 >= '0' && LA65_0 <= ';')||(LA65_0 >= 'A' && LA65_0 <= 'Z')||LA65_0=='_'||(LA65_0 >= 'a' && LA65_0 <= 'z')||LA65_0=='\u2019') ) {
@@ -6909,9 +6691,9 @@ public class testLexer extends Lexer {
 
 				switch (alt65) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:674:14: ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:681:14: ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS )
 					{
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:674:14: ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS )
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:681:14: ( FRAG_PROPER_NAME | WORD | PARENTHETICAL | INT | ELLIPSIS )
 					int alt64=5;
 					switch ( input.LA(1) ) {
 					case 'A':
@@ -7013,35 +6795,35 @@ public class testLexer extends Lexer {
 					}
 					switch (alt64) {
 						case 1 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:674:15: FRAG_PROPER_NAME
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:681:15: FRAG_PROPER_NAME
 							{
 							mFRAG_PROPER_NAME(); 
 
 							}
 							break;
 						case 2 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:674:32: WORD
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:681:32: WORD
 							{
 							mWORD(); 
 
 							}
 							break;
 						case 3 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:674:37: PARENTHETICAL
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:681:37: PARENTHETICAL
 							{
 							mPARENTHETICAL(); 
 
 							}
 							break;
 						case 4 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:674:51: INT
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:681:51: INT
 							{
 							mINT(); 
 
 							}
 							break;
 						case 5 :
-							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:674:55: ELLIPSIS
+							// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:681:55: ELLIPSIS
 							{
 							mELLIPSIS(); 
 
@@ -7056,11 +6838,12 @@ public class testLexer extends Lexer {
 
 				default :
 					if ( cnt65 >= 1 ) break loop65;
-					EarlyExitException eee = new EarlyExitException(65, input);
-					throw eee;
+						EarlyExitException eee =
+							new EarlyExitException(65, input);
+						throw eee;
 				}
 				cnt65++;
-			}
+			} while (true);
 
 			}
 
@@ -7076,8 +6859,8 @@ public class testLexer extends Lexer {
 	// $ANTLR start "END_WORD"
 	public final void mEND_WORD() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:676:2: ( WORD END_PUNCTUATION )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:676:4: WORD END_PUNCTUATION
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:683:2: ( WORD END_PUNCTUATION )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:683:4: WORD END_PUNCTUATION
 			{
 			mWORD(); 
 
@@ -7095,11 +6878,11 @@ public class testLexer extends Lexer {
 	// $ANTLR start "PARENTHETICAL_NAME"
 	public final void mPARENTHETICAL_NAME() throws RecognitionException {
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:677:28: ( '(' ( FRAG_TITLE WS )? FRAG_PROPER_NAME ')' )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:677:30: '(' ( FRAG_TITLE WS )? FRAG_PROPER_NAME ')'
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:684:28: ( '(' ( FRAG_TITLE WS )? FRAG_PROPER_NAME ')' )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:684:30: '(' ( FRAG_TITLE WS )? FRAG_PROPER_NAME ')'
 			{
 			match('('); 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:677:34: ( FRAG_TITLE WS )?
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:684:34: ( FRAG_TITLE WS )?
 			int alt66=2;
 			switch ( input.LA(1) ) {
 				case 'M':
@@ -7223,7 +7006,7 @@ public class testLexer extends Lexer {
 			}
 			switch (alt66) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:677:35: FRAG_TITLE WS
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:684:35: FRAG_TITLE WS
 					{
 					mFRAG_TITLE(); 
 
@@ -7251,8 +7034,8 @@ public class testLexer extends Lexer {
 		try {
 			int _type = FallThrough;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:683:3: ( . )
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:683:6: .
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:690:3: ( . )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:690:6: .
 			{
 			matchAny(); 
 			_channel=HIDDEN;
@@ -7994,7 +7777,7 @@ public class testLexer extends Lexer {
 		}
 	}
 
-	protected class DFA2 extends DFA {
+	class DFA2 extends DFA {
 
 		public DFA2(BaseRecognizer recognizer) {
 			this.recognizer = recognizer;
@@ -8009,7 +7792,7 @@ public class testLexer extends Lexer {
 		}
 		@Override
 		public String getDescription() {
-			return "232:23: ( 'Affenpinscher' | 'Afghan Hound' | 'Airedale Terrier' | 'Akita' | 'Alaskan Malamute' | 'American English Coonhound' | 'American Eskimo Dog' | 'American Foxhound' | 'American Staffordshire Terrier' | 'Anatolian Shepherd Dog' | 'Appenzeller Sennenhunde' | 'Australian Cattle Dog' | 'Australian Shepherd' | 'Australian Terrier' | 'Basenji' | 'Basset Hound' | 'Beagle' | 'Bearded Collie' | 'Beauceron' | 'Bedlington Terrier' | 'Belgian Malinois' | 'Belgian Sheepdog' | 'Belgian Tervuren' | 'Berger Picard' | 'Bernese Mountain Dog' | 'Bichon Frise' | 'Bichons Frise' | 'Black and Tan Coonhound' | 'Black & Tan Coonhound' | 'Black Russian Terrier' | 'Bloodhound' | 'Bluetick Coonhound' | 'Border Collie' | 'Border Terrier' | 'Borzoi' | 'Boston Terrier' | 'Bouvier des Flandres' | 'Bouviers des Flandres' | 'Boxer' | 'Boykin Spaniel' | 'Brace' | 'Briard' | 'Brittany' | 'Brussels Griffon' | 'Bull Terrier' | 'Bulldog' | 'Bullmastiff' | 'Cairn Terrier' | 'Canaan Dog' | 'Cane Corso' | 'Cardigan Welsh Corgi' | 'Cavalier King Charles Spaniel' | 'Cesky Terrier' | 'Chesapeake Bay Retriever' | 'Chihuahua' | 'Chinese Crested' | 'Chinese Shar-Pei' | 'Cirneco dell’Etna' | 'Chow Chow' | 'Clumber Spaniel' | 'Cocker Spaniel' | 'Collie' | 'Curly-Coated Retriever' | 'Dachshund' | 'Dalmatian' | 'Dandie Dinmont Terrier' | 'Doberman Pinscher' | 'Dogo Argentine' | 'Dogue de Bordeaux' | 'Dogues de Bordeaux' | 'English Cocker Spaniel' | 'English Foxhound' | 'English Setter' | 'English Springer Spaniel' | 'English Toy Spaniel' | 'Entlebucher Mountain Dog' | 'Field Spaniel' | 'Finnish Lapphund' | 'Finnish Spitz' | 'Flat-Coated Retriever' | 'Fox Terrier' | 'French Bulldog' | 'German Pinscher' | 'German Shepherd Dog' | 'German Shorthaired Pointer' | 'German Wirehaired Pointer' | 'Giant Schnauzer' | 'Glen of Imaal Terrier' | 'Golden Retriever' | 'Gordon Setter' | 'Great Dane' | 'Great Pyrenees' | 'Greater Swiss Mountain Dog' | 'Greyhound' | 'Harrier' | 'Havanese' | 'Ibizan Hound' | 'Icelandic Sheepdog' | 'Irish Red and White Setter' | 'Irish Setter' | 'Irish Terrier' | 'Irish Water Spaniel' | 'Irish Wolfhound' | 'Italian Greyhound' | 'Japanese Chin' | 'Keeshond' | 'Keeshonden' | 'Kerry Blue Terrier' | 'Komondor' | 'Kuvasz' | 'Kuvaszok' | 'Labrador Retriever' | 'Lagotto Romagnolo' | 'Lakeland Terrier' | 'Leonberger' | 'Lhasa Apso' | 'Löwchen' | 'Lowchen' | 'Maltese' | 'Manchester Terrier' | 'Mastiff' | 'Miniature American Shepherd' | 'Miniature Bull Terrier' | 'Miniature Pinscher' | 'Miniature Schnauzer' | 'Neapolitan Mastiff' | 'Newfoundland' | 'Norfolk Terrier' | 'Norwegian Buhund' | 'Norwegian Elkhound' | 'Norwegian Lundehund' | 'Norwich Terrier' | 'Nova Scotia Duck Tolling Retriever' | 'Old English Sheepdog' | 'Otterhound' | 'Papillon' | 'Parson Russell Terrier' | 'Pekingese' | 'Pembroke Welsh Corgi' | 'Petit Basset Griffon Vendéen' | 'Petits Bassets Griffons Vendeen' | 'Pharaoh Hound' | 'Plott' | 'Pointer' | 'Polish Lowland Sheepdog' | 'Pomeranian' | 'Poodle' | 'Portuguese Podengo Pequenos' | 'Portuguese Water Dog' | 'Pug' | 'Puli' | 'Pulik' | 'Pyrenean Shepherd' | 'Rat Terrier' | 'Redbone Coonhound' | 'Retrievers' | 'Rhodesian Ridgeback' | 'Rottweiler' | 'Russell Terrier' | 'Saint Bernard' | 'Saluki' | 'Samoyed' | 'Schipperke' | 'Scottish Deerhound' | 'Scottish Terrier' | 'Sealyham Terrier' | 'Setters' | 'Shetland Sheepdog' | 'Shiba Inu' | 'Shih Tzu' | 'Siberian Husky' | 'Siberian Huskies' | 'Silky Terrier' | 'Skye Terrier' | 'Soft Coated Wheaten Terrier' | 'Spaniels' | 'Spinone Italiano' | 'Spinoni Italiani' | 'Staffordshire Bull Terrier' | 'Standard Schnauzer' | 'Sussex Spaniel' | 'Swedish Vallhund' | 'Tibetan Mastiff' | 'Tibetan Spaniel' | 'Tibetan Terrier' | 'Toy Fox Terrier' | 'Treeing Walker Coonhound' | 'Vizsla' | 'Weimaraner' | 'Welsh Springer Spaniel' | 'Welsh Terrier' | 'West Highland White Terrier' | 'Whippet' | 'Wire Fox Terrier' | 'Wirehaired Pointing Griffon' | 'Wirehaired Vizsla' | 'Xoloitzcuintli' | 'Yorkshire Terrier' )";
+			return "238:23: ( 'Affenpinscher' | 'Afghan Hound' | 'Airedale Terrier' | 'Akita' | 'Alaskan Malamute' | 'American English Coonhound' | 'American Eskimo Dog' | 'American Foxhound' | 'American Staffordshire Terrier' | 'Anatolian Shepherd Dog' | 'Appenzeller Sennenhunde' | 'Australian Cattle Dog' | 'Australian Shepherd' | 'Australian Terrier' | 'Basenji' | 'Basset Hound' | 'Beagle' | 'Bearded Collie' | 'Beauceron' | 'Bedlington Terrier' | 'Belgian Malinois' | 'Belgian Sheepdog' | 'Belgian Tervuren' | 'Berger Picard' | 'Bernese Mountain Dog' | 'Bichon Frise' | 'Bichons Frise' | 'Black and Tan Coonhound' | 'Black & Tan Coonhound' | 'Black Russian Terrier' | 'Bloodhound' | 'Bluetick Coonhound' | 'Border Collie' | 'Border Terrier' | 'Borzoi' | 'Boston Terrier' | 'Bouvier des Flandres' | 'Bouviers des Flandres' | 'Boxer' | 'Boykin Spaniel' | 'Brace' | 'Briard' | 'Brittany' | 'Brussels Griffon' | 'Bull Terrier' | 'Bulldog' | 'Bullmastiff' | 'Cairn Terrier' | 'Canaan Dog' | 'Cane Corso' | 'Cardigan Welsh Corgi' | 'Cavalier King Charles Spaniel' | 'Cesky Terrier' | 'Chesapeake Bay Retriever' | 'Chihuahua' | 'Chinese Crested' | 'Chinese Shar-Pei' | 'Cirneco dell’Etna' | 'Chow Chow' | 'Clumber Spaniel' | 'Cocker Spaniel' | 'Collie' | 'Curly-Coated Retriever' | 'Dachshund' | 'Dalmatian' | 'Dandie Dinmont Terrier' | 'Doberman Pinscher' | 'Dogo Argentine' | 'Dogue de Bordeaux' | 'Dogues de Bordeaux' | 'English Cocker Spaniel' | 'English Foxhound' | 'English Setter' | 'English Springer Spaniel' | 'English Toy Spaniel' | 'Entlebucher Mountain Dog' | 'Field Spaniel' | 'Finnish Lapphund' | 'Finnish Spitz' | 'Flat-Coated Retriever' | 'Fox Terrier' | 'French Bulldog' | 'German Pinscher' | 'German Shepherd Dog' | 'German Shorthaired Pointer' | 'German Wirehaired Pointer' | 'Giant Schnauzer' | 'Glen of Imaal Terrier' | 'Golden Retriever' | 'Gordon Setter' | 'Great Dane' | 'Great Pyrenees' | 'Greater Swiss Mountain Dog' | 'Greyhound' | 'Harrier' | 'Havanese' | 'Ibizan Hound' | 'Icelandic Sheepdog' | 'Irish Red and White Setter' | 'Irish Setter' | 'Irish Terrier' | 'Irish Water Spaniel' | 'Irish Wolfhound' | 'Italian Greyhound' | 'Japanese Chin' | 'Keeshond' | 'Keeshonden' | 'Kerry Blue Terrier' | 'Komondor' | 'Kuvasz' | 'Kuvaszok' | 'Labrador Retriever' | 'Lagotto Romagnolo' | 'Lakeland Terrier' | 'Leonberger' | 'Lhasa Apso' | 'Löwchen' | 'Lowchen' | 'Maltese' | 'Manchester Terrier' | 'Mastiff' | 'Miniature American Shepherd' | 'Miniature Bull Terrier' | 'Miniature Pinscher' | 'Miniature Schnauzer' | 'Neapolitan Mastiff' | 'Newfoundland' | 'Norfolk Terrier' | 'Norwegian Buhund' | 'Norwegian Elkhound' | 'Norwegian Lundehund' | 'Norwich Terrier' | 'Nova Scotia Duck Tolling Retriever' | 'Old English Sheepdog' | 'Otterhound' | 'Papillon' | 'Parson Russell Terrier' | 'Pekingese' | 'Pembroke Welsh Corgi' | 'Petit Basset Griffon Vendéen' | 'Petits Bassets Griffons Vendeen' | 'Pharaoh Hound' | 'Plott' | 'Pointer' | 'Polish Lowland Sheepdog' | 'Pomeranian' | 'Poodle' | 'Portuguese Podengo Pequenos' | 'Portuguese Water Dog' | 'Pug' | 'Puli' | 'Pulik' | 'Pyrenean Shepherd' | 'Rat Terrier' | 'Redbone Coonhound' | 'Retrievers' | 'Rhodesian Ridgeback' | 'Rottweiler' | 'Russell Terrier' | 'Saint Bernard' | 'Saluki' | 'Samoyed' | 'Schipperke' | 'Scottish Deerhound' | 'Scottish Terrier' | 'Sealyham Terrier' | 'Setters' | 'Shetland Sheepdog' | 'Shiba Inu' | 'Shih Tzu' | 'Siberian Husky' | 'Siberian Huskies' | 'Silky Terrier' | 'Skye Terrier' | 'Soft Coated Wheaten Terrier' | 'Spaniels' | 'Spinone Italiano' | 'Spinoni Italiani' | 'Staffordshire Bull Terrier' | 'Standard Schnauzer' | 'Sussex Spaniel' | 'Swedish Vallhund' | 'Tibetan Mastiff' | 'Tibetan Spaniel' | 'Tibetan Terrier' | 'Toy Fox Terrier' | 'Treeing Walker Coonhound' | 'Vizsla' | 'Weimaraner' | 'Welsh Springer Spaniel' | 'Welsh Terrier' | 'West Highland White Terrier' | 'Whippet' | 'Wire Fox Terrier' | 'Wirehaired Pointing Griffon' | 'Wirehaired Vizsla' | 'Xoloitzcuintli' | 'Yorkshire Terrier' )";
 		}
 	}
 
@@ -8139,7 +7922,7 @@ public class testLexer extends Lexer {
 		}
 	}
 
-	protected class DFA15 extends DFA {
+	class DFA15 extends DFA {
 
 		public DFA15(BaseRecognizer recognizer) {
 			this.recognizer = recognizer;
@@ -8154,7 +7937,7 @@ public class testLexer extends Lexer {
 		}
 		@Override
 		public String getDescription() {
-			return "449:10: fragment FRAG_BREED_NAME_CATEGORY : ( '13 Inch' | '15 Inch' | 'American Water' | 'Boykin' | 'B & P C' | 'Chesapeake Bay' | 'Clumber' | 'Cocker' | 'Colored' | 'Curly-Coated' | 'English' | 'English Cocker' | 'English Springer' | 'Field' | 'Flat-Coated' | 'German Shorthaired' | 'German Wirehaired' | 'Golden' | 'Gordon' | 'Irish' | 'Irish Red And White' | 'Irish Water' | 'K C & R' | 'Labrador' | 'Long Coat' | 'Longhaired' | 'Miniature' | 'Nova Scotia Duck Tolling' | 'Rough' | 'Smooth' | 'Smooth Coat' | 'Standard' | 'Sussex' | 'Toy' | 'Welsh Springer' | 'White' | 'Wire' | 'Wirehaired' );";
+			return "455:10: fragment FRAG_BREED_NAME_CATEGORY : ( '13 Inch' | '15 Inch' | 'American Water' | 'Boykin' | 'B & P C' | 'Chesapeake Bay' | 'Clumber' | 'Cocker' | 'Colored' | 'Curly-Coated' | 'English' | 'English Cocker' | 'English Springer' | 'Field' | 'Flat-Coated' | 'German Shorthaired' | 'German Wirehaired' | 'Golden' | 'Gordon' | 'Irish' | 'Irish Red And White' | 'Irish Water' | 'K C & R' | 'Labrador' | 'Long Coat' | 'Longhaired' | 'Miniature' | 'Nova Scotia Duck Tolling' | 'Rough' | 'Smooth' | 'Smooth Coat' | 'Standard' | 'Sussex' | 'Toy' | 'Welsh Springer' | 'White' | 'Wire' | 'Wirehaired' );";
 		}
 	}
 
@@ -8195,7 +7978,7 @@ public class testLexer extends Lexer {
 		}
 	}
 
-	protected class DFA37 extends DFA {
+	class DFA37 extends DFA {
 
 		public DFA37(BaseRecognizer recognizer) {
 			this.recognizer = recognizer;
@@ -8210,7 +7993,7 @@ public class testLexer extends Lexer {
 		}
 		@Override
 		public String getDescription() {
-			return "589:1: NON_CONFORMATION_SECOND_LINE : ( ( ( '0' .. '9' )+ '-' ( '0' .. '9' )+ ) | ( ( '0' .. '9' )+ ( ( '-' ( '0' .. '9' )+ )? ( ';' ( '0' .. '9' )+ ( '-' ( '0' .. '9' )+ )? ) )+ ) );";
+			return "595:1: NON_CONFORMATION_SECOND_LINE : ( ( ( '0' .. '9' )+ '-' ( '0' .. '9' )+ ) | ( ( '0' .. '9' )+ ( ( '-' ( '0' .. '9' )+ )? ( ';' ( '0' .. '9' )+ ( '-' ( '0' .. '9' )+ )? ) )+ ) );";
 		}
 	}
 
@@ -10997,7 +10780,7 @@ public class testLexer extends Lexer {
 		}
 	}
 
-	protected class DFA67 extends DFA {
+	class DFA67 extends DFA {
 
 		public DFA67(BaseRecognizer recognizer) {
 			this.recognizer = recognizer;

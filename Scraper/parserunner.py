@@ -1,7 +1,7 @@
 import config
 import os
 import subprocess
-from util import RegexHelper
+from util import RegexHelper, printv
 import codecs
 
 class ParseRunner(object):
@@ -13,7 +13,7 @@ class ParseRunner(object):
             pdf = config.Pdf.DOWNLOAD_DIR + filename
             output = filename[:-3] + "txt"
             outputLocation = config.Parse.OUTPUT_DIR + output
-            print("filename: " + filename + " parsed to " + outputLocation );
+            printv("filename: " + filename + " parsed to " + outputLocation );
             subprocess.call(['java', '-jar', 'pdfbox-app-1.7.1.jar', 'ExtractText', pdf, outputLocation])
 
     """
@@ -21,13 +21,13 @@ class ParseRunner(object):
     returns: the parsed file location
     """
     def parseProgramPdfBox(self, fullPdfPath):
-        print("pdfbox on path: " +str(fullPdfPath))
+        printv("pdfbox on path: " +str(fullPdfPath))
         if fullPdfPath is not None:
             output = os.path.basename(fullPdfPath)[:-3] + "pdfbox.txt"
             outputLocation = config.Parse.OUTPUT_DIR + output
             #show.parsedPath = outputLocation;
-            if os.path.isfile(outputLocation):
-                print("Already exists: " + outputLocation)
+            if os.path.isfile(outputLocation) and not config.Env.FORCE_ALL:
+                printv("Already exists: " + outputLocation)
             else:
                 subprocess.call(['java', '-jar', 'pdfbox-app-1.7.1.jar', 'ExtractText', fullPdfPath, outputLocation])
             return outputLocation;
@@ -38,21 +38,21 @@ class ParseRunner(object):
     """
     def parseProgramPdf2Txt(self, fullPdfPath):
         if fullPdfPath is not None:
-            print("**************************")
-            print("*     Parsing PDF2Txt    *")
-            print("**************************")
+            printv("**************************")
+            printv("*     Parsing PDF2Txt    *")
+            printv("**************************")
             output = os.path.basename(fullPdfPath)[:-3] + "pdf2txt.txt"
             outputLocation = config.Parse.OUTPUT_DIR + output
-            if not os.path.isfile(outputLocation):
+            if not os.path.isfile(outputLocation) or config.Env.FORCE_ALL:
                 #TODO save these? Move these process calls and paths somewhere easier to manage
                 proc = subprocess.Popen(['python27', './libs/pdfminer-20110515/tools/pdf2txt.py', fullPdfPath],  stdout=open(outputLocation, "w"))
             else:
-                print("Already exists: " + outputLocation + "; reading from file.");
+                printv("Already exists: " + outputLocation + "; reading from file.");
             #with codecs.open (outputLocation, "r", 'UTF-8') as outputFile:
             #    text = outputFile.read();
             #    return text;
             return outputLocation;
         else:
-            print("!!!!!!!!!!!!!!!!!!!!!!!!")
-            print("!  No path for PDF2TXT !")
-            print("!!!!!!!!!!!!!!!!!!!!!!!!")
+            printv("!!!!!!!!!!!!!!!!!!!!!!!!")
+            printv("!  No path for PDF2TXT !")
+            printv("!!!!!!!!!!!!!!!!!!!!!!!!")

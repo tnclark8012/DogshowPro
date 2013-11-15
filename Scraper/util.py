@@ -1,11 +1,16 @@
 import re;
 import config;
+import json;
 from datetime import datetime
 from location import Location
 
 def printv(string):
 	if config.Env.VERBOSE:
 		print(str(string));
+		
+def dumpJson(outputfile, data):
+	with open(outputfile, 'w') as outfile:
+            json.dump(data, outfile)
 
 class RegexPattern(object):
 	KENNEL_CLUB = "kennel_club";

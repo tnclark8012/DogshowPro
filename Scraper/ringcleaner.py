@@ -1,6 +1,6 @@
 import json
 from parserunner import ParseRunner;
-from util import RegexPatternDef;
+from util import RegexPatternDef, printv;
 import re
 import shutil
 import grammar
@@ -14,8 +14,9 @@ import subprocess
 
 
 class RingCleaner(object):
-	pdfBoxSedCommands = ['/.* GOES TO LUNCH/d', '/[0-9]+ [0-9]+-[0-9]+-[0-9]+-[0-9]+$/d'];
-	pdf2TxtSedCommands = ['/\'.* MOVES TO RING [0-9]+$/d'];
+	#, '/[0-9]+ [0-9]+-[0-9]+-[0-9]+-[0-9]+$/Id'
+	pdfBoxSedCommands = ['/.* GOES TO LUNCH/Id', '/.* MOVES TO RING [0-9]+/Id', '/.* is also in RING/Id', '/.* minutes following/Id'];
+	pdf2TxtSedCommands = ['/.* MOVES TO RING [0-9]+/Id'];
 	def __init__(self):
 		self._runner = ParseRunner();
 	def cleanPdfBox(self, pdfPath):
@@ -24,19 +25,20 @@ class RingCleaner(object):
 			shutil.copyfile(pdfPath, cleanedPath)
 			#TODO build into one big command
 			for sedCommand in RingCleaner.pdfBoxSedCommands:
-				sub = subprocess.call(['sed', '-i','-e','-r', sedCommand, cleanedPath])
+				printv('running sed: ' + sedCommand);
+				sub = subprocess.call(['sed', '-i','-r','-e', sedCommand, cleanedPath])
 		return cleanedPath
-		#print(string['Rings']);
+		#printv(string['Rings']);
 	
 	def cleanPdf2Txt(self, pdfPath):
-		print("Cleaning Pdf2Txt Output: " + str(pdfPath))
+		printv("Cleaning Pdf2Txt Output: " + str(pdfPath))
 		cleanedPath = config.Grammar.CLEANED_PROGRAM_DIR + os.path.basename(pdfPath)
 		if not os.path.isfile(cleanedPath):
 			shutil.copyfile(pdfPath, cleanedPath)
 			#TODO build into one big command
-			print("running sed on " + cleanedPath)
+			printv("running sed on " + cleanedPath)
 			for sedCommand in RingCleaner.pdf2TxtSedCommands:
-				sub = subprocess.call(['sed', '-i','-e', sedCommand, cleanedPath])
+				sub = subprocess.call(['sed', '-i','-r', '-e', sedCommand, cleanedPath])
 		return cleanedPath
 
 	"""
@@ -45,7 +47,7 @@ class RingCleaner(object):
 	Ring numbers are NOT guaranteed to be in chronological order, but they are guaranteed to be listed in the proper day. Group rings are not present
 	"""
 	def collectRingDates(self, filePath):
-		print("collecting dates (running pdf2txt) on " + filePath)
+		printv("collecting dates (running pdf2txt) on " + filePath)
 		parsedFilePath = self._runner.parseProgramPdf2Txt(filePath)
 		cleanedPath = self.cleanPdf2Txt(parsedFilePath)
 		text = None;
@@ -60,7 +62,7 @@ class RingCleaner(object):
 		if cleanedPath:
 			return grammar.getShowJson(cleanedPath);
 		else:
-			print('!!! failed to parse ' + str(parsedFilePath) + '!!!');
+			printv('!!! failed to parse ' + str(parsedFilePath) + '!!!');
 
 
 
@@ -77,11 +79,11 @@ class RingCleaner(object):
 		text = text.replace('\\r\\n','\n').replace('\\r','\n').replace('\\n','\n');
 		lineArr = str(text).split('\n');
 
-		print(str(len(lineArr)) + " lines after split");
-		print(text);
+		printv(str(len(lineArr)) + " lines after split");
+		printv(text);
 		dateRingList = [line for line in lineArr if re.match(RegexPatternDef.DATE, line) or re.match("RING \d+", line)]
-		print(len(dateRingList));
-		[print(str(x)) for x in dateRingList]
+		printv(len(dateRingList));
+		[printv(str(x)) for x in dateRingList]
 		ringCount = 0;
 		datemap = OrderedDict();
 		rings = list();
@@ -90,26 +92,34 @@ class RingCleaner(object):
 			dateMatch = re.match(RegexPatternDef.DATE, line)
 			if dateMatch:
 				nextDate = dateMatch.group(1);
-				print(nextDate);
+				printv(nextDate);
 				if nextDate != currentDate :
+					printv("new day")
 					if rings:
+						printv("adding rings to day " + currentDate)
 						if currentDate in datemap:
 							datemap[currentDate].extend(rings);
 						else:
 							datemap[currentDate] = rings;
 					rings = list();
 					currentDate = nextDate
+					printv("current date now " + currentDate)
 
 			else:
 				ringMatch = re.match("RING (\d+)", line)
 				if ringMatch:
 					ring = int(ringMatch.group(1))
-					print("Found RING " + str(ring));
+					printv("Found RING " + str(ring));
 					rings.append(ring);
 					ringCount = ringCount+1;
 				else:
-					print("Nothing found in line: " + line);
-		print("found " + str(ringCount) + " rings");
-		print(str(datemap))
+					printv("Nothing found in line: " + line);
+		if len(rings) > 0:
+			if currentDate in datemap:
+							datemap[currentDate].extend(rings);
+			else:
+				datemap[currentDate] = rings;
+		printv("found " + str(ringCount) + " rings");
+		printv(str(datemap))
 		return datemap
 
