@@ -129,7 +129,7 @@ def main(argv):
             worker = DogshowProgramWorker();
             folder = config.Pdf.DOWNLOAD_DIR;
             for filename in os.listdir(folder):
-                if os.path.splitext(filename)[1] == '.pdf' and 'BRAZ' in filename:
+                if os.path.splitext(filename)[1] == '.pdf' and 'GRMS' in filename:
                     #RingCleaner().cleanPdf2Txt('./parsed/COUL1.pdf2txt.txt');
                     out = worker.generateJson(folder+filename);
                     dumpJson(config.AppServer.DUMP_DIR+filename, out);
