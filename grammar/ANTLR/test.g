@@ -138,7 +138,7 @@ judge_block returns [JsonObject json]
     :   mName=judge_name{json.addProperty("Judge", mName); if(!mRelational){mCurrentJudge = mName;}} (mBlock=timeblock{array.add(mBlock);})+ {json.add("TimeBlocks", array);};
 judge_name returns [String str]
 	@init {str = "";}
-	:	(JUDGE_NAME{str+=$JUDGE_NAME.text;})+|(COMMENT{str+=$COMMENT.text+" ";}|PARENTHETICAL{str+=$PARENTHETICAL.text+" ";})+; 
+	:	(JUDGE_NAME{str+=$JUDGE_NAME.text;})+|(COMMENT{str+=$COMMENT.text+" ";}|PARENTHETICAL{str+=$PARENTHETICAL.text+" ";}|PARENTHETICAL_INT{str+=$PARENTHETICAL_INT.text+" ";})+; 
 big_comment returns [String str]
 		@init {str = "";}
 		:   (mComment=comment{str = mComment;}|TIME{str=$TIME.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|BREED_NAME{str=$BREED_NAME.text;}|SPECIAL_SUFFIX{str=$SPECIAL_SUFFIX.text;}|GROUP_RING{str=$GROUP_RING.text;}|NON_CONFORMATION_SECOND_LINE{str=$NON_CONFORMATION_SECOND_LINE.text;});
@@ -178,10 +178,10 @@ special_ring returns [JsonObject json]
 		};
 
 group_ring returns [String str]
-	:	 GROUP_RING{str=$GROUP_RING.text;};
+	:	 GROUP_RING{str=$GROUP_RING.text;} (COMMENT{str+=" " + $COMMENT.text;}|PARENTHETICAL{str+= " " + $PARENTHETICAL.text;})+;
 group_block returns [JsonObject json]
 	@init {json = new JsonObject(); JsonArray rings = new JsonArray();}
-	:	TIME{currentBlockTime=$TIME.text;json.addProperty("TIME", currentBlockTime);} STANDALONE_COMMENT? (mRing=group_ring {if(!mRelational){json = new JsonObject();String[] arr = parseGroupRing(mRing);json.addProperty("Group", arr[0]);json.addProperty("Judge",arr[1]);json.addProperty("Time",currentBlockTime);mShowRings.add(json);}else{rings.add(new JsonPrimitive(mRing));}})+ {if(mRelational){json.add("Rings", rings);}};
+	:	TIME{currentBlockTime=$TIME.text;json.addProperty("TIME", currentBlockTime);} STANDALONE_COMMENT? (mRing=group_ring {if(!mRelational){json = new JsonObject();String[] arr = parseGroupRing(mRing);json.addProperty("Group", arr[0]);json.addProperty("Judge",arr[1]);json.addProperty("Time",currentBlockTime);mShowRings.add(json);}else{rings.add(new JsonPrimitive(mRing));}})+ {if(mRelational){json.add("Rings", rings);}} GROUP_ENDING_ANNOUNCEMENT;
 empty_breed_ring returns [JsonObject json]
 	@init{json = new JsonObject();json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}String breedName = "";int total = 0;}
     :   INT{total = parseIntSafely($INT.text, 0);json.addProperty("Count", total);} (BREED_COUNT{int counted = addBreedCountToJson(json, $BREED_COUNT.text);assert (counted==total);});
@@ -497,15 +497,12 @@ fragment FRAG_BREED_NAME_CATEGORY //Breed's that are listed under categories rat
         
         
         ;
+fragment GROUP_NAME:	'TOY'|'HERDING'|'TERRIER'|'NON-SPORTING'|'SPORTING'|'HOUND'|'WORKING';
+fragment FRAG_BEST_IN_SHOW
+	:	'BEST IN SHOW';
+		
 fragment FRAG_GROUP_NAME
-	:{allowGroup}?=>(	'HERDING GROUP'|
-		'TERRIER GROUP'|
-		'NON-SPORTING GROUP'|
-		'SPORTING GROUP'|
-		'TOY GROUP'|
-		'HOUND GROUP'|
-		'WORKING GROUP'|
-		('BEST IN SHOW'{allowGroup=false;}));
+	:(GROUP_NAME (' GROUP')=> ' GROUP');
 		
 fragment FRAG_SPECIAL_GROUP_NAME
 	:	
@@ -515,7 +512,7 @@ fragment FRAG_SPECIAL_GROUP_NAME
 		'Toy Variety Group';
 		
 GROUP_RING
-	:	(FRAG_GROUP_NAME ' - ' JUDGE_NAME)|FRAG_SPECIAL_GROUP_NAME;
+	:	FRAG_GROUP_NAME|FRAG_SPECIAL_GROUP_NAME|FRAG_BEST_IN_SHOW;//(FRAG_GROUP_NAME ' - ' JUDGE_NAME)|FRAG_SPECIAL_GROUP_NAME;
 //Dog breed names in singular form
 /*
 Rally Excellent B Walkthrough
@@ -659,7 +656,7 @@ JUDGE_NAME: {allowJudge}?=>(FRAG_TITLE WS FRAG_PROPER_NAME (' ' (PARENTHETICAL_N
 
 WS :(' ' |'\t' |'\n' |'\r' )+ {$channel=HIDDEN;} ;  
     
-RING_TITLE  :   ('GROUP RING'{allowGroup=true;}|('RING' WS INT)){allowJudge=true;};
+RING_TITLE  :   (('GROUP RING')=>'GROUP RING'{allowGroup=true;}|('RING' WS INT)){allowJudge=true;};
 
 PHONE_NUMBER
     :   '(' '0'..'9''0'..'9''0'..'9' ')'
@@ -683,9 +680,8 @@ fragment WORD  : ('a'..'z'|FRAG_SPEC_CHAR|FRAG_SPEC_WORD_CHAR)+ END_PUNCTUATION?
 COMMENT :   ((FRAG_PROPER_NAME|WORD|PARENTHETICAL|INT|ELLIPSIS){allowBreed=false; allowGroup=false;allowJudge=false;})+;//Sometimes they mention sweepstakes in comment
 fragment END_WORD
 	:	WORD END_PUNCTUATION;
-fragment FRAG_ENDING_ANNOUNCEMENT:'Unless otherwise announced';
+GROUP_ENDING_ANNOUNCEMENT:'Unless otherwise announced';
 fragment PARENTHETICAL_NAME: '(' (FRAG_TITLE WS)? FRAG_PROPER_NAME ')';
-
 FallThrough
 @after{
   //System.err.println("Ooops! " + getText() + " fell through");

@@ -20,6 +20,13 @@ public class TestUtils {
 		return str1.equals(str2);
 	}
 
+	public static final void cleanDirectory(File directory)
+	{
+		for(File f : directory.listFiles())
+		{
+			f.delete();
+		}
+	}
 	public static final String fileToString(File file) throws IOException {
 		String line;
 		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));

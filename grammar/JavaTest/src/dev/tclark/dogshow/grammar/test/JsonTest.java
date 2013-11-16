@@ -15,12 +15,14 @@ public class JsonTest {
 	public void jsonTest() throws IOException, InterruptedException, JSONException {
 		File programsFolder = new File("testcase/tests/programs");
 		File outputFolder = new File("testcase/tests/program-json");
+		TestUtils.cleanDirectory(outputFolder);
 		File expectedOutputFolder = new File("testcase/tests/program-json-expected");
 		for (File test : programsFolder.listFiles()) {
 			System.out.println("******************************");
 			System.out.println("testing: " + test.getName());
 			System.out.println("******************************");
 			File testOutputFile = new File(outputFolder, test.getName() + ".test.json");
+			
 			File expectedOutputFile = new File(expectedOutputFolder, test.getName() + ".json");
 
 			ProcessBuilder pb = new ProcessBuilder("python", "driver.py", "-t", test.getAbsolutePath(), "--output=" + testOutputFile.getAbsolutePath());
