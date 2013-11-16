@@ -16,14 +16,11 @@ from util import ScrapeHelper, RegexPattern, RegexHelper, printv;
 class ShowScraper(object):
 
     
-    def __init__(self, offline=None, verbose=None ):
+    def __init__(self, offline=None ):
         self.OFFLINE = config.Env.OFFLINE;
-        self.VERBOSE = config.Env.VERBOSE;
         self.DO_DOWNLOAD = config.Env.DO_DOWNLOAD;
         if offline:
             self.OFFLINE = offline;
-        if verbose:
-            self.VERBOSE = verbose;
         
         #self._allshows = self._pullShowsFromOnofrio()
         #self._uniqueshows = self._getUniqueShows();
@@ -40,23 +37,19 @@ class ShowScraper(object):
         pool = BeautifulSoup(page)
         if self._hasProgram:
             club = self._pullKennelClub(pool);
-            if self.VERBOSE:
-                print(club);
+            printv(club);
             date = self._parseStartDate(pool);
             location = self._parseLocation(pool);
             #self._hasProgram = self._checkIfProgram(pool);
             code = self._pullShowCode(pool);
-            if self.VERBOSE:
-                print('code:' + str(code));
+            printv('code:' + str(code));
             pdfLink = self._pullPdfLink(pool);
-            if self.VERBOSE:
-                print('pdf link: ' + str(pdfLink));
+            printv('pdf link: ' + str(pdfLink));
             show = Show(code, club, location, date);
             show.pdfLink = pdfLink;
-            if config.Env.VERBOSE:
-                print("************************************")
-                print("*   finding companions to " + str(club) + "  *")
-                print("************************************")
+            printv("************************************")
+            printv("*   finding companions to " + str(club) + "  *")
+            printv("************************************")
             companionShows = self._parseCompanionShows(pool);
             for c in companionShows:
                 printv('found a companion')
@@ -205,10 +198,10 @@ class ShowScraper(object):
                 prevProgram = show.programName
             else:
                 if show._hasProgram:
-                    if show.programName is None and self.VERBOSE :
-                        print("program but no name in " + show._pagelink)
-                    elif self.VERBOSE:
-                        print("duplicate: " + show.programName)
+                    if show.programName is None:
+                        printv("program but no name in " + show._pagelink)
+                    else:
+                        printv("duplicate: " + show.programName)
 
         return uniqueShows;
 

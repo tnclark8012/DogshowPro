@@ -8,7 +8,7 @@ from showscraper import ShowScraper
 from ringcleaner import RingCleaner
 import model.show
 from showutils import urlopen_with_retry
-from util import printv;
+from util import printv, printd;
 
 class DogshowProgramWorker(object):
     def __init__(self):
@@ -109,18 +109,18 @@ class DogshowProgramWorker(object):
     returns: showJson with dates assigned.
     """
     def assignDates(self, showJson, ringDates):
-        printv("*******************")
-        printv("* Assigning dates *");
-        printv("*******************")
+        printd("*******************")
+        printd("* Assigning dates *");
+        printd("*******************")
         ringsList = showJson['Rings'];
         numRings = len(ringsList)
         dates = list(ringDates.keys());
-        printv(str(dates))
+        printd(str(dates))
         currentDateIndex = 0;
         currentDate = dates[currentDateIndex];
         currentDateNumRings = len(ringDates[currentDate])
         assignedRingsCurrentDate = 0;
-        printv("date list:           " + str(dates));
+        printd("date list:           " + str(dates));
         printv("numRings in JSON:    " + str(numRings))
         printv("currentDate:         " + str(currentDate))
         printv("currentDateNumRings: " + str(currentDateNumRings))
@@ -225,8 +225,7 @@ class DogshowProgramWorker(object):
             f.close();
             pdfPath = filename
             printv("pdf path: " + pdfPath)
-            if config.Env.VERBOSE:
-                printv(filename)
+            printv(filename)
             return pdfPath;
         else:
             printv("Did not download program!")

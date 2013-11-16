@@ -592,6 +592,7 @@ fragment FRAG_RALLY_CLASS_SECTION
 16 inch: R9-R11;R15-R17
 08 inch	: R7,R8
 	*/
+//NON_CONFORMATION_SECOND_LINE:(INT+(('-'INT+)?(';'INT+('-'INT)?))+);
 NON_CONFORMATION_SECOND_LINE:('0'..'9'+'-''0'..'9'+)|('0'..'9'+(('-''0'..'9'+)?(';''0'..'9'+('-''0'..'9'+)?))+);
 
 fragment FRAG_RALLY_SINGLE_ENTRANT
@@ -661,8 +662,9 @@ WS :(' ' |'\t' |'\n' |'\r' )+ {$channel=HIDDEN;} ;
 RING_TITLE  :   ('GROUP RING'{allowGroup=true;}|('RING' WS INT)){allowJudge=true;};
 
 PHONE_NUMBER
-    :   '(' '0'..'9''0'..'9''0'..'9' ')' WS? '0'..'9' '0'..'9' '0'..'9' '-' '0'..'9' '0'..'9' '0'..'9' '0'..'9';
-
+    :   '(' '0'..'9''0'..'9''0'..'9' ')'
+    	( (WS? '0'..'9' '0'..'9' '0'..'9' '-' '0'..'9' '0'..'9' '0'..'9' '0'..'9')=> WS? '0'..'9' '0'..'9' '0'..'9' '-' '0'..'9' '0'..'9' '0'..'9' '0'..'9'  
+    	| ()=>{$type=PARENTHETICAL_INT;});
 TIME    :   INT ':' INT WS FRAG_TIME_LABEL{allowBreed=true;};
 
 DATE    :   FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT {allowBreed=true;};
@@ -681,6 +683,7 @@ fragment WORD  : ('a'..'z'|FRAG_SPEC_CHAR|FRAG_SPEC_WORD_CHAR)+ END_PUNCTUATION?
 COMMENT :   ((FRAG_PROPER_NAME|WORD|PARENTHETICAL|INT|ELLIPSIS){allowBreed=false; allowGroup=false;allowJudge=false;})+;//Sometimes they mention sweepstakes in comment
 fragment END_WORD
 	:	WORD END_PUNCTUATION;
+fragment FRAG_ENDING_ANNOUNCEMENT:'Unless otherwise announced';
 fragment PARENTHETICAL_NAME: '(' (FRAG_TITLE WS)? FRAG_PROPER_NAME ')';
 
 FallThrough

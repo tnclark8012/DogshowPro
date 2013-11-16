@@ -7,9 +7,9 @@ from showutils import urlopen_with_retry
 import time
 import urllib.request
 import urllib.parse
+from util import printv
 
 class Show(object):
-    VERBOSE = False;
     OFFLINE = False;
     DO_DOWNLOAD = True;
     
@@ -80,25 +80,24 @@ class Show(object):
         return self._state;
 
     def downloadProgram(self):
-        print("setting pdf path...")
+        printv("setting pdf path...")
         self._pdfPath = config.Pdf.DOWNLOAD_DIR+self.programName
-        print("pdf path is " + self._pdfPath)
+        printv("pdf path is " + self._pdfPath)
         if not config.Env.OFFLINE and config.Env.DO_DOWNLOAD and self._hasProgram:
             if not self._pdfLink:
-                print("download died: " + self._pagelink)
+                printv("download died: " + self._pagelink)
                 return False;
             #self._programcode = "PPTO1";
             pdfName = self.programName; 
             url = config.Onofrio.pdfUrl(self._pdfLink)            
-            print("*** Downloading ***" + url);
+            printv("*** Downloading ***" + url);
             (filename, headers) = urllib.request.urlretrieve(url, path)
             f = open(filename)
             f.close();
             self._pdfPath = filename
-            print("pdf path: " + self._pdfPath)
-            if config.Env.VERBOSE:
-                print(filename)
+            printv("pdf path: " + self._pdfPath)
+            printv(filename)
             return True;
         else:
-            print("Did not download program!")
+            printv("Did not download program!")
             return False; 

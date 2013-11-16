@@ -9,7 +9,6 @@ from util import printv
 import time
 
 class Show(object):
-    VERBOSE = False;
     
     def __init__(self, code, club, locations, dates):
         self.code = code;
@@ -101,25 +100,21 @@ class Show(object):
     def _parseLocation(self, pool):
         headings = pool.findAll('h2', attrs={'align':'CENTER'});
         raw = headings[0].findAll(text=True)[0];
-        if config.Env.VERBOSE:
-            print("Raw location: " + raw);
+        printv("Raw location: " + raw);
         match = re.search("(?P<city>.*) (?P<state>[A-Z][A-Z])", raw);
         pretty = match.group('city') + ", " + match.group('state')
         self._city = match.group('city')
         self._state = match.group('state')
-        if config.Env.VERBOSE:
-            print("Pretty location: " + pretty)
+        printv("Pretty location: " + pretty)
         return pretty;
 
 
     def _parseStartDate(self, pool): 
         headings = pool.findAll('h2', attrs={'align':'CENTER'});
         raw = headings[1].findAll(text=True)[0]
-        if config.Env.VERBOSE:
-            print("Raw date: " + raw);
+        printv("Raw date: " + raw);
         pretty = re.search("- (?P<date>("+config.MONTH_REGEX+") .*)", raw).group('date');
-        if config.Env.VERBOSE:
-            print("Pretty date: " + pretty)
+        printv("Pretty date: " + pretty)
         return pretty;
     
 

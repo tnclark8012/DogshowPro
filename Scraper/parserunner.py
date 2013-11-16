@@ -38,14 +38,14 @@ class ParseRunner(object):
     """
     def parseProgramPdf2Txt(self, fullPdfPath):
         if fullPdfPath is not None:
-            printv("**************************")
-            printv("*     Parsing PDF2Txt    *")
-            printv("**************************")
             output = os.path.basename(fullPdfPath)[:-3] + "pdf2txt.txt"
             outputLocation = config.Parse.OUTPUT_DIR + output
             if not os.path.isfile(outputLocation) or config.Env.FORCE_ALL:
+                printv("**************************")
+                printv("*     Parsing PDF2Txt    *")
+                printv("**************************")
                 #TODO save these? Move these process calls and paths somewhere easier to manage
-                proc = subprocess.Popen(['python27', './libs/pdfminer-20110515/tools/pdf2txt.py', fullPdfPath],  stdout=open(outputLocation, "w"))
+                proc = subprocess.call(['python27', './libs/pdfminer-20110515/tools/pdf2txt.py', fullPdfPath],  stdout=open(outputLocation, "w"))
             else:
                 printv("Already exists: " + outputLocation + "; reading from file.");
             #with codecs.open (outputLocation, "r", 'UTF-8') as outputFile:

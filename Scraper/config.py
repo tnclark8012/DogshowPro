@@ -10,6 +10,8 @@ class Env(object):
     DEBUG = True
     DO_DOWNLOAD = False;
     VERBOSE = False;
+    LOG_VERBOSE = False;
+    LOG_DEBUG = False;
     SANDBOX_DIR = os.getcwd();
 
 class AppServer(object):

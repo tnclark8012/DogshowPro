@@ -87,7 +87,7 @@ def main(argv):
     #r.parseShowJson('C:/Users/Taylor/Documents/GitHub/dogshow/Scraper/programs/COUL1.pdf')
     #sys.exit(1);
     try:
-      opts, args = getopt.getopt(argv,"fp:r:odt:",['limit=','download=','offline=', 'forceall=', 'output='])
+      opts, args = getopt.getopt(argv,"vfp:r:odt:",['limit=','download=','offline=', 'forceall=', 'output='])
     except getopt.GetoptError:
       print('option error. No options?');
       sys.exit(2)
@@ -109,6 +109,11 @@ def main(argv):
         config.Env.FORCE_ALL = arg=='true';
       if opt =='--output':
         outputfile = arg;
+      if opt == '-v':
+        config.Env.LOG_VERBOSE = True;
+      if opt == '-d':
+        config.Env.LOG_DEBUG = True;
+
 
     for opt, arg in opts:
       printv("opt: " + opt)
@@ -124,9 +129,10 @@ def main(argv):
             worker = DogshowProgramWorker();
             folder = config.Pdf.DOWNLOAD_DIR;
             for filename in os.listdir(folder):
-                printv(os.path.splitext(filename)[1])
-                if os.path.splitext(filename)[1] == '.pdf' and 'COUN' in filename:
-                    worker.generateJson(folder+filename);
+                if os.path.splitext(filename)[1] == '.pdf' and 'BRAZ' in filename:
+                    #RingCleaner().cleanPdf2Txt('./parsed/COUL1.pdf2txt.txt');
+                    out = worker.generateJson(folder+filename);
+                    dumpJson(config.AppServer.DUMP_DIR+filename, out);
          sys.exit()
       elif opt == '-t':
         if outputfile is None:
@@ -140,22 +146,6 @@ def main(argv):
          requestedPage=arg
       elif opt == '-o':
         printv('offline')
-      elif opt == '-d':
-         worker = DogshowProgramWorker();
-         worker.run(showLimit, 10);
-         sys.exit(0);
-         if arg == 'showpage':
-            printv('show page')
-            show = ShowScraper(True, True).pullShow("blah");
-            if show:
-                printv(show.pdfLink)
-                #downloadProgram(show);
-                postShow(show);
-            sys.exit()
-         if arg == 'closed':
-            printv("closed");
-            links = ShowScraper(False, True).pullClosedShows();
-            [printv(str(link)) for link in links]
       elif opt == '-f':
         (allshows, uniqueShows) = scrapeAndDownload();
         kansas = None
@@ -171,3 +161,21 @@ def main(argv):
         #shows = doRunGrammar()
 if __name__ == "__main__":
    main(sys.argv[1:])
+
+"""      elif opt == '-d':
+         worker = DogshowProgramWorker();
+         worker.run(showLimit, 10);
+         sys.exit(0);
+         if arg == 'showpage':
+            printv('show page')
+            show = ShowScraper(True, True).pullShow("blah");
+            if show:
+                printv(show.pdfLink)
+                #downloadProgram(show);
+                postShow(show);
+            sys.exit()
+         if arg == 'closed':
+            printv("closed");
+            links = ShowScraper(False, True).pullClosedShows();
+            [printv(str(link)) for link in links]
+"""

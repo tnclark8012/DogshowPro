@@ -1,6 +1,6 @@
 import json
 from parserunner import ParseRunner;
-from util import RegexPatternDef, printv;
+from util import RegexPatternDef, printv, printd;
 import re
 import shutil
 import grammar
@@ -9,36 +9,38 @@ import os
 from collections import OrderedDict
 import codecs
 import sys
+import string
 import subprocess
 #TODO move re to regexhelper methods if possible
 
 
 class RingCleaner(object):
 	#, '/[0-9]+ [0-9]+-[0-9]+-[0-9]+-[0-9]+$/Id'
-	pdfBoxSedCommands = ['/.* GOES TO LUNCH/Id', '/.* MOVES TO RING [0-9]+/Id', '/.* is also in RING/Id', '/.* minutes following/Id'];
-	pdf2TxtSedCommands = ['/.* MOVES TO RING [0-9]+/Id'];
+	pdfBoxSedCommands = ['s/[0-9]+ring/RING/Ig','/.* GOES TO LUNCH/Id', '/.* MOVES TO RING [0-9]+/Id', '/.* is also in RING/Id', '/.* minutes following/Id'];
+	pdf2TxtSedCommands = ['/.* MOVES TO RING [0-9]+/Id', 's/[[:cntrl:]]//g'];
 	def __init__(self):
 		self._runner = ParseRunner();
 	def cleanPdfBox(self, pdfPath):
 		cleanedPath = config.Grammar.CLEANED_PROGRAM_DIR + os.path.basename(pdfPath)
-		if not os.path.isfile(cleanedPath):
+		if not os.path.isfile(cleanedPath) or config.Env.FORCE_ALL:
 			shutil.copyfile(pdfPath, cleanedPath)
 			#TODO build into one big command
 			for sedCommand in RingCleaner.pdfBoxSedCommands:
-				printv('running sed: ' + sedCommand);
+				printv('running sed: ' + sedCommand + ' on ' + cleanedPath);
 				sub = subprocess.call(['sed', '-i','-r','-e', sedCommand, cleanedPath])
 		return cleanedPath
-		#printv(string['Rings']);
 	
 	def cleanPdf2Txt(self, pdfPath):
 		printv("Cleaning Pdf2Txt Output: " + str(pdfPath))
 		cleanedPath = config.Grammar.CLEANED_PROGRAM_DIR + os.path.basename(pdfPath)
-		if not os.path.isfile(cleanedPath):
+		if not os.path.isfile(cleanedPath) or config.Env.FORCE_ALL:
 			shutil.copyfile(pdfPath, cleanedPath)
 			#TODO build into one big command
-			printv("running sed on " + cleanedPath)
 			for sedCommand in RingCleaner.pdf2TxtSedCommands:
-				sub = subprocess.call(['sed', '-i','-r', '-e', sedCommand, cleanedPath])
+				printd('running sed: ' + sedCommand + ' on ' + cleanedPath);
+				sub = subprocess.call(['sed','-i', '-r', '-e', sedCommand, cleanedPath])
+		else:
+			printd('Already exists: ' + cleanedPath + '. Not running Pdf2Txt cleaning')
 		return cleanedPath
 
 	"""
@@ -75,15 +77,20 @@ class RingCleaner(object):
 	def _getDateRingMap(self, text):
 		#Default encoding can't handle bullets etc. in file
 		text = text.encode('utf-8')
+		printd('utf-8')
+		printd(str(text))
+		#text = ''.join(filter(lambda x: x in string.printable, text))
+		printd('filtered')
+		printd(str(text))
 		text = str(text);
 		text = text.replace('\\r\\n','\n').replace('\\r','\n').replace('\\n','\n');
 		lineArr = str(text).split('\n');
 
-		printv(str(len(lineArr)) + " lines after split");
-		printv(text);
+		printd(str(len(lineArr)) + " lines after split");
 		dateRingList = [line for line in lineArr if re.match(RegexPatternDef.DATE, line) or re.match("RING \d+", line)]
-		printv(len(dateRingList));
-		[printv(str(x)) for x in dateRingList]
+		printd(len(dateRingList));
+
+		[printd(str(x)) for x in dateRingList]
 		ringCount = 0;
 		datemap = OrderedDict();
 		rings = list();

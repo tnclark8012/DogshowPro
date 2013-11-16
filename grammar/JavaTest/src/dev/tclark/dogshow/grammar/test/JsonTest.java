@@ -17,6 +17,9 @@ public class JsonTest {
 		File outputFolder = new File("testcase/tests/program-json");
 		File expectedOutputFolder = new File("testcase/tests/program-json-expected");
 		for (File test : programsFolder.listFiles()) {
+			System.out.println("******************************");
+			System.out.println("testing: " + test.getName());
+			System.out.println("******************************");
 			File testOutputFile = new File(outputFolder, test.getName() + ".test.json");
 			File expectedOutputFile = new File(expectedOutputFolder, test.getName() + ".json");
 
@@ -36,8 +39,6 @@ public class JsonTest {
 			String expected = TestUtils.fileToString(expectedOutputFile);
 			String actual = TestUtils.fileToString(testOutputFile);
 			JSONAssert.assertEquals(expected, actual, false);
-			//boolean same = TestUtils.compareFiles(testOutputFile, expectedOutputFile);
-			//Assert.assertTrue(test.getName() + " failed.", same);
 		}
 	}
 }
