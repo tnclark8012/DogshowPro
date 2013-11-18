@@ -145,10 +145,10 @@ big_comment returns [String str]
 
 comment returns [String str]
 		@init{str="";}
-		: (TIME{str=$TIME.text;}|COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|INT{str=$INT.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;});
+		: (NON_CONFORMATION_CLASS_NAME{str=$NON_CONFORMATION_CLASS_NAME.text;}|BREED_NAME{str=$BREED_NAME.text;}|TIME{str=$TIME.text;}|COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|INT{str=$INT.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|NON_CONFORMATION_SECOND_LINE{str=$NON_CONFORMATION_SECOND_LINE.text;});
 timeblock_comment returns [String str]//No time
 		@init{str="";}
-		: (COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|INT{str=$INT.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|SPECIAL_SUFFIX);
+		: (NON_CONFORMATION_CLASS_NAME{str=$NON_CONFORMATION_CLASS_NAME.text;}|BREED_NAME{str=$BREED_NAME.text;}|COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|INT{str=$INT.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|SPECIAL_SUFFIX);
 
 		
 ring_comment returns [String str]
@@ -159,7 +159,7 @@ timeblock returns [JsonObject json]
 	: (TIME{currentBlockTime=$TIME.text;json.addProperty("Time", currentBlockTime);}) (rings=inner_timeblock{if(json.has("Rings")){JsonArray already=json.getAsJsonArray("Rings");already.addAll(rings);json.add("Rings",already);}else{json.add("Rings", rings);}} (mComment=timeblock_comment{comment+=$mComment.str;})*{if(!comment.equals("")){json.add("timeblock_comment",new JsonPrimitive(comment));}})*{if(!mRelational&&json.has("Rings")){mShowRings.addAll(json.getAsJsonArray("Rings"));}};
 inner_timeblock returns [JsonArray array]
 	@init {array = new JsonArray();int countAhead = 0;}
-	:	(mSpecialRing=special_ring{mSpecialRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mSpecialRing.get("Count").getAsInt();array.add(mSpecialRing);}|mJuniorRing=junior_ring{mJuniorRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mJuniorRing.get("Count").getAsInt();array.add(mJuniorRing);}|((empty_breed_ring)=>mEmptyBreedRing=empty_breed_ring{mEmptyBreedRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mEmptyBreedRing.get("Count").getAsInt();array.add(mEmptyBreedRing);})|((breed_ring)=>mBreedRing=breed_ring{mBreedRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mBreedRing.get("Count").getAsInt();array.add(mBreedRing);})|(mConformation=non_conformation_ring{array.add(mConformation);})|(mRallyRing=rally_ring_block{array.add(mRallyRing);})|(ring_comment))+;
+	:	 (judge_name|mSpecialRing=special_ring{mSpecialRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mSpecialRing.get("Count").getAsInt();array.add(mSpecialRing);}|mJuniorRing=junior_ring{mJuniorRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mJuniorRing.get("Count").getAsInt();array.add(mJuniorRing);}|((empty_breed_ring)=>mEmptyBreedRing=empty_breed_ring{mEmptyBreedRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mEmptyBreedRing.get("Count").getAsInt();array.add(mEmptyBreedRing);})|((breed_ring)=>mBreedRing=breed_ring{mBreedRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mBreedRing.get("Count").getAsInt();array.add(mBreedRing);})|(mConformation=non_conformation_ring{array.add(mConformation);})|(mRallyRing=rally_ring_block{array.add(mRallyRing);})|(ring_comment))+;
 
 junior_ring returns [JsonObject json]
 	@init{json = new JsonObject();json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}}
@@ -235,7 +235,7 @@ JUNIOR_CLASS
         'Novice Intermediate';
         
 fragment FRAG_BREED_NAME_SINGLE
-    : {allowBreed}?=> ('Affenpinscher'|
+    : /*{allowBreed}?=> */('Affenpinscher'|
     'Afghan Hound'|
     'Airedale Terrier'|
     'Akita'|
@@ -434,22 +434,28 @@ fragment FRAG_BREED_NAME_SINGLE
 	'Wirehaired Vizsla'|
     'Xoloitzcuintli'|
     'Yorkshire Terrier');
-        
+
+
 BREED_NAME
-    : {allowBreed}?=>(FRAG_BREED_NAME_SINGLE|FRAG_BREED_NAME_ALT) 's'? WS? ('(' FRAG_BREED_NAME_CATEGORY ')' WS? FRAG_BREED_NAME_CATEGORY_SUFFIX? )? BREED_NAME_SUFFIX?;
+    : (FRAG_BREED_NAME_SINGLE|FRAG_BREED_NAME_ALT) 's'? WS? ('(' FRAG_BREED_NAME_CATEGORY ')' WS? FRAG_BREED_NAME_CATEGORY_SUFFIX? )? BREED_NAME_SUFFIX?;
 
 SPECIAL_SUFFIX
-    :   (FRAG_BREED_NAME_SPECIAL_SUFFIX);//Could be more matching, so keep BREED_NAME_SPECIAL_SUFFIX a fragment
+   :   FRAG_BREED_NAME_SPECIAL_SUFFIX_GROUP;//Could be more matching, so keep BREED_NAME_SPECIAL_SUFFIX a fragment
     
 fragment BREED_NAME_SUFFIX
     :   ('('BREED_MISC')')|BREED_MISC;
-
+fragment FRAG_BREED_NAME_SPECIAL_SUFFIX_GROUP
+	:	(FRAG_BREED_ATTRIBUTE
+	 WS)? FRAG_BREED_NAME_SPECIAL_SUFFIX;
 fragment BREED_MISC
 :'Misc. Dog'|'Misc. Dogs'|'Misc. Bitch'|'Misc. Bitches';
-
+fragment FRAG_SEX
+	:	'Dog'|'Bitche'|'Bitch';
+fragment FRAG_BREED_ATTRIBUTE
+	:	'Brood'|'Veteran''s'?;
 fragment FRAG_BREED_NAME_SPECIAL_SUFFIX
-    :   ('Sweepstakes'|'Entry'|'Entries'|'Veterans');
-fragment FRAG_BREED_NAME_ALT:   'Brood Bitch'|'Brood Bitche'|'Veteran Dog'|'Veteran Bitch'|'Veteran Bitche';//used to handle BREED_RING with no breed count after
+    :   'Sweepstakes' WS ('e'|'E') ('ntry'|'ntries');
+fragment FRAG_BREED_NAME_ALT:   FRAG_BREED_ATTRIBUTE WS FRAG_SEX;//used to handle BREED_RING with no breed count after
 fragment FRAG_BREED_NAME_CATEGORY_SUFFIX
     :   'Ascob'|'Parti-Color'|'Black';//Spaniels (Cocker) Ascob
 fragment FRAG_BREED_NAME_CATEGORY //Breed's that are listed under categories rather than full name. Ex: Spaniels (Cocker)
@@ -531,7 +537,7 @@ To follow Rally Advanced
 R19-R26
 */
 NON_CONFORMATION_CLASS_NAME : 
-	NON_CONFORMATION_CLASS_LEVEL (' 'NON_CONFORMATION_CLASS_LEVEL)* (' 'NON_CONFORMATION_CLASS_SECTION)? (' 'NON_CONFORMATION_CLASS_SUFFIX)?;
+	(NON_CONFORMATION_CLASS_LEVEL (' 'NON_CONFORMATION_CLASS_LEVEL)* (' 'NON_CONFORMATION_CLASS_SECTION)? (' 'NON_CONFORMATION_CLASS_SUFFIX)?);
 /*
 	'Beginner Novice A Class'|
 	'Beginner Novice B Class'|
@@ -567,7 +573,7 @@ fragment NON_CONFORMATION_CLASS_LEVEL
 	'Graduate'|
 	'Walkthrough'|
 	'Versatility'
-	//|'Veterans'
+	|'Veterans'
 	;
 	
 NON_CONF_SECOND_LINE_COMMENT
@@ -677,7 +683,7 @@ fragment FRAG_PROPER_NAME: ('A'..'Z' ('a'..'z'|'A'..'Z'|FRAG_SPEC_CHAR|FRAG_SPEC
 PARENTHETICAL_INT
     :   '(' WS? INT WS? ')';
 fragment WORD  : ('a'..'z'|FRAG_SPEC_CHAR|FRAG_SPEC_WORD_CHAR)+ END_PUNCTUATION?;
-COMMENT :   ((FRAG_PROPER_NAME|WORD|PARENTHETICAL|INT|ELLIPSIS){allowBreed=false; allowGroup=false;allowJudge=false;})+;//Sometimes they mention sweepstakes in comment
+COMMENT :   ((FRAG_PROPER_NAME|WORD|PARENTHETICAL|INT|ELLIPSIS){/*allowBreed=false;*/ allowGroup=false;allowJudge=false;})+;//Sometimes they mention sweepstakes in comment
 fragment END_WORD
 	:	WORD END_PUNCTUATION;
 GROUP_ENDING_ANNOUNCEMENT:'Unless otherwise announced';

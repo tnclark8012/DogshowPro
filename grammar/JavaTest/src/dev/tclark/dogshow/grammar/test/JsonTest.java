@@ -40,6 +40,7 @@ public class JsonTest {
 			
 			String expected = TestUtils.fileToString(expectedOutputFile);
 			String actual = TestUtils.fileToString(testOutputFile);
+			System.out.println("Assert: " + test.getName());
 			JSONAssert.assertEquals(expected, actual, false);
 		}
 	}
