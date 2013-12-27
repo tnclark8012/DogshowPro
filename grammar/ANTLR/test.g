@@ -46,6 +46,28 @@ Pattern groupPattern = Pattern.compile("((?:(?:TERRIER|HERDING|NON-SPORTING|SPOR
     return input.toString().contains(text);
   }
   
+  private JsonObject mergeJson(JsonObject dest, JsonObject src)
+{
+	if( dest == null )
+	{
+		dest = new JsonObject();
+	}
+	if( src == null)
+	{
+		return dest;
+	}
+	Iterator<Entry<String, JsonElement>> i = src.entrySet().iterator();
+	Entry<String, JsonElement> e;
+	while(i.hasNext())
+	{
+		e = i.next();
+		dest.add(e.getKey(), e.getValue());
+	}
+	return dest;
+	
+}
+
+  
   private int parseIntSafely(String str, int defaultValue){
   	try{
   		return Integer.parseInt(str);
@@ -118,6 +140,7 @@ Pattern groupPattern = Pattern.compile("((?:(?:TERRIER|HERDING|NON-SPORTING|SPOR
   
   
 }
+
 test_special:   special_ring+;
 test_breed
     :   breed_ring;
@@ -154,6 +177,181 @@ timeblock_comment returns [String str]//No time
 ring_comment returns [String str]
     :   STANDALONE_COMMENT{str=$STANDALONE_COMMENT.text;}|timeblock_comment;
 
+
+
+
+
+
+
+timeblock returns [JsonObject json]
+	@init {json = new JsonObject(); String comment = ""; String time = "";}:
+	(
+		(
+		INT
+			{
+				currentBlockTime=$INT.text;
+				json.addProperty("Time", currentBlockTime);
+			} 
+		FOLLOWING_TIME
+		)
+		|TIME
+			{
+				currentBlockTime=$TIME.text;
+				json.addProperty("Time", currentBlockTime);
+			}
+	) 
+	(
+		rings=inner_timeblock
+			{
+				if(json.has("Rings")){
+					JsonArray already=json.getAsJsonArray("Rings");
+					already.addAll(rings);
+					json.add("Rings",already);
+				}
+				else{
+					json.add("Rings", rings);
+				}
+			} 
+		(mComment=timeblock_comment{comment+=$mComment.str;})*
+			{
+				if(!comment.equals("")){
+					json.add("timeblock_comment",new JsonPrimitive(comment));
+				}
+			}
+	)*
+	{
+		if(!mRelational&&json.has("Rings")){
+			mShowRings.addAll(json.getAsJsonArray("Rings"));
+		}
+	};
+
+inner_timeblock returns [JsonArray array]
+	@init {array = new JsonArray();int countAhead = 0;}:
+	(
+		judge_name|
+		mRing=int_next
+			{
+				mRing.add("CountAhead",new JsonPrimitive(countAhead));
+				countAhead+=mRing.get("Count").getAsInt();
+				array.add(mRing);
+			}|
+		rename_this_comment
+	)+;
+
+rename_this_comment: no_int|ring_comment;
+
+int_next returns [JsonObject json]
+	@init(json = new JsonObject(); JsonObject ring;}:
+	INT
+		{
+			json.addProperty("Count", parseIntSafely($INT.text,0));
+		}
+	(
+		ring=breed_next|
+		ring=no_breed
+	)
+	{
+		mergeJson(ring, json);
+	};
+	
+no_int: (RALLY_CLASS{/*it's a walkthrough*/})|(NON_CONF_SECOND_LINE_COMMENT+);
+
+breed_next returns [JsonObject json]
+	@init(json = new JsonObject(); String suffix="";}:  
+	BREED_NAME{json.addProperty("BreedName", $BREED_NAME.text);} 
+	(
+		other=special_suffix|
+		other=breed_ring
+	)
+		{
+			mergeJson(other, json);
+		};
+
+
+
+breed_ring returns [JsonObject json]
+	@init(json = new JsonObject(); String suffix="";}: 
+	BREED_NAME_SUFFIX
+		{
+			json.addProperty("BreedSuffix",$BREED_NAME_SUFFIX.text);
+		}? 
+	BREED_COUNT
+		{
+			json.addProperty("BreedCount", $BREED_COUNT.text);
+		}?;
+
+
+
+
+special_suffix returns [JsonObject json]
+	@init(json = new JsonObject(); String suffix="";}:
+	(
+		SPECIAL_SUFFIX
+			{
+				suffix+=$SPECIAL_SUFFIX.text;
+			}
+	)+
+	{
+		json.addProperty("SpecialSuffix", suffix);
+	};
+	
+no_breed returns [JsonObject json]
+	@init(json = new JsonObject(); String suffix="";}:
+	(json=junior|json=empty_breed_ring|json=special_suffix|json=non_conformation|json=rally);
+	
+junior returns [JsonObject json]
+	@init{json = new JsonObject();}:
+	JUNIOR_CLASS
+		{
+			json.addProperty("ClassName", $JUNIOR_CLASS.text);
+		};
+
+
+empty_breed_ring returns [JsonObject json]
+	@init{json = new JsonObject();}: 
+	BREED_COUNT
+		{
+			json.addProperty("BreedCount", $BREED_COUNT.text);
+		};
+
+
+non_conformation returns [JsonObject json]
+	@init{json = new JsonObject();String classes="";}: 
+	(
+		NON_CONFORMATION_CLASS_NAME {json.addProperty("ClassName",$NON_CONFORMATION_CLASS_NAME.text);}
+		(
+			NON_CONFORMATION_SECOND_LINE{classes=$NON_CONFORMATION_SECOND_LINE.text;}|
+			INT{classes=$NON_CONFORMATION_SECOND_LINE.text;}
+		)
+	)
+	{
+		json.addProperty("Entries", classes);
+	};
+
+
+rally returns [JsonObject json]
+	@init{json = new JsonObject();String classes="";}:
+	(
+		RALLY_CLASS{json.addProperty("ClassName", $RALLY_CLASS.text);} (INT{classes+=$INT.text;}? RALLY_ENTRY{classes+=" " + RALLY_ENTRY.text;})*
+	)
+	{
+		json.addProperty("Entries", classes);
+	};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*
 timeblock returns [JsonObject json] 
 	@init {json = new JsonObject(); String comment = ""; String time = "";}	
 	: (TIME{currentBlockTime=$TIME.text;json.addProperty("Time", currentBlockTime);}) (rings=inner_timeblock{if(json.has("Rings")){JsonArray already=json.getAsJsonArray("Rings");already.addAll(rings);json.add("Rings",already);}else{json.add("Rings", rings);}} (mComment=timeblock_comment{comment+=$mComment.str;})*{if(!comment.equals("")){json.add("timeblock_comment",new JsonPrimitive(comment));}})*{if(!mRelational&&json.has("Rings")){mShowRings.addAll(json.getAsJsonArray("Rings"));}};
@@ -215,6 +413,79 @@ rally_entry_line
 	:	(INT? RALLY_ENTRY);
 rally_comment
 	:NON_CONF_SECOND_LINE_COMMENT+;
+*/
+
+
+//******************************
+//PROPOSED
+//******************************
+//timeblock: TIME inner_timeblock timeblock_comment*
+//inner_timeblock: (judge_name|int_next|no_int|ring_comment)+;
+//
+//int_next: INT  breed_next|no_breed
+//no_int: (RALLY_CLASS{/*it's a walkthrough*/})|(NON_CONF_SECOND_LINE_COMMENT+);
+//
+//breed_next: BREED_NAME special|breed_ring;
+//breed_ring: BREED_NAME_SUFFIX? BREED_COUNT?;
+//special: SPECIAL_SUFFIX+;
+//no_breed: junior|empty_breed_ring|empty_special|non_conformation|rally;
+//junior: JUNIOR_CLASS;
+//empty_breed_ring: BREED_COUNT;
+//empty_special:SPECIAL_SUFFIX+;
+//non_conformation: (NON_CONFORMATION_CLASS_NAME (NON_CONFORMATION_SECOND_LINE|INT));
+//rally: (RALLY_CLASS (INT? RALLY_ENTRY)*);
+//
+//******************************
+//Tracking
+//******************************
+//special_ring: (BREED_NAME)? (SPECIAL_SUFFIX)+
+//breed_ring: BREED_NAME (BREED_NAME_SUFFIX)? (BREED_COUNT)?;
+//
+//
+//
+//
+//group_ring: GROUP_RING (COMMENT|PARENTHETICAL)+;
+//group_block:TIME STANDALONE_COMMENT? (group_ring)+ GROUP_ENDING_ANNOUNCEMENT;
+//
+//
+//
+//
+//******************************
+//ORIGINAL
+//******************************
+//timeblock: TIME inner_timeblock timeblock_comment*
+//inner_timeblock: (judge_name|special_ring|junior_ring|empty_breed_ring|breed_ring|non_conformation_ring|rally_ring_block|ring_comment)+;
+//
+//junior_ring: INT JUNIOR_CLASS;
+//special_ring:   INT (BREED_NAME{breedName+=$BREED_NAME.text;})? (SPECIAL_SUFFIX)+
+//
+//group_ring: GROUP_RING (COMMENT|PARENTHETICAL)+;
+//group_block:TIME STANDALONE_COMMENT? (group_ring)+ GROUP_ENDING_ANNOUNCEMENT;
+//empty_breed_ring: INT(BREED_COUNT);
+//
+//breed_ring: INT BREED_NAME (BREED_NAME_SUFFIX)? (BREED_COUNT)?;
+//
+//
+//non_conformation_ring: (INT NON_CONFORMATION_CLASS_NAME (NON_CONFORMATION_SECOND_LINE|INT) (NON_CONF_SECOND_LINE_COMMENT)*);
+//rally_ring_block:	(rally_comment)|(rally_ring_name rally_entry_line*);
+//rally_ring_name: INT? RALLY_CLASS;
+//	
+//rally_entry_line: (INT? RALLY_ENTRY);
+//rally_comment: NON_CONF_SECOND_LINE_COMMENT+;
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
 /******************************
 *
 *

@@ -1,9 +1,12 @@
 package dev.tclark.dogshow;
 
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.Map.Entry;
 
 import org.antlr.runtime.TokenStream;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import dev.tclark.dogshow.grammar.LexerRunner;
@@ -26,7 +29,7 @@ public class Main {
 		
 		LexerRunner lexerRunner = new LexerRunner(file);
 		//TokenStream ts = lexerRunner.getTokenStream(file);
-//		lexerRunner.printTokens();
+		lexerRunner.printTokens();
 ////
 		ParserRunner parserRunner = new ParserRunner(lexerRunner);
 		parserRunner.setRelationalParsing(false);

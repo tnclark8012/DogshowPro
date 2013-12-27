@@ -16,7 +16,7 @@ import subprocess
 
 class RingCleaner(object):
 	#, '/[0-9]+ [0-9]+-[0-9]+-[0-9]+-[0-9]+$/Id'
-	pdfBoxSedCommands = ['s/[0-9]+ring/RING/Ig','/.* GOES TO LUNCH/Id', '/.* MOVES TO RING [0-9]+/Id', '/.* is also in RING/Id', '/.* minutes following/Id'];
+	pdfBoxSedCommands = ['s/[0-9]+ring/RING/Ig','/.* GOES TO LUNCH/Id', '/.* MOVES TO RING [0-9]+/Id', '/.* is also in RING/Id' ];#'/.* minutes following/Id'
 	pdf2TxtSedCommands = ['/.* MOVES TO RING [0-9]+/Id', 's/[[:cntrl:]]//g'];
 	def __init__(self):
 		self._runner = ParseRunner();
