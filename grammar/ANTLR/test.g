@@ -158,7 +158,7 @@ inner_ring returns [JsonObject json]
 	    |((mJugeBlock=judge_block{judgeBlocks.add(mJugeBlock);})+ {json.add("JudgeBlocks", judgeBlocks);});
 judge_block returns [JsonObject json]
 	@init{json = new JsonObject(); JsonArray array = new JsonArray();}
-    :   mName=judge_name{json.addProperty("Judge", mName); if(!mRelational){mCurrentJudge = mName;}} (mBlock=timeblock{array.add(mBlock);})+ {json.add("TimeBlocks", array);};
+    :   mName=judge_name{if(!mRelational){mCurrentJudge = mName.trim();}json.addProperty("Judge", mName);} (mBlock=timeblock{array.add(mBlock);})+ {json.add("TimeBlocks", array);};
 judge_name returns [String str]
 	@init {str = "";}
 	:	(JUDGE_NAME{str+=$JUDGE_NAME.text;})+|(COMMENT{str+=$COMMENT.text+" ";}|PARENTHETICAL{str+=$PARENTHETICAL.text+" ";}|PARENTHETICAL_INT{str+=$PARENTHETICAL_INT.text+" ";})+; 
@@ -222,7 +222,7 @@ breed_name returns [JsonObject json]
     		}
     		else{
     			mLastBreedName=breedName;
-    		}} (BREED_NAME_SUFFIX{breedName += " " + $BREED_NAME_SUFFIX.text;})? {json.addProperty("BreedName", breedName);};
+    		}} (BREED_NAME_SUFFIX{json.addProperty("BreedSuffix", $BREED_NAME_SUFFIX.text);})? {json.addProperty("BreedName", breedName);};
 
 
 ring_without_breed returns [JsonObject json]

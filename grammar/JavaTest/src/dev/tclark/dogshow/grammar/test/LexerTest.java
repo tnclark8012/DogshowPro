@@ -45,7 +45,7 @@ public class LexerTest extends GrammarTest {
 		}
 	}
 
-	@Test
+//	@Test
 	public void test() throws IOException, IllegalArgumentException,
 			IllegalAccessException {
 
