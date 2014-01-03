@@ -495,14 +495,6 @@
 				"buffer_size": 145417,
 				"line_ending": "Windows"
 			}
-		},
-		{
-			"file": "cleaned/COUL1.pdfbox.txt",
-			"settings":
-			{
-				"buffer_size": 23975,
-				"line_ending": "Unix"
-			}
 		}
 	],
 	"build_system": "",
@@ -529,6 +521,7 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/COUL1.pdfbox.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/final/COUN1.pdf",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/GRMS1.pdfbox.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/MINN1JP.pdfbox.txt",
@@ -562,7 +555,6 @@
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/appserver_accessor.py",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/ANOK1JP",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/json/COUN1.pdfbox.json",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/COUL1.pdfbox.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parsed/WICH1JP.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/json/ANOK1JP.pdfbox.json",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/BRAZ1.pdfbox.jpdf2txt.txt",
@@ -664,7 +656,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 90.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"*.pdf,<open folders>,<open files>,C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\programs",
@@ -848,7 +840,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -915,8 +907,8 @@
 						"selection":
 						[
 							[
-								26940,
-								26919
+								42458,
+								42458
 							]
 						],
 						"settings":
@@ -924,7 +916,7 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 15871.0,
+						"translation.y": 20627.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -941,8 +933,8 @@
 						"selection":
 						[
 							[
-								0,
-								145417
+								433,
+								433
 							]
 						],
 						"settings":
@@ -951,32 +943,6 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "cleaned/COUL1.pdfbox.txt",
-					"settings":
-					{
-						"buffer_size": 23975,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								19891,
-								19905
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 10951.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

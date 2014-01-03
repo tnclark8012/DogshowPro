@@ -10,6 +10,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import java.util.regex.Pattern;          
 import java.util.regex.Matcher;
+
+import com.google.gson.JsonElement;
+import java.util.Iterator;
+import java.util.Map.Entry;
 }
 @lexer::header {
 package dev.tclark.dogshow.grammar;
@@ -29,6 +33,7 @@ JsonArray mShowRings = new JsonArray();
 String mCurrentJudge = null;
 int mCurrentRingNumber = -1;
 String mLastBreedName = null;
+String mCurrentClass = null;
 // end non-relational
 
 public void setRelationalParse(boolean value)
@@ -36,17 +41,7 @@ public void setRelationalParse(boolean value)
 	mRelational = value;
 }
 
-
-Pattern lastIntPattern = Pattern.compile("[^0-9]+([0-9]+)$");
-Pattern groupPattern = Pattern.compile("((?:(?:TERRIER|HERDING|NON-SPORTING|SPORTING|TOY|HOUND|WORKING) GROUP)|(?:BEST IN SHOW)) - (.*)");
-
-  
-  private boolean ahead(String text) {
-    System.out.println("Does " + input.toString() + " contain " + text + "?");
-    return input.toString().contains(text);
-  }
-  
-  private JsonObject mergeJson(JsonObject dest, JsonObject src)
+private JsonObject mergeJson(JsonObject dest, JsonObject src)
 {
 	if( dest == null )
 	{
@@ -67,6 +62,15 @@ Pattern groupPattern = Pattern.compile("((?:(?:TERRIER|HERDING|NON-SPORTING|SPOR
 	
 }
 
+
+Pattern lastIntPattern = Pattern.compile("[^0-9]+([0-9]+)$");
+Pattern groupPattern = Pattern.compile("((?:(?:TERRIER|HERDING|NON-SPORTING|SPORTING|TOY|HOUND|WORKING) GROUP)|(?:BEST IN SHOW)) - (.*)");
+
+  
+  private boolean ahead(String text) {
+    System.out.println("Does " + input.toString() + " contain " + text + "?");
+    return input.toString().contains(text);
+  }
   
   private int parseIntSafely(String str, int defaultValue){
   	try{
@@ -140,10 +144,6 @@ Pattern groupPattern = Pattern.compile("((?:(?:TERRIER|HERDING|NON-SPORTING|SPOR
   
   
 }
-
-test_special:   special_ring+;
-test_breed
-    :   breed_ring;
 start   returns [JsonObject json]
 		@init {json = new JsonObject(); String comments = ""; JsonArray ringArray = new JsonArray();}
 		:(mComment=big_comment{comments+=$mComment.str;})+ {json.addProperty("Comment", comments);}((ring)=>mRing=ring{ringArray.add($mRing.json);})+ {json.add("Rings", ringArray); if(!mRelational){json = new JsonObject(); json.add("Rings", mShowRings);}} EOF;
@@ -177,194 +177,98 @@ timeblock_comment returns [String str]//No time
 ring_comment returns [String str]
     :   STANDALONE_COMMENT{str=$STANDALONE_COMMENT.text;}|timeblock_comment;
 
-
-
-
-
-
-
-timeblock returns [JsonObject json]
-	@init {json = new JsonObject(); String comment = ""; String time = "";}:
-	(
-		(
-		INT
-			{
-				currentBlockTime=$INT.text;
-				json.addProperty("Time", currentBlockTime);
-			} 
-		FOLLOWING_TIME
-		)
-		|TIME
-			{
-				currentBlockTime=$TIME.text;
-				json.addProperty("Time", currentBlockTime);
-			}
-	) 
-	(
-		rings=inner_timeblock
-			{
-				if(json.has("Rings")){
-					JsonArray already=json.getAsJsonArray("Rings");
-					already.addAll(rings);
-					json.add("Rings",already);
-				}
-				else{
-					json.add("Rings", rings);
-				}
-			} 
-		(mComment=timeblock_comment{comment+=$mComment.str;})*
-			{
-				if(!comment.equals("")){
-					json.add("timeblock_comment",new JsonPrimitive(comment));
-				}
-			}
-	)*
-	{
-		if(!mRelational&&json.has("Rings")){
-			mShowRings.addAll(json.getAsJsonArray("Rings"));
-		}
-	};
-
-inner_timeblock returns [JsonArray array]
-	@init {array = new JsonArray();int countAhead = 0;}:
-	(
-		judge_name|
-		mRing=int_next
-			{
-				mRing.add("CountAhead",new JsonPrimitive(countAhead));
-				countAhead+=mRing.get("Count").getAsInt();
-				array.add(mRing);
-			}|
-		rename_this_comment
-	)+;
-
-rename_this_comment: no_int|ring_comment;
-
-int_next returns [JsonObject json]
-	@init(json = new JsonObject(); JsonObject ring;}:
-	INT
-		{
-			json.addProperty("Count", parseIntSafely($INT.text,0));
-		}
-	(
-		ring=breed_next|
-		ring=no_breed
-	)
-	{
-		mergeJson(ring, json);
-	};
-	
-no_int: (RALLY_CLASS{/*it's a walkthrough*/})|(NON_CONF_SECOND_LINE_COMMENT+);
-
-breed_next returns [JsonObject json]
-	@init(json = new JsonObject(); String suffix="";}:  
-	BREED_NAME{json.addProperty("BreedName", $BREED_NAME.text);} 
-	(
-		other=special_suffix|
-		other=breed_ring
-	)
-		{
-			mergeJson(other, json);
-		};
-
-
-
-breed_ring returns [JsonObject json]
-	@init(json = new JsonObject(); String suffix="";}: 
-	BREED_NAME_SUFFIX
-		{
-			json.addProperty("BreedSuffix",$BREED_NAME_SUFFIX.text);
-		}? 
-	BREED_COUNT
-		{
-			json.addProperty("BreedCount", $BREED_COUNT.text);
-		}?;
-
-
-
-
-special_suffix returns [JsonObject json]
-	@init(json = new JsonObject(); String suffix="";}:
-	(
-		SPECIAL_SUFFIX
-			{
-				suffix+=$SPECIAL_SUFFIX.text;
-			}
-	)+
-	{
-		json.addProperty("SpecialSuffix", suffix);
-	};
-	
-no_breed returns [JsonObject json]
-	@init(json = new JsonObject(); String suffix="";}:
-	(json=junior|json=empty_breed_ring|json=special_suffix|json=non_conformation|json=rally);
-	
-junior returns [JsonObject json]
-	@init{json = new JsonObject();}:
-	JUNIOR_CLASS
-		{
-			json.addProperty("ClassName", $JUNIOR_CLASS.text);
-		};
-
-
-empty_breed_ring returns [JsonObject json]
-	@init{json = new JsonObject();}: 
-	BREED_COUNT
-		{
-			json.addProperty("BreedCount", $BREED_COUNT.text);
-		};
-
-
-non_conformation returns [JsonObject json]
-	@init{json = new JsonObject();String classes="";}: 
-	(
-		NON_CONFORMATION_CLASS_NAME {json.addProperty("ClassName",$NON_CONFORMATION_CLASS_NAME.text);}
-		(
-			NON_CONFORMATION_SECOND_LINE{classes=$NON_CONFORMATION_SECOND_LINE.text;}|
-			INT{classes=$NON_CONFORMATION_SECOND_LINE.text;}
-		)
-	)
-	{
-		json.addProperty("Entries", classes);
-	};
-
-
-rally returns [JsonObject json]
-	@init{json = new JsonObject();String classes="";}:
-	(
-		RALLY_CLASS{json.addProperty("ClassName", $RALLY_CLASS.text);} (INT{classes+=$INT.text;}? RALLY_ENTRY{classes+=" " + RALLY_ENTRY.text;})*
-	)
-	{
-		json.addProperty("Entries", classes);
-	};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	/*
 timeblock returns [JsonObject json] 
 	@init {json = new JsonObject(); String comment = ""; String time = "";}	
-	: (TIME{currentBlockTime=$TIME.text;json.addProperty("Time", currentBlockTime);}) (rings=inner_timeblock{if(json.has("Rings")){JsonArray already=json.getAsJsonArray("Rings");already.addAll(rings);json.add("Rings",already);}else{json.add("Rings", rings);}} (mComment=timeblock_comment{comment+=$mComment.str;})*{if(!comment.equals("")){json.add("timeblock_comment",new JsonPrimitive(comment));}})*{if(!mRelational&&json.has("Rings")){mShowRings.addAll(json.getAsJsonArray("Rings"));}};
+	: ((INT{currentBlockTime=$INT.text;json.addProperty("Time", currentBlockTime);} FOLLOWING_TIME)|TIME{currentBlockTime=$TIME.text;json.addProperty("Time", currentBlockTime);}) (rings=inner_timeblock{if(json.has("Rings")){JsonArray already=json.getAsJsonArray("Rings");already.addAll(rings);json.add("Rings",already);}else{json.add("Rings", rings);}} (mComment=timeblock_comment{comment+=$mComment.str;})*{if(!comment.equals("")){json.add("timeblock_comment",new JsonPrimitive(comment));}})*{if(!mRelational&&json.has("Rings")){mShowRings.addAll(json.getAsJsonArray("Rings"));}};
+
+non_group_ring returns [JsonObject json]
+@init{json = new JsonObject();}:
+	INT{json.addProperty("Count", parseIntSafely($INT.text,0));}
+	(
+	(mRingWithBreed=ring_with_breed{mergeJson(json,mRingWithBreed);})|
+	(mRingWithoutBreed=ring_without_breed{mergeJson(json,mRingWithoutBreed);})
+	);
+
+
 inner_timeblock returns [JsonArray array]
 	@init {array = new JsonArray();int countAhead = 0;}
-	:	 (judge_name|mSpecialRing=special_ring{mSpecialRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mSpecialRing.get("Count").getAsInt();array.add(mSpecialRing);}|mJuniorRing=junior_ring{mJuniorRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mJuniorRing.get("Count").getAsInt();array.add(mJuniorRing);}|((empty_breed_ring)=>mEmptyBreedRing=empty_breed_ring{mEmptyBreedRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mEmptyBreedRing.get("Count").getAsInt();array.add(mEmptyBreedRing);})|((breed_ring)=>mBreedRing=breed_ring{mBreedRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=mBreedRing.get("Count").getAsInt();array.add(mBreedRing);})|(mConformation=non_conformation_ring{array.add(mConformation);})|(mRallyRing=rally_ring_block{array.add(mRallyRing);})|(ring_comment))+;
+	:	 (judge_name|nonGroupRing=non_group_ring{nonGroupRing.addProperty("BlockStart",currentBlockTime);nonGroupRing.addProperty("Number",mCurrentRingNumber);nonGroupRing.addProperty("Judge",mCurrentJudge);nonGroupRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=nonGroupRing.get("Count").getAsInt();if(!(nonGroupRing.has("type") && nonGroupRing.get("type").getAsString().equals("obedience_with_breed")))array.add(nonGroupRing);}|ring_comment)+;
 
-junior_ring returns [JsonObject json]
-	@init{json = new JsonObject();json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}}
-	:    INT{json.addProperty("Count",parseIntSafely($INT.text, 0));} JUNIOR_CLASS{json.addProperty("ClassName", $JUNIOR_CLASS.text);};
+
+
+rally_walkthrough returns [JsonObject json]
+	@init{json = new JsonObject();}:
+		RALLY_CLASS;//COUL - RALLY_CLASS: Rally Excellent Walkthrough 
+
+ring_with_breed returns [JsonObject json]
+@init{json = new JsonObject();}:
+	breedName=breed_name{mergeJson(json,breedName);} (suffix=special_suffix{mergeJson(json,suffix);}|(obedience=obedience_with_breed{json.addProperty("type","obedience_with_breed");})|((BREED_COUNT{int counted = addBreedCountToJson(json, $BREED_COUNT.text);})?));
+
+obedience_with_breed returns [JsonObject json]
+@init{json = new JsonObject(); json.addProperty("Class",mCurrentClass);}:
+	COMMENT ((mEntry=NON_CONFORMATION_SECOND_LINE{json.addProperty("obedienceEntries",$mEntry.text); })|(mNumber=INT{json.addProperty("obedienceEntries",parseIntSafely($mNumber.text, 0)); }));
+
+special_suffix returns [JsonObject json]
+@init{json = new JsonObject();}:
+	SPECIAL_SUFFIX{json.addProperty("SpecialSuffix",$SPECIAL_SUFFIX.text);if(isSweepstakes($SPECIAL_SUFFIX.text))json.addProperty("IsSweepstakes",true);};
+
+breed_name returns [JsonObject json]
+	@init{json = new JsonObject(); String breedName ="";}:
+		BREED_NAME{
+    		breedName+=$BREED_NAME.text;
+    		if(isVeteran(breedName)){
+    			breedName=mLastBreedName;
+    			json.addProperty("IsVeteran",true);
+    		}
+    		else{
+    			mLastBreedName=breedName;
+    		}} (BREED_NAME_SUFFIX{breedName += " " + $BREED_NAME_SUFFIX.text;})? {json.addProperty("BreedName", breedName);};
+
+
+ring_without_breed returns [JsonObject json]
+@init{json = new JsonObject(); JsonObject ring;}:
+	(mJuniorRing=junior_ring{mergeJson(json,mJuniorRing);})|
+	(mEmptyRing=empty_breed_ring{mergeJson(json,mEmptyRing);})|
+	(mRallyRing=rally_ring{mergeJson(json,mRallyRing);})|
+	(mNonConformationRing=non_conformation_ring{mergeJson(json,mNonConformationRing);});
+	
+/*non_conformation_ring
+//with
+obedience_ring:
+breed_ring:
+special_ring:
+//without
+empty_ring:
+junior_ring:
+*/
+
+rally_ring  returns [JsonObject json]
+	@init{json = new JsonObject();String entries = "";}:
+		(rallyComment=rally_comment{json.addProperty("comment", rallyComment);})|( name=rally_ring_name{json.addProperty("RallyName",name);} ((line=rally_entry_line{entries+=line+"|";})*));
+		
+empty_breed_ring returns [JsonObject json]
+	@init{json = new JsonObject();}:
+		(BREED_COUNT{int counted = addBreedCountToJson(json, $BREED_COUNT.text);});
+
+non_conformation_breed_ring  returns [JsonObject json]:
+	BREED_NAME{json.addProperty("NonConformationBreed",$BREED_NAME.text);} COMMENT (INT|NON_CONFORMATION_SECOND_LINE);
+
+breed_ring returns [JsonObject json]
+	@init{json = new JsonObject();String breedName = "";}:
+	BREED_NAME{
+    		breedName+=$BREED_NAME.text;
+    		if(isVeteran(breedName)){
+    			breedName=mLastBreedName;
+    			json.addProperty("IsVeteran",true);
+    		}
+    		else{
+    			mLastBreedName=breedName;
+    		}} (BREED_NAME_SUFFIX{breedName += " " + $BREED_NAME_SUFFIX.text;})? {json.addProperty("BreedName", breedName);} (BREED_COUNT{int counted = addBreedCountToJson(json, $BREED_COUNT.text);})?;
+
+			
 special_ring returns [JsonObject json]
-	@init {json = new JsonObject(); String suffix = ""; json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}String breedName = "";}
-	:   INT{json.addProperty("Count", parseIntSafely($INT.text, 0));} (BREED_NAME{breedName+=$BREED_NAME.text;})? (SPECIAL_SUFFIX
+@init{json = new JsonObject();String breedName= ""; String suffix="";}:
+		(BREED_NAME{breedName+=$BREED_NAME.text;})? (SPECIAL_SUFFIX
 		{suffix+= " " + $SPECIAL_SUFFIX.text;})+ {
 		//breedName+= $SPECIAL_SUFFIX.text;
 		if(isVeteran(suffix)){
@@ -380,112 +284,41 @@ group_ring returns [String str]
 group_block returns [JsonObject json]
 	@init {json = new JsonObject(); JsonArray rings = new JsonArray();}
 	:	TIME{currentBlockTime=$TIME.text;json.addProperty("TIME", currentBlockTime);} STANDALONE_COMMENT? (mRing=group_ring {if(!mRelational){json = new JsonObject();String[] arr = parseGroupRing(mRing);json.addProperty("Group", arr[0]);json.addProperty("Judge",arr[1]);json.addProperty("Time",currentBlockTime);mShowRings.add(json);}else{rings.add(new JsonPrimitive(mRing));}})+ {if(mRelational){json.add("Rings", rings);}} GROUP_ENDING_ANNOUNCEMENT;
-empty_breed_ring returns [JsonObject json]
-	@init{json = new JsonObject();json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}String breedName = "";int total = 0;}
-    :   INT{total = parseIntSafely($INT.text, 0);json.addProperty("Count", total);} (BREED_COUNT{int counted = addBreedCountToJson(json, $BREED_COUNT.text);assert (counted==total);});
 
-
-
-breed_ring returns [JsonObject json]
-	@init{json = new JsonObject();json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}String breedName = "";int total = 0;}
-    :   INT{total = parseIntSafely($INT.text, 0);json.addProperty("Count", total);} BREED_NAME{
-    		breedName+=$BREED_NAME.text;
-    		if(isVeteran(breedName)){
-    			breedName=mLastBreedName;
-    			json.addProperty("IsVeteran",true);
-    		}
-    		else{
-    			mLastBreedName=breedName;
-    		}} (BREED_NAME_SUFFIX{breedName += " " + $BREED_NAME_SUFFIX.text;})? {json.addProperty("BreedName", breedName);} (BREED_COUNT{int counted = addBreedCountToJson(json, $BREED_COUNT.text);assert (counted==total);})?;
+	
 
 
 
 non_conformation_ring returns [JsonObject json]
-	@init{json = new JsonObject();json.addProperty("Empty","obedience: not captured"); json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}}
-	: (INT NON_CONFORMATION_CLASS_NAME (NON_CONFORMATION_SECOND_LINE|INT) (NON_CONF_SECOND_LINE_COMMENT)*);
+	@init {json = new JsonObject(); JsonArray rings = new JsonArray();}
+	:	NON_CONFORMATION_CLASS_NAME{mCurrentClass=$NON_CONFORMATION_CLASS_NAME.text;json.addProperty("Class",mCurrentClass);};// (NON_CONFORMATION_SECOND_LINE{json.addProperty("Entrants",$NON_CONFORMATION_SECOND_LINE.text);}|entrant=INT{json.addProperty("Entrants",$entrant.text);}) (NON_CONF_SECOND_LINE_COMMENT)*;
+
+
 rally_ring_block returns [JsonObject json]
-@init{json = new JsonObject();json.addProperty("Empty","rally: not captured"); json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}}
- 	:	(rally_comment)|( rally_ring_name rally_entry_line*);
-rally_ring_name
-	:	INT? RALLY_CLASS;
+@init{String entries = ""; json = new JsonObject();json.addProperty("Empty","rally: not captured"); json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}}
+ 	:	(rallyComment=rally_comment{json.addProperty("comment", rallyComment);})|( name=rally_ring_name{json.addProperty("RallyName",name);} ((line=rally_entry_line{entries+=line+"|";})*));
+rally_ring_name returns [String str]
+	:	RALLY_CLASS{str=$RALLY_CLASS.text;};
 	
-rally_entry_line
-	:	(INT? RALLY_ENTRY);
-rally_comment
-	:NON_CONF_SECOND_LINE_COMMENT+;
+
+rally_entry_line returns [String str]
+	@init{str="";}:
+		(INT?{str+=$INT.text;} RALLY_ENTRY{str+=" "+$RALLY_ENTRY.text;});
+
+rally_comment returns [String str]
+	@init{str="";}:
+		(NON_CONF_SECOND_LINE_COMMENT{str+=" "+$NON_CONF_SECOND_LINE_COMMENT.text;})+;
+
+
+
+/*
+*Done
 */
-
-
-//******************************
-//PROPOSED
-//******************************
-//timeblock: TIME inner_timeblock timeblock_comment*
-//inner_timeblock: (judge_name|int_next|no_int|ring_comment)+;
-//
-//int_next: INT  breed_next|no_breed
-//no_int: (RALLY_CLASS{/*it's a walkthrough*/})|(NON_CONF_SECOND_LINE_COMMENT+);
-//
-//breed_next: BREED_NAME special|breed_ring;
-//breed_ring: BREED_NAME_SUFFIX? BREED_COUNT?;
-//special: SPECIAL_SUFFIX+;
-//no_breed: junior|empty_breed_ring|empty_special|non_conformation|rally;
-//junior: JUNIOR_CLASS;
-//empty_breed_ring: BREED_COUNT;
-//empty_special:SPECIAL_SUFFIX+;
-//non_conformation: (NON_CONFORMATION_CLASS_NAME (NON_CONFORMATION_SECOND_LINE|INT));
-//rally: (RALLY_CLASS (INT? RALLY_ENTRY)*);
-//
-//******************************
-//Tracking
-//******************************
-//special_ring: (BREED_NAME)? (SPECIAL_SUFFIX)+
-//breed_ring: BREED_NAME (BREED_NAME_SUFFIX)? (BREED_COUNT)?;
-//
-//
-//
-//
-//group_ring: GROUP_RING (COMMENT|PARENTHETICAL)+;
-//group_block:TIME STANDALONE_COMMENT? (group_ring)+ GROUP_ENDING_ANNOUNCEMENT;
-//
-//
-//
-//
-//******************************
-//ORIGINAL
-//******************************
-//timeblock: TIME inner_timeblock timeblock_comment*
-//inner_timeblock: (judge_name|special_ring|junior_ring|empty_breed_ring|breed_ring|non_conformation_ring|rally_ring_block|ring_comment)+;
-//
-//junior_ring: INT JUNIOR_CLASS;
-//special_ring:   INT (BREED_NAME{breedName+=$BREED_NAME.text;})? (SPECIAL_SUFFIX)+
-//
-//group_ring: GROUP_RING (COMMENT|PARENTHETICAL)+;
-//group_block:TIME STANDALONE_COMMENT? (group_ring)+ GROUP_ENDING_ANNOUNCEMENT;
-//empty_breed_ring: INT(BREED_COUNT);
-//
-//breed_ring: INT BREED_NAME (BREED_NAME_SUFFIX)? (BREED_COUNT)?;
-//
-//
-//non_conformation_ring: (INT NON_CONFORMATION_CLASS_NAME (NON_CONFORMATION_SECOND_LINE|INT) (NON_CONF_SECOND_LINE_COMMENT)*);
-//rally_ring_block:	(rally_comment)|(rally_ring_name rally_entry_line*);
-//rally_ring_name: INT? RALLY_CLASS;
-//	
-//rally_entry_line: (INT? RALLY_ENTRY);
-//rally_comment: NON_CONF_SECOND_LINE_COMMENT+;
-//
-
-
-
-
-
-
-
-
-
-
-
-
-
+junior_ring returns [JsonObject json]
+	@init{json = new JsonObject();}:
+		JUNIOR_CLASS{json.addProperty("ClassName", $JUNIOR_CLASS.text);};
+	
+	
 /******************************
 *
 *
@@ -940,6 +773,8 @@ PHONE_NUMBER
     	( (WS? '0'..'9' '0'..'9' '0'..'9' '-' '0'..'9' '0'..'9' '0'..'9' '0'..'9')=> WS? '0'..'9' '0'..'9' '0'..'9' '-' '0'..'9' '0'..'9' '0'..'9' '0'..'9'  
     	| ()=>{$type=PARENTHETICAL_INT;});
 TIME    :   INT ':' INT WS FRAG_TIME_LABEL{allowBreed=true;};
+FOLLOWING_TIME
+	:	'minutes following Best in Show';
 
 DATE    :   FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT {allowBreed=true;};
     

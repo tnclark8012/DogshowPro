@@ -59,6 +59,7 @@ public class LexerTest extends GrammarTest {
 			if (!areSame)
 				System.err.println(outFile.getAbsolutePath());
 			Assert.assertEquals(true, areSame);
+			
 		}
 	}
 
