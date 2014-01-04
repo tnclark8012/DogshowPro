@@ -193,7 +193,9 @@ non_group_ring returns [JsonObject json]
 
 inner_timeblock returns [JsonArray array]
 	@init {array = new JsonArray();int countAhead = 0;}
-	:	 (mName=judge_name{mCurrentJudge = mName.trim();}|//there may not be a new time block when judges change. See ANOK1 Saturday, Ring 3
+	:	 (
+		  (
+		  (mName=judge_name{mCurrentJudge = mName.trim();})? //there may not be a new time block when judges change. See ANOK1 Saturday, Ring 3
 		  nonGroupRing=non_group_ring
 		  	{
 		  	nonGroupRing.addProperty("BlockStart",currentBlockTime);
@@ -209,7 +211,9 @@ inner_timeblock returns [JsonArray array]
 		  	mRallyWalkthrough.addProperty("Number",mCurrentRingNumber);
 		  	mRallyWalkthrough.addProperty("Judge",mCurrentJudge);
 		  	array.add(mRallyWalkthrough);
-		  	})|
+		  	}
+		  )
+		  )|
 		  ring_comment
 		  )+;
 
@@ -333,7 +337,7 @@ non_conformation_ring returns [JsonObject json]
 					json.addProperty("Entrants",$entrant.text);
 				}
 				*/
-		) 
+		)?
 		(NON_CONF_SECOND_LINE_COMMENT)*;
 
 

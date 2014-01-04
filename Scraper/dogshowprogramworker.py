@@ -126,13 +126,15 @@ class DogshowProgramWorker(object):
         printv("currentDateNumRings: " + str(currentDateNumRings))
 
         # TODO 
-        # [1,2,3,4,4,5] represents 6 judge changes
+        # [1,2,3,4,4,5] represents AT LEAST 6 judge changes. Sometimes judge changes happen without the ring being relisted (see ANOK1 Friday, Ring 3)
         # Start with the first judge. Verify this ring appears in the list.
         # Each time the judge changes remove the ring for which he is judging.
+        # If the judge's ring number is not in the list, it means that a change must have taken place without the ring being relisted.
+        #   assume that the judge belongs to the previous ring
 
         # Then track the rings so that after each ring number has appeared, jump to the next day 
 
-        printv('not implemented!')
+
         currentJudge = (None, None);
         previousJudge = (None, None); 
         judgeRingCount = 0;
@@ -146,25 +148,28 @@ class DogshowProgramWorker(object):
                 groupsAppeared = True;
             else:
                 previousJudge = currentJudge;
-                printv('current ring: ' + str(ringsList[i]))
+                #printv('current ring: ' + str(ringsList[i]))
                 currentJudge = (ringsList[i]["Judge"], ringsList[i]["Number"]);
                 if currentJudge != previousJudge or groupsAppeared:
                     if groupsAppeared:
                         groupsAppeared = False;
-                    printv('RING ' + str(previousJudge[1]) + ' : ' + str(previousJudge[0]) + ' judges ' + str(judgeRingCount) + ' rings.');
+                    printd('RING ' + str(previousJudge[1]) + ' : ' + str(previousJudge[0]) + ' judges ' + str(judgeRingCount) + ' rings.');
                     judgeRingCount = 0;
                     printv("current: " + str(currentJudge) + " previous: " + str(previousJudge))
                     #remove ring number from list
                     if previousJudge[1] is not None:
-                        #printv("Removing ring number: " + str(previousJudge[1]) + '. From ' + str(currentDateRingNumbers))
-                        currentDateRingNumbers.remove(previousJudge[1])
-                        printv('remaining: ' + str(ringDates[currentDate]))
+                        if previousJudge[1] in currentDateRingNumbers:
+                            printv("Removing ring number: " + str(previousJudge[1]) + '. From ' + str(currentDateRingNumbers))
+                            currentDateRingNumbers.remove(previousJudge[1])
+                            printd('remaining: ' + str(ringDates[currentDate]))
+                        elif previousJudge[1] is currentJudge[1]:
+                            printv("Judge change without ring change: " + str(previousJudge) )
                     if not currentDateRingNumbers:#list is empty
                         currentDateIndex += 1
                         currentDate = dates[currentDateIndex]
-                        printv('*******************')
-                        printv(str(currentDate))
-                        printv('*******************')
+                        printd('*******************')
+                        printd(str(currentDate))
+                        printd('*******************')
                         currentDateRingNumbers = ringDates[currentDate]
                 judgeRingCount += 1;
             ringsList[i]["Date"] = currentDate;
