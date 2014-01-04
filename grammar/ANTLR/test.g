@@ -161,7 +161,8 @@ judge_block returns [JsonObject json]
     :   mName=judge_name{if(!mRelational){mCurrentJudge = mName.trim();}json.addProperty("Judge", mName);} (mBlock=timeblock{array.add(mBlock);})+ {json.add("TimeBlocks", array);};
 judge_name returns [String str]
 	@init {str = "";}
-	:	(JUDGE_NAME{str+=$JUDGE_NAME.text;})+|(COMMENT{str+=$COMMENT.text+" ";}|PARENTHETICAL{str+=$PARENTHETICAL.text+" ";}|PARENTHETICAL_INT{str+=$PARENTHETICAL_INT.text+" ";})+; 
+	:	(JUDGE_NAME{str+=$JUDGE_NAME.text;})+|
+		(COMMENT{str+=$COMMENT.text+" ";}|PARENTHETICAL{str+=$PARENTHETICAL.text+" ";}|PARENTHETICAL_INT{str+=$PARENTHETICAL_INT.text+" ";})+; //Sometimes judges don't have titles, so they're not recognized as JUDGE_NAMEs see ANOK1 MARISSA SHEPHERD (37)
 big_comment returns [String str]
 		@init {str = "";}
 		:   (mComment=comment{str = mComment;}|TIME{str=$TIME.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|BREED_NAME{str=$BREED_NAME.text;}|SPECIAL_SUFFIX{str=$SPECIAL_SUFFIX.text;}|GROUP_RING{str=$GROUP_RING.text;}|NON_CONFORMATION_SECOND_LINE{str=$NON_CONFORMATION_SECOND_LINE.text;});
@@ -171,7 +172,7 @@ comment returns [String str]
 		: (NON_CONFORMATION_CLASS_NAME{str=$NON_CONFORMATION_CLASS_NAME.text;}|BREED_NAME{str=$BREED_NAME.text;}|TIME{str=$TIME.text;}|COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|INT{str=$INT.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|NON_CONFORMATION_SECOND_LINE{str=$NON_CONFORMATION_SECOND_LINE.text;});
 timeblock_comment returns [String str]//No time
 		@init{str="";}
-		: (NON_CONFORMATION_CLASS_NAME{str=$NON_CONFORMATION_CLASS_NAME.text;}|BREED_NAME{str=$BREED_NAME.text;}|COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|INT{str=$INT.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|SPECIAL_SUFFIX);
+		: (NON_CONFORMATION_CLASS_NAME{str=$NON_CONFORMATION_CLASS_NAME.text;}|BREED_NAME{str=$BREED_NAME.text;}|COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|INT{str=$INT.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|SPECIAL_SUFFIX|NON_CONF_SECOND_LINE_COMMENT);
 
 		
 ring_comment returns [String str]
@@ -192,17 +193,39 @@ non_group_ring returns [JsonObject json]
 
 inner_timeblock returns [JsonArray array]
 	@init {array = new JsonArray();int countAhead = 0;}
-	:	 (judge_name|nonGroupRing=non_group_ring{nonGroupRing.addProperty("BlockStart",currentBlockTime);nonGroupRing.addProperty("Number",mCurrentRingNumber);nonGroupRing.addProperty("Judge",mCurrentJudge);nonGroupRing.add("CountAhead",new JsonPrimitive(countAhead));countAhead+=nonGroupRing.get("Count").getAsInt();if(!(nonGroupRing.has("type") && nonGroupRing.get("type").getAsString().equals("obedience_with_breed")))array.add(nonGroupRing);}|ring_comment)+;
+	:	 (mName=judge_name{mCurrentJudge = mName.trim();}|//there may not be a new time block when judges change. See ANOK1 Saturday, Ring 3
+		  nonGroupRing=non_group_ring
+		  	{
+		  	nonGroupRing.addProperty("BlockStart",currentBlockTime);
+		  	nonGroupRing.addProperty("Number",mCurrentRingNumber);
+		  	nonGroupRing.addProperty("Judge",mCurrentJudge);
+		  	nonGroupRing.add("CountAhead",new JsonPrimitive(countAhead));
+		  	countAhead+=nonGroupRing.get("Count").getAsInt();
+		  	if(!(nonGroupRing.has("type") && nonGroupRing.get("type").getAsString().equals("obedience_with_breed")))array.add(nonGroupRing);
+		  	}|
+		  (mRallyWalkthrough=rally_walkthrough
+		  	{
+		  	mRallyWalkthrough.addProperty("BlockStart",currentBlockTime);
+		  	mRallyWalkthrough.addProperty("Number",mCurrentRingNumber);
+		  	mRallyWalkthrough.addProperty("Judge",mCurrentJudge);
+		  	array.add(mRallyWalkthrough);
+		  	})|
+		  ring_comment
+		  )+;
 
 
 
 rally_walkthrough returns [JsonObject json]
 	@init{json = new JsonObject();}:
-		RALLY_CLASS;//COUL - RALLY_CLASS: Rally Excellent Walkthrough 
+		RALLY_CLASS{String title = $RALLY_CLASS.text; json.addProperty("RallyName", title.replace(" Walkthrough", "")); json.addProperty("IsWalkthrough",true); };//COUL - RALLY_CLASS: Rally Excellent Walkthrough 
 
 ring_with_breed returns [JsonObject json]
 @init{json = new JsonObject();}:
-	breedName=breed_name{mergeJson(json,breedName);} (suffix=special_suffix{mergeJson(json,suffix);}|(obedience=obedience_with_breed{json.addProperty("type","obedience_with_breed");})|((BREED_COUNT{int counted = addBreedCountToJson(json, $BREED_COUNT.text);})?));
+	breedName=breed_name{mergeJson(json,breedName);} 
+	(
+		suffix=special_suffix{mergeJson(json,suffix);}|
+		(obedience=obedience_with_breed{json.addProperty("type","obedience_with_breed");})|
+		((BREED_COUNT{int counted = addBreedCountToJson(json, $BREED_COUNT.text);})?));
 
 obedience_with_breed returns [JsonObject json]
 @init{json = new JsonObject(); json.addProperty("Class",mCurrentClass);}:
@@ -244,7 +267,10 @@ junior_ring:
 
 rally_ring  returns [JsonObject json]
 	@init{json = new JsonObject();String entries = "";}:
-		(rallyComment=rally_comment{json.addProperty("comment", rallyComment);})|( name=rally_ring_name{json.addProperty("RallyName",name);} ((line=rally_entry_line{entries+=line+"|";})*));
+		(rallyComment=rally_comment{json.addProperty("comment", rallyComment);})|
+		( name=rally_ring_name{json.addProperty("RallyName",name);} 
+		((line=rally_entry_line{entries+=line+"|";})*))
+		NON_CONF_SECOND_LINE_COMMENT?;
 		
 empty_breed_ring returns [JsonObject json]
 	@init{json = new JsonObject();}:
@@ -291,7 +317,24 @@ group_block returns [JsonObject json]
 
 non_conformation_ring returns [JsonObject json]
 	@init {json = new JsonObject(); JsonArray rings = new JsonArray();}
-	:	NON_CONFORMATION_CLASS_NAME{mCurrentClass=$NON_CONFORMATION_CLASS_NAME.text;json.addProperty("Class",mCurrentClass);};// (NON_CONFORMATION_SECOND_LINE{json.addProperty("Entrants",$NON_CONFORMATION_SECOND_LINE.text);}|entrant=INT{json.addProperty("Entrants",$entrant.text);}) (NON_CONF_SECOND_LINE_COMMENT)*;
+	:	NON_CONFORMATION_CLASS_NAME
+			{
+				mCurrentClass=$NON_CONFORMATION_CLASS_NAME.text;
+				json.addProperty("Class",mCurrentClass);
+			} 
+		(
+			NON_CONFORMATION_SECOND_LINE
+				{
+					json.addProperty("Entrants",$NON_CONFORMATION_SECOND_LINE.text);
+				}
+			/*|
+			entrant=INT
+				{
+					json.addProperty("Entrants",$entrant.text);
+				}
+				*/
+		) 
+		(NON_CONF_SECOND_LINE_COMMENT)*;
 
 
 rally_ring_block returns [JsonObject json]
