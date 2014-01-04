@@ -257,7 +257,8 @@ ring_without_breed returns [JsonObject json]
 	(mJuniorRing=junior_ring{mergeJson(json,mJuniorRing);})|
 	(mEmptyRing=empty_breed_ring{mergeJson(json,mEmptyRing);})|
 	(mRallyRing=rally_ring{mergeJson(json,mRallyRing);if(!mRallyRing.has("RallyName"))json.addProperty("Skip",true);})|
-	(mNonConformationRing=non_conformation_ring{mergeJson(json,mNonConformationRing);});
+	(mNonConformationRing=non_conformation_ring{mergeJson(json,mNonConformationRing);})|
+	(mSpecial=special_suffix{mergeJson(json, mSpecial);});
 	
 /*non_conformation_ring
 //with
