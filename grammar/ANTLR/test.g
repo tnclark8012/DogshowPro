@@ -180,7 +180,50 @@ ring_comment returns [String str]
 
 timeblock returns [JsonObject json] 
 	@init {json = new JsonObject(); String comment = ""; String time = "";}	
-	: ((INT{currentBlockTime=$INT.text;json.addProperty("Time", currentBlockTime);} FOLLOWING_TIME)|TIME{currentBlockTime=$TIME.text;json.addProperty("Time", currentBlockTime);}) (rings=inner_timeblock{if(json.has("Rings")){JsonArray already=json.getAsJsonArray("Rings");already.addAll(rings);json.add("Rings",already);}else{json.add("Rings", rings);}} (mComment=timeblock_comment{comment+=$mComment.str;})*{if(!comment.equals("")){json.add("timeblock_comment",new JsonPrimitive(comment));}})*{if(!mRelational&&json.has("Rings")){mShowRings.addAll(json.getAsJsonArray("Rings"));}};
+	: (
+	    (
+		INT
+			{
+				currentBlockTime=$INT.text;
+				json.addProperty("Time", currentBlockTime);
+			} 
+		FOLLOWING_TIME
+	     )|
+	     TIME
+	     	{
+	     		currentBlockTime=$TIME.text;
+	     		json.addProperty("Time", currentBlockTime);
+	     	}
+	   ) 
+	   (
+	   	rings=inner_timeblock
+	   		{
+	   		if(json.has("Rings")){
+	   			JsonArray already=json.getAsJsonArray("Rings");
+	   			already.addAll(rings);
+	   			json.add("Rings",already);
+	   		}
+	   		else{
+	   			json.add("Rings", rings);
+	   		}
+	   		} 
+	   	(
+	   		mComment=timeblock_comment
+	   			{
+	   			comment+=$mComment.str;
+	   			}
+	   	)*
+	   		{
+	   		if(!comment.equals("")){
+	   			json.add("timeblock_comment",new JsonPrimitive(comment));
+	   		}
+	   		}
+	   )*
+	   	{
+	   	if(!mRelational&&json.has("Rings")){
+	   		mShowRings.addAll(json.getAsJsonArray("Rings"));
+	   	}
+	   	};
 
 non_group_ring returns [JsonObject json]
 @init{json = new JsonObject();}:
@@ -598,13 +641,13 @@ fragment BREED_NAME_SUFFIX
     :   ('('BREED_MISC')')|BREED_MISC;
 fragment FRAG_BREED_NAME_SPECIAL_SUFFIX_GROUP
 	:	(FRAG_BREED_ATTRIBUTE
-	 WS)? FRAG_BREED_NAME_SPECIAL_SUFFIX;
+	 WS)* FRAG_BREED_NAME_SPECIAL_SUFFIX;
 fragment BREED_MISC
 :'Misc. Dog'|'Misc. Dogs'|'Misc. Bitch'|'Misc. Bitches';
 fragment FRAG_SEX
 	:	'Dog'|'Bitche'|'Bitch';
 fragment FRAG_BREED_ATTRIBUTE
-	:	'Brood'|'Veteran''s'?;
+	:	'Brood'|'Champion'|'Cut-Down'|'Veteran''s'?;
 fragment FRAG_BREED_NAME_SPECIAL_SUFFIX
     :   'Sweepstakes' WS ('e'|'E') ('ntry'|'ntries');
 fragment FRAG_BREED_NAME_ALT:   FRAG_BREED_ATTRIBUTE WS FRAG_SEX;//used to handle BREED_RING with no breed count after
@@ -824,7 +867,7 @@ TIME    :   INT ':' INT WS FRAG_TIME_LABEL{allowBreed=true;};
 FOLLOWING_TIME
 	:	'minutes following Best in Show';
 
-DATE    :   FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT {allowBreed=true;};
+DATE    :   FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT {allowBreed=true;allowJudge=true;};
     
 ELLIPSIS:   '.'+;
 
