@@ -161,7 +161,7 @@ class DogshowProgramWorker(object):
                         if previousJudge[1] in currentDateRingNumbers:
                             printv("Removing ring number: " + str(previousJudge[1]) + '. From ' + str(currentDateRingNumbers))
                             currentDateRingNumbers.remove(previousJudge[1])
-                            printd('remaining: ' + str(ringDates[currentDate]))
+                            printv('remaining: ' + str(ringDates[currentDate]))
                         elif previousJudge[1] is currentJudge[1]:
                             printv("Judge change without ring change: " + str(previousJudge) )
                     if not currentDateRingNumbers:#list is empty
