@@ -1,4 +1,4 @@
-// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2014-01-04 21:08:42
+// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2014-01-05 00:13:10
 
 //TODO Puppy groups
 package dev.tclark.dogshow.grammar;
@@ -1389,7 +1389,7 @@ public class testParser extends Parser {
 					INT31=(Token)match(input,INT,FOLLOW_INT_in_timeblock439); if (state.failed) return json;
 					if ( state.backtracking==0 ) {
 									currentBlockTime=(INT31!=null?INT31.getText():null);
-									json.addProperty("Time", currentBlockTime);
+									json.addProperty("BlockStart", currentBlockTime);
 								}
 					match(input,FOLLOWING_TIME,FOLLOW_FOLLOWING_TIME_in_timeblock449); if (state.failed) return json;
 					}
@@ -1402,7 +1402,7 @@ public class testParser extends Parser {
 					TIME32=(Token)match(input,TIME,FOLLOW_TIME_in_timeblock466); if (state.failed) return json;
 					if ( state.backtracking==0 ) {
 						     		currentBlockTime=(TIME32!=null?TIME32.getText():null);
-						     		json.addProperty("Time", currentBlockTime);
+						     		json.addProperty("BlockStart", currentBlockTime);
 						     	}
 					}
 					break;
@@ -2015,7 +2015,7 @@ public class testParser extends Parser {
 			breedName=breed_name();
 			state._fsp--;
 			if (state.failed) return json;
-			if ( state.backtracking==0 ) {mergeJson(json,breedName);}
+			if ( state.backtracking==0 ) {json.addProperty("Type", "Conformation");mergeJson(json,breedName);}
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:300:2: (suffix= special_suffix | (obedience= obedience_with_breed ) | ( ( BREED_COUNT )? ) )
 			int alt22=3;
 			switch ( input.LA(1) ) {
@@ -2217,9 +2217,9 @@ public class testParser extends Parser {
 		Token mEntry=null;
 		Token mNumber=null;
 
-		json = new JsonObject(); json.addProperty("Class",mCurrentClass);
+		json = new JsonObject(); json.addProperty("Type", "Obedience"); json.addProperty("Class",mCurrentClass);
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:306:73: ( COMMENT ( (mEntry= NON_CONFORMATION_SECOND_LINE ) | (mNumber= INT ) ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:306:112: ( COMMENT ( (mEntry= NON_CONFORMATION_SECOND_LINE ) | (mNumber= INT ) ) )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:307:2: COMMENT ( (mEntry= NON_CONFORMATION_SECOND_LINE ) | (mNumber= INT ) )
 			{
 			match(input,COMMENT,FOLLOW_COMMENT_in_obedience_with_breed793); if (state.failed) return json;
@@ -2967,8 +2967,8 @@ public class testParser extends Parser {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:388:4: TIME ( STANDALONE_COMMENT )? (mRing= group_ring )+ GROUP_ENDING_ANNOUNCEMENT
 			{
 			TIME49=(Token)match(input,TIME,FOLLOW_TIME_in_group_block1123); if (state.failed) return json;
-			if ( state.backtracking==0 ) {currentBlockTime=(TIME49!=null?TIME49.getText():null);json.addProperty("TIME", currentBlockTime);}
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:388:82: ( STANDALONE_COMMENT )?
+			if ( state.backtracking==0 ) {currentBlockTime=(TIME49!=null?TIME49.getText():null);json.addProperty("BlockStart", currentBlockTime);}
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:388:88: ( STANDALONE_COMMENT )?
 			int alt34=2;
 			int LA34_0 = input.LA(1);
 			if ( (LA34_0==STANDALONE_COMMENT) ) {
@@ -2976,7 +2976,7 @@ public class testParser extends Parser {
 			}
 			switch (alt34) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:388:82: STANDALONE_COMMENT
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:388:88: STANDALONE_COMMENT
 					{
 					match(input,STANDALONE_COMMENT,FOLLOW_STANDALONE_COMMENT_in_group_block1126); if (state.failed) return json;
 					}
@@ -2984,7 +2984,7 @@ public class testParser extends Parser {
 
 			}
 
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:388:102: (mRing= group_ring )+
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:388:108: (mRing= group_ring )+
 			int cnt35=0;
 			loop35:
 			do {
@@ -2996,13 +2996,13 @@ public class testParser extends Parser {
 
 				switch (alt35) {
 				case 1 :
-					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:388:103: mRing= group_ring
+					// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:388:109: mRing= group_ring
 					{
 					pushFollow(FOLLOW_group_ring_in_group_block1132);
 					mRing=group_ring();
 					state._fsp--;
 					if (state.failed) return json;
-					if ( state.backtracking==0 ) {if(!mRelational){json = new JsonObject();String[] arr = parseGroupRing(mRing);json.addProperty("Group", arr[0]);json.addProperty("Judge",arr[1]);json.addProperty("Time",currentBlockTime);mShowRings.add(json);}else{rings.add(new JsonPrimitive(mRing));}}
+					if ( state.backtracking==0 ) {if(!mRelational){json = new JsonObject();json.addProperty("RingType","Group");String[] arr = parseGroupRing(mRing);json.addProperty("Group", arr[0]);json.addProperty("Judge",arr[1]);json.addProperty("Time",currentBlockTime);mShowRings.add(json);}else{rings.add(new JsonPrimitive(mRing));}}
 					}
 					break;
 
@@ -3043,7 +3043,7 @@ public class testParser extends Parser {
 		Token NON_CONFORMATION_CLASS_NAME50=null;
 		Token NON_CONFORMATION_SECOND_LINE51=null;
 
-		json = new JsonObject(); JsonArray rings = new JsonArray();
+		json = new JsonObject(); json.addProperty("RingType", "Non-conformation"); JsonArray rings = new JsonArray();
 		try {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:396:2: ( NON_CONFORMATION_CLASS_NAME ( NON_CONFORMATION_SECOND_LINE )? ( NON_CONF_SECOND_LINE_COMMENT )* )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:396:4: NON_CONFORMATION_CLASS_NAME ( NON_CONFORMATION_SECOND_LINE )? ( NON_CONF_SECOND_LINE_COMMENT )*
@@ -3124,7 +3124,7 @@ public class testParser extends Parser {
 		String name =null;
 		String line =null;
 
-		String entries = ""; json = new JsonObject();json.addProperty("Empty","rally: not captured"); json.addProperty("BlockStart",currentBlockTime);if(!mRelational){addCurrentJudge(json);json.addProperty("Number",mCurrentRingNumber);}
+		String entries = ""; json = new JsonObject();json.addProperty("RingType","Rally"); json.addProperty("BlockStart",currentBlockTime);if(!mRelational){addCurrentJudge(json);json.addProperty("Number",mCurrentRingNumber);}
 		try {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:418:3: ( (rallyComment= rally_comment ) | (name= rally_ring_name ( (line= rally_entry_line )* ) ) )
 			int alt39=2;
@@ -3379,7 +3379,7 @@ public class testParser extends Parser {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:438:3: JUNIOR_CLASS
 			{
 			JUNIOR_CLASS56=(Token)match(input,JUNIOR_CLASS,FOLLOW_JUNIOR_CLASS_in_junior_ring1328); if (state.failed) return json;
-			if ( state.backtracking==0 ) {json.addProperty("ClassName", (JUNIOR_CLASS56!=null?JUNIOR_CLASS56.getText():null));}
+			if ( state.backtracking==0 ) {json.addProperty("RingType","Junior");json.addProperty("ClassName", (JUNIOR_CLASS56!=null?JUNIOR_CLASS56.getText():null));}
 			}
 
 		}

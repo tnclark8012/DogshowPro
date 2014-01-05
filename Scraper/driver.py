@@ -12,10 +12,10 @@ from showutils import urlopen_with_retry
 from util import printv, dumpJson
 
 
-def postShow(show):
+def postShow(show, parsedJson):
     url = config.AppServer.SHOW_POST_URL
     
-    values = show.toJson();#{'id':show.code, 'clubs':str(show.clubs), 'locations':str(locations) 'date':int(show.dates[0])}
+    values = parsedJson#show.toJson();#{'id':show.code, 'clubs':str(show.clubs), 'locations':str(locations) 'date':int(show.dates[0])}
     locationList = list();
     [locationList.append(l.toJson()) for l in show.locations];
     printv(json.loads(json.dumps(locationList)))
@@ -114,15 +114,24 @@ def main(argv):
       if opt == '-d':
         config.Env.LOG_DEBUG = True;
 
-
+        #http://www.onofrio.com/execpgm/wbshwpg?SHOW=LAND164052
     for opt, arg in opts:
       printv("opt: " + opt)
       if opt == '-r':
          if arg == 'showpage':
             printv('show page')
-            show = ShowScraper(False, True).pullShow(requestedPage);
+            show = ShowScraper(False).pullShow(requestedPage);
             if show:
-                printv(show.pdfLink)
+                print(str(show))
+                worker = DogshowProgramWorker();
+                pdfPath = worker.downloadProgram(show);
+                print("downloaded PDF: " + str(pdfPath))
+                if pdfPath:
+                    parsedJson = worker.generateJson(pdfPath);
+                    print("posting show...");
+                    postShow(show, parsedJson);
+
+
             sys.exit()
          else:
             printv("running on local pdfs");
@@ -130,10 +139,12 @@ def main(argv):
             folder = config.Pdf.DOWNLOAD_DIR;
             for filename in os.listdir(folder):
                 if os.path.splitext(filename)[1] == '.pdf' and arg in filename:
-                    #RingCleaner().cleanPdf2Txt('./parsed/COUL1.pdf2txt.txt');
                     out = worker.generateJson(folder+filename);
                     dumpJson(config.AppServer.DUMP_DIR+filename, out);
          sys.exit()
+
+
+
       elif opt == '-t':
         if outputfile is None:
             print('No output file specified!')
@@ -142,10 +153,14 @@ def main(argv):
             worker = DogshowProgramWorker();
             output = worker.generateJson(arg);
             dumpJson(outputfile, output)
+      
+
       elif opt == '-p':
          requestedPage=arg
+      
       elif opt == '-o':
         printv('offline')
+      
       elif opt == '-f':
         (allshows, uniqueShows) = scrapeAndDownload();
         kansas = None

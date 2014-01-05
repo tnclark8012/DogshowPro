@@ -111,13 +111,13 @@ class ShowScraper(object):
         printv( "club names: " + str(clubNames))
         locationTimes=descLine.findAll('dd')
         printv( "locationTimes: " + str(locationTimes))
-        locationDatePairs = lazsist();
+        locationDatePairs = list();
         for locationTime in locationTimes:
             raw = locationTime.findAll(text=True)[0];
             printv("Raw date/location: " + str(raw));
             locationDatePair = RegexHelper().getLocationDate(raw); 
             locationDatePairs.append(locationDatePair);
-            print("locationDatePairs: " + str(locationDatePairs))
+            printv("locationDatePairs: " + str(locationDatePairs))
         companionShows = list()
         for i in range(0,len(clubNames)):
             printv("i: " + str(i))

@@ -15,7 +15,7 @@ class Show(object):
         self.clubs = set();
         self.addClub(club);
         self.locations = set();
-        print('initializing dates with ' + str(dates))
+        printv('initializing dates with ' + str(dates))
         self.dates = set();
         self.dates.add(dates)
         self.pdfLink = None;
@@ -36,7 +36,7 @@ class Show(object):
         [dateList.append(d) for d in self.dates]
         return {'id':self.code, 'clubs':json.loads(json.dumps(clubList)), 'locations':str(self.locations), 'dates':json.loads(json.dumps(dateTimes))}
     def __str__(self):
-        return str(self.clubs) + "\n\t, dates:"  + str(self.dates) + "\n\t, locations:"  + str(self.locations) + ', clubs:' + str(self.clubs);
+        return "code:" + self.code + "\n\t, dates:"  + str(self.dates) + "\n\t, locations:"  + str(self.locations) + ', clubs:' + str(self.clubs);
 
     def addLocation(self, location):
         self.locations.add(location);

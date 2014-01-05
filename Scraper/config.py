@@ -8,7 +8,7 @@ class Env(object):
     FORCE_ALL = False;
     OFFLINE = False;
     DEBUG = True
-    DO_DOWNLOAD = False;
+    DO_DOWNLOAD = True;
     VERBOSE = False;
     LOG_VERBOSE = False;
     LOG_DEBUG = False;

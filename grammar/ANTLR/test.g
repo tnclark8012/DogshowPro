@@ -213,14 +213,14 @@ timeblock returns [JsonObject json]
 		INT
 			{
 				currentBlockTime=$INT.text;
-				json.addProperty("Time", currentBlockTime);
+				json.addProperty("BlockStart", currentBlockTime);
 			} 
 		FOLLOWING_TIME
 	     )|
 	     TIME
 	     	{
 	     		currentBlockTime=$TIME.text;
-	     		json.addProperty("Time", currentBlockTime);
+	     		json.addProperty("BlockStart", currentBlockTime);
 	     	}
 	   ) 
 	   (
@@ -296,14 +296,14 @@ rally_walkthrough returns [JsonObject json]
 
 ring_with_breed returns [JsonObject json]
 @init{json = new JsonObject();}:
-	breedName=breed_name{mergeJson(json,breedName);} 
+	breedName=breed_name{json.addProperty("Type", "Conformation");mergeJson(json,breedName);} 
 	(
 		suffix=special_suffix{mergeJson(json,suffix);}|
 		(obedience=obedience_with_breed{json.addProperty("Skip",true);})|
 		((BREED_COUNT{int counted = addBreedCountToJson(json, $BREED_COUNT.text);})?));
 
 obedience_with_breed returns [JsonObject json]
-@init{json = new JsonObject(); json.addProperty("Class",mCurrentClass);}:
+@init{json = new JsonObject(); json.addProperty("Type", "Obedience"); json.addProperty("Class",mCurrentClass);}:
 	COMMENT ((mEntry=NON_CONFORMATION_SECOND_LINE{json.addProperty("obedienceEntries",$mEntry.text); })|(mNumber=INT{json.addProperty("obedienceEntries",parseIntSafely($mNumber.text, 0)); }));
 
 special_suffix returns [JsonObject json]
@@ -385,14 +385,14 @@ group_ring returns [String str]
 	:	 GROUP_RING{str=$GROUP_RING.text;} (COMMENT{str+=" " + $COMMENT.text;}|PARENTHETICAL{str+= " " + $PARENTHETICAL.text;})+;
 group_block returns [JsonObject json]
 	@init {json = new JsonObject(); JsonArray rings = new JsonArray();}
-	:	TIME{currentBlockTime=$TIME.text;json.addProperty("TIME", currentBlockTime);} STANDALONE_COMMENT? (mRing=group_ring {if(!mRelational){json = new JsonObject();String[] arr = parseGroupRing(mRing);json.addProperty("Group", arr[0]);json.addProperty("Judge",arr[1]);json.addProperty("Time",currentBlockTime);mShowRings.add(json);}else{rings.add(new JsonPrimitive(mRing));}})+ {if(mRelational){json.add("Rings", rings);}} GROUP_ENDING_ANNOUNCEMENT;
+	:	TIME{currentBlockTime=$TIME.text;json.addProperty("BlockStart", currentBlockTime);} STANDALONE_COMMENT? (mRing=group_ring {if(!mRelational){json = new JsonObject();json.addProperty("RingType","Group");String[] arr = parseGroupRing(mRing);json.addProperty("Group", arr[0]);json.addProperty("Judge",arr[1]);json.addProperty("Time",currentBlockTime);mShowRings.add(json);}else{rings.add(new JsonPrimitive(mRing));}})+ {if(mRelational){json.add("Rings", rings);}} GROUP_ENDING_ANNOUNCEMENT;
 
 	
 
 
 
 non_conformation_ring returns [JsonObject json]
-	@init {json = new JsonObject(); JsonArray rings = new JsonArray();}
+	@init {json = new JsonObject(); json.addProperty("RingType", "Non-conformation"); JsonArray rings = new JsonArray();}
 	:	NON_CONFORMATION_CLASS_NAME
 			{
 				mCurrentClass=$NON_CONFORMATION_CLASS_NAME.text;
@@ -414,7 +414,7 @@ non_conformation_ring returns [JsonObject json]
 
 
 rally_ring_block returns [JsonObject json]
-@init{String entries = ""; json = new JsonObject();json.addProperty("Empty","rally: not captured"); json.addProperty("BlockStart",currentBlockTime);if(!mRelational){addCurrentJudge(json);json.addProperty("Number",mCurrentRingNumber);}}
+@init{String entries = ""; json = new JsonObject();json.addProperty("RingType","Rally"); json.addProperty("BlockStart",currentBlockTime);if(!mRelational){addCurrentJudge(json);json.addProperty("Number",mCurrentRingNumber);}}
  	:	(rallyComment=rally_comment{json.addProperty("comment", rallyComment);})|( name=rally_ring_name{json.addProperty("RallyName",name);} ((line=rally_entry_line{entries+=line+"|";})*));
 rally_ring_name returns [String str]
 	:	RALLY_CLASS{str=$RALLY_CLASS.text;};
@@ -435,7 +435,7 @@ rally_comment returns [String str]
 */
 junior_ring returns [JsonObject json]
 	@init{json = new JsonObject();}:
-		JUNIOR_CLASS{json.addProperty("ClassName", $JUNIOR_CLASS.text);};
+		JUNIOR_CLASS{json.addProperty("RingType","Junior");json.addProperty("ClassName", $JUNIOR_CLASS.text);};
 	
 	
 /******************************
