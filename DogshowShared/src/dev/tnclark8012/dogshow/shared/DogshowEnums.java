@@ -273,7 +273,7 @@ public class DogshowEnums {
 				"SPORTING", "Gordon Setter", "Gordon Setters",
 				"Setter (Gordon)", "Setters (Gordon)"), IRISH_RED_AND_WHITE_SETTER(
 				"SPORTING", "Irish Red & White Setter",
-				"Irish Red & White Setters"), IRISH_SETTER("SPORTING",
+				"Irish Red & White Setters","Setter (Irish Red And White)","Setters (Irish Red And White)"), IRISH_SETTER("SPORTING",
 				"Irish Setter", "Irish Setters", "Setter (Irish)",
 				"Setters (Irish)"), IRISH_WATER_SPANIEL("SPORTING",
 				"Irish Water Spaniel", "Irish Water Spaniels", "Spaniels (Irish Water)"), LABRADOR_RETRIEVER(
@@ -341,23 +341,33 @@ public class DogshowEnums {
 				"Fox Terrier (Wire)", "Fox Terriers (Wire)"),
 		// ****END Terrier****
 		// ****BEGIN Toy****
-		AFFENPINSCHER("TOY", "Affenpinscher", "Affenpinschers"), BRUSSELS_GRIFFON(
-				"TOY", "Brussels Griffon", "Brussels Griffons"), CAVALIER_KING_CHARLES_SPANIEL(
+		AFFENPINSCHER("TOY", "Affenpinscher", "Affenpinschers"), 
+		BRUSSELS_GRIFFON(
+				"TOY", "Brussels Griffon", "Brussels Griffons"), 
+		CAVALIER_KING_CHARLES_SPANIEL(
 				"TOY", "Cavalier King Charles Spaniel",
-				"Cavalier King Charles Spaniels",
-				"English Toy Spaniel (K C & R)",
-				"English Toy Spaniels (K C & R)"), CHIHUAHUA_LONG_COAT(
+				"Cavalier King Charles Spaniels"), 
+		CHIHUAHUA_LONG_COAT(
 				"TOY", "Chihuahua (Long Coat)",
-				"Chihuahuas (Long Coat)"), CHIHUAHUA_SMOOTH_COAT(
+				"Chihuahuas (Long Coat)"), 
+		CHIHUAHUA_SMOOTH_COAT(
 				"TOY", "Chihuahua (Smooth Coat)",
-				"Chihuahuas (Smooth Coat)"), CHINESE_CRESTED("TOY",
-				"Chinese Crested", "Chinese Cresteds"), ENGLISH_TOY_SPANIEL_BLENHEIM_AND_PRINCE_CHARLES(
+				"Chihuahuas (Smooth Coat)"), 
+		CHINESE_CRESTED("TOY",
+				"Chinese Crested", "Chinese Cresteds"), 
+		ENGLISH_TOY_SPANIEL_BLENHEIM_AND_PRINCE_CHARLES(
 				"TOY",
 				"English Toy Spaniel (Blenheim and Prince Charles)",
-				"English Toy Spaniels (Blenheim and Prince Charles)"), ENGLISH_TOY_SPANIEL_KING_CHARLES_AND_RUBY(
+				"English Toy Spaniels (Blenheim and Prince Charles)",
+				"English Toy Spaniel (B & P C)","English Toy Spaniels (B & P C)"),
+		ENGLISH_TOY_SPANIEL_KING_CHARLES_AND_RUBY(
 				"TOY", "English Toy Spaniel (King Charles and Ruby)",
-				"English Toy Spaniels (King Charles and Ruby)"), HAVANESE(
-				"TOY", "Havanese", "Havaneses"), ITALIAN_GREYHOUND(
+				"English Toy Spaniels (King Charles and Ruby)",
+				"English Toy Spaniel (K C & R)",
+				"English Toy Spaniels (K C & R)"), 
+		HAVANESE(
+				"TOY", "Havanese", "Havaneses"), 
+		ITALIAN_GREYHOUND(
 				"TOY", "Italian Greyhound", "Italian Greyhounds"), JAPANESE_CHIN(
 				"TOY", "Japanese Chin", "Japanese Chins"), MALTESE(
 				"TOY", "Maltese", "Malteses"), MANCHESTER_TERRIER_TOY(
