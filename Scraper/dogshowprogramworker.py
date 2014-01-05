@@ -150,7 +150,8 @@ class DogshowProgramWorker(object):
                 previousJudge = currentJudge;
                 #printv('current ring: ' + str(ringsList[i]))
                 currentJudge = (ringsList[i]["Judge"], ringsList[i]["Number"]);
-                if currentJudge != previousJudge or groupsAppeared:
+                if currentJudge != previousJudge or "NewJudgeRing" in ringsList[i] or groupsAppeared:
+                    ringsList[i].pop("NewJudgeRing", None)
                     if groupsAppeared:
                         groupsAppeared = False;
                     printd('RING ' + str(previousJudge[1]) + ' : ' + str(previousJudge[0]) + ' judges ' + str(judgeRingCount) + ' rings.');

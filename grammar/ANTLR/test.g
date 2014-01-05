@@ -32,17 +32,24 @@ boolean debug = false;
 // Non-relational style objects for better JSON
 public boolean mRelational = true;
 JsonArray mShowRings = new JsonArray();
-String mCurrentJudge = null;
+JsonObject mCurrentJudge = null;
 int mCurrentRingNumber = -1;
 String mLastBreedName = null;
 String mCurrentClass = null;
 //Tracks all judges as they are parsed
 Set<String> judgeSet = new HashSet<String>();
+boolean nextJudgeIsNewRing = false;
 // end non-relational
 
 public void setRelationalParse(boolean value)
 {
 	mRelational = value;
+}
+
+public void addCurrentJudge(JsonObject json)
+{
+mergeJson(json,mCurrentJudge);
+if(mCurrentJudge.has("NewJudgeRing"))mCurrentJudge.remove("NewJudgeRing");
 }
 /**
 * Checks if strings are part of a judge's name who's been discovered. Used to assure that judges' names which look like comments (no title or parenthetical int following) are not matched as such
@@ -178,12 +185,12 @@ inner_ring returns [JsonObject json]
 	:  ((group_block)=>mGroupBlock=group_block{json.add("GroupRing", mGroupBlock);} comment*)
 	    |((mJugeBlock=judge_block{judgeBlocks.add(mJugeBlock);})+ {json.add("JudgeBlocks", judgeBlocks);});
 judge_block returns [JsonObject json]
-	@init{json = new JsonObject(); JsonArray array = new JsonArray();}
-    :   mName=judge_name{if(!mRelational){mCurrentJudge = mName.trim();judgeSet.add(mCurrentJudge);}json.addProperty("Judge", mName);} (mBlock=timeblock{array.add(mBlock);})+ {json.add("TimeBlocks", array);};
-judge_name returns [String str]
-	@init {str = "";}
+	@init{json = new JsonObject(); JsonArray array = new JsonArray();nextJudgeIsNewRing = true;}
+    :   mName=judge_name{if(!mRelational){mCurrentJudge = mName;judgeSet.add(mCurrentJudge.get("Judge").getAsString());}mergeJson(json, mName);} (mBlock=timeblock{array.add(mBlock);})+ {json.add("TimeBlocks", array);};
+judge_name returns [JsonObject json]
+	@init {json = new JsonObject(); String str = "";}
 	:	((JUDGE_NAME{str+=$JUDGE_NAME.text;})+|
-		(COMMENT{str+=$COMMENT.text+" ";}|PARENTHETICAL{str+=$PARENTHETICAL.text+" ";}|PARENTHETICAL_INT{str+=$PARENTHETICAL_INT.text;})+){str = str.replaceAll("[\r\n]"," ");str = stripJudgeCount(str);}; //Sometimes judges don't have titles, so they're not recognized as JUDGE_NAMEs see ANOK1 MARISSA SHEPHERD (37)
+		(COMMENT{str+=$COMMENT.text+" ";}|PARENTHETICAL{str+=$PARENTHETICAL.text+" ";}|PARENTHETICAL_INT{str+=$PARENTHETICAL_INT.text;})+){if(nextJudgeIsNewRing == true||str.matches(".*\\(\\d+\\).*")){ nextJudgeIsNewRing = false;json.addProperty("NewJudgeRing",true); }str = str.replaceAll("[\r\n]"," ");json.addProperty("Judge",stripJudgeCount(str).trim());}; //Sometimes judges don't have titles, so they're not recognized as JUDGE_NAMEs see ANOK1 MARISSA SHEPHERD (37)
 big_comment returns [String str]
 		@init {str = "";}
 		:   (mComment=comment{str = mComment;}|TIME{str=$TIME.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|BREED_NAME{str=$BREED_NAME.text;}|SPECIAL_SUFFIX{str=$SPECIAL_SUFFIX.text;}|GROUP_RING{str=$GROUP_RING.text;}|NON_CONFORMATION_SECOND_LINE{str=$NON_CONFORMATION_SECOND_LINE.text;});
@@ -259,12 +266,12 @@ inner_timeblock returns [JsonArray array]
 	@init {array = new JsonArray();JsonObject toAdd = null;int countAhead = 0;}
 	:	 (
 		  (
-		  (mName=judge_name{mCurrentJudge = mName.trim();judgeSet.add(mCurrentJudge);})? //there may not be a new time block when judges change. See ANOK1 Saturday, Ring 3
+		  (mName=judge_name{mCurrentJudge = mName;judgeSet.add(mName.get("Judge").getAsString());})? //there may not be a new time block when judges change. See ANOK1 Saturday, Ring 3
 		  nonGroupRing=non_group_ring
 		  	{
 		  	nonGroupRing.addProperty("BlockStart",currentBlockTime);
 		  	nonGroupRing.addProperty("Number",mCurrentRingNumber);
-		  	nonGroupRing.addProperty("Judge",mCurrentJudge);
+		  	addCurrentJudge(nonGroupRing);
 		  	nonGroupRing.add("CountAhead",new JsonPrimitive(countAhead));
 		  	countAhead+=nonGroupRing.get("Count").getAsInt();
 		  	if(!nonGroupRing.has("Skip"))array.add(nonGroupRing);
@@ -273,7 +280,7 @@ inner_timeblock returns [JsonArray array]
 		  	{
 		  	mRallyWalkthrough.addProperty("BlockStart",currentBlockTime);
 		  	mRallyWalkthrough.addProperty("Number",mCurrentRingNumber);
-		  	mRallyWalkthrough.addProperty("Judge",mCurrentJudge);
+			addCurrentJudge(mRallyWalkthrough);
 		  	if(!mRallyWalkthrough.has("Skip"))array.add(mRallyWalkthrough);
 		  	}
 		  )
@@ -407,7 +414,7 @@ non_conformation_ring returns [JsonObject json]
 
 
 rally_ring_block returns [JsonObject json]
-@init{String entries = ""; json = new JsonObject();json.addProperty("Empty","rally: not captured"); json.addProperty("BlockStart",currentBlockTime);if(!mRelational){json.addProperty("Judge",mCurrentJudge);json.addProperty("Number",mCurrentRingNumber);}}
+@init{String entries = ""; json = new JsonObject();json.addProperty("Empty","rally: not captured"); json.addProperty("BlockStart",currentBlockTime);if(!mRelational){addCurrentJudge(json);json.addProperty("Number",mCurrentRingNumber);}}
  	:	(rallyComment=rally_comment{json.addProperty("comment", rallyComment);})|( name=rally_ring_name{json.addProperty("RallyName",name);} ((line=rally_entry_line{entries+=line+"|";})*));
 rally_ring_name returns [String str]
 	:	RALLY_CLASS{str=$RALLY_CLASS.text;};
