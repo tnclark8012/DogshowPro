@@ -281,6 +281,7 @@ inner_timeblock returns [JsonArray array]
 		  	mRallyWalkthrough.addProperty("BlockStart",currentBlockTime);
 			mRallyWalkthrough.addProperty("Count", 0);
 		  	mRallyWalkthrough.addProperty("Number",mCurrentRingNumber);
+		  	mRallyWalkthrough.add("CountAhead",new JsonPrimitive(countAhead));
 			addCurrentJudge(mRallyWalkthrough);
 		  	if(!mRallyWalkthrough.has("Skip"))array.add(mRallyWalkthrough);
 		  	}

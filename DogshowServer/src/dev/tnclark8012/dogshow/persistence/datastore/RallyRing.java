@@ -26,6 +26,10 @@ public class RallyRing extends ShowRing {
 	public static RallyRing fromJson(JSONObject json) {
 		RallyRing ring = new RallyRing();
 		try {
+			if(!json.has("Count"))
+			{
+				int i = 0;
+			}
 			ring.count = json.getInt("Count");
 			ring.className = json.getString("RallyName");
 			ring.isWalkthrough = getMaybe(json, "IsWalkthrough", false);
