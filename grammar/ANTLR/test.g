@@ -291,12 +291,12 @@ inner_timeblock returns [JsonArray array]
 
 
 rally_walkthrough returns [JsonObject json]
-	@init{json = new JsonObject();}:
+	@init{json = new JsonObject();json.addProperty("RingType","Rally");}:
 		RALLY_CLASS{String title = $RALLY_CLASS.text; json.addProperty("RallyName", title.replace(" Walkthrough", "")); json.addProperty("IsWalkthrough",true); };//COUL - RALLY_CLASS: Rally Excellent Walkthrough 
 
 ring_with_breed returns [JsonObject json]
-@init{json = new JsonObject();}:
-	breedName=breed_name{json.addProperty("Type", "Conformation");mergeJson(json,breedName);} 
+@init{json = new JsonObject();json.addProperty("RingType","Unassigned");}:
+	breedName=breed_name{json.addProperty("RingType", "Conformation");mergeJson(json,breedName);} 
 	(
 		suffix=special_suffix{mergeJson(json,suffix);}|
 		(obedience=obedience_with_breed{json.addProperty("Skip",true);})|
@@ -324,10 +324,10 @@ breed_name returns [JsonObject json]
 
 
 ring_without_breed returns [JsonObject json]
-@init{json = new JsonObject(); JsonObject ring;}:
+@init{json = new JsonObject(); json.addProperty("RingType","Unassigned");JsonObject ring;}:
 	(mJuniorRing=junior_ring{mergeJson(json,mJuniorRing);})|
 	(mEmptyRing=empty_breed_ring{mergeJson(json,mEmptyRing);})|
-	(mRallyRing=rally_ring{mergeJson(json,mRallyRing);if(!mRallyRing.has("RallyName"))json.addProperty("Skip",true);})|
+	(mRallyRing=rally_ring{mergeJson(json,mRallyRing);json.addProperty("RingType","Rally");if(!mRallyRing.has("RallyName"))json.addProperty("Skip",true);})|
 	(mNonConformationRing=non_conformation_ring{mergeJson(json,mNonConformationRing);})|
 	(mSpecial=special_suffix{mergeJson(json, mSpecial);});
 	
@@ -385,7 +385,7 @@ group_ring returns [String str]
 	:	 GROUP_RING{str=$GROUP_RING.text;} (COMMENT{str+=" " + $COMMENT.text;}|PARENTHETICAL{str+= " " + $PARENTHETICAL.text;})+;
 group_block returns [JsonObject json]
 	@init {json = new JsonObject(); JsonArray rings = new JsonArray();}
-	:	TIME{currentBlockTime=$TIME.text;json.addProperty("BlockStart", currentBlockTime);} STANDALONE_COMMENT? (mRing=group_ring {if(!mRelational){json = new JsonObject();json.addProperty("RingType","Group");String[] arr = parseGroupRing(mRing);json.addProperty("Group", arr[0]);json.addProperty("Judge",arr[1]);json.addProperty("Time",currentBlockTime);mShowRings.add(json);}else{rings.add(new JsonPrimitive(mRing));}})+ {if(mRelational){json.add("Rings", rings);}} GROUP_ENDING_ANNOUNCEMENT;
+	:	TIME{currentBlockTime=$TIME.text;json.addProperty("BlockStart", currentBlockTime);} STANDALONE_COMMENT? (mRing=group_ring {if(!mRelational){json = new JsonObject();json.addProperty("RingType","Group");String[] arr = parseGroupRing(mRing);json.addProperty("Group", arr[0]);json.addProperty("Judge",arr[1]);json.addProperty("BlockStart",currentBlockTime);mShowRings.add(json);}else{rings.add(new JsonPrimitive(mRing));}})+ {if(mRelational){json.add("Rings", rings);}} GROUP_ENDING_ANNOUNCEMENT;
 
 	
 
