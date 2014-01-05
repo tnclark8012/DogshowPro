@@ -24,7 +24,7 @@ public class Config {
 																				// the
 																						// APIs
 																				// console
-	public static final boolean DEBUG_LOCAL = false;
+	public static final boolean DEBUG_LOCAL = true;
 	public static final boolean DEBUG_OFFLINE = false;//TODO implement
 	// Conference API-specific config
 	// NOTE: the backend used for the Google I/O 2012 Android app is not
@@ -34,7 +34,8 @@ public class Config {
 	private static final String ROOT_EVENT_ID = "googleio2012";
 	// private static final String BASE_URL =
 	// "https://google-developers.appspot.com/_ah/api/resources/v0.1";
-	private static final String BASE_URL = (DEBUG_LOCAL)?"http://10.0.2.2:8888/rest":"http://dogshow-manager.appspot.com/rest";
+	//"http://10.0.2.2:8888/rest"
+	private static final String BASE_URL = (DEBUG_LOCAL)?"http://192.168.0.4:8888/rest":"http://dogshow-manager.appspot.com/rest";
 	public static final String GET_ALL_SESSIONS_URL = BASE_URL
 			+ "/sessions?parent_event=" + ROOT_EVENT_ID + "&api_key="
 			+ CONFERENCE_API_KEY;
