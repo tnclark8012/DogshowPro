@@ -14,6 +14,8 @@ import java.util.regex.Matcher;
 import com.google.gson.JsonElement;
 import java.util.Iterator;
 import java.util.Map.Entry;
+import java.util.LinkedList;
+import java.util.List;
 }
 @lexer::header {
 package dev.tclark.dogshow.grammar;
@@ -40,6 +42,9 @@ List<String> judgeList = new LinkedList<String>();
 public void setRelationalParse(boolean value)
 {
 	mRelational = value;
+}
+public String stripJudgeCount(String judgeText){
+	return judgeText.replaceAll("\\(\\d+\\)","");
 }
 
 private JsonObject mergeJson(JsonObject dest, JsonObject src)
@@ -162,8 +167,8 @@ judge_block returns [JsonObject json]
     :   mName=judge_name{if(!mRelational){mCurrentJudge = mName.trim();}json.addProperty("Judge", mName);} (mBlock=timeblock{array.add(mBlock);})+ {json.add("TimeBlocks", array);};
 judge_name returns [String str]
 	@init {str = "";}
-	:	(JUDGE_NAME{str+=$JUDGE_NAME.text;})+{str = str.replaceAll("[\r\n]"," ");}|
-		(COMMENT{str+=$COMMENT.text+" ";}|PARENTHETICAL{str+=$PARENTHETICAL.text+" ";}|PARENTHETICAL_INT{str+=$PARENTHETICAL_INT.text+" ";})+{str = str.replaceAll("[\r\n]"," ");}; //Sometimes judges don't have titles, so they're not recognized as JUDGE_NAMEs see ANOK1 MARISSA SHEPHERD (37)
+	:	((JUDGE_NAME{str+=$JUDGE_NAME.text;})+|
+		(COMMENT{str+=$COMMENT.text+" ";}|PARENTHETICAL{str+=$PARENTHETICAL.text+" ";}|PARENTHETICAL_INT{str+=$PARENTHETICAL_INT.text;})+){str = str.replaceAll("[\r\n]"," ");str = stripJudgeCount(str);}; //Sometimes judges don't have titles, so they're not recognized as JUDGE_NAMEs see ANOK1 MARISSA SHEPHERD (37)
 big_comment returns [String str]
 		@init {str = "";}
 		:   (mComment=comment{str = mComment;}|TIME{str=$TIME.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|BREED_NAME{str=$BREED_NAME.text;}|SPECIAL_SUFFIX{str=$SPECIAL_SUFFIX.text;}|GROUP_RING{str=$GROUP_RING.text;}|NON_CONFORMATION_SECOND_LINE{str=$NON_CONFORMATION_SECOND_LINE.text;});
