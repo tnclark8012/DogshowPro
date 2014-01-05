@@ -37,8 +37,6 @@ public class BreedRing extends ShowRing {
 
 	public static BreedRing fromJson(JSONObject json) {
 		BreedRing ring = new BreedRing();
-		long dateMillis;
-		String timeString;
 		try {
 			ring.count = json.getInt("Count");
 			ring.breed = Breeds.parse(json.getString("BreedName"));
@@ -84,10 +82,6 @@ public class BreedRing extends ShowRing {
 		e.setProperty("countAhead", countAhead);
 		e.setProperty("isSweepstakes", isSweepstakes);
 		e.setProperty("isVeteran", isVeteran);
-		if(judge.contains("KERR") && breed == Breeds.PAPILLON)
-		{
-			int i = 0;
-		}
 		return e;
 	}
 

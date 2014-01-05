@@ -232,8 +232,8 @@ public class DogshowEnums {
 				"NON_SPORTING", "Xoloitzcuintli", "Xoloitzcuintlis"),
 		// ****END NON_SPORTING****
 		// ****BEGIN Sporting****
-		AMERICAN_WATER_SPANIEL("SPORTING", "American Water Spaniel",
-				"American Water Spaniels"), BOYKIN_SPANIEL("SPORTING",
+		AMERICAN_WATER_SPANIEL("SPORTING", "American Water Spaniel","Spaniel (American Water)",
+				"American Water Spaniels","Spaniels (American Water)"), BOYKIN_SPANIEL("SPORTING",
 				"Boykin Spaniel", "Boykin Spaniels", "Spaniels (Boykin)"), BRITTANY(
 				"SPORTING", "Brittany", "Brittanys"), CHESAPEAKE_BAY_RETRIEVER(
 				"SPORTING", "Chesapeake Bay Retriever",

@@ -1,5 +1,7 @@
 package dev.tnclark8012.dogshow.persistence.datastore.managers;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
@@ -29,56 +31,41 @@ public class ShowRingManager {
 	 *            The show for which rings should be assigned
 	 * @param json
 	 *            show ring JSON
-	 * @return true if creation was successful, false if no show with id <code>showId</code exists
+	 * @return true if creation was successful, else false
 	 */
 	public static boolean createShowRingsForShow(String showId, JSONObject json) {
-		Show match = ShowManager.getSingleShowById(showId);
-		if (match != null) {
-			// TODO pre-processing JSON stinks...
-			System.out.println("Creating rings for " + "(" + showId + ") starting on " + new Date(match.getStartDate()));
-			long [] dates = match.getDates();
-			Calendar cal = Utils.getCalendar();
-			cal.setTimeInMillis(match.getStartDate());
-			cal.add(Calendar.DAY_OF_MONTH, -1);
-			JSONArray ringsArray = null;
-			List<ShowRing> showRings = new LinkedList<ShowRing>();
-			ShowSection section = new ShowSection();
-			List<ShowSection> showSections = new LinkedList<ShowSection>();
-			try {
-				ringsArray = json.getJSONArray("Rings");
-				int ringCount = ringsArray.length();
-				int lastRing = Integer.MAX_VALUE;
+		// TODO pre-processing JSON stinks...
+		System.out.println("Creating rings for " + showId);
+		Calendar cal = Utils.getCalendar();
+		SimpleDateFormat sdf = new SimpleDateFormat("EEEE, MMMM d, yyyy");
+		String ringDateString = "";
 
-				for (int i = 0; i < ringCount; i++) {
-					JSONObject ring = ringsArray.getJSONObject(i);
-					ring.put("ShowId", showId);
-					if (ring.has("Number")) {
-						int num = ring.getInt("Number");
-						if (num < lastRing && num != -1 || num > lastRing && lastRing == -1) {
-							// Ring number has gone down, we're in a new section
-							showSections.add(section);
-							section = new ShowSection();
-						}
+		JSONArray ringsArray = null;
+		List<ShowRing> showRings = new LinkedList<ShowRing>();
 
-						lastRing = num;
+		try {
+			ringsArray = json.getJSONArray("Rings");
+			int ringCount = ringsArray.length();
+			for (int i = 0; i < ringCount; i++) {
+				JSONObject ring = ringsArray.getJSONObject(i);
+				if (!ring.getString("Date").equals(ringDateString)) {
+					ringDateString = ring.getString("Date");
+					try {
+						cal.setTime(sdf.parse(ringDateString));
+					} catch (ParseException e) {
+						System.err.println("Couldn't parse date: " + ringDateString + " for show " + showId);
+						e.printStackTrace();
+						return false;
 					}
-					section.pushRing(ShowRing.fromJson(showId, ring));
-					ring.put("DateMillis", cal.getTimeInMillis());
-					showRings.add(ShowRing.fromJson(showId, ring));
 				}
-				if (!section.isEmpty()) {
-					showSections.add(section);
-				}
-				DateDetector d = new DateDetector(showSections);
-				ShowDay[] days = d.run(4, showRings);
-				d.getShowDays(dates);
-
-				ShowRingAccessor.createShowRings(showRings);
-			} catch (JSONException e) {
-				e.printStackTrace();
-				return false;
+				ring.put("ShowId", showId);
+				ring.put("DateMillis", cal.getTimeInMillis());
+				showRings.add(ShowRing.fromJson(showId, ring));
 			}
-			return true;
+			ShowRingAccessor.createShowRings(showRings);
+		} catch (JSONException e) {
+			e.printStackTrace();
+			return false;
 		}
 		return false;
 	}

@@ -12,6 +12,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import com.google.appengine.labs.repackaged.org.json.JSONArray;
 import com.google.appengine.labs.repackaged.org.json.JSONException;
@@ -20,6 +21,7 @@ import com.google.appengine.labs.repackaged.org.json.JSONObject;
 import dev.tnclark8012.dogshow.persistence.datastore.Location;
 import dev.tnclark8012.dogshow.persistence.datastore.Show;
 import dev.tnclark8012.dogshow.persistence.datastore.managers.ShowManager;
+import dev.tnclark8012.dogshow.persistence.datastore.managers.ShowRingManager;
 import dev.tnclark8012.dogshow.util.Utils;
 
 @Path("shows")
@@ -89,11 +91,13 @@ public class ShowServlet {
 		}
 		Show s = new Show(code, clubs, dates, locations);
 		ShowManager.createShow(s);
+		boolean success = ShowRingManager.createShowRingsForShow(code, json);
+		if(!success) return Response.status(Status.PRECONDITION_FAILED).build();
 		return Response.ok(s).build();
 		//long dateMillis = Long.parseLong(dateStr);
 //		System.out.println("Creating show...");
 //		ShowManager.createShow(new Show(code, dateMillis, city, state, showId));
-//		return Response.ok(code).build();
+		// return Response.ok(code).build();
 	}
 
 	@GET

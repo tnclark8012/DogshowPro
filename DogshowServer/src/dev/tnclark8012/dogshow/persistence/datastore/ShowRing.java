@@ -32,6 +32,7 @@ public abstract class ShowRing extends AbstractJsonModel implements Storable, Cu
 	@XmlElement
 	String dateStr;
 
+	
 	// TODO doesn't work not b/c of fromJson methods
 	// private boolean mEntityConstructorCalled = false;
 
@@ -44,11 +45,16 @@ public abstract class ShowRing extends AbstractJsonModel implements Storable, Cu
 
 	public static final ShowRing fromJson(String showId, JSONObject ring) {
 		ShowRing showRing = null;
-		if (ring.has("BreedName")) {
+		String type = getMaybe(ring, "RingType", null);
+		if (type.equals("Conformation")) {
 			showRing = BreedRing.fromJson(ring);
-		} else if (ring.has("ClassName")) {
+		} else if (type.equals("Junior")) {
 			showRing = JuniorRing.fromJson(ring);
-		} else if (ring.has("Group")) {
+		} else if (type.equals("Non-conformation")) {
+			showRing = NonConformationRing.fromJson(ring);
+		} else if (type.equals("Rally")) {
+			showRing = RallyRing.fromJson(ring);
+		} else if (type.equals("Group")) {
 			showRing = GroupRing.fromJson(ring);
 		} else {
 			return null;
@@ -63,7 +69,7 @@ public abstract class ShowRing extends AbstractJsonModel implements Storable, Cu
 			long blockStartMillis = Utils.millisFromTimeString(cal, timeString);
 			showRing.blockStartMillis = blockStartMillis;
 			showRing.judge = ring.getString("Judge");
-			showRing.ringNumber = ring.getInt("Number");
+			showRing.ringNumber = getMaybe(ring, "Number", -1);
 			showRing.showId = showId;
 			showRing.dateMillis = ring.getLong("DateMillis");
 		} catch (JSONException e) {
@@ -97,10 +103,9 @@ public abstract class ShowRing extends AbstractJsonModel implements Storable, Cu
 		blockStartMillis = (Long) entity.getProperty("blockStart");
 		dateStr = timeStringFromMillis(blockStartMillis, true);
 		judge = (String) entity.getProperty("judge");
-		//TODO .intValue is used to combat widening of GAE. Is it really an issue? should I just use longs? 
+		// TODO .intValue is used to combat widening of GAE. Is it really an issue? should I just use longs?
 		ringNumber = ((Long) entity.getProperty("ringNumber")).intValue();
 	}
-	
 
 	private static final SimpleDateFormat standardTimeFormatAmPm = new SimpleDateFormat("h:mm a", Locale.US);
 	private static final SimpleDateFormat standardTimeFormat = new SimpleDateFormat("h:mm", Locale.US);
@@ -118,7 +123,7 @@ public abstract class ShowRing extends AbstractJsonModel implements Storable, Cu
 			return standardTimeFormat.format(cal.getTime());
 		}
 	}
-	
+
 	void setDate(long dateMillis) {
 		this.dateMillis = dateMillis;
 	}
@@ -134,10 +139,10 @@ public abstract class ShowRing extends AbstractJsonModel implements Storable, Cu
 	public String getShowId() {
 		return showId;
 	}
-	public int getRingNumber()
-	{
+
+	public int getRingNumber() {
 		return ringNumber;
 	}
-	
+
 	public abstract String getTypeString();
 }

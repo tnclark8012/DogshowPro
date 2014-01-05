@@ -5,6 +5,8 @@ import java.util.List;
 import dev.tnclark8012.dogshow.persistence.datastore.BreedRing;
 import dev.tnclark8012.dogshow.persistence.datastore.GroupRing;
 import dev.tnclark8012.dogshow.persistence.datastore.JuniorRing;
+import dev.tnclark8012.dogshow.persistence.datastore.NonConformationRing;
+import dev.tnclark8012.dogshow.persistence.datastore.RallyRing;
 import dev.tnclark8012.dogshow.persistence.datastore.ShowRing;
 
 public class ShowRingAccessor {
@@ -16,6 +18,14 @@ public class ShowRingAccessor {
 			if( ring instanceof BreedRing)
 			{
 				BreedRingAccessor.createBreedRing((BreedRing)ring);
+			}
+			else if( ring instanceof RallyRing)
+			{
+				RallyRingAccessor.createRallyRing((RallyRing)ring);
+			}
+			else if( ring instanceof NonConformationRing)
+			{
+				NonConformationRingAccessor.createNonConformationRing((NonConformationRing)ring);
 			}
 			else if( ring instanceof JuniorRing)
 			{
