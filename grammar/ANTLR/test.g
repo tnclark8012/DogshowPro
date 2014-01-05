@@ -12,10 +12,10 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 import com.google.gson.JsonElement;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map.Entry;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Set;
 }
 @lexer::header {
 package dev.tclark.dogshow.grammar;
@@ -36,12 +36,27 @@ String mCurrentJudge = null;
 int mCurrentRingNumber = -1;
 String mLastBreedName = null;
 String mCurrentClass = null;
-List<String> judgeList = new LinkedList<String>();
+//Tracks all judges as they are parsed
+Set<String> judgeSet = new HashSet<String>();
 // end non-relational
 
 public void setRelationalParse(boolean value)
 {
 	mRelational = value;
+}
+/**
+* Checks if strings are part of a judge's name who's been discovered. Used to assure that judges' names which look like comments (no title or parenthetical int following) are not matched as such
+*/
+public boolean areJudgeNames(String str1, String str2)
+{
+	for(String s : judgeSet){
+		if( s.contains(str1) && s.contains(str2))
+		{
+		
+		return true;
+		}
+	}
+	return false;
 }
 public String stripJudgeCount(String judgeText){
 	return judgeText.replaceAll("\\(\\d+\\)","");
@@ -164,7 +179,7 @@ inner_ring returns [JsonObject json]
 	    |((mJugeBlock=judge_block{judgeBlocks.add(mJugeBlock);})+ {json.add("JudgeBlocks", judgeBlocks);});
 judge_block returns [JsonObject json]
 	@init{json = new JsonObject(); JsonArray array = new JsonArray();}
-    :   mName=judge_name{if(!mRelational){mCurrentJudge = mName.trim();}json.addProperty("Judge", mName);} (mBlock=timeblock{array.add(mBlock);})+ {json.add("TimeBlocks", array);};
+    :   mName=judge_name{if(!mRelational){mCurrentJudge = mName.trim();judgeSet.add(mCurrentJudge);}json.addProperty("Judge", mName);} (mBlock=timeblock{array.add(mBlock);})+ {json.add("TimeBlocks", array);};
 judge_name returns [String str]
 	@init {str = "";}
 	:	((JUDGE_NAME{str+=$JUDGE_NAME.text;})+|
@@ -214,7 +229,7 @@ timeblock returns [JsonObject json]
 	   		}
 	   		} 
 	   	(
-	   		mComment=timeblock_comment
+	   		{!areJudgeNames(input.LT(1).getText(), input.LT(2).getText())}?=>mComment=timeblock_comment
 	   			{
 	   			comment+=$mComment.str;
 	   			}
@@ -244,7 +259,7 @@ inner_timeblock returns [JsonArray array]
 	@init {array = new JsonArray();JsonObject toAdd = null;int countAhead = 0;}
 	:	 (
 		  (
-		  (mName=judge_name{mCurrentJudge = mName.trim();})? //there may not be a new time block when judges change. See ANOK1 Saturday, Ring 3
+		  (mName=judge_name{mCurrentJudge = mName.trim();judgeSet.add(mCurrentJudge);})? //there may not be a new time block when judges change. See ANOK1 Saturday, Ring 3
 		  nonGroupRing=non_group_ring
 		  	{
 		  	nonGroupRing.addProperty("BlockStart",currentBlockTime);
@@ -263,7 +278,7 @@ inner_timeblock returns [JsonArray array]
 		  	}
 		  )
 		  )|
-		  ring_comment
+		  {!areJudgeNames(input.LT(1).getText(), input.LT(2).getText())}?=>ring_comment
 		  )+;
 
 

@@ -481,18 +481,26 @@
 			}
 		},
 		{
-			"file": "cleaned/ANOK1JP.pdfbox.txt",
+			"file": "dogshowprogramworker.py",
 			"settings":
 			{
-				"buffer_size": 45382,
+				"buffer_size": 11602,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "cleaned/MNJS1JP.pdfbox.txt",
+			"settings":
+			{
+				"buffer_size": 45028,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "final/ANOK1JP.pdf",
+			"file": "ringcleaner.py",
 			"settings":
 			{
-				"buffer_size": 145417,
+				"buffer_size": 4763,
 				"line_ending": "Windows"
 			}
 		}
@@ -521,10 +529,12 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/ANOK1JP.pdfbox.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/MINN1JP.pdfbox.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/final/ANOK1JP.pdf",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/COUL1.pdfbox.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/final/COUN1.pdf",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/GRMS1.pdfbox.txt",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/MINN1JP.pdfbox.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/final/MINN1JP.pdf",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parsed/BRAZ1.pdfbox.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parsed/COUN1.pdfbox.txt",
@@ -549,7 +559,6 @@
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/json/GRMS1.pdfbox.json",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/final/COUL1.pdf",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/grammar.py",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/ANOK1JP.pdfbox.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/COUN1.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/final/ANOK1JP",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/appserver_accessor.py",
@@ -647,8 +656,7 @@
 		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/PDF-Parsing/README.md",
 		"/C/Users/Taylor/workspace/Python/scrapping/retry_decorator.py",
 		"/C/Users/Taylor/workspace/Python/scrapping/local/showpage.htm",
-		"/C/Users/Taylor/workspace/Python/scrapping/Show.py",
-		"/C/Users/Taylor/workspace/Python/scrapping/demo.py"
+		"/C/Users/Taylor/workspace/Python/scrapping/Show.py"
 	],
 	"find":
 	{
@@ -671,6 +679,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ALLEYNE DICKENS",
+			"1-800",
+			"9-13-2-2",
+			"remains in ",
+			"north star",
+			"january 3,",
+			"hubbell",
+			"hubbel",
+			":",
 			"pre open class",
 			"following",
 			"to follow",
@@ -789,16 +806,7 @@
 			"datepairs",
 			"searching",
 			"showlimit",
-			"getshowdetails",
-			"pullshow(",
-			"pullshow",
-			"getshowdetails",
-			".code =",
-			".code",
-			"downloadprogram",
-			"did not download",
-			"downloadprogram",
-			"setting pdf"
+			"getshowdetails"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -840,7 +848,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -897,18 +905,46 @@
 				},
 				{
 					"buffer": 2,
-					"file": "cleaned/ANOK1JP.pdfbox.txt",
+					"file": "dogshowprogramworker.py",
 					"settings":
 					{
-						"buffer_size": 45382,
+						"buffer_size": 11602,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								42458,
-								42458
+								6481,
+								6481
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2146.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "cleaned/MNJS1JP.pdfbox.txt",
+					"settings":
+					{
+						"buffer_size": 45028,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								25141,
+								25141
 							]
 						],
 						"settings":
@@ -916,30 +952,31 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 20627.0,
+						"translation.y": 13347.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "final/ANOK1JP.pdf",
+					"buffer": 4,
+					"file": "ringcleaner.py",
 					"settings":
 					{
-						"buffer_size": 145417,
+						"buffer_size": 4763,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								433,
-								433
+								476,
+								476
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
