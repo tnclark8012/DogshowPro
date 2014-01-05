@@ -31,7 +31,7 @@ class ShowScraper(object):
             return None;
         outputLocation = config.Scraper.JSON_OUTPUT_DIR + str(showPageCode.group(1)) + "json"
         jsonStr = None;
-        if not os.path.isfile(outputLocation) or config.Scraper.FORCE:
+        if not os.path.isfile(outputLocation) or config.Scraper.FORCE():
             printv("****************************")
             printv("*      Running scraper     *")
             printv("****************************")

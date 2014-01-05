@@ -22,7 +22,7 @@ class RingCleaner(object):
 		self._runner = ParseRunner();
 	def cleanPdfBox(self, pdfPath):
 		cleanedPath = config.Grammar.CLEANED_PROGRAM_DIR + os.path.basename(pdfPath)
-		if not os.path.isfile(cleanedPath) or config.Env.FORCE_ALL:
+		if not os.path.isfile(cleanedPath) or config.Env.FORCEALL():
 			shutil.copyfile(pdfPath, cleanedPath)
 			#TODO build into one big command
 			for sedCommand in RingCleaner.pdfBoxSedCommands:
@@ -33,7 +33,7 @@ class RingCleaner(object):
 	def cleanPdf2Txt(self, pdfPath):
 		printv("Cleaning Pdf2Txt Output: " + str(pdfPath))
 		cleanedPath = config.Grammar.CLEANED_PROGRAM_DIR + os.path.basename(pdfPath)
-		if not os.path.isfile(cleanedPath) or config.Env.FORCE_ALL:
+		if not os.path.isfile(cleanedPath) or config.Env.FORCEALL():
 			shutil.copyfile(pdfPath, cleanedPath)
 			#TODO build into one big command
 			for sedCommand in RingCleaner.pdf2TxtSedCommands:

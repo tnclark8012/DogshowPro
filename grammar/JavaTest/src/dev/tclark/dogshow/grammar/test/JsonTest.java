@@ -69,6 +69,7 @@ public class JsonTest {
 		ProcessBuilder pb = new ProcessBuilder("python", "driver.py", "--forceall=true", "-t", test.getAbsolutePath(), "--output=" + testOutputFile.getAbsolutePath());
 		pb.directory(new File("../../Scraper"));
 		pb.redirectErrorStream(true);
+		System.out.println(pb.command().toString().replace(',',' '));
 		Process p = null;
 		try {
 			p = pb.start();

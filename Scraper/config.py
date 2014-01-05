@@ -13,6 +13,8 @@ class Env(object):
     LOG_VERBOSE = False;
     LOG_DEBUG = False;
     SANDBOX_DIR = os.getcwd();
+    def FORCEALL():
+        return Env.FORCE_ALL;
 
 class AppServer(object):
     SERVER_URL = "http://localhost:8888/rest/" if Env.DEBUG else 'http://dogshow-manager.appspot.com/rest/'
@@ -36,11 +38,13 @@ class Parse(object):
     OUTPUT_DIR = os.getcwd() + "/parsed/"
 
 class Grammar(object):
-    FORCE = False or Env.FORCE_ALL;
+    def FORCE():
+        return False or Env.FORCE_ALL;
     GRAMMAR_JAR = os.getcwd() + "/bin/grammar.jar"
     CLEANED_PROGRAM_DIR = os.getcwd() + "/cleaned/"
     JSON_OUTPUT_DIR = os.getcwd() + "/json/"
 
 class Scraper(object):
     JSON_OUTPUT_DIR = os.getcwd() + "/show_details/"
-    FORCE = False or Env.FORCE_ALL
+    def FORCE():
+        return False or Env.FORCE_ALL;

@@ -26,7 +26,7 @@ class ParseRunner(object):
             output = os.path.basename(fullPdfPath)[:-3] + "pdfbox.txt"
             outputLocation = config.Parse.OUTPUT_DIR + output
             #show.parsedPath = outputLocation;
-            if os.path.isfile(outputLocation) and not config.Env.FORCE_ALL:
+            if os.path.isfile(outputLocation) and not config.Env.FORCEALL():
                 printv("Already exists: " + outputLocation)
             else:
                 subprocess.call(['java', '-jar', 'pdfbox-app-1.7.1.jar', 'ExtractText', fullPdfPath, outputLocation])
@@ -40,7 +40,7 @@ class ParseRunner(object):
         if fullPdfPath is not None:
             output = os.path.basename(fullPdfPath)[:-3] + "pdf2txt.txt"
             outputLocation = config.Parse.OUTPUT_DIR + output
-            if not os.path.isfile(outputLocation) or config.Env.FORCE_ALL:
+            if not os.path.isfile(outputLocation) or config.Env.FORCEALL():
                 printv("**************************")
                 printv("*     Parsing PDF2Txt    *")
                 printv("**************************")
