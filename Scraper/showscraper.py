@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 from model.show import Show
 from model.companionshow import CompanionShow
 from showutils import urlopen_with_retry
-from util import ScrapeHelper, RegexPattern, RegexHelper, printv;
+from util import ScrapeHelper, RegexPattern, RegexHelper, printv, saveObject, readObject;
 class ShowScraper(object):
 
     
@@ -25,10 +25,26 @@ class ShowScraper(object):
         #self._allshows = self._pullShowsFromOnofrio()
         #self._uniqueshows = self._getUniqueShows();
     
+    def pullShow(self, showPageUrl):
+        showPageCode = re.match(".*SHOW=(.*)", showPageUrl);
+        if not showPageCode:
+            return None;
+        outputLocation = config.Scraper.JSON_OUTPUT_DIR + str(showPageCode.group(1)) + "json"
+        jsonStr = None;
+        if not os.path.isfile(outputLocation) or config.Scraper.FORCE:
+            printv("****************************")
+            printv("*      Running scraper     *")
+            printv("****************************")
+            show = self.doPullShow(showPageUrl)
+            saveObject(show, outputLocation);
+            return show;
+        else:
+            printv("Show detail json already obtained from scraper. Reading JSON from file " + outputLocation)
+            return readObject(outputLocation);
     """
     Pulls a Show model object from a given show page
     """
-    def pullShow(self, showPageUrl):
+    def doPullShow(self, showPageUrl):
         #open page
         if self.OFFLINE:
             showPageUrl = config.Onofrio.LOCAL_PAGE 

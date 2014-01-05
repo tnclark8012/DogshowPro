@@ -17,7 +17,3 @@ def getShowJson(showTxtPath):
     	printv("Show json already obtained from grammar. Reading JSON from file " + outputLocation)
     with open (outputLocation, "r") as jsonFile:
     	return json.load(jsonFile)
-    	jsonStr = jsonFile.read();
-    	printv("read(): " + str(jsonStr))
-    	jsonFile.close();
-    	return json.load(jsonFile);

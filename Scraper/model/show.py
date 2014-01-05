@@ -9,7 +9,6 @@ from util import printv
 import time
 
 class Show(object):
-    
     def __init__(self, code, club, locations, dates):
         self.code = code;
         self.clubs = set();

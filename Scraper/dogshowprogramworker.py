@@ -56,13 +56,6 @@ class DogshowProgramWorker(object):
         #self.postShows(showJsonList);
 
     """
-    Dumps JSON to file 
-    """
-    def dumpJson(self, data, filename):
-        filepath = config.AppServer.DUMP_DIR + filename;
-        
-
-    """
     Get a list of closed show page URLs
     returns: list of Urls
     """
@@ -174,10 +167,6 @@ class DogshowProgramWorker(object):
                         currentDateRingNumbers = ringDates[currentDate]
                 judgeRingCount += 1;
             ringsList[i]["Date"] = currentDate;
-
-
-        #printv(str(ringsList))
-        self.dumpJson(showJson,'ANOK1JP');
         return showJson;
     def getShowJson(self, pdfPath):
         return self._cleaner.parseShowJson(pdfPath);

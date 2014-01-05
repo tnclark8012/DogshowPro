@@ -3,6 +3,14 @@ import config;
 import json;
 from datetime import datetime
 from location import Location
+import pickle
+
+def saveObject(obj, filename):
+    with open(filename, 'wb') as output:
+        pickle.dump(obj, output, pickle.HIGHEST_PROTOCOL)
+def readObject(filename):
+	with open(filename, 'rb') as f:
+		return pickle.load(f);
 
 def printv(string):
 	if config.Env.LOG_VERBOSE:
