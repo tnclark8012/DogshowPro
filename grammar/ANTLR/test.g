@@ -34,6 +34,7 @@ String mCurrentJudge = null;
 int mCurrentRingNumber = -1;
 String mLastBreedName = null;
 String mCurrentClass = null;
+List<String> judgeList = new LinkedList<String>();
 // end non-relational
 
 public void setRelationalParse(boolean value)
@@ -172,7 +173,7 @@ comment returns [String str]
 		: (NON_CONFORMATION_CLASS_NAME{str=$NON_CONFORMATION_CLASS_NAME.text;}|BREED_NAME{str=$BREED_NAME.text;}|TIME{str=$TIME.text;}|COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|INT{str=$INT.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|NON_CONFORMATION_SECOND_LINE{str=$NON_CONFORMATION_SECOND_LINE.text;});
 timeblock_comment returns [String str]//No time
 		@init{str="";}
-		: (NON_CONFORMATION_CLASS_NAME{str=$NON_CONFORMATION_CLASS_NAME.text;}|BREED_NAME{str=$BREED_NAME.text;}|COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|INT{str=$INT.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|SPECIAL_SUFFIX|NON_CONF_SECOND_LINE_COMMENT);
+		: (NON_CONFORMATION_CLASS_NAME{str=$NON_CONFORMATION_CLASS_NAME.text;}|BREED_NAME{str=$BREED_NAME.text;}|COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|INT{str=$INT.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|SPECIAL_SUFFIX|NON_CONF_SECOND_LINE_COMMENT|GROUP_RING);
 
 		
 ring_comment returns [String str]
@@ -578,6 +579,7 @@ fragment FRAG_BREED_NAME_SINGLE
     'Polish Lowland Sheepdog'|
     'Pomeranian'|
     'Poodle'|
+    'Portuguese Podengo'|
     'Portuguese Podengo Pequenos'|
     'Portuguese Water Dog'|
     'Pug'|
@@ -632,10 +634,10 @@ fragment FRAG_BREED_NAME_SINGLE
 
 
 BREED_NAME
-    : (FRAG_BREED_NAME_SINGLE|FRAG_BREED_NAME_ALT) 's'? WS? ('(' FRAG_BREED_NAME_CATEGORY ')' WS? FRAG_BREED_NAME_CATEGORY_SUFFIX? )? BREED_NAME_SUFFIX?;
+    : (FRAG_BREED_NAME_ALT 's'?)|(FRAG_BREED_NAME_SINGLE) 's'? WS? ('(' FRAG_BREED_NAME_CATEGORY ')' WS? FRAG_BREED_NAME_CATEGORY_SUFFIX? )? BREED_NAME_SUFFIX?;
 
 SPECIAL_SUFFIX
-   :   FRAG_BREED_NAME_SPECIAL_SUFFIX_GROUP;//Could be more matching, so keep BREED_NAME_SPECIAL_SUFFIX a fragment
+   :   FRAG_BREED_NAME_SPECIAL_SUFFIX_GROUP{allowJudge=true;};//Could be more matching, so keep BREED_NAME_SPECIAL_SUFFIX a fragment
     
 fragment BREED_NAME_SUFFIX
     :   ('('BREED_MISC')')|BREED_MISC;
@@ -647,10 +649,10 @@ fragment BREED_MISC
 fragment FRAG_SEX
 	:	'Dog'|'Bitche'|'Bitch';
 fragment FRAG_BREED_ATTRIBUTE
-	:	'Brood'|'Champion'|'Cut-Down'|'Veteran''s'?;
+	:	'Working'|'Stud'|'Brood'|'Champion'|'Cut-Down'|'Special Attraction'|'Veteran''s'?;
 fragment FRAG_BREED_NAME_SPECIAL_SUFFIX
     :   'Sweepstakes' WS ('e'|'E') ('ntry'|'ntries');
-fragment FRAG_BREED_NAME_ALT:   FRAG_BREED_ATTRIBUTE WS FRAG_SEX;//used to handle BREED_RING with no breed count after
+fragment FRAG_BREED_NAME_ALT:   (FRAG_BREED_ATTRIBUTE WS)+ FRAG_SEX;//used to handle BREED_RING with no breed count after
 fragment FRAG_BREED_NAME_CATEGORY_SUFFIX
     :   'Ascob'|'Parti-Color'|'Black';//Spaniels (Cocker) Ascob
 fragment FRAG_BREED_NAME_CATEGORY //Breed's that are listed under categories rather than full name. Ex: Spaniels (Cocker)
@@ -860,7 +862,7 @@ WS :(' ' |'\t' |'\n' |'\r' )+ {$channel=HIDDEN;} ;
 RING_TITLE  :   (('GROUP RING')=>'GROUP RING'{allowGroup=true;}|('RING' WS INT)){allowJudge=true;};
 
 PHONE_NUMBER
-    :   '(' '0'..'9''0'..'9''0'..'9' ')'
+    :   (('(' '0'..'9''0'..'9''0'..'9' ')')|'1-800-')
     	( (WS? '0'..'9' '0'..'9' '0'..'9' '-' '0'..'9' '0'..'9' '0'..'9' '0'..'9')=> WS? '0'..'9' '0'..'9' '0'..'9' '-' '0'..'9' '0'..'9' '0'..'9' '0'..'9'  
     	| ()=>{$type=PARENTHETICAL_INT;});
 TIME    :   INT ':' INT WS FRAG_TIME_LABEL{allowBreed=true;};
@@ -873,12 +875,13 @@ ELLIPSIS:   '.'+;
 
 INT :'0'..'9' + ;
 
+PARENTHETICAL_INT
+    :   '(' WS? INT WS? ')';
 PARENTHETICAL
     :   '(' (WORD|INT|FRAG_PROPER_NAME) (WS (WORD|INT|FRAG_PROPER_NAME))* ')';
 fragment FRAG_PROPER_NAME: ('A'..'Z' ('a'..'z'|'A'..'Z'|FRAG_SPEC_CHAR|FRAG_SPEC_WORD_CHAR)*)END_PUNCTUATION?;
 
-PARENTHETICAL_INT
-    :   '(' WS? INT WS? ')';
+
 fragment WORD  : ('a'..'z'|FRAG_SPEC_CHAR|FRAG_SPEC_WORD_CHAR)+ END_PUNCTUATION?;
 COMMENT :   ((FRAG_PROPER_NAME|WORD|PARENTHETICAL|INT|ELLIPSIS){/*allowBreed=false;*/ allowGroup=false;allowJudge=false;})+;//Sometimes they mention sweepstakes in comment
 fragment END_WORD
