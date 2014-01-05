@@ -104,6 +104,7 @@ class RingCleaner(object):
 					printv("new day")
 					if rings:
 						printv("adding rings to day " + currentDate)
+						printv(currentDate + " has " + str(len(rings)) + " rings")
 						if currentDate in datemap:
 							datemap[currentDate].extend(rings);
 						else:
@@ -127,6 +128,5 @@ class RingCleaner(object):
 			else:
 				datemap[currentDate] = rings;
 		printv("found " + str(ringCount) + " rings");
-		printv(str(datemap))
 		return datemap
 

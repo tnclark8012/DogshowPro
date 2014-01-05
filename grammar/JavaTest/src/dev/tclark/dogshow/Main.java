@@ -31,7 +31,7 @@ public class Main {
 		
 		LexerRunner lexerRunner = new LexerRunner(file);
 		//TokenStream ts = lexerRunner.getTokenStream(file);
-//		if(args.length > 1) lexerRunner.printTokens();
+		if(args.length > 1) lexerRunner.printTokens();
 		ParserRunner parserRunner = new ParserRunner(lexerRunner);
 		parserRunner.setRelationalParsing(false);
 		

@@ -136,6 +136,7 @@ class DogshowProgramWorker(object):
         printv(str(currentDate))
         printv('*******************')
         groupsAppeared = False;
+        currentDateRingCount = 0;
         for i in range(0, numRings):
             if "Number" not in ringsList[i]:
                 groupsAppeared = True;
@@ -159,14 +160,20 @@ class DogshowProgramWorker(object):
                         elif previousJudge[1] is currentJudge[1]:
                             printv("Judge change without ring change: " + str(previousJudge) )
                     if not currentDateRingNumbers and previousJudge[1] is not currentJudge[1]:#list is empty
+                        printd('*******************')
+                        printd(str(currentDate) + " has " + str(currentDateRingCount) + " Rings")
+                        printd('*******************')
+                        currentDateRingCount = 0;
                         currentDateIndex += 1
                         currentDate = dates[currentDateIndex]
                         printd('*******************')
                         printd(str(currentDate))
                         printd('*******************')
                         currentDateRingNumbers = ringDates[currentDate]
+            
                 judgeRingCount += 1;
             ringsList[i]["Date"] = currentDate;
+            currentDateRingCount += 1
         return showJson;
     def getShowJson(self, pdfPath):
         return self._cleaner.parseShowJson(pdfPath);

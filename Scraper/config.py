@@ -18,7 +18,7 @@ class Env(object):
 
 class AppServer(object):
     SERVER_URL = "http://localhost:8888/rest/" if Env.DEBUG else 'http://dogshow-manager.appspot.com/rest/'
-    SHOW_POST_URL = SERVER_URL + "shows/create"#shows/create"
+    SHOW_POST_URL = SERVER_URL + "shows/create"
     DUMP_DIR = Env.SANDBOX_DIR + '/final/'
 
 class Onofrio(object):

@@ -39,6 +39,7 @@ String mCurrentClass = null;
 //Tracks all judges as they are parsed
 Set<String> judgeSet = new HashSet<String>();
 boolean nextJudgeIsNewRing = false;
+String latestBreed = "";
 // end non-relational
 
 public void setRelationalParse(boolean value)
@@ -197,7 +198,7 @@ big_comment returns [String str]
 
 comment returns [String str]
 		@init{str="";}
-		: (NON_CONFORMATION_CLASS_NAME{str=$NON_CONFORMATION_CLASS_NAME.text;}|BREED_NAME{str=$BREED_NAME.text;}|TIME{str=$TIME.text;}|COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|INT{str=$INT.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|NON_CONFORMATION_SECOND_LINE{str=$NON_CONFORMATION_SECOND_LINE.text;});
+		: (NON_CONFORMATION_CLASS_NAME{str=$NON_CONFORMATION_CLASS_NAME.text;}|BREED_NAME{str=$BREED_NAME.text;}|BREED_CLASSIFIER{str=$BREED_CLASSIFIER.text;}|TIME{str=$TIME.text;}|COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|INT{str=$INT.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|NON_CONFORMATION_SECOND_LINE{str=$NON_CONFORMATION_SECOND_LINE.text;});
 timeblock_comment returns [String str]//No time
 		@init{str="";}
 		: (NON_CONFORMATION_CLASS_NAME{str=$NON_CONFORMATION_CLASS_NAME.text;}|BREED_NAME{str=$BREED_NAME.text;}|COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|INT{str=$INT.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|SPECIAL_SUFFIX|NON_CONF_SECOND_LINE_COMMENT|GROUP_RING);
@@ -314,7 +315,7 @@ special_suffix returns [JsonObject json]
 
 breed_name returns [JsonObject json]
 	@init{json = new JsonObject(); String breedName ="";}:
-		BREED_NAME{
+		(BREED_NAME{
     		breedName+=$BREED_NAME.text;
     		if(isVeteran(breedName)){
     			breedName=mLastBreedName;
@@ -322,7 +323,7 @@ breed_name returns [JsonObject json]
     		}
     		else{
     			mLastBreedName=breedName;
-    		}} (BREED_NAME_SUFFIX{json.addProperty("BreedSuffix", $BREED_NAME_SUFFIX.text);})? {json.addProperty("BreedName", breedName);};
+    		}}|BREED_CLASSIFIER{breedName=mLastBreedName;json.addProperty("BreedAttribute",$BREED_CLASSIFIER.text.trim());}) (BREED_NAME_SUFFIX{json.addProperty("BreedSuffix", $BREED_NAME_SUFFIX.text);})? {json.addProperty("BreedName", breedName);};
 
 
 ring_without_breed returns [JsonObject json]
@@ -501,7 +502,6 @@ fragment FRAG_BREED_NAME_SINGLE
     'Bouviers des Flandres'|
     'Boxer'|
     'Boykin Spaniel'|
-    'Brace'|
     'Briard'|
     'Brittany'|
     'Brussels Griffon'|
@@ -661,9 +661,10 @@ fragment FRAG_BREED_NAME_SINGLE
     'Xoloitzcuintli'|
     'Yorkshire Terrier');
 
-
+BREED_CLASSIFIER
+	:	(FRAG_BREED_NAME_ALT 's'?);
 BREED_NAME
-    : (FRAG_BREED_NAME_ALT 's'?)|(FRAG_BREED_NAME_SINGLE) 's'? WS? ('(' FRAG_BREED_NAME_CATEGORY ')' WS? FRAG_BREED_NAME_CATEGORY_SUFFIX? )? BREED_NAME_SUFFIX?;
+    : (FRAG_BREED_NAME_SINGLE) 's'? WS? ('(' FRAG_BREED_NAME_CATEGORY ')' WS? FRAG_BREED_NAME_CATEGORY_SUFFIX? )? BREED_NAME_SUFFIX?;
 
 SPECIAL_SUFFIX
    :   FRAG_BREED_NAME_SPECIAL_SUFFIX_GROUP{allowJudge=true;};//Could be more matching, so keep BREED_NAME_SPECIAL_SUFFIX a fragment
@@ -678,10 +679,10 @@ fragment BREED_MISC
 fragment FRAG_SEX
 	:	'Dog'|'Bitche'|'Bitch';
 fragment FRAG_BREED_ATTRIBUTE
-	:	'Working'|'Stud'|'Brood'|'Champion'|'Cut-Down'|'Special Attraction'|'Veteran''s'?;
+	:	'Working'|'Stud'|'Brood'|'Brace'|'Champion'|'Cut-Down'|'Hunting Retriever'|'Special Attraction'|'Veteran''s'?;
 fragment FRAG_BREED_NAME_SPECIAL_SUFFIX
     :   'Sweepstakes' WS ('e'|'E') ('ntry'|'ntries');
-fragment FRAG_BREED_NAME_ALT:   (FRAG_BREED_ATTRIBUTE WS)+ FRAG_SEX;//used to handle BREED_RING with no breed count after
+fragment FRAG_BREED_NAME_ALT:   (FRAG_BREED_ATTRIBUTE WS)+ FRAG_SEX?;//used to handle BREED_RING with no breed count after
 fragment FRAG_BREED_NAME_CATEGORY_SUFFIX
     :   'Ascob'|'Parti-Color'|'Black';//Spaniels (Cocker) Ascob
 fragment FRAG_BREED_NAME_CATEGORY //Breed's that are listed under categories rather than full name. Ex: Spaniels (Cocker)
