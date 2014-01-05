@@ -1,4 +1,4 @@
-// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2014-01-05 00:13:10
+// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2014-01-05 01:35:26
 
 //TODO Puppy groups
 package dev.tclark.dogshow.grammar;
@@ -1972,9 +1972,9 @@ public class testParser extends Parser {
 
 		Token RALLY_CLASS34=null;
 
-		json = new JsonObject();
+		json = new JsonObject();json.addProperty("RingType","Rally");
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:294:33: ( RALLY_CLASS )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:294:70: ( RALLY_CLASS )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:295:3: RALLY_CLASS
 			{
 			RALLY_CLASS34=(Token)match(input,RALLY_CLASS,FOLLOW_RALLY_CLASS_in_rally_walkthrough724); if (state.failed) return json;
@@ -2006,16 +2006,16 @@ public class testParser extends Parser {
 		JsonObject suffix =null;
 		JsonObject obedience =null;
 
-		json = new JsonObject();
+		json = new JsonObject();json.addProperty("RingType","Unassigned");
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:298:32: (breedName= breed_name (suffix= special_suffix | (obedience= obedience_with_breed ) | ( ( BREED_COUNT )? ) ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:298:74: (breedName= breed_name (suffix= special_suffix | (obedience= obedience_with_breed ) | ( ( BREED_COUNT )? ) ) )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:299:2: breedName= breed_name (suffix= special_suffix | (obedience= obedience_with_breed ) | ( ( BREED_COUNT )? ) )
 			{
 			pushFollow(FOLLOW_breed_name_in_ring_with_breed743);
 			breedName=breed_name();
 			state._fsp--;
 			if (state.failed) return json;
-			if ( state.backtracking==0 ) {json.addProperty("Type", "Conformation");mergeJson(json,breedName);}
+			if ( state.backtracking==0 ) {json.addProperty("RingType", "Conformation");mergeJson(json,breedName);}
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:300:2: (suffix= special_suffix | (obedience= obedience_with_breed ) | ( ( BREED_COUNT )? ) )
 			int alt22=3;
 			switch ( input.LA(1) ) {
@@ -2383,9 +2383,9 @@ public class testParser extends Parser {
 		JsonObject mNonConformationRing =null;
 		JsonObject mSpecial =null;
 
-		json = new JsonObject(); JsonObject ring;
+		json = new JsonObject(); json.addProperty("RingType","Unassigned");JsonObject ring;
 		try {
-			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:327:49: ( (mJuniorRing= junior_ring ) | (mEmptyRing= empty_breed_ring ) | (mRallyRing= rally_ring ) | (mNonConformationRing= non_conformation_ring ) | (mSpecial= special_suffix ) )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:327:91: ( (mJuniorRing= junior_ring ) | (mEmptyRing= empty_breed_ring ) | (mRallyRing= rally_ring ) | (mNonConformationRing= non_conformation_ring ) | (mSpecial= special_suffix ) )
 			int alt25=5;
 			switch ( input.LA(1) ) {
 			case JUNIOR_CLASS:
@@ -2461,7 +2461,7 @@ public class testParser extends Parser {
 					mRallyRing=rally_ring();
 					state._fsp--;
 					if (state.failed) return json;
-					if ( state.backtracking==0 ) {mergeJson(json,mRallyRing);if(!mRallyRing.has("RallyName"))json.addProperty("Skip",true);}
+					if ( state.backtracking==0 ) {mergeJson(json,mRallyRing);json.addProperty("RingType","Rally");if(!mRallyRing.has("RallyName"))json.addProperty("Skip",true);}
 					}
 
 					}
@@ -3002,7 +3002,7 @@ public class testParser extends Parser {
 					mRing=group_ring();
 					state._fsp--;
 					if (state.failed) return json;
-					if ( state.backtracking==0 ) {if(!mRelational){json = new JsonObject();json.addProperty("RingType","Group");String[] arr = parseGroupRing(mRing);json.addProperty("Group", arr[0]);json.addProperty("Judge",arr[1]);json.addProperty("Time",currentBlockTime);mShowRings.add(json);}else{rings.add(new JsonPrimitive(mRing));}}
+					if ( state.backtracking==0 ) {if(!mRelational){json = new JsonObject();json.addProperty("RingType","Group");String[] arr = parseGroupRing(mRing);json.addProperty("Group", arr[0]);json.addProperty("Judge",arr[1]);json.addProperty("BlockStart",currentBlockTime);mShowRings.add(json);}else{rings.add(new JsonPrimitive(mRing));}}
 					}
 					break;
 

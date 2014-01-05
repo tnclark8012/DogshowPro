@@ -291,7 +291,7 @@ inner_timeblock returns [JsonArray array]
 
 
 rally_walkthrough returns [JsonObject json]
-	@init{json = new JsonObject();json.addProperty("RingType","Rally");}:
+	@init{json = new JsonObject();json.addProperty("RingType","Rally");json.addProperty("Count",0);}:
 		RALLY_CLASS{String title = $RALLY_CLASS.text; json.addProperty("RallyName", title.replace(" Walkthrough", "")); json.addProperty("IsWalkthrough",true); };//COUL - RALLY_CLASS: Rally Excellent Walkthrough 
 
 ring_with_breed returns [JsonObject json]

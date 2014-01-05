@@ -6,10 +6,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 public class JsonTest {
 	private static final File programsFolder = new File("testcase/tests/programs");
