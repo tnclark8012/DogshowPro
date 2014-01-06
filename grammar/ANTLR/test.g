@@ -179,7 +179,7 @@ start   returns [JsonObject json]
 		//:((mComment=big_comment{comments+=$mComment.str;})+ {json.addProperty("Comment", comments);}((ring)=>mRing=ring{ringArray.add($mRing.json);})*)+ {json.add("Rings", ringArray);} EOF;
 
 ring	returns [JsonObject json]
-		@init {json = new JsonObject();if(debug){System.out.println("ring...");}}
+		@init {json = new JsonObject();if(debug){System.out.println("ring...");}mLastBreedName = null;}
 		:   RING_TITLE{json.addProperty("Title", $RING_TITLE.text); json.addProperty("Number", parseRingNumber($RING_TITLE.text));if(!mRelational){mCurrentRingNumber=parseRingNumber($RING_TITLE.text);}} mRing=inner_ring{json.add("Ring", mRing);};
 inner_ring returns [JsonObject json]
 	@init{json = new JsonObject();JsonArray judgeBlocks = new JsonArray();}
@@ -329,10 +329,10 @@ breed_name returns [JsonObject json]
 ring_without_breed returns [JsonObject json]
 @init{json = new JsonObject(); json.addProperty("RingType","Unassigned");JsonObject ring;}:
 	(mJuniorRing=junior_ring{mergeJson(json,mJuniorRing);})|
-	(mEmptyRing=empty_breed_ring{mergeJson(json,mEmptyRing);})|
+	(mEmptyRing=empty_breed_ring{mergeJson(json,mEmptyRing);json.addProperty("BreedName",mLastBreedName);})|
 	(mRallyRing=rally_ring{mergeJson(json,mRallyRing);json.addProperty("RingType","Rally");if(!mRallyRing.has("RallyName"))json.addProperty("Skip",true);})|
 	(mNonConformationRing=non_conformation_ring{mergeJson(json,mNonConformationRing);})|
-	(mSpecial=special_suffix{mergeJson(json, mSpecial);});
+	(mSpecial=special_suffix{mergeJson(json, mSpecial);json.addProperty("BreedName",mLastBreedName);});
 	
 /*non_conformation_ring
 //with

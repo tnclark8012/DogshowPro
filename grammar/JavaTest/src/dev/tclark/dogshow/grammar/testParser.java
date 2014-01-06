@@ -1,4 +1,4 @@
-// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2014-01-05 15:02:29
+// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2014-01-05 15:59:26
 
 //TODO Puppy groups
 package dev.tclark.dogshow.grammar;
@@ -364,7 +364,7 @@ public class testParser extends Parser {
 		Token RING_TITLE1=null;
 		JsonObject mRing =null;
 
-		json = new JsonObject();if(debug){System.out.println("ring...");}
+		json = new JsonObject();if(debug){System.out.println("ring...");}mLastBreedName = null;
 		try {
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:183:3: ( RING_TITLE mRing= inner_ring )
 			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:183:7: RING_TITLE mRing= inner_ring
@@ -2496,7 +2496,7 @@ public class testParser extends Parser {
 					mEmptyRing=empty_breed_ring();
 					state._fsp--;
 					if (state.failed) return json;
-					if ( state.backtracking==0 ) {mergeJson(json,mEmptyRing);}
+					if ( state.backtracking==0 ) {mergeJson(json,mEmptyRing);json.addProperty("BreedName",mLastBreedName);}
 					}
 
 					}
@@ -2541,7 +2541,7 @@ public class testParser extends Parser {
 					mSpecial=special_suffix();
 					state._fsp--;
 					if (state.failed) return json;
-					if ( state.backtracking==0 ) {mergeJson(json, mSpecial);}
+					if ( state.backtracking==0 ) {mergeJson(json, mSpecial);json.addProperty("BreedName",mLastBreedName);}
 					}
 
 					}
