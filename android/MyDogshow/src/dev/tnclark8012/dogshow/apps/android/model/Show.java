@@ -6,4 +6,7 @@ public class Show {
 	public String city;
 	public String state;
 	public String showId;
+	public String[] clubNames;
+	public long[] dates;
+	public Location[] locations;
 }

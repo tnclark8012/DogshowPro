@@ -69,12 +69,8 @@ public class Show implements Storable, CustomKeyName {
 		locations = Location.fromStringArray(((String)entity.getProperty("locations")).split("\\|"));
 	}
 
-	public Show(String name, long startDate, String city, String state, String showId) {
-		this.showName = name;
-		this.startDateMillis = startDate;
-		this.city = city;
-		this.state = state;
-		this.showId = showId;
+	public Show( String showId, String name, long startDate, String city, String state) throws JSONException {
+		this(showId, new String[]{name}, new long[]{startDate}, new Location[]{new Location(city,state, 0,0)} );
 	}
 
 	public Show(String showId, String[] clubs, long[] dates, Location[] locations) throws JSONException {

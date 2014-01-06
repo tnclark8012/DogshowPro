@@ -66,7 +66,7 @@ public class JsonTest {
 		
 		File expectedOutputFile = new File(expectedOutputFolder, test.getName() + ".json");
 
-		ProcessBuilder pb = new ProcessBuilder("python", "driver.py",  "-t", test.getAbsolutePath(), "--output=" + testOutputFile.getAbsolutePath());
+		ProcessBuilder pb = new ProcessBuilder("python", "driver.py", "--forceall=true", "-t", test.getAbsolutePath(), "--output=" + testOutputFile.getAbsolutePath());
 		pb.directory(new File("../../Scraper"));
 		pb.redirectErrorStream(true);
 		System.out.println(pb.command().toString().replace(',',' '));

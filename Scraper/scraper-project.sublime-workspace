@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"showPage",
+				"showPageUrl"
+			],
+			[
+				"FORCE",
+				"FORCE_ALL"
+			],
+			[
 				"cleane",
 				"cleanedPath"
 			],
@@ -464,27 +472,95 @@
 	"buffers":
 	[
 		{
-			"contents": "{\"BreedName\": \"Miniature American Shepherds (Misc. Dogs)\", \"Judge\": \"MR CARL GENE LIEPMANN (103)\", \"CountAhead\": 0, \"BlockStart\": \"9:00 am\", \"Count\": 3, \"Date\": \"Saturday, November 16, 2013\", \"Number\": 2}, {\"BreedName\": \"Berger Picards (Misc. Bitch)\", \"Judge\": \"MR CARL GENE LIEPMANN (103)\", \"CountAhead\": 3, \"BlockStart\": \"9:00 am\", \"Count\": 1, \"Date\": \"Saturday, November 16, 2013\", \"Number\": 2}, {\"BreedName\": \"Dogo Argentine (Misc. Dog)\", \"Judge\": \"MR CARL GENE LIEPMANN (103)\", \"CountAhead\": 4, \"BlockStart\": \"9:00 am\", \"Count\": 1, \"Date\": \"Saturday, November 16, 2013\", \"Number\": 2}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Mastiffs \", \"Judge\": \"MR CARL GENE LIEPMANN (103)\", \"BitchCount\": 2, \"CountAhead\": 5, \"BlockStart\": \"9:00 am\", \"Count\": 3, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 2}, {\"DogCount\": 3, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Doberman Pinschers \", \"Judge\": \"MR CARL GENE LIEPMANN (103)\", \"BitchCount\": 3, \"CountAhead\": 8, \"BlockStart\": \"9:00 am\", \"Count\": 6, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 2}, {\"DogCount\": 3, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Great Danes \", \"Judge\": \"MR CARL GENE LIEPMANN (103)\", \"BitchCount\": 3, \"CountAhead\": 14, \"BlockStart\": \"9:00 am\", \"Count\": 6, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 2}, {\"DogCount\": 7, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Rottweilers \", \"Judge\": \"MR CARL GENE LIEPMANN (103)\", \"BitchCount\": 3, \"CountAhead\": 20, \"BlockStart\": \"9:00 am\", \"Count\": 12, \"SpecialDogCount\": 2, \"SpecialBitchCount\": 0, \"Number\": 2}, {\"DogCount\": 2, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Boxers \", \"Judge\": \"MR CARL GENE LIEPMANN (103)\", \"BitchCount\": 8, \"CountAhead\": 0, \"BlockStart\": \"10:05 am\", \"Count\": 13, \"SpecialDogCount\": 3, \"SpecialBitchCount\": 0, \"Number\": 2}, {\"DogCount\": 3, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Samoyeds \", \"Judge\": \"MR CARL GENE LIEPMANN (103)\", \"BitchCount\": 8, \"CountAhead\": 13, \"BlockStart\": \"10:05 am\", \"Count\": 13, \"SpecialDogCount\": 2, \"SpecialBitchCount\": 0, \"Number\": 2}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Newfoundlands \", \"Judge\": \"MR CARL GENE LIEPMANN (103)\", \"BitchCount\": 5, \"CountAhead\": 26, \"BlockStart\": \"10:05 am\", \"Count\": 8, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 1, \"Number\": 2}, {\"DogCount\": 2, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Alaskan Malamutes \", \"Judge\": \"MR CARL GENE LIEPMANN (103)\", \"BitchCount\": 3, \"CountAhead\": 0, \"BlockStart\": \"11:15 am\", \"Count\": 5, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 2}, {\"DogCount\": 3, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Saint Bernards \", \"Judge\": \"MR CARL GENE LIEPMANN (103)\", \"BitchCount\": 1, \"CountAhead\": 5, \"BlockStart\": \"11:15 am\", \"Count\": 4, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 2}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Bernese Mountain Dogs \", \"Judge\": \"MR CARL GENE LIEPMANN (103)\", \"BitchCount\": 5, \"CountAhead\": 9, \"BlockStart\": \"11:15 am\", \"Count\": 8, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 1, \"Number\": 2}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Giant Schnauzers \", \"Judge\": \"MR CARL GENE LIEPMANN (103)\", \"BitchCount\": 4, \"CountAhead\": 17, \"BlockStart\": \"11:15 am\", \"Count\": 4, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 2}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Portuguese Water Dogs \", \"Judge\": \"MR CARL GENE LIEPMANN (103)\", \"BitchCount\": 5, \"CountAhead\": 21, \"BlockStart\": \"11:15 am\", \"Count\": 9, \"SpecialDogCount\": 3, \"SpecialBitchCount\": 0, \"Number\": 2}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Siberian Huskies \", \"Judge\": \"MR CARL GENE LIEPMANN (103)\", \"BitchCount\": 0, \"CountAhead\": 0, \"BlockStart\": \"12:15 pm\", \"Count\": 3, \"SpecialDogCount\": 2, \"SpecialBitchCount\": 0, \"Number\": 2}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Akitas \", \"Judge\": \"MR CARL GENE LIEPMANN (103)\", \"BitchCount\": 0, \"CountAhead\": 3, \"BlockStart\": \"12:15 pm\", \"Count\": 1, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 1, \"Number\": 2}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Kuvaszok \", \"Judge\": \"MR CARL GENE LIEPMANN (103)\", \"BitchCount\": 0, \"CountAhead\": 4, \"BlockStart\": \"12:15 pm\", \"Count\": 1, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 1, \"Number\": 2}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Standard Schnauzers \", \"Judge\": \"MR CARL GENE LIEPMANN (103)\", \"BitchCount\": 0, \"CountAhead\": 5, \"BlockStart\": \"12:15 pm\", \"Count\": 1, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 2}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Tibetan Mastiffs \", \"Judge\": \"MR CARL GENE LIEPMANN (103)\", \"BitchCount\": 0, \"CountAhead\": 6, \"BlockStart\": \"12:15 pm\", \"Count\": 1, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 2}, {\"DogCount\": 6, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Afghan Hounds \", \"Judge\": \"MR JOHN R WOOD JR (36)\", \"BitchCount\": 2, \"CountAhead\": 0, \"BlockStart\": \"1:35 pm\", \"Count\": 16, \"SpecialDogCount\": 5, \"SpecialBitchCount\": 3, \"Number\": 2}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Pointers \", \"Judge\": \"MR WAYNE E BOUSEK (107)\", \"BitchCount\": 0, \"CountAhead\": 0, \"BlockStart\": \"9:00 am\", \"Count\": 2, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 3}, {\"DogCount\": 3, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Weimaraners \", \"Judge\": \"MR WAYNE E BOUSEK (107)\", \"BitchCount\": 7, \"CountAhead\": 2, \"BlockStart\": \"9:00 am\", \"Count\": 13, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 3, \"Number\": 3}, {\"DogCount\": 2, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Pointers (German Wirehaired) \", \"Judge\": \"MR WAYNE E BOUSEK (107)\", \"BitchCount\": 1, \"CountAhead\": 15, \"BlockStart\": \"9:00 am\", \"Count\": 3, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 3}, {\"DogCount\": 2, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Retrievers (Nova Scotia Duck Tolling) \", \"Judge\": \"MR WAYNE E BOUSEK (107)\", \"BitchCount\": 0, \"CountAhead\": 18, \"BlockStart\": \"9:00 am\", \"Count\": 3, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 3}, {\"DogCount\": 2, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Retrievers (Labrador) \", \"Judge\": \"MR WAYNE E BOUSEK (107)\", \"BitchCount\": 3, \"CountAhead\": 21, \"BlockStart\": \"9:00 am\", \"Count\": 8, \"SpecialDogCount\": 3, \"SpecialBitchCount\": 0, \"Number\": 3}, {\"DogCount\": 2, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Spinoni Italiani \", \"Judge\": \"MR WAYNE E BOUSEK (107)\", \"BitchCount\": 2, \"CountAhead\": 0, \"BlockStart\": \"10:10 am\", \"Count\": 11, \"SpecialDogCount\": 5, \"SpecialBitchCount\": 2, \"Number\": 3}, {\"DogCount\": 2, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Vizslas \", \"Judge\": \"MR WAYNE E BOUSEK (107)\", \"BitchCount\": 2, \"CountAhead\": 11, \"BlockStart\": \"10:10 am\", \"Count\": 7, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 2, \"Number\": 3}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Setters (Irish) \", \"Judge\": \"MR WAYNE E BOUSEK (107)\", \"BitchCount\": 5, \"CountAhead\": 18, \"BlockStart\": \"10:10 am\", \"Count\": 7, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 1, \"Number\": 3}, {\"DogCount\": 3, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Retrievers (Golden) \", \"Judge\": \"MR WAYNE E BOUSEK (107)\", \"BitchCount\": 3, \"CountAhead\": 0, \"BlockStart\": \"11:10 am\", \"Count\": 9, \"SpecialDogCount\": 2, \"SpecialBitchCount\": 1, \"Number\": 3}, {\"DogCount\": 2, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Spaniels (Cocker) Parti-Color\", \"Judge\": \"MR WAYNE E BOUSEK (107)\", \"BitchCount\": 6, \"CountAhead\": 9, \"BlockStart\": \"11:10 am\", \"Count\": 11, \"SpecialDogCount\": 2, \"SpecialBitchCount\": 1, \"Number\": 3}, {\"DogCount\": 2, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Spaniels (Cocker) Black\", \"Judge\": \"MR WAYNE E BOUSEK (107)\", \"BitchCount\": 4, \"CountAhead\": 0, \"BlockStart\": \"12:45 pm\", \"Count\": 8, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 1, \"Number\": 3}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Setters (Gordon) \", \"Judge\": \"MR WAYNE E BOUSEK (107)\", \"BitchCount\": 0, \"CountAhead\": 8, \"BlockStart\": \"12:45 pm\", \"Count\": 2, \"SpecialDogCount\": 2, \"SpecialBitchCount\": 0, \"Number\": 3}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Spaniels (Clumber) \", \"Judge\": \"MR WAYNE E BOUSEK (107)\", \"BitchCount\": 2, \"CountAhead\": 10, \"BlockStart\": \"12:45 pm\", \"Count\": 4, \"SpecialDogCount\": 2, \"SpecialBitchCount\": 0, \"Number\": 3}, {\"DogCount\": 2, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Spaniels (English Springer) \", \"Judge\": \"MR WAYNE E BOUSEK (107)\", \"BitchCount\": 4, \"CountAhead\": 14, \"BlockStart\": \"12:45 pm\", \"Count\": 7, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 1, \"Number\": 3}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Pointers (German Shorthaired) \", \"Judge\": \"MR WAYNE E BOUSEK (107)\", \"BitchCount\": 0, \"CountAhead\": 21, \"BlockStart\": \"12:45 pm\", \"Count\": 1, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 3}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Retrievers (Chesapeake Bay) \", \"Judge\": \"MR WAYNE E BOUSEK (107)\", \"BitchCount\": 0, \"CountAhead\": 22, \"BlockStart\": \"12:45 pm\", \"Count\": 1, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 3}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Spaniels (Welsh Springer) \", \"Judge\": \"MR WAYNE E BOUSEK (107)\", \"BitchCount\": 0, \"CountAhead\": 23, \"BlockStart\": \"12:45 pm\", \"Count\": 1, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 3}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Setters (English) \", \"Judge\": \"MR WAYNE E BOUSEK (107)\", \"BitchCount\": 1, \"CountAhead\": 24, \"BlockStart\": \"12:45 pm\", \"Count\": 1, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 3}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Spaniels (English Cocker) \", \"Judge\": \"MR WAYNE E BOUSEK (107)\", \"BitchCount\": 0, \"CountAhead\": 25, \"BlockStart\": \"12:45 pm\", \"Count\": 2, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 1, \"Number\": 3}, {\"DogCount\": 2, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Spaniels (Cocker) Ascob\", \"Judge\": \"MR WAYNE E BOUSEK (107)\", \"BitchCount\": 2, \"CountAhead\": 27, \"BlockStart\": \"12:45 pm\", \"Count\": 6, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 3}, {\"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Spaniels (Cocker) Ascob\", \"Judge\": \"MR WAYNE E BOUSEK (107)\", \"CountAhead\": 33, \"BlockStart\": \"12:45 pm\", \"Count\": 1, \"IsVeteran\": true, \"Number\": 3}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"American Staffordshire Terriers \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS (136)\", \"BitchCount\": 0, \"CountAhead\": 0, \"BlockStart\": \"9:00 am\", \"Count\": 2, \"SpecialDogCount\": 2, \"SpecialBitchCount\": 0, \"Number\": 4}, {\"DogCount\": 4, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Pugs \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS (136)\", \"BitchCount\": 1, \"CountAhead\": 2, \"BlockStart\": \"9:00 am\", \"Count\": 6, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 4}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Russell Terriers \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS (136)\", \"BitchCount\": 1, \"CountAhead\": 8, \"BlockStart\": \"9:00 am\", \"Count\": 2, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 4}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Miniature Pinschers \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS (136)\", \"BitchCount\": 2, \"CountAhead\": 10, \"BlockStart\": \"9:00 am\", \"Count\": 4, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 4}, {\"DogCount\": 2, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Toy Fox Terriers \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS (136)\", \"BitchCount\": 3, \"CountAhead\": 14, \"BlockStart\": \"9:00 am\", \"Count\": 10, \"SpecialDogCount\": 3, \"SpecialBitchCount\": 2, \"Number\": 4}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Parson Russell Terriers \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS (136)\", \"BitchCount\": 0, \"CountAhead\": 24, \"BlockStart\": \"9:00 am\", \"Count\": 3, \"SpecialDogCount\": 2, \"SpecialBitchCount\": 1, \"Number\": 4}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Fox Terriers (Smooth) \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS (136)\", \"BitchCount\": 2, \"CountAhead\": 0, \"BlockStart\": \"10:05 am\", \"Count\": 6, \"SpecialDogCount\": 2, \"SpecialBitchCount\": 1, \"Number\": 4}, {\"DogCount\": 2, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Border Terriers \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS (136)\", \"BitchCount\": 0, \"CountAhead\": 6, \"BlockStart\": \"10:05 am\", \"Count\": 4, \"SpecialDogCount\": 2, \"SpecialBitchCount\": 0, \"Number\": 4}, {\"DogCount\": 3, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Papillons \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS (136)\", \"BitchCount\": 4, \"CountAhead\": 10, \"BlockStart\": \"10:05 am\", \"Count\": 11, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 3, \"Number\": 4}, {\"DogCount\": 2, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Cavalier King Charles Spaniels \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS (136)\", \"BitchCount\": 4, \"CountAhead\": 21, \"BlockStart\": \"10:05 am\", \"Count\": 7, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 4}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Havanese \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS (136)\", \"BitchCount\": 1, \"CountAhead\": 0, \"BlockStart\": \"11:10 am\", \"Count\": 3, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 1, \"Number\": 4}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Chinese Cresteds \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS (136)\", \"BitchCount\": 10, \"CountAhead\": 3, \"BlockStart\": \"11:10 am\", \"Count\": 16, \"SpecialDogCount\": 3, \"SpecialBitchCount\": 2, \"Number\": 4}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Dachshunds (Smooth) \", \"Judge\": \"KIRLYN FOUTS (10) \", \"BitchCount\": 1, \"CountAhead\": 0, \"BlockStart\": \"12:00 pm\", \"Count\": 3, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 4}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Dachshunds (Longhaired) \", \"Judge\": \"KIRLYN FOUTS (10) \", \"BitchCount\": 2, \"CountAhead\": 3, \"BlockStart\": \"12:00 pm\", \"Count\": 2, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 4}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Dachshunds (Wirehaired) \", \"Judge\": \"KIRLYN FOUTS (10) \", \"BitchCount\": 0, \"CountAhead\": 5, \"BlockStart\": \"12:00 pm\", \"Count\": 3, \"SpecialDogCount\": 2, \"SpecialBitchCount\": 1, \"Number\": 4}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Beagles (13 Inch) \", \"Judge\": \"KIRLYN FOUTS (10) \", \"BitchCount\": 0, \"CountAhead\": 8, \"BlockStart\": \"12:00 pm\", \"Count\": 1, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 1, \"Number\": 4}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Beagles (15 Inch) \", \"Judge\": \"KIRLYN FOUTS (10) \", \"BitchCount\": 0, \"CountAhead\": 9, \"BlockStart\": \"12:00 pm\", \"Count\": 1, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 1, \"Number\": 4}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Kerry Blue Terriers \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS\\n\", \"BitchCount\": 0, \"CountAhead\": 0, \"BlockStart\": \"12:45 pm\", \"Count\": 2, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 1, \"Number\": 4}, {\"DogCount\": 5, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Soft Coated Wheaten Terriers \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS\\n\", \"BitchCount\": 3, \"CountAhead\": 2, \"BlockStart\": \"12:45 pm\", \"Count\": 9, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 1, \"Number\": 4}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Staffordshire Bull Terriers \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS\\n\", \"BitchCount\": 0, \"CountAhead\": 11, \"BlockStart\": \"12:45 pm\", \"Count\": 1, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 4}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Airedale Terriers \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS\\n\", \"BitchCount\": 0, \"CountAhead\": 12, \"BlockStart\": \"12:45 pm\", \"Count\": 1, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 4}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Skye Terriers \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS\\n\", \"BitchCount\": 0, \"CountAhead\": 13, \"BlockStart\": \"12:45 pm\", \"Count\": 5, \"SpecialDogCount\": 2, \"SpecialBitchCount\": 2, \"Number\": 4}, {\"DogCount\": 2, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Miniature Schnauzers \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS\\n\", \"BitchCount\": 1, \"CountAhead\": 18, \"BlockStart\": \"12:45 pm\", \"Count\": 5, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 1, \"Number\": 4}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Scottish Terriers \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS\\n\", \"BitchCount\": 1, \"CountAhead\": 23, \"BlockStart\": \"12:45 pm\", \"Count\": 1, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 4}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Dandie Dinmont Terriers \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS\\n\", \"BitchCount\": 1, \"CountAhead\": 24, \"BlockStart\": \"12:45 pm\", \"Count\": 1, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 4}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Bedlington Terriers \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS\\n\", \"BitchCount\": 0, \"CountAhead\": 0, \"BlockStart\": \"1:45 pm\", \"Count\": 1, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 1, \"Number\": 4}, {\"DogCount\": 2, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Poodles (Toy) \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS\\n\", \"BitchCount\": 0, \"CountAhead\": 1, \"BlockStart\": \"1:45 pm\", \"Count\": 3, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 4}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Silky Terriers \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS\\n\", \"BitchCount\": 1, \"CountAhead\": 4, \"BlockStart\": \"1:45 pm\", \"Count\": 3, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 2, \"Number\": 4}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Japanese Chin \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS\\n\", \"BitchCount\": 1, \"CountAhead\": 7, \"BlockStart\": \"1:45 pm\", \"Count\": 3, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 1, \"Number\": 4}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Yorkshire Terriers \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS\\n\", \"BitchCount\": 6, \"CountAhead\": 10, \"BlockStart\": \"1:45 pm\", \"Count\": 8, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 2, \"Number\": 4}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Maltese \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS\\n\", \"BitchCount\": 2, \"CountAhead\": 18, \"BlockStart\": \"1:45 pm\", \"Count\": 4, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 4}, {\"DogCount\": 2, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Shih Tzu \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS\\n\", \"BitchCount\": 3, \"CountAhead\": 22, \"BlockStart\": \"1:45 pm\", \"Count\": 6, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 4}, {\"DogCount\": 2, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Pomeranians \", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS\\n\", \"BitchCount\": 5, \"CountAhead\": 28, \"BlockStart\": \"1:45 pm\", \"Count\": 9, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 1, \"Number\": 4}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Australian Cattle Dogs \", \"Judge\": \"MR MERLE TAYLOR (88)\", \"BitchCount\": 1, \"CountAhead\": 0, \"BlockStart\": \"9:00 am\", \"Count\": 2, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 1, \"Number\": 5}, {\"DogCount\": 3, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"German Shepherd Dogs \", \"Judge\": \"MR MERLE TAYLOR (88)\", \"BitchCount\": 4, \"CountAhead\": 2, \"BlockStart\": \"9:00 am\", \"Count\": 9, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 1, \"Number\": 5}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Collies (Smooth) \", \"Judge\": \"MR MERLE TAYLOR (88)\", \"BitchCount\": 2, \"CountAhead\": 11, \"BlockStart\": \"9:00 am\", \"Count\": 2, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Australian Shepherds \", \"Judge\": \"MR MERLE TAYLOR (88)\", \"BitchCount\": 0, \"CountAhead\": 13, \"BlockStart\": \"9:00 am\", \"Count\": 2, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 1, \"Number\": 5}, {\"DogCount\": 3, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Border Collies \", \"Judge\": \"MR MERLE TAYLOR (88)\", \"BitchCount\": 2, \"CountAhead\": 15, \"BlockStart\": \"9:00 am\", \"Count\": 5, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Belgian Tervuren \", \"Judge\": \"MR MERLE TAYLOR (88)\", \"BitchCount\": 3, \"CountAhead\": 20, \"BlockStart\": \"9:00 am\", \"Count\": 4, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 3, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Chihuahuas (Smooth Coat) \", \"Judge\": \"MR MERLE TAYLOR (88)\", \"BitchCount\": 5, \"CountAhead\": 24, \"BlockStart\": \"9:00 am\", \"Count\": 10, \"SpecialDogCount\": 2, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Brussels Griffons \", \"Judge\": \"MR MERLE TAYLOR (88)\", \"BitchCount\": 1, \"CountAhead\": 0, \"BlockStart\": \"10:20 am\", \"Count\": 4, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 1, \"Number\": 5}, {\"DogCount\": 3, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Chihuahuas (Long Coat) \", \"Judge\": \"MR MERLE TAYLOR (88)\", \"BitchCount\": 5, \"CountAhead\": 4, \"BlockStart\": \"10:20 am\", \"Count\": 8, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Affenpinschers \", \"Judge\": \"MR MERLE TAYLOR (88)\", \"BitchCount\": 1, \"CountAhead\": 12, \"BlockStart\": \"10:20 am\", \"Count\": 2, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 1, \"Number\": 5}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Pembroke Welsh Corgis \", \"Judge\": \"MR MERLE TAYLOR (88)\", \"BitchCount\": 3, \"CountAhead\": 14, \"BlockStart\": \"10:20 am\", \"Count\": 4, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 1, \"Number\": 5}, {\"DogCount\": 5, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Shetland Sheepdogs \", \"Judge\": \"MR MERLE TAYLOR (88)\", \"BitchCount\": 2, \"CountAhead\": 18, \"BlockStart\": \"10:20 am\", \"Count\": 8, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 4, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Cardigan Welsh Corgis \", \"Judge\": \"MR MERLE TAYLOR (88)\", \"BitchCount\": 5, \"CountAhead\": 0, \"BlockStart\": \"11:25 am\", \"Count\": 13, \"SpecialDogCount\": 2, \"SpecialBitchCount\": 2, \"Number\": 5}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Swedish Vallhunds \", \"Judge\": \"MR MERLE TAYLOR (88)\", \"BitchCount\": 0, \"CountAhead\": 13, \"BlockStart\": \"11:25 am\", \"Count\": 2, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Bearded Collies \", \"Judge\": \"MR MERLE TAYLOR (88)\", \"BitchCount\": 1, \"CountAhead\": 15, \"BlockStart\": \"11:25 am\", \"Count\": 2, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Bouviers des Flandres \", \"Judge\": \"MR MERLE TAYLOR (88)\", \"BitchCount\": 1, \"CountAhead\": 17, \"BlockStart\": \"11:25 am\", \"Count\": 2, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Collies (Rough) \", \"Judge\": \"MR MERLE TAYLOR (88)\", \"BitchCount\": 3, \"CountAhead\": 19, \"BlockStart\": \"11:25 am\", \"Count\": 6, \"SpecialDogCount\": 2, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Belgian Sheepdogs \", \"Judge\": \"MR MERLE TAYLOR (88)\", \"BitchCount\": 0, \"CountAhead\": 25, \"BlockStart\": \"11:25 am\", \"Count\": 1, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Briards \", \"Judge\": \"MR MERLE TAYLOR (88)\", \"BitchCount\": 0, \"CountAhead\": 26, \"BlockStart\": \"11:25 am\", \"Count\": 1, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Belgian Malinois \", \"Judge\": \"MR MERLE TAYLOR (88)\", \"BitchCount\": 1, \"CountAhead\": 27, \"BlockStart\": \"11:25 am\", \"Count\": 1, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"English Toy Spaniels (B & P C) \", \"Judge\": \"MR JOHN R WOOD JR\\n\", \"BitchCount\": 0, \"CountAhead\": 0, \"BlockStart\": \"12:30 pm\", \"Count\": 2, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 2, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Salukis \", \"Judge\": \"MR JOHN R WOOD JR\\n\", \"BitchCount\": 1, \"CountAhead\": 2, \"BlockStart\": \"12:30 pm\", \"Count\": 4, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Brittanys \", \"Judge\": \"MR JOHN R WOOD JR\\n\", \"BitchCount\": 0, \"CountAhead\": 6, \"BlockStart\": \"12:30 pm\", \"Count\": 2, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 1, \"Number\": 5}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"English Toy Spaniels (K C & R) \", \"Judge\": \"MR JOHN R WOOD JR\\n\", \"BitchCount\": 0, \"CountAhead\": 8, \"BlockStart\": \"12:30 pm\", \"Count\": 1, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"Judge\": \"MR JOHN R WOOD JR\\n\", \"ClassName\": \"Open Senior\", \"CountAhead\": 9, \"BlockStart\": \"12:30 pm\", \"Count\": 5, \"Date\": \"Saturday, November 16, 2013\", \"Number\": 5}, {\"Judge\": \"MR JOHN R WOOD JR\\n\", \"ClassName\": \"Open Intermediate\", \"CountAhead\": 14, \"BlockStart\": \"12:30 pm\", \"Count\": 2, \"Date\": \"Saturday, November 16, 2013\", \"Number\": 5}, {\"Judge\": \"MR JOHN R WOOD JR\\n\", \"ClassName\": \"Open Junior\", \"CountAhead\": 16, \"BlockStart\": \"12:30 pm\", \"Count\": 3, \"Date\": \"Saturday, November 16, 2013\", \"Number\": 5}, {\"Judge\": \"MR JOHN R WOOD JR\\n\", \"ClassName\": \"Novice Junior\", \"CountAhead\": 19, \"BlockStart\": \"12:30 pm\", \"Count\": 1, \"Date\": \"Saturday, November 16, 2013\", \"Number\": 5}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Basset Hounds \", \"Judge\": \"MR PETE DAWKINS\\n\", \"BitchCount\": 0, \"CountAhead\": 0, \"BlockStart\": \"1:25 pm\", \"Count\": 2, \"SpecialDogCount\": 2, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 2, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Chinese Shar-Pei \", \"Judge\": \"MR PETE DAWKINS\\n\", \"BitchCount\": 1, \"CountAhead\": 2, \"BlockStart\": \"1:25 pm\", \"Count\": 6, \"SpecialDogCount\": 2, \"SpecialBitchCount\": 1, \"Number\": 5}, {\"DogCount\": 2, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Ibizan Hounds \", \"Judge\": \"MR PETE DAWKINS\\n\", \"BitchCount\": 1, \"CountAhead\": 8, \"BlockStart\": \"1:25 pm\", \"Count\": 4, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Bloodhounds \", \"Judge\": \"MR PETE DAWKINS\\n\", \"BitchCount\": 2, \"CountAhead\": 12, \"BlockStart\": \"1:25 pm\", \"Count\": 3, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 1, \"Number\": 5}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Rhodesian Ridgebacks \", \"Judge\": \"MR PETE DAWKINS\\n\", \"BitchCount\": 4, \"CountAhead\": 15, \"BlockStart\": \"1:25 pm\", \"Count\": 6, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 3, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Irish Wolfhounds \", \"Judge\": \"MR PETE DAWKINS\\n\", \"BitchCount\": 6, \"CountAhead\": 21, \"BlockStart\": \"1:25 pm\", \"Count\": 12, \"SpecialDogCount\": 2, \"SpecialBitchCount\": 1, \"Number\": 5}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Norwegian Elkhounds \", \"Judge\": \"MR PETE DAWKINS\\n\", \"BitchCount\": 0, \"CountAhead\": 0, \"BlockStart\": \"2:45 pm\", \"Count\": 2, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 2, \"Number\": 5}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Dalmatians \", \"Judge\": \"MR PETE DAWKINS\\n\", \"BitchCount\": 1, \"CountAhead\": 2, \"BlockStart\": \"2:45 pm\", \"Count\": 3, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 1, \"Number\": 5}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Chow Chows \", \"Judge\": \"MR PETE DAWKINS\\n\", \"BitchCount\": 2, \"CountAhead\": 5, \"BlockStart\": \"2:45 pm\", \"Count\": 5, \"SpecialDogCount\": 2, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Poodles (Standard) \", \"Judge\": \"MR PETE DAWKINS\\n\", \"BitchCount\": 2, \"CountAhead\": 10, \"BlockStart\": \"2:45 pm\", \"Count\": 3, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Keeshonden \", \"Judge\": \"MR PETE DAWKINS\\n\", \"BitchCount\": 0, \"CountAhead\": 13, \"BlockStart\": \"2:45 pm\", \"Count\": 1, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 1, \"Number\": 5}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Redbone Coonhounds \", \"Judge\": \"MR PETE DAWKINS\\n\", \"BitchCount\": 0, \"CountAhead\": 14, \"BlockStart\": \"2:45 pm\", \"Count\": 1, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Pharaoh Hounds \", \"Judge\": \"MR PETE DAWKINS\\n\", \"BitchCount\": 0, \"CountAhead\": 15, \"BlockStart\": \"2:45 pm\", \"Count\": 1, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Xoloitzcuintli \", \"Judge\": \"MR PETE DAWKINS\\n\", \"BitchCount\": 0, \"CountAhead\": 16, \"BlockStart\": \"2:45 pm\", \"Count\": 1, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Portuguese Podengo Pequenos \", \"Judge\": \"MR PETE DAWKINS\\n\", \"BitchCount\": 2, \"CountAhead\": 17, \"BlockStart\": \"2:45 pm\", \"Count\": 3, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Lowchen \", \"Judge\": \"MR PETE DAWKINS\\n\", \"BitchCount\": 5, \"CountAhead\": 20, \"BlockStart\": \"2:45 pm\", \"Count\": 7, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Shiba Inu \", \"Judge\": \"MR PETE DAWKINS\\n\", \"BitchCount\": 0, \"CountAhead\": 27, \"BlockStart\": \"2:45 pm\", \"Count\": 1, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"American Eskimo Dogs \", \"Judge\": \"MR PETE DAWKINS\\n\", \"BitchCount\": 0, \"CountAhead\": 28, \"BlockStart\": \"2:45 pm\", \"Count\": 1, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 1, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Tibetan Terriers \", \"Judge\": \"MR PETE DAWKINS\\n\", \"BitchCount\": 0, \"CountAhead\": 29, \"BlockStart\": \"2:45 pm\", \"Count\": 1, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 0, \"Number\": 5}, {\"DogCount\": 0, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Bichons Frises \", \"Judge\": \"MR PETE DAWKINS\\n\", \"BitchCount\": 0, \"CountAhead\": 30, \"BlockStart\": \"2:45 pm\", \"Count\": 1, \"SpecialDogCount\": 0, \"SpecialBitchCount\": 1, \"Number\": 5}, {\"BlockStart\": \"9:00 am\", \"Date\": \"Saturday, November 16, 2013\", \"Empty\": \"obedience: not captured\", \"Judge\": \"MR CHRISTOPHER CORNELL (18)\", \"Number\": 6}, {\"BlockStart\": \"10:35 am\", \"Date\": \"Saturday, November 16, 2013\", \"Empty\": \"obedience: not captured\", \"Judge\": \"MR CHRISTOPHER CORNELL (18)\", \"Number\": 6}, {\"BlockStart\": \"10:45 am\", \"Date\": \"Saturday, November 16, 2013\", \"Empty\": \"obedience: not captured\", \"Judge\": \"MR CHRISTOPHER CORNELL (18)\", \"Number\": 6}, {\"BlockStart\": \"10:55 am\", \"Date\": \"Saturday, November 16, 2013\", \"Empty\": \"obedience: not captured\", \"Judge\": \"MR CHRISTOPHER CORNELL (18)\", \"Number\": 6}, {\"BlockStart\": \"11:15 am\", \"Date\": \"Saturday, November 16, 2013\", \"Empty\": \"obedience: not captured\", \"Judge\": \"MR CHRISTOPHER CORNELL (18)\", \"Number\": 6}, {\"IsSweepstakes\": true, \"BreedName\": \"Spaniels (Cocker) Ascob\", \"Judge\": \"MR JOHN R WOOD JR (6)\", \"CountAhead\": 0, \"BlockStart\": \"2:15 pm\", \"Count\": 1, \"Date\": \"Saturday, November 16, 2013\", \"Number\": 3}, {\"IsSweepstakes\": true, \"BreedName\": \"Spaniels (Cocker) Black\", \"Judge\": \"MR JOHN R WOOD JR (6)\", \"CountAhead\": 1, \"BlockStart\": \"2:15 pm\", \"Count\": 3, \"Date\": \"Saturday, November 16, 2013\", \"Number\": 3}, {\"IsSweepstakes\": true, \"BreedName\": \"Spaniels (Cocker) Parti-Color\", \"Judge\": \"MR JOHN R WOOD JR (6)\", \"CountAhead\": 4, \"BlockStart\": \"2:15 pm\", \"Count\": 2, \"Date\": \"Saturday, November 16, 2013\", \"Number\": 3}, {\"DogCount\": 2, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Spaniels (Cocker) Ascob\", \"Judge\": \"MR CARL GENE LIEPMANN (28)\", \"BitchCount\": 2, \"CountAhead\": 0, \"BlockStart\": \"2:30 pm\", \"Count\": 6, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 1, \"Number\": 3}, {\"DogCount\": 2, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Spaniels (Cocker) Black\", \"Judge\": \"MR CARL GENE LIEPMANN (28)\", \"BitchCount\": 4, \"CountAhead\": 6, \"BlockStart\": \"2:30 pm\", \"Count\": 8, \"SpecialDogCount\": 1, \"SpecialBitchCount\": 1, \"Number\": 3}, {\"DogCount\": 3, \"Date\": \"Saturday, November 16, 2013\", \"BreedName\": \"Spaniels (Cocker) Parti-Color\", \"Judge\": \"MR CARL GENE LIEPMANN (28)\", \"BitchCount\": 6, \"CountAhead\": 14, \"BlockStart\": \"2:30 pm\", \"Count\": 14, \"SpecialDogCount\": 3, \"SpecialBitchCount\": 2, \"Number\": 3}, {\"BlockStart\": \"9:00 am\", \"Date\": \"Saturday, November 16, 2013\", \"Empty\": \"obedience: not captured\", \"Judge\": \"CHARLES W ANDERSON (22) \", \"Number\": 7}, {\"BlockStart\": \"9:25 am\", \"Date\": \"Saturday, November 16, 2013\", \"Empty\": \"obedience: not captured\", \"Judge\": \"CHARLES W ANDERSON (22) \", \"Number\": 7}, {\"BlockStart\": \"10:55 am\", \"Date\": \"Saturday, November 16, 2013\", \"Empty\": \"obedience: not captured\", \"Judge\": \"CHARLES W ANDERSON (22) \", \"Number\": 7}, {\"BlockStart\": \"11:35 am\", \"Date\": \"Saturday, November 16, 2013\", \"Empty\": \"obedience: not captured\", \"Judge\": \"CHARLES W ANDERSON (22) \", \"Number\": 7}, {\"BlockStart\": \"9:00 am\", \"Date\": \"Saturday, November 16, 2013\", \"Empty\": \"obedience: not captured\", \"Judge\": \"MRS BARBARA WEDEKIND SELTON (1)\", \"Number\": 8}, {\"BlockStart\": \"9:30 am\", \"Date\": \"Saturday, November 16, 2013\", \"Empty\": \"rally: not captured\", \"Judge\": \"MRS BARBARA WEDEKIND SELTON (19)\", \"Number\": 8}, {\"BlockStart\": \"9:40 am\", \"Date\": \"Saturday, November 16, 2013\", \"Empty\": \"rally: not captured\", \"Judge\": \"MRS BARBARA WEDEKIND SELTON (19)\", \"Number\": 8}, {\"BlockStart\": \"9:40 am\", \"Date\": \"Saturday, November 16, 2013\", \"Empty\": \"rally: not captured\", \"Judge\": \"MRS BARBARA WEDEKIND SELTON (19)\", \"Number\": 8}, {\"BlockStart\": \"10:15 am\", \"Date\": \"Saturday, November 16, 2013\", \"Empty\": \"rally: not captured\", \"Judge\": \"MRS BARBARA WEDEKIND SELTON (19)\", \"Number\": 8}, {\"BlockStart\": \"10:15 am\", \"Date\": \"Saturday, November 16, 2013\", \"Empty\": \"rally: not captured\", \"Judge\": \"MRS BARBARA WEDEKIND SELTON (19)\", \"Number\": 8}, {\"BlockStart\": \"10:50 am\", \"Date\": \"Saturday, November 16, 2013\", \"Empty\": \"rally: not captured\", \"Judge\": \"MRS BARBARA WEDEKIND SELTON (19)\", \"Number\": 8}, {\"BlockStart\": \"10:50 am\", \"Date\": \"Saturday, November 16, 2013\", \"Empty\": \"rally: not captured\", \"Judge\": \"MRS BARBARA WEDEKIND SELTON (19)\", \"Number\": 8}, {\"BlockStart\": \"11:15 am\", \"Date\": \"Saturday, November 16, 2013\", \"Empty\": \"rally: not captured\", \"Judge\": \"MRS BARBARA WEDEKIND SELTON (19)\", \"Number\": 8}, {\"Time\": \"3:15 pm\", \"Date\": \"Saturday, November 16, 2013\", \"Judge\": \"MR MERLE TAYLOR\", \"Group\": \"TERRIER GROUP\"}, {\"Time\": \"3:15 pm\", \"Date\": \"Saturday, November 16, 2013\", \"Judge\": \"MR CARL GENE LIEPMANN\", \"Group\": \"HERDING GROUP\"}, {\"Time\": \"3:15 pm\", \"Date\": \"Saturday, November 16, 2013\", \"Judge\": \"MRS GLENDA P (MRS PETE) DAWKINS\", \"Group\": \"TOY GROUP\"}, {\"Time\": \"3:15 pm\", \"Date\": \"Saturday, November 16, 2013\", \"Judge\": \"MR CARL GENE LIEPMANN\", \"Group\": \"WORKING GROUP\"}, {\"Time\": \"3:15 pm\", \"Date\": \"Saturday, November 16, 2013\", \"Judge\": \"MR PETE DAWKINS\", \"Group\": \"HOUND GROUP\"}, {\"Time\": \"3:15 pm\", \"Date\": \"Saturday, November 16, 2013\", \"Judge\": \"MR CARL GENE LIEPMANN\", \"Group\": \"SPORTING GROUP\"}, {\"Time\": \"3:15 pm\", \"Date\": \"Saturday, November 16, 2013\", \"Judge\": \"MR PETE DAWKINS\", \"Group\": \"NON-SPORTING GROUP\"}, {\"Time\": \"3:15 pm\", \"Date\": \"Saturday, November 16, 2013\", \"Judge\": \"MRS CAROLYN TAYLOR\", \"Group\": \"BEST IN SHOW\"}, {\"IsSweepstakes\": true, \"BreedName\": \"\", \"Judge\": \"MS CHRIS SWILLEY (10)\", \"CountAhead\": 0, \"BlockStart\": \"12:30 pm\", \"Count\": 7, \"Date\": \"Saturday, November 16, 2013\", \"Number\": 1}, ",
-			"settings":
-			{
-				"buffer_size": 36711,
-				"line_ending": "Windows",
-				"name": "{\"BreedName\": \"Miniature American Shepherds (Misc."
-			}
-		},
-		{
-			"file": "cleaned/test.txt",
-			"settings":
-			{
-				"buffer_size": 324,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "dogshowprogramworker.py",
 			"settings":
 			{
-				"buffer_size": 11602,
+				"buffer_size": 11812,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Taylor/Documents/GitHub/dogshow/android/UI-Design/images/sources.txt",
+			"settings":
+			{
+				"buffer_size": 75,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "driver.py",
+			"settings":
+			{
+				"buffer_size": 6197,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "showscraper.py",
+			"settings":
+			{
+				"buffer_size": 8928,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "from bs4 import BeautifulSoup\nimport config\nimport datetime\nimport os\nimport re\nfrom showutils import urlopen_with_retry\nimport time\nimport urllib.request\nimport urllib.parse\nfrom util import printv\n\nclass Show(object):\n    OFFLINE = False;\n    DO_DOWNLOAD = True;\n    \n    def __init__(self, club, pageLink, programcode):\n        self._club = club;\n        self._pagelink = pageLink;\n        self._programcode = programcode;\n        self._location = None;\n        self._date = None;\n        self._dateList = list();\n        self._hasProgram = False;\n        self._pdfLink = None;\n        self.programName = None;\n        self_city = None;\n        self._state = None;\n        self._parsedPath = None;\n        self._pdfPath = None;\n        self._cleanedPath = None;\n        self._parseShowPage();\n        \n    def __str__(self):\n        return(self._club\n            + \"\\n\\t date:\"  + str(self._date)\n            + \"\\n\\t location:\"  + str(self._location) \n            + \"\\n\\t\" + \"page link:\" + str(self._pagelink) \n            + \"\\n\\t program code: \" + str(self._programcode)\n            + \"\\n\\t program file name: \" + str(self.programName)\n            + \"\\n\\t PDF Path: \" + str(self._pdfPath) + ' or ' + str(self.pdfFilePath)  );\n\n    @property\n    def parsedFilePath(self):\n        return self._parsedPath\n\n    @property\n    def showCode(self):\n        return self._programcode;\n\n    @parsedFilePath.setter\n    def parsedFilePath(self, value):\n        self._parsedPath = value\n\n    @property\n    def pdfFilePath(self):\n        return self._pdfPath\n\n    @property\n    def cleanedFilePath(self):\n        return self._cleanedPath\n    @property\n    def dateList(self):\n        return self._dateList;\n\n    @cleanedFilePath.setter\n    def cleanedFilePath(self, value):\n        self._cleanedPath = value\n\n    #Converts date string to millis\n    @property\n    def date(self):\n        match = re.search(\"(?P<month>\"+config.MONTH_REGEX+\") (?P<day>\\d+)[0-9-]*, (?P<year>\\d{4})\", self._date);\n        date = match.group(\"month\") + ' ' +match.group(\"day\") + ' ' + match.group('year')\n        return time.mktime(datetime.datetime.strptime(date, \"%B %d %Y\").timetuple())*1000\n    @property\n    def city(self):\n        return self._city;\n    @property\n    def state(self):\n        return self._state;\n\n    def downloadProgram(self):\n        printv(\"setting pdf path...\")\n        self._pdfPath = config.Pdf.DOWNLOAD_DIR+self.programName\n        printv(\"pdf path is \" + self._pdfPath)\n        if not config.Env.OFFLINE and config.Env.DO_DOWNLOAD and self._hasProgram:\n            if not self._pdfLink:\n                printv(\"download died: \" + self._pagelink)\n                return False;\n            #self._programcode = \"PPTO1\";\n            pdfName = self.programName; \n            url = config.Onofrio.pdfUrl(self._pdfLink)            \n            printv(\"*** Downloading ***\" + url);\n            (filename, headers) = urllib.request.urlretrieve(url, path)\n            f = open(filename)\n            f.close();\n            self._pdfPath = filename\n            printv(\"pdf path: \" + self._pdfPath)\n            printv(filename)\n            return True;\n        else:\n            printv(\"Did not download program!\")\n            return False; ",
+			"file": "show.py",
+			"file_size": 3329,
+			"file_write_time": 130333747957411890,
+			"settings":
+			{
+				"buffer_size": 3227,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "config.py",
+			"settings":
+			{
+				"buffer_size": 1515,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "grammar.py",
+			"settings":
+			{
+				"buffer_size": 752,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "util.py",
+			"settings":
+			{
+				"buffer_size": 2797,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "\n\nSearching 146 files for \"FORCE_ALL\"\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\config.py:\n    6  \n    7  class Env(object):\n    8:     FORCE_ALL = False;\n    9      OFFLINE = False;\n   10      DEBUG = True\n   ..\n   38  class Grammar(object):\n   39      def FORCE():\n   40:         return False or Env.FORCE_ALL;\n   41      GRAMMAR_JAR = os.getcwd() + \"/bin/grammar.jar\"\n   42      CLEANED_PROGRAM_DIR = os.getcwd() + \"/cleaned/\"\n   ..\n   46      JSON_OUTPUT_DIR = os.getcwd() + \"/show_details/\"\n   47      def FORCE():\n   48:         return False or Env.FORCE_ALL;\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\driver.py:\n   99          printv('offline: ' + str(config.Env.OFFLINE))\n  100        if opt =='--forceall':\n  101:         config.Env.FORCE_ALL = arg=='true';\n  102          printv(\"forcing\")\n  103        if opt =='--output':\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\parserunner.py:\n   27              outputLocation = config.Parse.OUTPUT_DIR + output\n   28              #show.parsedPath = outputLocation;\n   29:             if os.path.isfile(outputLocation) and not config.Env.FORCE_ALL:\n   30                  printv(\"Already exists: \" + outputLocation)\n   31              else:\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\ringcleaner.py:\n   23  	def cleanPdfBox(self, pdfPath):\n   24  		cleanedPath = config.Grammar.CLEANED_PROGRAM_DIR + os.path.basename(pdfPath)\n   25: 		if not os.path.isfile(cleanedPath) or config.Env.FORCE_ALL:\n   26  			shutil.copyfile(pdfPath, cleanedPath)\n   27  			#TODO build into one big command\n   ..\n   34  		printv(\"Cleaning Pdf2Txt Output: \" + str(pdfPath))\n   35  		cleanedPath = config.Grammar.CLEANED_PROGRAM_DIR + os.path.basename(pdfPath)\n   36: 		if not os.path.isfile(cleanedPath) or config.Env.FORCE_ALL:\n   37  			shutil.copyfile(pdfPath, cleanedPath)\n   38  			#TODO build into one big command\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\config.py:\n    6  \n    7  class Env(object):\n    8:     FORCE_ALL = False;\n    9      OFFLINE = False;\n   10      DEBUG = True\n   ..\n   38  class Grammar(object):\n   39      def FORCE():\n   40:         return False or Env.FORCE_ALL;\n   41      GRAMMAR_JAR = os.getcwd() + \"/bin/grammar.jar\"\n   42      CLEANED_PROGRAM_DIR = os.getcwd() + \"/cleaned/\"\n   ..\n   46      JSON_OUTPUT_DIR = os.getcwd() + \"/show_details/\"\n   47      def FORCE():\n   48:         return False or Env.FORCE_ALL;\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\driver.py:\n   99          printv('offline: ' + str(config.Env.OFFLINE))\n  100        if opt =='--forceall':\n  101:         config.Env.FORCE_ALL = arg=='true';\n  102          printv(\"forcing\")\n  103        if opt =='--output':\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\parserunner.py:\n   27              outputLocation = config.Parse.OUTPUT_DIR + output\n   28              #show.parsedPath = outputLocation;\n   29:             if os.path.isfile(outputLocation) and not config.Env.FORCE_ALL:\n   30                  printv(\"Already exists: \" + outputLocation)\n   31              else:\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\ringcleaner.py:\n   23  	def cleanPdfBox(self, pdfPath):\n   24  		cleanedPath = config.Grammar.CLEANED_PROGRAM_DIR + os.path.basename(pdfPath)\n   25: 		if not os.path.isfile(cleanedPath) or config.Env.FORCE_ALL:\n   26  			shutil.copyfile(pdfPath, cleanedPath)\n   27  			#TODO build into one big command\n   ..\n   34  		printv(\"Cleaning Pdf2Txt Output: \" + str(pdfPath))\n   35  		cleanedPath = config.Grammar.CLEANED_PROGRAM_DIR + os.path.basename(pdfPath)\n   36: 		if not os.path.isfile(cleanedPath) or config.Env.FORCE_ALL:\n   37  			shutil.copyfile(pdfPath, cleanedPath)\n   38  			#TODO build into one big command\n\n14 matches across 8 files\n\n\nSearching 146 files for \"FORCE_ALL\"\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\config.py:\n    6  \n    7  class Env(object):\n    8:     FORCE_ALL = False;\n    9      OFFLINE = False;\n   10      DEBUG = True\n   ..\n   38  class Grammar(object):\n   39      def FORCE():\n   40:         return False or Env.FORCE_ALL;\n   41      GRAMMAR_JAR = os.getcwd() + \"/bin/grammar.jar\"\n   42      CLEANED_PROGRAM_DIR = os.getcwd() + \"/cleaned/\"\n   ..\n   46      JSON_OUTPUT_DIR = os.getcwd() + \"/show_details/\"\n   47      def FORCE():\n   48:         return False or Env.FORCE_ALL;\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\driver.py:\n   99          printv('offline: ' + str(config.Env.OFFLINE))\n  100        if opt =='--forceall':\n  101:         config.Env.FORCE_ALL = arg=='true';\n  102          printv(\"forcing\")\n  103        if opt =='--output':\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\ringcleaner.py:\n   23  	def cleanPdfBox(self, pdfPath):\n   24  		cleanedPath = config.Grammar.CLEANED_PROGRAM_DIR + os.path.basename(pdfPath)\n   25: 		if not os.path.isfile(cleanedPath) or config.Env.FORCE_ALL:\n   26  			shutil.copyfile(pdfPath, cleanedPath)\n   27  			#TODO build into one big command\n   ..\n   34  		printv(\"Cleaning Pdf2Txt Output: \" + str(pdfPath))\n   35  		cleanedPath = config.Grammar.CLEANED_PROGRAM_DIR + os.path.basename(pdfPath)\n   36: 		if not os.path.isfile(cleanedPath) or config.Env.FORCE_ALL:\n   37  			shutil.copyfile(pdfPath, cleanedPath)\n   38  			#TODO build into one big command\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\config.py:\n    6  \n    7  class Env(object):\n    8:     FORCE_ALL = False;\n    9      OFFLINE = False;\n   10      DEBUG = True\n   ..\n   38  class Grammar(object):\n   39      def FORCE():\n   40:         return False or Env.FORCE_ALL;\n   41      GRAMMAR_JAR = os.getcwd() + \"/bin/grammar.jar\"\n   42      CLEANED_PROGRAM_DIR = os.getcwd() + \"/cleaned/\"\n   ..\n   46      JSON_OUTPUT_DIR = os.getcwd() + \"/show_details/\"\n   47      def FORCE():\n   48:         return False or Env.FORCE_ALL;\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\driver.py:\n   99          printv('offline: ' + str(config.Env.OFFLINE))\n  100        if opt =='--forceall':\n  101:         config.Env.FORCE_ALL = arg=='true';\n  102          printv(\"forcing\")\n  103        if opt =='--output':\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\ringcleaner.py:\n   23  	def cleanPdfBox(self, pdfPath):\n   24  		cleanedPath = config.Grammar.CLEANED_PROGRAM_DIR + os.path.basename(pdfPath)\n   25: 		if not os.path.isfile(cleanedPath) or config.Env.FORCE_ALL:\n   26  			shutil.copyfile(pdfPath, cleanedPath)\n   27  			#TODO build into one big command\n   ..\n   34  		printv(\"Cleaning Pdf2Txt Output: \" + str(pdfPath))\n   35  		cleanedPath = config.Grammar.CLEANED_PROGRAM_DIR + os.path.basename(pdfPath)\n   36: 		if not os.path.isfile(cleanedPath) or config.Env.FORCE_ALL:\n   37  			shutil.copyfile(pdfPath, cleanedPath)\n   38  			#TODO build into one big command\n\n12 matches across 6 files\n\n\nSearching 146 files for \"FORCE_ALL\"\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\config.py:\n    6  \n    7  class Env(object):\n    8:     FORCE_ALL = False;\n    9      OFFLINE = False;\n   10      DEBUG = True\n   ..\n   38  class Grammar(object):\n   39      def FORCE():\n   40:         return False or Env.FORCE_ALL;\n   41      GRAMMAR_JAR = os.getcwd() + \"/bin/grammar.jar\"\n   42      CLEANED_PROGRAM_DIR = os.getcwd() + \"/cleaned/\"\n   ..\n   46      JSON_OUTPUT_DIR = os.getcwd() + \"/show_details/\"\n   47      def FORCE():\n   48:         return False or Env.FORCE_ALL;\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\driver.py:\n   99          printv('offline: ' + str(config.Env.OFFLINE))\n  100        if opt =='--forceall':\n  101:         config.Env.FORCE_ALL = arg=='true';\n  102          printv(\"forcing\")\n  103        if opt =='--output':\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\config.py:\n    6  \n    7  class Env(object):\n    8:     FORCE_ALL = False;\n    9      OFFLINE = False;\n   10      DEBUG = True\n   ..\n   38  class Grammar(object):\n   39      def FORCE():\n   40:         return False or Env.FORCE_ALL;\n   41      GRAMMAR_JAR = os.getcwd() + \"/bin/grammar.jar\"\n   42      CLEANED_PROGRAM_DIR = os.getcwd() + \"/cleaned/\"\n   ..\n   46      JSON_OUTPUT_DIR = os.getcwd() + \"/show_details/\"\n   47      def FORCE():\n   48:         return False or Env.FORCE_ALL;\n\nC:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\driver.py:\n   99          printv('offline: ' + str(config.Env.OFFLINE))\n  100        if opt =='--forceall':\n  101:         config.Env.FORCE_ALL = arg=='true';\n  102          printv(\"forcing\")\n  103        if opt =='--output':\n\n8 matches across 4 files\n",
+			"settings":
+			{
+				"buffer_size": 8450,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "ringcleaner.py",
+			"settings":
+			{
+				"buffer_size": 4807,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "parserunner.py",
+			"settings":
+			{
+				"buffer_size": 2591,
 				"line_ending": "Windows"
 			}
 		},
@@ -492,16 +568,8 @@
 			"file": "cleaned/MNJS1JP.pdfbox.txt",
 			"settings":
 			{
-				"buffer_size": 45028,
+				"buffer_size": 47408,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "ringcleaner.py",
-			"settings":
-			{
-				"buffer_size": 4763,
-				"line_ending": "Windows"
 			}
 		}
 	],
@@ -529,6 +597,13 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/JavaTest/testcase/tests/program-json-expected/MNJS1JP.pdf.json",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/out.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/model/show.py",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parsed/MINN1JP.pdfbox.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/test.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/ringcleaner.py",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/MNJS1JP.pdfbox.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/ANOK1JP.pdfbox.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/MINN1JP.pdfbox.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/final/ANOK1JP.pdf",
@@ -538,7 +613,6 @@
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/final/MINN1JP.pdf",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parsed/BRAZ1.pdfbox.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parsed/COUN1.pdfbox.txt",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/ringcleaner.py",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/programs/ANOK1JP.pdf",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/COUN1.pdfbox.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/driver.py",
@@ -548,7 +622,6 @@
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/dogshowprogramworker.py",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/util.py",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parsed/COUL1.pdf2txt.txt",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/model/show.py",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/showscraper.py",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/show.py",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/COUL1.pdf2txt.txt",
@@ -622,7 +695,6 @@
 		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/ANTLR/test.g",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parsed/MINN1JP.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/programs/ANOK1JP.txt",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/out.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/README.md",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/grammar/testParser.java",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/DogshowServer/src/dev/tclark/dogshow/persistence/datastore/ShowRing.java",
@@ -652,11 +724,7 @@
 		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/JavaTest/.gitignore",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/JavaTest/.classpath",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/JavaTest/testcase/examples/LEAV1JP.txt",
-		"/C/Users/Taylor/workspace/Python/scrapping/New Text Document.txt",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/PDF-Parsing/README.md",
-		"/C/Users/Taylor/workspace/Python/scrapping/retry_decorator.py",
-		"/C/Users/Taylor/workspace/Python/scrapping/local/showpage.htm",
-		"/C/Users/Taylor/workspace/Python/scrapping/Show.py"
+		"/C/Users/Taylor/workspace/Python/scrapping/New Text Document.txt"
 	],
 	"find":
 	{
@@ -667,6 +735,10 @@
 		"height": 0.0,
 		"where_history":
 		[
+			"<open folders>,C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper,*.py",
+			"<open folders>,C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper",
+			"<open folders>",
+			"./*.py",
 			"*.pdf,<open folders>,<open files>,C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\programs",
 			"*.pdf,<open folders>",
 			"*.pdf",
@@ -679,6 +751,39 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"walk",
+			"walkth",
+			"FORCE_ALL",
+			"walkthr",
+			"count\": 0",
+			"parsing",
+			"Env.FORCE",
+			"walkth",
+			"walkthg",
+			"walkthgo",
+			"pdf2txt",
+			"pullshow",
+			"dumpJson",
+			"dumpjson",
+			"dumps",
+			"getshowjson",
+			"download",
+			"downloadpro",
+			"from show",
+			"import show",
+			"postshow",
+			"initializing",
+			"initial",
+			"int",
+			"print(",
+			"print",
+			"locationDatePairs",
+			"la",
+			"requestedPage",
+			"remaining",
+			"config.Env.FORCE_ALL",
+			"FORCE_ALL",
+			"dickens",
 			"ALLEYNE DICKENS",
 			"1-800",
 			"9-13-2-2",
@@ -773,40 +878,7 @@
 			"brood bitch",
 			"border terri",
 			"omaha",
-			"veteran",
-			"pairs novice",
-			"inch:",
-			"PAIRS",
-			"pairs",
-			"to follow",
-			"walkthrough",
-			"follow",
-			"to follow",
-			"follow",
-			"to f",
-			"to follow",
-			"goes to ",
-			"moves to",
-			"is also\ngoes to",
-			"is also\nmoves",
-			"1 versatility",
-			"Graduate Open",
-			"graduate open",
-			"error",
-			"JAMES A MOS",
-			"James a mos",
-			"Poodles \\(standard",
-			"Poodle",
-			"poodle",
-			"\\dring",
-			".run",
-			"print(",
-			"_pullshow",
-			"adding da",
-			"datepairs",
-			"searching",
-			"showlimit",
-			"getshowdetails"
+			"veteran"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -848,49 +920,51 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "dogshowprogramworker.py",
 					"settings":
 					{
-						"buffer_size": 36711,
+						"buffer_size": 11812,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								36565,
-								36567
+								8194,
+								8194
 							]
 						],
 						"settings":
 						{
-							"auto_name": "{\"BreedName\": \"Miniature American Shepherds (Misc.",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4133.0,
+						"translation.y": 2091.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "cleaned/test.txt",
+					"file": "/C/Users/Taylor/Documents/GitHub/dogshow/android/UI-Design/images/sources.txt",
 					"settings":
 					{
-						"buffer_size": 324,
+						"buffer_size": 75,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								222,
-								222
+								35,
+								35
 							]
 						],
 						"settings":
@@ -905,18 +979,18 @@
 				},
 				{
 					"buffer": 2,
-					"file": "dogshowprogramworker.py",
+					"file": "driver.py",
 					"settings":
 					{
-						"buffer_size": 11602,
+						"buffer_size": 6197,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6481,
-								6481
+								4965,
+								4965
 							]
 						],
 						"settings":
@@ -926,51 +1000,137 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2146.0,
+						"translation.y": 1853.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "cleaned/MNJS1JP.pdfbox.txt",
+					"file": "showscraper.py",
 					"settings":
 					{
-						"buffer_size": 45028,
+						"buffer_size": 8928,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								25141,
-								25141
+								1366,
+								1366
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 13347.0,
+						"translation.y": 223.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "ringcleaner.py",
+					"file": "show.py",
 					"settings":
 					{
-						"buffer_size": 4763,
+						"buffer_size": 3227,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								476,
-								476
+								1345,
+								1345
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 110.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "config.py",
+					"settings":
+					{
+						"buffer_size": 1515,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								579,
+								579
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 78.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "grammar.py",
+					"settings":
+					{
+						"buffer_size": 752,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								571,
+								571
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "util.py",
+					"settings":
+					{
+						"buffer_size": 2797,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								468,
+								468
 							]
 						],
 						"settings":
@@ -980,6 +1140,266 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"settings":
+					{
+						"buffer_size": 8450,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										144,
+										153
+									],
+									[
+										310,
+										319
+									],
+									[
+										563,
+										572
+									],
+									[
+										758,
+										767
+									],
+									[
+										1111,
+										1120
+									],
+									[
+										1464,
+										1473
+									],
+									[
+										1776,
+										1785
+									],
+									[
+										1984,
+										1993
+									],
+									[
+										2150,
+										2159
+									],
+									[
+										2403,
+										2412
+									],
+									[
+										2598,
+										2607
+									],
+									[
+										2951,
+										2960
+									],
+									[
+										3304,
+										3313
+									],
+									[
+										3616,
+										3625
+									],
+									[
+										3889,
+										3898
+									],
+									[
+										4055,
+										4064
+									],
+									[
+										4308,
+										4317
+									],
+									[
+										4503,
+										4512
+									],
+									[
+										4845,
+										4854
+									],
+									[
+										5157,
+										5166
+									],
+									[
+										5365,
+										5374
+									],
+									[
+										5531,
+										5540
+									],
+									[
+										5784,
+										5793
+									],
+									[
+										5979,
+										5988
+									],
+									[
+										6321,
+										6330
+									],
+									[
+										6633,
+										6642
+									],
+									[
+										6906,
+										6915
+									],
+									[
+										7072,
+										7081
+									],
+									[
+										7325,
+										7334
+									],
+									[
+										7520,
+										7529
+									],
+									[
+										7718,
+										7727
+									],
+									[
+										7884,
+										7893
+									],
+									[
+										8137,
+										8146
+									],
+									[
+										8332,
+										8341
+									],
+									[
+										8450,
+										8450
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								7329,
+								7329
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 9,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2550.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "ringcleaner.py",
+					"settings":
+					{
+						"buffer_size": 4807,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4749,
+								4749
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 28.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "parserunner.py",
+					"settings":
+					{
+						"buffer_size": 2591,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1080,
+								1080
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 301.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "cleaned/MNJS1JP.pdfbox.txt",
+					"settings":
+					{
+						"buffer_size": 47408,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								25294,
+								25294
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 11795.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

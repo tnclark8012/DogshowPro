@@ -28,7 +28,7 @@ import dev.tnclark8012.dogshow.util.Utils;
 public class ShowServlet {
 	private static final long serialVersionUID = -9014811090548638110L;
 	private static final Logger log = Logger.getLogger(ShowServlet.class.getName());
-
+	
 	@POST
 	@Path("jsontest")
 	public String testJson(@FormParam("json") JSONObject json) {
@@ -55,15 +55,24 @@ public class ShowServlet {
 		Calendar date = Utils.getCalendar();
 		date.set(2013, 5, 20);
 		response += ". Setting date to " + date + ". In millis is: " + date.getTimeInMillis();
-		ShowManager.createShow(new Show("Cambridge, Minnesota Kennel Club", date.getTimeInMillis(), "Cambridge", "MN", showId));
+		try {
+			ShowManager.createShow(new Show(showId,"Cambridge, Minnesota Kennel Club", date.getTimeInMillis(), "Cambridge", "MN"));
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return Response.serverError().build();
+		}
 		return Response.ok(response).build();
 	}
 
 	@GET
 	@Produces("application/json")
 	public List<Show> getAllShows() {
-		return ShowManager.getAllShows();
+		List<Show> shows = ShowManager.getAllShows();
+		return shows;
 	}
+	
+	
 
 	@POST
 	@Path("/create")

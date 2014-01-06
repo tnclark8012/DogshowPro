@@ -21,7 +21,6 @@ import com.google.gson.Gson;
 
 import dev.tnclark8012.dogshow.apps.android.Config;
 import dev.tnclark8012.dogshow.apps.android.model.Show;
-import dev.tnclark8012.dogshow.apps.android.model.ShowsResponse;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Handlers;
 import dev.tnclark8012.dogshow.apps.android.util.AccountUtils;
@@ -75,14 +74,15 @@ public class SyncHelper {
 			Log.w(TAG, "Response: " + responseStr);
 			if (responseStr == null) {
                 throw new RuntimeException("Couldn't load shows! Null response!");
+                //TODO show real error messages
 //				return null;
 			}
-			ShowsResponse response = new Gson().fromJson(responseStr, ShowsResponse.class);
-            if(response.shows == null)
+			Show[] response = new Gson().fromJson(responseStr, Show[].class);
+            if(response == null)
             {
                 throw new RuntimeException("Couldn't parse shows! Response: " + responseStr );
             }
-			return response.shows;
+			return response;
 	}
 
 	//TODO move this to a service

@@ -13,11 +13,11 @@ public class Location {
 	@XmlElement
 	public String state;
 	@XmlElement
-	public long lattitude;
+	public double lattitude;
 	@XmlElement
-	public long longitude;
+	public double longitude;
 
-	public Location(String city, String state, long lattitude, long longitude) {
+	public Location(String city, String state, double lattitude, double longitude) {
 		this.city = city;
 		this.state = state;
 		this.lattitude = lattitude;
@@ -81,11 +81,11 @@ public class Location {
 			l.state = json.getString("state");
 			if(json.has("lattitude"))
 			{
-				l.lattitude = json.getLong("lattitude");
+				l.lattitude = json.getDouble("lattitude");
 			}
 			if(json.has("longitude"))
 			{
-				l.longitude = json.getLong("longitude");
+				l.longitude = json.getDouble("longitude");
 			}
 			return l;
 		}catch(JSONException e)

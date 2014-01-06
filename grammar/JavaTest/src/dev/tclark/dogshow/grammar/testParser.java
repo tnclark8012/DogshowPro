@@ -1,4 +1,4 @@
-// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2014-01-05 15:59:26
+// $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2014-01-05 16:36:17
 
 //TODO Puppy groups
 package dev.tclark.dogshow.grammar;
@@ -3444,6 +3444,30 @@ public class testParser extends Parser {
 	}
 	// $ANTLR end "junior_ring"
 
+
+
+	// $ANTLR start "test"
+	// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:666:1: test : BREED_NAME ;
+	public final void test() throws RecognitionException {
+		try {
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:666:6: ( BREED_NAME )
+			// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:666:8: BREED_NAME
+			{
+			match(input,BREED_NAME,FOLLOW_BREED_NAME_in_test2844); if (state.failed) return ;
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+		}
+		return ;
+	}
+	// $ANTLR end "test"
+
 	// $ANTLR start synpred2_test
 	public final void synpred2_test_fragment() throws RecognitionException {
 		// C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g:178:95: ( ring )
@@ -4173,6 +4197,7 @@ public class testParser extends Parser {
 	public static final BitSet FOLLOW_RALLY_ENTRY_in_rally_entry_line1290 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_NON_CONF_SECOND_LINE_COMMENT_in_rally_comment1311 = new BitSet(new long[]{0x0008000000000002L});
 	public static final BitSet FOLLOW_JUNIOR_CLASS_in_junior_ring1336 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BREED_NAME_in_test2844 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_ring_in_synpred2_test71 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_comment_in_synpred13_test264 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_TIME_in_synpred14_test267 = new BitSet(new long[]{0x0000000000000002L});
