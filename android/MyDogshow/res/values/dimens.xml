@@ -16,6 +16,7 @@
 	<dimen name="element_section_height_normal">48dp</dimen>
 	<dimen name="header_height">72dp</dimen>
 	<dimen name="header_icon_height">72dp</dimen>
+	<dimen name="big_header_height">144dp</dimen>
 	<dimen name="header_icon_width">124dp</dimen>
 	<dimen name="text_small">14sp</dimen>
 	<dimen name="text_medium">18sp</dimen>
