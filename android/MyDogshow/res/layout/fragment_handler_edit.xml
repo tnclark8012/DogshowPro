@@ -8,13 +8,13 @@
     <RelativeLayout
         android:id="@+id/handler_edit_header"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/header_height"
+        android:layout_height="@dimen/big_header_height"
         android:background="@color/header_color" >
 
         <FrameLayout
             android:id="@+id/handler_edit_image_container"
-            android:layout_width="@dimen/header_icon_width"
-            android:layout_height="@dimen/header_icon_height"
+            android:layout_width="@dimen/big_header_height"
+            android:layout_height="@dimen/big_header_height"
             
              >
 

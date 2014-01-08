@@ -65,6 +65,7 @@ public abstract class BaseEditableEntityActivity extends SimpleSinglePaneActivit
 	@Override
 	public final void onEditClick() {
 		isEditing = true;
+		getActionBar().setTitle("Edit");
 		swapFragments(isEditing);
 	}
 
