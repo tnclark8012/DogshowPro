@@ -1,5 +1,7 @@
 package dev.tnclark8012.dogshow.apps.android.ui;
 
+import java.io.File;
+
 import android.app.Activity;
 import android.content.CursorLoader;
 import android.content.res.Resources;
@@ -11,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
@@ -50,7 +53,7 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 	private int mMajors;
 
 	private ViewGroup mRootView;
-	private View mViewImage;
+	private ImageView mViewImage;
 	private TextView mViewName;
 	private TextView mViewBreed;
 	private TextView mViewPoints;
@@ -61,7 +64,7 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		mRootView = (ViewGroup) inflater.inflate(R.layout.fragment_dog_view,
+		mRootView = (ViewGroup) inflater.inflate(R.layout.fragment_dog_view_next,
 				null);
 		mViewName = (TextView) mRootView.findViewById(R.id.dog_view_name);
 		mViewBreed = (TextView) mRootView
@@ -72,7 +75,7 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 				.findViewById(R.id.dog_view_section_points_text);
 //		mViewOwner = (TextView) mRootView
 //				.findViewById(R.id.dog_view_section_owner_text);
-		mViewImage = mRootView
+		mViewImage = (ImageView)mRootView
 				.findViewById(R.id.dog_view_image);
 		mViewSex = (TextView) mRootView.findViewById(R.id.dog_view_section_sex_text);
 		return mRootView;
@@ -82,24 +85,18 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 		cursor.moveToFirst();
 		mBreedName = cursor.getString(DogQuery.DOG_BREED);
 		mCallName = cursor.getString(DogQuery.DOG_CALL_NAME);
+		getActivity().setTitle(mCallName);
+		getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
 		mImagePath = cursor.getString(DogQuery.DOG_IMAGE_PATH);
 		mMajors = cursor.getInt(DogQuery.DOG_MAJORS);
 		mPoints = cursor.getInt(DogQuery.DOG_POINTS);
 		mSex = (cursor.getInt(DogQuery.DOG_SEX)==Dogs.MALE)? "Male" : "Female";//TODO string resource
 		mViewBreed.setText(Breeds.parse(mBreedName).getPrimaryName());
 		mViewSex.setText(mSex);
-		mViewName.setText(mCallName);
+		if(mViewName != null)	mViewName.setText(mCallName);
 		Log.v(TAG, "DOG_IS_SHOWING: " + cursor.getInt(DogQuery.DOG_IS_SHOWING));
 		if (mImagePath != null) {
-			Resources res = getResources();
-			int height = res.getDimensionPixelSize(R.dimen.header_icon_height);
-			int width = res.getDimensionPixelSize(R.dimen.header_icon_width);
-
-			BitmapDrawable image = new BitmapDrawable(res, UIUtils.loadBitmap(
-					mImagePath, width, height));
-			mViewImage.setBackgroundDrawable(image);// setBackgroundDrawable(Drawable.createFromPath(imagePath));
-
-			// mViewImage.setBackgroundDrawable(Drawable.createFromPath(mImagePath));
+			mViewImage.setImageURI(Uri.fromFile(new File(mImagePath)));// setBackgroundDrawable(Drawable.createFromPath(imagePath));
 		} else {
 			Log.w(TAG, "Image path was null");
 			mViewImage.setBackgroundResource(R.drawable.dog);

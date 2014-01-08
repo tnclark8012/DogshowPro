@@ -1,7 +1,9 @@
 package dev.tnclark8012.dogshow.apps.android.ui.base;
 
+import android.app.ActionBar;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.view.MenuItem;
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.ui.SimpleSinglePaneActivity;
 
@@ -13,11 +15,12 @@ public abstract class BaseEditableEntityActivity extends SimpleSinglePaneActivit
 	private BaseEditableEntityEditFragment mEditFragment;
 
 	protected abstract BaseEditableEntityViewFragment getViewFragment();
+
 	protected abstract BaseEditableEntityEditFragment getEditFragment();
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		
+
 		super.onCreate(savedInstanceState);
 		mIntentBundle = intentToFragmentArguments(getIntent());
 		if (mViewFragment == null)
@@ -26,7 +29,10 @@ public abstract class BaseEditableEntityActivity extends SimpleSinglePaneActivit
 			mEditFragment = getEditFragment();
 		mViewFragment.setArguments(mIntentBundle);
 		mEditFragment.setArguments(mIntentBundle);
-
+		ActionBar actionBar = getActionBar();
+		actionBar.setDisplayShowHomeEnabled(false);
+		actionBar.setDisplayHomeAsUpEnabled(true);
+		actionBar.setHomeButtonEnabled(true);
 	}
 
 	@Override
@@ -37,8 +43,6 @@ public abstract class BaseEditableEntityActivity extends SimpleSinglePaneActivit
 
 		return mViewFragment;
 	}
-	
-	
 
 	private void swapFragments(boolean toEdit) {
 		Fragment swapIn = (toEdit) ? mEditFragment : mViewFragment;
@@ -62,5 +66,19 @@ public abstract class BaseEditableEntityActivity extends SimpleSinglePaneActivit
 	public final void onEditClick() {
 		isEditing = true;
 		swapFragments(isEditing);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			if (isEditing) {
+				onCancel();
+			} else {
+				finish();
+			}
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 }

@@ -23,7 +23,7 @@ public class DashboardFragment extends Fragment {
 		// Inflate the root view for the
 		// dashboard
 		// *****************************
-		View root = inflater.inflate(R.layout.dashboard, container);
+		View root = inflater.inflate(R.layout.home_next, container);
 
 		// **********************************
 		// Attach the button event handlers
@@ -52,14 +52,14 @@ public class DashboardFragment extends Fragment {
 			});
 			view.setVisibility(View.VISIBLE);
 		}
-		root.findViewById(R.id.dashboard_find_show).setOnClickListener(new View.OnClickListener() {
-			public void onClick(View view) {
-				Intent intent = new Intent(getActivity(), ShowSetupActivity.class);
-				intent.setData(DogshowContract.Dogs.CONTENT_URI);
-				startActivity(intent);
-			}
-
-		});
+//		root.findViewById(R.id.dashboard_find_show).setOnClickListener(new View.OnClickListener() {
+//			public void onClick(View view) {
+//				Intent intent = new Intent(getActivity(), ShowSetupActivity.class);
+//				intent.setData(DogshowContract.Dogs.CONTENT_URI);
+//				startActivity(intent);
+//			}
+//
+//		});
 		return root;
 	}
 

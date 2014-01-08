@@ -1,5 +1,6 @@
 package dev.tnclark8012.dogshow.apps.android.ui;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,6 +20,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Handlers;
@@ -31,7 +33,7 @@ import dev.tnclark8012.dogshow.shared.DogshowEnums.JuniorClass;
 public class HandlerEditFragment extends BaseEditableEntityEditFragment implements OnClickListener {
 	private static final String TAG = HandlerEditFragment.class.getSimpleName();
 	private ViewGroup mRootView;
-	private View mViewImage;
+	private ImageView mViewImage;
 	private EditText mViewName;
 	private TextView mViewClassName;
 
@@ -55,7 +57,7 @@ public class HandlerEditFragment extends BaseEditableEntityEditFragment implemen
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		mRootView = (ViewGroup) inflater.inflate(R.layout.fragment_handler_edit, null);
-		mViewImage = mRootView.findViewById(R.id.handler_edit_image);
+		mViewImage = (ImageView) mRootView.findViewById(R.id.handler_edit_image);
 		mViewName = (EditText) mRootView.findViewById(R.id.handler_edit_name);
 		mViewClassName = (TextView) mRootView.findViewById(R.id.handler_edit_section_juniors_text);
 		mViewClassName.setTag(TAG_CLASS);
@@ -95,16 +97,7 @@ public class HandlerEditFragment extends BaseEditableEntityEditFragment implemen
 		String imagePath = cursor.getString(HandlerQuery.HANDLER_IMAGE_PATH);
 		if (imagePath != null) {
 			mImagePath = imagePath;
-			Resources res = getResources();
-			int height = res.getDimensionPixelSize(R.dimen.header_icon_height);
-			int width = res.getDimensionPixelSize(R.dimen.header_icon_width);
-			// TODO move to AsyncTask
-			BitmapDrawable image = new BitmapDrawable(res, UIUtils.loadBitmap(imagePath, width, height));
-			if (Utils.isJellybean()) {
-				mViewImage.setBackground(image);
-			} else {
-				mViewImage.setBackgroundDrawable(image);
-			}
+			mViewImage.setImageURI(Uri.fromFile(new File(mImagePath)));
 		} else {
 			mViewImage.setBackgroundResource(R.drawable.ic_default_handler);
 		}

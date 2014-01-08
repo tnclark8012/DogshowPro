@@ -1,5 +1,7 @@
 package dev.tnclark8012.dogshow.apps.android.ui;
 
+import java.io.File;
+
 import android.app.Activity;
 import android.content.CursorLoader;
 import android.content.res.Resources;
@@ -41,7 +43,6 @@ public class HandlerViewFragment extends BaseEditableEntityViewFragment {
 
 	private ViewGroup mRootView;
 	private ImageView mViewImage;
-	private TextView mViewName;
 	private TextView mViewClass;
 
 	@Override
@@ -49,7 +50,6 @@ public class HandlerViewFragment extends BaseEditableEntityViewFragment {
 			Bundle savedInstanceState) {
 		mRootView = (ViewGroup) inflater.inflate(R.layout.fragment_handler_view,
 				null);
-		mViewName = (TextView) mRootView.findViewById(R.id.handler_view_name);
 		mViewClass = (TextView) mRootView
 				.findViewById(R.id.handler_view_section_juniors_text);
 		mViewImage = (ImageView) mRootView
@@ -64,15 +64,9 @@ public class HandlerViewFragment extends BaseEditableEntityViewFragment {
 		mName = cursor.getString(HandlerQuery.HANDLER_NAME);
 		mImagePath = cursor.getString(HandlerQuery.HANDLER_IMAGE_PATH);
 		mViewClass.setText(mClassName);
-		mViewName.setText(mName);
+		getActivity().getActionBar().setTitle(mName);
 		if (mImagePath != null) {
-			Resources res = getResources();
-			int height = res.getDimensionPixelSize(R.dimen.header_icon_height);
-			int width = res.getDimensionPixelSize(R.dimen.header_icon_width);
-
-			BitmapDrawable image = new BitmapDrawable(res, UIUtils.loadBitmap(
-					mImagePath, width, height));
-			mViewImage.setImageDrawable(image);
+			mViewImage.setImageURI(Uri.fromFile(new File(mImagePath)));
 		} else {
 			Log.w(TAG, "Image path was null");
 			mViewImage.setBackgroundResource(R.drawable.ic_default_handler);

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="dog_view_image" />
+    <item type="id" name="dog_view_name" />
+    <item type="id" name="dog_view_section_sex_text" />
+    <item type="id" name="dog_view_section_breed_text" />
+    <item type="id" name="dog_view_section_points_text"/>
+    <item type="id" name="dashboard_schedule"/>
+    <item type="id" name="dashboard_find_show"/>
+    <item type="id" name="dashboard_handlers"/>
+    <item type="id" name="dashboard_doghouse"/>
+</resources>
