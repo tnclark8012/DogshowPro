@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@drawable/ic_home_next_handlers" >
+        android:background="@drawable/german_shepherds_wkc_dogshow" >
 
         <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
             xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
@@ -49,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@drawable/ic_home_next_doghouse" >
+        android:background="@drawable/boxer_small" >
 
         <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
             xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"

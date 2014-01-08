@@ -483,7 +483,7 @@
 			"file": "/C/Users/Taylor/Documents/GitHub/dogshow/android/UI-Design/images/sources.txt",
 			"settings":
 			{
-				"buffer_size": 75,
+				"buffer_size": 148,
 				"line_ending": "Windows"
 			}
 		},
@@ -597,6 +597,7 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Taylor/Documents/GitHub/dogshow/android/UI-Design/images/sources.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/JavaTest/testcase/tests/program-json-expected/MNJS1JP.pdf.json",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/out.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/model/show.py",
@@ -723,8 +724,7 @@
 		"/C/Users/Taylor/workspace/Python/scrapping/showutils.py",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/JavaTest/.gitignore",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/JavaTest/.classpath",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/JavaTest/testcase/examples/LEAV1JP.txt",
-		"/C/Users/Taylor/workspace/Python/scrapping/New Text Document.txt"
+		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/JavaTest/testcase/examples/LEAV1JP.txt"
 	],
 	"find":
 	{
@@ -956,15 +956,15 @@
 					"file": "/C/Users/Taylor/Documents/GitHub/dogshow/android/UI-Design/images/sources.txt",
 					"settings":
 					{
-						"buffer_size": 75,
+						"buffer_size": 148,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								35,
-								35
+								148,
+								148
 							]
 						],
 						"settings":
