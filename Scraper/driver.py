@@ -20,8 +20,13 @@ def postShow(show, parsedJson):
     [locationList.append(l.toJson()) for l in show.locations];
     printv(json.loads(json.dumps(locationList)))
     printv(show.getDateList())
+    
+    values = {'ShowId': show.code, 'ShowName' : 'posted', 'RingJson' : str(parsedJson)}
     printv(str(values));
-    values = {'code':show.code, 'locations':json.loads(json.dumps(locationList)), 'clubs':show.getClubList(), 'show':values, 'dates':show.getDateList()}
+    #'locations':json.loads(json.dumps(locationList)), 
+    #'Clubs':show.getClubList(), 
+    #'Json':values, 
+    #'dates':show.getDateList()}}
     #values = {'city': 'Columbiana', 'date': 1365138000.0, 'name': 'Northeast Oklahoma Kennel Club', 'state': 'AL'}
     response = urlopen_with_retry(url, values)
 
