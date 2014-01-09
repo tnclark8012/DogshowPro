@@ -15,8 +15,9 @@ def urlopen_with_retry(url, values):
     else:
         time.sleep(2);
         print("GET REQUEST to " + url)
+    data = urllib.parse.urlencode(values).encode('utf-8')
     req = urllib.request.Request(url, data)
     req.add_header('Content-Type', 'application/json')
     req.add_header('Accept', 'text/plain')
-    #this works: data = urllib.parse.urlencode({"ShowId":"buddy lindsey"}).encode('utf-8')
-    return urllib.request.urlopen(req)
+    
+    return urllib.request.urlopen(url, data)
