@@ -20,6 +20,7 @@ import android.util.Log;
 import com.google.gson.Gson;
 
 import dev.tnclark8012.dogshow.apps.android.Config;
+import dev.tnclark8012.dogshow.apps.android.Config.IApiAccessor;
 import dev.tnclark8012.dogshow.apps.android.model.Show;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Handlers;
@@ -69,8 +70,9 @@ public class SyncHelper {
 	}
 
 	public Show[] getShows() {
-			Log.v(TAG, "getShows using base url, " + Config.GET_SHOW_URL);
-			String responseStr = makeSimpleGetRequest(mContext, Config.GET_SHOW_URL);
+		IApiAccessor accessor = new AppEngineApiAccessor();
+			Log.v(TAG, "getShows using base url, " + accessor.getShowsUrl());
+			String responseStr = makeSimpleGetRequest(mContext, accessor.getShowsUrl());
 			Log.w(TAG, "Response: " + responseStr);
 			if (responseStr == null) {
                 throw new RuntimeException("Couldn't load shows! Null response!");
@@ -96,11 +98,13 @@ public class SyncHelper {
 			String breedName = null;
 			Log.i(TAG, "Syncing breed rings for " + breedsCursor.getCount() + " breeds");
 			int numBreeds = 0;
-			BreedRingsHandler handler = new BreedRingsHandler(mContext, true);
+			IApiAccessor accessor = new AppEngineApiAccessor();
+			
+			AppEngineBreedRingsHandler handler = new AppEngineBreedRingsHandler(mContext, true);
 			while (breedsCursor.moveToNext()) {
 				breedName = breedsCursor.getString(0);
 				Log.v(TAG, "Requesting breed ring: " + breedName);
-				batch.addAll(executeGet(Config.buildGetBreedRingsUrl(showId, DogshowEnums.Breeds.parse(breedName).toString()), handler, auth));
+				batch.addAll(executeGet(accessor.buildGetBreedRingsUrl(showId, DogshowEnums.Breeds.parse(breedName).toString()), handler, auth));
 				numBreeds++;
 			}
 			Log.v(TAG, "Pulled breed rings for " + numBreeds + " breeds");
@@ -139,7 +143,7 @@ public class SyncHelper {
 			response = readInputStream(urlConnection.getInputStream());
 		} else {
 			Log.i(TAG, "Debugging offline, response is set.");
-			if (handler instanceof BreedRingsHandler) {
+			if (handler instanceof AppEngineBreedRingsHandler) {
 				response = "";
 			}
 			throw new UnsupportedOperationException("Debug offline is not yet implemented");
@@ -172,11 +176,12 @@ public class SyncHelper {
 				String className = null;
 				Log.i(TAG, "Syncing junior rings for " + juniorsCursor.getCount() + " classes");
 				int numClasses = 0;
-				JuniorsRingsHandler handler = new JuniorsRingsHandler(mContext, true);
+				AppEngineJuniorsRingsHandler handler = new AppEngineJuniorsRingsHandler(mContext, true);
+				IApiAccessor accessor = new AppEngineApiAccessor();
 				while (juniorsCursor.moveToNext()) {
 					className = juniorsCursor.getString(0);
 					Log.v(TAG, "Requesting juniors ring: " + className);
-					batch.addAll(executeGet(Config.buildGetJuniorRingsUrl(params[0], DogshowEnums.JuniorClass.parse(className).toString()), handler, auth));
+					batch.addAll(executeGet(accessor.buildGetJuniorRingsUrl(params[0], DogshowEnums.JuniorClass.parse(className).toString()), handler, auth));
 					numClasses++;
 				}
 				Log.v(TAG, "Pulled juniors rings for " + numClasses + " classes");
