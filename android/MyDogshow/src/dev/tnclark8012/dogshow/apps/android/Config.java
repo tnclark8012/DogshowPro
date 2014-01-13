@@ -16,7 +16,20 @@
 
 package dev.tnclark8012.dogshow.apps.android;
 
+import dev.tnclark8012.dogshow.apps.android.model.BreedRing;
+import dev.tnclark8012.dogshow.apps.android.model.JuniorsRing;
+
 public class Config {
+	public interface IApiAccessor
+	{
+		String buildGetBreedRingsUrl(String showId);
+		String buildGetBreedRingsUrl(String showId, String breed);
+		String buildGetJuniorRingsUrl(String showId, String juniorClass);
+		String getBaseUrl();
+		String getShowsUrl();
+		BreedRing[] getBreedRings(String showId, String breed);
+		JuniorsRing[] getJuniorsRings(String showId, String className);
+	}
 	// OAuth 2.0 related config
 	public static final String APP_NAME = "Your-App-Name";
 	public static final String API_KEY = "API_KEY"; // from the APIs console
@@ -32,35 +45,7 @@ public class Config {
 	// you should modify these fields to reflect your own backend.
 	private static final String CONFERENCE_API_KEY = "API_KEY";
 	private static final String ROOT_EVENT_ID = "googleio2012";
-	// private static final String BASE_URL =
-	// "https://google-developers.appspot.com/_ah/api/resources/v0.1";
-	//"http://10.0.2.2:8888/rest"
-	private static final String BASE_URL = (DEBUG_LOCAL)?"http://192.168.0.4:8888/rest":"http://dogshow-manager.appspot.com/rest";
-	public static final String GET_ALL_SESSIONS_URL = BASE_URL
-			+ "/sessions?parent_event=" + ROOT_EVENT_ID + "&api_key="
-			+ CONFERENCE_API_KEY;
-	public static final String GET_ALL_SPEAKERS_URL = BASE_URL
-			+ "/speakers?event_id=" + ROOT_EVENT_ID + "&api_key="
-			+ CONFERENCE_API_KEY;
-	public static final String GET_ALL_ANNOUNCEMENTS_URL = BASE_URL
-			+ "/announcements?parent_event=" + ROOT_EVENT_ID + "&api_key="
-			+ CONFERENCE_API_KEY;
-	public static final String EDIT_MY_SCHEDULE_URL = BASE_URL
-			+ "/editmyschedule/o/";
-	public static final String GET_SHOW_URL = BASE_URL + "/shows";
-	public static final String GET_RINGS_URL = BASE_URL + "/rings";
 
-	public static final String buildGetBreedRingsUrl(String showId) {
-		return GET_RINGS_URL + "/show/" + showId;
-	}
-	public static final String buildGetBreedRingsUrl(String showId, String breed) {
-		return GET_RINGS_URL + "/show/" + showId + "/breed/" + breed;
-	}
-	
-	public static final String buildGetJuniorRingsUrl(String showId, String juniorClass) {
-		return GET_RINGS_URL + "/show/" + showId + "/juniors/" + juniorClass;
-	}
-	
 
 	// Static file host for the sandbox data
 	public static final String GET_SANDBOX_URL = "https://developers.google.com/events/io/sandbox-data";
@@ -81,4 +66,5 @@ public class Config {
 	public static final String GCM_SENDER_ID = "0000000000000"; // project ID
 																// from the APIs
 																// console
+	public static final String TAG = Config.class.getName();
 }
