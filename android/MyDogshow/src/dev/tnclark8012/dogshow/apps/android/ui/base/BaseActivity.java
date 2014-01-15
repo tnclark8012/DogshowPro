@@ -50,7 +50,7 @@ public abstract class BaseActivity extends Activity {
 			{
 				Log.i(TAG, "Is authenticated");
 			}
-		getActionBar().setHomeButtonEnabled(true);
+//		getActionBar().setHomeButtonEnabled(true);
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {

@@ -13,7 +13,7 @@ import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.SyncColumns;
 
-public class BreedRingsHandler extends JsonHandler {
+public class BreedRingsHandler extends JsonHandler<BreedRing> {
 	boolean clearExisting = false;
 	boolean hasCleared = false;
 
@@ -26,10 +26,9 @@ public class BreedRingsHandler extends JsonHandler {
 	
 	
 
-	public ArrayList<ContentProviderOperation> parse(String jsonStr) {
+	public ArrayList<ContentProviderOperation> parse(BreedRing[] breedRings) {
 		final ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
 
-		BreedRing[] breedRings = new Gson().fromJson(jsonStr, BreedRing[].class);
 		int numRings = 0;
 		// // Clear out existing rings
 

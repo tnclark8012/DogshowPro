@@ -1,0 +1,8 @@
+Shows:
+http://localhost:49414/api/Show
+"[{\"ShowId\":\"MNJS1\",\"City\":null,\"Clubs\":[],\"ShowName\":\"posted\",\"StartDateMillis\":0,\"State\":null}]"
+
+
+Papillon breeds
+http://localhost:49414/api/BreedRing?showId=MNJS1&breedName=papillon
+"[{\"BitchCount\":7,\"BlockStartMillis\":63524332800000,\"BreedName\":\"Papillon\",\"Count\":16,\"CountAhead\":0,\"DateMillis\":0,\"DateString\":\"Friday, January 3, 2014\",\"DogCount\":3,\"IsSweepstakes\":false,\"IsVeteran\":false,\"Judge\":\"MRS VICKI L ABBOTT\",\"RingNumber\":10,\"ShowId\":\"MNJS1\",\"SpecialBitchCount\":2,\"SpecialDogCount\":4},{\"BitchCount\":9,\"BlockStartMillis\":63524425500000,\"BreedName\":\"Papillon\",\"Count\":21,\"CountAhead\":0,\"DateMillis\":0,\"DateString\":\"Saturday, January 4, 2014\",\"DogCount\":5,\"IsSweepstakes\":false,\"IsVeteran\":false,\"Judge\":\"MR LARRY C ABBOTT\",\"RingNumber\":10,\"ShowId\":\"MNJS1\",\"SpecialBitchCount\":3,\"SpecialDogCount\":4},{\"BitchCount\":9,\"BlockStartMillis\":63524512800000,\"BreedName\":\"Papillon\",\"Count\":21,\"CountAhead\":0,\"DateMillis\":0,\"DateString\":\"Sunday, January 5, 2014\",\"DogCount\":5,\"IsSweepstakes\":false,\"IsVeteran\":false,\"Judge\":\"MRS SARI BREWSTER TIETJEN\",\"RingNumber\":10,\"ShowId\":\"MNJS1\",\"SpecialBitchCount\":3,\"SpecialDogCount\":4}]""

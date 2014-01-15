@@ -36,7 +36,7 @@ public class HomeActivity extends BaseActivity  {
     	Log.d(TAG, "onCreate");
         super.onCreate(savedInstanceState);
 //        getActionBar().setHomeButtonEnabled(false);
-        getActionBar().setDisplayHomeAsUpEnabled(false);
+//        getActionBar().setDisplayHomeAsUpEnabled(false);
         setContentView(R.layout.activity_home);
     }
     

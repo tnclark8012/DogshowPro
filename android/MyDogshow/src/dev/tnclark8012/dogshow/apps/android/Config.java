@@ -16,6 +16,10 @@
 
 package dev.tnclark8012.dogshow.apps.android;
 
+import dev.tnclark8012.dogshow.apps.android.model.BreedRing;
+import dev.tnclark8012.dogshow.apps.android.model.JuniorsRing;
+import dev.tnclark8012.dogshow.apps.android.model.Show;
+
 
 public class Config {
 	public interface IApiAccessor
@@ -25,9 +29,12 @@ public class Config {
 		String buildGetJuniorRingsUrl(String showId, String juniorClass);
 		String getBaseUrl();
 		String getShowsUrl();
-//		BreedRing[] getBreedRings(String showId, String breed);
-//		JuniorsRing[] getJuniorsRings(String showId, String className);
+		BreedRing[] getBreedRings(String showId, String breed);
+		JuniorsRing[] getJuniorsRings(String showId, String className);
+		Show[] getShows();
 	}
+	
+	
 	// OAuth 2.0 related config
 	public static final String APP_NAME = "Your-App-Name";
 	public static final String API_KEY = "API_KEY"; // from the APIs console

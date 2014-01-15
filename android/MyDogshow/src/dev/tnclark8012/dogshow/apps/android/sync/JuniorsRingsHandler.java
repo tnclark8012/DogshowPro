@@ -5,15 +5,12 @@ import java.util.ArrayList;
 import android.content.ContentProviderOperation;
 import android.content.Context;
 import android.util.Log;
-
-import com.google.gson.Gson;
-
 import dev.tnclark8012.dogshow.apps.android.model.JuniorsRing;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.JuniorsRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.SyncColumns;
 
-public class JuniorsRingsHandler extends JsonHandler {
+public class JuniorsRingsHandler extends JsonHandler<JuniorsRing> {
 	boolean clearExisting = false;
 	boolean hasCleared = false;
 
@@ -24,10 +21,9 @@ public class JuniorsRingsHandler extends JsonHandler {
 
 	private static final String TAG = JuniorsRingsHandler.class.getSimpleName();
 
-	public ArrayList<ContentProviderOperation> parse(String jsonStr) {
+	public ArrayList<ContentProviderOperation> parse(JuniorsRing[] juniorsRings) {
 		final ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
 
-		JuniorsRing[] juniorsRings = new Gson().fromJson(jsonStr, JuniorsRing[].class);
 		int numRings = 0;
 		// // Clear out existing rings
 

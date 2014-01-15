@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import android.content.ContentProviderOperation;
 import android.content.Context;
 
-public abstract class JsonHandler {
+public abstract class JsonHandler<ModelObject> {
     protected static Context mContext;
 
     protected JsonHandler(Context context) {
         mContext = context;
     }
 
-    public abstract ArrayList<ContentProviderOperation> parse(String json) throws IOException;
+    public abstract ArrayList<ContentProviderOperation> parse(ModelObject[] objs) throws IOException;
 
 }

@@ -1,8 +1,13 @@
 package dev.tnclark8012.dogshow.apps.android.sync;
+import java.io.IOException;
+
+import com.google.gson.Gson;
+
 import dev.tnclark8012.dogshow.apps.android.Config;
 import dev.tnclark8012.dogshow.apps.android.model.BreedRing;
 import dev.tnclark8012.dogshow.apps.android.model.JuniorsRing;
-public class AppEngineApiAccessor implements Config.IApiAccessor
+import dev.tnclark8012.dogshow.apps.android.model.Show;
+public class AppEngineApiAccessor extends ApiAccessor
 {
 
 	// private static final String BASE_URL =
@@ -31,15 +36,36 @@ public class AppEngineApiAccessor implements Config.IApiAccessor
 	public String getShowsUrl() {
 		return GET_SHOW_URL;
 	}
-//	@Override
-//	public BreedRing[] getBreedRings(String showId, String breed) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//	@Override
-//	public JuniorsRing[] getJuniorsRings(String showId, String className) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
+	@Override
+	public BreedRing[] getBreedRings(String showId, String breed) {
+		try {
+			String jsonStr = executeGet(buildGetBreedRingsUrl(showId, breed));
+			return new Gson().fromJson(jsonStr, BreedRing[].class);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	@Override
+	public JuniorsRing[] getJuniorsRings(String showId, String className) {
+		try {
+			String jsonStr = executeGet(buildGetJuniorRingsUrl(showId, className));
+			return new Gson().fromJson(jsonStr, JuniorsRing[].class);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	@Override
+	public Show[] getShows() {
+		try {
+			String jsonStr = executeGet(getShowsUrl());
+			return new Gson().fromJson(jsonStr, Show[].class);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 }
