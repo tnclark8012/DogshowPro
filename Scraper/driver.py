@@ -21,7 +21,7 @@ def postShow(show, parsedJson):
     printv(json.loads(json.dumps(locationList)))
     printv(show.getDateList())
     
-    values = {'ShowId': show.code, 'ShowName' : 'posted', 'RingJson' : str(parsedJson)}
+    values = {'ShowId': show.code, 'ShowName' : list(show.clubs)[0], 'City':locationList[0]['city'], 'State':locationList[0]['state'], 'RingJson' : str(parsedJson)}
     printv(str(values));
     #'locations':json.loads(json.dumps(locationList)), 
     #'Clubs':show.getClubList(), 
