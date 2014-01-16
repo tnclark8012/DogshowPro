@@ -51,7 +51,7 @@ public class HomeActivity extends BaseActivity  {
     public boolean onOptionsItemSelected(MenuItem item) {
     	if(item.getItemId()==R.id.menu_about)
     	{
-    		startActivity(new Intent(this, FindShowActivity.class));
+    		startActivity(new Intent(this, ShowSetupActivity.class));
     		return true;
     	}
     	return super.onOptionsItemSelected(item);

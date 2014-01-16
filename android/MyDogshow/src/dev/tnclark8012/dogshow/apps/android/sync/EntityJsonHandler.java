@@ -31,26 +31,6 @@ public abstract class EntityJsonHandler extends JsonHandler {
 	
 
 	public ArrayList<ContentProviderOperation> parse(String jsonStr) {
-		final ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
-		Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
-		BreedRing[] breedRings = gson.fromJson(jsonStr, BreedRing[].class);
-		int numRings = 0;
-
-		if (breedRings != null) {
-				numRings = breedRings.length;
-			if (clearExisting && !hasCleared) {
-				batch.add(ContentProviderOperation.newDelete(DogshowContract.addCallerIsSyncAdapterParameter(BreedRings.CONTENT_URI)).build());
-				hasCleared = true;
-			}
-			if (numRings > 0) {
-				Log.i(TAG, "Updating breed rings");
-
-				for (BreedRing ring : breedRings) {
-					// Insert rings info
-					batch.add(ContentProviderOperation.newInsert(DogshowContract.addCallerIsSyncAdapterParameter(BreedRings.CONTENT_URI)).withValue(SyncColumns.UPDATED, System.currentTimeMillis()).withValue(BreedRings.RING_BITCH_COUNT, ring.bitchCount).withValue(BreedRings.RING_BLOCK_START, ring.blockStartMillis).withValue(BreedRings.RING_BREED, ring.breed).withValue(BreedRings.RING_BREED_COUNT, ring.count).withValue(BreedRings.RING_COUNT_AHEAD, ring.countAhead).withValue(BreedRings.RING_DATE, ring.dateMillis).withValue(BreedRings.RING_DOG_COUNT, ring.dogCount).withValue(BreedRings.RING_JUDGE, ring.judge).withValue(BreedRings.RING_NUMBER, ring.ringNumber).withValue(BreedRings.RING_SHOW_ID, ring.showId).withValue(BreedRings.RING_SPECIAL_BITCH_COUNT, ring.specialBitchCount).withValue(BreedRings.RING_SPECIAL_DOG_COUNT, ring.specialDogCount).build());
-				}
-			}
-		}
-		return batch;
+	return null;
 	}
 }
