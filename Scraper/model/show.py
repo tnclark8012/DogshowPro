@@ -20,11 +20,12 @@ class Show(object):
         self.pdfLink = None;
         self._hasProgram = False;
         self.programName = None;
-        self_city = None;
+        self._city = None;
         self._state = None;
         self._parsedPath = None;
         self._pdfPath = None;
         self._cleanedPath = None;
+        self._name = club;
         #self._parseShowPage();
     def toJson(self):
         #json.dumps(self.clubs);
@@ -47,7 +48,7 @@ class Show(object):
         return dateList;
     def getClubList(self):
         clubList = list()
-        [clubList.append(c) for c in self.clubs]
+        [clubList.append({'Name':c, 'Id':0}) for c in self.clubs]
         return clubList;
     
     def addDate(self, date):
@@ -66,6 +67,10 @@ class Show(object):
     @property
     def showCode(self):
         return self._programcode;
+
+    @property
+    def name(self):
+        return self._name;
 
     @parsedFilePath.setter
     def parsedFilePath(self, value):

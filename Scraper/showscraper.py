@@ -35,6 +35,7 @@ class ShowScraper(object):
             printv("****************************")
             printv("*      Running scraper     *")
             printv("****************************")
+            printv("\"" + str(showPageUrl) + "\"")
             show = self.doPullShow(showPageUrl)
             saveObject(show, outputLocation);
             return show;
