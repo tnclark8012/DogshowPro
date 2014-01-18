@@ -160,6 +160,7 @@ Pattern groupPattern = Pattern.compile("((?:(?:TERRIER|HERDING|NON-SPORTING|SPOR
 	*/
 	private boolean isVeteran(String breedName)
 	{
+		if( breedName == null) return false;
 		return breedName.contains("Veteran");
 	}
 	
@@ -168,7 +169,8 @@ Pattern groupPattern = Pattern.compile("((?:(?:TERRIER|HERDING|NON-SPORTING|SPOR
 	*/
 	private boolean isSweepstakes(String breedName)
 	{
-		return breedName.contains("Sweepstakes");
+		if( breedName == null) return false;
+		return breedName.contains("Sweepstakes") || breedName.contains("Special");
 	}
   
   
@@ -317,13 +319,31 @@ breed_name returns [JsonObject json]
 	@init{json = new JsonObject(); String breedName ="";}:
 		(BREED_NAME{
     		breedName+=$BREED_NAME.text;
+			if(isSweepstakes($BREED_NAME.text)){
+				breedName=mLastBreedName;
+				json.addProperty("IsSweepstakes",true);
+			}
+			else
+			{
+				mLastBreedName=breedName;
+			}
+			
     		if(isVeteran(breedName)){
     			breedName=mLastBreedName;
     			json.addProperty("IsVeteran",true);
     		}
     		else{
     			mLastBreedName=breedName;
-    		}}|BREED_CLASSIFIER{breedName=mLastBreedName;json.addProperty("BreedAttribute",$BREED_CLASSIFIER.text.trim());}) (BREED_NAME_SUFFIX{json.addProperty("BreedSuffix", $BREED_NAME_SUFFIX.text);})? {json.addProperty("BreedName", breedName);};
+    		}}|BREED_CLASSIFIER{breedName=mLastBreedName;json.addProperty("BreedAttribute",$BREED_CLASSIFIER.text.trim());
+    		if(isVeteran($BREED_CLASSIFIER.text)){
+    			breedName=mLastBreedName;
+    			json.addProperty("IsVeteran",true);
+    		}
+    		if(isSweepstakes($BREED_CLASSIFIER.text)){
+				breedName=mLastBreedName;
+				json.addProperty("IsSweepstakes",true);
+			}
+    		}) (BREED_NAME_SUFFIX{json.addProperty("BreedSuffix", $BREED_NAME_SUFFIX.text);})? {json.addProperty("BreedName", breedName);};
 
 
 ring_without_breed returns [JsonObject json]
