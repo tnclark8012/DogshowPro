@@ -16,6 +16,8 @@
 
 package dev.tnclark8012.dogshow.apps.android;
 
+import java.net.URL;
+
 import dev.tnclark8012.dogshow.apps.android.model.BreedRing;
 import dev.tnclark8012.dogshow.apps.android.model.JuniorsRing;
 import dev.tnclark8012.dogshow.apps.android.model.Show;
@@ -24,11 +26,11 @@ import dev.tnclark8012.dogshow.apps.android.model.Show;
 public class Config {
 	public interface IApiAccessor
 	{
-		String buildGetBreedRingsUrl(String showId);
-		String buildGetBreedRingsUrl(String showId, String breed);
-		String buildGetJuniorRingsUrl(String showId, String juniorClass);
-		String getBaseUrl();
-		String getShowsUrl();
+		URL buildGetBreedRingsUrl(String showId);
+		URL buildGetBreedRingsUrl(String showId, String breed);
+		URL buildGetJuniorRingsUrl(String showId, String juniorClass);
+		URL getBaseUrl();
+		URL getShowsUrl();
 		BreedRing[] getBreedRings(String showId, String breed);
 		JuniorsRing[] getJuniorsRings(String showId, String className);
 		Show[] getShows();

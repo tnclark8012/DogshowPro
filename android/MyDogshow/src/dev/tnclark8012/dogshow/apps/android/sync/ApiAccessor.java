@@ -38,11 +38,14 @@ public abstract class ApiAccessor implements Config.IApiAccessor{
 	}
 	
 	protected String executeGet(String urlString) throws IOException {
-		Log.d(TAG, "Requesting URL: " + urlString);
+		return executeGet(new URL(urlString));
+	}
+
+	protected String executeGet(URL url) throws IOException {
+		Log.d(TAG, "Requesting URL: " + url);
 		String response = null;
 
 		if (!Config.DEBUG_OFFLINE) {
-			URL url = new URL(urlString);
 			HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 			urlConnection.connect();
 			throwErrors(urlConnection);
@@ -54,24 +57,7 @@ public abstract class ApiAccessor implements Config.IApiAccessor{
 		Log.v(TAG, "HTTP response: " + response);
 		return response;
 	}
-	
-	protected String makeSimpleGetRequest(Context mContext, String urlString) {
-		try {
-			URL url = new URL(urlString);
-			HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-			urlConnection.setRequestProperty("Content-Type", "application/json");
 
-			Log.d(TAG, "Getting from URL: " + url);
-
-			urlConnection.connect();
-			throwErrors(urlConnection);
-			String response = readInputStream(urlConnection.getInputStream());
-			return response;
-		} catch (IOException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
 	
 	protected void throwErrors(HttpURLConnection urlConnection) throws IOException {
 		final int status = urlConnection.getResponseCode();

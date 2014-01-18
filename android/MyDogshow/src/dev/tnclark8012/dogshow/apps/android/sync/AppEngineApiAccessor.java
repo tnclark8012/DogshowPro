@@ -1,5 +1,7 @@
 package dev.tnclark8012.dogshow.apps.android.sync;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import com.google.gson.Gson;
 
@@ -9,31 +11,59 @@ import dev.tnclark8012.dogshow.apps.android.model.JuniorsRing;
 import dev.tnclark8012.dogshow.apps.android.model.Show;
 public class AppEngineApiAccessor extends ApiAccessor
 {
-
+	private URL BASE_URL;
+	private URL GET_SHOW_URL;
+	private URL GET_RINGS_URL;
 	// private static final String BASE_URL =
 	// "https://google-developers.appspot.com/_ah/api/resources/v0.1";
 	//"http://10.0.2.2:8888/rest"
-	private static final String BASE_URL = (Config.DEBUG_LOCAL)?"http://192.168.0.4:8888/rest":"http://dogshow-manager.appspot.com/rest";
-	public static final String GET_SHOW_URL = BASE_URL + "/shows";
-	public static final String GET_RINGS_URL = BASE_URL + "/rings";
+	public AppEngineApiAccessor() {
+		super();
+		try {
+			BASE_URL = new URL((Config.DEBUG_LOCAL)?"http://192.168.0.4:8888/rest":"http://dogshow-manager.appspot.com/rest");
+			GET_SHOW_URL = new URL(BASE_URL + "/shows");
+			GET_RINGS_URL = new URL(BASE_URL + "/rings");
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 
-	public final String buildGetBreedRingsUrl(String showId) {
-		return GET_RINGS_URL + "/show/" + showId;
+	public final URL buildGetBreedRingsUrl(String showId) {
+		try {
+			return new URL(GET_RINGS_URL, "show/" + showId);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
-	public final String buildGetBreedRingsUrl(String showId, String breed) {
-		return GET_RINGS_URL + "/show/" + showId + "/breed/" + breed;
+	public final URL buildGetBreedRingsUrl(String showId, String breed) {
+		try {
+			return new URL(GET_RINGS_URL, "show/" + showId + "/breed/" + breed);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
-	public final String buildGetJuniorRingsUrl(String showId, String juniorClass) {
-		return GET_RINGS_URL + "/show/" + showId + "/juniors/" + juniorClass;
+	public final URL buildGetJuniorRingsUrl(String showId, String juniorClass) {
+		try {
+			return new URL(GET_RINGS_URL, "show/" + showId + "/juniors/" + juniorClass);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	@Override
-	public String getBaseUrl() {
+	public URL getBaseUrl() {
 		return BASE_URL;
 	}
 	@Override
-	public String getShowsUrl() {
+	public URL getShowsUrl() {
 		return GET_SHOW_URL;
 	}
 	@Override

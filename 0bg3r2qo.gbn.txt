@@ -1,0 +1,53 @@
+﻿veteran special attraction are assigned sweeps and veteran attributes in json
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch AzureAndroid
+# Your branch is ahead of 'origin/AzureAndroid' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#   (use "git reset HEAD^1 <file>..." to unstage)
+#
+#	modified:   grammar/ANTLR/test.g
+#	modified:   grammar/JavaTest/src/dev/tclark/dogshow/grammar/test/JsonTest.java
+#	modified:   grammar/JavaTest/src/dev/tclark/dogshow/grammar/testLexer.java
+#	modified:   grammar/JavaTest/src/dev/tclark/dogshow/grammar/testParser.java
+#	modified:   grammar/JavaTest/testcase/tests/program-json/ANOK1JP.pdf.test.json
+#	modified:   grammar/JavaTest/testcase/tests/program-json/BRAZ1JP.pdf.test.json
+#	modified:   grammar/JavaTest/testcase/tests/program-json/COUL1JP.pdf.test.json
+#	modified:   grammar/JavaTest/testcase/tests/program-json/COUN1JP.pdf.test.json
+#	modified:   grammar/JavaTest/testcase/tests/program-json/MINN1JP.pdf.test.json
+#	modified:   grammar/JavaTest/testcase/tests/program-json/MNJS1JP.pdf.test.json
+#
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   Scraper/bin/grammar.jar
+#	modified:   Scraper/cleaned/ANOK1JP.pdf2txt.txt
+#	modified:   Scraper/cleaned/ANOK1JP.pdfbox.txt
+#	modified:   Scraper/cleaned/BRAZ1JP.pdf2txt.txt
+#	modified:   Scraper/cleaned/BRAZ1JP.pdfbox.txt
+#	modified:   Scraper/cleaned/COUL1JP.pdf2txt.txt
+#	modified:   Scraper/cleaned/COUL1JP.pdfbox.txt
+#	modified:   Scraper/cleaned/COUN1JP.pdf2txt.txt
+#	modified:   Scraper/cleaned/COUN1JP.pdfbox.txt
+#	modified:   Scraper/cleaned/MINN1JP.pdf2txt.txt
+#	modified:   Scraper/cleaned/MINN1JP.pdfbox.txt
+#	modified:   Scraper/cleaned/MNJS1JP.pdf2txt.txt
+#	modified:   Scraper/cleaned/MNJS1JP.pdfbox.txt
+#	modified:   Scraper/json/ANOK1JP.pdfbox.json
+#	modified:   Scraper/json/BRAZ1JP.pdfbox.json
+#	modified:   Scraper/json/COUL1JP.pdfbox.json
+#	modified:   Scraper/json/COUN1JP.pdfbox.json
+#	modified:   Scraper/json/MINN1JP.pdfbox.json
+#	modified:   Scraper/json/MNJS1JP.pdfbox.json
+#	modified:   android/MyDogshow/src/dev/tnclark8012/dogshow/apps/android/Config.java
+#	modified:   android/MyDogshow/src/dev/tnclark8012/dogshow/apps/android/sync/ApiAccessor.java
+#	modified:   android/MyDogshow/src/dev/tnclark8012/dogshow/apps/android/sync/AppEngineApiAccessor.java
+#	modified:   android/MyDogshow/src/dev/tnclark8012/dogshow/apps/android/sync/AzureApiAccessor.java
+#	modified:   android/MyDogshow/src/dev/tnclark8012/dogshow/apps/android/sync/BreedRingsHandler.java
+#	modified:   android/MyDogshow/src/dev/tnclark8012/dogshow/apps/android/sync/SyncHelper.java
+#
+

@@ -47,7 +47,7 @@ public class SyncHelper {
 		while (breedsCursor.moveToNext()) {
 			breedName = breedsCursor.getString(0);
 			Log.v(TAG, "Requesting breed ring: " + breedName);
-			batch.addAll(handler.parse(mAccessor.getBreedRings(showId,DogshowEnums.Breeds.parse(breedName).toString())));
+			batch.addAll(handler.parse(mAccessor.getBreedRings(showId,DogshowEnums.Breeds.parse(breedName).getPrimaryName())));
 			numBreeds++;
 		}
 		Log.v(TAG, "Pulled breed rings for " + numBreeds + " breeds");
@@ -84,7 +84,7 @@ public class SyncHelper {
 			while (juniorsCursor.moveToNext()) {
 				className = juniorsCursor.getString(0);
 				Log.v(TAG, "Requesting juniors ring: " + className);
-				batch.addAll(handler.parse(mAccessor.getJuniorsRings(params[0], DogshowEnums.JuniorClass.parse(className).toString())));
+				batch.addAll(handler.parse(mAccessor.getJuniorsRings(params[0], DogshowEnums.JuniorClass.parse(className).getPrimaryName())));
 				numClasses++;
 			}
 			Log.v(TAG, "Pulled juniors rings for " + numClasses + " classes");
