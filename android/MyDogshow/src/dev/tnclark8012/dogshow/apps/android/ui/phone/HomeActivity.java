@@ -16,8 +16,11 @@
 
 package dev.tnclark8012.dogshow.apps.android.ui.phone;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.ui.base.BaseActivity;
@@ -32,9 +35,27 @@ public class HomeActivity extends BaseActivity  {
     protected void onCreate(Bundle savedInstanceState) {
     	Log.d(TAG, "onCreate");
         super.onCreate(savedInstanceState);
-        getActionBar().setHomeButtonEnabled(false);
+//        getActionBar().setHomeButtonEnabled(false);
         getActionBar().setDisplayHomeAsUpEnabled(false);
         setContentView(R.layout.activity_home);
     }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+    	MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.home, menu);
+	    return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+    	if(item.getItemId()==R.id.menu_about)
+    	{
+    		startActivity(new Intent(this, FindShowActivity.class));
+    		return true;
+    	}
+    	return super.onOptionsItemSelected(item);
+    }
+    
 }
 
