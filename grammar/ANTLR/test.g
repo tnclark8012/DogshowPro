@@ -40,6 +40,7 @@ String mCurrentClass = null;
 Set<String> judgeSet = new HashSet<String>();
 boolean nextJudgeIsNewRing = false;
 String latestBreed = "";
+int mCurrentCount;
 // end non-relational
 
 public void setRelationalParse(boolean value)
@@ -155,6 +156,40 @@ Pattern groupPattern = Pattern.compile("((?:(?:TERRIER|HERDING|NON-SPORTING|SPOR
 		json.addProperty("SpecialBitchCount", countArray[3]);
 		return countArray[0]+countArray[1]+countArray[2]+countArray[3];
 	}
+	private void addToJsonFromAttribute(JsonObject json, String attribute)
+	{
+		boolean special = isSweepstakes(attribute);
+		if(special)json.addProperty("IsSweepstakes", true);
+		if(isVeteran(attribute))json.addProperty("IsVeteran", true);
+		String countName = null;
+		if( attribute.contains(" Dog") )
+		{
+			if(special)
+			{
+				countName = "SpecialDogCount";
+			}
+			else
+			{
+				countName = "DogCount";
+			}
+		}
+		else if( attribute.contains(" Bitch") )
+		{
+			if(special)
+			{
+				countName = "SpecialBitchCount";
+			}
+			else
+			{
+				countName = "BitchCount";
+			}
+		}
+		else
+		{
+			return;
+		}
+		json.addProperty(countName, mCurrentCount);
+	}
 	/**
 	* Is breedName is a veteran entry?
 	*/
@@ -258,7 +293,7 @@ timeblock returns [JsonObject json]
 
 non_group_ring returns [JsonObject json]
 @init{json = new JsonObject();}:
-	INT{json.addProperty("Count", parseIntSafely($INT.text,0));}
+	INT{mCurrentCount = parseIntSafely($INT.text,0); json.addProperty("Count", mCurrentCount);}
 	(
 	(mRingWithBreed=ring_with_breed{mergeJson(json,mRingWithBreed);})|
 	(mRingWithoutBreed=ring_without_breed{mergeJson(json,mRingWithoutBreed);})
@@ -276,13 +311,14 @@ inner_timeblock returns [JsonArray array]
 		  	nonGroupRing.addProperty("Number",mCurrentRingNumber);
 		  	addCurrentJudge(nonGroupRing);
 		  	nonGroupRing.add("CountAhead",new JsonPrimitive(countAhead));
-		  	countAhead+=nonGroupRing.get("Count").getAsInt();
+		  	countAhead+=mCurrentCount;//nonGroupRing.get("Count").getAsInt();
 		  	if(!nonGroupRing.has("Skip"))array.add(nonGroupRing);
 		  	}|
 		  (mRallyWalkthrough=rally_walkthrough
 		  	{
 		  	mRallyWalkthrough.addProperty("BlockStart",currentBlockTime);
-			mRallyWalkthrough.addProperty("Count", 0);
+		  	mCurrentCount = 0;
+			mRallyWalkthrough.addProperty("Count", mCurrentCount);
 		  	mRallyWalkthrough.addProperty("Number",mCurrentRingNumber);
 		  	mRallyWalkthrough.add("CountAhead",new JsonPrimitive(countAhead));
 			addCurrentJudge(mRallyWalkthrough);
@@ -296,7 +332,7 @@ inner_timeblock returns [JsonArray array]
 
 
 rally_walkthrough returns [JsonObject json]
-	@init{json = new JsonObject();json.addProperty("RingType","Rally");json.addProperty("Count",0);}:
+	@init{json = new JsonObject();json.addProperty("RingType","Rally");mCurrentCount = 0;json.addProperty("Count",mCurrentCount);}:
 		RALLY_CLASS{String title = $RALLY_CLASS.text; json.addProperty("RallyName", title.replace(" Walkthrough", "")); json.addProperty("IsWalkthrough",true); };//COUL - RALLY_CLASS: Rally Excellent Walkthrough 
 
 ring_with_breed returns [JsonObject json]
@@ -334,15 +370,10 @@ breed_name returns [JsonObject json]
     		}
     		else{
     			mLastBreedName=breedName;
-    		}}|BREED_CLASSIFIER{breedName=mLastBreedName;json.addProperty("BreedAttribute",$BREED_CLASSIFIER.text.trim());
-    		if(isVeteran($BREED_CLASSIFIER.text)){
-    			breedName=mLastBreedName;
-    			json.addProperty("IsVeteran",true);
-    		}
-    		if(isSweepstakes($BREED_CLASSIFIER.text)){
-				breedName=mLastBreedName;
-				json.addProperty("IsSweepstakes",true);
-			}
+    		}}|BREED_CLASSIFIER
+			{
+				breedName=mLastBreedName;json.addProperty("BreedAttribute",$BREED_CLASSIFIER.text.trim());
+				addToJsonFromAttribute(json,$BREED_CLASSIFIER.text);
     		}) (BREED_NAME_SUFFIX{json.addProperty("BreedSuffix", $BREED_NAME_SUFFIX.text);})? {json.addProperty("BreedName", breedName);};
 
 
@@ -945,3 +976,4 @@ FallThrough
 }
   :  . // match any char not matched by Number, Id or Space
   {$channel=HIDDEN;};
+  

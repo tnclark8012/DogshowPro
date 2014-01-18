@@ -20,18 +20,12 @@ def postShow(show, parsedJson):
     [locationList.append(l.toJson()) for l in show.locations];
     printv(json.loads(json.dumps(locationList)))
     printv(show.getDateList())
-    
-    values = {'ShowId': show.code, 'ShowName' : list(show.clubs)[0], 'City':locationList[0]['city'], 'State':locationList[0]['state'], 'RingJson' : str(parsedJson)}
-    printv(str(values));
-    #'locations':json.loads(json.dumps(locationList)), 
-    #'Clubs':show.getClubList(), 
-    #'Json':values, 
-    #'dates':show.getDateList()}}
-    #values = {'city': 'Columbiana', 'date': 1365138000.0, 'name': 'Northeast Oklahoma Kennel Club', 'state': 'AL'}
+    values = {'ShowId': show.code, 'Clubs':show.getClubList(), 'ShowName' : show.name, 'City' : locationList[0]['city'], 'State': locationList[0]['state'], 'StartDateMillis' : min(show.getDateList()), 'RingJson' : str(parsedJson)}
+    values = json.loads(json.dumps(values))
     response = urlopen_with_retry(url, values)
 
     #response = urlopen_with_retry(url, data.encode('utf8'))
-    the_page = response.read()
+    the_page = response.text
     printv(the_page);
 
 def postShows(shows):
@@ -175,20 +169,3 @@ def main(argv):
 if __name__ == "__main__":
    main(sys.argv[1:])
 
-"""      elif opt == '-d':
-         worker = DogshowProgramWorker();
-         worker.run(showLimit, 10);
-         sys.exit(0);
-         if arg == 'showpage':
-            printv('show page')
-            show = ShowScraper(True, True).pullShow("blah");
-            if show:
-                printv(show.pdfLink)
-                #downloadProgram(show);
-                postShow(show);
-            sys.exit()
-         if arg == 'closed':
-            printv("closed");
-            links = ShowScraper(False, True).pullClosedShows();
-            [printv(str(link)) for link in links]
-"""
