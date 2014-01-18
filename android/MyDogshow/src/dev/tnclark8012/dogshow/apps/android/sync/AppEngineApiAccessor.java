@@ -9,6 +9,7 @@ import dev.tnclark8012.dogshow.apps.android.Config;
 import dev.tnclark8012.dogshow.apps.android.model.BreedRing;
 import dev.tnclark8012.dogshow.apps.android.model.JuniorsRing;
 import dev.tnclark8012.dogshow.apps.android.model.Show;
+import dev.tnclark8012.dogshow.apps.android.util.Utils;
 public class AppEngineApiAccessor extends ApiAccessor
 {
 	private URL BASE_URL;
@@ -80,7 +81,7 @@ public class AppEngineApiAccessor extends ApiAccessor
 	public JuniorsRing[] getJuniorsRings(String showId, String className) {
 		try {
 			String jsonStr = executeGet(buildGetJuniorRingsUrl(showId, className));
-			return new Gson().fromJson(jsonStr, JuniorsRing[].class);
+			return  new Gson().fromJson(jsonStr, JuniorsRing[].class);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

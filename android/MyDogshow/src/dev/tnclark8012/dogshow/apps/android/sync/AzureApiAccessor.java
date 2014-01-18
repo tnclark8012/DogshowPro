@@ -12,6 +12,7 @@ import dev.tnclark8012.dogshow.apps.android.Config;
 import dev.tnclark8012.dogshow.apps.android.model.BreedRing;
 import dev.tnclark8012.dogshow.apps.android.model.JuniorsRing;
 import dev.tnclark8012.dogshow.apps.android.model.Show;
+import dev.tnclark8012.dogshow.apps.android.util.Utils;
 
 public class AzureApiAccessor extends ApiAccessor {
 
@@ -91,7 +92,12 @@ public class AzureApiAccessor extends ApiAccessor {
 	public BreedRing[] getBreedRings(String showId, String breed, Boolean veteran, Boolean sweepstakes) {
 		try {
 			String jsonStr = executeGet(buildGetBreedRingsUrl(showId, breed, veteran, sweepstakes));
-			return mGson.fromJson(jsonStr, BreedRing[].class);
+			BreedRing[] rings = mGson.fromJson(jsonStr, BreedRing[].class);
+			for(BreedRing ring : rings)
+			{
+				ring.blockStartMillis = Utils.millisSinceEpoch(ring.blockStartMillis);
+			}
+			return rings;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -102,7 +108,13 @@ public class AzureApiAccessor extends ApiAccessor {
 	public JuniorsRing[] getJuniorsRings(String showId, String className) {
 		try {
 			String jsonStr = executeGet(buildGetJuniorRingsUrl(showId, className));
-			return mGson.fromJson(jsonStr, JuniorsRing[].class);
+			
+			JuniorsRing[] rings =  mGson.fromJson(jsonStr, JuniorsRing[].class);
+			for(JuniorsRing ring : rings)
+			{
+				ring.blockStartMillis = Utils.millisSinceEpoch(ring.blockStartMillis);
+			}
+			return rings;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -113,7 +125,12 @@ public class AzureApiAccessor extends ApiAccessor {
 	public Show[] getShows() {
 		try {
 			String jsonStr = executeGet(getShowsUrl());
-			return mGson.fromJson(jsonStr, Show[].class);
+			Show[] shows =  mGson.fromJson(jsonStr, Show[].class);
+			for(Show show : shows)
+			{
+				show.startDateMillis = Utils.millisSinceEpoch(show.startDateMillis);
+			}
+			return shows;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

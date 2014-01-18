@@ -90,5 +90,10 @@ public class Utils {
 	public static long estimateBlockStart(int dogCountAhead, long timeBlockStart, float estimatedMinutesPerDog) {
 		return estimateBlockStart(dogCountAhead, timeBlockStart, ((long) (estimatedMinutesPerDog * 1000 * 60)));// Simple, but used several places
 	}
+	private static final long EPOCH_IN_MILLISECONDS = 62135596800000l;
+	public static long millisSinceEpoch(long millisSinceAD )
+	{
+		return millisSinceAD - EPOCH_IN_MILLISECONDS;
+	}
 
 }

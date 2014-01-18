@@ -73,13 +73,6 @@ public class UIUtils {
 
 	private static StyleSpan sBoldSpan = new StyleSpan(Typeface.BOLD);
 
-	private static CharSequence sEmptyRoomText;
-	private static CharSequence sCodeLabRoomText;
-
-	private static CharSequence sNowPlayingText;
-	private static CharSequence sLivestreamNowText;
-	private static CharSequence sLivestreamAvailableText;
-
 	/**
 	 * Populate the given {@link TextView} with the requested text, formatting through {@link Html#fromHtml(String)} when applicable. Also sets {@link TextView#setMovementMethod} so inline links are handled.
 	 */
