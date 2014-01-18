@@ -13,6 +13,10 @@ public class BreedRing {
 	public int specialDogCount;
 	public int specialBitchCount;
 	public int countAhead;
+	public boolean isSweepstakes;
+	public boolean isVeteran;
+	public String attribute;
+	public String title;
 
 	@Override
 	public String toString() {

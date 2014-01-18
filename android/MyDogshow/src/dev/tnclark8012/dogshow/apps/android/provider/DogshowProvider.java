@@ -144,7 +144,7 @@ public class DogshowProvider extends ContentProvider {
 		case DOGS_ENTERED:
 		{
 			final SelectionBuilder exBuilder = buildSimpleSelection(uri);
-			String groupBy = Dogs.DOG_BREED;
+			String groupBy = Dogs.DOG_BREED + "," + Dogs.DOG_IS_VETERAN + "," + Dogs.DOG_IS_SHOWING_SWEEPSTAKES;
             exBuilder.where(Dogs.DOG_IS_SHOWING + "=?", String.valueOf(1));
 			return exBuilder.where(selection, selectionArgs).query(db, projection, groupBy, null, sortOrder, null);
 		}
@@ -313,13 +313,15 @@ public class DogshowProvider extends ContentProvider {
 		public static final String DOG_CALL_NAME = Tables.DOGS + "." + Dogs.DOG_CALL_NAME;
 		public static final String JUNIORS_RINGS_ID = Tables.JUNIORS_RINGS + "." + JuniorsRings._ID;
 		public static final String BREED_RINGS_ID = Tables.BREED_RINGS + "." + BreedRings._ID;
+		public static final String BREED_RINGS_IS_VETERAN = Tables.BREED_RINGS + "." + BreedRings.RING_BREED_IS_VETERAN;
+		public static final String BREED_RINGS_IS_SWEEPSTAKES = Tables.BREED_RINGS + "." + BreedRings.RING_BREED_IS_SWEEPSTAKES;
 	}
 	
 	public interface Subquery {
 		public static final String BREED_RING_OVERVIEW ="SELECT " + Qualified.BREED_RINGS_ID +", " +
 				 EnteredRings.TYPE_BREED_RING + " as ring_type, " + //TODO TYPE_BREED_RING to BreedRings.TYPE etc. with juniors
 				 BreedRings.RING_NUMBER + ", " +
-				 BreedRings.RING_BREED + " as title," + 
+				 BreedRings.RING_TITLE + " as title," + 
 				 Dogs.ENTERED_DOGS_NAMES + " as subtitle, " +
 				 BreedRings.RING_BLOCK_START + ", " +
 				 BreedRings.RING_COUNT_AHEAD +", " +
@@ -328,7 +330,7 @@ public class DogshowProvider extends ContentProvider {
 		public static final String JUNIOR_RING_OVERVIEW = "SELECT " + Qualified.JUNIORS_RINGS_ID + ", " + 
 		EnteredRings.TYPE_JUNIORS_RING +" as " + EnteredRings.ENTERED_RINGS_TYPE + ", "+ 
 				JuniorsRings.RING_NUMBER + ", " + 
-				JuniorsRings.RING_JUNIOR_CLASS_NAME + "," +
+				JuniorsRings.RING_TITLE + "," +
 				Handlers.ENTERED_JUNIOR_HANDLER_NAMES + ", " + 
 				JuniorsRings.RING_BLOCK_START + ", " +
 				JuniorsRings.RING_COUNT_AHEAD +

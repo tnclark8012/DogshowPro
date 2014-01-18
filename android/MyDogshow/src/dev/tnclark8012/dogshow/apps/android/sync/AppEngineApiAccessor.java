@@ -39,7 +39,7 @@ public class AppEngineApiAccessor extends ApiAccessor
 		}
 		return null;
 	}
-	public final URL buildGetBreedRingsUrl(String showId, String breed) {
+	public final URL buildGetBreedRingsUrl(String showId, String breed, Boolean veteran, Boolean sweepstakes) {
 		try {
 			return new URL(GET_RINGS_URL, "show/" + showId + "/breed/" + breed);
 		} catch (MalformedURLException e) {
@@ -67,9 +67,9 @@ public class AppEngineApiAccessor extends ApiAccessor
 		return GET_SHOW_URL;
 	}
 	@Override
-	public BreedRing[] getBreedRings(String showId, String breed) {
+	public BreedRing[] getBreedRings(String showId, String breed, Boolean veteran, Boolean sweepstakes) {
 		try {
-			String jsonStr = executeGet(buildGetBreedRingsUrl(showId, breed));
+			String jsonStr = executeGet(buildGetBreedRingsUrl(showId, breed, null, null));
 			return new Gson().fromJson(jsonStr, BreedRing[].class);
 		} catch (IOException e) {
 			e.printStackTrace();

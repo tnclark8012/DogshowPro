@@ -27,11 +27,11 @@ public class Config {
 	public interface IApiAccessor
 	{
 		URL buildGetBreedRingsUrl(String showId);
-		URL buildGetBreedRingsUrl(String showId, String breed);
+		URL buildGetBreedRingsUrl(String showId, String breed, Boolean veteran, Boolean sweepstakes);
 		URL buildGetJuniorRingsUrl(String showId, String juniorClass);
 		URL getBaseUrl();
 		URL getShowsUrl();
-		BreedRing[] getBreedRings(String showId, String breed);
+		BreedRing[] getBreedRings(String showId, String breed, Boolean veteran, Boolean sweepstakes);
 		JuniorsRing[] getJuniorsRings(String showId, String className);
 		Show[] getShows();
 	}

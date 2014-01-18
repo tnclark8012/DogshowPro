@@ -10,4 +10,5 @@ public class JuniorsRing{
 	public int count;
 	public String className;
 	public int countAhead;
+	public String title;
 }

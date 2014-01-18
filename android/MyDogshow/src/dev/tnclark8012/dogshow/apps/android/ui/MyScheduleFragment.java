@@ -259,10 +259,10 @@ public class MyScheduleFragment extends ListFragment implements LoaderManager.Lo
 			switch(cursor.getInt(UpcomingRingQuery.RING_TYPE))
 			{
 			case EnteredRings.TYPE_BREED_RING:
-				title = Breeds.parse(title).getPlural();
+//				title = Breeds.parse(title).getPlural();
 				break;
 			case EnteredRings.TYPE_JUNIORS_RING:
-				title = JuniorClass.parse(title).getPrimaryName();
+//				title = JuniorClass.parse(title).getPrimaryName();
 				break;
 			}
 			mViewTitle.setText(title);
@@ -336,9 +336,9 @@ public class MyScheduleFragment extends ListFragment implements LoaderManager.Lo
 			((TextView) view.findViewById(R.id.list_item_ring_subtitle)).setText(cursor.getString(AllRingsQuery.SUBTITLE));
 			String title = cursor.getString(AllRingsQuery.TITLE);
 			if (cursor.getInt(AllRingsQuery.RING_TYPE) == EnteredRings.TYPE_BREED_RING) {
-				title = Breeds.parse(title).getPrimaryName();
+//				title = Breeds.parse(title).getPrimaryName();
 			} else {
-				title = JuniorClass.parse(title).getPrimaryName();
+//				title = JuniorClass.parse(title).getPrimaryName();
 			}
 			((TextView) view.findViewById(R.id.list_item_ring_title)).setText(title);
 			((TextView) view.findViewById(R.id.list_item_ring_number)).setText(getString(R.string.template_ring_number, cursor.getInt(AllRingsQuery.RING_NUMBER)));

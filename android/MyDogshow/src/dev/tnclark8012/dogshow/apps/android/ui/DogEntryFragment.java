@@ -45,12 +45,9 @@ public class DogEntryFragment extends Fragment implements LoaderManager.LoaderCa
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		//return super.onCreateView(inflater, container, savedInstanceState);
 		View root = inflater.inflate(R.layout.fragment_entry_dogs, null);
 		Button back = (Button) root.findViewById(R.id.button_bar_button_left);
 		back.setOnClickListener(new OnClickListener() {
-			
 			@Override
 			public void onClick(View v) {
 				mCallbacks.onBackClick();
@@ -61,7 +58,6 @@ public class DogEntryFragment extends Fragment implements LoaderManager.LoaderCa
 			@Override
 			public void onClick(View v) {
 				mCallbacks.onNextClick();
-				
 			}
 		});
 		return root;
@@ -131,20 +127,6 @@ public class DogEntryFragment extends Fragment implements LoaderManager.LoaderCa
 
 
 	protected void reloadFromArguments(Bundle arguments) {
-//		setListAdapter(null);
-//		final Intent intent = BaseActivity.fragmentArgumentsToIntent(arguments);
-//		final Uri dogsUri = intent.getData();
-//		if (dogsUri == null) {
-//			// return;
-//		}
-//
-//		mAdapter = new DogListAdapter(getActivity());
-//		mDogQueryToken = DogsQuery._TOKEN;
-//		View footer = getLayoutInflater(null).inflate(R.layout.button_bar, null);
-//		getListView().addFooterView(footer);
-//		setListAdapter(mAdapter);
-//		// Force start background query to load sessions
-//		getLoaderManager().restartLoader(mDogQueryToken, arguments, this);
 	}
 
 	@Override
@@ -253,15 +235,14 @@ public class DogEntryFragment extends Fragment implements LoaderManager.LoaderCa
 			ImageView imageLayout = ((ImageView) view.findViewById(R.id.list_item_dog_entry_thumb));
 			boolean entered = Utils.getMaybeNull(cursor, DogsQuery.DOG_IS_SHOWING, 0) == 1;
 			CheckBox checkBox = (CheckBox) view.findViewById(R.id.list_item_dog_entry_checkbox);
-			checkBox.setChecked(entered);
+			Log.v(TAG, id + ":" + cursor.getString(DogsQuery.DOG_CALL_NAME));
 			checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener(){
-
 				@Override
 				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-					// TODO Auto-generated method stub
 					mCallbacks.onDogSelected(id, isChecked);
 				}
 			});
+			checkBox.setChecked(entered);
 			if (imagePath != null) {
 				Resources res = getResources();
 				int height = res.getDimensionPixelSize(R.dimen.element_height_normal);

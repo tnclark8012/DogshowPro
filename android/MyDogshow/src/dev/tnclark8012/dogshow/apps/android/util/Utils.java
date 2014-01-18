@@ -71,6 +71,12 @@ public class Utils {
 	public static float getMaybeNull(Cursor cursor, int columnIndex, float defaultValue) {
 		return (cursor.isNull(columnIndex)) ? defaultValue : cursor.getFloat(columnIndex);
 	}
+	
+	public static boolean getMaybeNull(Cursor cursor, int columnIndex, boolean defaultValue) {
+		return (cursor.isNull(columnIndex)) ? defaultValue : (cursor.getInt(columnIndex)!=0);
+	}
+	
+	
 
 	public static long minutesToMillis(float minutes) {
 		return (long) (minutes * 60 * 1000);

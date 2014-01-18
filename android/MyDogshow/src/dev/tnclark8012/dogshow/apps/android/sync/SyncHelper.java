@@ -14,6 +14,7 @@ import dev.tnclark8012.dogshow.apps.android.model.Show;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Handlers;
 import dev.tnclark8012.dogshow.apps.android.util.AccountUtils;
+import dev.tnclark8012.dogshow.apps.android.util.Utils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums;
 
 public class SyncHelper {
@@ -37,17 +38,21 @@ public class SyncHelper {
 	public void executeSync(String showId) {
 		final ContentResolver resolver = mContext.getContentResolver();
 		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
-		Cursor breedsCursor = resolver.query(DogshowContract.Dogs.buildEnteredGroupedBreedUri(), new String[] { DogshowContract.Dogs.DOG_BREED }, null, null, null);
+		Cursor breedsCursor = resolver.query(DogshowContract.Dogs.buildEnteredGroupedBreedUri(), new String[] { DogshowContract.Dogs.DOG_BREED, DogshowContract.Dogs.DOG_IS_SHOWING_SWEEPSTAKES, DogshowContract.Dogs.DOG_IS_VETERAN }, null, null, null);
 		batch = new ArrayList<ContentProviderOperation>();
 		String breedName = null;
+		boolean isVeteran;
+		boolean isSweepstakes;
 		Log.i(TAG, "Syncing breed rings for " + breedsCursor.getCount() + " breeds");
 		int numBreeds = 0;
 		
 		BreedRingsHandler handler = new BreedRingsHandler(mContext, true);
 		while (breedsCursor.moveToNext()) {
 			breedName = breedsCursor.getString(0);
+			isSweepstakes = Utils.getMaybeNull(breedsCursor, 1, false);
+			isVeteran = Utils.getMaybeNull(breedsCursor, 2, false);
 			Log.v(TAG, "Requesting breed ring: " + breedName);
-			batch.addAll(handler.parse(mAccessor.getBreedRings(showId,DogshowEnums.Breeds.parse(breedName).getPrimaryName())));
+			batch.addAll(handler.parse(mAccessor.getBreedRings(showId,DogshowEnums.Breeds.parse(breedName).getPrimaryName(), isVeteran, isSweepstakes)));
 			numBreeds++;
 		}
 		Log.v(TAG, "Pulled breed rings for " + numBreeds + " breeds");

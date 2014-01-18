@@ -48,9 +48,18 @@ public class AzureApiAccessor extends ApiAccessor {
 		return null;
 	}
 
-	public final URL buildGetBreedRingsUrl(String showId, String breed) {
+	public final URL buildGetBreedRingsUrl(String showId, String breed, Boolean veteran, Boolean sweepstakes) {
 		try {
-			return new URL(GET_BREED_RINGS_URL, "?showId=" + encode(showId) + "&breedName=" + encode(breed));
+			String query = "?showId=" + encode(showId) + "&breedName=" + encode(breed);
+			if(veteran != null)
+			{
+				query+= "&veteran="+veteran.booleanValue();
+			}
+			if(sweepstakes != null)
+			{
+				query +="&sweepstakes="+sweepstakes.booleanValue();
+			}
+			return new URL(GET_BREED_RINGS_URL, query);
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -79,9 +88,9 @@ public class AzureApiAccessor extends ApiAccessor {
 	}
 
 	@Override
-	public BreedRing[] getBreedRings(String showId, String breed) {
+	public BreedRing[] getBreedRings(String showId, String breed, Boolean veteran, Boolean sweepstakes) {
 		try {
-			String jsonStr = executeGet(buildGetBreedRingsUrl(showId, breed));
+			String jsonStr = executeGet(buildGetBreedRingsUrl(showId, breed, veteran, sweepstakes));
 			return mGson.fromJson(jsonStr, BreedRing[].class);
 		} catch (IOException e) {
 			e.printStackTrace();

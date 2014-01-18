@@ -72,7 +72,7 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 			Map<String, Object> values = new HashMap<String, Object>();
 			for (Integer id : enteredDogs.keySet()) {
 				Log.d(TAG, "Is " + id + " showing? " + enteredDogs.get(id));
-				values.put(Dogs.DOG_IS_SHOWING, (enteredDogs.get(id) ? 1 : 0));
+				values.put(Dogs.DOG_IS_SHOWING, (enteredDogs.get(id).booleanValue() ? 1 : 0));
 				helper.updateDog(id, values);
 			}
 			values.clear();
@@ -119,6 +119,7 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 	@Override
 	public boolean onDogSelected(int dogId, boolean isChecked) {
 		enteredDogs.put(dogId, isChecked);
+		Log.v(TAG, "dog ID " + dogId  + ((isChecked)?" is Showing" : " NOT showing"));
 		return true;
 	}
 

@@ -64,6 +64,7 @@ public class DogshowContract {
 		public static final String RING_JUDGE_TIME = "ring_judge_time";
 		public static final String RING_JUDGE = "ring_judge";
 		public static final String RING_SHOW_ID = "ring_show_id";
+		public static final String RING_TITLE = "ring_title";
 	}
 
 	interface DogsColumns {
@@ -81,7 +82,9 @@ public class DogshowContract {
 		String DOG_POINTS = "dog_points";
 		/** Integer identifying sex: male = 0, female = 1 */
 		String DOG_SEX = "dog_sex";
-		String DOG_IS_SHOWING = "dog_showing";
+		String DOG_IS_SHOWING = "dog_is_showing";
+		String DOG_IS_VETERAN = "dog_is_veteran";
+		String DOG_IS_SHOWING_SWEEPSTAKES = "dog_is_showing_sweepstakes";
 		String DOG_UPDATED = SyncColumns.UPDATED;
 	}
 
@@ -100,6 +103,9 @@ public class DogshowContract {
 		String RING_DOG_COUNT = "breed_ring_dog_count";
 		String RING_SPECIAL_DOG_COUNT = "breed_ring_special_dog_count";
 		String RING_SPECIAL_BITCH_COUNT = "breed_ring_special_bitch_count";
+		String RING_BREED_IS_VETERAN = "breed_ring_is_veteran";
+		String RING_BREED_IS_SWEEPSTAKES = "breed_ring_is_sweepstakes";
+		String RING_BREED_ATTRIBUTE = "breed_ring_attribute";
 	}
 
 	interface EnteredRingsColumns {
@@ -126,6 +132,7 @@ public class DogshowContract {
 		public static final int FEMALE = 0;
 		public static final String ENTERED_DOGS_BREED = "entered_dogs_breed";
 		public static final String ENTERED_DOGS_NAMES = "entered_dogs_names";
+		
 		/** Default "ORDER BY" clause. */
 		public static final String DEFAULT_SORT = DogsColumns.DOG_CALL_NAME + " COLLATE NOCASE ASC";
 
