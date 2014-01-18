@@ -50,7 +50,7 @@ class ShowScraper(object):
         if self.OFFLINE:
             showPageUrl = config.Onofrio.LOCAL_PAGE 
         response = urlopen_with_retry(showPageUrl, None)
-        page = response.read()
+        page = response.text
         pool = BeautifulSoup(page)
         if self._hasProgram:
             club = self._pullKennelClub(pool);
@@ -195,7 +195,7 @@ class ShowScraper(object):
             url = config.Onofrio.LOCAL_CLOSED;
         response = urlopen_with_retry(url, None);
 
-        the_page = response.read()
+        the_page = response.text
         pool = BeautifulSoup(the_page)
 
         anchors = pool.findAll('a', href=True, target=True)

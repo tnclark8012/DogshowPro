@@ -13,5 +13,5 @@ class AppServerAccessor(object):
         response = urlopen_with_retry(url, values)
 
         #response = urlopen_with_retry(url, data.encode('utf8'))
-        the_page = response.read()
+        the_page = response.text
         pass;
