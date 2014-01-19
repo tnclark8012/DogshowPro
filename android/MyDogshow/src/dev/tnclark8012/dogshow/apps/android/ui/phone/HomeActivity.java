@@ -49,7 +49,7 @@ public class HomeActivity extends BaseActivity  {
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-    	if(item.getItemId()==R.id.menu_about)
+    	if(item.getItemId()==R.id.menu_find_show)
     	{
     		startActivity(new Intent(this, ShowSetupActivity.class));
     		return true;

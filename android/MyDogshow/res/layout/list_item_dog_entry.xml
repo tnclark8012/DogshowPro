@@ -9,9 +9,12 @@
 
 <ImageView
     android:id="@+id/list_item_dog_entry_thumb"
-    android:layout_width="@dimen/element_width_normal"
-    android:layout_height="@dimen/element_height_normal"
-    android:layout_marginLeft="@dimen/element_margin_normal"
+        android:layout_width="@dimen/element_height_large"
+        android:layout_height="@dimen/element_width_large"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/element_margin_normal"
+        android:focusable="false"
+        android:scaleType="centerCrop"
     android:layout_toRightOf="@+id/list_item_dog_entry_checkbox"
     android:contentDescription="dog image"
     android:src="@drawable/dog" />
@@ -23,7 +26,7 @@
      android:layout_marginLeft="@dimen/element_margin_normal"
      android:layout_toRightOf="@+id/list_item_dog_entry_thumb"
      android:textSize="@dimen/text_large"
-     android:textColor="@color/accent_1"
+     android:textColor="@color/black"
      android:text="[Name]"/>
     <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
      android:layout_width="wrap_content"
@@ -32,6 +35,7 @@
      android:layout_marginLeft="@dimen/element_margin_normal"
      android:layout_height="wrap_content"
      android:layout_toRightOf="@+id/list_item_dog_entry_thumb"
+     android:textColor="@color/dark_grey"
      android:text="[breed]"/>
 
     <CheckBox

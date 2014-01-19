@@ -125,6 +125,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.phone.HandlerActivity" />
         </activity>
+        <!-- 
         <activity
             android:name=".ui.phone.ScheduleActivity"
             android:label="@string/app_name"
@@ -141,6 +142,24 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.phone.HomeActivity" />
         </activity>
+        -->
+                <activity
+            android:name=".ui.phone.MyScheduleActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Dogshow" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="vnd.android.cursor.dir/vnd.dogshow.ring" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.phone.HomeActivity" />
+        </activity>
+        
         <activity
             android:name=".ui.phone.ShowSetupActivity"
             android:label="Setup Show" >

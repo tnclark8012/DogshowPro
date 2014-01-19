@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="84dp"
+    android:layout_height="@dimen/list_item_height"
     android:background="@drawable/list_selector" >
 
     <ImageView
@@ -10,7 +10,7 @@
         android:layout_height="@dimen/element_width_large"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="14dip"
+        android:layout_marginLeft="@dimen/element_margin_normal"
         android:contentDescription="@string/img_description_handler"
         android:focusable="false"
         android:maxHeight="@dimen/element_height_normal"

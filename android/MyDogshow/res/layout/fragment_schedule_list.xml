@@ -7,7 +7,7 @@
     <RelativeLayout
         android:id="@+id/schedule_no_upcoming_header"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/header_height"
+        android:layout_height="@dimen/list_item_height"
         android:background="@color/header_color"
         android:gravity="center" 
         >
@@ -26,7 +26,7 @@
     <RelativeLayout
         android:id="@+id/schedule_upcoming_header"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/header_height"
+        android:layout_height="@dimen/list_item_height"
         android:background="@color/header_color"
         android:visibility="gone" >
 
@@ -87,6 +87,7 @@
         <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
             xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
             android:id="@+id/schedule_ring_time"
+            android:layout_alignParentBottom="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/schedule_next"
@@ -98,13 +99,6 @@
             android:textColor="@color/header_title"
             android:textSize="@dimen/text_medium"
             ttv:typeface="Roboto-Medium.ttf" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/accent_1" >
     </RelativeLayout>
 
     <ListView

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:layout_height="@dimen/list_item_height"
     android:background="@drawable/list_selector" >
 
     <RelativeLayout
@@ -9,59 +9,68 @@
         android:layout_width="70dp"
         android:layout_height="fill_parent"
         android:background="#AAAAAA" >
-            <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-                xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
-                android:id="@+id/list_item_ring_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:gravity="center_horizontal"
-                android:textSize="@dimen/text_medium"
-                android:text="12:00\nam"
-                ttv:typeface="Roboto-Bold.ttf" />
+
+        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+            android:id="@+id/list_item_ring_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_horizontal"
+            android:text="12:00\nam"
+            android:textSize="@dimen/text_medium"
+            ttv:typeface="Roboto-Bold.ttf" />
     </RelativeLayout>
-    <RelativeLayout 
+
+    <RelativeLayout
         android:id="@+id/list_item_ring_details_container"
-        android:layout_height="fill_parent"
         android:layout_width="wrap_content"
-        android:layout_toRightOf="@+id/list_item_ring_time_container"
+        android:layout_height="fill_parent"
         android:layout_marginLeft="@dimen/element_margin_normal"
-        android:gravity="center_vertical">
+        android:layout_toRightOf="@+id/list_item_ring_time_container"
+        android:gravity="center_vertical" >
+
         <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-                android:id="@+id/list_item_ring_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/text_medium"
-                android:text="_title_" />
+            android:id="@+id/list_item_ring_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text="_title_"
+            android:textSize="@dimen/text_medium" />
+
         <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-                android:id="@+id/list_item_ring_subtitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="2dp"
-                android:layout_below="@+id/list_item_ring_title"
-                android:textSize="@dimen/text_small"
-                android:textColor="#777777"
-                android:text="_subtitle_" />
+            android:id="@+id/list_item_ring_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/list_item_ring_title"
+            android:layout_marginLeft="2dp"
+            android:text="_subtitle_"
+            android:textColor="#777777"
+            android:textSize="@dimen/text_small" />
+
         <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-                android:id="@+id/list_item_ring_number"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#777777"
-                android:layout_marginLeft="2dp"
-                android:layout_below="@+id/list_item_ring_subtitle"
-                android:textSize="@dimen/text_small"
-                android:text="Ring 2" />
-        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView 
+            android:id="@+id/list_item_ring_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/list_item_ring_subtitle"
+            android:layout_marginLeft="2dp"
+            android:text="Ring 2"
+            android:textColor="#777777"
+            android:textSize="@dimen/text_small" />
+
+        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
             android:id="@+id/list_item_ring_start"
             android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#777777"
-                android:layout_marginLeft="2dp"
-                android:layout_toRightOf="@+id/list_item_ring_number"
-                android:layout_below="@+id/list_item_ring_subtitle"
-                android:textSize="@dimen/text_small"
-                android:text="(11:45 am)"
-            />
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/list_item_ring_subtitle"
+            android:layout_marginLeft="2dp"
+            android:layout_toRightOf="@+id/list_item_ring_number"
+            android:text="(11:45 am)"
+            android:textColor="#777777"
+            android:textSize="@dimen/text_small" />
     </RelativeLayout>
+
 </RelativeLayout>

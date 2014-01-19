@@ -30,7 +30,7 @@ public class AzureApiAccessor extends ApiAccessor {
 	public AzureApiAccessor() {
 		mGson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
 		try {
-			BASE_URL = new URL((Config.DEBUG_LOCAL) ? "http://192.168.0.4:49414/api" : "http://dogshow-manager.appspot.com/rest");
+			BASE_URL = new URL((Config.DEBUG_LOCAL) ? "http://192.168.0.4:49414/api" : "http://dogshow.azurewebsites.net/api");
 			GET_SHOW_URL = new URL(BASE_URL + "/Show");
 			GET_BREED_RINGS_URL = new URL(BASE_URL + "/BreedRing");
 			GET_JUNIORS_RINGS_URL = new URL(BASE_URL + "/JuniorsRing");

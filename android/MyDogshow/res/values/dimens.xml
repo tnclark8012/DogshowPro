@@ -8,6 +8,7 @@
     <dimen name="element_spacing_normal">8dp</dimen>
     <dimen name="element_tv_spinner_margin_top_normal">9dp</dimen>
     <dimen name="element_tv_spinner_margin_bottom_normal">3dp</dimen>
+    <dimen name="list_item_height">84dp</dimen>
 	<dimen name="element_margin_normal">16dp</dimen>
 	<dimen name="element_height_normal">48dp</dimen>
 	<dimen name="element_height_large">60dp</dimen>

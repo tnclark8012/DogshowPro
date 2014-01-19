@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:layout_height="@dimen/list_item_height"
     android:background="@drawable/list_selector"
     android:orientation="vertical"
     android:paddingLeft="@dimen/element_spacing_normal"
@@ -9,17 +9,14 @@
 
     <ImageView
         android:id="@+id/list_item_handler_entry_thumb"
-        android:layout_width="@dimen/element_width_normal"
-        android:layout_height="@dimen/element_height_normal"
+        android:layout_width="@dimen/element_height_large"
+        android:layout_height="@dimen/element_width_large"
+        android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/element_margin_normal"
-        android:minWidth="@dimen/element_width_normal"
-        android:maxWidth="@dimen/element_width_normal"
-        android:minHeight="@dimen/element_width_normal"
-        android:maxHeight="@dimen/element_width_normal"
+        android:focusable="false"
         android:scaleType="centerCrop"
-        android:adjustViewBounds="true"
         android:layout_toRightOf="@+id/list_item_handler_entry_checkbox"
-        android:contentDescription="handler image"
+                android:contentDescription="@string/img_description_handler"
         android:src="@drawable/ic_default_handler" />
 
     <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
@@ -30,7 +27,7 @@
         android:layout_marginLeft="@dimen/element_margin_normal"
         android:layout_toRightOf="@+id/list_item_handler_entry_thumb"
         android:text="[Name]"
-        android:textColor="@color/accent_1"
+        android:textColor="#000"
         android:textSize="@dimen/text_large" />
 
     <CheckBox
@@ -46,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="@dimen/element_margin_normal"
+        android:layout_marginRight="48dp"
         android:button="@drawable/btn_handler_junior_entry"
         android:clickable="false"
         android:focusable="false" />

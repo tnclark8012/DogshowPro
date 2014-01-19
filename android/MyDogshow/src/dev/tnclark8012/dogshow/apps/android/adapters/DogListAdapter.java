@@ -1,21 +1,20 @@
 package dev.tnclark8012.dogshow.apps.android.adapters;
 
+import java.io.File;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.content.res.Resources;
 import android.database.Cursor;
-import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.provider.BaseColumns;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import dev.tnclark8012.dogshow.apps.android.BuildConfig;
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
-import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
-import dev.tnclark8012.dogshow.apps.android.util.Utils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
 public class DogListAdapter extends BaseEntityCursorAdapter {
@@ -49,21 +48,11 @@ public class DogListAdapter extends BaseEntityCursorAdapter {
 			String breedStr = cursor.getString(DogsQuery.DOG_BREED);
 			((TextView) view.findViewById(R.id.list_item_dog_breed)).setText(Breeds.parse(breedStr).getPrimaryName());
 			String imagePath = cursor.getString(DogsQuery.DOG_IMAGE_PATH);
-			RelativeLayout imageLayout = ((RelativeLayout) view.findViewById(R.id.list_item_dog_thumb));
+			ImageView image= ((ImageView) view.findViewById(R.id.list_item_dog_thumb));
 			if (imagePath != null) {
-				Resources res = mActivity.getResources();
-				int height = res.getDimensionPixelSize(R.dimen.element_height_normal);
-				int width = res.getDimensionPixelSize(R.dimen.element_width_normal);
-				//TODO LOW: move to AsyncTask
-				BitmapDrawable image = new BitmapDrawable(res, UIUtils.loadBitmap(imagePath, width, height));
-				if (Utils.isJellybean()) {
-					imageLayout.setBackground(image);
-				} else {
-					imageLayout.setBackgroundDrawable(image);
-				}
-				
+				image.setImageURI(Uri.fromFile(new File(imagePath)));
 			} else {
-				imageLayout.setBackgroundResource(R.drawable.dog);
+				image.setBackgroundResource(R.drawable.dog);
 			}
 		}
 

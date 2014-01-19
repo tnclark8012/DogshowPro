@@ -90,11 +90,6 @@ public class ScheduleActivity extends BaseActivity implements ActionBar.TabListe
 
 		}
 		getActionBar().setHomeButtonEnabled(true);
-
-		// Sync data on load
-		if (savedInstanceState == null) {
-			triggerRefresh();
-		}
 	}
 
 	@Override
@@ -142,35 +137,6 @@ public class ScheduleActivity extends BaseActivity implements ActionBar.TabListe
 
 		String title = getString(titleId);
 		setTitle(titleId);
-		LOGD("Tracker", title);
-
-	}
-
-	@Override
-	public void onPageScrollStateChanged(int i) {
-	}
-
-	@Override
-	protected void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
-
-		// Since the pager fragments don't have known tags or IDs, the only way
-		// to persist the
-		// reference is to use putFragment/getFragment. Remember, we're not
-		// persisting the exact
-		// Fragment instance. This mechanism simply gives us a way to persist
-		// access to the
-		// 'current' fragment instance for the given fragment (which changes
-		// across orientation
-		// changes).
-		//
-		// The outcome of all this is that the "Refresh" menu button refreshes
-		// the stream across
-		// orientation changes.
-		// if (mSocialStreamFragment != null) {
-		// getFragmentManager().putFragment(outState, "stream_fragment",
-		// mSocialStreamFragment);
-		// }
 	}
 
 	@Override
@@ -231,9 +197,9 @@ public class ScheduleActivity extends BaseActivity implements ActionBar.TabListe
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case R.id.menu_refresh:
-			triggerRefresh();
-			return true;
+//		case R.id.menu_refresh:
+//			triggerRefresh();
+//			return true;
 
 		case R.id.menu_about:
 			return false;
@@ -246,57 +212,9 @@ public class ScheduleActivity extends BaseActivity implements ActionBar.TabListe
 		return super.onOptionsItemSelected(item);
 	}
 
-	private void triggerRefresh() {
-		Bundle extras = new Bundle();
-		// extras.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true);
-		// if (!UIUtils.isGoogleTV(this)) {
-		// ContentResolver.requestSync(
-		// new Account(AccountUtils.getChosenAccountName(this),
-		// GoogleAccountManager.ACCOUNT_TYPE),
-		// ScheduleContract.CONTENT_AUTHORITY, extras);
-		// }
-	}
-
 	@Override
-	protected void onPause() {
-		super.onPause();
-		if (mSyncObserverHandle != null) {
-			ContentResolver.removeStatusChangeListener(mSyncObserverHandle);
-			mSyncObserverHandle = null;
-		}
+	public void onPageScrollStateChanged(int arg0) {
+		// TODO Auto-generated method stub
+		
 	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-		mSyncStatusObserver.onStatusChanged(0);
-
-		// Watch for sync state changes
-		final int mask = ContentResolver.SYNC_OBSERVER_TYPE_PENDING | ContentResolver.SYNC_OBSERVER_TYPE_ACTIVE;
-		mSyncObserverHandle = ContentResolver.addStatusChangeListener(mask, mSyncStatusObserver);
-	}
-
-	public void setRefreshActionButtonState(boolean refreshing) {
-		if (mOptionsMenu == null) {
-			return;
-		}
-	}
-
-	private final SyncStatusObserver mSyncStatusObserver = new SyncStatusObserver() {
-		@Override
-		public void onStatusChanged(int which) {
-			runOnUiThread(new Runnable() {
-				@Override
-				public void run() {
-					String accountName = AccountUtils.getChosenAccountName(ScheduleActivity.this);
-					if (TextUtils.isEmpty(accountName)) {
-						setRefreshActionButtonState(false);
-						return;
-					}
-
-					Account account = new Account(accountName, "com.google");
-				}
-			});
-		}
-	};
 }

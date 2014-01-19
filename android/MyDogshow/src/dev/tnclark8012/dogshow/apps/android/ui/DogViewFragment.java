@@ -100,7 +100,6 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 		} else {
 			Log.w(TAG, "Image path was null");
 			mViewImage.setBackgroundResource(R.drawable.dog);
-
 		}
 		// String majorsTemplate = ;
 		Resources res = getResources();

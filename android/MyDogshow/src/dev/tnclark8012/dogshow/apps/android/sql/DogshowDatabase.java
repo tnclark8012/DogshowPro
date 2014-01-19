@@ -63,9 +63,9 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				+ DogsColumns.DOG_OWNER_ID + " INTEGER NOT NULL,"
 				+ DogsColumns.DOG_POINTS + " INTEGER NOT NULL,"
 				+ DogsColumns.DOG_SEX + " INTEGER NOT NULL,"
-				+ DogsColumns.DOG_IS_SHOWING + " INTEGER,"
-				+ DogsColumns.DOG_IS_VETERAN + " INTEGER,"
-				+ DogsColumns.DOG_IS_SHOWING_SWEEPSTAKES + " INTEGER,"
+				+ DogsColumns.DOG_IS_SHOWING + " INTEGER NOT NULL,"
+				+ DogsColumns.DOG_IS_VETERAN + " INTEGER NOT NULL,"
+				+ DogsColumns.DOG_IS_SHOWING_SWEEPSTAKES + " INTEGER NOT NULL,"
 				+ DogsColumns.DOG_UPDATED + " INTEGER NOT NULL)");
 
 
@@ -116,9 +116,10 @@ public class DogshowDatabase extends SQLiteOpenHelper {
                 + "," + DogsColumns.DOG_CALL_NAME + ","
                 + DogsColumns.DOG_MAJORS + "," + DogsColumns.DOG_OWNER_ID + ","
                 + DogsColumns.DOG_POINTS + "," + DogsColumns.DOG_SEX + ","
-                + DogsColumns.DOG_IS_SHOWING + "," + DogsColumns.DOG_UPDATED
+                + DogsColumns.DOG_IS_SHOWING + "," + DogsColumns.DOG_UPDATED + ","
+                + DogsColumns.DOG_IS_SHOWING_SWEEPSTAKES + "," + DogsColumns.DOG_IS_VETERAN
                 + ")" + " VALUES (" + "\"PAPILLON\"," + "\"Lotta\"," + "2,"
-                + "0," + "15," + "0," + "1," + System.currentTimeMillis() + ")");
+                + "0," + "15," + "0," + "1," + System.currentTimeMillis() + ", 0,0)");
         
         db.execSQL("INSERT INTO " + Tables.DOGS + " (" + DogsColumns.DOG_BREED
                 + "," + DogsColumns.DOG_CALL_NAME + ","
