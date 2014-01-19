@@ -7,7 +7,7 @@ MONTH_REGEX = "January|February|March|April|May|June|July|August|September|Octob
 class Env(object):
     FORCE_ALL = False;
     OFFLINE = False;
-    DEBUG = True
+    DEBUG = False;
     DO_DOWNLOAD = True;
     VERBOSE = False;
     LOG_VERBOSE = False;
@@ -17,7 +17,7 @@ class Env(object):
         return Env.FORCE_ALL;
 
 class AppServer(object):
-    SERVER_URL = "http://localhost:49414/api/" if Env.DEBUG else 'http://dogshow-manager.appspot.com/rest/'
+    SERVER_URL = "http://localhost:49414/api/" if Env.DEBUG else 'http://dogshow.azurewebsites.net/api/'
     SHOW_POST_URL = SERVER_URL + "Show"
     DUMP_DIR = Env.SANDBOX_DIR + '/final/'
 
