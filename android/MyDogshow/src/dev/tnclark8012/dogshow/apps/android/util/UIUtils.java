@@ -258,10 +258,6 @@ public class UIUtils {
 
 	private static final SimpleDateFormat standardTimeFormatAmPm = new SimpleDateFormat("h:mm a", Locale.US);
 	private static final SimpleDateFormat standardTimeFormat = new SimpleDateFormat("h:mm", Locale.US);
-	static {
-//		standardTimeFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
-//		standardTimeFormatAmPm.setTimeZone(TimeZone.getTimeZone("GMT"));
-	}
 
 	public static String timeStringFromMillis(long millis, boolean withAmPm) {
 		Calendar cal = GregorianCalendar.getInstance();

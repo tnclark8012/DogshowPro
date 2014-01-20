@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.widget.CursorAdapter;
 import dev.tnclark8012.dogshow.apps.android.adapters.DogListAdapter;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
+import dev.tnclark8012.dogshow.apps.android.sql.query.Query.DogsQuery;
 import dev.tnclark8012.dogshow.apps.android.ui.base.BaseEntityListFragment;
 
 public class DogListFragment extends BaseEntityListFragment {
@@ -20,11 +21,11 @@ public class DogListFragment extends BaseEntityListFragment {
 	}
 	@Override
 	protected CursorLoader getCursorLoader(Activity activity, Uri uri) {
-		return new CursorLoader(activity, uri, DogListAdapter.DogsQuery.PROJECTION, null, null, Dogs.DEFAULT_SORT);
+		return new CursorLoader(activity, uri, DogsQuery.PROJECTION, null, null, Dogs.DEFAULT_SORT);
 	}
 	@Override
 	protected int getIdColumnIndex() {
-		return DogListAdapter.DogsQuery._ID;
+		return DogsQuery._ID;
 	}
 
 	

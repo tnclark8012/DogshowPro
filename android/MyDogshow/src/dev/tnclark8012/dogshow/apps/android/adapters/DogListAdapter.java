@@ -7,14 +7,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
-import android.provider.BaseColumns;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import dev.tnclark8012.dogshow.apps.android.BuildConfig;
 import dev.tnclark8012.dogshow.apps.android.R;
-import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
+import dev.tnclark8012.dogshow.apps.android.sql.query.Query.DogsQuery;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
 public class DogListAdapter extends BaseEntityCursorAdapter {
@@ -22,17 +21,6 @@ public class DogListAdapter extends BaseEntityCursorAdapter {
 		public DogListAdapter(Activity activity) {
 			super(activity, null, false);
 			mActivity = activity;
-		}
-		public interface DogsQuery {
-			final int _TOKEN = 0x1;
-
-			final String[] PROJECTION = { BaseColumns._ID, Dogs.DOG_CALL_NAME, Dogs.DOG_BREED, Dogs.DOG_IMAGE_PATH, Dogs.DOG_IS_SHOWING };
-
-			int _ID = 0;
-			int DOG_CALL_NAME = 1;
-			int DOG_BREED = 2;
-			int DOG_IMAGE_PATH = 3;
-			int DOG_IS_SHOWING = 4;
 		}
 		
 		@SuppressWarnings("deprecation")
