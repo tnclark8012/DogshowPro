@@ -17,12 +17,17 @@
 package dev.tnclark8012.dogshow.apps.android.ui;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TimeZone;
 
+import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
+import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 import android.app.Activity;
-import android.app.ListFragment;
+import android.app.Fragment;
 import android.app.LoaderManager;
 import android.content.Context;
 import android.content.CursorLoader;
@@ -44,11 +49,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewStub;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.CursorAdapter;
 import android.widget.RelativeLayout;
+import android.widget.SectionIndexer;
 import android.widget.TextView;
 import android.widget.Toast;
 import dev.tnclark8012.dogshow.apps.android.BuildConfig;
@@ -60,18 +65,16 @@ import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.EnteredRings;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.JuniorsRings;
 import dev.tnclark8012.dogshow.apps.android.ui.dialog.EditJudgeTimeDialog;
-import dev.tnclark8012.dogshow.apps.android.util.DebugUtils;
+import dev.tnclark8012.dogshow.apps.android.util.Lists;
 import dev.tnclark8012.dogshow.apps.android.util.UIUtils;
 import dev.tnclark8012.dogshow.apps.android.util.Utils;
-import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
-import dev.tnclark8012.dogshow.shared.DogshowEnums.JuniorClass;
 
-public class MyScheduleFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback, OnSharedPreferenceChangeListener, OnItemLongClickListener, EditJudgeTimeDialog.Callback {
+public class MyScheduleFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback, OnSharedPreferenceChangeListener, OnItemLongClickListener, EditJudgeTimeDialog.Callback {
 	private static float defaultPerDogJudgingMinutes = 2;
 	private final long upcomingAllowedWindow = 1 * 60 * 1000;
 	private long upcomingBreedRingStart = 0;
 	private static final String TAG = MyScheduleFragment.class.getSimpleName();
-	private CursorAdapter mAdapter;
+	private RingListAdapter mAdapter;
 	private View mRootView;
 	private TextView mViewTitle;
 	private TextView mViewTime;
@@ -110,16 +113,16 @@ public class MyScheduleFragment extends ListFragment implements LoaderManager.Lo
 			}
 		}
 	};
+	private StickyListHeadersListView stickyList;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		defaultPerDogJudgingMinutes = Prefs.getEstimatedJudgingTime(getActivity());
 		mAdapter = new RingListAdapter(getActivity());
-		setListAdapter(mAdapter);
 		LoaderManager manager = getLoaderManager();
-		 manager.restartLoader(UpcomingRingQuery._TOKEN, getArguments(), this);//TODO use argument ring query token to choose ring types to show
-		 manager.restartLoader(AllRingsQuery._TOKEN, getArguments(), this);
+		manager.restartLoader(UpcomingRingQuery._TOKEN, getArguments(), this);// TODO use argument ring query token to choose ring types to show
+		manager.restartLoader(AllRingsQuery._TOKEN, getArguments(), this);
 	}
 
 	@Override
@@ -148,6 +151,8 @@ public class MyScheduleFragment extends ListFragment implements LoaderManager.Lo
 		mViewUpcomingHeader = (RelativeLayout) mRootView.findViewById(R.id.schedule_upcoming_header);
 		mViewNoUpcomingHeader = (RelativeLayout) mRootView.findViewById(R.id.schedule_no_upcoming_header);
 		mViewNoUpcomingHeaderText = (TextView) mRootView.findViewById(R.id.schedule_no_upcoming_header_text);
+		stickyList = (StickyListHeadersListView) mRootView.findViewById(R.id.ring_list);
+		stickyList.setAdapter(mAdapter);
 		return mRootView;
 	}
 
@@ -156,11 +161,9 @@ public class MyScheduleFragment extends ListFragment implements LoaderManager.Lo
 		CursorLoader loader = null;
 		String selection = EnteredRings.UPCOMING_SELECTION;
 		long now = (BuildConfig.DEBUG) ? 0 : System.currentTimeMillis();
-		String[] selectionArgs = EnteredRings.buildUpcomingSelectionArgs(now);
+		String[] allSelectionArgs = EnteredRings.buildUpcomingSelectionArgs(now);
+		String[] selectionArgs = EnteredRings.buildUpcomingSelectionArgs(System.currentTimeMillis());
 		switch (id) {
-		case BreedRingsQuery._TOKEN:
-			loader = new CursorLoader(getActivity(), BreedRings.buildEnteredRingsUri(), BreedRingsQuery.PROJECTION, selection, selectionArgs, BreedRings.DEFAULT_SORT);
-			break;
 		case UpcomingRingQuery._TOKEN:
 			loader = new CursorLoader(getActivity(), EnteredRings.CONTENT_URI, UpcomingRingQuery.PROJECTION, selection, selectionArgs, BreedRings.DEFAULT_SORT);
 			break;
@@ -178,10 +181,7 @@ public class MyScheduleFragment extends ListFragment implements LoaderManager.Lo
 
 		int token = loader.getId();
 		Log.v(TAG, "loader id " + token + " finished");
-		if (token == BreedRingsQuery._TOKEN) {
-			Log.v(TAG, "Cursor contains " + cursor.getCount() + " breed rings");
-			onBreedRingsQueryComplete(cursor);
-		} else if (token == UpcomingRingQuery._TOKEN) {
+		if (token == UpcomingRingQuery._TOKEN) {
 			onUpcomingRingQueryComplete(cursor);
 		} else if (token == AllRingsQuery._TOKEN) {
 			onAllRingsQueryComplete(cursor);
@@ -194,58 +194,48 @@ public class MyScheduleFragment extends ListFragment implements LoaderManager.Lo
 	public void onAllRingsQueryComplete(Cursor cursor) {
 		int cursorSize = cursor.getCount();
 		ArrayList<Integer> newPositions = new ArrayList<Integer>();
+		ArrayList<Integer> sectionIndices = new ArrayList<Integer>();
+		ArrayList<String> sectionHeaders = new ArrayList<String>();
+		ArrayList<Integer> sectionIds = new ArrayList<Integer>();
+		int sectionIndex = 0;
 		if (cursorSize > 0) {
 			cursor.moveToFirst();
 			int position = 0;
 			newDayPositions = new SparseBooleanArray(cursorSize);
 			newDayPositions.put(position, true);
+			sectionIndices.add(position);
 			newPositions.add(position);
 			long prevBlockMillis = cursor.getLong(AllRingsQuery.BLOCK_START);
+			String dateStr = DateUtils.formatDateTime(getActivity(), prevBlockMillis, DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NO_YEAR);
+			sectionHeaders.add(dateStr);
+			sectionIds.add(sectionIndex);
+
 			long currentBlockMillis = 0;
 			if (cursorSize > 1) {
 				while (cursor.moveToNext()) {
 					position++;
+					long now = System.currentTimeMillis();
+//					Log.i(TAG, "Now " + now + "; " + new Date(now).toLocaleString());
+//					Log.i(TAG, "BlockStart " + currentBlockMillis + "; " + new Date(currentBlockMillis).toLocaleString());
+//					Log.i(TAG, "Difference in milliseconds: " + (now - currentBlockMillis));
+//					
+//					Log.i(TAG, "seconds until current block: " + (System.currentTimeMillis() - currentBlockMillis)/1000 + "(Current block is " + currentBlockMillis + ")");
 					currentBlockMillis = cursor.getLong(AllRingsQuery.BLOCK_START);
 					if (!Utils.isSameDay(prevBlockMillis, currentBlockMillis)) {
 						newDayPositions.put(position, true);
 						newPositions.add(position);
+						sectionIndices.add(position);
+						dateStr = DateUtils.formatDateTime(getActivity(), prevBlockMillis, DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NO_YEAR);
+						sectionHeaders.add(dateStr);
+						sectionIndex++;
 					}
+					sectionIds.add(sectionIndex);
 					prevBlockMillis = currentBlockMillis;
 				}
 			}
 			cursor.moveToPosition(-1);
-			mAdapter.changeCursor(cursor);
-		}
-        else
-        {
-            getListView().setEmptyView(new View(getActivity()));
-        }
-	}
-
-	public void onBreedRingsQueryComplete(Cursor cursor) {
-		int cursorSize = cursor.getCount();
-		ArrayList<Integer> newPositions = new ArrayList<Integer>();
-		if (cursorSize > 0) {
-			cursor.moveToFirst();
-			int position = 0;
-			newDayPositions = new SparseBooleanArray(cursorSize);
-			newDayPositions.put(position, true);
-			newPositions.add(position);
-			long prevBlockMillis = cursor.getLong(BreedRingsQuery.RING_BLOCK_START);
-			long currentBlockMillis = 0;
-			if (cursorSize > 1) {
-				while (cursor.moveToNext()) {
-					position++;
-					currentBlockMillis = cursor.getLong(BreedRingsQuery.RING_BLOCK_START);
-					if (!Utils.isSameDay(prevBlockMillis, currentBlockMillis)) {
-						newDayPositions.put(position, true);
-						newPositions.add(position);
-					}
-					prevBlockMillis = currentBlockMillis;
-				}
-			}
-			DebugUtils.logArray("DebugUtils", newPositions.toArray());
-			cursor.moveToPosition(-1);
+			// TODO use Guava
+			mAdapter.setSections(Lists.toArray(sectionIndices, -1), sectionHeaders.toArray(new String[sectionHeaders.size()]), Lists.toArray(sectionIds, -1));
 			mAdapter.changeCursor(cursor);
 		}
 	}
@@ -256,13 +246,12 @@ public class MyScheduleFragment extends ListFragment implements LoaderManager.Lo
 			mViewUpcomingHeader.setVisibility(View.VISIBLE);
 			String title = cursor.getString(UpcomingRingQuery.RING_TITLE);
 
-			switch(cursor.getInt(UpcomingRingQuery.RING_TYPE))
-			{
+			switch (cursor.getInt(UpcomingRingQuery.RING_TYPE)) {
 			case EnteredRings.TYPE_BREED_RING:
-//				title = Breeds.parse(title).getPlural();
+				// title = Breeds.parse(title).getPlural();
 				break;
 			case EnteredRings.TYPE_JUNIORS_RING:
-//				title = JuniorClass.parse(title).getPrimaryName();
+				// title = JuniorClass.parse(title).getPrimaryName();
 				break;
 			}
 			mViewTitle.setText(title);
@@ -273,11 +262,6 @@ public class MyScheduleFragment extends ListFragment implements LoaderManager.Lo
 			long estimatedStart = Utils.estimateBlockStart(countAhead, upcomingBreedRingStart, judgeMinutesPerDog);
 
 			mViewTime.setText(UIUtils.timeStringFromMillis(estimatedStart, true));
-			long delay = estimatedStart + upcomingAllowedWindow - System.currentTimeMillis();
-			Log.i(TAG, "Closest ring is " + new Date(estimatedStart));
-			delay = (delay > 0) ? delay : 0;
-			if (Utils.isSameDay(estimatedStart + upcomingAllowedWindow, System.currentTimeMillis()))// FIXME
-				handler.postDelayed(updateUpcomingRunnable, delay);
 			String imagePath = cursor.getString(UpcomingRingQuery.DOG_IMAGE_PATH);
 			if (imagePath != null) {
 				Resources res = getResources();
@@ -290,12 +274,27 @@ public class MyScheduleFragment extends ListFragment implements LoaderManager.Lo
 				Log.w(TAG, "Image path was null");
 				mBreedImage.setBackgroundResource(R.drawable.dog);
 			}
+			long currentStart = estimatedStart;
+			// Setup the refresh to update upcoming
+			while (cursor.moveToNext()) {
+				countAhead = cursor.getInt(UpcomingRingQuery.BREED_COUNT_AHEAD);
+				judgeMinutesPerDog = Utils.getMaybeNull(cursor, UpcomingRingQuery.RING_JUDGE_TIME, defaultPerDogJudgingMinutes);
+				upcomingBreedRingStart = cursor.getLong(UpcomingRingQuery.RING_BLOCK_START);
+				estimatedStart = Utils.estimateBlockStart(countAhead, upcomingBreedRingStart, judgeMinutesPerDog);
+				if (estimatedStart > currentStart) {
+					long delay = estimatedStart - System.currentTimeMillis();
+					Log.i(TAG, "Closest ring is " + cursor.getString(UpcomingRingQuery.RING_TITLE) + " at " + new Date(estimatedStart).toGMTString());
+					delay = (delay > 0) ? delay : 0;
+					handler.postDelayed(updateUpcomingRunnable, delay);
+					Log.i(TAG, "Updating in " + (delay / 1000) + " seconds.");
+					break;
+				}
+			}
 		} else {
 			Log.v(TAG, "No upcoming breed rings found");
 			mViewUpcomingHeader.setVisibility(View.GONE);
 			mViewNoUpcomingHeader.setVisibility(View.VISIBLE);
 			mViewNoUpcomingHeaderText.setVisibility(View.VISIBLE);
-
 		}
 	}
 
@@ -303,7 +302,17 @@ public class MyScheduleFragment extends ListFragment implements LoaderManager.Lo
 	public void onLoaderReset(Loader<Cursor> arg0) {
 	}
 
-	private class RingListAdapter extends CursorAdapter {
+	private class RingListAdapter extends CursorAdapter implements StickyListHeadersAdapter, SectionIndexer {
+		private int[] mSectionIndices;
+		private String[] mSectionHeaders;
+		private int[] mSectionIds;
+
+		public void setSections(int[] indices, String[] sectionHeaders, int[] sectionIds) {
+			mSectionHeaders = sectionHeaders;
+			mSectionIndices = indices;
+			mSectionIds = sectionIds;
+		}
+
 		public RingListAdapter(Activity activity) {
 			super(activity, null, false);
 		}
@@ -313,33 +322,13 @@ public class MyScheduleFragment extends ListFragment implements LoaderManager.Lo
 
 			int countAhead = cursor.getInt(AllRingsQuery.COUNT_AHEAD);
 			long blockTimeMillis = cursor.getLong(AllRingsQuery.BLOCK_START);
+			blockTimeMillis = new Date(blockTimeMillis).getTime();
 			float judgeMinutesPerDog = Utils.getMaybeNull(cursor, AllRingsQuery.JUDGE_TIME, defaultPerDogJudgingMinutes);
 			long estMillis = Utils.estimateBlockStart(countAhead, blockTimeMillis, judgeMinutesPerDog);
 			int cursorPosition = cursor.getPosition();
 			Log.d(TAG, "position " + cursorPosition + " is type: " + cursor.getInt(AllRingsQuery.RING_TYPE));
-			if (newDayPositions.get(cursorPosition)) {
-				ViewStub stub = (ViewStub) view.findViewById(R.id.list_item_ring_header_stub);
-				RelativeLayout header = null;
-				if (stub != null) {
-					header = (RelativeLayout) stub.inflate();
-				} else {
-					header = (RelativeLayout) view.findViewById(R.id.list_item_ring_header);
-				}
-				((TextView) header.findViewById(R.id.list_item_ring_header_date)).setText(DateUtils.formatDateTime(getActivity(), blockTimeMillis, DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NO_YEAR) + "");
-				header.setVisibility(View.VISIBLE);
-			} else {
-				RelativeLayout header = (RelativeLayout) view.findViewById(R.id.list_item_ring_header);
-				if (header != null) {
-					header.setVisibility(View.GONE);
-				}
-			}
 			((TextView) view.findViewById(R.id.list_item_ring_subtitle)).setText(cursor.getString(AllRingsQuery.SUBTITLE));
 			String title = cursor.getString(AllRingsQuery.TITLE);
-			if (cursor.getInt(AllRingsQuery.RING_TYPE) == EnteredRings.TYPE_BREED_RING) {
-//				title = Breeds.parse(title).getPrimaryName();
-			} else {
-//				title = JuniorClass.parse(title).getPrimaryName();
-			}
 			((TextView) view.findViewById(R.id.list_item_ring_title)).setText(title);
 			((TextView) view.findViewById(R.id.list_item_ring_number)).setText(getString(R.string.template_ring_number, cursor.getInt(AllRingsQuery.RING_NUMBER)));
 
@@ -354,6 +343,52 @@ public class MyScheduleFragment extends ListFragment implements LoaderManager.Lo
 		public View newView(Context context, Cursor cursor, ViewGroup parent) {
 			return getActivity().getLayoutInflater().inflate(R.layout.list_item_ring_with_header, parent, false);
 		}
+
+		@Override
+		public View getHeaderView(int position, View convertView, ViewGroup parent) {
+			// TODO mInflater
+			TextView text;
+			if (convertView == null) {
+				convertView = getActivity().getLayoutInflater().inflate(R.layout.list_item_ring_header, parent, false);
+				text = (TextView) convertView.findViewById(R.id.list_item_ring_header_date);
+				convertView.setTag(text);
+			} else {
+				text = (TextView) convertView.getTag();
+			}
+			text.setText(mSectionHeaders[mSectionIds[position]]);
+			return convertView;
+		}
+
+		@Override
+		public long getHeaderId(int position) {
+			return mSectionHeaders[mSectionIds[position]].hashCode();
+		}
+
+		@Override
+		public int getPositionForSection(int section) {
+			if (section >= mSectionIndices.length) {
+				section = mSectionIndices.length - 1;
+			} else if (section < 0) {
+				section = 0;
+			}
+			return mSectionIndices[section];
+		}
+
+		@Override
+		public int getSectionForPosition(int position) {
+			for (int i = 0; i < mSectionIndices.length; i++) {
+				if (position < mSectionIndices[i]) {
+					return i - 1;
+				}
+			}
+			return mSectionIndices.length - 1;
+		}
+
+		@Override
+		public Object[] getSections() {
+			return mSectionHeaders;
+		}
+
 	}
 
 	/**
@@ -408,8 +443,8 @@ public class MyScheduleFragment extends ListFragment implements LoaderManager.Lo
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		Prefs.get(getActivity()).registerOnSharedPreferenceChangeListener(this);
-		getListView().setOnItemLongClickListener(this);
-        getListView().setEmptyView(getActivity().getLayoutInflater().inflate(R.layout.empty_waiting_for_sync, null));
+		stickyList.setOnItemLongClickListener(this);
+		stickyList.setEmptyView(getActivity().getLayoutInflater().inflate(R.layout.empty_waiting_for_sync, null));
 	}
 
 	@Override
