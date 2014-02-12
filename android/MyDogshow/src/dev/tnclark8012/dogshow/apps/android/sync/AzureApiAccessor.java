@@ -3,6 +3,9 @@ package dev.tnclark8012.dogshow.apps.android.sync;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Date;
+
+import android.util.Log;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -95,7 +98,9 @@ public class AzureApiAccessor extends ApiAccessor {
 			BreedRing[] rings = mGson.fromJson(jsonStr, BreedRing[].class);
 			for(BreedRing ring : rings)
 			{
+				Log.d(TAG,"From " + new Date(ring.blockStartMillis));
 				ring.blockStartMillis = Utils.millisSinceEpoch(ring.blockStartMillis);
+				Log.d(TAG, "To " + new Date(ring.blockStartMillis));
 			}
 			return rings;
 		} catch (IOException e) {

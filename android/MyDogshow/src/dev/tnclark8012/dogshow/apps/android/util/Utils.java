@@ -1,5 +1,9 @@
 package dev.tnclark8012.dogshow.apps.android.util;
 
+import java.util.Calendar;
+import java.util.Locale;
+import java.util.TimeZone;
+
 import android.database.Cursor;
 import android.text.format.Time;
 
@@ -17,15 +21,16 @@ public class Utils {
 	}
 
 	/**
-	 * Convenience method: converts a boolean to an int 
-	 * @param bool boolean value
+	 * Convenience method: converts a boolean to an int
+	 * 
+	 * @param bool
+	 *            boolean value
 	 * @return 1 or 0 for True or False, respectively.
 	 */
-	public static int booleanToInt(boolean bool)
-	{
+	public static int booleanToInt(boolean bool) {
 		return (bool) ? 1 : 0;
 	}
-	
+
 	public static int parseSafely(String str, int defaultValue) {
 		if (str.isEmpty() || !Character.isDigit(str.charAt(0))) {
 			// catch easiest cases that cause NumberFormatException to avoid costly handling
@@ -53,13 +58,13 @@ public class Utils {
 	}
 
 	public static boolean isSameDay(long one, long two) {
-		Time time = new Time();
-		time.set(one);
-		int oneYear = time.year;
-		int oneMonth = time.month;
-		int oneMonthDay = time.monthDay;
-		time.set(two);
-		return (oneYear == time.year) && (oneMonth == time.month) && (oneMonthDay == time.monthDay);
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC"), Locale.US);
+		cal.setTimeInMillis(one);
+		int oneYear = cal.get(Calendar.YEAR);
+		int oneMonth = cal.get(Calendar.MONTH);
+		int oneMonthDay = cal.get(Calendar.DAY_OF_MONTH);
+		cal.setTimeInMillis(two);
+		return (oneYear == cal.get(Calendar.YEAR)) && (oneMonth == cal.get(Calendar.MONTH)) && (oneMonthDay == cal.get(Calendar.DAY_OF_MONTH));
 	}
 
 	public static boolean isNullOrEmpty(String str) {
@@ -81,12 +86,10 @@ public class Utils {
 	public static float getMaybeNull(Cursor cursor, int columnIndex, float defaultValue) {
 		return (cursor.isNull(columnIndex)) ? defaultValue : cursor.getFloat(columnIndex);
 	}
-	
+
 	public static boolean getMaybeNull(Cursor cursor, int columnIndex, boolean defaultValue) {
-		return (cursor.isNull(columnIndex)) ? defaultValue : (cursor.getInt(columnIndex)!=0);
+		return (cursor.isNull(columnIndex)) ? defaultValue : (cursor.getInt(columnIndex) != 0);
 	}
-	
-	
 
 	public static long minutesToMillis(float minutes) {
 		return (long) (minutes * 60 * 1000);
@@ -100,9 +103,10 @@ public class Utils {
 	public static long estimateBlockStart(int dogCountAhead, long timeBlockStart, float estimatedMinutesPerDog) {
 		return estimateBlockStart(dogCountAhead, timeBlockStart, ((long) (estimatedMinutesPerDog * 1000 * 60)));// Simple, but used several places
 	}
+
 	private static final long EPOCH_IN_MILLISECONDS = 62135596800000l;
-	public static long millisSinceEpoch(long millisSinceAD )
-	{
+
+	public static long millisSinceEpoch(long millisSinceAD) {
 		return millisSinceAD - EPOCH_IN_MILLISECONDS;
 	}
 

@@ -209,7 +209,7 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 						newDayPositions.put(position, true);
 						newPositions.add(position);
 						sectionIndices.add(position);
-						dateStr = DateUtils.formatDateTime(getActivity(), prevBlockMillis, DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NO_YEAR);
+						dateStr = DateUtils.formatDateTime(getActivity(), currentBlockMillis, DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NO_YEAR);
 						sectionHeaders.add(dateStr);
 						sectionIndex++;
 					}

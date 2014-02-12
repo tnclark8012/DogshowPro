@@ -52,7 +52,12 @@ public class SyncHelper {
 			isSweepstakes = Utils.getMaybeNull(breedsCursor, 1, false);
 			isVeteran = Utils.getMaybeNull(breedsCursor, 2, false);
 			Log.v(TAG, "Requesting breed ring: " + breedName);
-			batch.addAll(handler.parse(mAccessor.getBreedRings(showId,DogshowEnums.Breeds.parse(breedName).getPrimaryName(), isVeteran, isSweepstakes)));
+			//When entered in sweeps, request the non-sweeps rings as well. TODO make this optional
+			if(isSweepstakes)
+			{
+				batch.addAll(handler.parse(mAccessor.getBreedRings(showId,DogshowEnums.Breeds.parse(breedName).getPrimaryName(), isVeteran, isSweepstakes)));
+			}
+			batch.addAll(handler.parse(mAccessor.getBreedRings(showId,DogshowEnums.Breeds.parse(breedName).getPrimaryName(), isVeteran, false)));
 			numBreeds++;
 		}
 		Log.v(TAG, "Pulled breed rings for " + numBreeds + " breeds");

@@ -35,6 +35,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
+import android.sax.StartElementListener;
 import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -258,9 +259,13 @@ public class UIUtils {
 
 	private static final SimpleDateFormat standardTimeFormatAmPm = new SimpleDateFormat("h:mm a", Locale.US);
 	private static final SimpleDateFormat standardTimeFormat = new SimpleDateFormat("h:mm", Locale.US);
-
+	static
+	{
+		standardTimeFormatAmPm.setTimeZone(TimeZone.getTimeZone("UTC"));
+		standardTimeFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+	}
 	public static String timeStringFromMillis(long millis, boolean withAmPm) {
-		Calendar cal = GregorianCalendar.getInstance();
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
 		cal.setTimeInMillis(millis);
 		if (withAmPm) {
 			return standardTimeFormatAmPm.format(cal.getTime());
@@ -270,7 +275,7 @@ public class UIUtils {
 	}
 
 	public static String timeAmPmFromMillis(long millis) {
-		Calendar cal = GregorianCalendar.getInstance();
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
 		cal.setTimeInMillis(millis);
 		SimpleDateFormat format = new SimpleDateFormat("a", Locale.US);
 		format.setTimeZone(TimeZone.getTimeZone("GMT"));
