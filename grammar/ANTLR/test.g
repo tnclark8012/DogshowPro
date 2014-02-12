@@ -16,6 +16,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map.Entry;
 import java.util.Set;
+import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
+import dev.tnclark8012.dogshow.shared.DogshowEnums.BreedGroup;
 }
 @lexer::header {
 package dev.tclark.dogshow.grammar;
@@ -41,6 +43,11 @@ Set<String> judgeSet = new HashSet<String>();
 boolean nextJudgeIsNewRing = false;
 String latestBreed = "";
 int mCurrentCount;
+String mLastComment;
+boolean isSpecialtyRing;
+String mSpecialtyBreed;
+String mSpecialtyGroup;
+
 // end non-relational
 
 public void setRelationalParse(boolean value)
@@ -216,17 +223,17 @@ start   returns [JsonObject json]
 		//:((mComment=big_comment{comments+=$mComment.str;})+ {json.addProperty("Comment", comments);}((ring)=>mRing=ring{ringArray.add($mRing.json);})*)+ {json.add("Rings", ringArray);} EOF;
 
 ring	returns [JsonObject json]
-		@init {json = new JsonObject();if(debug){System.out.println("ring...");}mLastBreedName = null;String title = null;}
-		:   special_ring_header? mTitle=ring_title{title=mTitle;json.addProperty("Title", title); json.addProperty("Number", parseRingNumber(title));if(!mRelational){mCurrentRingNumber=parseRingNumber(title);}} mRing=inner_ring{json.add("Ring", mRing);};
+@init {json = new JsonObject();boolean hasHeader=false; if(debug){System.out.println("ring...");}mLastBreedName = null;String title = null;}
+		:   (special_ring_header{hasHeader=true;isSpecialtyRing=true;})? mTitle=ring_title{if(!hasHeader){isSpecialtyRing=false;}title=mTitle;json.addProperty("Title", title); json.addProperty("Number", parseRingNumber(title));if(!mRelational){mCurrentRingNumber=parseRingNumber(title);}} mRing=inner_ring{json.add("Ring", mRing);};
 ring_title returns [String str]: (RING{str=$RING.text;} INT{str+=" " + $INT.text;}) | (GROUP RING{str="GROUP RING";});
 
-special_ring_header
-	:
-	/*
-	GERMAN SHORTHAIRED POINTER CLUB OF
-	MINNESOTA - 2013150606 (1ST SHOW)
-	*/	
-	CLUB_INDICATOR HYPHEN INT COMMENT*;
+special_ring_header returns [String str]
+ 	:
+ 	/*
+ 	GERMAN SHORTHAIRED POINTER CLUB OF
+ 	MINNESOTA - 2013150606 (1ST SHOW)
+ 	*/	
+ 	CLUB_INDICATOR{str=$CLUB_INDICATOR.text;if(mLastComment!=null){Breeds breed = Breeds.find(mLastComment);if(breed!=null){mSpecialtyGroup=null;mSpecialtyBreed = breed.getPrimaryName();latestBreed=mSpecialtyBreed;}else{mSpecialtyBreed=null;BreedGroup group = BreedGroup.find(mLastComment);if(group!=null)mSpecialtyGroup=group.getName();}}} HYPHEN INT COMMENT*;
 inner_ring returns [JsonObject json]
 	@init{json = new JsonObject();JsonArray judgeBlocks = new JsonArray();}
 	:  ((group_block)=>mGroupBlock=group_block{json.add("GroupRing", mGroupBlock);} (comment)*)
@@ -244,18 +251,18 @@ big_comment returns [String str]
 
 comment returns [String str]
 		@init{str="";}
-		: (non_header_comment|non_ring_title_comment|PARENTHETICAL_INT|BREED_COUNT|NON_CONFORMATION_CLASS_NAME{str=$NON_CONFORMATION_CLASS_NAME.text;}|GROUP|GROUP_NAME|HYPHEN|BREED_NAME{str=$BREED_NAME.text;}|BREED_CLASSIFIER{str=$BREED_CLASSIFIER.text;}|TIME{str=$TIME.text;}|COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|integer=INT{str=integer.getText();}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|NON_CONFORMATION_SECOND_LINE{str=$NON_CONFORMATION_SECOND_LINE.text;});
+		: (non_header_comment|non_ring_title_comment|PARENTHETICAL_INT|BREED_COUNT|NON_CONFORMATION_CLASS_NAME{str=$NON_CONFORMATION_CLASS_NAME.text;}|GROUP|GROUP_NAME{str=$GROUP_NAME.text;}|HYPHEN|BREED_NAME{str=$BREED_NAME.text;}|BREED_CLASSIFIER{str=$BREED_CLASSIFIER.text;}|TIME{str=$TIME.text;}|COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|integer=INT{str=integer.getText();}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|NON_CONFORMATION_SECOND_LINE{str=$NON_CONFORMATION_SECOND_LINE.text;});
 non_header_comment//Don't match CLUB_INDICATOR if it's actually part of a ring header
 	:	{!(input.LT(2).getText().equals("-") && parseIntSafely(input.LT(3).getText(),-1)!=-1)}?CLUB_INDICATOR;
 non_ring_title_comment
 	:	{!(parseIntSafely(input.LT(2).getText(),-1)!=-1)}?RING;
 timeblock_comment returns [String str]//No time
 		@init{str="";}
-		: (GROUP_NAME|CLUB_INDICATOR|HYPHEN|NON_CONFORMATION_CLASS_NAME{str=$NON_CONFORMATION_CLASS_NAME.text;}|BREED_NAME{str=$BREED_NAME.text;}|COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|INT{str=$INT.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|SPECIAL_SUFFIX|NON_CONF_SECOND_LINE_COMMENT|GROUP_RING);
+		: (GROUP_NAME{str=$GROUP_NAME.text;}|non_header_comment|HYPHEN|NON_CONFORMATION_CLASS_NAME{str=$NON_CONFORMATION_CLASS_NAME.text;}|BREED_NAME{str=$BREED_NAME.text;}|COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|INT{str=$INT.text;}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|SPECIAL_SUFFIX|NON_CONF_SECOND_LINE_COMMENT|GROUP_RING);
 
 		
 ring_comment returns [String str]
-    :   STANDALONE_COMMENT{str=$STANDALONE_COMMENT.text;}|timeblock_comment|(GROUP ~RING);
+    :   STANDALONE_COMMENT{str=$STANDALONE_COMMENT.text;}|(tComment=timeblock_comment{str=tComment;})|(GROUP{str=$GROUP.text;} ~RING);
 
 timeblock returns [JsonObject json] 
 	@init {json = new JsonObject(); String comment = ""; String time = "";}	
@@ -295,13 +302,14 @@ timeblock returns [JsonObject json]
 	   		{
 	   		if(!comment.equals("")){
 	   			json.add("timeblock_comment",new JsonPrimitive(comment));
+	   			mLastComment=comment;
 	   		}
 	   		}
 	   )*
 	   	{
 	   	if(!mRelational&&json.has("Rings")){
 	   		mShowRings.addAll(json.getAsJsonArray("Rings"));
-	   	}
+	   	}	
 	   	};
 
 non_group_ring returns [JsonObject json]
@@ -314,7 +322,7 @@ non_group_ring returns [JsonObject json]
 
 
 inner_timeblock returns [JsonArray array]
-	@init {array = new JsonArray();JsonObject toAdd = null;int countAhead = 0;}
+	@init {array = new JsonArray();JsonObject toAdd = null;int countAhead = 0;String comment="";}
 	:	 (
 		  (
 		  (mName=judge_name{mCurrentJudge = mName;judgeSet.add(mName.get("Judge").getAsString());})? //there may not be a new time block when judges change. See ANOK1 Saturday, Ring 3
@@ -339,8 +347,9 @@ inner_timeblock returns [JsonArray array]
 		  	}
 		  )
 		  )|
-		  {!areJudgeNames(input.LT(1).getText(), input.LT(2).getText())}?=>ring_comment
-		  )+;
+		  {!areJudgeNames(input.LT(1).getText(), input.LT(2).getText())}?=>rComment=ring_comment{comment+=" "+rComment;}
+		  )+{
+		  mLastComment=comment;};
 
 
 
@@ -489,7 +498,7 @@ rally_ring_name returns [String str]
 
 rally_entry_line returns [String str]
 	@init{str="";}:
-		(INT?{str+=$INT.text;} RALLY_ENTRY{str+=" "+$RALLY_ENTRY.text;});
+		((intOne=INT{str+=intOne.getText();})? (RALLY_ENTRY_TITLE{str+=$RALLY_ENTRY_TITLE.text;})? (count=INT{str+=" "+$count.text;} breed=BREED_NAME{str+=" " + breed.getText();} HYPHEN{str+=$HYPHEN.text; })? RALLY_ENTRY{str+=" "+$RALLY_ENTRY.text;});
 
 rally_comment returns [String str]
 	@init{str="";}:
@@ -502,7 +511,7 @@ rally_comment returns [String str]
 */
 junior_ring returns [JsonObject json]
 	@init{json = new JsonObject();}:
-		JUNIOR_CLASS{json.addProperty("RingType","Junior");json.addProperty("ClassName", $JUNIOR_CLASS.text);};
+		JUNIOR_CLASS{json.addProperty("RingType","Junior");json.addProperty("ClassName", $JUNIOR_CLASS.text);if(isSpecialtyRing){if(mSpecialtyBreed!=null){json.addProperty("BreedName",latestBreed);}else if(mSpecialtyGroup!=null){json.addProperty("GroupName", mSpecialtyGroup);}}};
 	
 	
 /******************************
@@ -615,6 +624,8 @@ fragment FRAG_BREED_NAME_SINGLE
     'Glen of Imaal Terrier'|
     'Golden Retriever'|
     'Gordon Setter'|
+    'Grand Basset Griffon Vendéen'|
+    'Grand Bassets Griffons Vendeen'|
     'Great Dane'|
     'Great Pyrenees'|
     'Greater Swiss Mountain Dog'|
@@ -681,7 +692,7 @@ fragment FRAG_BREED_NAME_SINGLE
     'Pyrenean Shepherd'|
     'Rat Terrier'|
     'Redbone Coonhound'|
-    'Retrievers'|//labrador
+    'Retriever'|//labrador
     'Rhodesian Ridgeback'|
     'Rottweiler'|
     'Russell Terrier'|
@@ -881,8 +892,10 @@ fragment FRAG_RALLY_CLASS_NAME
 	:	'Rally ' NON_CONFORMATION_CLASS_NAME;
 fragment FRAG_RALLY_CLASS_SECTION
 	:	'Walkthrough';
-	RALLY_ENTRY
-	:	'inch: '? FRAG_RALLY_ENTRANT_GROUP (';'FRAG_RALLY_ENTRANT_GROUP)*;
+RALLY_ENTRY_TITLE
+	:	'inch: ';
+RALLY_ENTRY
+	:	( FRAG_RALLY_ENTRANT_GROUP)  (';'FRAG_RALLY_ENTRANT_GROUP)*;
 	/*
 	08 inch: R6
 12 inch: R7-R8
@@ -890,7 +903,7 @@ fragment FRAG_RALLY_CLASS_SECTION
 08 inch	: R7,R8
 	*/
 //NON_CONFORMATION_SECOND_LINE:(INT+(('-'INT+)?(';'INT+('-'INT)?))+);
-NON_CONFORMATION_SECOND_LINE:('0'..'9'+'-''0'..'9'+)|('0'..'9'+(('-''0'..'9'+)?(';''0'..'9'+('-''0'..'9'+)?))+);
+NON_CONFORMATION_SECOND_LINE:('0'..'9'+'-''0'..'9'+)|('0'..'9'+(('-''0'..'9'+)?((';'|',')'0'..'9'+('-''0'..'9'+)?))+);
 
 fragment FRAG_RALLY_SINGLE_ENTRANT
 	:	'R''0'..'9'+;
@@ -982,13 +995,13 @@ fragment FRAG_PROPER_NAME: ('A'..'Z' ('a'..'z'|'A'..'Z'|FRAG_SPEC_CHAR|FRAG_SPEC
 fragment WORD  : ('a'..'z'|FRAG_SPEC_CHAR|FRAG_SPEC_WORD_CHAR)+ END_PUNCTUATION?;
 HYPHEN	:	'-';
 CLUB_INDICATOR
-	:	'INC.'|'CLUB'|'ASSOCIATION';
+	:	(('A'..'Z'|'a'..'z')*(','))?'INC.'|'CLUB'|'ASSOCIATION';
 COMMENT :   ((FRAG_PROPER_NAME|WORD|PARENTHETICAL|INT|ELLIPSIS){/*allowBreed=false;*/ allowGroup=false;allowJudge=false;})+;//Sometimes they mention sweepstakes in comment
 
 fragment END_WORD
 	:	WORD END_PUNCTUATION;
 GROUP_ENDING_ANNOUNCEMENT:'Unless otherwise announced';
-fragment PARENTHETICAL_NAME: '(' (FRAG_TITLE WS)? FRAG_PROPER_NAME ')';
+fragment PARENTHETICAL_NAME: '(' (FRAG_TITLE WS)? FRAG_PROPER_NAME (WS FRAG_PROPER_NAME)* ')';
 FallThrough
 @after{
   //System.err.println("Ooops! " + getText() + " fell through");
