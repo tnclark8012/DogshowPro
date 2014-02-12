@@ -5,6 +5,7 @@ import java.util.Map;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.LoaderManager;
+import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
@@ -16,6 +17,8 @@ import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import dev.tnclark8012.dogshow.apps.android.R;
 import dev.tnclark8012.dogshow.apps.android.provider.PersistHelper;
 
@@ -26,23 +29,32 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 	private Uri mEntityUri;
 	private final int mQueryToken = getQueryToken();
 	private Callbacks mCallbacks;
-	public interface Callbacks{
+
+	public interface Callbacks {
 		public void onSave();
+
 		public void onCancel();
 	}
+
 	protected abstract int getEntityIdFromUri(Uri uri);
+
 	protected abstract int getQueryToken();
+
 	protected abstract Map<String, Object> getEntityValueMap();
+
 	/**
 	 * TODO This method and {@link #getQueryToken()} match {@link BaseEntityListFragment#getCursorLoader(Activity, Uri)} etc. Super class?
+	 * 
 	 * @param activity
 	 * @param uri
 	 * @return
 	 */
 	protected abstract CursorLoader getCursorLoader(Activity activity, Uri uri);
+
 	protected abstract void onQueryComplete(Cursor cursor);
+
 	protected abstract Uri getContentUri();
-	
+
 	private final ContentObserver mObserver = new ContentObserver(new Handler()) {
 		@Override
 		public void onChange(boolean selfChange) {
@@ -56,7 +68,7 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 			}
 		}
 	};
-	
+
 	@Override
 	public final Loader<Cursor> onCreateLoader(int id, Bundle data) {
 		CursorLoader loader = null;
@@ -80,7 +92,6 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 	public final void onLoaderReset(Loader<Cursor> arg0) {
 	}
 
-	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -102,7 +113,6 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 			manager.restartLoader(mQueryToken, null, this);
 		}
 	}
-	
 
 	@Override
 	public void onAttach(Activity activity) {
@@ -120,12 +130,24 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 		super.onDetach();
 		getActivity().getContentResolver().unregisterContentObserver(mObserver);
 	}
-	
+
+	@Override
+	public void onPause() {
+		super.onPause();
+		View focused = getActivity().getCurrentFocus();
+		if (focused != null) {// TODO mActivity
+			InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+			imm.hideSoftInputFromWindow(focused.getWindowToken(), 0);
+		}
+
+	}
+
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		super.onCreateOptionsMenu(menu, inflater);
 		inflater.inflate(R.menu.entity_edit, menu);
 	}
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
@@ -135,12 +157,9 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 			return true;
 		case R.id.menu_entity_edit_save:
 			PersistHelper helper = new PersistHelper(getActivity());
-			if(mCreateNewEntity)
-			{
+			if (mCreateNewEntity) {
 				helper.createEntity(getContentUri(), getEntityValueMap());
-			}
-			else
-			{
+			} else {
 				helper.updateEntity(getContentUri(), mEntityId, getEntityValueMap());
 			}
 			mCallbacks.onSave();
@@ -148,5 +167,5 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
+
 }

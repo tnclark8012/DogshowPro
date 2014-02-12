@@ -16,6 +16,16 @@ public class Utils {
 		return android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN;
 	}
 
+	/**
+	 * Convenience method: converts a boolean to an int 
+	 * @param bool boolean value
+	 * @return 1 or 0 for True or False, respectively.
+	 */
+	public static int booleanToInt(boolean bool)
+	{
+		return (bool) ? 1 : 0;
+	}
+	
 	public static int parseSafely(String str, int defaultValue) {
 		if (str.isEmpty() || !Character.isDigit(str.charAt(0))) {
 			// catch easiest cases that cause NumberFormatException to avoid costly handling

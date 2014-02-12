@@ -1,121 +1,162 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/layout_background"
-    android:orientation="vertical" >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/layout_background" >
 
- 	<include layout="@layout/header_image"
-        android:id="@id/dog_view_image"/>
-
-    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-        xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
-        android:id="@+id/dog_view_section_sex_label"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:paddingLeft="@dimen/element_padding_normal"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:text="SEX"
-        android:textColor="@color/accent_1"
-        android:textSize="@dimen/text_small"
-        ttv:typeface="Roboto-Bold.ttf" />
+        android:background="@color/layout_background"
+        android:orientation="vertical" >
 
-    <include
-        layout="@layout/accent_bar"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/accent_bar_height"/>
+        <include
+            android:id="@id/dog_view_image"
+            layout="@layout/header_image" />
 
-    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-        android:id="@id/dog_view_section_sex_text"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/element_inner_height"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/element_spacing_normal"
-        android:paddingLeft="@dimen/element_padding_normal"
-        android:textSize="@dimen/text_medium" />
+        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+            android:id="@+id/dog_view_section_sex_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:paddingLeft="@dimen/element_padding_normal"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:text="SEX"
+            android:textColor="@color/accent_1"
+            android:textSize="@dimen/text_small"
+            ttv:typeface="Roboto-Bold.ttf" />
 
-    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-        xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
-        android:id="@+id/dog_view_section_breed_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:paddingLeft="@dimen/element_padding_normal"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:text="BREED"
-        android:textColor="@color/accent_1"
-        android:textSize="@dimen/text_small"
-        ttv:typeface="Roboto-Bold.ttf" />
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/accent_bar_height"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            layout="@layout/accent_bar" />
 
-    <include
-        layout="@layout/accent_bar"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/accent_bar_height"/>
+        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+            android:id="@id/dog_view_section_sex_text"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/element_inner_height"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/element_spacing_normal"
+            android:paddingLeft="@dimen/element_padding_normal"
+            android:textSize="@dimen/text_medium" />
 
-    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-        android:id="@id/dog_view_section_breed_text"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/element_inner_height"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/element_spacing_normal"
-        android:paddingLeft="@dimen/element_padding_normal"
-        android:textSize="@dimen/text_medium" />
+        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+            android:id="@+id/dog_view_section_breed_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:paddingLeft="@dimen/element_padding_normal"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:text="BREED"
+            android:textColor="@color/accent_1"
+            android:textSize="@dimen/text_small"
+            ttv:typeface="Roboto-Bold.ttf" />
 
-    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-        xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
-        android:id="@+id/dog_view_section_points_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:paddingLeft="@dimen/element_padding_normal"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:text="POINTS"
-        android:textColor="@color/accent_1"
-        android:textSize="@dimen/text_small"
-        ttv:typeface="Roboto-Bold.ttf" />
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/accent_bar_height"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            layout="@layout/accent_bar" />
 
-    <include
-        layout="@layout/accent_bar"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/accent_bar_height"/>
+        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+            android:id="@id/dog_view_section_breed_text"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/element_inner_height"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/element_spacing_normal"
+            android:paddingLeft="@dimen/element_padding_normal"
+            android:textSize="@dimen/text_medium" />
 
-    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-        android:id="@id/dog_view_section_points_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/element_spacing_normal"
-        android:paddingLeft="@dimen/element_padding_normal"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="@dimen/text_medium" />
+        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+            android:id="@+id/dog_view_section_points_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:paddingLeft="@dimen/element_padding_normal"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:text="POINTS"
+            android:textColor="@color/accent_1"
+            android:textSize="@dimen/text_small"
+            ttv:typeface="Roboto-Bold.ttf" />
 
-    <View
-        android:id="@+id/points_bezel"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="@dimen/element_spacing_normal"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:background="@drawable/list_divider" />
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/accent_bar_height"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            layout="@layout/accent_bar" />
 
-    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-        android:id="@+id/dog_view_section_majors_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/element_spacing_normal"
-        android:paddingLeft="@dimen/element_padding_normal"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="@dimen/text_medium" />
+        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+            android:id="@id/dog_view_section_points_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/element_spacing_normal"
+            android:paddingLeft="@dimen/element_padding_normal"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="@dimen/text_medium" />
 
-</LinearLayout>
+        <View
+            android:id="@+id/points_bezel"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/element_spacing_normal"
+            android:background="@drawable/list_divider" />
+
+        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+            android:id="@+id/dog_view_section_majors_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/element_spacing_normal"
+            android:paddingLeft="@dimen/element_padding_normal"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="@dimen/text_medium" />
+
+        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+            android:id="@+id/dog_view_section_other_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:paddingLeft="@dimen/element_padding_normal"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:text="OTHER"
+            android:textColor="@color/accent_1"
+            android:textSize="@dimen/text_small"
+            android:visibility="gone"
+            ttv:typeface="Roboto-Bold.ttf" />
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/accent_bar_height"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            layout="@layout/accent_bar"
+            android:visibility="gone" />
+
+        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+            android:id="@+id/dog_view_section_veteran_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/element_spacing_normal"
+            android:paddingLeft="@dimen/element_padding_normal"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="@dimen/text_medium"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</ScrollView>

@@ -16,14 +16,18 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 import dev.tnclark8012.dogshow.apps.android.R;
+import dev.tnclark8012.dogshow.apps.android.provider.PersistHelper;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract;
 import dev.tnclark8012.dogshow.apps.android.sql.DogshowContract.Dogs;
 import dev.tnclark8012.dogshow.apps.android.ui.base.BaseEditableEntityEditFragment;
@@ -51,6 +55,7 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements L
 	private TextView mViewMajors;
 	private TextView mViewOwner;
 	private RadioGroup mViewSex;
+	private CheckBox mViewVeteran;
 
 	private String mImagePath;
 
@@ -68,6 +73,7 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements L
 		mViewPoints = (TextView) mRootView.findViewById(R.id.dog_edit_section_points_text);
 		// mViewOwner = (TextView) mRootView.findViewById(R.id.dog_edit_section_owner_text);
 		mViewSex = (RadioGroup) mRootView.findViewById(R.id.dog_edit_sex_radio);
+		mViewVeteran = (CheckBox) mRootView.findViewById(R.id.dog_edit_section_veteran);
 
 		getActivity().getActionBar().setTitle("Edit Dog");
 		mViewBreed.setTag(TAG_BREED);
@@ -120,7 +126,8 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements L
 		case BreedSelectActivity.REQUEST_CODE_BREED_SELECT:
 			if (data != null && data.hasExtra(BreedSelectActivity.EXTRA_BREED_GROUP)) {
 				Breeds breed = (Breeds) data.getSerializableExtra(BreedSelectActivity.EXTRA_BREED_GROUP);
-				mViewBreed.setText(breed.getPrimaryName());
+				mBreedName = breed.getPrimaryName();
+				mViewBreed.setText(mBreedName);
 			}
 			break;
 		case REQUEST_CODE_IMAGE:
@@ -152,7 +159,7 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements L
 	private interface DogQuery {
 		int _TOKEN = 0x1;
 
-		String[] PROJECTION = { DogshowContract.Dogs._ID, DogshowContract.Dogs.DOG_BREED, DogshowContract.Dogs.DOG_CALL_NAME, DogshowContract.Dogs.DOG_MAJORS, DogshowContract.Dogs.DOG_POINTS, DogshowContract.Dogs.DOG_IMAGE_PATH, DogshowContract.Dogs.DOG_SEX };
+		String[] PROJECTION = { DogshowContract.Dogs._ID, DogshowContract.Dogs.DOG_BREED, DogshowContract.Dogs.DOG_CALL_NAME, DogshowContract.Dogs.DOG_MAJORS, DogshowContract.Dogs.DOG_POINTS, DogshowContract.Dogs.DOG_IMAGE_PATH, DogshowContract.Dogs.DOG_SEX, DogshowContract.Dogs.DOG_IS_VETERAN };
 		int DOG_ID = 0;
 		int DOG_BREED = 1;
 		int DOG_CALL_NAME = 2;
@@ -160,6 +167,7 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements L
 		int DOG_POINTS = 4;
 		int DOG_IMAGE_PATH = 5;
 		int DOG_SEX = 6;
+		int DOG_IS_VETERAN = 7;
 	}
 
 	@Override
@@ -196,6 +204,7 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements L
 		mViewName.setText(mCallName);
 		mSexId = getRadioIdFromSex(cursor.getInt(DogQuery.DOG_SEX));
 		mViewSex.check(mSexId);
+		mViewVeteran.setChecked(Utils.getMaybeNull(cursor, DogQuery.DOG_IS_VETERAN, false));
 		String imagePath = cursor.getString(DogQuery.DOG_IMAGE_PATH);
 		if (imagePath != null) {
 			mImagePath = imagePath;
@@ -218,6 +227,19 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements L
 	protected Uri getContentUri() {
 		return Dogs.CONTENT_URI;
 	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.menu_entity_edit_save:
+			if(mBreedName == null)
+			{
+				Toast.makeText(getActivity(), "Select a breed before saving", Toast.LENGTH_SHORT).show();
+				return true;
+			}
+		}
+		return super.onOptionsItemSelected(item);
+	}
 
 	@Override
 	protected Map<String, Object> getEntityValueMap() {
@@ -234,6 +256,7 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements L
 		values.put(Dogs.DOG_POINTS, Utils.parseSafely(mPoints, 0));
 		values.put(Dogs.DOG_OWNER_ID, Integer.parseInt(mOwnerId));
 		values.put(Dogs.DOG_SEX, getSexFromRadioId(mSexId));
+		values.put(Dogs.DOG_IS_VETERAN, Utils.booleanToInt(mViewVeteran.isChecked()));//TODO the UI shouldn't need to know it's stored as a bool/int/etc.
 		values.put(Dogs.UPDATED, System.currentTimeMillis());
 		return values;
 	}

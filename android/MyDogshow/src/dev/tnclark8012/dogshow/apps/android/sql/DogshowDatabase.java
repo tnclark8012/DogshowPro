@@ -22,7 +22,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 	private static final String TAG = DogshowDatabase.class.getSimpleName();
 	private static final String DATABASE_NAME = "mydogshow.db";
 	private static final int VER_LAUNCH = 1;
-	private static final int DATABASE_VERSION = 2;
+	private static final int DATABASE_VERSION = 3;
 
 	public interface Tables {
 		String DOGS = "dogs";
@@ -48,24 +48,24 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		db.execSQL("CREATE TABLE " + Tables.HANDLERS + " (" 
 				+ BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-				+ HandlersColumns.HANDLER_NAME + " INTEGER NOT NULL,"
+				+ HandlersColumns.HANDLER_NAME + " TEXT,"
 				+ HandlersColumns.HANDLER_JUNIOR_CLASS + " TEXT,"
 				+ HandlersColumns.HANDLER_IMAGE_PATH + " TEXT,"
-				+ HandlersColumns.HANDLER_IS_SHOWING + " INTEGER NOT NULL,"
-				+ HandlersColumns.HANDLER_IS_SHOWING_JUNIORS + " INTEGER NOT NULL,"
+				+ HandlersColumns.HANDLER_IS_SHOWING + " INTEGER DEFAULT 1,"
+				+ HandlersColumns.HANDLER_IS_SHOWING_JUNIORS + " DEFAULT 1,"
 				+ SyncColumns.UPDATED + " INTEGER NOT NULL)");
 		
 		db.execSQL("CREATE TABLE " + Tables.DOGS + " (" + BaseColumns._ID
 				+ " INTEGER PRIMARY KEY AUTOINCREMENT," + DogsColumns.DOG_BREED
 				+ " TEXT NOT NULL," + DogsColumns.DOG_CALL_NAME
-				+ " TEXT NOT NULL," + DogsColumns.DOG_IMAGE_PATH + " TEXT,"
-				+ DogsColumns.DOG_MAJORS + " INTEGER NOT NULL,"
-				+ DogsColumns.DOG_OWNER_ID + " INTEGER NOT NULL,"
-				+ DogsColumns.DOG_POINTS + " INTEGER NOT NULL,"
-				+ DogsColumns.DOG_SEX + " INTEGER NOT NULL,"
-				+ DogsColumns.DOG_IS_SHOWING + " INTEGER NOT NULL,"
-				+ DogsColumns.DOG_IS_VETERAN + " INTEGER NOT NULL,"
-				+ DogsColumns.DOG_IS_SHOWING_SWEEPSTAKES + " INTEGER NOT NULL,"
+				+ " TEXT," + DogsColumns.DOG_IMAGE_PATH + " TEXT,"
+				+ DogsColumns.DOG_MAJORS + " INTEGER DEFAULT 0,"
+				+ DogsColumns.DOG_OWNER_ID + " INTEGER DEFAULT -1,"
+				+ DogsColumns.DOG_POINTS + " INTEGER DEFAULT 0,"
+				+ DogsColumns.DOG_SEX + " INTEGER DEFAULT 1,"
+				+ DogsColumns.DOG_IS_SHOWING + " INTEGER DEFAULT 1,"
+				+ DogsColumns.DOG_IS_VETERAN + " INTEGER DEFAULT 0,"
+				+ DogsColumns.DOG_IS_SHOWING_SWEEPSTAKES + " INTEGER DEFAULT 1,"
 				+ DogsColumns.DOG_UPDATED + " INTEGER NOT NULL)");
 
 
