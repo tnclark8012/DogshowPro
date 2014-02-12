@@ -147,7 +147,7 @@ public class DogshowEnums {
 				"American English Coonhounds"), AMERICAN_FOXHOUND(
 				"HOUND", "American Foxhound", "American Foxhounds"), BASENJI(
 				"HOUND", "Basenji", "Basenjis"), BASSET_HOUND(
-				"HOUND", "Basset Hound", "Basset Hounds"), BEAGLE_13(
+				"HOUND", "Basset Hound", "Basset Hounds", "Basset", "Bassets"), BEAGLE_13(
 				"HOUND", "Beagle (13”)", "Beagles (13”)",
 				"Beagle (13 Inch)", "Beagles (13 Inch)"), BEAGLE_15(
 				"HOUND", "Beagle (15”)", "Beagles (15”)",
@@ -305,7 +305,7 @@ public class DogshowEnums {
 				"Bull Terriers (Colored)"), BULL_TERRIER_WHITE(
 				"TERRIER", "Bull Terrier (White)",
 				"Bull Terriers (White)"), CAIRN_TERRIER("TERRIER",
-				"Cairn Terrier", "Cairn Terriers"), CESKY_TERRIER(
+				"Cairn Terrier", "Cairn Terriers", "Cairn", "Cairns"), CESKY_TERRIER(
 				"TERRIER", "Cesky Terrier", "Cesky Terriers"), DANDIE_DINMONT_TERRIER(
 				"TERRIER", "Dandie Dinmont Terrier",
 				"Dandie Dinmont Terriers"), GLEN_OF_IMAAL_TERRIER(
@@ -447,6 +447,19 @@ public class DogshowEnums {
 			return null;
 		}
 		
+		public static Breeds find(String textContainingBreed)
+		{
+			String text = textContainingBreed.toLowerCase();
+			for(Breeds b : Breeds.values())
+			{
+				for(String breedName : b.getNames())
+				{
+					if(text.contains(breedName.toLowerCase())) return b;
+				}
+			}
+			return null;
+		}
+		
 		public static String sanitize(String breedName)
 		{
 			return breedName.replaceAll("(\\(Misc. .*\\))|(Veteran.*)", "").trim();
@@ -483,9 +496,10 @@ public class DogshowEnums {
 	}
 
 	public enum BreedGroup {
-		TERRIER("Terrier", "Terrier Group"), TOY("Toy", "Toy Group"), SPORTING(
-				"Sporting", "Sporting Group"), FSS("FSS", "FSS Group"), NON_SPORTING(
-				"Non-Sporting", "Non-sporting Group"), HERDING("Herding",
+		//Don't change order. find() leverages non-sporting is listed before sporting
+		TERRIER("Terrier", "Terrier Group"), TOY("Toy", "Toy Group"),NON_SPORTING(
+				"Non-Sporting", "Non-sporting Group"), SPORTING(
+				"Sporting", "Sporting Group"), FSS("FSS", "FSS Group"), HERDING("Herding",
 				"Herding Group"), MISCELLANEOUS("Miscellaneous",
 				"Miscellaneous Group"), WORKING("Working", "Working Group"), HOUND(
 				"Hound", "Hound Group"), ;
@@ -495,8 +509,15 @@ public class DogshowEnums {
 		private String[] mAlternateNames;
 
 		BreedGroup(String name, String... alternateNames) {
+			ArrayList<String> names = new ArrayList<String>(
+					alternateNames.length + 1);
+			names.add(name);
+			for (int i = 0; i < alternateNames.length; i++) {
+				names.add(alternateNames[i]);
+			}
+			mAlternateNames = new String[names.size()];
+			mAlternateNames = (String[]) names.toArray(mAlternateNames);
 			mName = name;
-			mAlternateNames = alternateNames;
 		}
 
 		public static BreedGroup parse(String groupName) {
@@ -504,6 +525,24 @@ public class DogshowEnums {
 			for (BreedGroup group : BreedGroup.values()) {
 				if (group.hasName(groupName)) {
 					return group;
+				}
+			}
+			return null;
+		}
+		
+		public String[] getNames()
+		{
+			return mAlternateNames;
+		}
+		
+		public static BreedGroup find(String textContainingGroup)
+		{
+			String text = textContainingGroup.toLowerCase();
+			for(BreedGroup b : BreedGroup.values())
+			{
+				for(String groupName : b.getNames())
+				{
+					if(text.contains(groupName.toLowerCase())) return b;
 				}
 			}
 			return null;

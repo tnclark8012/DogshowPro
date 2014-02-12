@@ -10,6 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.JuniorClass;
 
 public class Main {
@@ -27,8 +28,10 @@ public class Main {
 	 * @throws JSONException
 	 */
 	public static void main(String[] argz) throws IOException, ParseException {
-		// Breeds [] breeds = Breeds.values();
+		Breeds [] breeds = Breeds.values();
+		String str ="8 LAKE MINNETONKA COMBINED SPECIALTY CLUBS Friday, June 7, 2013 TWIN CITIES AREA SHIH TZU CLUB,";
 		printArray(JuniorClass.values());
+		
 		if (true) {
 			return;
 		}
