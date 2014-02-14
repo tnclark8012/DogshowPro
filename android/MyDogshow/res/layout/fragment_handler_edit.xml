@@ -34,8 +34,8 @@
             
         </FrameLayout>
 
-        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedEditText
-            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedEditText
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
             android:id="@+id/handler_edit_name"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
@@ -56,8 +56,8 @@
         android:layout_height="2dp"
         android:background="@color/accent_1" />
 
-    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-        xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+        xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
         android:id="@+id/handler_edit_section_juniors_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:background="@drawable/accent_bar" />
 
-    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
         android:id="@+id/handler_edit_section_juniors_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

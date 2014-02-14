@@ -12,8 +12,8 @@
         android:gravity="center" 
         >
 
-        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
             android:id="@+id/schedule_no_upcoming_header_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,8 +39,8 @@
             android:maxWidth="@dimen/header_icon_width" >
         </RelativeLayout>
 
-        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
             android:id="@+id/schedule_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,8 +52,8 @@
             android:textSize="@dimen/text_large"
             ttv:typeface="Roboto-Medium.ttf" />
 
-        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
             android:id="@+id/schedule_breed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,8 +68,8 @@
             android:textSize="@dimen/text_large"
             ttv:typeface="Roboto-Medium.ttf" />
 
-        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
             android:id="@+id/schedule_ring"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,8 +84,8 @@
             android:textSize="@dimen/text_medium"
             ttv:typeface="Roboto-Medium.ttf" />
 
-        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
             android:id="@+id/schedule_ring_time"
             android:layout_alignParentBottom="true"
             android:layout_width="wrap_content"

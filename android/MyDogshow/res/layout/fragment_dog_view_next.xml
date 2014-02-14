@@ -13,8 +13,8 @@
             android:id="@id/dog_view_image"
             layout="@layout/header_image" />
 
-        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
             android:id="@+id/dog_view_section_sex_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             layout="@layout/accent_bar" />
 
-        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
             android:id="@id/dog_view_section_sex_text"
             android:layout_width="match_parent"
             android:layout_height="@dimen/element_inner_height"
@@ -43,8 +43,8 @@
             android:paddingLeft="@dimen/element_padding_normal"
             android:textSize="@dimen/text_medium" />
 
-        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
             android:id="@+id/dog_view_section_breed_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             layout="@layout/accent_bar" />
 
-        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
             android:id="@id/dog_view_section_breed_text"
             android:layout_width="match_parent"
             android:layout_height="@dimen/element_inner_height"
@@ -73,8 +73,8 @@
             android:paddingLeft="@dimen/element_padding_normal"
             android:textSize="@dimen/text_medium" />
 
-        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
             android:id="@+id/dog_view_section_points_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             layout="@layout/accent_bar" />
 
-        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
             android:id="@id/dog_view_section_points_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -113,7 +113,7 @@
             android:layout_marginTop="@dimen/element_spacing_normal"
             android:background="@drawable/list_divider" />
 
-        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
             android:id="@+id/dog_view_section_majors_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -124,8 +124,8 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textSize="@dimen/text_medium" />
 
-        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
             android:id="@+id/dog_view_section_other_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -146,7 +146,7 @@
             layout="@layout/accent_bar"
             android:visibility="gone" />
 
-        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
             android:id="@+id/dog_view_section_veteran_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

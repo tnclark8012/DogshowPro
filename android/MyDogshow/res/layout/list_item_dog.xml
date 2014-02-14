@@ -19,7 +19,7 @@
         android:maxWidth="@dimen/element_width_normal"
         android:scaleType="centerCrop"
         android:src="@drawable/dog" />
-    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
      android:layout_width="wrap_content"
      android:id="@+id/list_item_dog_name"
      android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
      android:textColor="@color/accent_1"
           android:layout_alignTop="@+id/list_item_dog_thumb"
      android:text="[Name]"/>
-    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
      android:layout_width="wrap_content"
      android:id="@+id/list_item_dog_breed"
      android:layout_below="@+id/list_item_dog_name"

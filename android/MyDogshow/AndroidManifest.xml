@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dev.tnclark8012.dogshow.apps.android"
-    android:versionCode="8"
-    android:versionName="0.1.1.2a" >
+    package="dev.tnclark8012.apps.android.dogshow"
+    android:versionCode="1"
+    android:versionName="0.2a" >
 
     <uses-sdk
         android:minSdkVersion="11"
         android:targetSdkVersion="17" />
 
     <permission
-        android:name="dev.tnclark8012.dogshow.apps.android.permission.WRITE_DOGSHOW"
+        android:name="dev.tnclark8012.apps.android.dogshow.permission.WRITE_DOGSHOW"
         android:label="write permission"
         android:protectionLevel="normal" />
 
@@ -24,11 +24,11 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:logo="@drawable/ic_home"
         android:label="@string/app_name"
+        android:logo="@drawable/ic_home"
         android:theme="@style/Theme.Dogshow" >
         <activity
-            android:name=".ui.phone.HomeActivity"
+            android:name="dev.tnclark8012.apps.android.dogshow.ui.phone.HomeActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.Dogshow" >
             <intent-filter>
@@ -38,7 +38,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.base.AccountActivity"
+            android:name="dev.tnclark8012.apps.android.dogshow.ui.base.AccountActivity"
             android:configChanges="orientation|keyboardHidden"
             android:theme="@style/Theme.Dogshow" />
         <activity
@@ -59,6 +59,7 @@
 
                 <data android:mimeType="vnd.android.cursor.item/vnd.dogshow.dog" />
             </intent-filter>
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.phone.HomeActivity" />
@@ -125,7 +126,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.phone.HandlerActivity" />
         </activity>
-        <!-- 
+        <!--
         <activity
             android:name=".ui.phone.ScheduleActivity"
             android:label="@string/app_name"
@@ -141,9 +142,9 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.phone.HomeActivity" />
-        </activity>
+        </activity>
         -->
-                <activity
+        <activity
             android:name=".ui.phone.MyScheduleActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.Dogshow" >
@@ -159,7 +160,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.phone.HomeActivity" />
         </activity>
-        
         <activity
             android:name=".ui.phone.ShowSetupActivity"
             android:label="Setup Show" >
@@ -168,7 +168,7 @@
                 android:value=".ui.phone.HomeActivity" />
         </activity>
         <activity
-            android:name=".preferences.PrefsActivity"
+            android:name="dev.tnclark8012.apps.android.dogshow.preferences.PrefsActivity"
             android:label="Settings" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -177,10 +177,10 @@
 
         <provider
             android:name=".provider.DogshowProvider"
-            android:authorities="dev.tnclark8012.dogshow.apps.android"
+            android:authorities="dev.tnclark8012.apps.android.dogshow"
             android:label="@string/app_name"
             android:syncable="true"
-            android:writePermission="dev.tnclark8012.dogshow.apps.android.permission.WRITE_DOGSHOW" />
+            android:writePermission="dev.tnclark8012.apps.android.dogshow.permission.WRITE_DOGSHOW" />
     </application>
 
 </manifest>

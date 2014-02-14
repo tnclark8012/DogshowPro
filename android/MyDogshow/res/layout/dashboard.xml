@@ -13,25 +13,25 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<dev.tnclark8012.dogshow.apps.android.widget.DashboardLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<dev.tnclark8012.apps.android.dogshow.widget.DashboardLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/layout_background" >
 
-    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedButton
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedButton
         android:id="@id/dashboard_schedule"
         style="@style/DashboardButton"
         android:drawableTop="@drawable/home_schedule"
         android:text="@string/dashboard_schedule" />
 
-    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedButton
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedButton
         android:id="@id/dashboard_doghouse"
         style="@style/DashboardButton"
         android:clickable="true"
         android:drawableTop="@drawable/home_doghouse"
         android:text="@string/dashboard_doghouse" />
 
-    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedButton
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedButton
         android:id="@id/dashboard_handlers"
         style="@style/DashboardButton"
         android:drawableTop="@drawable/home_handler"
@@ -39,10 +39,10 @@
         android:text="@string/dashboard_handlers" />
 
     
-    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedButton
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedButton
         android:id="@id/dashboard_find_show"
         style="@style/DashboardButton"
         android:drawableTop="@drawable/home_find"
         android:text="Find Your Show" />
 
-</dev.tnclark8012.dogshow.apps.android.widget.DashboardLayout>
+</dev.tnclark8012.apps.android.dogshow.widget.DashboardLayout>

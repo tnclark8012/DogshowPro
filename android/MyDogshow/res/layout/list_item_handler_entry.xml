@@ -19,7 +19,7 @@
                 android:contentDescription="@string/img_description_handler"
         android:src="@drawable/ic_default_handler" />
 
-    <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
         android:id="@+id/list_item_handler_entry_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -11,8 +11,8 @@
         android:layout_weight="1"
         android:background="@drawable/ic_home_next_showday" >
 
-        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
@@ -31,8 +31,8 @@
         android:layout_weight="1"
         android:background="@drawable/german_shepherds_wkc_dogshow" >
 
-        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
@@ -51,8 +51,8 @@
         android:layout_weight="1"
         android:background="@drawable/boxer_small" >
 
-        <dev.tnclark8012.dogshow.apps.android.widget.TypefacedTextView
-            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.dogshow.apps.android"
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
