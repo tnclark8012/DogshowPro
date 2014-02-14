@@ -1,2 +1,5 @@
 .metadata/
 bin
+android/Libraries/sticky-headers-library/gen/se/emilsjolander/stickylistheaders/R.java
+android/Libraries/sticky-headers-library/.settings/org.eclipse.jdt.core.prefs
+android/Libraries/sticky-headers-library/gen/se/emilsjolander/stickylistheaders/BuildConfig.java
