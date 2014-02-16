@@ -9,6 +9,7 @@ import java.io.OutputStream;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -42,7 +43,7 @@ public class ImageChooserActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState); // To change body of overridden methods use File | Settings | File Templates.
-		setContentView(R.layout.main);
+		// setContentView(R.layout.main);
 		String action = getIntent().getAction();
 		if (action.equals(ACTION_CHOOSE)) {
 			openGallery();
@@ -104,9 +105,12 @@ public class ImageChooserActivity extends Activity {
 	private void startCropImage(Uri uri) {
 
 		Intent intent = new Intent(this, CropImage.class);
+		intent.putExtras(getIntent().getExtras());
 		intent.putExtra(CropImage.RETURN_DATA, true);
 		intent.putExtra(CropImage.SCALE, true);
 		intent.putExtra(CropImage.IMAGE_PATH, uri.toString());
+		Resources res = getResources();
+
 		intent.putExtra(CropImage.ASPECT_X, 3);
 		intent.putExtra(CropImage.ASPECT_Y, 2);
 
