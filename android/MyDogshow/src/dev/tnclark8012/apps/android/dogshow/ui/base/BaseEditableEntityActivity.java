@@ -32,7 +32,7 @@ public abstract class BaseEditableEntityActivity extends SimpleSinglePaneActivit
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayShowHomeEnabled(false);
 		actionBar.setDisplayHomeAsUpEnabled(true);
-		actionBar.setHomeButtonEnabled(true);
+		// actionBar.setHomeButtonEnabled(true);
 	}
 
 	@Override
@@ -65,8 +65,12 @@ public abstract class BaseEditableEntityActivity extends SimpleSinglePaneActivit
 	@Override
 	public final void onEditClick() {
 		isEditing = true;
-		getActionBar().setTitle("Edit");
 		swapFragments(isEditing);
+	}
+
+	@Override
+	public void setTitle(CharSequence title) {
+		getActionBar().setTitle(title);
 	}
 
 	@Override

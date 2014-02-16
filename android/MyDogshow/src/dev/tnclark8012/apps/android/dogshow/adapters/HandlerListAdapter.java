@@ -1,5 +1,7 @@
 package dev.tnclark8012.apps.android.dogshow.adapters;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
@@ -17,29 +19,20 @@ import dev.tnclark8012.apps.android.dogshow.util.Utils;
 
 public class HandlerListAdapter extends CursorAdapter {
 	private Activity mActivity;
+	private DisplayImageOptions options = new DisplayImageOptions.Builder().resetViewBeforeLoading(true).build();
+
 	public HandlerListAdapter(Activity activity) {
 		super(activity, null, false);
 		mActivity = activity;
 	}
-	
+
 	@Override
 	public void bindView(View view, Context context, Cursor cursor) {
 		((TextView) view.findViewById(R.id.list_item_handler_name)).setText(cursor.getString(HandlersQuery.HANDLER_NAME));
 		String imagePath = cursor.getString(HandlersQuery.HANDLER_IMAGE_PATH);
 		ImageView imageView = ((ImageView) view.findViewById(R.id.list_item_handler_icon));
-
 		if (imagePath != null) {
-			Resources res = mActivity.getResources();
-			int height = res.getDimensionPixelSize(R.dimen.element_height_normal);
-			int width = res.getDimensionPixelSize(R.dimen.element_width_normal);
-			// TODO LOW: move to AsyncTask
-			BitmapDrawable image = new BitmapDrawable(res, UIUtils.loadBitmap(imagePath, width, height));
-			if (Utils.isJellybean()) {
-				imageView.setImageDrawable(image);
-			} else {
-				imageView.setImageDrawable(image);
-			}
-
+			UIUtils.displayImage(context, options, imageView, imagePath);
 		} else {
 			imageView.setImageResource(R.drawable.ic_default_handler);
 		}

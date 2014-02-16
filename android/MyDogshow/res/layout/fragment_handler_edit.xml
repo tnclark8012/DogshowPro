@@ -48,6 +48,7 @@
             android:inputType="textCapWords"
             android:textColor="@color/header_title"
             android:textSize="@dimen/text_large"
+            android:textCursorDrawable="@null"
             ttv:typeface="Roboto-Medium.ttf" />
     </RelativeLayout>
 

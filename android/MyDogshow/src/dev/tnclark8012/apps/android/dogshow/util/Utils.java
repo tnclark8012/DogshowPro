@@ -1,11 +1,18 @@
 package dev.tnclark8012.apps.android.dogshow.util;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
+import android.content.Context;
 import android.database.Cursor;
-import android.text.format.Time;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.util.Log;
 
 public class Utils {
 	private static final String TAG = Utils.class.getSimpleName();
@@ -108,6 +115,27 @@ public class Utils {
 
 	public static long millisSinceEpoch(long millisSinceAD) {
 		return millisSinceAD - EPOCH_IN_MILLISECONDS;
+	}
+
+	public static Uri storeImage(Context context, Bitmap image) {
+		File pictureFile = new File(context.getFilesDir(), System.currentTimeMillis() + ".jpg");
+		try {
+			pictureFile.createNewFile();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			FileOutputStream fos = new FileOutputStream(pictureFile);
+			image.compress(Bitmap.CompressFormat.PNG, 90, fos);
+			fos.close();
+			return Uri.fromFile(pictureFile);
+		} catch (FileNotFoundException e) {
+			Log.d(TAG, "File not found: " + e.getMessage());
+		} catch (IOException e) {
+			Log.d(TAG, "Error accessing file: " + e.getMessage());
+		}
+		return null;
 	}
 
 }

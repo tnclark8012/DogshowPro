@@ -10,10 +10,10 @@ import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,13 +22,19 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
+
+import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.phone.JuniorClassSelectActivity;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
-import dev.tnclark8012.apps.android.dogshow.R;
+import dev.tnclark8012.apps.android.dogshow.util.image.ImageChooserActivity;
+import dev.tnclark8012.apps.android.dogshow.util.image.SimpleImageLoadingListener;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.JuniorClass;
+import eu.janmuller.android.simplecropimage.CropImage;
 
 public class HandlerEditFragment extends BaseEditableEntityEditFragment implements OnClickListener {
 	private static final String TAG = HandlerEditFragment.class.getSimpleName();
@@ -44,6 +50,20 @@ public class HandlerEditFragment extends BaseEditableEntityEditFragment implemen
 	private final int TAG_CLASS = 0;
 	private final int TAG_IMAGE = 1;
 	public final int REQUEST_CODE_IMAGE = 2;
+
+	private ImageLoadingListener mImageLoadingListener = new SimpleImageLoadingListener() {
+		@SuppressLint("NewApi")
+		@Override
+		public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+			if (Utils.isJellybean()) {
+				mViewImage.setBackground(new BitmapDrawable(getResources(), loadedImage));
+			} else {
+				mViewImage.setBackgroundDrawable(new BitmapDrawable(getResources(), loadedImage));
+			}
+			mImagePath = imageUri;
+			Log.v(TAG, "done");
+		}
+	};
 
 	private interface HandlerQuery {
 		String[] PROJECTION = { Handlers._ID, Handlers.HANDLER_NAME, Handlers.HANDLER_JUNIOR_CLASS, Handlers.HANDLER_IMAGE_PATH };
@@ -96,8 +116,7 @@ public class HandlerEditFragment extends BaseEditableEntityEditFragment implemen
 
 		String imagePath = cursor.getString(HandlerQuery.HANDLER_IMAGE_PATH);
 		if (imagePath != null) {
-			mImagePath = imagePath;
-			mViewImage.setImageURI(Uri.fromFile(new File(mImagePath)));
+			UIUtils.loadImage(getActivity(), mImageLoadingListener, imagePath);
 		} else {
 			mViewImage.setBackgroundResource(R.drawable.ic_default_handler);
 		}
@@ -112,7 +131,7 @@ public class HandlerEditFragment extends BaseEditableEntityEditFragment implemen
 	protected Map<String, Object> getEntityValueMap() {
 		Log.d(TAG, "creating map");
 		mJuniorClass = mViewClassName.getText().toString();
-		//TODO HIGH this "None" thing is ridculous
+		// TODO HIGH this "None" thing is ridculous
 		mJuniorClass = (Utils.isNullOrEmpty(mJuniorClass) || mJuniorClass.equalsIgnoreCase("None")) ? null : JuniorClass.parse(mJuniorClass).toString();
 		mName = mViewName.getText().toString();
 
@@ -136,16 +155,15 @@ public class HandlerEditFragment extends BaseEditableEntityEditFragment implemen
 		}
 			break;
 		case TAG_IMAGE: {
-			Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+			Intent intent = new Intent(getActivity(), ImageChooserActivity.class);
+			intent.setAction(ImageChooserActivity.ACTION_CHOOSE);
+			Resources res = getResources();
+			int height = res.getDimensionPixelSize(R.dimen.header_icon_height);
+			int width = res.getDimensionPixelSize(R.dimen.header_icon_width);
 
-			intent.setType("image/*");
-			// intent.putExtra("crop", "true");
-			// intent.putExtra("scale", true);
-			// intent.putExtra("outputX", PHOTO_WIDTH);
-			// intent.putExtra("outputY", PHOTO_HEIGHT);
-			// intent.putExtra("aspectX", 1);
-			// intent.putExtra("aspectY", 1); TODO RELEASE: find these metrics
-			intent.putExtra("return-data", true);
+			intent.putExtra(CropImage.SCALE, "true");
+			intent.putExtra(CropImage.OUTPUT_X, width);
+			intent.putExtra(CropImage.OUTPUT_Y, height);
 			startActivityForResult(intent, REQUEST_CODE_IMAGE);
 		}
 			break;
@@ -168,23 +186,7 @@ public class HandlerEditFragment extends BaseEditableEntityEditFragment implemen
 				return;
 			}
 			Uri selectedImage = data.getData();
-			String[] filePathColumn = { MediaStore.Images.Media.DATA };
-
-			Cursor cursor = getActivity().getContentResolver().query(selectedImage, filePathColumn, null, null, null);
-			cursor.moveToFirst();
-
-			int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-			mImagePath = cursor.getString(columnIndex);
-			cursor.close();
-			Resources res = getResources();
-			int height = res.getDimensionPixelSize(R.dimen.header_icon_height);
-			int width = res.getDimensionPixelSize(R.dimen.header_icon_width);
-			BitmapDrawable image = new BitmapDrawable(res, UIUtils.loadBitmap(mImagePath, width, height));
-			if (Utils.isJellybean()) {
-				mViewImage.setBackground(image);
-			} else {
-				mViewImage.setBackgroundDrawable(image);
-			}
+			UIUtils.loadImage(getActivity(), mImageLoadingListener, selectedImage);
 			break;
 		}
 	}

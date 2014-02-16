@@ -20,6 +20,7 @@
     <uses-permission android:name="android.permission.PICK_CONTACT" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -64,6 +65,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.phone.HomeActivity" />
         </activity>
+        <activity android:name=".util.image.ImageChooserActivity" 
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <activity
             android:name=".ui.phone.DogListActivity"
             android:label="@string/dashboard_doghouse" >
@@ -142,7 +145,7 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.phone.HomeActivity" />
-        </activity>
+        </activity>
         -->
         <activity
             android:name=".ui.phone.MyScheduleActivity"
@@ -174,6 +177,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.phone.HomeActivity" />
         </activity>
+        <activity android:name="eu.janmuller.android.simplecropimage.CropImage" />
 
         <provider
             android:name=".provider.DogshowProvider"

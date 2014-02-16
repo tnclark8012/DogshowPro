@@ -33,6 +33,7 @@ import dev.tnclark8012.apps.android.dogshow.ui.base.BaseActivity;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 import dev.tnclark8012.apps.android.dogshow.R;
+
 public class HandlerEntryFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
 	private static final String TAG = HandlerEntryFragment.class.getSimpleName();
@@ -69,7 +70,7 @@ public class HandlerEntryFragment extends Fragment implements LoaderManager.Load
 		 * Return true to select (activate) the handler in the list, false otherwise.
 		 */
 		public boolean onHandlerSelected(int handlerId, boolean checked);
-		
+
 		public boolean onHandlerEnteredJuniorsClicked(int handlerId, boolean checked);
 
 		/**
@@ -223,7 +224,7 @@ public class HandlerEntryFragment extends Fragment implements LoaderManager.Load
 			final int id = cursor.getInt(HandlersQuery._ID);
 			((TextView) view.findViewById(R.id.list_item_handler_entry_name)).setText(cursor.getString(HandlersQuery.HANDLER_NAME));
 			String imagePath = cursor.getString(HandlersQuery.HANDLER_IMAGE_PATH);
-			ImageView imageLayout = ((ImageView) view.findViewById(R.id.list_item_handler_entry_thumb));
+			ImageView imageView = ((ImageView) view.findViewById(R.id.list_item_handler_entry_thumb));
 			boolean entered = Utils.getMaybeNull(cursor, HandlersQuery.HANDLER_IS_SHOWING, 0) == 1;
 			final boolean enteredJuniors = Utils.getMaybeNull(cursor, HandlersQuery.HANDLER_IS_SHOWING_JUNIORS, 0) == 1;
 			CheckBox enteredCheckBox = (CheckBox) view.findViewById(R.id.list_item_handler_entry_checkbox);
@@ -235,7 +236,7 @@ public class HandlerEntryFragment extends Fragment implements LoaderManager.Load
 					mCallbacks.onHandlerSelected(id, isChecked);
 				}
 			});
-			
+
 			CompoundButton enteredJuniorsButton = (CompoundButton) view.findViewById(R.id.list_item_handler_entry_junior_button);
 			enteredJuniorsButton.setClickable(true);
 			enteredJuniorsButton.setChecked(enteredJuniors);
@@ -245,21 +246,10 @@ public class HandlerEntryFragment extends Fragment implements LoaderManager.Load
 					mCallbacks.onHandlerEnteredJuniorsClicked(id, isChecked);
 				}
 			});
-			
 			if (imagePath != null) {
-				Resources res = getResources();
-				int height = res.getDimensionPixelSize(R.dimen.element_height_normal);
-				int width = res.getDimensionPixelSize(R.dimen.element_width_normal);
-				// TODO LOW: move to AsyncTask
-				BitmapDrawable image = new BitmapDrawable(res, UIUtils.loadBitmap(imagePath, width, height));
-				if (Utils.isJellybean()) {
-					imageLayout.setBackground(image);
-				} else {
-					imageLayout.setImageDrawable(image);
-				}
-
+				UIUtils.displayImage(context, imageView, imagePath);
 			} else {
-				imageLayout.setImageResource(R.drawable.ic_default_handler);
+				imageView.setImageResource(R.drawable.dog);
 			}
 		}
 

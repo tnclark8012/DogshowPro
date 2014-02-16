@@ -19,7 +19,6 @@ package dev.tnclark8012.apps.android.dogshow.util;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Formatter;
-import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -33,9 +32,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.sax.StartElementListener;
 import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -45,7 +44,14 @@ import android.text.method.LinkMovementMethod;
 import android.text.style.StyleSpan;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration.Builder;
+import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 
 /**
  * An assortment of UI helpers.
@@ -73,6 +79,7 @@ public class UIUtils {
 	private static Formatter sFormatter = new Formatter(sBuilder, Locale.getDefault());
 
 	private static StyleSpan sBoldSpan = new StyleSpan(Typeface.BOLD);
+	private static ImageLoader mLoader;
 
 	/**
 	 * Populate the given {@link TextView} with the requested text, formatting through {@link Html#fromHtml(String)} when applicable. Also sets {@link TextView#setMovementMethod} so inline links are handled.
@@ -259,11 +266,11 @@ public class UIUtils {
 
 	private static final SimpleDateFormat standardTimeFormatAmPm = new SimpleDateFormat("h:mm a", Locale.US);
 	private static final SimpleDateFormat standardTimeFormat = new SimpleDateFormat("h:mm", Locale.US);
-	static
-	{
+	static {
 		standardTimeFormatAmPm.setTimeZone(TimeZone.getTimeZone("UTC"));
 		standardTimeFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
 	}
+
 	public static String timeStringFromMillis(long millis, boolean withAmPm) {
 		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
 		cal.setTimeInMillis(millis);
@@ -281,4 +288,58 @@ public class UIUtils {
 		format.setTimeZone(TimeZone.getTimeZone("GMT"));
 		return format.format(cal.getTime());
 	}
+
+	public static void displayImage(Context context, ImageView imageView, String imagePath) {
+		displayImage(context, null, imageView, Uri.parse(imagePath));
+	}
+
+	public static void displayImage(Context context, ImageView imageView, Uri imageUri) {
+		displayImage(context, null, imageView, imageUri);
+	}
+
+	public static void displayImage(Context context, DisplayImageOptions options, ImageView imageView, String imagePath) {
+		displayImage(context, options, imageView, Uri.parse(imagePath));
+	}
+
+	public static void displayImage(Context context, DisplayImageOptions options, ImageView imageView, Uri imageUri) {
+		ImageLoader imageLoader = getImageLoaderInstance(context);
+		if (options != null) {
+			imageLoader.displayImage(imageUri.toString(), imageView, options);
+		} else {
+			imageLoader.displayImage(imageUri.toString(), imageView);
+		}
+	}
+
+	public static void loadImage(Context context, ImageLoadingListener listener, String imageUri) {
+		loadImage(context, listener, Uri.parse(imageUri));
+	}
+
+	public static void loadImage(Context context, ImageLoadingListener listener, Uri imageUri) {
+		loadImage(context, null, listener, imageUri.toString());
+	}
+
+	public static void loadImage(Context context, DisplayImageOptions options, ImageLoadingListener listener, Uri imageUri) {
+		loadImage(context, options, listener, imageUri.toString());
+	}
+
+	public static void loadImage(Context context, DisplayImageOptions options, ImageLoadingListener listener, String imagePath) {
+		ImageLoader imageLoader = getImageLoaderInstance(context);
+		if (options != null) {
+			imageLoader.loadImage(imagePath, options, listener);
+		} else {
+			imageLoader.loadImage(imagePath, listener);
+		}
+	}
+
+	public static ImageLoader getImageLoaderInstance(Context context) {
+		if (mLoader == null) {
+			Builder builder = new ImageLoaderConfiguration.Builder(context).writeDebugLogs();
+			ImageLoaderConfiguration config = builder.build();
+			mLoader = ImageLoader.getInstance();
+			mLoader.init(config);
+		}
+
+		return mLoader;
+	}
+
 }

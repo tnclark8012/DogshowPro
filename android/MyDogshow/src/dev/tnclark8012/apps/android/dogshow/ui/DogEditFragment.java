@@ -3,6 +3,8 @@ package dev.tnclark8012.apps.android.dogshow.ui;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.LoaderManager;
@@ -10,10 +12,10 @@ import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -33,8 +35,11 @@ import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragme
 import dev.tnclark8012.apps.android.dogshow.ui.phone.BreedSelectActivity;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
+import dev.tnclark8012.apps.android.dogshow.util.image.ImageChooserActivity;
+import dev.tnclark8012.apps.android.dogshow.util.image.SimpleImageLoadingListener;
 import dev.tnclark8012.dogshow.shared.DogshowEnums;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
+import eu.janmuller.android.simplecropimage.CropImage;
 
 public class DogEditFragment extends BaseEditableEntityEditFragment implements LoaderManager.LoaderCallbacks<Cursor>, OnClickListener, OnCheckedChangeListener {
 	private static final String TAG = DogEditFragment.class.getSimpleName();
@@ -62,6 +67,20 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements L
 	private final int TAG_BREED = 0;
 	private final int TAG_IMAGE = 1;
 	public final int REQUEST_CODE_IMAGE = 2;
+
+	private ImageLoadingListener mImageLoadingListener = new SimpleImageLoadingListener() {
+		@SuppressLint("NewApi")
+		@Override
+		public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+			if (Utils.isJellybean()) {
+				mViewImage.setBackground(new BitmapDrawable(getResources(), loadedImage));
+			} else {
+				mViewImage.setBackgroundDrawable(new BitmapDrawable(getResources(), loadedImage));
+			}
+			mImagePath = imageUri;
+			Log.v(TAG, "done");
+		}
+	};
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -104,16 +123,15 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements L
 		}
 			break;
 		case TAG_IMAGE: {
-			Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+			Intent intent = new Intent(getActivity(), ImageChooserActivity.class);
+			intent.setAction(ImageChooserActivity.ACTION_CHOOSE);
+			Resources res = getResources();
+			int height = res.getDimensionPixelSize(R.dimen.header_icon_height);
+			int width = res.getDimensionPixelSize(R.dimen.header_icon_width);
 
-			intent.setType("image/*");
-			// intent.putExtra("crop", "true");
-			// intent.putExtra("scale", true);
-			// intent.putExtra("outputX", PHOTO_WIDTH);
-			// intent.putExtra("outputY", PHOTO_HEIGHT);
-			// intent.putExtra("aspectX", 1);
-			// intent.putExtra("aspectY", 1); TODO RELEASE: find these metrics
-			intent.putExtra("return-data", true);
+			intent.putExtra(CropImage.SCALE, "true");
+			intent.putExtra(CropImage.OUTPUT_X, width);
+			intent.putExtra(CropImage.OUTPUT_Y, height);
 			startActivityForResult(intent, REQUEST_CODE_IMAGE);
 		}
 			break;
@@ -137,25 +155,7 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements L
 				return;
 			}
 			Uri selectedImage = data.getData();
-			String[] filePathColumn = { MediaStore.Images.Media.DATA };
-
-			Cursor cursor = getActivity().getContentResolver().query(selectedImage, filePathColumn, null, null, null);
-			if (cursor != null) {
-				if (cursor.moveToFirst()) {
-					int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-					mImagePath = cursor.getString(columnIndex);
-					cursor.close();
-					Resources res = getResources();
-					int height = res.getDimensionPixelSize(R.dimen.header_icon_height);
-					int width = res.getDimensionPixelSize(R.dimen.header_icon_width);
-					BitmapDrawable image = new BitmapDrawable(res, UIUtils.loadBitmap(mImagePath, width, height));
-					if (Utils.isJellybean()) {
-						mViewImage.setBackground(image);
-					} else {
-						mViewImage.setBackgroundDrawable(image);
-					}
-				}
-			}
+			UIUtils.loadImage(getActivity(), mImageLoadingListener, selectedImage);
 			break;
 		}
 	}
@@ -213,17 +213,7 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements L
 		mViewChampion.setChecked(Utils.getMaybeNull(cursor, DogQuery.DOG_IS_CHAMPION, false));
 		String imagePath = cursor.getString(DogQuery.DOG_IMAGE_PATH);
 		if (imagePath != null) {
-			mImagePath = imagePath;
-			Resources res = getResources();
-			int height = res.getDimensionPixelSize(R.dimen.header_icon_height);
-			int width = res.getDimensionPixelSize(R.dimen.header_icon_width);
-			// TODO move to AsyncTask
-			BitmapDrawable image = new BitmapDrawable(res, UIUtils.loadBitmap(imagePath, width, height));
-			if (Utils.isJellybean()) {
-				mViewImage.setBackground(image);
-			} else {
-				mViewImage.setBackgroundDrawable(image);
-			}
+			UIUtils.loadImage(getActivity(), mImageLoadingListener, imagePath);
 		} else {
 			mViewImage.setBackgroundResource(R.drawable.dog);
 		}

@@ -8,10 +8,8 @@ import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
-import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.database.Cursor;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -29,12 +27,12 @@ import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseActivity;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
-import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
 public class DogEntryFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
@@ -209,15 +207,6 @@ public class DogEntryFragment extends Fragment implements LoaderManager.LoaderCa
 	public void onLoaderReset(Loader<Cursor> arg0) {
 	}
 
-	// /** {@inheritDoc} */
-	// @Override
-	// public void onListItemClick(ListView l, View v, int position, long id) {
-	// final Cursor cursor = (Cursor) mAdapter.getItem(position);
-	// String dogId = cursor.getString(cursor.getColumnIndex(DogshowContract.Dogs._ID));
-	// if (mCallbacks.onDogSelected(dogId)) {
-	// mAdapter.notifyDataSetChanged();
-	// }
-	// }
 	private class DogListAdapter extends CursorAdapter {
 		public DogListAdapter(Activity activity) {
 			super(activity, null, false);
@@ -232,7 +221,7 @@ public class DogEntryFragment extends Fragment implements LoaderManager.LoaderCa
 			String breedStr = cursor.getString(DogsQuery.DOG_BREED);
 			((TextView) view.findViewById(R.id.list_item_dog_entry_breed)).setText(Breeds.parse(breedStr).getPrimaryName());
 			String imagePath = cursor.getString(DogsQuery.DOG_IMAGE_PATH);
-			ImageView imageLayout = ((ImageView) view.findViewById(R.id.list_item_dog_entry_thumb));
+			ImageView imageView = ((ImageView) view.findViewById(R.id.list_item_dog_entry_thumb));
 			boolean entered = Utils.getMaybeNull(cursor, DogsQuery.DOG_IS_SHOWING, 0) == 1;
 			CheckBox checkBox = (CheckBox) view.findViewById(R.id.list_item_dog_entry_checkbox);
 			Log.v(TAG, id + ":" + cursor.getString(DogsQuery.DOG_CALL_NAME));
@@ -244,19 +233,9 @@ public class DogEntryFragment extends Fragment implements LoaderManager.LoaderCa
 			});
 			checkBox.setChecked(entered);
 			if (imagePath != null) {
-				Resources res = getResources();
-				int height = res.getDimensionPixelSize(R.dimen.element_height_normal);
-				int width = res.getDimensionPixelSize(R.dimen.element_width_normal);
-				// TODO LOW: move to AsyncTask
-				BitmapDrawable image = new BitmapDrawable(res, UIUtils.loadBitmap(imagePath, width, height));
-				if (Utils.isJellybean()) {
-					imageLayout.setBackground(image);
-				} else {
-					imageLayout.setImageDrawable(image);
-				}
-
+				UIUtils.displayImage(context, imageView, imagePath);
 			} else {
-				imageLayout.setImageResource(R.drawable.dog);
+				imageView.setImageResource(R.drawable.dog);
 			}
 		}
 
