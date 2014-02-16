@@ -6,7 +6,6 @@ import android.app.Activity;
 import android.content.CursorLoader;
 import android.content.res.Resources;
 import android.database.Cursor;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;

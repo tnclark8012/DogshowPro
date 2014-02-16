@@ -49,7 +49,11 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import dev.tnclark8012.apps.android.dogshow.BuildConfig;
+import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.adapters.RingListAdapter;
+import dev.tnclark8012.apps.android.dogshow.adapters.RingListCursorWrapper;
+import dev.tnclark8012.apps.android.dogshow.adapters.RingListCursorWrapper.RingListCursorWrapperOptions;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.BreedRings;
@@ -61,8 +65,6 @@ import dev.tnclark8012.apps.android.dogshow.ui.dialog.EditJudgeTimeDialog;
 import dev.tnclark8012.apps.android.dogshow.util.Lists;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
-import dev.tnclark8012.apps.android.dogshow.BuildConfig;
-import dev.tnclark8012.apps.android.dogshow.R;
 
 public class MyScheduleFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback, OnSharedPreferenceChangeListener, OnItemLongClickListener, EditJudgeTimeDialog.Callback {
 	private long upcomingBreedRingStart = 0;
@@ -78,7 +80,8 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 	private TextView mViewNoUpcomingHeaderText;
 	private SparseBooleanArray newDayPositions;
 	private StickyListHeadersListView stickyList;
-
+	private RingListCursorWrapperOptions mUpcommingRingsOptions;
+	private RingListCursorWrapperOptions mEnteredRingsOptions;
 	private Handler handler = new Handler();
 
 	private Runnable updateUpcomingRunnable = new Runnable() {
@@ -92,7 +95,6 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 	private final ContentObserver mObserver = new ContentObserver(new Handler()) {
 		@Override
 		public void onChange(boolean selfChange) {
-			Toast.makeText(getActivity(), "onChange", Toast.LENGTH_SHORT).show();
 			if (getActivity() == null) {
 				return;
 			}
@@ -182,6 +184,18 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 	}
 
 	public void onRingsQueryComplete(Cursor cursor) {
+		if (mEnteredRingsOptions == null) {
+			mEnteredRingsOptions = new RingListCursorWrapperOptions();
+			mEnteredRingsOptions.bitchCountColumnIndex = RingsQuery.BITCH_COUNT;
+			mEnteredRingsOptions.blockStartColumnIndex = RingsQuery.BLOCK_START;
+			mEnteredRingsOptions.countAheadColumnIndex = RingsQuery.COUNT_AHEAD;
+			mEnteredRingsOptions.dogCountColumnIndex = RingsQuery.DOG_COUNT;
+			mEnteredRingsOptions.firstClassColumnIndex = RingsQuery.FIRST_CLASS;
+			mEnteredRingsOptions.judgeMinutesPerDog = Prefs.getEstimatedJudgingTime(getActivity());
+			mEnteredRingsOptions.ringTypeColumnIndex = RingsQuery.RING_TYPE;
+			mEnteredRingsOptions.specialBitchCountColumnIndex = RingsQuery.SPECIAL_BITCH_COUNT;
+			mEnteredRingsOptions.specialDogCountColumnIndex = RingsQuery.SPECIAL_DOG_COUNT;
+		}
 		int cursorSize = cursor.getCount();
 		ArrayList<Integer> newPositions = new ArrayList<Integer>();
 		ArrayList<Integer> sectionIndices = new ArrayList<Integer>();
@@ -220,11 +234,27 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 			cursor.moveToPosition(-1);
 			// TODO use Guava
 			mAdapter.setSections(Lists.toArray(sectionIndices, -1), sectionHeaders.toArray(new String[sectionHeaders.size()]), Lists.toArray(sectionIds, -1));
-			mAdapter.changeCursor(cursor);
+
+			mAdapter.changeCursor(new RingListCursorWrapper(cursor, mEnteredRingsOptions));
 		}
+
 	}
 
-	public void onUpcomingRingQueryComplete(Cursor cursor) {
+	public void onUpcomingRingQueryComplete(Cursor orignialCursor) {
+		if (mUpcommingRingsOptions == null) {
+			mUpcommingRingsOptions = new RingListCursorWrapperOptions();
+			mUpcommingRingsOptions.bitchCountColumnIndex = UpcomingRingQuery.BITCH_COUNT;
+			mUpcommingRingsOptions.blockStartColumnIndex = UpcomingRingQuery.RING_BLOCK_START;
+			mUpcommingRingsOptions.countAheadColumnIndex = UpcomingRingQuery.BREED_COUNT_AHEAD;
+			mUpcommingRingsOptions.dogCountColumnIndex = UpcomingRingQuery.DOG_COUNT;
+			mUpcommingRingsOptions.firstClassColumnIndex = UpcomingRingQuery.FIRST_CLASS;
+			mUpcommingRingsOptions.judgeMinutesPerDog = Prefs.getEstimatedJudgingTime(getActivity());
+			mUpcommingRingsOptions.ringTypeColumnIndex = UpcomingRingQuery.RING_TYPE;
+			mUpcommingRingsOptions.specialBitchCountColumnIndex = UpcomingRingQuery.SPECIAL_BITCH_COUNT;
+			mUpcommingRingsOptions.specialDogCountColumnIndex = UpcomingRingQuery.SPECIAL_DOG_COUNT;
+		}
+		RingListCursorWrapper cursor = new RingListCursorWrapper(orignialCursor, mUpcommingRingsOptions);
+
 		if (cursor.moveToFirst()) {
 			mViewNoUpcomingHeader.setVisibility(View.GONE);
 			mViewUpcomingHeader.setVisibility(View.VISIBLE);
