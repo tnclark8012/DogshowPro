@@ -26,22 +26,11 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 	int active = 1;
 	String showId;
 	
-	Map<Integer, Boolean> enteredDogs;
-	Map<Integer, Boolean> enteredHandlers;
-	SparseBooleanArray enteredJuniors;
+	PersistHelper helper = new PersistHelper(this);
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		if (enteredDogs == null) {
-			enteredDogs = new HashMap<Integer, Boolean>();
-		}
-		if (enteredHandlers == null) {
-			enteredHandlers = new HashMap<Integer, Boolean>();
-		}
-		if (enteredJuniors== null) {
-			enteredJuniors = new SparseBooleanArray();
-		}
 		if (mDogsFragment == null)
 			mDogsFragment = new DogEntryFragment();
 		if (mHandlerFragment == null)
@@ -68,20 +57,6 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 
 			break;
 		case 3:
-			PersistHelper helper = new PersistHelper(this);
-			Map<String, Object> values = new HashMap<String, Object>();
-			for (Integer id : enteredDogs.keySet()) {
-				Log.d(TAG, "Is " + id + " showing? " + enteredDogs.get(id));
-				values.put(Dogs.DOG_IS_SHOWING, (enteredDogs.get(id).booleanValue() ? 1 : 0));
-				helper.updateDog(id, values);
-			}
-			values.clear();
-			for(Integer id: enteredHandlers.keySet())
-			{
-				values.put(Handlers.HANDLER_IS_SHOWING, enteredHandlers.get(id) ? 1 : 0);
-				values.put(Handlers.HANDLER_IS_SHOWING_JUNIORS, enteredJuniors.get(id) ? 1 : 0);
-				helper.updateEntity(Handlers.CONTENT_URI, id, values);
-			}
 			new AsyncTask<String, Void, Void>() {
 
 				@Override
@@ -116,12 +91,7 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 		return false;
 	}
 
-	@Override
-	public boolean onDogSelected(int dogId, boolean isChecked) {
-		enteredDogs.put(dogId, isChecked);
-		Log.v(TAG, "dog ID " + dogId  + ((isChecked)?" is Showing" : " NOT showing"));
-		return true;
-	}
+
 
 	@Override
 	public void onShowSelected(String showId) {
@@ -136,14 +106,28 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 	}
 
 	@Override
+	public boolean onDogSelected(int dogId, boolean isChecked) {
+		Log.v(TAG, "dog ID " + dogId  + ((isChecked)?" is Showing" : " NOT showing"));
+		Map<String, Object> values = new HashMap<String, Object>();
+			values.put(Dogs.DOG_IS_SHOWING,isChecked);
+		helper.updateDog(dogId, values);
+	
+		return true;
+	}
+	
+	@Override
 	public boolean onHandlerSelected(int handlerId, boolean checked) {
-		enteredHandlers.put(handlerId, checked);
+		Map<String, Object> values = new HashMap<String, Object>();
+		values.put(Handlers.HANDLER_IS_SHOWING,checked);
+		helper.updateEntity(Handlers.CONTENT_URI, handlerId, values);
 		return true;
 	}
 
 	@Override
 	public boolean onHandlerEnteredJuniorsClicked(int handlerId, boolean checked) {
-		enteredJuniors.put(handlerId, checked);
+		Map<String, Object> values = new HashMap<String, Object>();
+		values.put(Handlers.HANDLER_IS_SHOWING_JUNIORS,checked);
+		helper.updateEntity(Handlers.CONTENT_URI, handlerId, values);
 		return true;
 	}
 

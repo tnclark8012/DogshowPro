@@ -84,7 +84,9 @@ public class DogshowContract {
 		String DOG_SEX = "dog_sex";
 		String DOG_IS_SHOWING = "dog_is_showing";
 		String DOG_IS_VETERAN = "dog_is_veteran";
+		String DOG_IS_CHAMPION = "dog_is_champion";
 		String DOG_IS_SHOWING_SWEEPSTAKES = "dog_is_showing_sweepstakes";
+		String DOG_CLASS = "dog_class";// Dog, bitch, special dog, special bitch
 		String DOG_UPDATED = SyncColumns.UPDATED;
 	}
 
@@ -113,6 +115,12 @@ public class DogshowContract {
 		public static final String ENTERED_RINGS_TITLE = "title";
 		public static final String ENTERED_RINGS_SUBTITLE = "subtitle";
 		public static final String ENTERED_RINGS_TYPE = "ring_type";
+		public static final String ENTERED_RINGS_FIRST_CLASS = "first_entered_class";
+		public static final String ENTERED_RINGS_DOG_COUNT = BreedRingsColumns.RING_DOG_COUNT;
+		public static final String ENTERED_RINGS_BITCH_COUNT = BreedRingsColumns.RING_BITCH_COUNT;
+		public static final String ENTERED_RINGS_SPECIAL_DOG_COUNT = BreedRingsColumns.RING_SPECIAL_DOG_COUNT;
+		public static final String ENTERED_RINGS_SPECIAL_BITCH_COUNT = BreedRingsColumns.RING_SPECIAL_BITCH_COUNT;
+
 	}
 
 	interface JuniorsRingsColumns {
@@ -128,11 +136,20 @@ public class DogshowContract {
 
 		public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.dogshow.dog";
 		public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.dogshow.dog";
-		public static final int MALE = 1;
-		public static final int FEMALE = 0;
+		public static final int MALE = 0;
+		public static final int FEMALE = 1;
+		public static final int CLASS_DOG = 0;
+		public static final int CLASS_BITCH = 1;
+		public static final int CLASS_SPECIAL_DOG = 2;
+		public static final int CLASS_SPECIAL_BITCH = 3;
+
+		public static final int getDogClass(int sex, boolean isChampion) {
+			return (isChampion) ? sex + 2 : sex;
+		}
+
 		public static final String ENTERED_DOGS_BREED = "entered_dogs_breed";
 		public static final String ENTERED_DOGS_NAMES = "entered_dogs_names";
-		
+		public static final String ENTERED_DOGS_FIRST_CLASS = "entered_dogs_first_class";
 		/** Default "ORDER BY" clause. */
 		public static final String DEFAULT_SORT = DogsColumns.DOG_CALL_NAME + " COLLATE NOCASE ASC";
 

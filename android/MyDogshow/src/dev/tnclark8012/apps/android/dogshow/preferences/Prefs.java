@@ -3,6 +3,7 @@ package dev.tnclark8012.apps.android.dogshow.preferences;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import dev.tnclark8012.apps.android.dogshow.util.Utils;
 
 public final class Prefs {
 	// *****************
@@ -25,6 +26,7 @@ public final class Prefs {
 	 * @return milliseconds per dog
 	 */
 	public static float getEstimatedJudgingTime(Context context) {
-		return PreferenceManager.getDefaultSharedPreferences(context).getFloat(KEY_JUDGE_TIME, 2.5f);
+		String number = PreferenceManager.getDefaultSharedPreferences(context).getString(KEY_JUDGE_TIME, "2.5");
+		return Utils.parseSafely(number, 2.5f);
 	}
 }

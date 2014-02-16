@@ -227,7 +227,7 @@ public class HandlerEntryFragment extends Fragment implements LoaderManager.Load
 			boolean entered = Utils.getMaybeNull(cursor, HandlersQuery.HANDLER_IS_SHOWING, 0) == 1;
 			final boolean enteredJuniors = Utils.getMaybeNull(cursor, HandlersQuery.HANDLER_IS_SHOWING_JUNIORS, 0) == 1;
 			CheckBox enteredCheckBox = (CheckBox) view.findViewById(R.id.list_item_handler_entry_checkbox);
-			//purposely check after setting listener ensures that handlers are "picked up" to account for juniors entries as well
+			enteredCheckBox.setChecked(entered);
 			enteredCheckBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
 				@Override
@@ -235,16 +235,17 @@ public class HandlerEntryFragment extends Fragment implements LoaderManager.Load
 					mCallbacks.onHandlerSelected(id, isChecked);
 				}
 			});
-			enteredCheckBox.setChecked(entered);
+			
 			CompoundButton enteredJuniorsButton = (CompoundButton) view.findViewById(R.id.list_item_handler_entry_junior_button);
+			enteredJuniorsButton.setClickable(true);
+			enteredJuniorsButton.setChecked(enteredJuniors);
 			enteredJuniorsButton.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 				@Override
 				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 					mCallbacks.onHandlerEnteredJuniorsClicked(id, isChecked);
 				}
 			});
-			enteredJuniorsButton.setClickable(true);
-			enteredJuniorsButton.setChecked(enteredJuniors);
+			
 			if (imagePath != null) {
 				Resources res = getResources();
 				int height = res.getDimensionPixelSize(R.dimen.element_height_normal);

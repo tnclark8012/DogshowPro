@@ -233,6 +233,19 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 			mViewRing.setText(getString(R.string.template_ring_number, cursor.getInt(UpcomingRingQuery.RING_NUMBER)));
 			upcomingBreedRingStart = cursor.getLong(UpcomingRingQuery.RING_BLOCK_START);
 			int countAhead = cursor.getInt(UpcomingRingQuery.BREED_COUNT_AHEAD);
+			int type = cursor.getInt(UpcomingRingQuery.RING_TYPE);
+			int[] breedCount = null;
+			if (type == EnteredRings.TYPE_BREED_RING) {
+				breedCount = new int[] { cursor.getInt(UpcomingRingQuery.DOG_COUNT), cursor.getInt(UpcomingRingQuery.BITCH_COUNT), cursor.getInt(UpcomingRingQuery.SPECIAL_DOG_COUNT), cursor.getInt(UpcomingRingQuery.SPECIAL_BITCH_COUNT) };
+				int firstClass = cursor.getInt(UpcomingRingQuery.FIRST_CLASS);
+				int currentColumn = 0;
+				// Add the counts of classes before the first entered.
+				while (firstClass > 0) {
+					countAhead += breedCount[currentColumn];
+					currentColumn++;
+					firstClass--;
+				}
+			}
 			float judgeMinutesPerDog = Utils.getMaybeNull(cursor, UpcomingRingQuery.RING_JUDGE_TIME, Prefs.getEstimatedJudgingTime(getActivity()));
 			long estimatedStart = Utils.estimateBlockStart(countAhead, upcomingBreedRingStart, judgeMinutesPerDog);
 

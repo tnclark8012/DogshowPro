@@ -15,7 +15,9 @@ import android.widget.SectionIndexer;
 import android.widget.TextView;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
+import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.EnteredRings;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.RingsQuery;
+import dev.tnclark8012.apps.android.dogshow.util.Arrays;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 
@@ -43,6 +45,19 @@ public class RingListAdapter extends CursorAdapter implements StickyListHeadersA
 	public void bindView(View view, Context context, Cursor cursor) {
 
 		int countAhead = cursor.getInt(RingsQuery.COUNT_AHEAD);
+		int type = cursor.getInt(RingsQuery.RING_TYPE);
+		int[] breedCount = null;
+		if (type == EnteredRings.TYPE_BREED_RING) {
+			breedCount = new int[] { cursor.getInt(RingsQuery.DOG_COUNT), cursor.getInt(RingsQuery.BITCH_COUNT), cursor.getInt(RingsQuery.SPECIAL_DOG_COUNT), cursor.getInt(RingsQuery.SPECIAL_BITCH_COUNT) };
+			int firstClass = cursor.getInt(RingsQuery.FIRST_CLASS);
+			int currentColumn = 0;
+			// Add the counts of classes before the first entered.
+			while (firstClass > 0) {
+				countAhead += breedCount[currentColumn];
+				currentColumn++;
+				firstClass--;
+			}
+		}
 		long blockTimeMillis = cursor.getLong(RingsQuery.BLOCK_START);
 		blockTimeMillis = new Date(blockTimeMillis).getTime();
 		float judgeMinutesPerDog = Utils.getMaybeNull(cursor, RingsQuery.JUDGE_TIME, Prefs.getEstimatedJudgingTime(mActivity));
@@ -52,12 +67,10 @@ public class RingListAdapter extends CursorAdapter implements StickyListHeadersA
 		((TextView) view.findViewById(R.id.list_item_ring_subtitle)).setText(cursor.getString(RingsQuery.SUBTITLE));
 		String title = cursor.getString(RingsQuery.TITLE);
 		((TextView) view.findViewById(R.id.list_item_ring_title)).setText(title);
-		((TextView) view.findViewById(R.id.list_item_ring_number)).setText(mActivity.getString(R.string.template_ring_number, cursor.getInt(RingsQuery.RING_NUMBER)));
-
-		((TextView) view.findViewById(R.id.list_item_ring_start)).setText(String.format("(%s)", UIUtils.timeStringFromMillis(blockTimeMillis, true)));
+		((TextView) view.findViewById(R.id.list_item_ring_number)).setText(mActivity.getString(R.string.template_ring_number, cursor.getInt(RingsQuery.RING_NUMBER))); 
+		((TextView) view.findViewById(R.id.list_item_ring_start)).setText(String.format("(%s)", UIUtils.timeStringFromMillis(blockTimeMillis, true)) + " " + Arrays.concat("-", breedCount));
 
 		String time = String.format("%s\n%s", UIUtils.timeStringFromMillis(estMillis, false), UIUtils.timeAmPmFromMillis(estMillis));
-
 		((TextView) view.findViewById(R.id.list_item_ring_time)).setText(time);
 	}
 

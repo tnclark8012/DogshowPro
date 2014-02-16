@@ -239,6 +239,27 @@
             android:text="Veteran"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textSize="@dimen/text_medium" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="@dimen/element_spacing_normal"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/element_spacing_normal"
+            android:background="@drawable/list_divider" />
+
+        <CheckBox
+            android:id="@+id/dog_edit_section_champion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/element_padding_normal"
+            android:checked="false"
+            android:text="Champion"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="@dimen/text_medium" />
     </LinearLayout>
 
 </ScrollView>

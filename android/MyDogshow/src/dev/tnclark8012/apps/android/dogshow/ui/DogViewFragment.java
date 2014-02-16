@@ -34,7 +34,8 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 				DogshowContract.Dogs.DOG_MAJORS,
 				DogshowContract.Dogs.DOG_POINTS,
 				DogshowContract.Dogs.DOG_SEX,
-				DogshowContract.Dogs.DOG_IS_SHOWING};
+				DogshowContract.Dogs.DOG_IS_SHOWING,
+				Dogs.DOG_CLASS};
 		int DOG_ID = 0;
 		int DOG_BREED = 1;
 		int DOG_CALL_NAME = 2;
@@ -43,6 +44,7 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 		int DOG_POINTS = 5;
 		int DOG_SEX = 6;
 		int DOG_IS_SHOWING = 7;
+		int DOG_CLASS = 8;
 	}
 	private String mCallName;
 	private String mBreedName;
@@ -85,6 +87,7 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 		cursor.moveToFirst();
 		mBreedName = cursor.getString(DogQuery.DOG_BREED);
 		mCallName = cursor.getString(DogQuery.DOG_CALL_NAME);
+		mCallName = cursor.getInt(DogQuery.DOG_CLASS) + ": " + mCallName;
 		getActivity().setTitle(mCallName);
 		getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
 		mImagePath = cursor.getString(DogQuery.DOG_IMAGE_PATH);

@@ -321,21 +321,32 @@ public class DogshowProvider extends ContentProvider {
 		public static final String BREED_RING_OVERVIEW ="SELECT " + Qualified.BREED_RINGS_ID +", " +
 				 EnteredRings.TYPE_BREED_RING + " as ring_type, " + //TODO TYPE_BREED_RING to BreedRings.TYPE etc. with juniors
 				 BreedRings.RING_NUMBER + ", " +
-				 BreedRings.RING_TITLE + " as title," + 
-				 Dogs.ENTERED_DOGS_NAMES + " as subtitle, " +
+				 BreedRings.RING_TITLE + " as "+EnteredRings.ENTERED_RINGS_TITLE +"," + 
+				 Dogs.ENTERED_DOGS_NAMES + " as "+EnteredRings.ENTERED_RINGS_SUBTITLE +", " +
 				 BreedRings.RING_BLOCK_START + ", " +
 				 BreedRings.RING_COUNT_AHEAD +", " +
+				 BreedRings.RING_JUDGE_TIME  + "," +
 				 Dogs.DOG_IMAGE_PATH + " as image_path, " +
-				 BreedRings.RING_JUDGE_TIME + " FROM ( " + Tables.ENTERED_BREED_RINGS_JOIN_DOGS + " )";
+				 Dogs.ENTERED_DOGS_FIRST_CLASS + " as " + EnteredRings.ENTERED_RINGS_FIRST_CLASS + "," + 
+				 BreedRings.RING_DOG_COUNT + " as " + EnteredRings.ENTERED_RINGS_DOG_COUNT + "," +
+				 BreedRings.RING_BITCH_COUNT + " as " + EnteredRings.ENTERED_RINGS_BITCH_COUNT+ "," +
+				 BreedRings.RING_SPECIAL_DOG_COUNT+ " as " + EnteredRings.ENTERED_RINGS_SPECIAL_DOG_COUNT+ "," +
+				 BreedRings.RING_SPECIAL_BITCH_COUNT + " as " + EnteredRings.ENTERED_RINGS_SPECIAL_BITCH_COUNT +
+				 " FROM ( " + Tables.ENTERED_BREED_RINGS_JOIN_DOGS + " )";
 		public static final String JUNIOR_RING_OVERVIEW = "SELECT " + Qualified.JUNIORS_RINGS_ID + ", " + 
 		EnteredRings.TYPE_JUNIORS_RING +" as " + EnteredRings.ENTERED_RINGS_TYPE + ", "+ 
 				JuniorsRings.RING_NUMBER + ", " + 
 				JuniorsRings.RING_TITLE + "," +
 				Handlers.ENTERED_JUNIOR_HANDLER_NAMES + ", " + 
 				JuniorsRings.RING_BLOCK_START + ", " +
-				JuniorsRings.RING_COUNT_AHEAD +
-				",NULL," +//image path
-				JuniorsRings.RING_JUDGE_TIME+
+				JuniorsRings.RING_COUNT_AHEAD + ", " + 
+				JuniorsRings.RING_JUDGE_TIME+ ", " +
+				"NULL" + "," +//image path
+				"NULL" + "," +//class
+				"NULL" + "," +//dog
+				"NULL" + "," +//bitch
+				"NULL" + "," +//s. dog
+				"NULL"       +//s. bitch
 				" FROM " + Tables.ENTERED_JUNIORS_RINGS;
 		public static final String ENTERED_JUNIOR_HANDLERS = "(SELECT *,group_concat(" + Handlers.HANDLER_NAME + ", \", \" ) as " + Handlers.ENTERED_JUNIOR_HANDLER_NAMES + " FROM " + Tables.HANDLERS + " AS handlerTable " + " WHERE " + Handlers.HANDLER_IS_SHOWING_JUNIORS + "=1 AND " + Handlers.HANDLER_JUNIOR_CLASS + " IS NOT NULL " +" GROUP BY " + Handlers.HANDLER_JUNIOR_CLASS+")";
 	}

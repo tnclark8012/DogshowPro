@@ -17,6 +17,10 @@
 package dev.tnclark8012.apps.android.dogshow.ui.phone;
 
 import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.LOGD;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import android.accounts.Account;
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -32,7 +36,9 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
+import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.ui.ExploreFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.IncompleteFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment;
@@ -83,13 +89,12 @@ public class ScheduleActivity extends BaseActivity implements ActionBar.TabListe
 			final ActionBar actionBar = getActionBar();
 			actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 			actionBar.addTab(actionBar.newTab().setText(R.string.title_my_schedule).setTabListener(this));
-//			actionBar.addTab(actionBar.newTab().setText(R.string.title_team_schedule).setTabListener(this));
-//			actionBar.addTab(actionBar.newTab().setText(R.string.title_full_schedule).setTabListener(this));
+			// actionBar.addTab(actionBar.newTab().setText(R.string.title_team_schedule).setTabListener(this));
+			// actionBar.addTab(actionBar.newTab().setText(R.string.title_full_schedule).setTabListener(this));
 
 			homeScreenLabel = getString(R.string.title_my_schedule);
 
 		}
-		getActionBar().setHomeButtonEnabled(true);
 	}
 
 	@Override
@@ -182,7 +187,7 @@ public class ScheduleActivity extends BaseActivity implements ActionBar.TabListe
 
 		@Override
 		public int getCount() {
-			return 1;//TODO HIGH: 3
+			return 1;// TODO HIGH: 3
 		}
 	}
 
@@ -197,17 +202,7 @@ public class ScheduleActivity extends BaseActivity implements ActionBar.TabListe
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-//		case R.id.menu_refresh:
-//			triggerRefresh();
-//			return true;
 
-		case R.id.menu_about:
-			return false;
-
-		case R.id.menu_sign_out:
-			AccountUtils.signOut(this);
-			finish();
-			return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}
@@ -215,6 +210,6 @@ public class ScheduleActivity extends BaseActivity implements ActionBar.TabListe
 	@Override
 	public void onPageScrollStateChanged(int arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
