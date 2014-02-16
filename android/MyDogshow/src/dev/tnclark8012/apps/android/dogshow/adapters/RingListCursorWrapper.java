@@ -41,8 +41,7 @@ public class RingListCursorWrapper extends CursorWrapper {
 		return pairs[currentPosition].breedCount;
 	}
 
-	public static class RingListCursorWrapperOptions
-	{
+	public static class RingListCursorWrapperOptions {
 		public int countAheadColumnIndex;
 		public int firstClassColumnIndex;
 		public int ringTypeColumnIndex;
@@ -53,6 +52,7 @@ public class RingListCursorWrapper extends CursorWrapper {
 		public int blockStartColumnIndex;
 		public float judgeMinutesPerDog;
 	}
+
 	public RingListCursorWrapper(Cursor cursor, RingListCursorWrapperOptions options) {
 
 		super(cursor);
@@ -95,42 +95,54 @@ public class RingListCursorWrapper extends CursorWrapper {
 	@Override
 	public boolean move(int offset) {
 		currentPosition += offset;
-		if (currentPosition >= -1 && currentPosition <= size) {
+		if (currentPosition > -1 && currentPosition <= size) {
 			return mCursor.moveToPosition(pairs[currentPosition].originalIndex);
 		} else {
-			if (currentPosition < -1)
+			if (currentPosition <= -1) {
 				currentPosition = -1;
-			if (currentPosition > size)
-				currentPosition = size + 1;
-			return false;
+			}
+			if (currentPosition > size) {
+				currentPosition = size;
+			}
+			return mCursor.moveToPosition(currentPosition);
 		}
 	}
 
 	@Override
 	public boolean moveToFirst() {
 		currentPosition = 0;
+		if (size == 0)
+			return false;
 		return mCursor.moveToPosition(pairs[0].originalIndex);
 	}
 
 	@Override
 	public boolean moveToLast() {
+		if (size == 0)
+			return false;
 		currentPosition = size - 1;
 		return mCursor.moveToPosition(pairs[size - 1].originalIndex);
 	}
 
 	@Override
 	public boolean moveToNext() {
+		if (size == 0)
+			return false;
 		return mCursor.moveToPosition(pairs[++currentPosition].originalIndex);
 	}
 
 	@Override
 	public boolean moveToPosition(int position) {
+		if (size == 0)
+			return false;
 		currentPosition = position;
 		return mCursor.moveToPosition(pairs[currentPosition].originalIndex);
 	}
 
 	@Override
 	public boolean moveToPrevious() {
+		if (size == 0)
+			return false;
 		return mCursor.moveToPosition(pairs[--currentPosition].originalIndex);
 	}
 }

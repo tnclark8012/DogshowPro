@@ -480,19 +480,60 @@
 	"buffers":
 	[
 		{
-			"file": "config.py",
-			"settings":
-			{
-				"buffer_size": 1506,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "driver.py",
 			"settings":
 			{
 				"buffer_size": 5595,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Taylor/Downloads/bugreport-2014-02-13-17-45-46.txt",
+			"settings":
+			{
+				"buffer_size": 8673203,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "content://com.google.android.apps.photos.content/0/https%3A%2F%2Flh4.googleusercontent.com%2Fw1KJ5JoPGUp6JifiZWQv7vm8KB9yOXY4chE2I1lcbbY%3Ds0-d\n",
+			"settings":
+			{
+				"buffer_size": 144,
+				"line_ending": "Windows",
+				"name": "content://com.google.android.apps.photos.content/0"
+			}
+		},
+		{
+			"file": "/C/Users/Taylor/AppData/Local/Microsoft/Windows/INetCache/IE/N20I65JB/rings[1].json",
+			"settings":
+			{
+				"buffer_size": 58514,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Taylor/AppData/Local/Temp/Temp1_cropimage-master.zip/cropimage-master/simple-crop-image-example/src/eu/janmuller/android/simplecropimage/example/MainActivity.java",
+			"settings":
+			{
+				"buffer_size": 5278,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/Taylor/Documents/GitHub/dogshow/android/Libraries/cropimage/cropimage-master/simple-crop-image-example/AndroidManifest.xml",
+			"settings":
+			{
+				"buffer_size": 1162,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/Taylor/AppData/Local/Temp/Temp1_cropimage-master.zip/cropimage-master/simple-crop-image-example/src/eu/janmuller/android/simplecropimage/example/InternalStorageContentProvider.java",
+			"settings":
+			{
+				"buffer_size": 2206,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -520,6 +561,12 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Taylor/AppData/Local/Microsoft/Windows/INetCache/IE/X1GK8FTF/breeds[1].json",
+		"/C/Users/Taylor/Downloads/bugreport-2014-02-13-17-45-46.txt",
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/config.py",
+		"/C/Users/Taylor/Downloads/bugreport-2014-02-13-19-55-00.txt",
+		"/C/Users/Taylor/Desktop/BitmapFun/bitmapfun/BitmapFun/src/main/java/com/example/android/bitmapfun/provider/Images.java",
+		"/C/Users/Taylor/AppData/Local/Temp/7zO3885.tmp/log.txt",
 		"/C/Users/Taylor/Desktop/new",
 		"/C/Users/Taylor/Desktop/old",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/MINN1JP.pdfbox.txt",
@@ -562,7 +609,6 @@
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/programs/ANOK1JP.pdf",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/BRAZ1.pdfbox.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/json/COUL1.pdfbox.json",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/config.py",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/parsed/COUL1.pdf2txt.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/cleaned/COUL1.pdf2txt.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/test.txt",
@@ -642,12 +688,7 @@
 		"/C/Users/Taylor/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/gwlafspi.a21.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/android/JakeWharton-ActionBarSherlock-e5c2d1c/library/.gitignore",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/local/showpage.htm",
-		"/C/Users/Taylor/workspace/Python/scrapping/config.py",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/JavaTest/src/dev/tclark/dogshow/grammar/testLexer.java",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/.gitignore",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/ANTLR/output/dogshowcomboParser.java",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/grammar/ANTLR/output/dogshowcomboLexer.java"
+		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/local/showpage.htm"
 	],
 	"find":
 	{
@@ -675,6 +716,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"tnclark",
+			"exception",
+			"tnclark",
+			"exception",
 			"inch",
 			"herding",
 			"working group",
@@ -798,10 +843,6 @@
 			"print(",
 			"VERBOSE",
 			"parseProgramPdf2Txt",
-			"cleanPdf2Txt",
-			"str(",
-			"printv(str(",
-			"getring",
 			"cleanPdf2Txt"
 		],
 		"highlight": true,
@@ -845,39 +886,11 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 6,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "config.py",
-					"settings":
-					{
-						"buffer_size": 1506,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								224,
-								224
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "driver.py",
 					"settings":
 					{
@@ -900,6 +913,169 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 1398.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/Users/Taylor/Downloads/bugreport-2014-02-13-17-45-46.txt",
+					"settings":
+					{
+						"buffer_size": 8673203,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"settings":
+					{
+						"buffer_size": 144,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								144,
+								144
+							]
+						],
+						"settings":
+						{
+							"auto_name": "content://com.google.android.apps.photos.content/0",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/Users/Taylor/AppData/Local/Microsoft/Windows/INetCache/IE/N20I65JB/rings[1].json",
+					"settings":
+					{
+						"buffer_size": 58514,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								58510,
+								58510
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 408720.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/Users/Taylor/AppData/Local/Temp/Temp1_cropimage-master.zip/cropimage-master/simple-crop-image-example/src/eu/janmuller/android/simplecropimage/example/MainActivity.java",
+					"settings":
+					{
+						"buffer_size": 5278,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								683,
+								5274
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1979.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/C/Users/Taylor/Documents/GitHub/dogshow/android/Libraries/cropimage/cropimage-master/simple-crop-image-example/AndroidManifest.xml",
+					"settings":
+					{
+						"buffer_size": 1162,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1012,
+								1012
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/C/Users/Taylor/AppData/Local/Temp/Temp1_cropimage-master.zip/cropimage-master/simple-crop-image-example/src/eu/janmuller/android/simplecropimage/example/InternalStorageContentProvider.java",
+					"settings":
+					{
+						"buffer_size": 2206,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1534,
+								1561
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 554.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
