@@ -1,5 +1,6 @@
 package dev.tnclark8012.apps.android.dogshow.util;
 
+import android.database.Cursor;
 import android.util.Log;
 
 public class DebugUtils {

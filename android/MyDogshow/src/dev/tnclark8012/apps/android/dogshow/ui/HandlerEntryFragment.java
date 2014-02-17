@@ -8,10 +8,8 @@ import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
-import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.database.Cursor;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -28,11 +26,11 @@ import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseActivity;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
-import dev.tnclark8012.apps.android.dogshow.R;
 
 public class HandlerEntryFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -212,7 +210,15 @@ public class HandlerEntryFragment extends Fragment implements LoaderManager.Load
 	public void onLoaderReset(Loader<Cursor> arg0) {
 	}
 
+	static class ViewHolder {
+		ImageView imageView;
+		CheckBox enteredCheckbox;
+		CompoundButton juniorsButton;
+		TextView nameView;
+	}
+
 	private class HandlersListAdapter extends CursorAdapter {
+
 		public HandlersListAdapter(Activity activity) {
 			super(activity, null, false);
 		}
@@ -221,15 +227,16 @@ public class HandlerEntryFragment extends Fragment implements LoaderManager.Load
 		@SuppressLint("NewApi")
 		@Override
 		public void bindView(View view, Context context, Cursor cursor) {
+			ViewHolder holder = (ViewHolder) view.getTag();
 			final int id = cursor.getInt(HandlersQuery._ID);
-			((TextView) view.findViewById(R.id.list_item_handler_entry_name)).setText(cursor.getString(HandlersQuery.HANDLER_NAME));
+			String name = cursor.getString(HandlersQuery.HANDLER_NAME);
+			holder.nameView.setText(name);
 			String imagePath = cursor.getString(HandlersQuery.HANDLER_IMAGE_PATH);
-			ImageView imageView = ((ImageView) view.findViewById(R.id.list_item_handler_entry_thumb));
 			boolean entered = Utils.getMaybeNull(cursor, HandlersQuery.HANDLER_IS_SHOWING, 0) == 1;
-			final boolean enteredJuniors = Utils.getMaybeNull(cursor, HandlersQuery.HANDLER_IS_SHOWING_JUNIORS, 0) == 1;
-			CheckBox enteredCheckBox = (CheckBox) view.findViewById(R.id.list_item_handler_entry_checkbox);
-			enteredCheckBox.setChecked(entered);
-			enteredCheckBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			boolean enteredJuniors = Utils.getMaybeNull(cursor, HandlersQuery.HANDLER_IS_SHOWING_JUNIORS, 0) == 1;
+			holder.enteredCheckbox.setOnCheckedChangeListener(null);
+			holder.enteredCheckbox.setChecked(entered);
+			holder.enteredCheckbox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
 				@Override
 				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -237,25 +244,33 @@ public class HandlerEntryFragment extends Fragment implements LoaderManager.Load
 				}
 			});
 
-			CompoundButton enteredJuniorsButton = (CompoundButton) view.findViewById(R.id.list_item_handler_entry_junior_button);
-			enteredJuniorsButton.setClickable(true);
-			enteredJuniorsButton.setChecked(enteredJuniors);
-			enteredJuniorsButton.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			holder.juniorsButton.setOnCheckedChangeListener(null);
+			holder.juniorsButton.setChecked(enteredJuniors);
+			holder.juniorsButton.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 				@Override
 				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 					mCallbacks.onHandlerEnteredJuniorsClicked(id, isChecked);
 				}
 			});
+			holder.juniorsButton.setClickable(true);
+
 			if (imagePath != null) {
-				UIUtils.displayImage(context, imageView, imagePath);
+				UIUtils.displayImage(context, holder.imageView, imagePath);
 			} else {
-				imageView.setImageResource(R.drawable.dog);
+				holder.imageView.setImageResource(R.drawable.dog);
 			}
 		}
 
 		@Override
 		public View newView(Context context, Cursor cursor, ViewGroup parent) {
-			return getActivity().getLayoutInflater().inflate(R.layout.list_item_handler_entry, parent, false);
+			View view = getActivity().getLayoutInflater().inflate(R.layout.list_item_handler_entry, parent, false);
+			ViewHolder holder = new ViewHolder();
+			holder.nameView = ((TextView) view.findViewById(R.id.list_item_handler_entry_name));
+			holder.imageView = ((ImageView) view.findViewById(R.id.list_item_handler_entry_thumb));
+			holder.enteredCheckbox = (CheckBox) view.findViewById(R.id.list_item_handler_entry_checkbox);
+			holder.juniorsButton = (CompoundButton) view.findViewById(R.id.list_item_handler_entry_junior_button);
+			view.setTag(holder);
+			return view;
 		}
 	}
 

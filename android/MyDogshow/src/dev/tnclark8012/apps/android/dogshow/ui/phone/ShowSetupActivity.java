@@ -16,6 +16,7 @@ import dev.tnclark8012.apps.android.dogshow.ui.DogEntryFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.FindShowFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.HandlerEntryFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.SimpleSinglePaneActivity;
+import dev.tnclark8012.apps.android.dogshow.util.Utils;
 import dev.tnclark8012.apps.android.dogshow.R;
 
 public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEntryFragment.Callbacks, FindShowFragment.Callbacks, HandlerEntryFragment.Callbacks {
@@ -25,9 +26,9 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 	FindShowFragment mFindShowFragment;
 	int active = 1;
 	String showId;
-	
+
 	PersistHelper helper = new PersistHelper(this);
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -48,7 +49,7 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 
 	@Override
 	public boolean onNextClick() {
-		switch(active){
+		switch (active) {
 		case 1:
 			getFragmentManager().beginTransaction().replace(R.id.root_container, mDogsFragment, "single_pane").commit();
 			break;
@@ -65,7 +66,7 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 					return null;
 				}
 			}.execute(showId);
-//			new SyncHelper(this).executeSync(showId);
+			// new SyncHelper(this).executeSync(showId);
 			finish();
 			break;
 		}
@@ -75,8 +76,7 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 
 	@Override
 	public boolean onBackClick() {
-		switch(active)
-		{
+		switch (active) {
 		case 1:
 			finish();
 			break;
@@ -90,8 +90,6 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 		active--;
 		return false;
 	}
-
-
 
 	@Override
 	public void onShowSelected(String showId) {
@@ -107,18 +105,18 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 
 	@Override
 	public boolean onDogSelected(int dogId, boolean isChecked) {
-		Log.v(TAG, "dog ID " + dogId  + ((isChecked)?" is Showing" : " NOT showing"));
+		Log.v(TAG, "dog ID " + dogId + ((isChecked) ? " is Showing" : " NOT showing"));
 		Map<String, Object> values = new HashMap<String, Object>();
-			values.put(Dogs.DOG_IS_SHOWING,isChecked);
+		values.put(Dogs.DOG_IS_SHOWING, Utils.booleanToInt(isChecked));
 		helper.updateDog(dogId, values);
-	
+
 		return true;
 	}
-	
+
 	@Override
 	public boolean onHandlerSelected(int handlerId, boolean checked) {
 		Map<String, Object> values = new HashMap<String, Object>();
-		values.put(Handlers.HANDLER_IS_SHOWING,checked);
+		values.put(Handlers.HANDLER_IS_SHOWING, Utils.booleanToInt(checked));
 		helper.updateEntity(Handlers.CONTENT_URI, handlerId, values);
 		return true;
 	}
@@ -126,7 +124,7 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 	@Override
 	public boolean onHandlerEnteredJuniorsClicked(int handlerId, boolean checked) {
 		Map<String, Object> values = new HashMap<String, Object>();
-		values.put(Handlers.HANDLER_IS_SHOWING_JUNIORS,checked);
+		values.put(Handlers.HANDLER_IS_SHOWING_JUNIORS, Utils.booleanToInt(checked));
 		helper.updateEntity(Handlers.CONTENT_URI, handlerId, values);
 		return true;
 	}

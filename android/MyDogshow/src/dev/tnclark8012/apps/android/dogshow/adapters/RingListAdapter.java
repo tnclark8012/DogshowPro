@@ -1,7 +1,5 @@
 package dev.tnclark8012.apps.android.dogshow.adapters;
 
-import java.util.Date;
-
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 import android.app.Activity;
 import android.content.Context;
@@ -16,6 +14,7 @@ import android.widget.TextView;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.RingsQuery;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
+
 
 public class RingListAdapter extends CursorAdapter implements StickyListHeadersAdapter, SectionIndexer {
 	public static final String TAG = RingListAdapter.class.getName();
@@ -36,27 +35,43 @@ public class RingListAdapter extends CursorAdapter implements StickyListHeadersA
 		mActivity = activity;
 		mInflater = mActivity.getLayoutInflater();
 	}
+	
+	static class ViewHolder
+	{
+		TextView titleView;
+		TextView subtitleView;
+		TextView ringNumberView;
+		TextView ringStartView;
+		TextView ringTimeView;
+	}
 
 	@Override
 	public void bindView(View view, Context context, Cursor cursor) {
+		ViewHolder holder = (ViewHolder) view.getTag();
+		
 		long blockTimeMillis = cursor.getLong(RingsQuery.BLOCK_START);
-		blockTimeMillis = new Date(blockTimeMillis).getTime();
+//		blockTimeMillis = new Date(blockTimeMillis).getTime();
 		long estMillis = ((RingListCursorWrapper) cursor).getEstimatedStart();
-		int cursorPosition = cursor.getPosition();
-		Log.d(TAG, "position " + cursorPosition + " is type: " + cursor.getInt(RingsQuery.RING_TYPE));
-		((TextView) view.findViewById(R.id.list_item_ring_subtitle)).setText(cursor.getString(RingsQuery.SUBTITLE));
-		String title = cursor.getString(RingsQuery.TITLE);
-		((TextView) view.findViewById(R.id.list_item_ring_title)).setText(title);
-		((TextView) view.findViewById(R.id.list_item_ring_number)).setText(mActivity.getString(R.string.template_ring_number, cursor.getInt(RingsQuery.RING_NUMBER)));
-		((TextView) view.findViewById(R.id.list_item_ring_start)).setText(String.format("(%s)", UIUtils.timeStringFromMillis(blockTimeMillis, true)) + " " + ((RingListCursorWrapper) cursor).getBreedCount());
+		holder.subtitleView.setText(cursor.getString(RingsQuery.SUBTITLE));
+		holder.titleView.setText(cursor.getString(RingsQuery.TITLE));
+		holder.ringNumberView.setText(mActivity.getString(R.string.template_ring_number, cursor.getInt(RingsQuery.RING_NUMBER)));
+		holder.ringStartView.setText(String.format("(%s)", UIUtils.timeStringFromMillis(blockTimeMillis, true)) + " " + ((RingListCursorWrapper) cursor).getBreedCount());
 
 		String time = String.format("%s\n%s", UIUtils.timeStringFromMillis(estMillis, false), UIUtils.timeAmPmFromMillis(estMillis));
-		((TextView) view.findViewById(R.id.list_item_ring_time)).setText(time);
+		holder.ringTimeView.setText(time);
 	}
 
 	@Override
 	public View newView(Context context, Cursor cursor, ViewGroup parent) {
-		return mInflater.inflate(R.layout.list_item_ring_with_header, parent, false);
+		View view = mInflater.inflate(R.layout.list_item_ring_with_header, parent, false);
+		ViewHolder holder = new ViewHolder();
+		holder.titleView = 	((TextView) view.findViewById(R.id.list_item_ring_title));
+		holder.subtitleView = ((TextView) view.findViewById(R.id.list_item_ring_subtitle));
+		holder.ringNumberView = ((TextView) view.findViewById(R.id.list_item_ring_number));
+		holder.ringStartView = ((TextView) view.findViewById(R.id.list_item_ring_start));
+		holder.ringTimeView = ((TextView) view.findViewById(R.id.list_item_ring_time));
+		view.setTag(holder);
+		return view;
 	}
 
 	@Override

@@ -35,7 +35,10 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 
 		public void onCancel();
 	}
-
+	protected final boolean creatingNewEntity()
+	{
+		return mCreateNewEntity;
+	}
 	protected abstract int getEntityIdFromUri(Uri uri);
 
 	protected abstract int getQueryToken();

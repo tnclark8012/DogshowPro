@@ -95,7 +95,8 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements L
 		mSexId = mViewSex.getCheckedRadioButtonId();
 		mViewVeteran = (CheckBox) mRootView.findViewById(R.id.dog_edit_section_veteran);
 		mViewChampion = (CheckBox) mRootView.findViewById(R.id.dog_edit_section_champion);
-
+		if (creatingNewEntity())
+			mViewImage.setBackgroundResource(R.drawable.dog);
 		getActivity().getActionBar().setTitle("Edit Dog");
 		mViewBreed.setTag(TAG_BREED);
 		mViewBreed.setOnClickListener(this);

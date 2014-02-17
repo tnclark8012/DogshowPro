@@ -82,6 +82,8 @@ public class HandlerEditFragment extends BaseEditableEntityEditFragment implemen
 		mViewClassName = (TextView) mRootView.findViewById(R.id.handler_edit_section_juniors_text);
 		mViewClassName.setTag(TAG_CLASS);
 		mViewClassName.setOnClickListener(this);
+		if (creatingNewEntity())
+			mViewImage.setBackgroundResource(R.drawable.ic_default_handler);
 		mViewImage.setTag(TAG_IMAGE);
 		mViewImage.setOnClickListener(this);
 		return mRootView;

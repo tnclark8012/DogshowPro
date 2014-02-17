@@ -33,13 +33,14 @@ import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.util.Log;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
-import dev.tnclark8012.apps.android.dogshow.sql.DogshowDatabase;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.EnteredRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.JuniorsRings;
+import dev.tnclark8012.apps.android.dogshow.sql.DogshowDatabase;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowDatabase.Tables;
+import dev.tnclark8012.apps.android.dogshow.util.DebugUtils;
 import dev.tnclark8012.apps.android.dogshow.util.SelectionBuilder;
 
 public class DogshowProvider extends ContentProvider {
@@ -56,13 +57,13 @@ public class DogshowProvider extends ContentProvider {
 	private static final int BREED_RINGS = 200;
 	private static final int BREED_RINGS_WITH_DOGS = 202;
 	private static final int BREED_RINGS_WITH_DOGS_ENTERED = 203;
-	
+
 	private static final int HANDLERS = 300;
 	private static final int HANDLERS_ID = 301;
 	private static final int HANDLERS_BY_JUNIORS_CLASS = 302;
-	
+
 	private static final int JUNIORS_RINGS = 400;
-	
+
 	private static final int ALL_RINGS_ENTERED = 500;
 
 	/**
@@ -81,8 +82,8 @@ public class DogshowProvider extends ContentProvider {
 		matcher.addURI(authority, "handlers", HANDLERS);
 		matcher.addURI(authority, "handlers/juniors/by_class", HANDLERS_BY_JUNIORS_CLASS);
 		matcher.addURI(authority, "handlers/*", HANDLERS_ID);
-		matcher.addURI(authority, "rings/juniors", JUNIORS_RINGS );
-		matcher.addURI(authority, "rings/entered", ALL_RINGS_ENTERED );
+		matcher.addURI(authority, "rings/juniors", JUNIORS_RINGS);
+		matcher.addURI(authority, "rings/entered", ALL_RINGS_ENTERED);
 
 		return matcher;
 	}
@@ -138,18 +139,16 @@ public class DogshowProvider extends ContentProvider {
 		case BREED_RINGS_WITH_DOGS_ENTERED: {
 			final SelectionBuilder exBuilder = buildExpandedSelection(uri, BREED_RINGS_WITH_DOGS_ENTERED);
 			Log.d(TAG, "Sort order is " + sortOrder);
-			
+
 			return exBuilder.where(selection, selectionArgs).query(db, projection, null, null, sortOrder, null);
 		}
-		case DOGS_ENTERED:
-		{
+		case DOGS_ENTERED: {
 			final SelectionBuilder exBuilder = buildSimpleSelection(uri);
 			String groupBy = Dogs.DOG_BREED + "," + Dogs.DOG_IS_VETERAN + "," + Dogs.DOG_IS_SHOWING_SWEEPSTAKES;
-            exBuilder.where(Dogs.DOG_IS_SHOWING + "=?", String.valueOf(1));
+			exBuilder.where(Dogs.DOG_IS_SHOWING + "=?", String.valueOf(1));
 			return exBuilder.where(selection, selectionArgs).query(db, projection, groupBy, null, sortOrder, null);
 		}
-		case HANDLERS_BY_JUNIORS_CLASS:
-		{
+		case HANDLERS_BY_JUNIORS_CLASS: {
 			final SelectionBuilder exBuilder = buildSimpleSelection(uri);
 			String groupBy = Handlers.HANDLER_JUNIOR_CLASS;
 			return exBuilder.where(selection, selectionArgs).query(db, projection, groupBy, null, sortOrder, null);
@@ -276,7 +275,7 @@ public class DogshowProvider extends ContentProvider {
 		case JUNIORS_RINGS:
 			return builder.table(Tables.JUNIORS_RINGS);
 		case ALL_RINGS_ENTERED:
-			return builder.table(Tables.ALL_ENTERED_RINGS);//TODO FIXME this should be Tables.All_Rings
+			return builder.table(Tables.ALL_ENTERED_RINGS);// TODO FIXME this should be Tables.All_Rings
 		default: {
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
 		}
@@ -307,7 +306,7 @@ public class DogshowProvider extends ContentProvider {
 		}
 		}
 	}
-	
+
 	public interface Qualified {
 		public static final String BREED_RINGS_RING_BREED = Tables.BREED_RINGS + "." + BreedRings.RING_BREED;
 		public static final String DOG_CALL_NAME = Tables.DOGS + "." + Dogs.DOG_CALL_NAME;
@@ -316,38 +315,17 @@ public class DogshowProvider extends ContentProvider {
 		public static final String BREED_RINGS_IS_VETERAN = Tables.BREED_RINGS + "." + BreedRings.RING_BREED_IS_VETERAN;
 		public static final String BREED_RINGS_IS_SWEEPSTAKES = Tables.BREED_RINGS + "." + BreedRings.RING_BREED_IS_SWEEPSTAKES;
 	}
-	
+
 	public interface Subquery {
-		public static final String BREED_RING_OVERVIEW ="SELECT " + Qualified.BREED_RINGS_ID +", " +
-				 EnteredRings.TYPE_BREED_RING + " as ring_type, " + //TODO TYPE_BREED_RING to BreedRings.TYPE etc. with juniors
-				 BreedRings.RING_NUMBER + ", " +
-				 BreedRings.RING_TITLE + " as "+EnteredRings.ENTERED_RINGS_TITLE +"," + 
-				 Dogs.ENTERED_DOGS_NAMES + " as "+EnteredRings.ENTERED_RINGS_SUBTITLE +", " +
-				 BreedRings.RING_BLOCK_START + ", " +
-				 BreedRings.RING_COUNT_AHEAD +", " +
-				 BreedRings.RING_JUDGE_TIME  + "," +
-				 Dogs.DOG_IMAGE_PATH + " as image_path, " +
-				 Dogs.ENTERED_DOGS_FIRST_CLASS + " as " + EnteredRings.ENTERED_RINGS_FIRST_CLASS + "," + 
-				 BreedRings.RING_DOG_COUNT + " as " + EnteredRings.ENTERED_RINGS_DOG_COUNT + "," +
-				 BreedRings.RING_BITCH_COUNT + " as " + EnteredRings.ENTERED_RINGS_BITCH_COUNT+ "," +
-				 BreedRings.RING_SPECIAL_DOG_COUNT+ " as " + EnteredRings.ENTERED_RINGS_SPECIAL_DOG_COUNT+ "," +
-				 BreedRings.RING_SPECIAL_BITCH_COUNT + " as " + EnteredRings.ENTERED_RINGS_SPECIAL_BITCH_COUNT +
-				 " FROM ( " + Tables.ENTERED_BREED_RINGS_JOIN_DOGS + " )";
-		public static final String JUNIOR_RING_OVERVIEW = "SELECT " + Qualified.JUNIORS_RINGS_ID + ", " + 
-		EnteredRings.TYPE_JUNIORS_RING +" as " + EnteredRings.ENTERED_RINGS_TYPE + ", "+ 
-				JuniorsRings.RING_NUMBER + ", " + 
-				JuniorsRings.RING_TITLE + "," +
-				Handlers.ENTERED_JUNIOR_HANDLER_NAMES + ", " + 
-				JuniorsRings.RING_BLOCK_START + ", " +
-				JuniorsRings.RING_COUNT_AHEAD + ", " + 
-				JuniorsRings.RING_JUDGE_TIME+ ", " +
-				"NULL" + "," +//image path
-				"NULL" + "," +//class
-				"NULL" + "," +//dog
-				"NULL" + "," +//bitch
-				"NULL" + "," +//s. dog
-				"NULL"       +//s. bitch
+		public static final String BREED_RING_OVERVIEW = "SELECT " + Qualified.BREED_RINGS_ID + ", " + EnteredRings.TYPE_BREED_RING + " as ring_type, " + // TODO TYPE_BREED_RING to BreedRings.TYPE etc. with juniors
+				BreedRings.RING_NUMBER + ", " + BreedRings.RING_TITLE + " as " + EnteredRings.ENTERED_RINGS_TITLE + "," + Dogs.ENTERED_DOGS_NAMES + " as " + EnteredRings.ENTERED_RINGS_SUBTITLE + ", " + BreedRings.RING_BLOCK_START + ", " + BreedRings.RING_COUNT_AHEAD + ", " + BreedRings.RING_JUDGE_TIME + "," + Dogs.DOG_IMAGE_PATH + " as image_path, " + Dogs.ENTERED_DOGS_FIRST_CLASS + " as " + EnteredRings.ENTERED_RINGS_FIRST_CLASS + "," + BreedRings.RING_DOG_COUNT + " as " + EnteredRings.ENTERED_RINGS_DOG_COUNT + "," + BreedRings.RING_BITCH_COUNT + " as " + EnteredRings.ENTERED_RINGS_BITCH_COUNT + "," + BreedRings.RING_SPECIAL_DOG_COUNT + " as " + EnteredRings.ENTERED_RINGS_SPECIAL_DOG_COUNT + "," + BreedRings.RING_SPECIAL_BITCH_COUNT + " as " + EnteredRings.ENTERED_RINGS_SPECIAL_BITCH_COUNT + " FROM ( " + Tables.ENTERED_BREED_RINGS_JOIN_DOGS + " )";
+		public static final String JUNIOR_RING_OVERVIEW = "SELECT " + Qualified.JUNIORS_RINGS_ID + ", " + EnteredRings.TYPE_JUNIORS_RING + " as " + EnteredRings.ENTERED_RINGS_TYPE + ", " + JuniorsRings.RING_NUMBER + ", " + JuniorsRings.RING_TITLE + "," + Handlers.ENTERED_JUNIOR_HANDLER_NAMES + ", " + JuniorsRings.RING_BLOCK_START + ", " + JuniorsRings.RING_COUNT_AHEAD + ", " + JuniorsRings.RING_JUDGE_TIME + ", " + "NULL" + "," + // image path
+				"NULL" + "," + // class
+				"NULL" + "," + // dog
+				"NULL" + "," + // bitch
+				"NULL" + "," + // s. dog
+				"NULL" + // s. bitch
 				" FROM " + Tables.ENTERED_JUNIORS_RINGS;
-		public static final String ENTERED_JUNIOR_HANDLERS = "(SELECT *,group_concat(" + Handlers.HANDLER_NAME + ", \", \" ) as " + Handlers.ENTERED_JUNIOR_HANDLER_NAMES + " FROM " + Tables.HANDLERS + " AS handlerTable " + " WHERE " + Handlers.HANDLER_IS_SHOWING_JUNIORS + "=1 AND " + Handlers.HANDLER_JUNIOR_CLASS + " IS NOT NULL " +" GROUP BY " + Handlers.HANDLER_JUNIOR_CLASS+")";
+		public static final String ENTERED_JUNIOR_HANDLERS = "(SELECT *,group_concat(" + Handlers.HANDLER_NAME + ", \", \" ) as " + Handlers.ENTERED_JUNIOR_HANDLER_NAMES + " FROM " + Tables.HANDLERS + " AS handlerTable " + " WHERE " + Handlers.HANDLER_IS_SHOWING_JUNIORS + "=1 AND " + Handlers.HANDLER_JUNIOR_CLASS + " IS NOT NULL " + " GROUP BY " + Handlers.HANDLER_JUNIOR_CLASS + ")";
 	}
 }
