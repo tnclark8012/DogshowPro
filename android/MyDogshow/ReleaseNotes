@@ -3,5 +3,8 @@ Version Notes
 [versionCode;versionName - about]
 1;0.2a - Initial release
 2;0.3a - Added breed counts, better ring estimates, image choosing and cropping. 
-	* Rings are sorted on estimated time instead of block start. 
+	* Rings are sorted on estimated time instead of block start.
 	
+vNext
+----- 
+Fixed juniors rings
