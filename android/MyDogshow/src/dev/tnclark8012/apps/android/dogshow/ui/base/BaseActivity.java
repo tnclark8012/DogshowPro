@@ -40,7 +40,7 @@ public abstract class BaseActivity extends Activity {
 		// If we're not on Google TV and we're not authenticated, finish this
 		// activity
 		// and show the authentication screen.
-			if (false && !AccountUtils.isAuthenticated(this)) {//TODO implement
+			if (!AccountUtils.isAuthenticated(this)) {//TODO implement
 //				new Intent(this, DogActivity.class)
 
 				AccountUtils.startAuthenticationFlow(this, getIntent());

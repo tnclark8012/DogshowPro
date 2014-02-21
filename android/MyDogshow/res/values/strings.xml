@@ -9,6 +9,13 @@
     <string name="dashboard_schedule">Schedule</string>
     <string name="description_add_account">Add a gmail account to begin!</string>
 	<string name="description_choose_account">Choose an account</string>
+	    <string name="description_sign_in_main"><![CDATA[
+        Welcome to the Google I/O 2013 app, your official companion to the Google I/O conference
+        taking place in San Francisco from May 15th to May 17th, 2013.<br>
+        <br>
+        We just need to ask you a couple of quick questions. Press the &quot;Sign-in&quot; button
+        to get started.
+    ]]></string>
 	<string name="img_description_handler">handler image</string>
 	<string name="title_my_schedule">My Schedule</string>
 	<string name="title_team_schedule">Team</string>

@@ -22,142 +22,194 @@ import java.util.List;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.Activity;
+import android.app.Dialog;
+import android.app.Fragment;
 import android.app.ListFragment;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentSender;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
-import android.app.Fragment;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import dev.tnclark8012.apps.android.dogshow.ui.phone.HomeActivity;
-import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
-import dev.tnclark8012.apps.android.dogshow.R;
 
-/**
- * The first activity most users see. This wizard-like activity first presents
- * an account selection fragment ({@link ChooseAccountFragment}), and then an
- * authentication progress fragment ({@link AuthProgressFragment}).
- */
-public class AccountActivity extends Activity implements
-		AccountUtils.AuthenticateCallback {
+import com.google.android.gms.auth.GoogleAuthUtil;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesClient;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.plus.PlusClient;
+import com.google.android.gms.plus.model.people.Person;
+import com.google.android.gms.plus.model.people.PersonBuffer;
+
+import dev.tnclark8012.apps.android.dogshow.R;
+import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
+import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
+import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
+import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
+
+public class AccountActivity extends Activity implements AccountUtils.AuthenticateCallback, GooglePlayServicesClient.ConnectionCallbacks, GooglePlayServicesClient.OnConnectionFailedListener, PlusClient.OnPeopleLoadedListener {
 
 	private static final String TAG = AccountActivity.class.getSimpleName();
 
-	public static final String EXTRA_FINISH_INTENT = "dev.tnclark8012.dogshow.android.extra.FINISH_INTENT";
+	public static final String EXTRA_FINISH_INTENT = "dev.tnclark8012.apps.android.dogshow.extra.FINISH_INTENT";
+
+	private static final int SETUP_ATTENDEE = 1;
+	private static final int SETUP_WIFI = 2;
+
+	private static final String KEY_CHOSEN_ACCOUNT = "chosen_account";
 
 	private static final int REQUEST_AUTHENTICATE = 100;
+	private static final int REQUEST_RECOVER_FROM_AUTH_ERROR = 101;
+	private static final int REQUEST_RECOVER_FROM_PLAY_SERVICES_ERROR = 102;
+	private static final int REQUEST_PLAY_SERVICES_ERROR_DIALOG = 103;
 
-	private final Handler mHandler = new Handler();
+	private static final String POST_AUTH_CATEGORY = "dev.tnclark8012.apps.android.dogshow.category.POST_AUTH";
 
 	private Account mChosenAccount;
 	private Intent mFinishIntent;
 	private boolean mCancelAuth = false;
+	private boolean mAuthInProgress = false;
+	private boolean mAuthProgressFragmentResumed = false;
+	private boolean mCanRemoveAuthProgressFragment = false;
+	private PlusClient mPlusClient;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.activity_account);
+		setContentView(R.layout.activity_singlepane_empty);
 
-		if (getIntent().hasExtra(EXTRA_FINISH_INTENT)) {
-			mFinishIntent = getIntent().getParcelableExtra(EXTRA_FINISH_INTENT);
+		final Intent intent = getIntent();
+		if (intent.hasExtra(EXTRA_FINISH_INTENT)) {
+			mFinishIntent = intent.getParcelableExtra(EXTRA_FINISH_INTENT);
 		}
 
 		if (savedInstanceState == null) {
-			getFragmentManager()
-					.beginTransaction()
-					.add(R.id.fragment_container, new ChooseAccountFragment(),
-							"choose_account").commit();
+			if (!AccountUtils.isAuthenticated(this)) {
+				getFragmentManager().beginTransaction().add(R.id.root_container, new SignInMainFragment(), "signin_main").commit();
+			} else {
+				mChosenAccount = new Account(AccountUtils.getChosenAccountName(this), "com.google");
+				finishSetup();
+			}
+		} else {
+			String accountName = savedInstanceState.getString(KEY_CHOSEN_ACCOUNT);
+			if (accountName != null) {
+				mChosenAccount = new Account(accountName, "com.google");
+				mPlusClient = (new PlusClient.Builder(this, this, this)).setAccountName(accountName).setScopes(AccountUtils.AUTH_SCOPES).build();
+			}
 		}
 	}
 
 	@Override
+	public void onRecoverableException(final int code) {
+		runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				final Dialog d = GooglePlayServicesUtil.getErrorDialog(code, AccountActivity.this, REQUEST_RECOVER_FROM_PLAY_SERVICES_ERROR);
+				d.show();
+			}
+		});
+	}
+
+	@Override
+	public void onUnRecoverableException(final String errorMessage) {
+		Log.w(TAG, "Encountered unrecoverable exception: " + errorMessage);
+	}
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		if (mChosenAccount != null)
+			outState.putString(KEY_CHOSEN_ACCOUNT, mChosenAccount.name);
+		super.onSaveInstanceState(outState);
+	}
+
+	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (requestCode == REQUEST_AUTHENTICATE) {
+		if (requestCode == REQUEST_AUTHENTICATE || requestCode == REQUEST_RECOVER_FROM_AUTH_ERROR || requestCode == REQUEST_PLAY_SERVICES_ERROR_DIALOG) {
 			if (resultCode == RESULT_OK) {
-				tryAuthenticate();
+				if (mPlusClient != null)
+					mPlusClient.connect();
 			} else {
-				// go back to previous step
-				mHandler.post(new Runnable() {
-					@Override
-					public void run() {
-						getFragmentManager().popBackStack();
-					}
-				});
+				if (mAuthProgressFragmentResumed) {
+					runOnUiThread(new Runnable() {
+						@Override
+						public void run() {
+							getFragmentManager().popBackStack();
+						}
+					});
+				} else {
+					mCanRemoveAuthProgressFragment = true;
+				}
 			}
 		} else {
 			super.onActivityResult(requestCode, resultCode, data);
 		}
 	}
 
-	private void tryAuthenticate() {
-		AccountUtils.tryAuthenticate(AccountActivity.this,
-				AccountActivity.this, REQUEST_AUTHENTICATE, mChosenAccount);
+	@Override
+	public void onStop() {
+		super.onStop();
+		if (mAuthInProgress)
+			mCancelAuth = true;
+		if (mPlusClient != null)
+			mPlusClient.disconnect();
 	}
 
 	@Override
-	public boolean shouldCancelAuthentication() {
-		return mCancelAuth;
-	}
-
-	@Override
-	public void onAuthTokenAvailable(String authToken) {
-//		// ContentResolver.setIsSyncable(mChosenAccount,
-//		// ScheduleContract.CONTENT_AUTHORITY, 1);
-//		// *********************************
-//		// Load stored registration info
-//		// *********************************
-//		SharedPreferences prefs = Prefs.get(this);
-//		SharedPreferences.Editor editor = prefs.edit();
-//		String installationId;
-//		String openID;
-//		if ((installationId = prefs.getString(Prefs.KEY_DEVICE_ID, null)) == null) {
-//			// Do not generate a new installation ID for a newly chosen account
-//			Log.d(TAG, "Generating installation ID");
-//			installationId = UUID.randomUUID().toString();
-//			editor.putString(Prefs.KEY_DEVICE_ID, installationId);
-//			editor.commit();
-//		}
-//		openID = prefs.getString(Prefs.KEY_OPEN_ID, null);
-//		editor.putString(Prefs.KEY_AUTH_TOKEN, authToken);
-		if (mFinishIntent != null) {
-//			 mFinishIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-//			 mFinishIntent.setAction(Intent.ACTION_MAIN);
-//			 mFinishIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
-			 Log.d(TAG, "Starting finish intent");
-			startActivity(new Intent(this, HomeActivity.class));
+	public void onPeopleLoaded(ConnectionResult status, PersonBuffer personBuffer, String nextPageToken) {
+		if (status.isSuccess()) {
+			if (personBuffer != null && personBuffer.getCount() > 0) {
+				// Set the profile id
+				AccountUtils.setPlusProfileId(this, personBuffer.get(0).getId());
+				Person person = personBuffer.get(0);
+				// TODO image
+				String name = person.getDisplayName();
+				if (person.hasImage()) {
+					String imageUrl = personBuffer.get(0).getImage().getUrl();
+					imageUrl.concat("?sz=" + this.getResources().getInteger(R.dimen.header_icon_height));
+				}
+				new SyncHelper(this).createMe(name);
+			}
+		} else {
+			Log.e(TAG, "Got " + status.getErrorCode() + ". Could not load plus profile.");
 		}
-		//Toast.makeText(this, authToken, Toast.LENGTH_LONG).show();
-		finish();
 	}
 
-	/**
-	 * A fragment that presents the user with a list of accounts to choose from.
-	 * Once an account is selected, we move on to the login progress fragment (
-	 * {@link AuthProgressFragment}).
-	 */
-	public static class ChooseAccountFragment extends ListFragment {
-		public ChooseAccountFragment() {
+	public static class SignInMainFragment extends Fragment {
+		public SignInMainFragment() {
 		}
 
 		@Override
-		public void onCreate(Bundle savedInstanceState) {
-			super.onCreate(savedInstanceState);
-			setHasOptionsMenu(true);
+		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+			ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_login_main, container, false);
+			TextView descriptionTextView = (TextView) rootView.findViewById(R.id.sign_in_description);
+			descriptionTextView.setText(Html.fromHtml(getString(R.string.description_sign_in_main)));
+			SignInButton signinButtonView = (SignInButton) rootView.findViewById(R.id.sign_in_button);
+			signinButtonView.setSize(SignInButton.SIZE_WIDE);
+			signinButtonView.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View view) {
+					getActivity().getFragmentManager().beginTransaction().replace(R.id.root_container, new ChooseAccountFragment(), "choose_account").addToBackStack("signin_main").commit();
+				}
+			});
+			return rootView;
+		}
+	}
+
+	public static class ChooseAccountFragment extends ListFragment {
+		public ChooseAccountFragment() {
 		}
 
 		@Override
@@ -167,31 +219,10 @@ public class AccountActivity extends Activity implements
 		}
 
 		@Override
-		public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-			inflater.inflate(R.menu.add_account, menu);
-			super.onCreateOptionsMenu(menu, inflater);
-		}
-
-		@Override
-		public boolean onOptionsItemSelected(MenuItem item) {
-			if (item.getItemId() == R.id.menu_add_account) {
-				Intent addAccountIntent = new Intent(
-						Settings.ACTION_ADD_ACCOUNT);
-				startActivity(addAccountIntent);
-				return true;
-			}
-			return super.onOptionsItemSelected(item);
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			ViewGroup rootView = (ViewGroup) inflater.inflate(
-					R.layout.fragment_login_choose_account, container, false);
-			TextView descriptionView = (TextView) rootView
-					.findViewById(R.id.choose_account_intro);
-			descriptionView.setText(Html
-					.fromHtml(getString(R.string.description_choose_account)));
+		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+			ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_login_choose_account, container, false);
+			TextView descriptionView = (TextView) rootView.findViewById(R.id.choose_account_intro);
+			descriptionView.setText(Html.fromHtml(getString(R.string.description_choose_account)));
 			return rootView;
 		}
 
@@ -203,47 +234,51 @@ public class AccountActivity extends Activity implements
 			}
 
 			AccountManager am = AccountManager.get(getActivity());
-			Account[] accounts = am.getAccountsByType("com.google");
-			mAccountListAdapter = new AccountListAdapter(getActivity(),
-					Arrays.asList(accounts));
+			Account[] accounts = am.getAccountsByType(GoogleAuthUtil.GOOGLE_ACCOUNT_TYPE);
+			mAccountListAdapter = new AccountListAdapter(getActivity(), Arrays.asList(accounts));
 			setListAdapter(mAccountListAdapter);
 		}
 
 		private class AccountListAdapter extends ArrayAdapter<Account> {
-			Context mContext;
-			private static final int LAYOUT_RESOURCE = android.R.layout.simple_list_item_1;
+			private static final int LAYOUT_RESOURCE = R.layout.list_item_login_option;
 
 			public AccountListAdapter(Context context, List<Account> accounts) {
 				super(context, LAYOUT_RESOURCE, accounts);
-				mContext = context;
 			}
 
 			private class ViewHolder {
 				TextView text1;
 			}
 
+			@Override
+			public int getCount() {
+				return super.getCount() + 1;
+			}
+
 			public View getView(int position, View convertView, ViewGroup parent) {
 				ViewHolder holder;
 
 				if (convertView == null) {
-					convertView = ((LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(
-							LAYOUT_RESOURCE, null);
+					convertView = getActivity().getLayoutInflater().inflate(LAYOUT_RESOURCE, null);
 
 					holder = new ViewHolder();
-					holder.text1 = (TextView) convertView
-							.findViewById(android.R.id.text1);
+					holder.text1 = (TextView) convertView.findViewById(android.R.id.text1);
 
 					convertView.setTag(holder);
 				} else {
 					holder = (ViewHolder) convertView.getTag();
 				}
 
-				final Account account = getItem(position);
-
-				if (account != null) {
-					holder.text1.setText(account.name);
+				if (position == getCount() - 1) {
+					holder.text1.setText(R.string.description_add_account);
 				} else {
-					holder.text1.setText("");
+					final Account account = getItem(position);
+
+					if (account != null) {
+						holder.text1.setText(account.name);
+					} else {
+						holder.text1.setText("");
+					}
 				}
 
 				return convertView;
@@ -252,50 +287,44 @@ public class AccountActivity extends Activity implements
 
 		@Override
 		public void onListItemClick(ListView l, View v, int position, long id) {
+			if (position == mAccountListAdapter.getCount() - 1) {
+				Intent addAccountIntent = new Intent(Settings.ACTION_ADD_ACCOUNT);
+				addAccountIntent.putExtra(Settings.EXTRA_AUTHORITIES, new String[] { DogshowContract.CONTENT_AUTHORITY });
+				startActivity(addAccountIntent);
+				return;
+			}
+
 			AccountActivity activity = (AccountActivity) getActivity();
-			ConnectivityManager cm = (ConnectivityManager) activity
-					.getSystemService(CONNECTIVITY_SERVICE);
+			ConnectivityManager cm = (ConnectivityManager) activity.getSystemService(CONNECTIVITY_SERVICE);
 			NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
 			if (activeNetwork == null || !activeNetwork.isConnected()) {
-				Toast.makeText(activity, "No connection!", Toast.LENGTH_SHORT)
-						.show();
+				Toast.makeText(activity, "Can't connect. Check your internet connection.", Toast.LENGTH_SHORT).show();
 				return;
 			}
 
 			activity.mCancelAuth = false;
 			activity.mChosenAccount = mAccountListAdapter.getItem(position);
-			activity.getFragmentManager()
-					.beginTransaction()
-					.replace(R.id.fragment_container,
-							new AuthProgressFragment(), "loading")
-					.addToBackStack("choose_account").commit();
+			activity.getFragmentManager().beginTransaction().replace(R.id.root_container, new AuthProgressFragment(), "loading").addToBackStack("choose_account").commit();
 
-			activity.tryAuthenticate();
+			PlusClient.Builder builder = new PlusClient.Builder(activity, activity, activity);
+			activity.mPlusClient = builder.setScopes(AccountUtils.AUTH_SCOPES).setAccountName(activity.mChosenAccount.name).build();
+			activity.mPlusClient.connect();
 		}
 	}
 
-	/**
-	 * This fragment shows a login progress spinner. Upon reaching a timeout of
-	 * 7 seconds (in case of a poor network connection), the user can try again.
-	 */
 	public static class AuthProgressFragment extends Fragment {
 		private static final int TRY_AGAIN_DELAY_MILLIS = 7 * 1000; // 7 seconds
-
 		private final Handler mHandler = new Handler();
 
 		public AuthProgressFragment() {
 		}
 
 		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			ViewGroup rootView = (ViewGroup) inflater.inflate(
-					R.layout.fragment_login_loading, container, false);
+		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+			ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_login_loading, container, false);
 
-			final View takingAWhilePanel = rootView
-					.findViewById(R.id.taking_a_while_panel);
-			final View tryAgainButton = rootView
-					.findViewById(R.id.retry_button);
+			final View takingAWhilePanel = rootView.findViewById(R.id.taking_a_while_panel);
+			final View tryAgainButton = rootView.findViewById(R.id.retry_button);
 			tryAgainButton.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View view) {
@@ -309,18 +338,104 @@ public class AccountActivity extends Activity implements
 					if (!isAdded()) {
 						return;
 					}
-
+					if (AccountUtils.isAuthenticated(getActivity())) {
+						((AccountActivity) getActivity()).onAuthTokenAvailable();
+						return;
+					}
 					takingAWhilePanel.setVisibility(View.VISIBLE);
 				}
 			}, TRY_AGAIN_DELAY_MILLIS);
-
 			return rootView;
+		}
+
+		@Override
+		public void onPause() {
+			super.onPause();
+			((AccountActivity) getActivity()).mAuthProgressFragmentResumed = false;
+		}
+
+		@Override
+		public void onResume() {
+			super.onResume();
+			((AccountActivity) getActivity()).mAuthProgressFragmentResumed = true;
+			if (((AccountActivity) getActivity()).mCanRemoveAuthProgressFragment) {
+				((AccountActivity) getActivity()).mCanRemoveAuthProgressFragment = false;
+				getFragmentManager().popBackStack();
+			}
 		}
 
 		@Override
 		public void onDetach() {
 			super.onDetach();
 			((AccountActivity) getActivity()).mCancelAuth = true;
+		}
+	}
+
+	private void tryAuthenticate() {
+		// Authenticate through the Google Play OAuth client.
+		mAuthInProgress = true;
+		AccountUtils.tryAuthenticate(this, this, mChosenAccount.name, REQUEST_RECOVER_FROM_AUTH_ERROR);
+	}
+
+	@Override
+	public boolean shouldCancelAuthentication() {
+		return mCancelAuth;
+	}
+
+	@Override
+	public void onAuthTokenAvailable() {
+		// Cancel progress fragment.
+		// Create set up fragment.
+		mAuthInProgress = false;
+		if (mAuthProgressFragmentResumed) {
+			getFragmentManager().popBackStack();
+			finishSetup();
+		}
+	}
+
+	private void finishSetup() {
+		ContentResolver.setIsSyncable(mChosenAccount, DogshowContract.CONTENT_AUTHORITY, 1);
+		ContentResolver.setSyncAutomatically(mChosenAccount, DogshowContract.CONTENT_AUTHORITY, true);
+		SyncHelper.requestManualSync(mChosenAccount);
+		Prefs.markSetupDone(this);
+
+		if (mFinishIntent != null) {
+			// Ensure the finish intent is unique within the task. Otherwise, if the task was
+			// started with this intent, and it finishes like it should, then startActivity on
+			// the intent again won't work.
+			mFinishIntent.addCategory(POST_AUTH_CATEGORY);
+			startActivity(mFinishIntent);
+		}
+
+		finish();
+	}
+
+	// Google Plus client callbacks.
+	@Override
+	public void onConnected(Bundle connectionHint) {
+		// It is possible that the authenticated account doesn't have a profile.
+		mPlusClient.loadPeople(this, "me");
+		tryAuthenticate();
+	}
+
+	@Override
+	public void onDisconnected() {
+	}
+
+	@Override
+	public void onConnectionFailed(ConnectionResult connectionResult) {
+		if (connectionResult.hasResolution()) {
+			try {
+				connectionResult.startResolutionForResult(this, REQUEST_RECOVER_FROM_AUTH_ERROR);
+			} catch (IntentSender.SendIntentException e) {
+				Log.e(TAG, "Internal error encountered: " + e.getMessage());
+			}
+			return;
+		}
+
+		final int errorCode = connectionResult.getErrorCode();
+		if (GooglePlayServicesUtil.isUserRecoverableError(errorCode)) {
+			GooglePlayServicesUtil.getErrorDialog(errorCode, this, REQUEST_PLAY_SERVICES_ERROR_DIALOG).show();
 		}
 	}
 }

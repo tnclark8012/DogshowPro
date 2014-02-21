@@ -35,11 +35,13 @@
             android:baselineAligned="true"
             android:baselineAlignedChildIndex="0"
             android:visibility="invisible">
-            <TextView android:text="Sorry this is taking a while..."
+
+            <TextView 
+                android:text="This is taking a while..."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:textAppearanceMedium"
                 android:layout_marginRight="@dimen/element_spacing_normal" />
+
             <Button android:id="@+id/retry_button"
                 android:text="Retry"
                 android:layout_width="wrap_content"

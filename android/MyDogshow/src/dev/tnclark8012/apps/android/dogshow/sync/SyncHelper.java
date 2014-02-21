@@ -1,14 +1,21 @@
 package dev.tnclark8012.apps.android.dogshow.sync;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
+import android.accounts.Account;
 import android.content.ContentProviderOperation;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.OperationApplicationException;
+import android.content.SharedPreferences;
+import android.content.SyncResult;
 import android.database.Cursor;
+import android.net.ConnectivityManager;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.RemoteException;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import dev.tnclark8012.apps.android.dogshow.model.Show;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
@@ -23,6 +30,8 @@ public class SyncHelper {
 	private final static String TAG = SyncHelper.class.getSimpleName();
 	private ApiAccessor mAccessor;
 	private Context mContext;
+	public static final int FLAG_SYNC_LOCAL = 0x1;
+	public static final int FLAG_SYNC_REMOTE = 0x2;
 
 	public SyncHelper(Context context) {
 		mContext = context;
@@ -120,4 +129,83 @@ public class SyncHelper {
 			return null;
 		}
 	};
+	private int LOCAL_VERSION_CURRENT;
+
+	public static void requestManualSync(Account mChosenAccount) {
+		Bundle b = new Bundle();
+		b.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true);
+		ContentResolver.requestSync(mChosenAccount, DogshowContract.CONTENT_AUTHORITY, b);
+	}
+
+	public void performSync(SyncResult syncResult, int flags) throws IOException {
+
+		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+		final int localVersion = prefs.getInt("local_data_version", 0);
+
+		// Bulk of sync work, performed by executing several fetches from
+		// local and online sources.
+		final ContentResolver resolver = mContext.getContentResolver();
+		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
+
+		Log.i(TAG, "Performing sync");
+
+		if ((flags & FLAG_SYNC_LOCAL) != 0) {
+			final long startLocal = System.currentTimeMillis();
+			boolean localParse = true;// /Should we load the results?
+
+			// Only run local sync if there's a newer version of data available
+			// than what was last locally-sync'd.
+			if (localParse) {
+				// Load static local data
+				Log.i(TAG, "Local syncing rooms");
+				// Add stuff to batch to insert
+				// Track local data version
+				prefs.edit().putInt("local_data_version", LOCAL_VERSION_CURRENT).commit();
+				if (syncResult != null) {
+					++syncResult.stats.numUpdates; // TODO: better way of indicating progress?
+					++syncResult.stats.numEntries;
+				}
+			}
+
+			Log.d(TAG, "Local sync took " + (System.currentTimeMillis() - startLocal) + "ms");
+
+			try {
+				// Apply all queued up batch operations for local data.
+				resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY, batch);
+			} catch (RemoteException e) {
+				throw new RuntimeException("Problem applying batch operation", e);
+			} catch (OperationApplicationException e) {
+				throw new RuntimeException("Problem applying batch operation", e);
+			}
+
+			batch = new ArrayList<ContentProviderOperation>();
+		}
+
+		if ((flags & FLAG_SYNC_REMOTE) != 0 && isOnline()) {
+			final long startRemote = System.currentTimeMillis();
+			// TODO add dogs/handlers/rings to batch
+			Log.d(TAG, "Remote sync took " + (System.currentTimeMillis() - startRemote) + "ms");
+			if (syncResult != null) {
+				++syncResult.stats.numUpdates; // TODO: better way of indicating progress?
+				++syncResult.stats.numEntries;
+			}
+			// all other IOExceptions are thrown
+			Log.i(TAG, "Sync complete");
+		}
+
+		try {
+			// Apply all queued up remaining batch operations (only remote content at this point).
+			resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY, batch);
+			// TODO Delete anything
+		} catch (RemoteException e) {
+			throw new RuntimeException("Problem applying batch operation", e);
+		} catch (OperationApplicationException e) {
+			throw new RuntimeException("Problem applying batch operation", e);
+		}
+	}
+
+	private boolean isOnline() {
+		ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+		return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnectedOrConnecting();
+	}
 }

@@ -24,7 +24,9 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 	private static final int VER_LAUNCH = 3;
 	private static final int VER_BREED_BREAKDOWN = 4;
 	private static final int VER_HANDLERS_UPGRADE = 5;
-	private static final int DATABASE_VERSION = VER_HANDLERS_UPGRADE;
+	private static final int VER_HANDLERS_IS_ME = 6;
+	
+	private static final int DATABASE_VERSION = VER_HANDLERS_IS_ME;
 
 	public interface Tables {
 		String DOGS = "dogs";
@@ -59,7 +61,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 	}
 
 	private void createHandlersTable(SQLiteDatabase db) {
-		db.execSQL("CREATE TABLE " + Tables.HANDLERS + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + HandlersColumns.HANDLER_NAME + " TEXT," + HandlersColumns.HANDLER_JUNIOR_CLASS + " TEXT," + HandlersColumns.HANDLER_IMAGE_PATH + " TEXT," + HandlersColumns.HANDLER_IS_SHOWING + " INTEGER DEFAULT 1," + HandlersColumns.HANDLER_IS_SHOWING_JUNIORS + " INTEGER DEFAULT 1," + SyncColumns.UPDATED + " INTEGER NOT NULL)");
+		db.execSQL("CREATE TABLE " + Tables.HANDLERS + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + HandlersColumns.HANDLER_IS_ME + " INTEGER DEFAULT 0, " + HandlersColumns.HANDLER_NAME + " TEXT," + HandlersColumns.HANDLER_JUNIOR_CLASS + " TEXT," + HandlersColumns.HANDLER_IMAGE_PATH + " TEXT," + HandlersColumns.HANDLER_IS_SHOWING + " INTEGER DEFAULT 1," + HandlersColumns.HANDLER_IS_SHOWING_JUNIORS + " INTEGER DEFAULT 1," + SyncColumns.UPDATED + " INTEGER NOT NULL)");
 	}
 
 	private void createDogsTable(SQLiteDatabase db) {
@@ -108,6 +110,9 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 			version++;
 			db.execSQL("DROP TABLE IF EXISTS " + Tables.HANDLERS);
 			createHandlersTable(db);
+		case VER_HANDLERS_UPGRADE:
+			version++;
+			db.execSQL("ALTER TABLE " + Tables.HANDLERS + " ADD COLUMN " + HandlersColumns.HANDLER_IS_ME + " INTEGER DEFAULT 0");
 		}
 
 		if (version != DATABASE_VERSION) {

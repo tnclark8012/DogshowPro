@@ -23,6 +23,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseActivity;
+import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 import dev.tnclark8012.apps.android.dogshow.R;
 
 /**
@@ -49,9 +50,14 @@ public class HomeActivity extends BaseActivity  {
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-    	if(item.getItemId()==R.id.menu_find_show)
+    	switch(item.getItemId())
     	{
+    	case R.id.menu_find_show:
     		startActivity(new Intent(this, ShowSetupActivity.class));
+    		return true;
+    	case R.id.menu_sign_out:
+    		AccountUtils.signOut(this);
+    		finish();
     		return true;
     	}
     	return super.onOptionsItemSelected(item);

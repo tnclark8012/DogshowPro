@@ -9,14 +9,18 @@ import android.content.ContentProviderOperation;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.OperationApplicationException;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.RemoteException;
 import android.provider.BaseColumns;
+import android.util.Log;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
+import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.JuniorsRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.SyncColumns;
+import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums;
 
@@ -26,6 +30,25 @@ public class PersistHelper {
 
 	public PersistHelper(Context context) {
 		mContext = context;
+	}
+
+	public boolean createMe(String name) {
+		final ContentResolver resolver = mContext.getContentResolver();
+		String selection = Handlers.HANDLER_IS_ME + "=?";
+		String[] selectionArgs = new String[] { "1" };
+		Cursor meCursor = resolver.query(Handlers.CONTENT_URI, new String[] { Handlers.HANDLER_IS_ME }, selection, selectionArgs, null);
+		if (meCursor.getCount() == 0) {
+			Log.v(TAG, "Creating Me");
+			Map<String, Object> values = new HashMap<String, Object>();
+			values.put(Handlers.HANDLER_IS_ME, 1);
+			values.put(Handlers.HANDLER_NAME, name);
+			createEntity(Handlers.CONTENT_URI, values);
+			meCursor.close();
+			return true;
+		} else {
+			meCursor.close();
+			return true;
+		}
 	}
 
 	// TODO use only this?

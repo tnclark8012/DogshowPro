@@ -16,35 +16,57 @@
 
 package dev.tnclark8012.apps.android.dogshow.util;
 
+import java.io.IOException;
+
 import android.accounts.Account;
-import android.accounts.AccountManager;
-import android.accounts.AccountManagerCallback;
-import android.accounts.AccountManagerFuture;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
+import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
+
+import com.google.android.gms.auth.GoogleAuthException;
+import com.google.android.gms.auth.GoogleAuthUtil;
+import com.google.android.gms.auth.GooglePlayServicesAvailabilityException;
+import com.google.android.gms.auth.UserRecoverableAuthException;
+import com.google.android.gms.auth.UserRecoverableNotifiedException;
+import com.google.android.gms.common.Scopes;
+
+import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.ui.base.AccountActivity;
 
 /**
- * An assortment of authentication and login helper utilities.
+ * An assortment of authentication and Log.in helper utilities.
  */
 public class AccountUtils {
 	private static final String TAG = AccountUtils.class.getSimpleName();
 
 	private static final String PREF_CHOSEN_ACCOUNT = "chosen_account";
 	private static final String PREF_AUTH_TOKEN = "auth_token";
+	private static final String PREF_PLUS_PROFILE_ID = "plus_profile_id";
 
-	// The auth scope required for the app. In our case we use the "conference API"
-	// (not currently open source) which requires the developerssite (and readonly variant) scope.
-	private static final String AUTH_TOKEN_TYPE = "ah";
+	public static final String AUTH_SCOPES[] = { Scopes.PLUS_LOGIN, "profile" };
+
+	static final String AUTH_TOKEN_TYPE;
+
+	static {
+		StringBuilder sb = new StringBuilder();
+		sb.append("oauth2:");
+		for (String scope : AUTH_SCOPES) {
+			sb.append(scope);
+			sb.append(" ");
+		}
+		AUTH_TOKEN_TYPE = sb.toString();
+	}
 
 	public static boolean isAuthenticated(final Context context) {
-		return !TextUtils.isEmpty(getChosenAccountName(context));
+		String chosenAccountName = getChosenAccountName(context);
+
+		return !TextUtils.isEmpty(chosenAccountName);
 	}
 
 	public static String getChosenAccountName(final Context context) {
@@ -52,7 +74,17 @@ public class AccountUtils {
 		return sp.getString(PREF_CHOSEN_ACCOUNT, null);
 	}
 
-	private static void setChosenAccountName(final Context context, final String accountName) {
+	public static Account getChosenAccount(final Context context) {
+		String account = getChosenAccountName(context);
+		if (account != null) {
+			return new Account(account, GoogleAuthUtil.GOOGLE_ACCOUNT_TYPE);
+		} else {
+			return null;
+		}
+	}
+
+	static void setChosenAccountName(final Context context, final String accountName) {
+		Log.d(TAG, "Chose account " + accountName);
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
 		sp.edit().putString(PREF_CHOSEN_ACCOUNT, accountName).commit();
 	}
@@ -63,69 +95,129 @@ public class AccountUtils {
 	}
 
 	private static void setAuthToken(final Context context, final String authToken) {
+		Log.i(TAG, "Auth token of length " + (TextUtils.isEmpty(authToken) ? 0 : authToken.length()));
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
 		sp.edit().putString(PREF_AUTH_TOKEN, authToken).commit();
+		Log.d(TAG, "Auth Token: " + authToken);
 	}
 
-	public static void invalidateAuthToken(final Context context) {
-		AccountManager am = AccountManager.get(context);
-		am.invalidateAuthToken("com.google", getAuthToken(context));
+	static void invalidateAuthToken(final Context context) {
+		GoogleAuthUtil.invalidateToken(context, getAuthToken(context));
 		setAuthToken(context, null);
+	}
+
+	public static void setPlusProfileId(final Context context, final String profileId) {
+		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+		sp.edit().putString(PREF_PLUS_PROFILE_ID, profileId).commit();
+	}
+
+	public static String getPlusProfileId(final Context context) {
+		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+		return sp.getString(PREF_PLUS_PROFILE_ID, null);
+	}
+
+	public static void refreshAuthToken(Context mContext) {
+		invalidateAuthToken(mContext);
+		tryAuthenticateWithErrorNotification(mContext, DogshowContract.CONTENT_AUTHORITY, getChosenAccountName(mContext));
 	}
 
 	public static interface AuthenticateCallback {
 		public boolean shouldCancelAuthentication();
 
-		public void onAuthTokenAvailable(String authToken);
+		public void onAuthTokenAvailable();
+
+		public void onRecoverableException(final int code);
+
+		public void onUnRecoverableException(final String errorMessage);
 	}
 
-	public static void tryAuthenticate(Activity activity, AuthenticateCallback callback, int activityRequestCode, Account account) {
-		// noinspection deprecation
-		AccountManager.get(activity).getAuthToken(account, AUTH_TOKEN_TYPE, false, getAccountManagerCallback(callback, account, activity, activity, activityRequestCode), null);
+	static void tryAuthenticateWithErrorNotification(Context context, String syncAuthority, String accountName) {
+		try {
+			Log.i(TAG, "Requesting new auth token (with notification)");
+			final String token = GoogleAuthUtil.getTokenWithNotification(context, accountName, AUTH_TOKEN_TYPE, null, syncAuthority, null);
+			setAuthToken(context, token);
+			setChosenAccountName(context, accountName);
+
+		} catch (UserRecoverableNotifiedException e) {
+			// Notification has already been pushed.
+			Log.w(TAG, "User recoverable exception. Check notification.", e);
+		} catch (GoogleAuthException e) {
+			// This is likely unrecoverable.
+			Log.e(TAG, "Unrecoverable authentication exception: " + e.getMessage(), e);
+		} catch (IOException e) {
+			Log.e(TAG, "transient error encountered: " + e.getMessage());
+		}
 	}
 
-	public static void tryAuthenticateWithErrorNotification(Context context, AuthenticateCallback callback, Account account) {
-		// noinspection deprecation
-		AccountManager.get(context).getAuthToken(account, AUTH_TOKEN_TYPE, true, getAccountManagerCallback(callback, account, context, null, 0), null);
+	public static void tryAuthenticate(final Activity activity, final AuthenticateCallback callback, final String accountName, final int requestCode) {
+		(new GetTokenTask(activity, callback, accountName, requestCode)).execute();
 	}
 
-	private static AccountManagerCallback<Bundle> getAccountManagerCallback(final AuthenticateCallback callback, final Account account, final Context context, final Activity activity, final int activityRequestCode) {
-		return new AccountManagerCallback<Bundle>() {
-			public void run(AccountManagerFuture<Bundle> future) {
-				if (callback != null && callback.shouldCancelAuthentication()) {
-					return;
-				}
+	private static class GetTokenTask extends AsyncTask<Void, Void, String> {
+		private String mAccountName;
+		private Activity mActivity;
+		private AuthenticateCallback mCallback;
+		private int mRequestCode;
 
-				try {
-					Bundle bundle = future.getResult();
-					if (activity != null && bundle.containsKey(AccountManager.KEY_INTENT)) {
-						Intent intent = bundle.getParcelable(AccountManager.KEY_INTENT);
-						intent.setFlags(intent.getFlags() & ~Intent.FLAG_ACTIVITY_NEW_TASK);
-						activity.startActivityForResult(intent, activityRequestCode);
+		public GetTokenTask(Activity activity, AuthenticateCallback callback, String name, int requestCode) {
+			mAccountName = name;
+			mActivity = activity;
+			mCallback = callback;
+			mRequestCode = requestCode;
+		}
 
-					} else if (bundle.containsKey(AccountManager.KEY_AUTHTOKEN)) {
-						final String token = bundle.getString(AccountManager.KEY_AUTHTOKEN);
-						setAuthToken(context, token);
-						setChosenAccountName(context, account.name);
-						if (callback != null) {
-							callback.onAuthTokenAvailable(token);
-						}
-					}
-				} catch (Exception e) {
-					Log.e(TAG, "Authentication error", e);
-				}
+		@Override
+		protected String doInBackground(Void... params) {
+			try {
+				if (mCallback.shouldCancelAuthentication())
+					return null;
+
+				final String token = GoogleAuthUtil.getToken(mActivity, mAccountName, AUTH_TOKEN_TYPE);
+				// Persists auth token.
+				setAuthToken(mActivity, token);
+				setChosenAccountName(mActivity, mAccountName);
+				return token;
+			} catch (GooglePlayServicesAvailabilityException e) {
+				mCallback.onRecoverableException(e.getConnectionStatusCode());
+			} catch (UserRecoverableAuthException e) {
+				mActivity.startActivityForResult(e.getIntent(), mRequestCode);
+			} catch (IOException e) {
+				Log.e(TAG, "transient error encountered: " + e.getMessage());
+				mCallback.onUnRecoverableException(e.getMessage());
+			} catch (GoogleAuthException e) {
+				Log.e(TAG, "transient error encountered: " + e.getMessage());
+				mCallback.onUnRecoverableException(e.getMessage());
+			} catch (RuntimeException e) {
+				Log.e(TAG, "Error encountered: " + e.getMessage());
+				mCallback.onUnRecoverableException(e.getMessage());
 			}
-		};
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(String token) {
+			super.onPostExecute(token);
+			mCallback.onAuthTokenAvailable();
+		}
 	}
 
 	public static void signOut(final Context context) {
+		// Sign out of GCM message router
+		// ServerUtilities.onSignOut(context); TODO
 
+		// Destroy auth tokens
+		invalidateAuthToken(context);
+
+		// Remove remaining application state
+		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+		sp.edit().clear().commit();
+		context.getContentResolver().delete(DogshowContract.BASE_CONTENT_URI, null, null);
 	}
 
 	public static void startAuthenticationFlow(final Context context, final Intent finishIntent) {
-		Intent loginFlowIntent = new Intent(context, AccountActivity.class);
-		loginFlowIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		loginFlowIntent.putExtra(AccountActivity.EXTRA_FINISH_INTENT, finishIntent);
-		context.startActivity(loginFlowIntent);
+		Intent inFlowIntent = new Intent(context, AccountActivity.class);
+		inFlowIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		inFlowIntent.putExtra(AccountActivity.EXTRA_FINISH_INTENT, finishIntent);
+		context.startActivity(inFlowIntent);
 	}
 }
