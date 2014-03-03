@@ -13,10 +13,10 @@
         android:layout_height="@dimen/element_width_large"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/element_margin_normal"
+        android:layout_toRightOf="@+id/list_item_handler_entry_checkbox"
+        android:contentDescription="@string/img_description_handler"
         android:focusable="false"
         android:scaleType="centerCrop"
-        android:layout_toRightOf="@+id/list_item_handler_entry_checkbox"
-                android:contentDescription="@string/img_description_handler"
         android:src="@drawable/ic_default_handler" />
 
     <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView

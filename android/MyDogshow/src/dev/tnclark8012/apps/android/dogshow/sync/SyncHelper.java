@@ -18,11 +18,14 @@ import android.os.RemoteException;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import dev.tnclark8012.apps.android.dogshow.model.Show;
+import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
+import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.JuniorsRings;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
+import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums;
 
@@ -36,6 +39,14 @@ public class SyncHelper {
 	public SyncHelper(Context context) {
 		mContext = context;
 		mAccessor = new AzureApiAccessor();
+	}
+
+	public static long getLastSync(Context context) {
+		return Prefs.get(context).getLong(Prefs.KEY_LAST_SYNC, 0);
+	}
+
+	public static void setLastSync(Context context, long timestamp) {
+		Prefs.get(context).edit().putLong(Prefs.KEY_LAST_SYNC, timestamp).commit();
 	}
 
 	public Show[] getShows() {
@@ -110,9 +121,11 @@ public class SyncHelper {
 			JuniorsRingsHandler handler = new JuniorsRingsHandler(mContext, true);
 			while (juniorsCursor.moveToNext()) {
 				className = juniorsCursor.getString(0);
-				Log.v(TAG, "Requesting juniors ring: " + className);
-				batch.addAll(handler.parse(mAccessor.getJuniorsRings(params[0], DogshowEnums.JuniorClass.parse(className).getPrimaryName())));
-				numClasses++;
+				if (className != null) {
+					Log.v(TAG, "Requesting juniors ring: " + className);
+					batch.addAll(handler.parse(mAccessor.getJuniorsRings(params[0], DogshowEnums.JuniorClass.parse(className).getPrimaryName())));
+					numClasses++;
+				}
 			}
 			Log.v(TAG, "Pulled juniors rings for " + numClasses + " classes");
 			juniorsCursor.close();
@@ -141,67 +154,23 @@ public class SyncHelper {
 
 		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
 		final int localVersion = prefs.getInt("local_data_version", 0);
-
+		final long lastSync = getLastSync(mContext);
 		// Bulk of sync work, performed by executing several fetches from
 		// local and online sources.
 		final ContentResolver resolver = mContext.getContentResolver();
-		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
+		DogSyncHandler dogHelper = new DogSyncHandler(mContext, mAccessor);
+		dogHelper.sync(resolver, lastSync);
+		Log.i(TAG, "Completed dog sync");
+		ShowTeamSyncHandler teamHelper = new ShowTeamSyncHandler(mContext, mAccessor);
+		teamHelper.sync(resolver, lastSync);
+		Log.i(TAG, "Completed team sync");
+		setLastSync(mContext, System.currentTimeMillis());
 
-		Log.i(TAG, "Performing sync");
-
-		if ((flags & FLAG_SYNC_LOCAL) != 0) {
-			final long startLocal = System.currentTimeMillis();
-			boolean localParse = true;// /Should we load the results?
-
-			// Only run local sync if there's a newer version of data available
-			// than what was last locally-sync'd.
-			if (localParse) {
-				// Load static local data
-				Log.i(TAG, "Local syncing rooms");
-				// Add stuff to batch to insert
-				// Track local data version
-				prefs.edit().putInt("local_data_version", LOCAL_VERSION_CURRENT).commit();
-				if (syncResult != null) {
-					++syncResult.stats.numUpdates; // TODO: better way of indicating progress?
-					++syncResult.stats.numEntries;
-				}
-			}
-
-			Log.d(TAG, "Local sync took " + (System.currentTimeMillis() - startLocal) + "ms");
-
-			try {
-				// Apply all queued up batch operations for local data.
-				resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY, batch);
-			} catch (RemoteException e) {
-				throw new RuntimeException("Problem applying batch operation", e);
-			} catch (OperationApplicationException e) {
-				throw new RuntimeException("Problem applying batch operation", e);
-			}
-
-			batch = new ArrayList<ContentProviderOperation>();
+		if (syncResult != null) {
+			++syncResult.stats.numUpdates; // TODO: better way of indicating progress?
+			++syncResult.stats.numEntries;
 		}
-
-		if ((flags & FLAG_SYNC_REMOTE) != 0 && isOnline()) {
-			final long startRemote = System.currentTimeMillis();
-			// TODO add dogs/handlers/rings to batch
-			Log.d(TAG, "Remote sync took " + (System.currentTimeMillis() - startRemote) + "ms");
-			if (syncResult != null) {
-				++syncResult.stats.numUpdates; // TODO: better way of indicating progress?
-				++syncResult.stats.numEntries;
-			}
-			// all other IOExceptions are thrown
-			Log.i(TAG, "Sync complete");
-		}
-
-		try {
-			// Apply all queued up remaining batch operations (only remote content at this point).
-			resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY, batch);
-			// TODO Delete anything
-		} catch (RemoteException e) {
-			throw new RuntimeException("Problem applying batch operation", e);
-		} catch (OperationApplicationException e) {
-			throw new RuntimeException("Problem applying batch operation", e);
-		}
+		Log.i(TAG, "Sync complete");
 	}
 
 	private boolean isOnline() {

@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.TimeZone;
+import java.util.UUID;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -17,6 +18,10 @@ import android.util.Log;
 public class Utils {
 	private static final String TAG = Utils.class.getSimpleName();
 
+	public static String getGuid()
+	{
+		return UUID.randomUUID().toString();
+	}
 	/**
 	 * Is API 16 or greater?
 	 * 

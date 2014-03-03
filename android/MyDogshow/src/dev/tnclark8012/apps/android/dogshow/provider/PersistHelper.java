@@ -21,8 +21,6 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.JuniorsRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.SyncColumns;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
-import dev.tnclark8012.apps.android.dogshow.util.Utils;
-import dev.tnclark8012.dogshow.shared.DogshowEnums;
 
 public class PersistHelper {
 	private final static String TAG = PersistHelper.class.getSimpleName();
@@ -32,7 +30,8 @@ public class PersistHelper {
 		mContext = context;
 	}
 
-	public boolean createMe(String name) {
+	public boolean createMe() {
+		//TODO call generic create
 		final ContentResolver resolver = mContext.getContentResolver();
 		String selection = Handlers.HANDLER_IS_ME + "=?";
 		String[] selectionArgs = new String[] { "1" };
@@ -40,8 +39,9 @@ public class PersistHelper {
 		if (meCursor.getCount() == 0) {
 			Log.v(TAG, "Creating Me");
 			Map<String, Object> values = new HashMap<String, Object>();
+			values.put(Handlers.HANDLER_ID, AccountUtils.getUserId(mContext));
 			values.put(Handlers.HANDLER_IS_ME, 1);
-			values.put(Handlers.HANDLER_NAME, name);
+			values.put(Handlers.HANDLER_NAME, AccountUtils.getPlusProfileName(mContext));
 			createEntity(Handlers.CONTENT_URI, values);
 			meCursor.close();
 			return true;
@@ -53,6 +53,7 @@ public class PersistHelper {
 
 	// TODO use only this?
 	public void updateEntity(Uri contentUri, long id, Map<String, Object> updateValues) {
+		//TODO is it safe to use this ID instead of the GUID id?
 		updateTable(contentUri, updateValues, BaseColumns._ID + "=?", new String[] { String.valueOf(id) });
 	}
 
@@ -106,19 +107,5 @@ public class PersistHelper {
 	private void insertIntoTable(Uri contentUri, Map<String, Object> insertValues, String selection, String[] selectionArgs) {
 		ContentProviderOperation.Builder builder = ContentProviderOperation.newInsert(DogshowContract.addCallerIsSyncAdapterParameter(contentUri));
 		buildAndApplyBatch(builder, insertValues, null, null);
-	}
-
-	public void createDog(String breedName, String callName, String imagePath, String majors, String ownerId, String points, int sex) {
-		Map<String, Object> values = new HashMap<String, Object>();
-		values.put(Dogs.DOG_IS_SHOWING, 1);// FIXME implement a selection
-		values.put(Dogs.DOG_BREED, DogshowEnums.Breeds.parse(breedName).toString());
-		values.put(Dogs.DOG_IMAGE_PATH, imagePath);
-		values.put(Dogs.DOG_CALL_NAME, callName);
-		values.put(Dogs.DOG_MAJORS, Utils.parseSafely(majors, 0));
-		values.put(Dogs.DOG_POINTS, Utils.parseSafely(points, 0));
-		values.put(Dogs.DOG_OWNER_ID, Integer.parseInt(ownerId));
-		values.put(Dogs.DOG_SEX, sex);
-		values.put(Dogs.UPDATED, System.currentTimeMillis());
-		insertIntoTable(Dogs.CONTENT_URI, values, null, null);
 	}
 }

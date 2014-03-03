@@ -341,5 +341,19 @@ public class UIUtils {
 
 		return mLoader;
 	}
+	
+	public static String stripQuotes(String quoted)
+	{
+		String str = quoted;
+		if(str.charAt(0)=='"')
+		{
+			str = str.substring(1);
+		}
+		if(str.charAt(str.length()-1)=='"')
+		{
+			str = str.substring(0,str.length()-1);
+		}
+		return str;
+	}
 
 }

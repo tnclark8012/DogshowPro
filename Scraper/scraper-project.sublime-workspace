@@ -516,8 +516,8 @@
 			"file": "/C/Users/Taylor/AppData/Local/Temp/Temp1_cropimage-master.zip/cropimage-master/simple-crop-image-example/src/eu/janmuller/android/simplecropimage/example/MainActivity.java",
 			"settings":
 			{
-				"buffer_size": 5278,
-				"line_ending": "Unix"
+				"buffer_size": 0,
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -532,8 +532,40 @@
 			"file": "/C/Users/Taylor/AppData/Local/Temp/Temp1_cropimage-master.zip/cropimage-master/simple-crop-image-example/src/eu/janmuller/android/simplecropimage/example/InternalStorageContentProvider.java",
 			"settings":
 			{
-				"buffer_size": 2206,
-				"line_ending": "Unix"
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Taylor/Documents/GitHub/iosched/android/src/main/src/com/google/android/apps/iosched/util/AccountUtils.java",
+			"settings":
+			{
+				"buffer_size": 9099,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Taylor/Documents/Raikes/2011/Fall 2011/Finance/TradeKing Android App/TradeKing Server/AlertCenter/AlertCenter/Tradeking.FrontEnd/Controllers/HomeController.cs",
+			"settings":
+			{
+				"buffer_size": 434,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Taylor/AppData/Local/Temp/Temp1_How to consume ASPNET Web Api.zip/How to consume ASPNET Web Api/src/com/hintdesk/How_to_consume_ASPNET_Web_Api/NewProductActivity.java",
+			"settings":
+			{
+				"buffer_size": 3259,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Taylor/AppData/Local/Temp/Temp1_How to consume ASPNET Web Api.zip/How to consume ASPNET Web Api/src/com/hintdesk/How_to_consume_ASPNET_Web_Api/util/JSONHttpClient.java",
+			"settings":
+			{
+				"buffer_size": 6010,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -561,6 +593,8 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Taylor/Documents/Raikes/2011/Fall 2011/Finance/TradeKing Android App/TradeKing Server/AlertCenter/AlertCenter/Tradeking.FrontEnd/Controllers/AccountController.cs",
+		"/C/Users/Taylor/AndroidExamples/BasicSyncAdapter/proguard-project.txt",
 		"/C/Users/Taylor/AppData/Local/Microsoft/Windows/INetCache/IE/X1GK8FTF/breeds[1].json",
 		"/C/Users/Taylor/Downloads/bugreport-2014-02-13-17-45-46.txt",
 		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/config.py",
@@ -686,9 +720,7 @@
 		"/C/Users/Taylor/Desktop/log.txt",
 		"/C/Users/Taylor/Desktop/Raikes/2013/Algorithms/HW2/homework2.tex",
 		"/C/Users/Taylor/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/gwlafspi.a21.txt",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/android/JakeWharton-ActionBarSherlock-e5c2d1c/library/.gitignore",
-		"/C/Users/Taylor/Documents/GitHub/dogshow/Scraper/local/showpage.htm"
+		"/C/Users/Taylor/Documents/GitHub/dogshow/gwlafspi.a21.txt"
 	],
 	"find":
 	{
@@ -716,6 +748,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Authenticator",
+			"AbstractAccountAuthenticator",
+			"AbstractAccountAuthenticator ",
 			"tnclark",
 			"exception",
 			"tnclark",
@@ -840,10 +875,7 @@
 			"foo",
 			"verbose",
 			"VERBOSE",
-			"print(",
-			"VERBOSE",
-			"parseProgramPdf2Txt",
-			"cleanPdf2Txt"
+			"print("
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -886,7 +918,7 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 10,
 			"sheets":
 			[
 				{
@@ -1002,15 +1034,15 @@
 					"file": "/C/Users/Taylor/AppData/Local/Temp/Temp1_cropimage-master.zip/cropimage-master/simple-crop-image-example/src/eu/janmuller/android/simplecropimage/example/MainActivity.java",
 					"settings":
 					{
-						"buffer_size": 5278,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								683,
-								5274
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1058,15 +1090,15 @@
 					"file": "/C/Users/Taylor/AppData/Local/Temp/Temp1_cropimage-master.zip/cropimage-master/simple-crop-image-example/src/eu/janmuller/android/simplecropimage/example/InternalStorageContentProvider.java",
 					"settings":
 					{
-						"buffer_size": 2206,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1534,
-								1561
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1076,6 +1108,118 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 554.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/C/Users/Taylor/Documents/GitHub/iosched/android/src/main/src/com/google/android/apps/iosched/util/AccountUtils.java",
+					"settings":
+					{
+						"buffer_size": 9099,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/C/Users/Taylor/Documents/Raikes/2011/Fall 2011/Finance/TradeKing Android App/TradeKing Server/AlertCenter/AlertCenter/Tradeking.FrontEnd/Controllers/HomeController.cs",
+					"settings":
+					{
+						"buffer_size": 434,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/C/Users/Taylor/AppData/Local/Temp/Temp1_How to consume ASPNET Web Api.zip/How to consume ASPNET Web Api/src/com/hintdesk/How_to_consume_ASPNET_Web_Api/NewProductActivity.java",
+					"settings":
+					{
+						"buffer_size": 3259,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3031,
+								3021
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 647.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/C/Users/Taylor/AppData/Local/Temp/Temp1_How to consume ASPNET Web Api.zip/How to consume ASPNET Web Api/src/com/hintdesk/How_to_consume_ASPNET_Web_Api/util/JSONHttpClient.java",
+					"settings":
+					{
+						"buffer_size": 6010,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1218,
+								1218
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 32.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

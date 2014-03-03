@@ -5,6 +5,7 @@ import java.util.Map;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.LoaderManager;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
@@ -20,6 +21,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
+import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
+import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 import dev.tnclark8012.apps.android.dogshow.R;
 
 public abstract class BaseEditableEntityEditFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
@@ -35,10 +38,11 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 
 		public void onCancel();
 	}
-	protected final boolean creatingNewEntity()
-	{
+
+	protected final boolean creatingNewEntity() {
 		return mCreateNewEntity;
 	}
+
 	protected abstract int getEntityIdFromUri(Uri uri);
 
 	protected abstract int getQueryToken();
@@ -64,7 +68,7 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 			if (getActivity() == null) {
 				return;
 			}
-
+			SyncHelper.requestManualSync(AccountUtils.getChosenAccount(getActivity()));
 			Loader<Cursor> loader = getLoaderManager().getLoader(mQueryToken);
 			if (loader != null) {
 				loader.forceLoad();

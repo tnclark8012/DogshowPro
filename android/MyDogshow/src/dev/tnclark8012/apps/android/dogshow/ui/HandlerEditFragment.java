@@ -138,6 +138,10 @@ public class HandlerEditFragment extends BaseEditableEntityEditFragment implemen
 		mName = mViewName.getText().toString();
 
 		Map<String, Object> values = new HashMap<String, Object>();
+		if(creatingNewEntity())
+		{
+			values.put(Handlers.HANDLER_ID, Utils.getGuid());
+		}
 		values.put(Handlers.HANDLER_JUNIOR_CLASS, mJuniorClass);// FIXME implement a selection
 		values.put(Handlers.HANDLER_IMAGE_PATH, mImagePath);
 		values.put(Handlers.HANDLER_IS_SHOWING, 0);

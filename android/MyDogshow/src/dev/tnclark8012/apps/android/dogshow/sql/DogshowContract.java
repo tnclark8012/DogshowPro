@@ -40,6 +40,7 @@ public class DogshowContract {
 	private static final String PATH_HANDLERS_JUNIORS = "juniors";
 	private static final String PATH_HANDLERS_BY_JUNIORS_CLASS = "by_class";
 	private static final String PATH_RINGS = "rings";
+	private static final String PATH_SHOW_TEAMS = "teams";
 
 	/**
 	 * Special value for {@link SyncColumns#UPDATED} indicating that an entry has never been updated, or doesn't exist yet.
@@ -68,6 +69,8 @@ public class DogshowContract {
 	}
 
 	interface DogsColumns {
+		/** unique string identifying this dog */
+		String DOG_ID = "dog_id";
 		/** String of the breed name */
 		String DOG_BREED = "dog_breed";
 		/** Dog's call name */
@@ -91,12 +94,20 @@ public class DogshowContract {
 	}
 
 	interface HandlersColumns {
+		/** unique string identifying this dog */
+		String HANDLER_ID = "handler_id";
 		String HANDLER_NAME = "handler_name";
 		String HANDLER_JUNIOR_CLASS = "handler_junior_level";
 		String HANDLER_IS_SHOWING = "handler_is_showing";
 		String HANDLER_IS_SHOWING_JUNIORS = "handler_is_showing_juniors";
 		String HANDLER_IMAGE_PATH = "handler_image_path";
 		String HANDLER_IS_ME = "handler_is_me";
+	}
+
+	interface ShowTeamsColumns {
+		String SHOW_TEAM_NAME = "team_name";
+		String SHOW_TEAM_ACTIVE = "is_active";
+		String SHOW_TEAM_ID = "team_id";
 	}
 
 	interface BreedRingsColumns {
@@ -181,7 +192,7 @@ public class DogshowContract {
 	}
 
 	/**
-	 * Each session is a block of time that has a {@link Tracks}, a {@link Rooms}, and zero or more {@link Speakers}.
+	 * Dog Handlers
 	 */
 	public static class Handlers implements HandlersColumns, SyncColumns, BaseColumns {
 		public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_HANDLERS).build();
@@ -205,6 +216,29 @@ public class DogshowContract {
 
 		public static Uri buildEnteredJuniorsClassesUri() {
 			return CONTENT_URI.buildUpon().appendPath(PATH_HANDLERS_JUNIORS).appendPath(PATH_HANDLERS_BY_JUNIORS_CLASS).build();
+		}
+	}
+
+	/**
+	 * Show teams
+	 */
+	public static class ShowTeams implements ShowTeamsColumns, SyncColumns, BaseColumns {
+		public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_SHOW_TEAMS).build();
+
+		public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.dogshow.team";
+		public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.dogshow.team";
+
+		/** Default "ORDER BY" clause. */
+		public static final String DEFAULT_SORT = ShowTeamsColumns.SHOW_TEAM_NAME + " COLLATE NOCASE ASC";
+
+		/** Build {@link Uri} for requested Team ID. */
+		public static Uri buildShowTeamUri(String teamId) {
+			return CONTENT_URI.buildUpon().appendPath(teamId).build();
+		}
+
+		/** Read _ID from {@link Team} {@link Uri}. */
+		public static int getTeamId(Uri uri) {
+			return Utils.parseSafely(uri.getPathSegments().get(1), -1);
 		}
 	}
 

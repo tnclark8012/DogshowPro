@@ -19,59 +19,48 @@ package dev.tnclark8012.apps.android.dogshow;
 import java.net.URL;
 
 import dev.tnclark8012.apps.android.dogshow.model.BreedRing;
+import dev.tnclark8012.apps.android.dogshow.model.Dog;
 import dev.tnclark8012.apps.android.dogshow.model.JuniorsRing;
 import dev.tnclark8012.apps.android.dogshow.model.Show;
-
+import dev.tnclark8012.apps.android.dogshow.sync.response.DogSyncResponse;
+import dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamResponse;
+import dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamSyncResponse;
 
 public class Config {
-	public interface IApiAccessor
-	{
+	public interface IApiAccessor {
 		URL buildGetBreedRingsUrl(String showId);
+
 		URL buildGetBreedRingsUrl(String showId, String breed, Boolean veteran, Boolean sweepstakes);
+
 		URL buildGetJuniorRingsUrl(String showId, String juniorClass);
+
 		URL getBaseUrl();
+
 		URL getShowsUrl();
+
 		BreedRing[] getBreedRings(String showId, String breed, Boolean veteran, Boolean sweepstakes);
+
 		JuniorsRing[] getJuniorsRings(String showId, String className);
+
 		Show[] getShows();
+
+		URL getRegistrationUrl();
+
+		String register(String account, String token, String provider, String installId);
+
+		/**
+		 * Send dogs (new and updated) to the server.
+		 * 
+		 * @return dogs which were updated server-side since last sync
+		 */
+		DogSyncResponse[] syncDogs(String userId, long lastSync, Dog[] dogs, String[] currentDogIds);
+
+		ShowTeamSyncResponse[] syncShowTeams(String userId, long lastSync, String[] currentTeamIds);
+
+		ShowTeamResponse createShowTeam(String userId, String teamName, String password);
 	}
-	
-	
-	// OAuth 2.0 related config
-	public static final String APP_NAME = "Your-App-Name";
-	public static final String API_KEY = "API_KEY"; // from the APIs console
-	public static final String CLIENT_ID = "0000000000000.apps.googleusercontent.com"; // from
-																				// the
-																						// APIs
-																				// console
-	public static final boolean DEBUG_LOCAL = false;
-	public static final boolean DEBUG_OFFLINE = false;//TODO implement
-	// Conference API-specific config
-	// NOTE: the backend used for the Google I/O 2012 Android app is not
-	// currently open source, so
-	// you should modify these fields to reflect your own backend.
-	private static final String CONFERENCE_API_KEY = "API_KEY";
-	private static final String ROOT_EVENT_ID = "googleio2012";
 
-
-	// Static file host for the sandbox data
-	public static final String GET_SANDBOX_URL = "https://developers.google.com/events/io/sandbox-data";
-
-	// YouTube API config
-	public static final String YOUTUBE_API_KEY = "API_KEY";
-	// YouTube share URL
-	public static final String YOUTUBE_SHARE_URL_PREFIX = "http://youtu.be/";
-
-	// Livestream captions config
-	public static final String PRIMARY_LIVESTREAM_CAPTIONS_URL = "TODO";
-	public static final String SECONDARY_LIVESTREAM_CAPTIONS_URL = "TODO";
-	public static final String PRIMARY_LIVESTREAM_TRACK = "android";
-	public static final String SECONDARY_LIVESTREAM_TRACK = "chrome";
-
-	// GCM config
-	public static final String GCM_SERVER_URL = "https://yourapp-gcm.appspot.com";
-	public static final String GCM_SENDER_ID = "0000000000000"; // project ID
-																// from the APIs
-																// console
+	public static final boolean DEBUG_LOCAL = true;
+	public static final boolean DEBUG_OFFLINE = false;// TODO implement
 	public static final String TAG = Config.class.getName();
 }

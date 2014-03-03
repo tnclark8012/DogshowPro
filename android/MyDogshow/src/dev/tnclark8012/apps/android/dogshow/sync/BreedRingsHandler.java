@@ -42,6 +42,7 @@ public class BreedRingsHandler extends JsonHandler<BreedRing> {
 
 				for (BreedRing ring : breedRings) {
 					// Insert rings info
+					//TODO BETA this caller isn't sync adapter (see builder below)
 					Builder builder = ContentProviderOperation.newInsert(DogshowContract.addCallerIsSyncAdapterParameter(BreedRings.CONTENT_URI));
 					builder.withValue(SyncColumns.UPDATED, System.currentTimeMillis());
 					builder.withValue(BreedRings.RING_BITCH_COUNT, ring.bitchCount);

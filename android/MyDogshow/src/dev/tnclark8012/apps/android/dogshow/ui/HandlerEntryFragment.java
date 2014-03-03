@@ -164,13 +164,14 @@ public class HandlerEntryFragment extends Fragment implements LoaderManager.Load
 	private interface HandlersQuery {
 		int _TOKEN = 0x1;
 
-		String[] PROJECTION = { Handlers._ID, Handlers.HANDLER_IS_SHOWING, Handlers.HANDLER_IS_SHOWING_JUNIORS, Handlers.HANDLER_NAME, Handlers.HANDLER_IMAGE_PATH };
+		String[] PROJECTION = { Handlers._ID, Handlers.HANDLER_IS_SHOWING, Handlers.HANDLER_IS_SHOWING_JUNIORS, Handlers.HANDLER_NAME, Handlers.HANDLER_IMAGE_PATH, Handlers.HANDLER_JUNIOR_CLASS };
 
 		int _ID = 0;
 		int HANDLER_IS_SHOWING = 1;
 		int HANDLER_IS_SHOWING_JUNIORS = 2;
 		int HANDLER_NAME = 3;
 		int HANDLER_IMAGE_PATH = 4;
+		int HANDLER_JUNIOR_CLASS = 5;
 	}
 
 	@Override
@@ -243,21 +244,27 @@ public class HandlerEntryFragment extends Fragment implements LoaderManager.Load
 					mCallbacks.onHandlerSelected(id, isChecked);
 				}
 			});
-
+			
 			holder.juniorsButton.setOnCheckedChangeListener(null);
-			holder.juniorsButton.setChecked(enteredJuniors);
-			holder.juniorsButton.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-				@Override
-				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-					mCallbacks.onHandlerEnteredJuniorsClicked(id, isChecked);
-				}
-			});
-			holder.juniorsButton.setClickable(true);
-
+			if (cursor.getString(HandlersQuery.HANDLER_JUNIOR_CLASS) != null) {
+				holder.juniorsButton.setVisibility(View.VISIBLE);	
+				holder.juniorsButton.setChecked(enteredJuniors);
+				holder.juniorsButton.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+					@Override
+					public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+						mCallbacks.onHandlerEnteredJuniorsClicked(id, isChecked);
+					}
+				});
+				holder.juniorsButton.setClickable(true);
+			}
+			else
+			{
+				holder.juniorsButton.setVisibility(View.GONE);	
+			}
 			if (imagePath != null) {
 				UIUtils.displayImage(context, holder.imageView, imagePath);
 			} else {
-				holder.imageView.setImageResource(R.drawable.dog);
+				holder.imageView.setImageResource(R.drawable.ic_default_handler);
 			}
 		}
 

@@ -31,6 +31,7 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
@@ -55,7 +56,9 @@ import com.google.android.gms.plus.model.people.PersonBuffer;
 
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
+import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
+import dev.tnclark8012.apps.android.dogshow.sync.AzureApiAccessor;
 import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 
@@ -64,9 +67,6 @@ public class AccountActivity extends Activity implements AccountUtils.Authentica
 	private static final String TAG = AccountActivity.class.getSimpleName();
 
 	public static final String EXTRA_FINISH_INTENT = "dev.tnclark8012.apps.android.dogshow.extra.FINISH_INTENT";
-
-	private static final int SETUP_ATTENDEE = 1;
-	private static final int SETUP_WIFI = 2;
 
 	private static final String KEY_CHOSEN_ACCOUNT = "chosen_account";
 
@@ -167,26 +167,35 @@ public class AccountActivity extends Activity implements AccountUtils.Authentica
 			mPlusClient.disconnect();
 	}
 
+	/**
+	 * Called once connection to user's Google+ account is available. Sets the Plus profile id and name
+	 */
 	@Override
 	public void onPeopleLoaded(ConnectionResult status, PersonBuffer personBuffer, String nextPageToken) {
 		if (status.isSuccess()) {
 			if (personBuffer != null && personBuffer.getCount() > 0) {
 				// Set the profile id
-				AccountUtils.setPlusProfileId(this, personBuffer.get(0).getId());
 				Person person = personBuffer.get(0);
+				AccountUtils.setPlusProfileId(this, person.getId());
+				AccountUtils.setProfileName(this, person.getDisplayName());
+				
 				// TODO image
 				String name = person.getDisplayName();
 				if (person.hasImage()) {
 					String imageUrl = personBuffer.get(0).getImage().getUrl();
-					imageUrl.concat("?sz=" + this.getResources().getInteger(R.dimen.header_icon_height));
+//					imageUrl.concat("?sz=" + this.getResources().getInteger(R.dimen.header_icon_height));
 				}
-				new SyncHelper(this).createMe(name);
 			}
 		} else {
 			Log.e(TAG, "Got " + status.getErrorCode() + ". Could not load plus profile.");
 		}
 	}
-
+	
+	/**
+	 * Sign-in fragment. Consists of {@link ChooseAccountFragment} and {@link AuthProgressFragment}
+	 * @author Taylor
+	 *
+	 */
 	public static class SignInMainFragment extends Fragment {
 		public SignInMainFragment() {
 		}
@@ -207,7 +216,11 @@ public class AccountActivity extends Activity implements AccountUtils.Authentica
 			return rootView;
 		}
 	}
-
+	/**
+	 * Fragment for selecting a user account to connect with
+	 * @author Taylor
+	 *
+	 */
 	public static class ChooseAccountFragment extends ListFragment {
 		public ChooseAccountFragment() {
 		}
@@ -312,6 +325,11 @@ public class AccountActivity extends Activity implements AccountUtils.Authentica
 		}
 	}
 
+	/**
+	 * Fragment for showing progress of account setup and authorization
+	 * @author Taylor
+	 *
+	 */
 	public static class AuthProgressFragment extends Fragment {
 		private static final int TRY_AGAIN_DELAY_MILLIS = 7 * 1000; // 7 seconds
 		private final Handler mHandler = new Handler();
@@ -371,6 +389,9 @@ public class AccountActivity extends Activity implements AccountUtils.Authentica
 		}
 	}
 
+	/**
+	 * Authenticate through the Google Play OAuth client.
+	 */
 	private void tryAuthenticate() {
 		// Authenticate through the Google Play OAuth client.
 		mAuthInProgress = true;
@@ -382,23 +403,14 @@ public class AccountActivity extends Activity implements AccountUtils.Authentica
 		return mCancelAuth;
 	}
 
-	@Override
-	public void onAuthTokenAvailable() {
-		// Cancel progress fragment.
-		// Create set up fragment.
-		mAuthInProgress = false;
-		if (mAuthProgressFragmentResumed) {
-			getFragmentManager().popBackStack();
-			finishSetup();
-		}
-	}
 
+	/**
+	 * Initiate syncing and start the next activity
+	 */
 	private void finishSetup() {
 		ContentResolver.setIsSyncable(mChosenAccount, DogshowContract.CONTENT_AUTHORITY, 1);
 		ContentResolver.setSyncAutomatically(mChosenAccount, DogshowContract.CONTENT_AUTHORITY, true);
 		SyncHelper.requestManualSync(mChosenAccount);
-		Prefs.markSetupDone(this);
-
 		if (mFinishIntent != null) {
 			// Ensure the finish intent is unique within the task. Otherwise, if the task was
 			// started with this intent, and it finishes like it should, then startActivity on
@@ -408,6 +420,18 @@ public class AccountActivity extends Activity implements AccountUtils.Authentica
 		}
 
 		finish();
+	}
+	
+	
+	@Override
+	public void onAuthTokenAvailable() {
+		// Cancel progress fragment.
+		// Create set up fragment.
+		mAuthInProgress = false;
+		if (mAuthProgressFragmentResumed) {
+			getFragmentManager().popBackStack();
+			finishSetup();
+		}
 	}
 
 	// Google Plus client callbacks.

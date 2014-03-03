@@ -17,6 +17,7 @@
 package dev.tnclark8012.apps.android.dogshow.util;
 
 import java.io.IOException;
+import java.util.UUID;
 
 import android.accounts.Account;
 import android.app.Activity;
@@ -27,7 +28,6 @@ import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.android.gms.auth.GoogleAuthException;
 import com.google.android.gms.auth.GoogleAuthUtil;
@@ -36,18 +36,24 @@ import com.google.android.gms.auth.UserRecoverableAuthException;
 import com.google.android.gms.auth.UserRecoverableNotifiedException;
 import com.google.android.gms.common.Scopes;
 
+import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
+import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
+import dev.tnclark8012.apps.android.dogshow.sync.ApiAccessor;
+import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.ui.base.AccountActivity;
 
 /**
- * An assortment of authentication and Log.in helper utilities.
+ * An assortment of authentication and Login helper utilities.
  */
 public class AccountUtils {
+
 	private static final String TAG = AccountUtils.class.getSimpleName();
 
 	private static final String PREF_CHOSEN_ACCOUNT = "chosen_account";
 	private static final String PREF_AUTH_TOKEN = "auth_token";
 	private static final String PREF_PLUS_PROFILE_ID = "plus_profile_id";
+	private static final String PREF_PLUS_PROFILE_NAME = "plus_profile_name";
 
 	public static final String AUTH_SCOPES[] = { Scopes.PLUS_LOGIN, "profile" };
 
@@ -63,6 +69,14 @@ public class AccountUtils {
 		AUTH_TOKEN_TYPE = sb.toString();
 	}
 
+	public static void setUserId(Context context, String userId) {
+		Prefs.get(context).edit().putString(Prefs.KEY_USER_ID, userId).commit();
+	}
+
+	public static String getUserId(Context context) {
+		return Prefs.get(context).getString(Prefs.KEY_USER_ID, null);
+	}
+
 	public static boolean isAuthenticated(final Context context) {
 		String chosenAccountName = getChosenAccountName(context);
 
@@ -71,7 +85,7 @@ public class AccountUtils {
 
 	public static String getChosenAccountName(final Context context) {
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-		return sp.getString(PREF_CHOSEN_ACCOUNT, null);
+		return sp.getString(PREF_CHOSEN_ACCOUNT, null);// TODO move to prefs
 	}
 
 	public static Account getChosenAccount(final Context context) {
@@ -106,14 +120,33 @@ public class AccountUtils {
 		setAuthToken(context, null);
 	}
 
+	// TODO move these all to prefs?
+	public static void setInstallId(Context context, String installId) {
+		Prefs.get(context).edit().putString(Prefs.KEY_INSTALL_ID, installId).commit();
+	}
+
+	public static void markSetupDone(Context context) {
+		Prefs.get(context).edit().putBoolean(Prefs.KEY_SETUP_COMPLETE, true).commit();
+	}
+
 	public static void setPlusProfileId(final Context context, final String profileId) {
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
 		sp.edit().putString(PREF_PLUS_PROFILE_ID, profileId).commit();
 	}
 
+	public static void setProfileName(final Context context, final String profileName) {
+		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+		sp.edit().putString(PREF_PLUS_PROFILE_NAME, profileName).commit();
+	}
+
 	public static String getPlusProfileId(final Context context) {
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
 		return sp.getString(PREF_PLUS_PROFILE_ID, null);
+	}
+
+	public static String getPlusProfileName(final Context context) {
+		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+		return sp.getString(PREF_PLUS_PROFILE_NAME, null);
 	}
 
 	public static void refreshAuthToken(Context mContext) {
@@ -124,6 +157,9 @@ public class AccountUtils {
 	public static interface AuthenticateCallback {
 		public boolean shouldCancelAuthentication();
 
+		/**
+		 * Called once the token from user identity provider is available
+		 */
 		public void onAuthTokenAvailable();
 
 		public void onRecoverableException(final int code);
@@ -173,6 +209,9 @@ public class AccountUtils {
 					return null;
 
 				final String token = GoogleAuthUtil.getToken(mActivity, mAccountName, AUTH_TOKEN_TYPE);
+				String installId = UUID.randomUUID().toString();
+				setInstallId(mActivity, installId);
+				register(mActivity, mAccountName, token, installId);
 				// Persists auth token.
 				setAuthToken(mActivity, token);
 				setChosenAccountName(mActivity, mAccountName);
@@ -189,6 +228,7 @@ public class AccountUtils {
 				mCallback.onUnRecoverableException(e.getMessage());
 			} catch (RuntimeException e) {
 				Log.e(TAG, "Error encountered: " + e.getMessage());
+				e.printStackTrace();
 				mCallback.onUnRecoverableException(e.getMessage());
 			}
 			return null;
@@ -201,6 +241,18 @@ public class AccountUtils {
 		}
 	}
 
+	/**
+	 * Register the user identity with the app server
+	 * @param accountName
+	 * @param token
+	 * @param installId
+	 */
+	public static void register(final Context context, final String accountName, final String token, String installId) {
+		String id = ApiAccessor.getInstance().register(accountName, token, "PLUS", installId);// TODO Facebook and/or nothing
+		setUserId(context, id);
+		new PersistHelper(context).createMe();
+	}
+
 	public static void signOut(final Context context) {
 		// Sign out of GCM message router
 		// ServerUtilities.onSignOut(context); TODO
@@ -209,7 +261,7 @@ public class AccountUtils {
 		invalidateAuthToken(context);
 
 		// Remove remaining application state
-		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+		SharedPreferences sp = Prefs.get(context);
 		sp.edit().clear().commit();
 		context.getContentResolver().delete(DogshowContract.BASE_CONTENT_URI, null, null);
 	}

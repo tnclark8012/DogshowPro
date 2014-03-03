@@ -38,6 +38,7 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.EnteredRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.JuniorsRings;
+import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowDatabase;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowDatabase.Tables;
 import dev.tnclark8012.apps.android.dogshow.util.DebugUtils;
@@ -65,6 +66,8 @@ public class DogshowProvider extends ContentProvider {
 	private static final int JUNIORS_RINGS = 400;
 
 	private static final int ALL_RINGS_ENTERED = 500;
+	
+	private static final int SHOW_TEAMS = 600;
 
 	/**
 	 * Build and return a {@link UriMatcher} that catches all {@link Uri} variations supported by this {@link ContentProvider}.
@@ -84,6 +87,7 @@ public class DogshowProvider extends ContentProvider {
 		matcher.addURI(authority, "handlers/*", HANDLERS_ID);
 		matcher.addURI(authority, "rings/juniors", JUNIORS_RINGS);
 		matcher.addURI(authority, "rings/entered", ALL_RINGS_ENTERED);
+		matcher.addURI(authority, "teams", SHOW_TEAMS);
 
 		return matcher;
 	}
@@ -189,6 +193,12 @@ public class DogshowProvider extends ContentProvider {
 			getContext().getContentResolver().notifyChange(uri, null, syncToNetwork);
 			return JuniorsRings.buildRingUri(values.getAsString(JuniorsRings._ID));
 		}
+		case SHOW_TEAMS:
+		{
+			db.insertOrThrow(Tables.SHOW_TEAMS, null, values);
+			getContext().getContentResolver().notifyChange(uri, null, syncToNetwork);
+			return ShowTeams.buildShowTeamUri(values.getAsString(ShowTeams._ID));
+		}
 		default: {
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
 		}
@@ -276,6 +286,8 @@ public class DogshowProvider extends ContentProvider {
 			return builder.table(Tables.JUNIORS_RINGS);
 		case ALL_RINGS_ENTERED:
 			return builder.table(Tables.ALL_ENTERED_RINGS);// TODO FIXME this should be Tables.All_Rings
+		case SHOW_TEAMS:
+			return builder.table(Tables.SHOW_TEAMS);
 		default: {
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
 		}

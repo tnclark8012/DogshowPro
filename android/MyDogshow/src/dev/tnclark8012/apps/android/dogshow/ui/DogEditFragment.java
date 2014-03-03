@@ -31,6 +31,7 @@ import android.widget.Toast;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
+import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.phone.BreedSelectActivity;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
@@ -245,8 +246,12 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements L
 		mPoints = mViewPoints.getText().toString();
 		int sex = getSexFromRadioId(mSexId);
 		Map<String, Object> values = new HashMap<String, Object>();
+		if (creatingNewEntity()) {
+			values.put(Dogs.DOG_ID, Utils.getGuid());//FIXME UI shouldn't have to know
+		}
+		//FIXME these should leverage @ContentValues
 		values.put(Dogs.DOG_IS_SHOWING, 1);// FIXME implement a selection
-		values.put(Dogs.DOG_BREED, DogshowEnums.Breeds.parse(mBreedName).toString());
+		values.put(Dogs.DOG_BREED, DogshowEnums.Breeds.parse(mBreedName).getPrimaryName());
 		values.put(Dogs.DOG_IMAGE_PATH, mImagePath);
 		values.put(Dogs.DOG_CALL_NAME, mCallName);
 		values.put(Dogs.DOG_MAJORS, Utils.parseSafely(mMajors, 0));

@@ -1,48 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:layout_height="@dimen/list_item_height"
     android:background="@drawable/list_selector"
-    android:paddingTop="@dimen/element_spacing_normal"
+    android:orientation="vertical"
     android:paddingLeft="@dimen/element_spacing_normal"
-    android:orientation="vertical" >
+    android:paddingTop="@dimen/element_spacing_normal" >
 
-<ImageView
-    android:id="@+id/list_item_dog_entry_thumb"
+    <ImageView
+        android:id="@+id/list_item_dog_entry_thumb"
         android:layout_width="@dimen/element_height_large"
         android:layout_height="@dimen/element_width_large"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/element_margin_normal"
+        android:layout_toRightOf="@+id/list_item_dog_entry_checkbox"
+        android:contentDescription="dog image"
         android:focusable="false"
         android:scaleType="centerCrop"
-    android:layout_toRightOf="@+id/list_item_dog_entry_checkbox"
-    android:contentDescription="dog image"
-    android:src="@drawable/dog" />
+        android:src="@drawable/dog" />
 
     <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
-     android:layout_width="wrap_content"
-     android:id="@+id/list_item_dog_entry_name"
-     android:layout_height="wrap_content"
-     android:layout_marginLeft="@dimen/element_margin_normal"
-     android:layout_toRightOf="@+id/list_item_dog_entry_thumb"
-     android:textSize="@dimen/text_large"
-     android:textColor="@color/black"
-     android:text="[Name]"/>
+        android:id="@+id/list_item_dog_entry_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/element_margin_normal"
+        android:layout_marginTop="@dimen/element_spacing_normal"
+        android:layout_alignTop="@+id/list_item_dog_entry_thumb"
+        android:layout_toRightOf="@+id/list_item_dog_entry_thumb"
+        android:text="[Name]"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_large" />
+
     <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
-     android:layout_width="wrap_content"
-     android:id="@+id/list_item_dog_entry_breed"
-     android:layout_below="@+id/list_item_dog_entry_name"
-     android:layout_marginLeft="@dimen/element_margin_normal"
-     android:layout_height="wrap_content"
-     android:layout_toRightOf="@+id/list_item_dog_entry_thumb"
-     android:textColor="@color/dark_grey"
-     android:text="[breed]"/>
+        android:id="@+id/list_item_dog_entry_breed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/list_item_dog_entry_name"
+        android:layout_marginLeft="@dimen/element_margin_normal"
+        android:layout_toRightOf="@+id/list_item_dog_entry_thumb"
+        android:text="[breed]"
+        android:textColor="@color/dark_grey" />
 
     <CheckBox
         android:id="@+id/list_item_dog_entry_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"/>
+        android:layout_centerVertical="true" />
 
 </RelativeLayout>

@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:background="@color/layout_background" >
 
-    <TextView
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+        xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
         android:paddingTop="@dimen/element_margin_normal"
         android:paddingLeft="@dimen/element_margin_normal"
         android:id="@+id/header_text"
@@ -13,18 +14,19 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/element_padding_normal"
         android:text="Entered dogs"
-        android:textColor="#999999" >
-    </TextView>
+        android:textColor="#999999"
+        ttv:typeface="Roboto-Medium.ttf" >
+    </dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView>
 
     <View
         android:layout_marginLeft="@dimen/element_margin_normal"
         android:layout_marginRight="@dimen/element_margin_normal"
-        android:layout_marginBottom="@dimen/element_margin_normal"
         android:layout_below="@+id/header_text"
         android:id="@+id/header_line"
         android:layout_width="fill_parent"
         android:layout_height="2dip"
-        android:background="#B7B7B7" />
+        android:background="#B7B7B7"
+         />
 
     <ListView
         android:layout_below="@+id/header_line"
@@ -35,7 +37,14 @@
         android:layout_above="@+id/button_bar"
         tools:listitem="@layout/list_item_dog_entry" >
     </ListView>
-
+    <View
+        android:layout_marginLeft="@dimen/element_margin_normal"
+        android:layout_marginRight="@dimen/element_margin_normal"
+        android:layout_below="@+id/fragment_entry_dogs_list"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/list_divider"
+         />
     <LinearLayout
         android:id="@+id/button_bar"
         style="?android:attr/buttonBarStyle"
