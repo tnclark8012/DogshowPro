@@ -4,7 +4,8 @@
     <item android:drawable="@color/list_item_activated" android:state_activated="true"/>
     <item android:drawable="@color/cadet_blue3" android:state_pressed="true" android:state_selected="true"/>
     <item android:drawable="@color/cadet_blue2" android:state_focused="true" android:state_pressed="true"/>
-    <item android:drawable="@color/cadet_blue2" android:state_selected="true"/>
+    <item android:drawable="@color/cadet_blue2" android:state_pressed="true"/>
+
     <item android:drawable="@color/cadet_blue2" android:state_focused="true"/>
     <item android:drawable="@color/layout_background"/>
 
