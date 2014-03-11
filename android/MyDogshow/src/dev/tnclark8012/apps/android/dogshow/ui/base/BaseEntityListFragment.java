@@ -23,17 +23,21 @@ import android.widget.ListView;
 import dev.tnclark8012.apps.android.dogshow.R;
 
 public abstract class BaseEntityListFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor> {
-	//TODO HIGH
-	public interface Callbacks
-	{
+	// TODO HIGH
+	public interface Callbacks {
 		public boolean onEntityClick(String entityId);
+
 		public boolean onAddEntityClick();
 	}
+
 	protected abstract Uri getContentUri();
+
 	protected abstract CursorAdapter getCursorAdapter(Activity activity);
+
 	protected abstract CursorLoader getCursorLoader(Activity activity, Uri uri);
+
 	protected abstract int getIdColumnIndex();
-	
+
 	private static final String TAG = BaseEntityListFragment.class.getSimpleName();
 	private final int mQueryToken = new Random().nextInt();
 	private CursorAdapter mAdapter;
@@ -90,7 +94,7 @@ public abstract class BaseEntityListFragment extends ListFragment implements Loa
 	protected void reloadFromArguments(Bundle arguments) {
 		setListAdapter(null);
 		final Intent intent = BaseActivity.fragmentArgumentsToIntent(arguments);
-		//TODO HIGH get Uri from intent
+		// TODO HIGH get Uri from intent
 		mAdapter = getCursorAdapter(getActivity());
 		setListAdapter(mAdapter);
 		// Force start background query to load sessions
@@ -100,15 +104,15 @@ public abstract class BaseEntityListFragment extends ListFragment implements Loa
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
-		if (!(activity instanceof Callbacks)) {
-			throw new ClassCastException("Activity must implement fragment's callbacks.");
+		if (activity instanceof Callbacks) {
+			mCallbacks = (Callbacks) activity;
+		} else if (this instanceof Callbacks) {
+			mCallbacks = (Callbacks) this;
+		} else {
+			throw new ClassCastException("Activity or fragment must implement fragment's callbacks.");
 		}
-
-		mCallbacks = (Callbacks) activity;
 		activity.getContentResolver().registerContentObserver(getContentUri(), true, mObserver);
 	}
-	
-	
 
 	@Override
 	public void onDetach() {
@@ -116,7 +120,7 @@ public abstract class BaseEntityListFragment extends ListFragment implements Loa
 		mCallbacks = sDummyCallbacks;
 		getActivity().getContentResolver().unregisterContentObserver(mObserver);
 	}
-	
+
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle data) {
 		final Intent intent = BaseActivity.fragmentArgumentsToIntent(data);
