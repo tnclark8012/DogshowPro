@@ -80,7 +80,7 @@ def main(argv):
     try:
       opts, args = getopt.getopt(argv,"vfp:r:odt:",['limit=','download=','offline=', 'forceall=', 'output='])
     except getopt.GetoptError:
-      print('option error. No options?');
+      print('Usage: driver.py -v -p http://www.onofrio.com/execpgm/wbshwpg?SHOW=LAND164052 -r showpage');
       sys.exit(2)
     showLimit = None;
     outputfile = None;

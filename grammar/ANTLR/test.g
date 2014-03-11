@@ -624,8 +624,9 @@ fragment FRAG_BREED_NAME_SINGLE
     'Glen of Imaal Terrier'|
     'Golden Retriever'|
     'Gordon Setter'|
-    'Grand Basset Griffon Vendéen'|
-    'Grand Bassets Griffons Vendeen'|
+    ('Grand Basset''t'?'s'?' Griffon''s'?' Vend'('é'|'e')'en')|
+//    ('Grand Bassets Griffons Vendeen')|
+   
     'Great Dane'|
     'Great Pyrenees'|
     'Greater Swiss Mountain Dog'|
