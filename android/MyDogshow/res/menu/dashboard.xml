@@ -1,8 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item android:id="@+id/menu_list_entity_add"
-        android:icon="@android:drawable/ic_input_add"
-        android:title="Create"
+    <item android:id="@+id/menu_find_show"
+        android:icon="@drawable/ic_action_search"
+        android:title="Find Show..."
         android:orderInCategory="1"
         android:showAsAction="ifRoom" />
 </menu>

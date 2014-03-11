@@ -1,0 +1,103 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/edit_judge_time"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <TextView
+        android:id="@+id/lbl_team_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Team Name" />
+
+    <EditText
+        android:id="@+id/edit_text_show_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lbl_team_name"
+        android:layout_marginTop="@dimen/element_spacing_normal"
+        android:imeOptions="actionNext"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/lbl_team_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_text_show_name"
+        android:layout_marginTop="@dimen/element_padding_normal"
+        android:text="Password" />
+
+    <EditText
+        android:id="@+id/edit_text_show_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lbl_team_password"
+        android:layout_marginTop="@dimen/element_spacing_normal"
+        android:imeOptions="actionNext"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/lbl_team_password_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_text_show_password"
+        android:layout_marginTop="@dimen/element_padding_normal"
+        android:text="Confirm Password" />
+
+    <EditText
+        android:id="@+id/edit_text_team_password_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lbl_team_password_confirm"
+        android:layout_marginTop="@dimen/element_spacing_normal"
+        android:imeOptions="actionDone"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/message_team_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_text_team_password_confirm"
+        android:layout_marginTop="@dimen/element_padding_normal"
+        android:text="WOOPS! :O"
+        android:textColor="#F00" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/message_team_error"
+        android:layout_marginTop="@dimen/element_margin_normal"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/element_padding_normal"
+            android:layout_weight="1" >
+
+            <Button
+                android:id="@+id/dialog_save"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/element_height_normal"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:text="Save" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/element_padding_normal"
+            android:layout_weight="1" >
+
+            <Button
+                android:id="@+id/dialog_cancel"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/element_height_normal"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:text="Cancel" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>
