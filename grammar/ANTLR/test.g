@@ -253,7 +253,7 @@ comment returns [String str]
 		@init{str="";}
 		: (non_header_comment|non_ring_title_comment|PARENTHETICAL_INT|BREED_COUNT|NON_CONFORMATION_CLASS_NAME{str=$NON_CONFORMATION_CLASS_NAME.text;}|GROUP|GROUP_NAME{str=$GROUP_NAME.text;}|HYPHEN|BREED_NAME{str=$BREED_NAME.text;}|BREED_CLASSIFIER{str=$BREED_CLASSIFIER.text;}|TIME{str=$TIME.text;}|COMMENT{str=$COMMENT.text;}|PARENTHETICAL{str=$PARENTHETICAL.text;}|integer=INT{str=integer.getText();}|ELLIPSIS{str=$ELLIPSIS.text;}|DATE{str=$DATE.text;}|PHONE_NUMBER{str=$PHONE_NUMBER.text;}|NON_CONFORMATION_SECOND_LINE{str=$NON_CONFORMATION_SECOND_LINE.text;});
 non_header_comment//Don't match CLUB_INDICATOR if it's actually part of a ring header
-	:	{!(input.LT(2).getText().equals("-") && parseIntSafely(input.LT(3).getText(),-1)!=-1)}?CLUB_INDICATOR;
+	:	{!(input.LT(2).getText().equals("-") && parseIntSafely(input.LT(3).getText(),-1)!=-1 && input.LT(4).getText().equals("RING"))}?CLUB_INDICATOR;
 non_ring_title_comment
 	:	{!(parseIntSafely(input.LT(2).getText(),-1)!=-1)}?RING;
 timeblock_comment returns [String str]//No time
