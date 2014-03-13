@@ -95,7 +95,10 @@ class DogshowProgramWorker(object):
             
             ringDates = self.getRingDates(pdfPath);
             printv(str("collected ring dates: ") + str(ringDates is not None))
-            if showJson and ringDates:
+            printv(str(len(ringDates)))
+            printv(str(ringDates))
+            if showJson is not None and ringDates is not None:
+                printv("---------------true")
                 return self.assignDates(showJson, ringDates);
     """
     Assigns dates to each ring in a show JSON object.
@@ -142,7 +145,7 @@ class DogshowProgramWorker(object):
                 groupsAppeared = True;
             else:
                 previousJudge = currentJudge;
-                #printv('current ring: ' + str(ringsList[i]))
+                printv('current ring: ' + str(ringsList[i]))
                 currentJudge = (ringsList[i]["Judge"], ringsList[i]["Number"]);
                 if currentJudge != previousJudge or "NewJudgeRing" in ringsList[i] or groupsAppeared:
                     ringsList[i].pop("NewJudgeRing", None)
@@ -154,11 +157,11 @@ class DogshowProgramWorker(object):
                     #remove ring number from list
                     if previousJudge[1] is not None:
                         if previousJudge[1] in currentDateRingNumbers:
-                            printv("Removing ring number: " + str(previousJudge[1]) + '. From ' + str(currentDateRingNumbers))
+                            printd("Removing ring number: " + str(previousJudge[1]) + '. From ' + str(currentDateRingNumbers))
                             currentDateRingNumbers.remove(previousJudge[1])
-                            printv('remaining: ' + str(ringDates[currentDate]))
+                            printd('remaining: ' + str(ringDates[currentDate]))
                         elif previousJudge[1] is currentJudge[1]:
-                            printv("Judge change without ring change: " + str(previousJudge) )
+                            printd("Judge change without ring change: " + str(previousJudge) )
                     if not currentDateRingNumbers and previousJudge[1] is not currentJudge[1]:#list is empty
                         printd('*******************')
                         printd(str(currentDate) + " has " + str(currentDateRingCount) + " Rings")
@@ -170,7 +173,9 @@ class DogshowProgramWorker(object):
                         printd(str(currentDate))
                         printd('*******************')
                         currentDateRingNumbers = ringDates[currentDate]
-            
+                else:
+                    #printd(currentJudge)
+                    pass;
                 judgeRingCount += 1;
             ringsList[i]["Date"] = currentDate;
             currentDateRingCount += 1
