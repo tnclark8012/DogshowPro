@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
-   <PreferenceCategory
-   android:summary="Settings"
-   android:title="Settings" >
-  <EditTextPreference
-     android:key="dev.tnclark8012.dogshow.android.dogshow.prefs.key.JUDGE_TIME"
-     android:summary="Estimated minutes to judge one dog"
-     android:title="Judging Time"
-     android:inputType="number"
-     android:defaultValue="2.5"
-     android:hint="minutes" />
- </PreferenceCategory> 
+
+    <PreferenceCategory
+        android:summary="Settings"
+        android:title="Settings" >
+        <EditTextPreference
+            android:defaultValue="2.5"
+            android:hint="minutes"
+            android:inputType="number"
+            android:key="dev.tnclark8012.dogshow.android.dogshow.prefs.key.JUDGE_TIME"
+            android:summary="Estimated minutes to judge one dog"
+            android:title="Judging Time" />
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="dev.tnclark8012.dogshow.android.dogshow.prefs.key.SYNC"
+            android:summary="Turn on syncing"
+            android:switchTextOff="Off"
+            android:switchTextOn="On"
+            android:title="Sync" />
+    </PreferenceCategory>
 
 </PreferenceScreen>

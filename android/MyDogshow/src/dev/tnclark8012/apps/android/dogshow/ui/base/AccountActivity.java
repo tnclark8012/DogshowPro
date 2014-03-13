@@ -62,7 +62,7 @@ import dev.tnclark8012.apps.android.dogshow.sync.AzureApiAccessor;
 import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 
-public class AccountActivity extends Activity implements AccountUtils.AuthenticateCallback, GooglePlayServicesClient.ConnectionCallbacks, GooglePlayServicesClient.OnConnectionFailedListener, PlusClient.OnPeopleLoadedListener {
+public class AccountActivity extends BaseActivity implements AccountUtils.AuthenticateCallback, GooglePlayServicesClient.ConnectionCallbacks, GooglePlayServicesClient.OnConnectionFailedListener, PlusClient.OnPeopleLoadedListener {
 
 	private static final String TAG = AccountActivity.class.getSimpleName();
 
@@ -410,7 +410,7 @@ public class AccountActivity extends Activity implements AccountUtils.Authentica
 	private void finishSetup() {
 		ContentResolver.setIsSyncable(mChosenAccount, DogshowContract.CONTENT_AUTHORITY, 1);
 		ContentResolver.setSyncAutomatically(mChosenAccount, DogshowContract.CONTENT_AUTHORITY, true);
-		SyncHelper.requestManualSync(mChosenAccount);
+		SyncHelper.requestManualSync(this, mChosenAccount);
 		if (mFinishIntent != null) {
 			// Ensure the finish intent is unique within the task. Otherwise, if the task was
 			// started with this intent, and it finishes like it should, then startActivity on

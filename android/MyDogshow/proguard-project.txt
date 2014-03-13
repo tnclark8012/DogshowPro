@@ -18,3 +18,7 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+-keepclassmembers class dev.tnclark8012.apps.android.dogshow.model.* {
+   public *;
+}

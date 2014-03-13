@@ -24,10 +24,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import dev.tnclark8012.apps.android.dogshow.Config;
+import dev.tnclark8012.apps.android.dogshow.R;
+import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.preferences.PrefsActivity;
 import dev.tnclark8012.apps.android.dogshow.ui.phone.HomeActivity;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
-import dev.tnclark8012.apps.android.dogshow.R;
 
 /**
  * A base activity that handles common functionality in the app.
@@ -40,9 +42,8 @@ public abstract class BaseActivity extends Activity {
 		// If we're not on Google TV and we're not authenticated, finish this
 		// activity
 		// and show the authentication screen.
-			if (!AccountUtils.isAuthenticated(this)) {//TODO implement
+			if (Prefs.isSyncEnabled(this) && !AccountUtils.isAuthenticated(this)) {//TODO implement
 //				new Intent(this, DogActivity.class)
-
 				AccountUtils.startAuthenticationFlow(this, getIntent());
 				finish();
 			}

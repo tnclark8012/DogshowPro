@@ -109,6 +109,8 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 		// future upgrade cases. Only use "break;" when you want to drop and
 		// recreate the entire database.
 		int version = oldVersion;
+		try
+		{
 		switch (oldVersion) {
 		case VER_LAUNCH:
 			db.execSQL("ALTER TABLE " + Tables.DOGS + " ADD COLUMN " + DogsColumns.DOG_CLASS + " INTEGER DEFAULT 0");
@@ -124,16 +126,19 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 			createShowTeamsTable(db);
 			version++;
 		}
+		}
+		catch(Exception e)
+		{
+			version = -1;
+		}
 
 		if (version != DATABASE_VERSION) {
 			Log.w(TAG, "Destroying old data during upgrade");
-
 			db.execSQL("DROP TABLE IF EXISTS " + Tables.DOGS);
 			db.execSQL("DROP TABLE IF EXISTS " + Tables.HANDLERS);
 			db.execSQL("DROP TABLE IF EXISTS " + Tables.JUNIORS_RINGS);
 			db.execSQL("DROP TABLE IF EXISTS " + Tables.BREED_RINGS);
 			db.execSQL("DROP TABLE IF EXISTS " + Tables.SHOW_TEAMS);
-
 			onCreate(db);
 		}
 	}

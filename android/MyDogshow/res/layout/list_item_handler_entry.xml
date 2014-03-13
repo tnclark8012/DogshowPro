@@ -44,7 +44,8 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="48dp"
-        android:button="@drawable/btn_handler_junior_entry"
+        android:button="@null"
+        android:background="@drawable/btn_handler_junior_entry"
         android:clickable="false"
         android:focusable="false" />
 

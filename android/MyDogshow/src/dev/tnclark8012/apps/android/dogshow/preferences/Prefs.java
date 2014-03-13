@@ -22,9 +22,15 @@ public final class Prefs {
 	public static final String KEY_INSTALL_ID = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.INSTALL_ID";
 	public static final String KEY_USER_ID = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.USER_ID";
 	public static final String KEY_LAST_SYNC = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.LAST_SYNC";
+	public static final String KEY_ENABLE_SYNC = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.SYNC";
 
 	public static SharedPreferences get(Context context) {
 		return PreferenceManager.getDefaultSharedPreferences(context);
+	}
+	
+	public static boolean isSyncEnabled(Context context)
+	{
+		return get(context).getBoolean(KEY_ENABLE_SYNC, false);
 	}
 
 	/**

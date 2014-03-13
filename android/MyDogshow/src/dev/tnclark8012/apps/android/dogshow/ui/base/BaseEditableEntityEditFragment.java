@@ -68,7 +68,7 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 			if (getActivity() == null) {
 				return;
 			}
-			SyncHelper.requestManualSync(AccountUtils.getChosenAccount(getActivity()));
+			SyncHelper.requestManualSync(getActivity(), AccountUtils.getChosenAccount(getActivity()));
 			Loader<Cursor> loader = getLoaderManager().getLoader(mQueryToken);
 			if (loader != null) {
 				loader.forceLoad();

@@ -22,8 +22,6 @@ public class BreedRingsHandler extends JsonHandler<BreedRing> {
 	}
 
 	private static final String TAG = BreedRingsHandler.class.getSimpleName();
-	
-	
 
 	public ArrayList<ContentProviderOperation> parse(BreedRing[] breedRings) {
 		final ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
@@ -47,7 +45,7 @@ public class BreedRingsHandler extends JsonHandler<BreedRing> {
 					builder.withValue(SyncColumns.UPDATED, System.currentTimeMillis());
 					builder.withValue(BreedRings.RING_BITCH_COUNT, ring.bitchCount);
 					builder.withValue(BreedRings.RING_BLOCK_START, ring.blockStartMillis);
-					builder.withValue(BreedRings.RING_BREED, DogshowEnums.Breeds.parse(ring.breedName).toString());
+					builder.withValue(BreedRings.RING_BREED, DogshowEnums.Breeds.parse(ring.breedName).getPrimaryName());
 					builder.withValue(BreedRings.RING_BREED_COUNT, ring.count);
 					builder.withValue(BreedRings.RING_COUNT_AHEAD, ring.countAhead);
 					builder.withValue(BreedRings.RING_DATE, ring.dateMillis);

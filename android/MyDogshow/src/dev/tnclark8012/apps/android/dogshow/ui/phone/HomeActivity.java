@@ -16,14 +16,11 @@
 
 package dev.tnclark8012.apps.android.dogshow.ui.phone;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.content.res.Configuration;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
@@ -35,17 +32,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.adapters.NavigationDrawerListAdapter;
-import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
-import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
-import dev.tnclark8012.apps.android.dogshow.sync.ApiAccessor;
-import dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamResponse;
+import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.ui.DashboardFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.ShowTeamListFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseActivity;
@@ -77,11 +69,13 @@ public class HomeActivity extends BaseActivity {
 		mJoinButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// Create a new fragment and specify the planet to show based on position
-				Fragment fragment = new ShowTeamListFragment();
-				// // Insert the fragment by replacing any existing fragment
-				FragmentManager fragmentManager = getFragmentManager();
-				fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+				if (Prefs.isSyncEnabled(HomeActivity.this)) {
+					// Create a new fragment and specify the planet to show based on position
+					Fragment fragment = new ShowTeamListFragment();
+					// // Insert the fragment by replacing any existing fragment
+					FragmentManager fragmentManager = getFragmentManager();
+					fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+				}
 			}
 		});
 		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.ic_drawer_white, R.string.app_name, R.string.action_settings) {
@@ -172,21 +166,21 @@ public class HomeActivity extends BaseActivity {
 		}
 		switch (item.getItemId()) {
 		case R.id.menu_find_show:
-			new AsyncTask<Void, Void, Void>() {
-				@Override
-				protected Void doInBackground(Void... params) {
-					ShowTeamResponse response = ApiAccessor.getInstance().createShowTeam(AccountUtils.getUserId(HomeActivity.this), "Taylor's Team", "password");
-					if (response != null) {
-						PersistHelper helper = new PersistHelper(HomeActivity.this);
-						Map<String, Object> values = new HashMap<String, Object>();
-						values.put(ShowTeams.SHOW_TEAM_NAME, response.teamName);
-						values.put(ShowTeams.SHOW_TEAM_ID, response.identifier);
-						helper.createEntity(ShowTeams.CONTENT_URI, values);
-					}
-					return null;
-				}
-			}.execute();
-			// startActivity(new Intent(this, ShowSetupActivity.class));
+			// new AsyncTask<Void, Void, Void>() {
+			// @Override
+			// protected Void doInBackground(Void... params) {
+			// ShowTeamResponse response = ApiAccessor.getInstance().createShowTeam(AccountUtils.getUserId(HomeActivity.this), "Taylor's Team", "password");
+			// if (response != null) {
+			// PersistHelper helper = new PersistHelper(HomeActivity.this);
+			// Map<String, Object> values = new HashMap<String, Object>();
+			// values.put(ShowTeams.SHOW_TEAM_NAME, response.teamName);
+			// values.put(ShowTeams.SHOW_TEAM_ID, response.identifier);
+			// helper.createEntity(ShowTeams.CONTENT_URI, values);
+			// }
+			// return null;
+			// }
+			// }.execute();
+			startActivity(new Intent(this, ShowSetupActivity.class));
 			return true;
 		case R.id.menu_sign_out:
 			AccountUtils.signOut(this);

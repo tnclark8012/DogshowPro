@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.os.RemoteException;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import dev.tnclark8012.apps.android.dogshow.Config;
 import dev.tnclark8012.apps.android.dogshow.model.Show;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
@@ -144,10 +145,12 @@ public class SyncHelper {
 	};
 	private int LOCAL_VERSION_CURRENT;
 
-	public static void requestManualSync(Account mChosenAccount) {
-		Bundle b = new Bundle();
-		b.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true);
-		ContentResolver.requestSync(mChosenAccount, DogshowContract.CONTENT_AUTHORITY, b);
+	public static void requestManualSync(Context context, Account mChosenAccount) {
+		if (Prefs.isSyncEnabled(context)) {
+			Bundle b = new Bundle();
+			b.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true);
+			ContentResolver.requestSync(mChosenAccount, DogshowContract.CONTENT_AUTHORITY, b);
+		}
 	}
 
 	public void performSync(SyncResult syncResult, int flags) throws IOException {
