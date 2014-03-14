@@ -31,13 +31,13 @@ public class YesNoDialog extends DialogFragment {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				if (mCallback != null)
-					mCallback.onFinishDialog(STATUS_NO, args);
+					mCallback.onFinishDialog(STATUS_NO, getArguments());
 			}
 		}).setPositiveButton(android.R.string.yes, new OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				if (mCallback != null)
-					mCallback.onFinishDialog(STATUS_YES, args);
+					mCallback.onFinishDialog(STATUS_YES, getArguments());
 			}
 		}).create();
 	}

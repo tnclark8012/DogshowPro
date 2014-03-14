@@ -189,6 +189,7 @@ public abstract class BaseEntityListFragment extends ListFragment implements Loa
 
 	@Override
 	public boolean onItemLongClick(AdapterView<?> adapter, View view, int position, long id) {
+		setRetainInstance(true);
 		final Cursor cursor = (Cursor) mAdapter.getItem(position);
 		String entityTitle = Utils.getMaybeNull(cursor, getTitleColumnIndex(), "It");
 		if ((Utils.isNullOrEmpty(entityTitle))) {
@@ -204,6 +205,7 @@ public abstract class BaseEntityListFragment extends ListFragment implements Loa
 			public void onFinishDialog(int status, Bundle args) {
 				if (status == YesNoDialog.STATUS_YES) {
 					mCallbacks.onDeleteEntity(args.getString("Id"));
+					setRetainInstance(false);
 				}
 			}
 		});
