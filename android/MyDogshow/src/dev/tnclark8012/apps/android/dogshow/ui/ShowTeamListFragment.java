@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.CursorAdapter;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.adapters.SimpleCursorAdapter;
@@ -55,9 +57,24 @@ public class ShowTeamListFragment extends BaseEntityListFragment implements Call
 
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		// TODO Auto-generated method stub
 		super.onCreateOptionsMenu(menu, inflater);
 		inflater.inflate(R.menu.list_show_team, menu);
+	}
+
+	@Override
+	protected int getTitleColumnIndex() {
+		return ShowTeamsQuery.TEAM_NAME;
+	}
+
+	@Override
+	public boolean onItemLongClick(AdapterView<?> adapter, View view, int position, long id) {
+		// ignore long click and prevent default delete behavior
+		return true;
+	}
+
+	@Override
+	public void onDeleteEntity(String entityId) {
+		// ignore delete
 	}
 
 }

@@ -9,7 +9,7 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.HandlersQuery;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment;
 
-public class HandlerListFragment extends BaseEntityListFragment{
+public class HandlerListFragment extends BaseEntityListFragment {
 
 	private static final String TAG = HandlerListFragment.class.getSimpleName();
 
@@ -32,5 +32,10 @@ public class HandlerListFragment extends BaseEntityListFragment{
 	protected int getIdColumnIndex() {
 		return HandlersQuery._ID;
 	}
-	
+
+	@Override
+	protected int getTitleColumnIndex() {
+		return HandlersQuery.HANDLER_NAME;
+	}
+
 }

@@ -22,3 +22,4 @@
 -keepclassmembers class dev.tnclark8012.apps.android.dogshow.model.* {
    public *;
 }
+-keepattributes SourceFile,LineNumberTable

@@ -40,7 +40,6 @@ public abstract class BaseEditableEntityActivity extends SimpleSinglePaneActivit
 		if (mViewFragment == null) {
 			mViewFragment = getViewFragment();
 		}
-
 		return mViewFragment;
 	}
 

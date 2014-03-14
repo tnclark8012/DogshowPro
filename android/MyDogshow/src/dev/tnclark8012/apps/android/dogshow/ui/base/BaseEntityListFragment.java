@@ -3,6 +3,7 @@ package dev.tnclark8012.apps.android.dogshow.ui.base;
 import java.util.Random;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.app.ListFragment;
 import android.app.LoaderManager;
 import android.content.CursorLoader;
@@ -14,20 +15,29 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import dev.tnclark8012.apps.android.dogshow.R;
+import dev.tnclark8012.apps.android.dogshow.ui.dialog.YesNoDialog;
+import dev.tnclark8012.apps.android.dogshow.ui.dialog.YesNoDialog.Callback;
+import dev.tnclark8012.apps.android.dogshow.util.Utils;
 
-public abstract class BaseEntityListFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor> {
+public abstract class BaseEntityListFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor>, OnItemLongClickListener {
 	// TODO HIGH
 	public interface Callbacks {
 		public boolean onEntityClick(String entityId);
 
 		public boolean onAddEntityClick();
+
+		public void onDeleteEntity(String entityId);
 	}
 
 	protected abstract Uri getContentUri();
@@ -38,10 +48,11 @@ public abstract class BaseEntityListFragment extends ListFragment implements Loa
 
 	protected abstract int getIdColumnIndex();
 
+	protected abstract int getTitleColumnIndex();
+
 	private static final String TAG = BaseEntityListFragment.class.getSimpleName();
 	private final int mQueryToken = new Random().nextInt();
 	private CursorAdapter mAdapter;
-
 	private static Callbacks sDummyCallbacks = new Callbacks() {
 		@Override
 		public boolean onEntityClick(String entityId) {
@@ -50,7 +61,11 @@ public abstract class BaseEntityListFragment extends ListFragment implements Loa
 
 		public boolean onAddEntityClick() {
 			return false;
-		};
+		}
+
+		@Override
+		public void onDeleteEntity(String entityId) {
+		}
 	};
 
 	private Callbacks mCallbacks = sDummyCallbacks;
@@ -74,6 +89,12 @@ public abstract class BaseEntityListFragment extends ListFragment implements Loa
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);
 		reloadFromArguments(getArguments());
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		getListView().setOnItemLongClickListener(this);
 	}
 
 	@Override
@@ -160,5 +181,33 @@ public abstract class BaseEntityListFragment extends ListFragment implements Loa
 		if (mCallbacks.onEntityClick(entityId)) {
 			mAdapter.notifyDataSetChanged();
 		}
+	}
+
+	protected CursorAdapter getAdapter() {
+		return mAdapter;
+	}
+
+	@Override
+	public boolean onItemLongClick(AdapterView<?> adapter, View view, int position, long id) {
+		final Cursor cursor = (Cursor) mAdapter.getItem(position);
+		String entityTitle = Utils.getMaybeNull(cursor, getTitleColumnIndex(), "It");
+		if ((Utils.isNullOrEmpty(entityTitle))) {
+			entityTitle = "It";
+		}
+		final String entityId = Utils.getMaybeNull(cursor, getIdColumnIndex(), null);
+		Bundle args = new Bundle();
+		args.putString("Id", entityId);
+		args.putString(YesNoDialog.BUNDLE_KEY_TITLE, "Delete " + entityTitle);
+		args.putString(YesNoDialog.BUNDLE_KEY_MESSAGE, entityTitle + " will be gone for-e-ver.");
+		DialogFragment d = YesNoDialog.newInstance(args, new Callback() {
+			@Override
+			public void onFinishDialog(int status, Bundle args) {
+				if (status == YesNoDialog.STATUS_YES) {
+					mCallbacks.onDeleteEntity(args.getString("Id"));
+				}
+			}
+		});
+		d.show(getFragmentManager(), "dialog");
+		return true;
 	}
 }

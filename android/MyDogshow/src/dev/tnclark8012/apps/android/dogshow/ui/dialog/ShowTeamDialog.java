@@ -58,7 +58,7 @@ public class ShowTeamDialog extends DialogFragment implements OnClickListener {
 				break;
 			}
 			case R.id.dialog_cancel: {
-				// mCallback.onFinishDialog(STATUS_CANCELLED, null, null);
+				 mCallback.onFinishDialog(STATUS_CANCELLED, null, null);
 				break;
 			}
 			}

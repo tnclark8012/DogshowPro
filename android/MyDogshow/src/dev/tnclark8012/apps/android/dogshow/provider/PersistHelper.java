@@ -31,7 +31,7 @@ public class PersistHelper {
 	}
 
 	public boolean createMe() {
-		//TODO call generic create
+		// TODO call generic create
 		final ContentResolver resolver = mContext.getContentResolver();
 		String selection = Handlers.HANDLER_IS_ME + "=?";
 		String[] selectionArgs = new String[] { "1" };
@@ -53,7 +53,7 @@ public class PersistHelper {
 
 	// TODO use only this?
 	public void updateEntity(Uri contentUri, long id, Map<String, Object> updateValues) {
-		//TODO is it safe to use this ID instead of the GUID id?
+		// TODO is it safe to use this ID instead of the GUID id?
 		updateTable(contentUri, updateValues, BaseColumns._ID + "=?", new String[] { String.valueOf(id) });
 	}
 
@@ -83,7 +83,6 @@ public class PersistHelper {
 	private void buildAndApplyBatch(ContentProviderOperation.Builder builder, Map<String, Object> values, String selection, String[] selectionArgs) {
 		// TODO LOW: move these calls to a Service
 		if (values != null) {
-			ContentResolver resolver = mContext.getContentResolver();
 			Set<String> keys = values.keySet();
 			ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
 			for (String key : keys) {
@@ -94,13 +93,7 @@ public class PersistHelper {
 				builder.withSelection(selection, selectionArgs);
 			}
 			batch.add(builder.build());
-			try {
-				resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY, batch);
-			} catch (RemoteException e) {
-				throw new RuntimeException("Problem applying batch operation", e);
-			} catch (OperationApplicationException e) {
-				throw new RuntimeException("Problem applying batch operation", e);
-			}
+			applyBatch(batch);
 		}
 	}
 
@@ -108,4 +101,22 @@ public class PersistHelper {
 		ContentProviderOperation.Builder builder = ContentProviderOperation.newInsert(DogshowContract.addCallerIsSyncAdapterParameter(contentUri));
 		buildAndApplyBatch(builder, insertValues, null, null);
 	}
+
+	public void deleteEntity(Uri entityUri) {
+		ContentProviderOperation.Builder builder = ContentProviderOperation.newDelete(entityUri);
+		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
+		batch.add(builder.build());
+		applyBatch(batch);
+	}
+
+	private void applyBatch(ArrayList<ContentProviderOperation> batch) {
+		try {
+			mContext.getContentResolver().applyBatch(DogshowContract.CONTENT_AUTHORITY, batch);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		} catch (OperationApplicationException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

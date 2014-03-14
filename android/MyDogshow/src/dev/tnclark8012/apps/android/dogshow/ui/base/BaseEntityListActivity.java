@@ -4,19 +4,24 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import dev.tnclark8012.apps.android.dogshow.ui.SimpleSinglePaneActivity;
+import android.util.Log;
 import dev.tnclark8012.apps.android.dogshow.R;
+import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
+import dev.tnclark8012.apps.android.dogshow.ui.SimpleSinglePaneActivity;
 
-public abstract class BaseEntityListActivity extends SimpleSinglePaneActivity implements BaseEntityListFragment.Callbacks, BaseEditableEntityEditFragment.Callbacks{
+public abstract class BaseEntityListActivity extends SimpleSinglePaneActivity implements BaseEntityListFragment.Callbacks, BaseEditableEntityEditFragment.Callbacks {
 	BaseEntityListFragment mListFragment;
-	
+	private static final String TAG = BaseEntityListActivity.class.getSimpleName();
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 	}
-	
+
 	protected abstract BaseEntityListFragment getListFragment();
+
 	protected abstract BaseEditableEntityEditFragment getEditFragment();
+
 	protected abstract Uri getEntityUri(String entityId);
 
 	@Override
@@ -25,7 +30,15 @@ public abstract class BaseEntityListActivity extends SimpleSinglePaneActivity im
 			mListFragment = getListFragment();
 		return mListFragment;
 	}
-	
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		if (mListFragment == null) {
+			mListFragment = getListFragment();
+		}
+	}
+
 	private void swapFragments(boolean toAdd) {
 		Fragment swapIn;
 		Bundle args = intentToFragmentArguments(getIntent());
@@ -36,14 +49,12 @@ public abstract class BaseEntityListActivity extends SimpleSinglePaneActivity im
 			swapIn = mListFragment;
 		}
 		swapIn.setArguments(args);
-		getFragmentManager().beginTransaction()
-				.replace(R.id.root_container, swapIn, "single_pane").commit();
+		getFragmentManager().beginTransaction().replace(R.id.root_container, swapIn, "single_pane").commit();
 	}
 
 	@Override
 	public final boolean onEntityClick(String entityId) {
-		startActivity(new Intent(Intent.ACTION_VIEW,
-				getEntityUri(entityId)));
+		startActivity(new Intent(Intent.ACTION_VIEW, getEntityUri(entityId)));
 		return false;
 	}
 
@@ -62,5 +73,12 @@ public abstract class BaseEntityListActivity extends SimpleSinglePaneActivity im
 	@Override
 	public final void onCancel() {
 		swapFragments(false);
+	}
+
+	@Override
+	public void onDeleteEntity(String entityId) {
+		Log.d(TAG, "Delete request for entity Id: " + entityId);
+		PersistHelper helper = new PersistHelper(this);
+		helper.deleteEntity(getEntityUri(entityId));
 	}
 }
