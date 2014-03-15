@@ -111,6 +111,9 @@ public class DogshowContract {
 		String SHOW_TEAM_ID = "team_id";
 		/** ID of the entered show */
 		String ENTERED_SHOW = "entered_show";
+		/** 1 for show team is "Just Me" */
+		String SHOW_TEAM_JUST_ME = "team_just_me";
+		String SHOW_TEAM_ACTIVE = "team_is_active";
 	}
 
 	interface BreedRingsColumns {
@@ -205,7 +208,7 @@ public class DogshowContract {
 		public static final String ENTERED_JUNIOR_HANDLER_NAMES = "class_entered_handlers";
 
 		/** Default "ORDER BY" clause. */
-		public static final String DEFAULT_SORT = HandlersColumns.HANDLER_NAME + " COLLATE NOCASE ASC";
+		public static final String DEFAULT_SORT = Handlers.HANDLER_IS_ME + " DESC, " + Handlers.HANDLER_NAME + " COLLATE NOCASE ASC";
 
 		/** Build {@link Uri} for requested Handler ID. */
 		public static Uri buildHandlerUri(String handlerId) {
@@ -232,7 +235,9 @@ public class DogshowContract {
 		public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.dogshow.team";
 
 		/** Default "ORDER BY" clause. */
-		public static final String DEFAULT_SORT = ShowTeamsColumns.SHOW_TEAM_NAME + " COLLATE NOCASE ASC";
+		public static final String DEFAULT_SORT = ShowTeams.SHOW_TEAM_JUST_ME + " DESC, " + ShowTeamsColumns.SHOW_TEAM_NAME + " COLLATE NOCASE ASC";
+
+		public static final String NOT_ME_SELECTION = ShowTeams.SHOW_TEAM_ID + " IS NOT \"ME\"";
 
 		/** Build {@link Uri} for requested Team ID. */
 		public static Uri buildShowTeamUri(String teamId) {

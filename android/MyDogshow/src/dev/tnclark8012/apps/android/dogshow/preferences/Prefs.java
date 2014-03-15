@@ -1,11 +1,7 @@
 package dev.tnclark8012.apps.android.dogshow.preferences;
 
-import java.util.UUID;
-
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 
@@ -18,7 +14,7 @@ public final class Prefs {
 	public static final String KEY_AUTH_TOKEN = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.AUTH_TOKEN";
 	public static final String KEY_DEVICE_ID = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.DEVICE_ID";
 	public static final String KEY_JUDGE_TIME = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.JUDGE_TIME";
-	public static final String KEY_SETUP_COMPLETE  = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.SETUP_COMPLETE";
+	public static final String KEY_SETUP_COMPLETE = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.SETUP_COMPLETE";
 	public static final String KEY_INSTALL_ID = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.INSTALL_ID";
 	public static final String KEY_USER_ID = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.USER_ID";
 	public static final String KEY_LAST_SYNC = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.LAST_SYNC";
@@ -28,9 +24,8 @@ public final class Prefs {
 	public static SharedPreferences get(Context context) {
 		return PreferenceManager.getDefaultSharedPreferences(context);
 	}
-	
-	public static boolean isSyncEnabled(Context context)
-	{
+
+	public static boolean isSyncEnabled(Context context) {
 		return get(context).getBoolean(KEY_ENABLE_SYNC, false);
 	}
 
@@ -46,21 +41,20 @@ public final class Prefs {
 	}
 
 	/**
-	 * Set the current team name. 
+	 * Set the current team name.
+	 * 
 	 * @param context
 	 * @param currentTeam
 	 * @return true if the team changed
 	 */
-	public static boolean setCurrentTeam(Context context, String currentTeam)
-	{
-		if(currentTeam != currentTeamName(context))
-		{
+	public static boolean setCurrentTeam(Context context, String currentTeam) {
+		if (currentTeam != currentTeamName(context)) {
 			get(context).edit().putString(KEY_CURRENT_TEAM, currentTeam).commit();
 		}
 		return false;
 	}
-	public static String currentTeamName(Context context)
-	{
+
+	public static String currentTeamName(Context context) {
 		return get(context).getString(KEY_CURRENT_TEAM, "Just Me");
 	}
 }

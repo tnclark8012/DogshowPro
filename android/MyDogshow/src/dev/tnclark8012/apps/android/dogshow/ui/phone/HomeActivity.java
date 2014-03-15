@@ -142,13 +142,13 @@ public class HomeActivity extends BaseActivity implements LoaderCallbacks<Cursor
 	@Override
 	protected void onPause() {
 		super.onPause();
-		getContentResolver().registerContentObserver(ShowTeams.CONTENT_URI, true, mObserver);
+		getContentResolver().unregisterContentObserver(mObserver);
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-		getContentResolver().unregisterContentObserver(mObserver);
+		getContentResolver().registerContentObserver(ShowTeams.CONTENT_URI, true, mObserver);
 	}
 
 	@Override

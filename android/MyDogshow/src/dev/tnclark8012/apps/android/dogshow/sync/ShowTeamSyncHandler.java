@@ -33,7 +33,8 @@ public class ShowTeamSyncHandler {
 	public void sync(ContentResolver resolver, long lastSync) {
 		// TODO test if two queries are faster, or if selection should be applied manually.
 		String currentTeamId[];
-		Cursor currentTeamsIdCursor = resolver.query(ShowTeams.CONTENT_URI, new String[] { ShowTeams.SHOW_TEAM_ID }, null, null, ShowTeams.DEFAULT_SORT);
+
+		Cursor currentTeamsIdCursor = resolver.query(ShowTeams.CONTENT_URI, new String[] { ShowTeams.SHOW_TEAM_ID }, ShowTeams.NOT_ME_SELECTION, null, ShowTeams.DEFAULT_SORT);
 		currentTeamId = new String[currentTeamsIdCursor.getCount()];
 		int i = 0;
 		while (currentTeamsIdCursor.moveToNext()) {
@@ -81,7 +82,7 @@ public class ShowTeamSyncHandler {
 		ContentValues values = new ContentValues(12);
 		values.put(ShowTeams.SHOW_TEAM_ID, team.identifier);
 		values.put(ShowTeams.SHOW_TEAM_NAME, team.teamName);
-		values.put(Dogs.UPDATED, System.currentTimeMillis());//TODO set a "sync time" per sync
+		values.put(Dogs.UPDATED, System.currentTimeMillis());// TODO set a "sync time" per sync
 		return values;
 	}
 }

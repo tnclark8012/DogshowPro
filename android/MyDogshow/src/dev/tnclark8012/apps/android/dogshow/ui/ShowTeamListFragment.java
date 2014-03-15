@@ -40,7 +40,7 @@ public class ShowTeamListFragment extends BaseEntityListFragment implements Call
 
 	@Override
 	protected CursorLoader getCursorLoader(Activity activity, Uri uri) {
-		return new CursorLoader(activity, ShowTeams.CONTENT_URI, ShowTeamsQuery.PROJECTION, null, null, null);
+		return new CursorLoader(activity, ShowTeams.CONTENT_URI, ShowTeamsQuery.PROJECTION, ShowTeams.NOT_ME_SELECTION, null, ShowTeams.DEFAULT_SORT);
 	}
 
 	@Override

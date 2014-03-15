@@ -25,7 +25,7 @@ public class HandlerListFragment extends BaseEntityListFragment {
 
 	@Override
 	protected CursorLoader getCursorLoader(Activity activity, Uri uri) {
-		return new CursorLoader(activity, uri, HandlersQuery.PROJECTION, null, null, null);
+		return new CursorLoader(activity, uri, HandlersQuery.PROJECTION, null, null, Handlers.DEFAULT_SORT);
 	}
 
 	@Override

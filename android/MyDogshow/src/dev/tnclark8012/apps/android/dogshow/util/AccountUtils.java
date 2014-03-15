@@ -243,6 +243,7 @@ public class AccountUtils {
 
 	/**
 	 * Register the user identity with the app server
+	 * 
 	 * @param accountName
 	 * @param token
 	 * @param installId
@@ -251,6 +252,7 @@ public class AccountUtils {
 		String id = ApiAccessor.getInstance().register(accountName, token, "PLUS", installId);// TODO Facebook and/or nothing
 		setUserId(context, id);
 		new PersistHelper(context).createMe();
+
 	}
 
 	public static void signOut(final Context context) {

@@ -101,6 +101,9 @@ public class ShowTeamDialog extends DialogFragment implements OnClickListener {
 							if (mCallback != null) {
 								mCallback.onFinishDialog(status, response.teamName);
 							}
+							if (status == STATUS_SUCCESS) {
+								dismiss();
+							}
 						};
 					}.execute(teamName, password);
 				}

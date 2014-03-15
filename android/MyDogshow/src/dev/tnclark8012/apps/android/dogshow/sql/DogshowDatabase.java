@@ -72,7 +72,8 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 	}
 
 	private void createShowTeamsTable(SQLiteDatabase db) {
-		db.execSQL("CREATE TABLE " + Tables.SHOW_TEAMS + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + ShowTeamsColumns.SHOW_TEAM_ID + " TEXT NOT NULL, " + ShowTeamsColumns.SHOW_TEAM_NAME + " TEXT NOT NULL, " + ShowTeamsColumns.SHOW_TEAM_STATE + " INTEGER DEFAULT 1, " + ShowTeams.ENTERED_SHOW + " TEXT,"+ ShowTeams.UPDATED + " INTEGER NOT NULL)");
+		db.execSQL("CREATE TABLE " + Tables.SHOW_TEAMS + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + ShowTeamsColumns.SHOW_TEAM_ID + " TEXT NOT NULL, " + ShowTeams.SHOW_TEAM_ACTIVE + " INTEGER DEFAULT 0, " + ShowTeams.SHOW_TEAM_JUST_ME + " INTEGER DEFAULT 0, " + ShowTeamsColumns.SHOW_TEAM_NAME + " TEXT NOT NULL, " + ShowTeamsColumns.SHOW_TEAM_STATE + " INTEGER DEFAULT 1, " + ShowTeams.ENTERED_SHOW + " TEXT," + ShowTeams.UPDATED + " INTEGER DEFAULT 0)");
+		db.execSQL("INSERT INTO " + Tables.SHOW_TEAMS + " (" + ShowTeams.SHOW_TEAM_ID + ", " + ShowTeams.SHOW_TEAM_NAME + "," + ShowTeams.SHOW_TEAM_STATE + ", " + ShowTeams.SHOW_TEAM_ACTIVE + ", " + ShowTeams.SHOW_TEAM_JUST_ME + ") VALUES (\"ME\", \"Just Me\", 1,1,1)");
 	}
 
 	private void createDogsTable(SQLiteDatabase db) {
@@ -111,30 +112,27 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 		// future upgrade cases. Only use "break;" when you want to drop and
 		// recreate the entire database.
 		int version = oldVersion;
-		try
-		{
-		switch (oldVersion) {
-		case VER_LAUNCH:
-			db.execSQL("ALTER TABLE " + Tables.DOGS + " ADD COLUMN " + DogsColumns.DOG_CLASS + " INTEGER DEFAULT 0");
-			db.execSQL("ALTER TABLE " + Tables.DOGS + " ADD COLUMN " + DogsColumns.DOG_IS_CHAMPION + " INTEGER DEFAULT 0");
-			version++;
-		case VER_BREED_BREAKDOWN:
-			db.execSQL("DROP TABLE IF EXISTS " + Tables.HANDLERS);
-			createHandlersTable(db);
-			version++;
-		case VER_HANDLERS_UPGRADE:
-			break;// Handler and Dogs get new GUID id's
-		case VER_HANDLERS_IS_ME:
-			createShowTeamsTable(db);
-			version++;
-		case VER_SHOW_TEAMS:
-			db.execSQL("DROP TABLE IF EXISTS " + Tables.SHOW_TEAMS);
-			createShowTeamsTable(db);
-			version++;
-		}
-		}
-		catch(Exception e)
-		{
+		try {
+			switch (oldVersion) {
+			case VER_LAUNCH:
+				db.execSQL("ALTER TABLE " + Tables.DOGS + " ADD COLUMN " + DogsColumns.DOG_CLASS + " INTEGER DEFAULT 0");
+				db.execSQL("ALTER TABLE " + Tables.DOGS + " ADD COLUMN " + DogsColumns.DOG_IS_CHAMPION + " INTEGER DEFAULT 0");
+				version++;
+			case VER_BREED_BREAKDOWN:
+				db.execSQL("DROP TABLE IF EXISTS " + Tables.HANDLERS);
+				createHandlersTable(db);
+				version++;
+			case VER_HANDLERS_UPGRADE:
+				break;// Handler and Dogs get new GUID id's
+			case VER_HANDLERS_IS_ME:
+				createShowTeamsTable(db);
+				version++;
+			case VER_SHOW_TEAMS:
+				db.execSQL("DROP TABLE IF EXISTS " + Tables.SHOW_TEAMS);
+				createShowTeamsTable(db);
+				version++;
+			}
+		} catch (Exception e) {
 			version = -1;
 		}
 
