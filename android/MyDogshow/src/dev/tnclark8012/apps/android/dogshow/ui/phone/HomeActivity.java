@@ -49,6 +49,7 @@ import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.ShowTeamsQuery;
+import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.ui.DashboardFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.ShowTeamListFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseActivity;
@@ -212,6 +213,9 @@ public class HomeActivity extends BaseActivity implements LoaderCallbacks<Cursor
 		case R.id.menu_sign_out:
 			AccountUtils.signOut(this);
 			finish();
+			return true;
+		case R.id.menu_sync:
+			SyncHelper.requestManualSync(this, AccountUtils.getChosenAccount(this));
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
