@@ -16,6 +16,7 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.HandlersColumns;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.JuniorsRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.JuniorsRingsColumns;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.RingColumns;
+import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeamsColumns;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.SyncColumns;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
@@ -28,8 +29,9 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 	private static final int VER_HANDLERS_UPGRADE = 5;
 	private static final int VER_HANDLERS_IS_ME = 6;
 	private static final int VER_SHOW_TEAMS = 7;
+	private static final int VER_SYNC_INTRODUCED = 8;
 
-	private static final int DATABASE_VERSION = VER_SHOW_TEAMS;
+	private static final int DATABASE_VERSION = VER_SYNC_INTRODUCED;
 
 	public interface Tables {
 		String DOGS = "dogs";
@@ -70,7 +72,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 	}
 
 	private void createShowTeamsTable(SQLiteDatabase db) {
-		db.execSQL("CREATE TABLE " + Tables.SHOW_TEAMS + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + ShowTeamsColumns.SHOW_TEAM_ID + " TEXT NOT NULL, " + ShowTeamsColumns.SHOW_TEAM_NAME + " TEXT NOT NULL, " + ShowTeamsColumns.SHOW_TEAM_ACTIVE + " INTEGER DEFAULT 1, " + SyncColumns.UPDATED + " INTEGER NOT NULL)");
+		db.execSQL("CREATE TABLE " + Tables.SHOW_TEAMS + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + ShowTeamsColumns.SHOW_TEAM_ID + " TEXT NOT NULL, " + ShowTeamsColumns.SHOW_TEAM_NAME + " TEXT NOT NULL, " + ShowTeamsColumns.SHOW_TEAM_STATE + " INTEGER DEFAULT 1, " + ShowTeams.ENTERED_SHOW + " TEXT,"+ ShowTeams.UPDATED + " INTEGER NOT NULL)");
 	}
 
 	private void createDogsTable(SQLiteDatabase db) {
@@ -123,6 +125,10 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 		case VER_HANDLERS_UPGRADE:
 			break;// Handler and Dogs get new GUID id's
 		case VER_HANDLERS_IS_ME:
+			createShowTeamsTable(db);
+			version++;
+		case VER_SHOW_TEAMS:
+			db.execSQL("DROP TABLE IF EXISTS " + Tables.SHOW_TEAMS);
 			createShowTeamsTable(db);
 			version++;
 		}

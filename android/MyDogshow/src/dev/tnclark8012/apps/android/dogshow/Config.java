@@ -60,6 +60,8 @@ public class Config {
 		ShowTeamSyncResponse[] syncShowTeams(String userId, long lastSync, String[] currentTeamIds);
 
 		ShowTeamResponse createShowTeam(String userId, String teamName, String password);
+
+		ShowTeamResponse joinShowTeam(String userId, String teamName, String password);
 	}
 
 	public static final boolean DEBUG_LOCAL = true;

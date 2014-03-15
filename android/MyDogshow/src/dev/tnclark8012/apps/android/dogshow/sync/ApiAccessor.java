@@ -174,8 +174,7 @@ public abstract class ApiAccessor implements Config.IApiAccessor {
 		httpost.setHeader("Content-type", "application/json");
 		try {
 			String response = httpclient.execute(httpost, new BasicResponseHandler());
-
-			Log.d(TAG, response.toString());
+			Log.v(TAG, response.toString());
 			return response;// TODO ALPHA Response should be JSON to prevent storing an error message as user id :)
 		} catch (ClientProtocolException e) {
 			// TODO Auto-generated catch block
@@ -216,42 +215,30 @@ public abstract class ApiAccessor implements Config.IApiAccessor {
 				String statusLine = urlConnection.getResponseMessage();
 				// check for response status
 				int statusCode = urlConnection.getResponseCode();
+				StringBuilder builder = new StringBuilder();
+				// get content of response
+				InputStream content;
 				if (statusCode == 200) {
-					StringBuilder builder = new StringBuilder();
-					// get content of response
-					InputStream content = urlConnection.getInputStream();
-					BasicHttpEntity response = new BasicHttpEntity();
-		response.setContent(content);
-					// check for gzip compression
-					Header contentEncoding = response.getContentEncoding();
-					if (contentEncoding != null && contentEncoding.getValue().equalsIgnoreCase("gzip")) {
-						content = new GZIPInputStream(content);
-					}
-
-					BufferedReader reader = new BufferedReader(new InputStreamReader(content));
-					String line;
-					while ((line = reader.readLine()) != null) {
-						builder.append(line);
-					}
-					String responseStr = UIUtils.stripQuotes(builder.toString());
-					Log.v(TAG, responseStr);
-					return responseStr;
+					content = urlConnection.getInputStream();
+				} else {
+					content = urlConnection.getErrorStream();
+				}
+				BasicHttpEntity response = new BasicHttpEntity();
+				response.setContent(content);
+				// check for gzip compression
+				Header contentEncoding = response.getContentEncoding();
+				if (contentEncoding != null && contentEncoding.getValue().equalsIgnoreCase("gzip")) {
+					content = new GZIPInputStream(content);
 				}
 
-				// urlConnection.setChunkedStreamingMode(0);
-				// urlConnection.setFixedLengthStreamingMode(message.getBytes().length);
-
-				// make some HTTP header nicety
-				// urlConnection.setRequestProperty("Content-Type", "application/json;charset=utf-8");
-				// OutputStream out = new BufferedOutputStream(urlConnection.getOutputStream());
-				// OutputStream os = new BufferedOutputStream(urlConnection.getOutputStream());
-				// os.write(message.getBytes());
-				// // clean up
-				// os.flush();
-				//
-				// InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-				// return readInputStream(in);
-				return null;
+				BufferedReader reader = new BufferedReader(new InputStreamReader(content));
+				String line;
+				while ((line = reader.readLine()) != null) {
+					builder.append(line);
+				}
+				String responseStr = UIUtils.stripQuotes(builder.toString());
+				Log.v(TAG, responseStr);
+				return responseStr;
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

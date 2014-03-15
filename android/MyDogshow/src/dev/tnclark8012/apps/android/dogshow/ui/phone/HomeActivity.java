@@ -19,9 +19,16 @@ package dev.tnclark8012.apps.android.dogshow.ui.phone;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.LoaderManager.LoaderCallbacks;
+import android.content.CursorLoader;
 import android.content.Intent;
+import android.content.Loader;
 import android.content.res.Configuration;
+import android.database.ContentObserver;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -36,8 +43,12 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import dev.tnclark8012.apps.android.dogshow.R;
-import dev.tnclark8012.apps.android.dogshow.adapters.NavigationDrawerListAdapter;
+import dev.tnclark8012.apps.android.dogshow.adapters.NavigationDrawerCursorAdapter;
+import dev.tnclark8012.apps.android.dogshow.adapters.NavigationDrawerSimpleListAdapter;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
+import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
+import dev.tnclark8012.apps.android.dogshow.sql.query.Query;
+import dev.tnclark8012.apps.android.dogshow.sql.query.Query.ShowTeamsQuery;
 import dev.tnclark8012.apps.android.dogshow.ui.DashboardFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.ShowTeamListFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseActivity;
@@ -47,13 +58,23 @@ import dev.tnclark8012.apps.android.dogshow.util.Utils;
 /**
  * The landing screen for the app, once the user has logged in.
  */
-public class HomeActivity extends BaseActivity {
+public class HomeActivity extends BaseActivity implements LoaderCallbacks<Cursor> {
 	private static final String TAG = HomeActivity.class.getSimpleName();
 	private DrawerLayout mDrawerLayout;
 	private LinearLayout mDrawerConents;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
 	private RelativeLayout mJoinButton;
+	private NavigationDrawerCursorAdapter mAdapter;
+	private final ContentObserver mObserver = new ContentObserver(new Handler()) {
+		@Override
+		public void onChange(boolean selfChange) {
+			Loader<Cursor> loader = getLoaderManager().getLoader(Query.ShowTeamsQuery._TOKEN);
+			if (loader != null) {
+				loader.forceLoad();
+			}
+		}
+	};
 
 	@SuppressLint("NewApi")
 	@Override
@@ -74,7 +95,7 @@ public class HomeActivity extends BaseActivity {
 					Fragment fragment = new ShowTeamListFragment();
 					// // Insert the fragment by replacing any existing fragment
 					FragmentManager fragmentManager = getFragmentManager();
-					fragmentManager.beginTransaction().replace(R.id.content_frame,fragment, "join").addToBackStack("base").commit();
+					fragmentManager.beginTransaction().replace(R.id.content_frame, fragment, "join").addToBackStack("base").commit();
 					mDrawerLayout.closeDrawer(mDrawerConents);
 				}
 			}
@@ -101,8 +122,10 @@ public class HomeActivity extends BaseActivity {
 			getActionBar().setHomeButtonEnabled(true);
 		}
 		mDrawerList = (ListView) findViewById(R.id.left_drawer);
+		String currentTeam = Prefs.currentTeamName(this);
 		// Set the adapter for the list view
-		mDrawerList.setAdapter(new NavigationDrawerListAdapter(this, R.layout.list_item_simple, R.id.text1, new String[] { "Just Me", "Stellar" }));
+		mAdapter = new NavigationDrawerCursorAdapter(this, null, false, R.layout.list_item_simple, R.id.text1, Query.ShowTeamsQuery.TEAM_NAME, currentTeam);
+		mDrawerList.setAdapter(mAdapter);
 		// Set the list's click listener
 		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
@@ -110,7 +133,22 @@ public class HomeActivity extends BaseActivity {
 		// // Insert the fragment by replacing any existing fragment
 		FragmentManager fragmentManager = getFragmentManager();
 		fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+		getLoaderManager().initLoader(ShowTeamsQuery._TOKEN, null, this);
+		if (currentTeam != null) {
+			setTitle(currentTeam);
+		}
+	}
 
+	@Override
+	protected void onPause() {
+		super.onPause();
+		getContentResolver().registerContentObserver(ShowTeams.CONTENT_URI, true, mObserver);
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		getContentResolver().unregisterContentObserver(mObserver);
 	}
 
 	@Override
@@ -129,8 +167,9 @@ public class HomeActivity extends BaseActivity {
 	private class DrawerItemClickListener implements ListView.OnItemClickListener {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-			((NavigationDrawerListAdapter) parent.getAdapter()).selectItem(position);
+			((NavigationDrawerCursorAdapter) parent.getAdapter()).selectItem(position);
 			selectItem(position);
+
 		}
 	}
 
@@ -138,8 +177,10 @@ public class HomeActivity extends BaseActivity {
 	private void selectItem(int position) {
 
 		// Highlight the selected item, update the title, and close the drawer
+		String selectedTeam = mAdapter.getCursor().getString(ShowTeamsQuery.TEAM_NAME);
+		Prefs.setCurrentTeam(HomeActivity.this, selectedTeam);
 		mDrawerList.setItemChecked(position, true);
-		setTitle(mDrawerList.getItemAtPosition(position).toString());
+		setTitle(selectedTeam);
 		mDrawerLayout.closeDrawer(mDrawerConents);
 	}
 
@@ -166,20 +207,6 @@ public class HomeActivity extends BaseActivity {
 		}
 		switch (item.getItemId()) {
 		case R.id.menu_find_show:
-			// new AsyncTask<Void, Void, Void>() {
-			// @Override
-			// protected Void doInBackground(Void... params) {
-			// ShowTeamResponse response = ApiAccessor.getInstance().createShowTeam(AccountUtils.getUserId(HomeActivity.this), "Taylor's Team", "password");
-			// if (response != null) {
-			// PersistHelper helper = new PersistHelper(HomeActivity.this);
-			// Map<String, Object> values = new HashMap<String, Object>();
-			// values.put(ShowTeams.SHOW_TEAM_NAME, response.teamName);
-			// values.put(ShowTeams.SHOW_TEAM_ID, response.identifier);
-			// helper.createEntity(ShowTeams.CONTENT_URI, values);
-			// }
-			// return null;
-			// }
-			// }.execute();
 			startActivity(new Intent(this, ShowSetupActivity.class));
 			return true;
 		case R.id.menu_sign_out:
@@ -190,4 +217,30 @@ public class HomeActivity extends BaseActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
+	@Override
+	public Loader<Cursor> onCreateLoader(int id, Bundle data) {
+		if (id == ShowTeamsQuery._TOKEN) {
+			return new CursorLoader(this, ShowTeams.CONTENT_URI, ShowTeamsQuery.PROJECTION, null, null, ShowTeams.DEFAULT_SORT);
+		} else {
+			Log.w(TAG, "Couldn't create loader");
+			return null;
+		}
+	}
+
+	@Override
+	public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
+		int token = loader.getId();
+		if (token == ShowTeamsQuery._TOKEN) {
+			mAdapter.changeCursor(cursor);
+		} else {
+			Log.d(TAG, "Query complete, Not Actionable: " + token);
+			cursor.close();
+		}
+	}
+
+	@Override
+	public void onLoaderReset(Loader<Cursor> arg0) {
+		// TODO Auto-generated method stub
+
+	}
 }

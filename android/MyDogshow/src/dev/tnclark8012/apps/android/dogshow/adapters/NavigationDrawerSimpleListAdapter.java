@@ -7,12 +7,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class NavigationDrawerListAdapter extends ArrayAdapter<String> {
+public class NavigationDrawerSimpleListAdapter extends ArrayAdapter<String> {
 
 	private int selectedItem;
 	private int mTextViewResourceId;
 
-	public NavigationDrawerListAdapter(Context context, int resource, int textViewResourceId, String[] objects) {
+	public NavigationDrawerSimpleListAdapter(Context context, int resource, int textViewResourceId, String[] objects) {
 		super(context, resource, textViewResourceId, objects);
 		mTextViewResourceId = textViewResourceId;
 	}

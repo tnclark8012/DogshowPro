@@ -18,11 +18,17 @@
         android:layout_gravity="start"
         android:background="@color/layout_background"
         android:orientation="vertical" >
-
-        <RelativeLayout
+                   <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/element_margin_normal"
+        android:layout_marginRight="@dimen/element_margin_normal"
+        android:background="@drawable/list_divider" />
+          <RelativeLayout
             android:id="@+id/button_join_team"
             android:layout_width="240dp"
             android:layout_height="48dp"
+            
             android:background="@drawable/list_selector"
             android:clickable="true"
             android:focusable="true" >
@@ -31,8 +37,9 @@
                 android:id="@+id/image_join_team"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_centerVertical="true"
-                android:src="@drawable/ic_input_add" >
+                android:src="@drawable/edit_query" >
             </ImageView>
 
             <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
@@ -40,20 +47,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/element_padding_normal"
                 android:layout_toRightOf="@+id/image_join_team"
-                android:text="Join Team"
+                android:text="Manage Teams"
                 android:textSize="@dimen/text_medium"
                 ttv:typeface="Roboto-Medium.ttf" >
             </dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView>
         </RelativeLayout>
-
-        <include
-            android:layout_width="20dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            layout="@layout/accent_bar"
-            android:paddingLeft="@dimen/activity_horizontal_margin" />
-
+                         <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/element_margin_normal"
+        android:layout_marginRight="@dimen/element_margin_normal"
+        android:background="@drawable/list_divider" />
         <ListView
             android:id="@+id/left_drawer"
             android:layout_width="240dp"
@@ -61,6 +67,8 @@
             android:layout_gravity="start"
             android:choiceMode="singleChoice"
             android:divider="@null" />
+ 
+        
     </LinearLayout>
 
 </android.support.v4.widget.DrawerLayout>

@@ -23,6 +23,7 @@ public final class Prefs {
 	public static final String KEY_USER_ID = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.USER_ID";
 	public static final String KEY_LAST_SYNC = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.LAST_SYNC";
 	public static final String KEY_ENABLE_SYNC = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.SYNC";
+	public static final String KEY_CURRENT_TEAM = "dev.tclark8012.dogshow.android.dogshow.prefs.key.CURRENT_TEAM_NAME";
 
 	public static SharedPreferences get(Context context) {
 		return PreferenceManager.getDefaultSharedPreferences(context);
@@ -42,5 +43,24 @@ public final class Prefs {
 	public static float getEstimatedJudgingTime(Context context) {
 		String number = PreferenceManager.getDefaultSharedPreferences(context).getString(KEY_JUDGE_TIME, "2.5");
 		return Utils.parseSafely(number, 2.5f);
+	}
+
+	/**
+	 * Set the current team name. 
+	 * @param context
+	 * @param currentTeam
+	 * @return true if the team changed
+	 */
+	public static boolean setCurrentTeam(Context context, String currentTeam)
+	{
+		if(currentTeam != currentTeamName(context))
+		{
+			get(context).edit().putString(KEY_CURRENT_TEAM, currentTeam).commit();
+		}
+		return false;
+	}
+	public static String currentTeamName(Context context)
+	{
+		return get(context).getString(KEY_CURRENT_TEAM, "Just Me");
 	}
 }

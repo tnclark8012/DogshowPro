@@ -183,6 +183,18 @@ public class AzureApiAccessor extends ApiAccessor {
 	}
 
 	@Override
+	public ShowTeamResponse joinShowTeam(String userId, String teamName, String password) {
+		ShowTeamCreateRequest request = new ShowTeamCreateRequest();
+		ShowTeam team = new ShowTeam();
+		team.passwordAttempt = password;
+		team.teamName = teamName;
+		request.team = team;
+		request.userIdentifier = userId;
+		JsonObject json = mGson.toJsonTree(request, ShowTeamCreateRequest.class).getAsJsonObject();
+		return mGson.fromJson(makePostRequest(JOIN_SHOW_TEAM_URL, json), ShowTeamResponse.class);
+	}
+
+	@Override
 	public String register(String account, String token, String provider, String installId) {
 		RegistrationRequest request = new RegistrationRequest();
 		request.installationId = installId;

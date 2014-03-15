@@ -106,8 +106,11 @@ public class DogshowContract {
 
 	interface ShowTeamsColumns {
 		String SHOW_TEAM_NAME = "team_name";
-		String SHOW_TEAM_ACTIVE = "is_active";
+		/** 0 = needs sync of credentials, 1 = OK */
+		String SHOW_TEAM_STATE = "state";
 		String SHOW_TEAM_ID = "team_id";
+		/** ID of the entered show */
+		String ENTERED_SHOW = "entered_show";
 	}
 
 	interface BreedRingsColumns {
