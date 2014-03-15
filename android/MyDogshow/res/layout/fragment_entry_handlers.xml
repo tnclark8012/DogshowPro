@@ -37,19 +37,22 @@
         android:divider="?android:attr/listDivider"
         tools:listitem="@layout/list_item_handler_entry" >
     </ListView>
+
     <View
-        android:layout_marginLeft="@dimen/element_margin_normal"
-        android:layout_marginRight="@dimen/element_margin_normal"
-        android:layout_below="@+id/fragment_entry_handlers_list"
+        android:id="@+id/divider"
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:background="@drawable/list_divider"
-         />
+        android:layout_below="@+id/fragment_entry_handlers_list"
+        android:layout_marginLeft="@dimen/element_margin_normal"
+        android:layout_marginRight="@dimen/element_margin_normal"
+        android:background="@drawable/list_divider" />
+
     <LinearLayout
         android:id="@+id/button_bar"
         style="?android:attr/buttonBarStyle"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:layout_below="@+id/divider"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal" >
 

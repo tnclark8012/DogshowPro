@@ -74,7 +74,8 @@ public class HomeActivity extends BaseActivity {
 					Fragment fragment = new ShowTeamListFragment();
 					// // Insert the fragment by replacing any existing fragment
 					FragmentManager fragmentManager = getFragmentManager();
-					fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+					fragmentManager.beginTransaction().replace(R.id.content_frame,fragment, "join").addToBackStack("base").commit();
+					mDrawerLayout.closeDrawer(mDrawerConents);
 				}
 			}
 		});
@@ -83,14 +84,12 @@ public class HomeActivity extends BaseActivity {
 			/** Called when a drawer has settled in a completely closed state. */
 			public void onDrawerClosed(View view) {
 				super.onDrawerClosed(view);
-				getActionBar().setTitle("Closed");
 				invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
 			}
 
 			/** Called when a drawer has settled in a completely open state. */
 			public void onDrawerOpened(View drawerView) {
 				super.onDrawerOpened(drawerView);
-				getActionBar().setTitle("Opened");
 				invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
 			}
 		};
@@ -140,7 +139,7 @@ public class HomeActivity extends BaseActivity {
 
 		// Highlight the selected item, update the title, and close the drawer
 		mDrawerList.setItemChecked(position, true);
-		setTitle(String.valueOf(position));
+		setTitle(mDrawerList.getItemAtPosition(position).toString());
 		mDrawerLayout.closeDrawer(mDrawerConents);
 	}
 

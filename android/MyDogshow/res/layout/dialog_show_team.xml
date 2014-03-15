@@ -57,47 +57,44 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edit_text_team_password_confirm"
-        android:layout_marginTop="@dimen/element_padding_normal"
-        android:text="WOOPS! :O"
-        android:textColor="#F00" />
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="@dimen/element_spacing_normal"
+        android:text="ERROR"
+        android:textColor="#F00"
+        android:visibility="invisible" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/message_team_error"
+        android:layout_marginLeft="@dimen/element_margin_normal"
+        android:layout_marginRight="@dimen/element_margin_normal"
+        android:background="@drawable/list_divider" />
 
     <LinearLayout
+        android:id="@+id/button_bar"
+        style="?android:attr/buttonBarStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/message_team_error"
-        android:layout_marginTop="@dimen/element_margin_normal"
-        android:baselineAligned="false"
+        android:layout_height="48dp"
+        android:layout_below="@+id/divider"
         android:orientation="horizontal" >
 
-        <RelativeLayout
+        <Button
+            android:id="@+id/dialog_cancel"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/element_padding_normal"
-            android:layout_weight="1" >
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="Cancel" />
 
-            <Button
-                android:id="@+id/dialog_save"
-                android:layout_width="fill_parent"
-                android:layout_height="@dimen/element_height_normal"
-                android:layout_centerVertical="true"
-                android:clickable="true"
-                android:text="Save" />
-        </RelativeLayout>
-
-        <RelativeLayout
+        <Button
+            android:id="@+id/dialog_ok"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/element_padding_normal"
-            android:layout_weight="1" >
-
-            <Button
-                android:id="@+id/dialog_cancel"
-                android:layout_width="fill_parent"
-                android:layout_height="@dimen/element_height_normal"
-                android:layout_centerVertical="true"
-                android:clickable="true"
-                android:text="Cancel" />
-        </RelativeLayout>
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="Ok" />
     </LinearLayout>
 
 </RelativeLayout>

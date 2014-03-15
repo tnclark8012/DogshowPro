@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CursorAdapter;
@@ -15,6 +16,7 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.ShowTeamsQuery;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment.Callbacks;
+import dev.tnclark8012.apps.android.dogshow.ui.dialog.ShowTeamDialog;
 
 public class ShowTeamListFragment extends BaseEntityListFragment implements Callbacks {
 
@@ -59,6 +61,22 @@ public class ShowTeamListFragment extends BaseEntityListFragment implements Call
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		super.onCreateOptionsMenu(menu, inflater);
 		inflater.inflate(R.menu.list_show_team, menu);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.menu_list_team_join:
+			return true;
+		case R.id.menu_list_entity_add:
+			Bundle args = new Bundle();
+			args.putInt(ShowTeamDialog.KEY_MODE, ShowTeamDialog.MODE_CREATE);
+			ShowTeamDialog diag = ShowTeamDialog.newInstance();
+			diag.setArguments(args);
+			diag.show(getFragmentManager(), "create_dialog");
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	@Override

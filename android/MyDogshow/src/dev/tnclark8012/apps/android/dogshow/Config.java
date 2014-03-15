@@ -62,9 +62,9 @@ public class Config {
 		ShowTeamResponse createShowTeam(String userId, String teamName, String password);
 	}
 
-	public static final boolean DEBUG_LOCAL = false;
+	public static final boolean DEBUG_LOCAL = true;
 	public static final boolean DEBUG_OFFLINE = false;// TODO implement
-	public static final boolean SYNC_ENABLED = false;// TODO implement
+	public static final boolean SYNC_ENABLED = true;// TODO implement
 	
 	public static final String TAG = Config.class.getName();
 }

@@ -29,11 +29,6 @@ import dev.tnclark8012.apps.android.dogshow.util.Utils;
 
 public class AzureApiAccessor extends ApiAccessor {
 
-	// private static final String BASE_URL =
-	// "https://google-developers.appspot.com/_ah/api/resources/v0.1";
-	// "http://10.0.2.2:8888/rest"
-	// 10.0.2.2
-	// 192.168.0.4
 	private URL BASE_URL;
 	public URL GET_SHOW_URL;
 	public URL GET_BREED_RINGS_URL;
@@ -146,7 +141,6 @@ public class AzureApiAccessor extends ApiAccessor {
 	public Show[] getShows() {
 		try {
 			String jsonStr = executeGet(getShowsUrl());
-			jsonStr = "[{\"ShowId\":\"test1\",\"City\":\"Seattle\",\"Clubs\":[{\"Id\":1,\"Name\":\"Seattle Dog Club\"},{\"Id\":2,\"Name\":\"Redmond Dog Club\"}],\"ShowName\":\"Seattle Dog Show Extraviganza!!!\",\"StartDateMillis\":63525704018699,\"State\":\"WA\"},{\"ShowId\":\"MNJS1\",\"City\":\"St Paul\",\"Clubs\":[{\"Id\":3,\"Name\":\"Minnesota January Specialties\"},{\"Id\":4,\"Name\":\"Land O'Lakes Kennel Club, Inc.\"},{\"Id\":5,\"Name\":\"Northstar Working Group Association\"},{\"Id\":6,\"Name\":\"Land O'Lakes Kennel Club, Inc. (O/R)\"},{\"Id\":7,\"Name\":\"North Star Herding Group Club, Inc.\"},{\"Id\":8,\"Name\":\"North Star Toy Dog Club\"},{\"Id\":9,\"Name\":\"Midwest Region Top Junior Handler Comp\"}],\"ShowName\":\"Land O'Lakes Kennel Club, Inc. (1)\",\"StartDateMillis\":1388736000000,\"State\":\"MN\"},{\"ShowId\":\"CEIA1\",\"City\":\"Des Moines\",\"Clubs\":[{\"Id\":10,\"Name\":\"Central Iowa Kennel Club, Inc.\"}],\"ShowName\":\"Central Iowa Kennel Club, Inc. (1)\",\"StartDateMillis\":1390032000000,\"State\":\"IA\"},{\"ShowId\":\"Test\",\"City\":\"Redmond\",\"Clubs\":[{\"Id\":11,\"Name\":\"North Star Toy Dog Club\"},{\"Id\":12,\"Name\":\"Minnesota January Specialties\"},{\"Id\":13,\"Name\":\"Land O'Lakes Kennel Club, Inc. (O/R)\"},{\"Id\":14,\"Name\":\"North Star Herding Group Club, Inc.\"},{\"Id\":15,\"Name\":\"Midwest Region Top Junior Handler Comp\"},{\"Id\":16,\"Name\":\"Northstar Working Group Association\"},{\"Id\":17,\"Name\":\"Land O'Lakes Kennel Club, Inc.\"}],\"ShowName\":\"Redmond/Bellevue Dog Show\",\"StartDateMillis\":1388736000000,\"State\":\"WA\"},{\"ShowId\":\"CYLO1\",\"City\":\"Des Moines\",\"Clubs\":[{\"Id\":21,\"Name\":\"Combined Specialty Clubs of Mid-Iowa\"},{\"Id\":22,\"Name\":\"Cyclone Country KC of Ames, Inc.\"},{\"Id\":23,\"Name\":\"Cyclone Country KC of Ames, Inc. (Obed)\"}],\"ShowName\":\"Combined Specialty Clubs of Mid-Iowa\",\"StartDateMillis\":1392364800000,\"State\":\"IA\"},{\"ShowId\":\"LEAV1\",\"City\":\"Kansas City\",\"Clubs\":[{\"Id\":24,\"Name\":\"Heart of America Kennel Club, Inc.\"},{\"Id\":25,\"Name\":\"Heartland French Bulldog Club\"},{\"Id\":26,\"Name\":\"Leavenworth Kennel Club, Inc.\"},{\"Id\":27,\"Name\":\"Heart of America Samoyed Club\"},{\"Id\":28,\"Name\":\"Heart of America Keeshond Club\"},{\"Id\":29,\"Name\":\"Heart of America Poodle Club, Inc.\"},{\"Id\":30,\"Name\":\"Yorkshire Terrier Club of Greater KC\"},{\"Id\":31,\"Name\":\"Weimaraner Club of Greater Kansas City\"}],\"ShowName\":\"Heart of America Kennel Club, Inc. (1)\",\"StartDateMillis\":1394694000000,\"State\":\"MO\"}]\r\n";
 			Show[] shows = mGson.fromJson(jsonStr, Show[].class);
 			Log.d(TAG, jsonStr);
 			for (Show show : shows) {

@@ -62,7 +62,7 @@ import dev.tnclark8012.apps.android.dogshow.sync.AzureApiAccessor;
 import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 
-public class AccountActivity extends BaseActivity implements AccountUtils.AuthenticateCallback, GooglePlayServicesClient.ConnectionCallbacks, GooglePlayServicesClient.OnConnectionFailedListener, PlusClient.OnPeopleLoadedListener {
+public class AccountActivity extends Activity implements AccountUtils.AuthenticateCallback, GooglePlayServicesClient.ConnectionCallbacks, GooglePlayServicesClient.OnConnectionFailedListener, PlusClient.OnPeopleLoadedListener {
 
 	private static final String TAG = AccountActivity.class.getSimpleName();
 
