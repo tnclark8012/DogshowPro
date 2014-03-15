@@ -122,6 +122,7 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 	public void onAttach(Activity activity) {
 		// TODO Use URI from arguments
 		super.onAttach(activity);
+		Prefs.get(getActivity()).registerOnSharedPreferenceChangeListener(this);
 		activity.getContentResolver().registerContentObserver(BreedRings.CONTENT_URI, true, mObserver);
 		activity.getContentResolver().registerContentObserver(JuniorsRings.CONTENT_URI, true, mObserver);
 
@@ -132,6 +133,7 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 		super.onDetach();
 		getActivity().getContentResolver().unregisterContentObserver(mObserver);
 		handler.removeCallbacks(updateUpcomingRunnable);
+		Prefs.get(getActivity()).unregisterOnSharedPreferenceChangeListener(this);
 	}
 
 	@Override
@@ -323,10 +325,10 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		Prefs.get(getActivity()).registerOnSharedPreferenceChangeListener(this);
 		stickyList.setOnItemLongClickListener(this);
 		stickyList.setEmptyView(getActivity().getLayoutInflater().inflate(R.layout.empty_waiting_for_sync, null));
 	}
+	
 
 	@Override
 	public boolean onCreateActionMode(ActionMode mode, Menu menu) {
