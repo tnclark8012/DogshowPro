@@ -115,6 +115,15 @@ public class Utils {
 	public static long estimateBlockStart(int dogCountAhead, long timeBlockStart, float estimatedMinutesPerDog) {
 		return estimateBlockStart(dogCountAhead, timeBlockStart, ((long) (estimatedMinutesPerDog * 1000 * 60)));// Simple, but used several places
 	}
+	
+	public static long twelveAmToday()
+	{
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC"), Locale.US);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		return cal.getTimeInMillis();
+	}
 
 	private static final long EPOCH_IN_MILLISECONDS = 62135596800000l;
 
