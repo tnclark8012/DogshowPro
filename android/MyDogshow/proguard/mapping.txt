@@ -7089,8 +7089,8 @@ dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment -> dev.tnclark8012.ap
     338:338:boolean onActionItemClicked(android.view.ActionMode,android.view.MenuItem) -> onActionItemClicked
     343:343:void onDestroyActionMode(android.view.ActionMode) -> onDestroyActionMode
     347:354:void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
-    358:372:boolean onItemLongClick(android.widget.AdapterView,android.view.View,int,long) -> onItemLongClick
-    377:393:void onFinishEditDialog(int,long,int,float) -> a
+    358:371:boolean onItemLongClick(android.widget.AdapterView,android.view.View,int,long) -> onItemLongClick
+    376:392:void onFinishEditDialog(int,long,int,float) -> a
     1:1:void onLoadFinished(android.content.Loader,java.lang.Object) -> onLoadFinished
 dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment$1 -> dev.tnclark8012.apps.android.dogshow.ui.aw:
     dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment this$0 -> a
@@ -7582,10 +7582,10 @@ dev.tnclark8012.apps.android.dogshow.util.Utils -> dev.tnclark8012.apps.android.
     95:95:java.lang.String getMaybeNull(android.database.Cursor,int,java.lang.String) -> a
     103:103:boolean getMaybeNull(android.database.Cursor,int,boolean) -> a
     112:112:long estimateBlockStart(int,long,long) -> a
-    121:121:long currentTimeUtc() -> c
-    126:130:long twelveAmToday() -> d
-    136:136:long millisSinceEpoch(long) -> a
-    140:157:android.net.Uri storeImage(android.content.Context,android.graphics.Bitmap) -> a
+    121:122:long currentTimeUtc() -> c
+    127:131:long twelveAmToday() -> d
+    137:137:long millisSinceEpoch(long) -> a
+    141:158:android.net.Uri storeImage(android.content.Context,android.graphics.Bitmap) -> a
 dev.tnclark8012.apps.android.dogshow.util.image.ImageChooserActivity -> dev.tnclark8012.apps.android.dogshow.util.image.ImageChooserActivity:
     android.widget.ImageView mImageView -> a
     java.io.File mFileTemp -> b
