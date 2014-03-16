@@ -95,7 +95,6 @@ com.google.ads.AdRequest$ErrorCode: com.google.ads.AdRequest$ErrorCode valueOf(j
 com.google.ads.AdRequest$Gender: com.google.ads.AdRequest$Gender[] values()
 com.google.ads.AdRequest$Gender: com.google.ads.AdRequest$Gender valueOf(java.lang.String)
 com.google.android.gms.R$attr: int adSize
-com.google.android.gms.R$attr: int adSizes
 com.google.android.gms.R$attr: int adUnitId
 com.google.android.gms.R$attr: int cameraBearing
 com.google.android.gms.R$attr: int cameraTargetLat
@@ -185,7 +184,6 @@ com.google.android.gms.R$string: int common_signin_button_text
 com.google.android.gms.R$string: int common_signin_button_text_long
 com.google.android.gms.R$styleable: int[] AdsAttrs
 com.google.android.gms.R$styleable: int AdsAttrs_adSize
-com.google.android.gms.R$styleable: int AdsAttrs_adSizes
 com.google.android.gms.R$styleable: int AdsAttrs_adUnitId
 com.google.android.gms.R$styleable: int[] MapAttrs
 com.google.android.gms.R$styleable: int MapAttrs_cameraBearing
@@ -208,25 +206,7 @@ com.google.android.gms.ads.AdView: java.lang.String getAdUnitId()
 com.google.android.gms.ads.AdView: void setAdListener(com.google.android.gms.ads.AdListener)
 com.google.android.gms.ads.AdView: void setAdSize(com.google.android.gms.ads.AdSize)
 com.google.android.gms.ads.AdView: void setAdUnitId(java.lang.String)
-com.google.android.gms.ads.doubleclick.PublisherAdView: com.google.android.gms.ads.AdListener getAdListener()
-com.google.android.gms.ads.doubleclick.PublisherAdView: com.google.android.gms.ads.AdSize getAdSize()
-com.google.android.gms.ads.doubleclick.PublisherAdView: com.google.android.gms.ads.AdSize[] getAdSizes()
-com.google.android.gms.ads.doubleclick.PublisherAdView: java.lang.String getAdUnitId()
-com.google.android.gms.ads.doubleclick.PublisherAdView: com.google.android.gms.ads.doubleclick.AppEventListener getAppEventListener()
-com.google.android.gms.ads.doubleclick.PublisherAdView: void setAdListener(com.google.android.gms.ads.AdListener)
-com.google.android.gms.ads.doubleclick.PublisherAdView: void setAdSizes(com.google.android.gms.ads.AdSize[])
-com.google.android.gms.ads.doubleclick.PublisherAdView: void setAdUnitId(java.lang.String)
-com.google.android.gms.ads.doubleclick.PublisherAdView: void setAppEventListener(com.google.android.gms.ads.doubleclick.AppEventListener)
-com.google.android.gms.ads.search.SearchAdView: com.google.android.gms.ads.AdListener getAdListener()
-com.google.android.gms.ads.search.SearchAdView: com.google.android.gms.ads.AdSize getAdSize()
-com.google.android.gms.ads.search.SearchAdView: java.lang.String getAdUnitId()
-com.google.android.gms.ads.search.SearchAdView: void setAdListener(com.google.android.gms.ads.AdListener)
-com.google.android.gms.ads.search.SearchAdView: void setAdSize(com.google.android.gms.ads.AdSize)
-com.google.android.gms.ads.search.SearchAdView: void setAdUnitId(java.lang.String)
-com.google.android.gms.cast.ApplicationMetadata
-com.google.android.gms.cast.ApplicationMetadata: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.cast.CastDevice
-com.google.android.gms.cast.CastDevice: android.os.Parcelable$Creator CREATOR
+com.google.android.gms.auth.RecoveryDecision
 com.google.android.gms.common.SignInButton
 com.google.android.gms.common.SignInButton: SignInButton(android.content.Context)
 com.google.android.gms.common.SignInButton: SignInButton(android.content.Context,android.util.AttributeSet)
@@ -235,62 +215,9 @@ com.google.android.gms.common.SignInButton: void setSize(int)
 com.google.android.gms.common.SignInButton: void setColorScheme(int)
 com.google.android.gms.common.SignInButton: void setOnClickListener(android.view.View$OnClickListener)
 com.google.android.gms.common.SignInButton: void setEnabled(boolean)
-com.google.android.gms.common.api.Status
-com.google.android.gms.common.data.DataHolder
+com.google.android.gms.common.data.d
 com.google.android.gms.common.images.ImageManager$ImageReceiver
-com.google.android.gms.common.images.WebImage
-com.google.android.gms.common.images.WebImage: android.os.Parcelable$Creator CREATOR
 com.google.android.gms.common.internal.safeparcel.SafeParcelable
-com.google.android.gms.drive.Contents
-com.google.android.gms.drive.Contents: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.drive.DriveId
-com.google.android.gms.drive.DriveId: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.drive.internal.CloseContentsRequest
-com.google.android.gms.drive.internal.CloseContentsRequest: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.drive.internal.CreateContentsRequest
-com.google.android.gms.drive.internal.CreateContentsRequest: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.drive.internal.CreateFileIntentSenderRequest
-com.google.android.gms.drive.internal.CreateFileIntentSenderRequest: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.drive.internal.CreateFileRequest
-com.google.android.gms.drive.internal.CreateFileRequest: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.drive.internal.CreateFolderRequest
-com.google.android.gms.drive.internal.CreateFolderRequest: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.drive.internal.GetMetadataRequest
-com.google.android.gms.drive.internal.GetMetadataRequest: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.drive.internal.OnContentsResponse
-com.google.android.gms.drive.internal.OnContentsResponse: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.drive.internal.OnDownloadProgressResponse
-com.google.android.gms.drive.internal.OnDownloadProgressResponse: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.drive.internal.OnDriveIdResponse
-com.google.android.gms.drive.internal.OnDriveIdResponse: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.drive.internal.OnListEntriesResponse
-com.google.android.gms.drive.internal.OnListEntriesResponse: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.drive.internal.OnMetadataResponse
-com.google.android.gms.drive.internal.OnMetadataResponse: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.drive.internal.OpenContentsRequest
-com.google.android.gms.drive.internal.OpenContentsRequest: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.drive.internal.OpenFileIntentSenderRequest
-com.google.android.gms.drive.internal.OpenFileIntentSenderRequest: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.drive.internal.QueryRequest
-com.google.android.gms.drive.internal.QueryRequest: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.drive.internal.UpdateMetadataRequest
-com.google.android.gms.drive.internal.UpdateMetadataRequest: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.drive.metadata.internal.MetadataBundle
-com.google.android.gms.drive.metadata.internal.MetadataBundle: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.drive.query.Query
-com.google.android.gms.drive.query.Query: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.drive.query.internal.ComparisonFilter
-com.google.android.gms.drive.query.internal.FieldOnlyFilter
-com.google.android.gms.drive.query.internal.FieldOnlyFilter: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.drive.query.internal.FilterHolder
-com.google.android.gms.drive.query.internal.FilterHolder: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.drive.query.internal.InFilter
-com.google.android.gms.drive.query.internal.LogicalFilter
-com.google.android.gms.drive.query.internal.LogicalFilter: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.drive.query.internal.NotFilter
-com.google.android.gms.drive.query.internal.NotFilter: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.drive.query.internal.Operator
-com.google.android.gms.drive.query.internal.Operator: android.os.Parcelable$Creator CREATOR
 com.google.android.gms.games.Game
 com.google.android.gms.games.GameEntity
 com.google.android.gms.games.GameEntity: android.os.Parcelable$Creator CREATOR
@@ -305,7 +232,6 @@ com.google.android.gms.games.multiplayer.InvitationEntity: android.os.Parcelable
 com.google.android.gms.games.multiplayer.Participant
 com.google.android.gms.games.multiplayer.ParticipantEntity
 com.google.android.gms.games.multiplayer.ParticipantEntity: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.games.multiplayer.ParticipantResult
 com.google.android.gms.games.multiplayer.b
 com.google.android.gms.games.multiplayer.d
 com.google.android.gms.games.multiplayer.realtime.RealTimeMessage
@@ -314,59 +240,41 @@ com.google.android.gms.games.multiplayer.realtime.Room
 com.google.android.gms.games.multiplayer.realtime.RoomEntity
 com.google.android.gms.games.multiplayer.realtime.RoomEntity: android.os.Parcelable$Creator CREATOR
 com.google.android.gms.games.multiplayer.realtime.c
-com.google.android.gms.games.multiplayer.turnbased.TurnBasedMatch
-com.google.android.gms.games.multiplayer.turnbased.TurnBasedMatchEntity
-com.google.android.gms.games.multiplayer.turnbased.a
-com.google.android.gms.internal.ai
-com.google.android.gms.internal.bj
-com.google.android.gms.internal.bm
-com.google.android.gms.internal.bz
-com.google.android.gms.internal.cb
-com.google.android.gms.internal.cu
-com.google.android.gms.internal.cw: void setContext(android.content.Context)
+com.google.android.gms.internal.be
+com.google.android.gms.internal.bh
+com.google.android.gms.internal.bu
+com.google.android.gms.internal.bw
+com.google.android.gms.internal.co
+com.google.android.gms.internal.cq: void setContext(android.content.Context)
+com.google.android.gms.internal.dd
+com.google.android.gms.internal.dr
+com.google.android.gms.internal.dt
 com.google.android.gms.internal.dt$a
-com.google.android.gms.internal.dv
-com.google.android.gms.internal.el
+com.google.android.gms.internal.dw$a
+com.google.android.gms.internal.dz
+com.google.android.gms.internal.dz$a
+com.google.android.gms.internal.dz$b
+com.google.android.gms.internal.ec
 com.google.android.gms.internal.en
-com.google.android.gms.internal.ep
-com.google.android.gms.internal.ep$a
-com.google.android.gms.internal.es$a
-com.google.android.gms.internal.ev
-com.google.android.gms.internal.ev$a
-com.google.android.gms.internal.ev$b
-com.google.android.gms.internal.ey
-com.google.android.gms.internal.fm
-com.google.android.gms.internal.gh
-com.google.android.gms.internal.go
-com.google.android.gms.internal.gt
-com.google.android.gms.internal.gv
-com.google.android.gms.internal.gx
-com.google.android.gms.internal.hb
-com.google.android.gms.internal.hd
-com.google.android.gms.internal.hd$a
-com.google.android.gms.internal.hf
-com.google.android.gms.internal.hi
-com.google.android.gms.internal.hu
-com.google.android.gms.internal.ib
-com.google.android.gms.internal.id
-com.google.android.gms.internal.ig
-com.google.android.gms.internal.ig$a
-com.google.android.gms.internal.ig$b
-com.google.android.gms.internal.ig$b$a
-com.google.android.gms.internal.ig$b$b
-com.google.android.gms.internal.ig$c
-com.google.android.gms.internal.ig$d
-com.google.android.gms.internal.ig$f
-com.google.android.gms.internal.ig$g
-com.google.android.gms.internal.ig$h
+com.google.android.gms.internal.fa
+com.google.android.gms.internal.fn
+com.google.android.gms.internal.fq
+com.google.android.gms.internal.fs
+com.google.android.gms.internal.fv
+com.google.android.gms.internal.fv$a
+com.google.android.gms.internal.fv$b
+com.google.android.gms.internal.fv$b$a
+com.google.android.gms.internal.fv$b$b
+com.google.android.gms.internal.fv$c
+com.google.android.gms.internal.fv$d
+com.google.android.gms.internal.fv$f
+com.google.android.gms.internal.fv$g
+com.google.android.gms.internal.fv$h
 com.google.android.gms.internal.v
 com.google.android.gms.internal.x
 com.google.android.gms.location.ActivityRecognitionResult
 com.google.android.gms.location.DetectedActivity
 com.google.android.gms.location.LocationRequest
-com.google.android.gms.location.a
-com.google.android.gms.location.d
-com.google.android.gms.location.f
 com.google.android.gms.maps.GoogleMapOptions
 com.google.android.gms.maps.MapView: com.google.android.gms.maps.GoogleMap getMap()
 com.google.android.gms.maps.model.CameraPosition
@@ -391,8 +299,6 @@ com.google.android.gms.wallet.Address
 com.google.android.gms.wallet.Address: android.os.Parcelable$Creator CREATOR
 com.google.android.gms.wallet.Cart
 com.google.android.gms.wallet.Cart: android.os.Parcelable$Creator CREATOR
-com.google.android.gms.wallet.CountrySpecification
-com.google.android.gms.wallet.CountrySpecification: android.os.Parcelable$Creator CREATOR
 com.google.android.gms.wallet.FullWallet
 com.google.android.gms.wallet.FullWallet: android.os.Parcelable$Creator CREATOR
 com.google.android.gms.wallet.FullWalletRequest
@@ -901,7 +807,6 @@ com.nostra13.universalimageloader.core.download.ImageDownloader$Scheme: com.nost
 com.nostra13.universalimageloader.core.download.ImageDownloader$Scheme: com.nostra13.universalimageloader.core.download.ImageDownloader$Scheme valueOf(java.lang.String)
 dev.tnclark8012.apps.android.dogshow.R$attr: int activatableItemBackground
 dev.tnclark8012.apps.android.dogshow.R$attr: int adSize
-dev.tnclark8012.apps.android.dogshow.R$attr: int adSizes
 dev.tnclark8012.apps.android.dogshow.R$attr: int adUnitId
 dev.tnclark8012.apps.android.dogshow.R$attr: int borderDrawable
 dev.tnclark8012.apps.android.dogshow.R$attr: int buttonBarButtonStyle
@@ -1052,6 +957,10 @@ dev.tnclark8012.apps.android.dogshow.R$drawable: int ic_action_refresh
 dev.tnclark8012.apps.android.dogshow.R$drawable: int ic_action_restore
 dev.tnclark8012.apps.android.dogshow.R$drawable: int ic_action_search
 dev.tnclark8012.apps.android.dogshow.R$drawable: int ic_action_select
+dev.tnclark8012.apps.android.dogshow.R$drawable: int ic_action_social_add_group
+dev.tnclark8012.apps.android.dogshow.R$drawable: int ic_action_social_add_person
+dev.tnclark8012.apps.android.dogshow.R$drawable: int ic_action_social_cc_bcc
+dev.tnclark8012.apps.android.dogshow.R$drawable: int ic_action_social_group
 dev.tnclark8012.apps.android.dogshow.R$drawable: int ic_action_star_off
 dev.tnclark8012.apps.android.dogshow.R$drawable: int ic_action_star_on
 dev.tnclark8012.apps.android.dogshow.R$drawable: int ic_default_handler
@@ -1083,6 +992,7 @@ dev.tnclark8012.apps.android.dogshow.R$drawable: int old_ic_junior_entry_on
 dev.tnclark8012.apps.android.dogshow.R$drawable: int selector_crop_button
 dev.tnclark8012.apps.android.dogshow.R$drawable: int spinner_default_holo_dark
 dev.tnclark8012.apps.android.dogshow.R$drawable: int spinner_default_holo_light
+dev.tnclark8012.apps.android.dogshow.R$drawable: int text_color_selectable
 dev.tnclark8012.apps.android.dogshow.R$id: int actual_image
 dev.tnclark8012.apps.android.dogshow.R$id: int button_bar
 dev.tnclark8012.apps.android.dogshow.R$id: int button_bar_button_left
@@ -1096,8 +1006,9 @@ dev.tnclark8012.apps.android.dogshow.R$id: int dashboard_find_show
 dev.tnclark8012.apps.android.dogshow.R$id: int dashboard_handlers
 dev.tnclark8012.apps.android.dogshow.R$id: int dashboard_schedule
 dev.tnclark8012.apps.android.dogshow.R$id: int dialog_cancel
-dev.tnclark8012.apps.android.dogshow.R$id: int dialog_save
+dev.tnclark8012.apps.android.dogshow.R$id: int dialog_ok
 dev.tnclark8012.apps.android.dogshow.R$id: int discard
+dev.tnclark8012.apps.android.dogshow.R$id: int divider
 dev.tnclark8012.apps.android.dogshow.R$id: int dog_edit_header
 dev.tnclark8012.apps.android.dogshow.R$id: int dog_edit_image
 dev.tnclark8012.apps.android.dogshow.R$id: int dog_edit_image_container
@@ -1193,6 +1104,7 @@ dev.tnclark8012.apps.android.dogshow.R$id: int menu_list_entity_add
 dev.tnclark8012.apps.android.dogshow.R$id: int menu_list_team_join
 dev.tnclark8012.apps.android.dogshow.R$id: int menu_preferences
 dev.tnclark8012.apps.android.dogshow.R$id: int menu_sign_out
+dev.tnclark8012.apps.android.dogshow.R$id: int menu_sync
 dev.tnclark8012.apps.android.dogshow.R$id: int message_team_error
 dev.tnclark8012.apps.android.dogshow.R$id: int none
 dev.tnclark8012.apps.android.dogshow.R$id: int normal
@@ -1340,7 +1252,6 @@ dev.tnclark8012.apps.android.dogshow.R$style: int Theme_Dogshow
 dev.tnclark8012.apps.android.dogshow.R$style: int Theme_Dogshow_GreyBackground
 dev.tnclark8012.apps.android.dogshow.R$styleable: int[] AdsAttrs
 dev.tnclark8012.apps.android.dogshow.R$styleable: int AdsAttrs_adSize
-dev.tnclark8012.apps.android.dogshow.R$styleable: int AdsAttrs_adSizes
 dev.tnclark8012.apps.android.dogshow.R$styleable: int AdsAttrs_adUnitId
 dev.tnclark8012.apps.android.dogshow.R$styleable: int[] BaseTheme
 dev.tnclark8012.apps.android.dogshow.R$styleable: int BaseTheme_activatableItemBackground

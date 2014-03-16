@@ -142,10 +142,10 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 		CursorLoader loader = null;
 		String selection = EnteredRings.UPCOMING_SELECTION;
 		String[] allSelectionArgs = EnteredRings.buildUpcomingSelectionArgs(Utils.twelveAmToday());
-		String[] selectionArgs = EnteredRings.buildUpcomingSelectionArgs(Utils.currentTimeUtc());
+		String[] upcomingArgs = EnteredRings.buildUpcomingSelectionArgs(Utils.currentTimeUtc());
 		switch (id) {
 		case UpcomingRingQuery._TOKEN:
-			loader = new CursorLoader(getActivity(), EnteredRings.CONTENT_URI, UpcomingRingQuery.PROJECTION, selection, selectionArgs, BreedRings.DEFAULT_SORT);
+			loader = new CursorLoader(getActivity(), EnteredRings.CONTENT_URI, UpcomingRingQuery.PROJECTION, selection, upcomingArgs, BreedRings.DEFAULT_SORT);
 			break;
 		case RingsQuery._TOKEN:
 			loader = new CursorLoader(getActivity(), EnteredRings.CONTENT_URI, RingsQuery.PROJECTION, selection, allSelectionArgs, EnteredRings.DEFAULT_SORT);

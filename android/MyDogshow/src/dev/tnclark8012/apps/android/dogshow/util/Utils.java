@@ -117,13 +117,14 @@ public class Utils {
 	}
 	
 	public static long currentTimeUtc()
-	{
-		return Calendar.getInstance(TimeZone.getTimeZone("UTC"), Locale.US).getTimeInMillis();
+	{	
+		long now = System.currentTimeMillis();
+		return now + TimeZone.getDefault().getOffset(now);
 	}
 	
 	public static long twelveAmToday()
 	{
-		Calendar cal = Calendar.getInstance(Locale.US);
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC"), Locale.US);
 		cal.set(Calendar.HOUR_OF_DAY, 0);
 		cal.set(Calendar.MINUTE, 0);
 		cal.set(Calendar.SECOND, 0);
