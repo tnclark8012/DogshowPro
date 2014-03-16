@@ -272,11 +272,11 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 
 			mViewTime.setText(UIUtils.timeStringFromMillis(estimatedStart, true));
 			String imagePath = cursor.getString(UpcomingRingQuery.DOG_IMAGE_PATH);
-//			if (imagePath != null) {//TODO changed breed view to imageview then swap this with current impl.
-//				UIUtils.displayImage(getActivity(), mImageOptions, mBreedImage, imagePath);
-//			} else {
-//				holder.image.setImageResource(R.drawable.dog);
-//			}
+			// if (imagePath != null) {//TODO changed breed view to imageview then swap this with current impl.
+			// UIUtils.displayImage(getActivity(), mImageOptions, mBreedImage, imagePath);
+			// } else {
+			// holder.image.setImageResource(R.drawable.dog);
+			// }
 			if (imagePath != null) {
 				Resources res = getResources();
 				int height = res.getDimensionPixelSize(R.dimen.header_icon_height);
@@ -357,8 +357,7 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 	public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 		Cursor cursor = (Cursor) mAdapter.getItem(position);
 		Bundle b = new Bundle();
-
-		float minutes = Utils.getMaybeNull(cursor, RingsQuery.JUDGE_TIME, Prefs.getEstimatedJudgingTime(getActivity())) / 60000;
+		float minutes = Utils.getMaybeNull(cursor, RingsQuery.JUDGE_TIME, Prefs.getEstimatedJudgingTime(getActivity())) / 60000f;
 		int ringType = cursor.getInt(RingsQuery.RING_TYPE);
 		long dogId = Utils.getMaybeNull(cursor, RingsQuery._ID, -1);
 		b.putLong(EditJudgeTimeDialog.BUNDLE_KEY_ID, dogId);
