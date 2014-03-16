@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/menu_list_team_join"
-        android:icon="@android:drawable/ic_input_get"
+        android:icon="@drawable/ic_action_social_cc_bcc"
         android:title="Join"
         android:orderInCategory="1"
         android:showAsAction="ifRoom" />

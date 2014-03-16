@@ -32,8 +32,9 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-import dev.tnclark8012.apps.android.dogshow.BuildConfig;
+
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.adapters.RingListAdapter;
 import dev.tnclark8012.apps.android.dogshow.adapters.RingListCursorWrapper;
@@ -67,6 +68,7 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 	private RingListCursorWrapperOptions mUpcommingRingsOptions;
 	private RingListCursorWrapperOptions mEnteredRingsOptions;
 	private Handler handler = new Handler();
+	private DisplayImageOptions mImageOptions = new DisplayImageOptions.Builder().resetViewBeforeLoading(true).build();
 
 	private Runnable updateUpcomingRunnable = new Runnable() {
 		@Override
@@ -139,9 +141,8 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 		CursorLoader loader = null;
 		String selection = EnteredRings.UPCOMING_SELECTION;
-		long now = System.currentTimeMillis();
 		String[] allSelectionArgs = EnteredRings.buildUpcomingSelectionArgs(Utils.twelveAmToday());
-		String[] selectionArgs = EnteredRings.buildUpcomingSelectionArgs(System.currentTimeMillis());
+		String[] selectionArgs = EnteredRings.buildUpcomingSelectionArgs(Utils.currentTimeUtc());
 		switch (id) {
 		case UpcomingRingQuery._TOKEN:
 			loader = new CursorLoader(getActivity(), EnteredRings.CONTENT_URI, UpcomingRingQuery.PROJECTION, selection, selectionArgs, BreedRings.DEFAULT_SORT);
@@ -177,11 +178,13 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 			mEnteredRingsOptions.countAheadColumnIndex = RingsQuery.COUNT_AHEAD;
 			mEnteredRingsOptions.dogCountColumnIndex = RingsQuery.DOG_COUNT;
 			mEnteredRingsOptions.firstClassColumnIndex = RingsQuery.FIRST_CLASS;
-			mEnteredRingsOptions.judgeMinutesPerDog = Prefs.getEstimatedJudgingTime(getActivity());
+			mEnteredRingsOptions.perDogJudgeMillsColumnIndex = RingsQuery.JUDGE_TIME;
 			mEnteredRingsOptions.ringTypeColumnIndex = RingsQuery.RING_TYPE;
 			mEnteredRingsOptions.specialBitchCountColumnIndex = RingsQuery.SPECIAL_BITCH_COUNT;
 			mEnteredRingsOptions.specialDogCountColumnIndex = RingsQuery.SPECIAL_DOG_COUNT;
 		}
+		// Default could change async, so don't cache
+		mEnteredRingsOptions.defaultPerDogJudgeMillis = Prefs.getEstimatedJudgingTime(getActivity());
 		int cursorSize = cursor.getCount();
 		ArrayList<Integer> newPositions = new ArrayList<Integer>();
 		ArrayList<Integer> sectionIndices = new ArrayList<Integer>();
@@ -195,6 +198,7 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 			newDayPositions.put(position, true);
 			sectionIndices.add(position);
 			newPositions.add(position);
+			// TODO HIGH this should use JUDGE_TIME estimates. I.e. setting judge time to several hours should push a ring to the next day, maybe eliminating a section altogether
 			long prevBlockMillis = cursor.getLong(RingsQuery.BLOCK_START);
 			String dateStr = DateUtils.formatDateTime(getActivity(), prevBlockMillis, DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NO_YEAR);
 			sectionHeaders.add(dateStr);
@@ -234,11 +238,12 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 			mUpcommingRingsOptions.countAheadColumnIndex = UpcomingRingQuery.BREED_COUNT_AHEAD;
 			mUpcommingRingsOptions.dogCountColumnIndex = UpcomingRingQuery.DOG_COUNT;
 			mUpcommingRingsOptions.firstClassColumnIndex = UpcomingRingQuery.FIRST_CLASS;
-			mUpcommingRingsOptions.judgeMinutesPerDog = Prefs.getEstimatedJudgingTime(getActivity());
+			mUpcommingRingsOptions.perDogJudgeMillsColumnIndex = UpcomingRingQuery.RING_JUDGE_TIME;
 			mUpcommingRingsOptions.ringTypeColumnIndex = UpcomingRingQuery.RING_TYPE;
 			mUpcommingRingsOptions.specialBitchCountColumnIndex = UpcomingRingQuery.SPECIAL_BITCH_COUNT;
 			mUpcommingRingsOptions.specialDogCountColumnIndex = UpcomingRingQuery.SPECIAL_DOG_COUNT;
 		}
+		mUpcommingRingsOptions.defaultPerDogJudgeMillis = Prefs.getEstimatedJudgingTime(getActivity());
 		RingListCursorWrapper cursor = new RingListCursorWrapper(orignialCursor, mUpcommingRingsOptions);
 
 		if (cursor.moveToFirst()) {
@@ -262,11 +267,16 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 					firstClass--;
 				}
 			}
-			float judgeMinutesPerDog = Utils.getMaybeNull(cursor, UpcomingRingQuery.RING_JUDGE_TIME, Prefs.getEstimatedJudgingTime(getActivity()));
+			long judgeMinutesPerDog = Utils.getMaybeNull(cursor, UpcomingRingQuery.RING_JUDGE_TIME, Prefs.getEstimatedJudgingTime(getActivity()));
 			long estimatedStart = Utils.estimateBlockStart(countAhead, upcomingBreedRingStart, judgeMinutesPerDog);
 
 			mViewTime.setText(UIUtils.timeStringFromMillis(estimatedStart, true));
 			String imagePath = cursor.getString(UpcomingRingQuery.DOG_IMAGE_PATH);
+//			if (imagePath != null) {//TODO changed breed view to imageview then swap this with current impl.
+//				UIUtils.displayImage(getActivity(), mImageOptions, mBreedImage, imagePath);
+//			} else {
+//				holder.image.setImageResource(R.drawable.dog);
+//			}
 			if (imagePath != null) {
 				Resources res = getResources();
 				int height = res.getDimensionPixelSize(R.dimen.header_icon_height);
@@ -312,7 +322,6 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 		stickyList.setOnItemLongClickListener(this);
 		stickyList.setEmptyView(getActivity().getLayoutInflater().inflate(R.layout.empty_waiting_for_sync, null));
 	}
-	
 
 	@Override
 	public boolean onCreateActionMode(ActionMode mode, Menu menu) {
@@ -349,7 +358,7 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 		Cursor cursor = (Cursor) mAdapter.getItem(position);
 		Bundle b = new Bundle();
 
-		float minutes = Utils.getMaybeNull(cursor, RingsQuery.JUDGE_TIME, Prefs.getEstimatedJudgingTime(getActivity()));
+		float minutes = Utils.getMaybeNull(cursor, RingsQuery.JUDGE_TIME, Prefs.getEstimatedJudgingTime(getActivity())) / 60000;
 		int ringType = cursor.getInt(RingsQuery.RING_TYPE);
 		long dogId = Utils.getMaybeNull(cursor, RingsQuery._ID, -1);
 		b.putLong(EditJudgeTimeDialog.BUNDLE_KEY_ID, dogId);
@@ -368,18 +377,18 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 		if (status == EditJudgeTimeDialog.STATUS_SAVE) {
 			Map<String, Object> map = new HashMap<String, Object>();
 			Log.d(TAG, "Setting minutes to " + minutes);
-			map.put(EnteredRings.RING_JUDGE_TIME, minutes);
+			long value = (long) (minutes * 60000);
+			map.put(EnteredRings.RING_JUDGE_TIME, (value != Prefs.getEstimatedJudgingTime(getActivity())) ? value : null);// if set to default, it's no longer "customized"
 			switch (ringType) {
 			case EnteredRings.TYPE_BREED_RING:
 				Log.v(TAG, "updating judge time for breed ring");
-				new PersistHelper(getActivity()).updateBreedRing(id, map);
+				new PersistHelper(getActivity()).updateEntity(BreedRings.CONTENT_URI, id, map);
 				break;
 			case EnteredRings.TYPE_JUNIORS_RING:
 				Log.v(TAG, "updating judge time for juniors ring");
-				new PersistHelper(getActivity()).updateJuniorsRing(id, map);
+				new PersistHelper(getActivity()).updateEntity(JuniorsRings.CONTENT_URI, id, map);
 				break;
 			}
 		}
 	}
-
 }

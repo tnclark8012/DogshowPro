@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.os.RemoteException;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import dev.tnclark8012.apps.android.dogshow.Config.IApiAccessor;
 import dev.tnclark8012.apps.android.dogshow.model.Show;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
@@ -29,14 +30,14 @@ import dev.tnclark8012.dogshow.shared.DogshowEnums;
 
 public class SyncHelper {
 	private final static String TAG = SyncHelper.class.getSimpleName();
-	private ApiAccessor mAccessor;
+	private IApiAccessor mAccessor;
 	private Context mContext;
 	public static final int FLAG_SYNC_LOCAL = 0x1;
 	public static final int FLAG_SYNC_REMOTE = 0x2;
 
 	public SyncHelper(Context context) {
 		mContext = context;
-		mAccessor = new AzureApiAccessor();
+		mAccessor = ApiAccessor.getInstance(context);
 	}
 
 	public static long getLastSync(Context context) {

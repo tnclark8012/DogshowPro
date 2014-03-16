@@ -63,8 +63,6 @@ public class Config {
 
 		ShowTeamResponse joinShowTeam(String userId, String teamName, String password);
 	}
-
-	public static final boolean DEBUG_LOCAL = true;
 	public static final boolean DEBUG_OFFLINE = false;// TODO implement
 	public static final boolean SYNC_ENABLED = true;// TODO implement
 	

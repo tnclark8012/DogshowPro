@@ -19,6 +19,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.google.gson.JsonObject;
@@ -36,13 +37,13 @@ public abstract class ApiAccessor implements Config.IApiAccessor {
 	public ApiAccessor() {
 	}
 
-	public static IApiAccessor getInstance() {
-		if (mAccessor != null) {
-			return mAccessor;
-		} else {
-			mAccessor = new AzureApiAccessor();
-			return mAccessor;
-		}
+	public static IApiAccessor getInstance(Context context) {
+		// if (mAccessor != null) {
+		// return mAccessor;
+		// } else {
+		mAccessor = new AzureApiAccessor(context);
+		return mAccessor;
+		// }
 	}
 
 	protected String readInputStream(InputStream inputStream) throws IOException {

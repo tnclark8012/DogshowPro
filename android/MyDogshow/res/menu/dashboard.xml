@@ -1,7 +1,16 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/menu_find_show"
-        android:icon="@drawable/ic_action_search"
-        android:title="Find Show..."
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/menu_sync"
+        android:icon="@drawable/ic_action_refresh"
         android:orderInCategory="1"
-        android:showAsAction="ifRoom" />
+        android:showAsAction="ifRoom"
+        android:title="Sync"/>
+    <item
+        android:id="@+id/menu_find_show"
+        android:icon="@drawable/ic_action_search"
+        android:orderInCategory="2"
+        android:showAsAction="ifRoom"
+        android:title="Find Show..."/>
+
 </menu>

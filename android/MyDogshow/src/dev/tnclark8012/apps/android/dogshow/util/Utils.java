@@ -116,6 +116,11 @@ public class Utils {
 		return estimateBlockStart(dogCountAhead, timeBlockStart, ((long) (estimatedMinutesPerDog * 1000 * 60)));// Simple, but used several places
 	}
 	
+	public static long currentTimeUtc()
+	{
+		return Calendar.getInstance(TimeZone.getTimeZone("UTC"), Locale.US).getTimeInMillis();
+	}
+	
 	public static long twelveAmToday()
 	{
 		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC"), Locale.US);

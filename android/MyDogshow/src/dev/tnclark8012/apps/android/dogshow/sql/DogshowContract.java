@@ -58,14 +58,15 @@ public class DogshowContract {
 	}
 
 	interface RingColumns {
-		public static final String RING_COUNT_AHEAD = "ring_count_ahead";
-		public static final String RING_DATE = "ring_date";
-		public static final String RING_BLOCK_START = "ring_block_start";
-		public static final String RING_NUMBER = "ring_number";
-		public static final String RING_JUDGE_TIME = "ring_judge_time";
-		public static final String RING_JUDGE = "ring_judge";
-		public static final String RING_SHOW_ID = "ring_show_id";
-		public static final String RING_TITLE = "ring_title";
+		String RING_COUNT_AHEAD = "ring_count_ahead";
+		String RING_DATE = "ring_date";
+		String RING_BLOCK_START = "ring_block_start";
+		String RING_NUMBER = "ring_number";
+		/** Custom per dog minutes TODO this should be millis or seconds*/
+		String RING_JUDGE_TIME = "ring_judge_time";
+		String RING_JUDGE = "ring_judge";
+		String RING_SHOW_ID = "ring_show_id";
+		String RING_TITLE = "ring_title";
 	}
 
 	interface DogsColumns {

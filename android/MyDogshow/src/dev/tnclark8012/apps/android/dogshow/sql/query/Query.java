@@ -1,6 +1,5 @@
 package dev.tnclark8012.apps.android.dogshow.sql.query;
 
-import dev.tnclark8012.apps.android.dogshow.adapters.RingListCursorWrapper.RingListCursorWrapperOptions;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.EnteredRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
@@ -93,7 +92,7 @@ public class Query {
 		int _ID = 0;
 		int TEAM_NAME = 1;
 	}
-	
+
 	public interface ShowTeamsSyncQuery {
 		int _TOKEN = 0x7;
 		final String[] PROJECTION = { ShowTeams._ID, ShowTeams.SHOW_TEAM_NAME, ShowTeams.SHOW_TEAM_ID };

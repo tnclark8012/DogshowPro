@@ -7,7 +7,7 @@
         <EditTextPreference
             android:defaultValue="2.5"
             android:hint="minutes"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:key="dev.tnclark8012.dogshow.android.dogshow.prefs.key.JUDGE_TIME"
             android:summary="Estimated minutes to judge one dog"
             android:title="Judging Time" />
@@ -19,6 +19,13 @@
             android:switchTextOff="Off"
             android:switchTextOn="On"
             android:title="Sync" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="dev.tnclark8012.dogshow.android.dogshow.prefs.key.LOCAL_SERVER"
+            android:summary="Request using local API"
+            android:switchTextOff="Off"
+            android:switchTextOn="On"
+            android:title="Debug Local" />
     </PreferenceCategory>
 
 </PreferenceScreen>

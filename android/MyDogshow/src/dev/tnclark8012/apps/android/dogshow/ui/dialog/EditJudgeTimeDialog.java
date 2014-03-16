@@ -36,7 +36,7 @@ public class EditJudgeTimeDialog extends DialogFragment implements OnClickListen
 		mEditText = (EditText) view.findViewById(R.id.txt_time);
 		mEditText.setText(String.valueOf(mDefaultMinutes));
 		getDialog().setTitle("Adjust Estimated Ring Time");
-		view.findViewById(R.id.dialog_save).setOnClickListener(this);
+		view.findViewById(R.id.dialog_ok).setOnClickListener(this);
 		view.findViewById(R.id.dialog_cancel).setOnClickListener(this);
 
 		return view;
@@ -46,7 +46,7 @@ public class EditJudgeTimeDialog extends DialogFragment implements OnClickListen
 	public void onClick(View v) {
 		if (mCallback != null) {
 			switch (v.getId()) {
-			case R.id.dialog_save: {
+			case R.id.dialog_ok: {
 				mCallback.onFinishEditDialog(STATUS_SAVE, mId, mRingType, Utils.parseSafely(mEditText.getText().toString(), mDefaultMinutes));
 				break;
 			}

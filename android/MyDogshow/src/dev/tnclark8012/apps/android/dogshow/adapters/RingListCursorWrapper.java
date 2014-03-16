@@ -50,7 +50,8 @@ public class RingListCursorWrapper extends CursorWrapper {
 		public int specialDogCountColumnIndex;
 		public int specialBitchCountColumnIndex;
 		public int blockStartColumnIndex;
-		public float judgeMinutesPerDog;
+		public long defaultPerDogJudgeMillis;
+		public int perDogJudgeMillsColumnIndex;
 	}
 
 	public RingListCursorWrapper(Cursor cursor, RingListCursorWrapperOptions options) {
@@ -83,7 +84,10 @@ public class RingListCursorWrapper extends CursorWrapper {
 					firstClass--;
 				}
 			}
-			estMillis = Utils.estimateBlockStart(countAhead, cursor.getLong(options.blockStartColumnIndex), options.judgeMinutesPerDog);
+			int ringNumber = cursor.getInt(cursor.getColumnIndex(EnteredRings.RING_NUMBER));
+			int x = ringNumber;
+			long perDogMillis = Utils.getMaybeNull(cursor, options.perDogJudgeMillsColumnIndex, options.defaultPerDogJudgeMillis);
+			estMillis = Utils.estimateBlockStart(countAhead, cursor.getLong(options.blockStartColumnIndex), perDogMillis);
 			pairs[i] = new Pair(i, estMillis, dev.tnclark8012.apps.android.dogshow.util.Arrays.concat("-", breedCount));
 			i++;
 		}
@@ -126,14 +130,14 @@ public class RingListCursorWrapper extends CursorWrapper {
 
 	@Override
 	public boolean moveToNext() {
-		if (size == 0)
+		if (size == 0 || currentPosition == size - 1)
 			return false;
 		return mCursor.moveToPosition(pairs[++currentPosition].originalIndex);
 	}
 
 	@Override
 	public boolean moveToPosition(int position) {
-		if (size == 0)
+		if (size == 0 || position > size - 1)
 			return false;
 		currentPosition = position;
 		return mCursor.moveToPosition(pairs[currentPosition].originalIndex);

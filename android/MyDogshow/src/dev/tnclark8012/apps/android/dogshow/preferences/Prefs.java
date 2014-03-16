@@ -20,6 +20,7 @@ public final class Prefs {
 	public static final String KEY_LAST_SYNC = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.LAST_SYNC";
 	public static final String KEY_ENABLE_SYNC = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.SYNC";
 	public static final String KEY_CURRENT_TEAM = "dev.tclark8012.dogshow.android.dogshow.prefs.key.CURRENT_TEAM_NAME";
+	public static final String KEY_LOCAL_SERVER = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.LOCAL_SERVER";
 
 	public static SharedPreferences get(Context context) {
 		return PreferenceManager.getDefaultSharedPreferences(context);
@@ -29,15 +30,19 @@ public final class Prefs {
 		return get(context).getBoolean(KEY_ENABLE_SYNC, false);
 	}
 
+	public static boolean useLocalServer(Context context) {
+		return get(context).getBoolean(KEY_LOCAL_SERVER, false);
+	}
+
 	/**
 	 * Estimated judging time per dog
 	 * 
 	 * @param context
 	 * @return milliseconds per dog
 	 */
-	public static float getEstimatedJudgingTime(Context context) {
+	public static long getEstimatedJudgingTime(Context context) {
 		String number = PreferenceManager.getDefaultSharedPreferences(context).getString(KEY_JUDGE_TIME, "2.5");
-		return Utils.parseSafely(number, 2.5f);
+		return (long) (Utils.parseSafely(number, 2.5f) * 60000);// 2.5 minutes
 	}
 
 	/**

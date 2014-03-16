@@ -1,28 +1,35 @@
 package dev.tnclark8012.apps.android.dogshow.adapters;
 
-import dev.tnclark8012.apps.android.dogshow.sql.query.Query.ShowTeamsQuery;
 import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Typeface;
 import android.view.View;
 import android.widget.TextView;
+import dev.tnclark8012.apps.android.dogshow.R;
+import dev.tnclark8012.apps.android.dogshow.sql.query.Query.ShowTeamsQuery;
 
 public class NavigationDrawerCursorAdapter extends SimpleCursorAdapter {
 
 	private String mDefaultSelectedText;
 	private int selectedItem = -1;
 	private int mTextViewResourceId;
+	int selectedColor;
+	int defaultColor;
 
 	public NavigationDrawerCursorAdapter(Activity activity, Cursor c, boolean autoRequery, int layoutId, int textViewResourceId, int textColumnIndex) {
 		super(activity, c, autoRequery, layoutId, textViewResourceId, textColumnIndex);
 		mTextViewResourceId = textViewResourceId;
+		selectedColor = activity.getResources().getColor(R.color.accent_1);
+		defaultColor = activity.getResources().getColor(R.color.black);
 	}
 
 	public NavigationDrawerCursorAdapter(Activity activity, Cursor c, boolean autoRequery, int layoutId, int textViewResourceId, int textColumnIndex, String defaultSelectedText) {
 		super(activity, c, autoRequery, layoutId, textViewResourceId, textColumnIndex);
 		mDefaultSelectedText = defaultSelectedText;
 		mTextViewResourceId = textViewResourceId;
+		selectedColor = activity.getResources().getColor(R.color.accent_1);
+		defaultColor = activity.getResources().getColor(R.color.black);
 	}
 
 	public void selectItem(int position) {
@@ -32,10 +39,16 @@ public class NavigationDrawerCursorAdapter extends SimpleCursorAdapter {
 	@Override
 	public void bindView(View view, Context context, Cursor cursor) {
 		super.bindView(view, context, cursor);
+		TextView textView = (TextView) view.findViewById(mTextViewResourceId);
 		if (selectedItem == -1 && mDefaultSelectedText != null && mDefaultSelectedText.equals(cursor.getString(ShowTeamsQuery.TEAM_NAME))) {
-			((TextView) view.findViewById(mTextViewResourceId)).setTypeface(null, Typeface.BOLD);
+			textView.setTypeface(null, Typeface.BOLD);
+			textView.setTextColor(selectedColor);
+		} else if (cursor.getPosition() == selectedItem) {
+			textView.setTypeface(null, Typeface.BOLD);
+			textView.setTextColor(selectedColor);
 		} else {
-			((TextView) view.findViewById(mTextViewResourceId)).setTypeface(null, cursor.getPosition() == selectedItem ? Typeface.BOLD : Typeface.NORMAL);
+			textView.setTypeface(null, Typeface.NORMAL);
+			textView.setTextColor(defaultColor);
 		}
 	}
 

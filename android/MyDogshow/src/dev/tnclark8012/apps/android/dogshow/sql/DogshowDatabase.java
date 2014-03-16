@@ -29,7 +29,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 	private static final int VER_HANDLERS_UPGRADE = 5;
 	private static final int VER_HANDLERS_IS_ME = 6;
 	private static final int VER_SHOW_TEAMS = 7;
-	private static final int VER_SYNC_INTRODUCED = 8;
+	private static final int VER_SYNC_INTRODUCED = 8;// Added show team status sync columns
 
 	private static final int DATABASE_VERSION = VER_SYNC_INTRODUCED;
 
@@ -81,12 +81,12 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 	}
 
 	private void createBreedRingsTable(SQLiteDatabase db) {
-		db.execSQL("CREATE TABLE " + Tables.BREED_RINGS + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + BreedRingsColumns.RING_BITCH_COUNT + " INTEGER NOT NULL," + RingColumns.RING_BLOCK_START + " INTEGER NOT NULL," + BreedRingsColumns.RING_BREED + " TEXT NOT NULL," + BreedRingsColumns.RING_BREED_COUNT + " INTEGER NOT NULL," + RingColumns.RING_COUNT_AHEAD + " INTEGER NOT NULL," + RingColumns.RING_DATE + " INTEGER NOT NULL," + BreedRingsColumns.RING_DOG_COUNT + " INTEGER NOT NULL," + RingColumns.RING_JUDGE + " TEXT NOT NULL," + RingColumns.RING_JUDGE_TIME + " FLOAT NULL," + RingColumns.RING_NUMBER + " INTEGER NOT NULL," + RingColumns.RING_SHOW_ID + " TEXT NOT NULL," + RingColumns.RING_TITLE + " TEXT," + BreedRingsColumns.RING_SPECIAL_BITCH_COUNT + " INTEGER NOT NULL," + BreedRingsColumns.RING_SPECIAL_DOG_COUNT + " INTEGER NOT NULL," + BreedRingsColumns.RING_BREED_IS_VETERAN + " INTEGER," + BreedRingsColumns.RING_BREED_IS_SWEEPSTAKES + " INTEGER,"
+		db.execSQL("CREATE TABLE " + Tables.BREED_RINGS + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + BreedRingsColumns.RING_BITCH_COUNT + " INTEGER NOT NULL," + RingColumns.RING_BLOCK_START + " INTEGER NOT NULL," + BreedRingsColumns.RING_BREED + " TEXT NOT NULL," + BreedRingsColumns.RING_BREED_COUNT + " INTEGER NOT NULL," + RingColumns.RING_COUNT_AHEAD + " INTEGER NOT NULL," + RingColumns.RING_DATE + " INTEGER NOT NULL," + BreedRingsColumns.RING_DOG_COUNT + " INTEGER NOT NULL," + RingColumns.RING_JUDGE + " TEXT NOT NULL," + RingColumns.RING_JUDGE_TIME + " INTEGER," + RingColumns.RING_NUMBER + " INTEGER NOT NULL," + RingColumns.RING_SHOW_ID + " TEXT NOT NULL," + RingColumns.RING_TITLE + " TEXT," + BreedRingsColumns.RING_SPECIAL_BITCH_COUNT + " INTEGER NOT NULL," + BreedRingsColumns.RING_SPECIAL_DOG_COUNT + " INTEGER NOT NULL," + BreedRingsColumns.RING_BREED_IS_VETERAN + " INTEGER," + BreedRingsColumns.RING_BREED_IS_SWEEPSTAKES + " INTEGER,"
 				+ BreedRingsColumns.RING_BREED_ATTRIBUTE + " TEXT," + SyncColumns.UPDATED + " INTEGER NOT NULL)");
 	}
 
 	private void createJuniorsRingsTable(SQLiteDatabase db) {
-		db.execSQL("CREATE TABLE " + Tables.JUNIORS_RINGS + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + RingColumns.RING_BLOCK_START + " INTEGER NOT NULL," + JuniorsRingsColumns.RING_JUNIOR_CLASS_NAME + " TEXT NOT NULL," + JuniorsRingsColumns.RING_JUNIOR_COUNT + " INTEGER NOT NULL," + RingColumns.RING_COUNT_AHEAD + " INTEGER NOT NULL," + RingColumns.RING_DATE + " INTEGER NOT NULL," + RingColumns.RING_JUDGE + " TEXT NOT NULL," + RingColumns.RING_JUDGE_TIME + " FLOAT," + RingColumns.RING_NUMBER + " INTEGER NOT NULL," + RingColumns.RING_SHOW_ID + " TEXT NOT NULL," + RingColumns.RING_TITLE + " TEXT," + SyncColumns.UPDATED + " INTEGER NOT NULL)");
+		db.execSQL("CREATE TABLE " + Tables.JUNIORS_RINGS + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + RingColumns.RING_BLOCK_START + " INTEGER NOT NULL," + JuniorsRingsColumns.RING_JUNIOR_CLASS_NAME + " TEXT NOT NULL," + JuniorsRingsColumns.RING_JUNIOR_COUNT + " INTEGER NOT NULL," + RingColumns.RING_COUNT_AHEAD + " INTEGER NOT NULL," + RingColumns.RING_DATE + " INTEGER NOT NULL," + RingColumns.RING_JUDGE + " TEXT NOT NULL," + RingColumns.RING_JUDGE_TIME + " INTEGER," + RingColumns.RING_NUMBER + " INTEGER NOT NULL," + RingColumns.RING_SHOW_ID + " TEXT NOT NULL," + RingColumns.RING_TITLE + " TEXT," + SyncColumns.UPDATED + " INTEGER NOT NULL)");
 	}
 
 	private void insertDebugEntities(SQLiteDatabase db) {

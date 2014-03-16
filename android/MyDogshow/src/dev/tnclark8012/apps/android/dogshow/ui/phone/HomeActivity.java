@@ -1,19 +1,3 @@
-/*
- * Copyright 2012 Google Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package dev.tnclark8012.apps.android.dogshow.ui.phone;
 
 import android.annotation.SuppressLint;
@@ -26,7 +10,6 @@ import android.content.Loader;
 import android.content.res.Configuration;
 import android.database.ContentObserver;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -42,9 +25,9 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.adapters.NavigationDrawerCursorAdapter;
-import dev.tnclark8012.apps.android.dogshow.adapters.NavigationDrawerSimpleListAdapter;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query;
@@ -198,6 +181,10 @@ public class HomeActivity extends BaseActivity implements LoaderCallbacks<Cursor
 		super.onCreateOptionsMenu(menu);
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.home, menu);
+		if (!Prefs.isSyncEnabled(this)) {
+			menu.findItem(R.id.menu_sync).setVisible(false).setEnabled(false);
+			menu.findItem(R.id.menu_sign_out).setVisible(false).setEnabled(false);
+		}
 		return true;
 	}
 

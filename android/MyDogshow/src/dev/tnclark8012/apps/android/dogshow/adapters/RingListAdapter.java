@@ -52,6 +52,7 @@ public class RingListAdapter extends CursorAdapter implements StickyListHeadersA
 		long blockTimeMillis = cursor.getLong(RingsQuery.BLOCK_START);
 //		blockTimeMillis = new Date(blockTimeMillis).getTime();
 		long estMillis = ((RingListCursorWrapper) cursor).getEstimatedStart();
+		int ringNumber = cursor.getInt(RingsQuery.RING_NUMBER);
 		holder.subtitleView.setText(cursor.getString(RingsQuery.SUBTITLE));
 		holder.titleView.setText(cursor.getString(RingsQuery.TITLE));
 		holder.ringNumberView.setText(mActivity.getString(R.string.template_ring_number, cursor.getInt(RingsQuery.RING_NUMBER)));

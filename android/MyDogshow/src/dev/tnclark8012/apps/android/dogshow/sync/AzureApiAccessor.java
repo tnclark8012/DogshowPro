@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.google.gson.FieldNamingPolicy;
@@ -18,6 +19,7 @@ import dev.tnclark8012.apps.android.dogshow.model.Dog;
 import dev.tnclark8012.apps.android.dogshow.model.JuniorsRing;
 import dev.tnclark8012.apps.android.dogshow.model.Show;
 import dev.tnclark8012.apps.android.dogshow.model.ShowTeam;
+import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.sync.request.DogSyncRequest;
 import dev.tnclark8012.apps.android.dogshow.sync.request.RegistrationRequest;
 import dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamCreateRequest;
@@ -40,10 +42,10 @@ public class AzureApiAccessor extends ApiAccessor {
 	public URL SYNC_SHOW_TEAM_URL;
 	private Gson mGson;
 
-	public AzureApiAccessor() {
+	public AzureApiAccessor(Context context) {
 		mGson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
 		try {
-			BASE_URL = new URL((Config.DEBUG_LOCAL) ? "http://192.168.0.5:49414/api" : "http://dogshow.azurewebsites.net/api");
+			BASE_URL = new URL((Prefs.useLocalServer(context)) ? "http://192.168.0.5:49414/api" : "http://dogshow.azurewebsites.net/api");
 			GET_SHOW_URL = new URL(BASE_URL + "/Show");
 			GET_BREED_RINGS_URL = new URL(BASE_URL + "/BreedRing");
 			GET_JUNIORS_RINGS_URL = new URL(BASE_URL + "/JuniorsRing");

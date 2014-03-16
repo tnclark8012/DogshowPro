@@ -249,7 +249,7 @@ public class AccountUtils {
 	 * @param installId
 	 */
 	public static void register(final Context context, final String accountName, final String token, String installId) {
-		String id = ApiAccessor.getInstance().register(accountName, token, "PLUS", installId);// TODO Facebook and/or nothing
+		String id = ApiAccessor.getInstance(context).register(accountName, token, "PLUS", installId);// TODO Facebook and/or nothing
 		setUserId(context, id);
 		new PersistHelper(context).createMe();
 
