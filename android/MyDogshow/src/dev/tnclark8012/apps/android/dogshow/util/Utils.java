@@ -123,7 +123,7 @@ public class Utils {
 	
 	public static long twelveAmToday()
 	{
-		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC"), Locale.US);
+		Calendar cal = Calendar.getInstance(Locale.US);
 		cal.set(Calendar.HOUR_OF_DAY, 0);
 		cal.set(Calendar.MINUTE, 0);
 		cal.set(Calendar.SECOND, 0);

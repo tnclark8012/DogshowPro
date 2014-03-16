@@ -181,10 +181,6 @@ public class HomeActivity extends BaseActivity implements LoaderCallbacks<Cursor
 		super.onCreateOptionsMenu(menu);
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.home, menu);
-		if (!Prefs.isSyncEnabled(this)) {
-			menu.findItem(R.id.menu_sync).setVisible(false).setEnabled(false);
-			menu.findItem(R.id.menu_sign_out).setVisible(false).setEnabled(false);
-		}
 		return true;
 	}
 

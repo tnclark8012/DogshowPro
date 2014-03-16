@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import dev.tnclark8012.apps.android.dogshow.BuildConfig;
 import dev.tnclark8012.apps.android.dogshow.R;
+import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 
 public class DashboardFragment extends Fragment {
@@ -74,6 +75,10 @@ public class DashboardFragment extends Fragment {
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		super.onCreateOptionsMenu(menu, inflater);
 		inflater.inflate(R.menu.dashboard, menu);
+		if (!Prefs.isSyncEnabled(getActivity())) {
+			menu.findItem(R.id.menu_sync).setVisible(false).setEnabled(false);
+			menu.findItem(R.id.menu_sign_out).setVisible(false).setEnabled(false);
+		}
 	}
 
 }
