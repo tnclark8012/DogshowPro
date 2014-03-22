@@ -1,12 +1,7 @@
 package dev.tclark.dogshow;
 
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.Map.Entry;
 
-import org.antlr.runtime.TokenStream;
-
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import dev.tclark.dogshow.grammar.LexerRunner;

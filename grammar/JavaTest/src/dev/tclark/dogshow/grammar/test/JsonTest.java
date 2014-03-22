@@ -40,6 +40,11 @@ public class JsonTest {
 	public void COUN1JP(){
 		runTestOnProgram("COUN1JP.pdf");
 	}
+	@Test
+	public void LEAV1JP()
+	{
+		runTestOnProgram("LEAV1.pdf");
+	}
 
 	@Test
 	public void MINN1JP(){
