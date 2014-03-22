@@ -47,7 +47,7 @@ String mLastComment;
 boolean isSpecialtyRing;
 String mSpecialtyBreed;
 String mSpecialtyGroup;
-
+int mCountAhead;
 // end non-relational
 
 public void setRelationalParse(boolean value)
@@ -103,11 +103,6 @@ private JsonObject mergeJson(JsonObject dest, JsonObject src)
 Pattern lastIntPattern = Pattern.compile("[^0-9]+([0-9]+)$");
 Pattern groupPattern = Pattern.compile("((?:(?:TERRIER|HERDING|NON-SPORTING|SPORTING|TOY|HOUND|WORKING) GROUP)|(?:BEST IN SHOW)) - (.*)");
 
-  
-  private boolean ahead(String text) {
-    System.out.println("Does " + input.toString() + " contain " + text + "?");
-    return input.toString().contains(text);
-  }
   
   private int parseIntSafely(String str, int defaultValue){
   	try{
@@ -240,7 +235,7 @@ inner_ring returns [JsonObject json]
 	    |((mJugeBlock=judge_block{judgeBlocks.add(mJugeBlock);})+ {json.add("JudgeBlocks", judgeBlocks);});
 judge_block returns [JsonObject json]
 	@init{json = new JsonObject(); JsonArray array = new JsonArray();nextJudgeIsNewRing = true;}
-    :   mName=judge_name{if(!mRelational){mCurrentJudge = mName;judgeSet.add(mCurrentJudge.get("Judge").getAsString());}mergeJson(json, mName);} (mBlock=timeblock{array.add(mBlock);})+ {json.add("TimeBlocks", array);};
+    :   mName=judge_name{if(!mRelational){mCurrentJudge = mName;judgeSet.add(mCurrentJudge.get("Judge").getAsString());}mergeJson(json, mName);} ((tBlock=timeblock{array.add(tBlock);})|(mBlock=inner_timeblock{array.add(mBlock);    if(!mRelational&&mBlock!=null){mShowRings.addAll(mBlock);}}))+ {json.add("TimeBlocks", array);};
 judge_name returns [JsonObject json]
 	@init {json = new JsonObject(); String str = "";}
 	:	((JUDGE_NAME{str+=$JUDGE_NAME.text;})+|
@@ -272,6 +267,7 @@ timeblock returns [JsonObject json]
 			{
 				currentBlockTime=$INT.text;
 				json.addProperty("BlockStart", currentBlockTime);
+				mCountAhead = 0;
 			} 
 		FOLLOWING_TIME
 	     )|
@@ -279,6 +275,7 @@ timeblock returns [JsonObject json]
 	     	{
 	     		currentBlockTime=$TIME.text;
 	     		json.addProperty("BlockStart", currentBlockTime);
+	     		mCountAhead = 0;
 	     	}
 	   ) 
 	   (
@@ -322,7 +319,7 @@ non_group_ring returns [JsonObject json]
 
 
 inner_timeblock returns [JsonArray array]
-	@init {array = new JsonArray();JsonObject toAdd = null;int countAhead = 0;String comment="";}
+	@init {array = new JsonArray();JsonObject toAdd = null;String comment="";}
 	:	 (
 		  (
 		  (mName=judge_name{mCurrentJudge = mName;judgeSet.add(mName.get("Judge").getAsString());})? //there may not be a new time block when judges change. See ANOK1 Saturday, Ring 3
@@ -331,8 +328,8 @@ inner_timeblock returns [JsonArray array]
 		  	nonGroupRing.addProperty("BlockStart",currentBlockTime);
 		  	nonGroupRing.addProperty("Number",mCurrentRingNumber);
 		  	addCurrentJudge(nonGroupRing);
-		  	nonGroupRing.add("CountAhead",new JsonPrimitive(countAhead));
-		  	countAhead+=mCurrentCount;//nonGroupRing.get("Count").getAsInt();
+		  	nonGroupRing.add("CountAhead",new JsonPrimitive(mCountAhead));
+		  	mCountAhead+=mCurrentCount;//nonGroupRing.get("Count").getAsInt();
 		  	if(!nonGroupRing.has("Skip"))array.add(nonGroupRing);
 		  	}|
 		  (mRallyWalkthrough=rally_walkthrough
@@ -341,7 +338,7 @@ inner_timeblock returns [JsonArray array]
 		  	mCurrentCount = 0;
 			mRallyWalkthrough.addProperty("Count", mCurrentCount);
 		  	mRallyWalkthrough.addProperty("Number",mCurrentRingNumber);
-		  	mRallyWalkthrough.add("CountAhead",new JsonPrimitive(countAhead));
+		  	mRallyWalkthrough.add("CountAhead",new JsonPrimitive(mCountAhead));
 			addCurrentJudge(mRallyWalkthrough);
 		  	if(!mRallyWalkthrough.has("Skip"))array.add(mRallyWalkthrough);
 		  	}
