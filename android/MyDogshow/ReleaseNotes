@@ -5,6 +5,22 @@ Version Notes
 2;0.3a - Added breed counts, better ring estimates, image choosing and cropping. 
 	* Rings are sorted on estimated time instead of block start.
 	
-vNext
------ 
-Fixed juniors rings
+
+
+3/15 0.3.4a
+-----------------------
+* Customize judging times on a per ring basis
+* More prep for show teams
+* More bug fixes
+
+3/14 0.3.3a
+-----------------------
+* Show day shows rings for today and upcoming days only
+* Added delete for dogs and handlers
+* Bug fixes
+
+3/13 0.3.2a
+----------------
+* Ring time estimates account for the dog's class (dog, female, special dog, special female)
+* Infrastructure for syncing and sign-in is in place
+* Bug fixes including  junior class entry
