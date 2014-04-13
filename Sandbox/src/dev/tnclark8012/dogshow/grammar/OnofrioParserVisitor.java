@@ -1,7 +1,7 @@
 // Generated from C:\Users\Taylor\Desktop\antlrworks2\rewrite\OnofrioParser.g4 by ANTLR 4.1
+package dev.tnclark8012.dogshow.grammar;
 
 //TODO Puppy groups
-package dev.tnclark8012.dogshow.grammar;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
@@ -173,6 +173,13 @@ public interface OnofrioParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitSpecial_ring_header(@NotNull OnofrioParser.Special_ring_headerContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link OnofrioParser#puppy_ring_header}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPuppy_ring_header(@NotNull OnofrioParser.Puppy_ring_headerContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link OnofrioParser#rally_ring_block}.

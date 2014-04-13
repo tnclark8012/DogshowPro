@@ -1,7 +1,7 @@
 // Generated from C:\Users\Taylor\Desktop\antlrworks2\rewrite\OnofrioParser.g4 by ANTLR 4.1
+package dev.tnclark8012.dogshow.grammar;
 
 //TODO Puppy groups
-package dev.tnclark8012.dogshow.grammar;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
@@ -195,6 +195,14 @@ public class OnofrioParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> imp
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
 	@Override public T visitSpecial_ring_header(@NotNull OnofrioParser.Special_ring_headerContext ctx) { return visitChildren(ctx); }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.
+	 */
+	@Override public T visitPuppy_ring_header(@NotNull OnofrioParser.Puppy_ring_headerContext ctx) { return visitChildren(ctx); }
 
 	/**
 	 * {@inheritDoc}
