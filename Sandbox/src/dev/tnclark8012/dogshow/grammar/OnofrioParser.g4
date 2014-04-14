@@ -297,7 +297,7 @@ non_ring_title_comment
 timeblock_comment 
     returns [String str]//No time
     @init{$str="";}
-    : (GROUP_NAME{$str=$GROUP_NAME.text;}|non_header_comment|HYPHEN|NON_CONFORMATION_CLASS_NAME{$str=$NON_CONFORMATION_CLASS_NAME.text;}|BREED_NAME{$str=$BREED_NAME.text;}|COMMENT{$str=$COMMENT.text;}|PARENTHETICAL{$str=$PARENTHETICAL.text;}|INT{$str=$INT.text;}|ELLIPSIS{$str=$ELLIPSIS.text;}|DATE{$str=$DATE.text;}|PHONE_NUMBER{$str=$PHONE_NUMBER.text;}|SPECIAL_SUFFIX|NON_CONF_SECOND_LINE_COMMENT|GROUP_RING);
+    : (GROUP_NAME{$str=$GROUP_NAME.text;}|non_header_comment|HYPHEN|NON_CONFORMATION_CLASS_NAME{$str=$NON_CONFORMATION_CLASS_NAME.text;}|BREED_NAME{$str=$BREED_NAME.text;}|COMMENT{$str=$COMMENT.text;}|PARENTHETICAL{$str=$PARENTHETICAL.text;}|INT{$str=$INT.text;}|ELLIPSIS{$str=$ELLIPSIS.text;}|DATE{$str=$DATE.text;}|PHONE_NUMBER{$str=$PHONE_NUMBER.text;}|SPECIAL_SUFFIX|NON_CONF_SECOND_LINE_COMMENT|GROUP_RING|BREED_CLASSIFIER);
 
 		
 ring_comment 
@@ -359,8 +359,14 @@ non_group_ring
     @init{$json = new JsonObject();}
     : INT{mCurrentCount = parseIntSafely($INT.text,0); $json.addProperty("Count", mCurrentCount);}
 	(
-            (mRingWithBreed=ring_with_breed{mergeJson($json,$mRingWithBreed.json);})|
-            (mRingWithoutBreed=ring_without_breed{mergeJson($json,$mRingWithoutBreed.json);})
+            (
+                mRingWithBreed=ring_with_breed
+                    {mergeJson($json,$mRingWithBreed.json);}
+            )
+            |(
+                mRingWithoutBreed=ring_without_breed
+                    {mergeJson($json,$mRingWithoutBreed.json);}
+            )
 	);
 
 
@@ -415,7 +421,11 @@ rally_walkthrough
 ring_with_breed 
     returns [JsonObject json]
     @init{$json = new JsonObject();$json.addProperty("RingType","Unassigned");}:
-        breedName=breed_name{$json.addProperty("RingType", "Conformation");mergeJson($json,$breedName.json);} 
+        breedName=breed_name
+            {
+            $json.addProperty("RingType", "Conformation");
+            mergeJson($json,$breedName.json);
+            } 
 	(
             suffix=special_suffix{mergeJson($json,$suffix.json);}|
             (obedience=obedience_with_breed{$json.addProperty("Skip",true);})|
@@ -572,8 +582,10 @@ group_block
     returns [JsonObject json]
     locals [JsonArray rings = new JsonArray();]
     @init {$json = new JsonObject(); }
-	: TIME{currentBlockTime=$TIME.text;$json.addProperty("BlockStart", currentBlockTime);} 
-        STANDALONE_COMMENT? 
+	: 
+        TIME
+            {currentBlockTime=$TIME.text;$json.addProperty("BlockStart", currentBlockTime);} 
+        GROUP_BLOCK_TYPE?
         (
             mRing=group_ring 
                 {
@@ -595,7 +607,7 @@ group_block
             if(mRelational){
                 $json.add("Rings", $rings);
             }
-        } GROUP_ENDING_ANNOUNCEMENT;
+        } GROUP_ENDING_ANNOUNCEMENT?;
 
 	
 
