@@ -458,9 +458,12 @@ fragment FRAG_WEEK_DAY:   'Sunday'|'SUNDAY'|
 *
 *   Tokens
 *
-**********************************/   
+**********************************/
+GROUP_BLOCK_TYPE: GROUP_TYPE ' GROUP JUDGING';
+fragment GROUP_TYPE
+    : 'OWNER-HANDLED'|'VARIETY';
 STANDALONE_COMMENT
-    :   'LUNCH'|'VARIETY GROUP JUDGING';  
+    :   'LUNCH';  
 
 BREED_COUNT  :  INT '-' INT '-' INT '-' INT;
 JUDGE_NAME: {allowJudge}?(FRAG_TITLE WS FRAG_PROPER_NAME (' ' (PARENTHETICAL_NAME|FRAG_PROPER_NAME))+ (WS? PARENTHETICAL_INT?));
@@ -470,8 +473,9 @@ WS :(' ' |'\t' |'\n' |'\r' )+ -> channel(HIDDEN) ;
 
 
 PHONE_NUMBER
-    :   (('(' '0'..'9''0'..'9''0'..'9' ')')|'1-800-')
-    	(WS? '0'..'9' '0'..'9' '0'..'9' '-' '0'..'9' '0'..'9' '0'..'9' '0'..'9') WS? '0'..'9' '0'..'9' '0'..'9' '-' '0'..'9' '0'..'9' '0'..'9' '0'..'9'  
+    :   (('1-800-')|('(' DIGIT DIGIT DIGIT')'))
+        WS?
+        (DIGIT DIGIT DIGIT '-' DIGIT DIGIT DIGIT DIGIT)
     ;
 TIME    :   INT ':' INT WS FRAG_TIME_LABEL{allowBreed=true;};
 FOLLOWING_TIME
@@ -481,7 +485,9 @@ DATE    :   FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT {allowBreed=true;a
     
 ELLIPSIS:   '.'+;
 
-INT :'0'..'9' + ;
+fragment DIGIT : '0'..'9';
+
+INT :DIGIT+ ;
 
 PARENTHETICAL_INT
     :   '(' WS? INT WS? ')';
