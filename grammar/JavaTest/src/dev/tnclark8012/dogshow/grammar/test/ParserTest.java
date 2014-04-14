@@ -1,4 +1,4 @@
-package dev.tclark.dogshow.grammar.test;
+package dev.tnclark8012.dogshow.grammar.test;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,8 +12,8 @@ import org.junit.Test;
 
 import com.google.gson.JsonObject;
 
-import dev.tclark.dogshow.grammar.LexerRunner;
-import dev.tclark.dogshow.grammar.ParserRunner;
+import dev.tnclark8012.dogshow.grammar.LexerRunner;
+import dev.tnclark8012.dogshow.grammar.ParserRunner;
 
 public class ParserTest extends GrammarTest {
 	static ParserRunner parser;

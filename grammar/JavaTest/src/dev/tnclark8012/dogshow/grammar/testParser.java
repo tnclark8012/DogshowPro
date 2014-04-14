@@ -1,7 +1,7 @@
 // $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2014-03-22 10:55:24
 
 //TODO Puppy groups
-package dev.tclark.dogshow.grammar;
+package dev.tnclark8012.dogshow.grammar;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;

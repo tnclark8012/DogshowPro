@@ -1,4 +1,4 @@
-package dev.tclark.dogshow.grammar.test;
+package dev.tnclark8012.dogshow.grammar.test;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,8 +15,8 @@ import org.antlr.runtime.Token;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import dev.tclark.dogshow.grammar.LexerRunner;
-import dev.tclark.dogshow.grammar.testLexer;
+import dev.tnclark8012.dogshow.grammar.LexerRunner;
+import dev.tnclark8012.dogshow.grammar.testLexer;
 
 public class LexerTest extends GrammarTest {
 	static LexerRunner lexer;

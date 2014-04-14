@@ -7,14 +7,11 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/TestGrammar/libs/google-gson-2.2.2/gson-2.2.2-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="libs/antlr-4.0-complete.jar"/>
-	<classpathentry kind="lib" path="libs/antlr-runtime-3.5.jar"/>
 	<classpathentry kind="lib" path="libs/pdfbox-app-1.8.2.jar"/>
 	<classpathentry kind="lib" path="libs/jsonassert-1.2.1.jar"/>
 	<classpathentry kind="lib" path="libs/java-json.jar"/>
-	<classpathentry kind="lib" path="lib/antlr-4.0-complete.jar"/>
-	<classpathentry kind="lib" path="lib/antlr-runtime-3.0.jar"/>
-	<classpathentry kind="lib" path="lib/dogshow-shared.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="libs/antlr-4.2.2-complete.jar"/>
+	<classpathentry kind="lib" path="libs/dogshow-shared.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

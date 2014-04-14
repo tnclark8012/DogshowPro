@@ -1,6 +1,6 @@
 // $ANTLR 3.x C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\grammar\\ANTLR\\test.g 2014-03-22 10:55:26
 
-package dev.tclark.dogshow.grammar;
+package dev.tnclark8012.dogshow.grammar;
 
 
 import org.antlr.runtime.*;

@@ -1,11 +1,11 @@
-package dev.tclark.dogshow;
+package dev.tnclark8012.dogshow;
 
 import java.io.IOException;
 
 import com.google.gson.JsonObject;
 
-import dev.tclark.dogshow.grammar.LexerRunner;
-import dev.tclark.dogshow.grammar.ParserRunner;
+import dev.tnclark8012.dogshow.grammar.LexerRunner;
+import dev.tnclark8012.dogshow.grammar.ParserRunner;
 
 public class Main {
 
