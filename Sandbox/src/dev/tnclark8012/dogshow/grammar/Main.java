@@ -25,7 +25,7 @@ public class Main {
 	 */
 	public static void main(String[] args) throws IOException, IllegalArgumentException, IllegalAccessException {
 		// TODO Auto-generated method stub
-		String file = "C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\cleaned\\LEAV1.pdfbox.txt";
+		String file = "C:\\Users\\Taylor\\Documents\\GitHub\\dogshow\\Scraper\\cleaned\\" + "MINN" + "1JP.pdfbox.txt";
 		CharStream cs = new ANTLRFileStream(file);
 		OnofrioLexer lexer = new OnofrioLexer(cs);
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
