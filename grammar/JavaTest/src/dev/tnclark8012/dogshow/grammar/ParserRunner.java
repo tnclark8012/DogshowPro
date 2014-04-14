@@ -3,10 +3,13 @@ package dev.tnclark8012.dogshow.grammar;
 import java.io.IOException;
 import java.io.PrintStream;
 
-import org.antlr.runtime.CommonTokenStream;
-import org.antlr.runtime.RecognitionException;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.Parser;
+import org.antlr.v4.runtime.RecognitionException;
 
 import com.google.gson.JsonObject;
+
+import dev.tnclark8012.dogshow.grammar.onofrio.OnofrioParser;
 /**
  * TODO refactor to allow passing PrintStreams for out/err instead of relying on System
  * @author Taylor
@@ -22,9 +25,8 @@ public class ParserRunner extends GrammarRunner{
 	public JsonObject parseStart(String inputFile) throws IOException, RecognitionException{
 		
 		CommonTokenStream tokens = lexer.getTokenStream(inputFile);
-        testParser parser = new testParser( tokens );
-        parser.setRelationalParse(mRelationalParse);
-        return parser.start();
+        OnofrioParser parser = new OnofrioParser( tokens );
+        return parser.start().json;
 	}
 	
 	public void printStartResult(String inputFile) throws IOException, RecognitionException

@@ -17,6 +17,7 @@ import org.junit.Test;
 
 import dev.tnclark8012.dogshow.grammar.LexerRunner;
 import dev.tnclark8012.dogshow.grammar.testLexer;
+import dev.tnclark8012.dogshow.grammar.onofrio.OnofrioLexer;
 
 public class LexerTest extends GrammarTest {
 	static LexerRunner lexer;
@@ -51,7 +52,7 @@ public class LexerTest extends GrammarTest {
 
 		for (int i = 0; i < testInputs.size(); i++) {
 			File file = testInputs.get(i);
-			lexer = new LexerRunner();
+			lexer = new LexerRunner(new OnofrioLexer(null));
 			File outFile = new File("testcase/tests/lexer/test-outputs",
 					file.getName() + "-test-output.txt");
 			lexer.printTokens(file.getAbsolutePath(), new PrintStream(outFile));

@@ -45,7 +45,7 @@ class ParseRunner(object):
                 printv("*     Parsing PDF2Txt    *")
                 printv("**************************")
                 #TODO save these? Move these process calls and paths somewhere easier to manage
-                proc = subprocess.call(['python27', './libs/pdfminer-20110515/tools/pdf2txt.py', fullPdfPath],  stdout=open(outputLocation, "w"))
+                proc = subprocess.call(['python27', './libs/pdfminer-20131113/tools/pdf2txt.py', fullPdfPath],  stdout=open(outputLocation, "w"))
             else:
                 printv("Already exists: " + outputLocation + "; reading from file.");
             #with codecs.open (outputLocation, "r", 'UTF-8') as outputFile:

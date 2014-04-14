@@ -24,6 +24,7 @@ public class OnofrioLexer extends Lexer {
 		TIME=23, FOLLOWING_TIME=24, DATE=25, ELLIPSIS=26, INT=27, PARENTHETICAL_INT=28, 
 		PARENTHETICAL=29, HYPHEN=30, CLUB_INDICATOR=31, COMMENT=32, GROUP_ENDING_ANNOUNCEMENT=33, 
 		FallThrough=34;
+	
 	public static String[] modeNames = {
 		"DEFAULT_MODE"
 	};
@@ -73,7 +74,7 @@ public class OnofrioLexer extends Lexer {
 	public String getGrammarFileName() { return "OnofrioLexer.g4"; }
 
 	@Override
-	public String[] getTokenNames() { return tokenNames; }
+	public String[] getTokenNames() {return tokenNames; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

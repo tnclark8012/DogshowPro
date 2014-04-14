@@ -8,39 +8,39 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.antlr.runtime.ANTLRFileStream;
-import org.antlr.runtime.CharStream;
-import org.antlr.runtime.CommonTokenStream;
-import org.antlr.runtime.Token;
+import org.antlr.v4.runtime.ANTLRFileStream;
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.Recognizer;
+import org.antlr.v4.runtime.Token;
+import org.antlr.v4.runtime.Lexer;
 import org.junit.Assert;
 
 /**
- * TODO refactor to allow passing PrintStreams for out/err instead of relying on
- * System
+ * TODO refactor to allow passing PrintStreams for out/err instead of relying on System
  * 
  * @author Taylor
  * 
  */
 public class LexerRunner extends GrammarRunner {
 
-	private testLexer lexer;
+	private Lexer mLexer;
 	private String initializedFile = null;
 
-	public LexerRunner() {
-		lexer = new testLexer();
+	public LexerRunner(Lexer lexer) {
+		this.mLexer = lexer;
 	}
 
-	public LexerRunner(String inputFile) {
-		lexer = new testLexer();
+	public LexerRunner(Lexer lexer, String inputFile) {
+		this.mLexer = lexer;
 		initializedFile = inputFile;
 	}
 
-	public CommonTokenStream getTokenStream(String inputFile)
-			throws IOException {
+	public CommonTokenStream getTokenStream(String inputFile) throws IOException {
 
 		CharStream cs = new ANTLRFileStream(inputFile);
-		lexer.setCharStream(cs);
-		return new CommonTokenStream(lexer);
+		mLexer.setInputStream(cs);
+		return new CommonTokenStream(mLexer);
 	}
 
 	public CommonTokenStream getTokenStream() throws IOException {
@@ -48,72 +48,55 @@ public class LexerRunner extends GrammarRunner {
 		return getTokenStream(initializedFile);
 	}
 
-	public void printTokens() throws IllegalArgumentException, IOException,
-			IllegalAccessException {
-		Assert.assertNotNull("Must initialize runner with input file",
-				initializedFile);
+	public void printTokens() throws IllegalArgumentException, IOException, IllegalAccessException {
+		Assert.assertNotNull("Must initialize runner with input file", initializedFile);
 		this.printTokens(initializedFile);
 	}
 
-	public void printTokens(PrintStream outStream)
-			throws IllegalArgumentException, IOException,
-			IllegalAccessException {
-		Assert.assertNotNull("Must initialize runner with input file",
-				initializedFile);
+	public void printTokens(PrintStream outStream) throws IllegalArgumentException, IOException, IllegalAccessException {
+		Assert.assertNotNull("Must initialize runner with input file", initializedFile);
 		setOutputStream(outStream);
 		this.printTokens(initializedFile);
 	}
 
-	public void printTokens(PrintStream outstream, PrintStream errStream)
-			throws IllegalArgumentException, IOException,
-			IllegalAccessException {
+	public void printTokens(PrintStream outstream, PrintStream errStream) throws IllegalArgumentException, IOException, IllegalAccessException {
 		setErrStream(errStream);
 		printTokens(outstream);
 	}
 
-	public void printTokens(String inputFile, PrintStream outStream)
-			throws IOException, IllegalArgumentException,
-			IllegalAccessException {
+	public void printTokens(String inputFile, PrintStream outStream) throws IOException, IllegalArgumentException, IllegalAccessException {
 		setOutputStream(outStream);
 		printTokens(inputFile);
 		resetStreams();
 
 	}
 
-	public void printTokens(String inputFile, PrintStream outStream,
-			PrintStream errStream) throws IOException,
-			IllegalArgumentException, IllegalAccessException {
+	public void printTokens(String inputFile, PrintStream outStream, PrintStream errStream) throws IOException, IllegalArgumentException, IllegalAccessException {
 		setErrStream(errStream);
 		printTokens(inputFile, outStream);
 	}
 
-	public void printTokens(String inputFile) throws IOException,
-			IllegalArgumentException, IllegalAccessException {
+	public void printTokens(String inputFile) throws IOException, IllegalArgumentException, IllegalAccessException {
 		CharStream cs = new ANTLRFileStream(inputFile);
-		lexer.setCharStream(cs);
+		mLexer.setInputStream(cs);
 
-		Class<testLexer> testLexClass = testLexer.class;
-		Field[] fields = testLexClass.getFields();
+		Class<?> lexerClass = mLexer.getClass();
+		Field[] fields = lexerClass.getFields();
 		List<Field> ids = new ArrayList<Field>();
 		Map<Integer, String> tokenMap = new HashMap<Integer, String>();
 		for (Field field : fields) {
 			if (field.getType().equals(int.class)) {
 				String name = field.getName();
-				int constInt = field.getInt(lexer);
+				int constInt = field.getInt(mLexer);
 				ids.add(field);
 				tokenMap.put(constInt, name);
 
 			}
 		}
-		while (true) {
-			Token token = lexer.nextToken();
-			if (token.getType() == testLexer.EOF) {
-				break;
-			} else {
-				if (token.getType() != testLexer.WS) {
-					System.out.println(tokenMap.get(token.getType()) + ": "
-							+ token.getText());
-				}
+		Token token;
+		while ((token = mLexer.nextToken()).getType() != Recognizer.EOF) {
+			if (token.getChannel() != Token.HIDDEN_CHANNEL) {
+				System.out.println(tokenMap.get(token.getType()) + ": " + token.getText());
 			}
 		}
 	}

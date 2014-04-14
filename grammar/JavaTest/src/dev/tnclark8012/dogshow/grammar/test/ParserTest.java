@@ -14,6 +14,7 @@ import com.google.gson.JsonObject;
 
 import dev.tnclark8012.dogshow.grammar.LexerRunner;
 import dev.tnclark8012.dogshow.grammar.ParserRunner;
+import dev.tnclark8012.dogshow.grammar.onofrio.OnofrioLexer;
 
 public class ParserTest extends GrammarTest {
 	static ParserRunner parser;
@@ -23,13 +24,12 @@ public class ParserTest extends GrammarTest {
 		GrammarTest.init(GrammarComponent.PARSER);
 	}
 
-//	@Test
-	public void test() throws IOException, IllegalArgumentException,
-			IllegalAccessException, RecognitionException {
+	// @Test
+	public void test() throws IOException, IllegalArgumentException, IllegalAccessException, RecognitionException {
 		int numFails = 0;
 		for (int i = 0; i < testInputs.size(); i++) {
 			File file = testInputs.get(i);
-			parser = new ParserRunner(new LexerRunner());
+			parser = new ParserRunner(new LexerRunner(new OnofrioLexer(null)));
 			File outFile = getTestOutputFile(file);
 			JsonObject output = parser.parseStart(file.getAbsolutePath());
 			PrintWriter outStream = new PrintWriter(outFile);
@@ -38,9 +38,9 @@ public class ParserTest extends GrammarTest {
 			boolean areSame = TestUtils.compareFiles(outFile, testOutputs.get(i));
 			if (!areSame)
 				System.err.println(outFile.getAbsolutePath());
-				System.err.println("VS. " + testOutputs.get(i).getAbsolutePath());
-				numFails++;
-//			Assert.assertEquals(true, areSame);
+			System.err.println("VS. " + testOutputs.get(i).getAbsolutePath());
+			numFails++;
+			// Assert.assertEquals(true, areSame);
 		}
 		Assert.assertEquals(numFails, 0);
 	}
