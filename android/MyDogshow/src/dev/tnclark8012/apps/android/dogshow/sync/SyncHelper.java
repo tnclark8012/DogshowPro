@@ -34,6 +34,7 @@ public class SyncHelper {
 	private Context mContext;
 	public static final int FLAG_SYNC_LOCAL = 0x1;
 	public static final int FLAG_SYNC_REMOTE = 0x2;
+	public static final int FLAG_SYNC_FORCE = 0x3;
 
 	public SyncHelper(Context context) {
 		mContext = context;
@@ -147,15 +148,18 @@ public class SyncHelper {
 		if (Prefs.isSyncEnabled(context)) {
 			Bundle b = new Bundle();
 			b.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true);
+			
 			ContentResolver.requestSync(mChosenAccount, DogshowContract.CONTENT_AUTHORITY, b);
 		}
 	}
+	
 
 	public void performSync(SyncResult syncResult, int flags) throws IOException {
 
 		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
 		final int localVersion = prefs.getInt("local_data_version", 0);
-		final long lastSync = getLastSync(mContext);
+		final long lastSync = ((flags & FLAG_SYNC_FORCE)!=0) ? 0 : getLastSync(mContext);
+
 		// Bulk of sync work, performed by executing several fetches from
 		// local and online sources.
 		final ContentResolver resolver = mContext.getContentResolver();

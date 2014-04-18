@@ -97,12 +97,17 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         }
 
         try {
+        	int flags = SyncHelper.FLAG_SYNC_LOCAL | SyncHelper.FLAG_SYNC_REMOTE;
+        	if(manualSync)
+        	{
+        		flags |= SyncHelper.FLAG_SYNC_FORCE;
+        	}
             mSyncHelper.performSync(syncResult,
-                    SyncHelper.FLAG_SYNC_LOCAL | SyncHelper.FLAG_SYNC_REMOTE);
+                    flags);
 
         } catch (IOException e) {
             ++syncResult.stats.numIoExceptions;
-            Log.e(TAG, "Error syncing data for I/O 2013.", e);
+            Log.e(TAG, "Error syncing data for Dog Show Pro.", e);
         }
     }
 }
