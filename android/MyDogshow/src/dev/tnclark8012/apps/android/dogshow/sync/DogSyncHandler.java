@@ -13,6 +13,7 @@ import android.os.RemoteException;
 import android.util.Log;
 import dev.tnclark8012.apps.android.dogshow.Config.IApiAccessor;
 import dev.tnclark8012.apps.android.dogshow.model.Dog;
+import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query;
@@ -29,42 +30,54 @@ public class DogSyncHandler {
 		mAccessor = accessor;
 	}
 
-	public void sync(ContentResolver resolver, long lastSync) {
+	public void sync(ContentResolver resolver, long lastSync, int flags) {
 		// TODO test if two queries are faster, or if selection should be applied manually.
-		String currentDogIds[];
-		Cursor currentDogsIdCursor = resolver.query(Dogs.CONTENT_URI, new String[] { Dogs.DOG_ID }, null, null, Dogs.DEFAULT_SORT);
-		currentDogIds = new String[currentDogsIdCursor.getCount()];
-		int i = 0;
-		while (currentDogsIdCursor.moveToNext()) {
-			currentDogIds[i++] = currentDogsIdCursor.getString(0);
+		
+		String[] currentDogIds = null;
+		Dog[] locallyUpdatedDogs = null;
+		boolean overwritting = (flags & SyncHelper.FLAG_SYNC_LOCAL) == 0;
+		//If we're doing local sync, we need to send our current dogs and those we've updated
+		//TODO can we just send them all along with their updated stamp?
+		if (!overwritting) {
+			Cursor currentDogsIdCursor = resolver.query(Dogs.CONTENT_URI, new String[] { Dogs.DOG_ID }, null, null, Dogs.DEFAULT_SORT);
+			currentDogIds = new String[currentDogsIdCursor.getCount()];
+			int i = 0;
+			while (currentDogsIdCursor.moveToNext()) {
+				currentDogIds[i++] = currentDogsIdCursor.getString(0);
+			}
+			String selection = Dogs.DOG_UPDATED + " > ? ";
+			String[] selectionArgs = new String[] { String.valueOf(lastSync) };
+			Cursor locallyUpdated = resolver.query(Dogs.CONTENT_URI, Query.DogSyncQuery.PROJECTION, selection, selectionArgs, Dogs.DEFAULT_SORT);
+			locallyUpdatedDogs = new Dog[locallyUpdated.getCount()];
+			Dog dog;
+			i = 0;
+			while (locallyUpdated.moveToNext()) {
+				dog = new Dog();
+				dog.breedString = locallyUpdated.getString(Query.DogSyncQuery.DOG_BREED);
+				dog.callName = locallyUpdated.getString(Query.DogSyncQuery.DOG_CALL_NAME);
+				dog.champion = locallyUpdated.getInt(Query.DogSyncQuery.DOG_IS_CHAMPION);
+				dog.identifier = locallyUpdated.getString(Query.DogSyncQuery.DOG_ID);
+				dog.majors = locallyUpdated.getInt(Query.DogSyncQuery.DOG_MAJORS);
+				dog.modifiedTimeUtc = locallyUpdated.getLong(Query.DogSyncQuery.DOG_UPDATED);
+				dog.points = locallyUpdated.getInt(Query.DogSyncQuery.DOG_POINTS);
+				dog.sex = locallyUpdated.getInt(Query.DogSyncQuery.DOG_SEX);
+				dog.showing = locallyUpdated.getInt(Query.DogSyncQuery.DOG_IS_SHOWING);
+				dog.showingSweepstakes = locallyUpdated.getInt(Query.DogSyncQuery.DOG_IS_SHOWING_SWEEPSTAKES);
+				dog.veteran = locallyUpdated.getInt(Query.DogSyncQuery.DOG_IS_VETERAN);
+				locallyUpdatedDogs[i++] = dog;
+				// Create json entities and post to server with current sync and last sync time.
+				// Response from server should contain dogs which have changed since the last sync.
+			}
 		}
-		String selection = Dogs.DOG_UPDATED + " > ? ";
-		String[] selectionArgs = new String[] { String.valueOf(lastSync) };
-		Cursor locallyUpdated = resolver.query(Dogs.CONTENT_URI, Query.DogSyncQuery.PROJECTION, selection, selectionArgs, Dogs.DEFAULT_SORT);
-		Dog[] locallyUpdatedDogs = new Dog[locallyUpdated.getCount()];
-		Dog dog;
-		i = 0;
-		while (locallyUpdated.moveToNext()) {
-			dog = new Dog();
-			dog.breedString = locallyUpdated.getString(Query.DogSyncQuery.DOG_BREED);
-			dog.callName = locallyUpdated.getString(Query.DogSyncQuery.DOG_CALL_NAME);
-			dog.champion = locallyUpdated.getInt(Query.DogSyncQuery.DOG_IS_CHAMPION);
-			dog.identifier = locallyUpdated.getString(Query.DogSyncQuery.DOG_ID);
-			dog.majors = locallyUpdated.getInt(Query.DogSyncQuery.DOG_MAJORS);
-			dog.modifiedTimeUtc = locallyUpdated.getLong(Query.DogSyncQuery.DOG_UPDATED);
-			dog.points = locallyUpdated.getInt(Query.DogSyncQuery.DOG_POINTS);
-			dog.sex = locallyUpdated.getInt(Query.DogSyncQuery.DOG_SEX);
-			dog.showing = locallyUpdated.getInt(Query.DogSyncQuery.DOG_IS_SHOWING);
-			dog.showingSweepstakes = locallyUpdated.getInt(Query.DogSyncQuery.DOG_IS_SHOWING_SWEEPSTAKES);
-			dog.veteran = locallyUpdated.getInt(Query.DogSyncQuery.DOG_IS_VETERAN);
-			locallyUpdatedDogs[i++] = dog;
-			// Create json entities and post to server with current sync and last sync time.
-			// Response from server should contain dogs which have changed since the last sync.
-		}
-		// Push my dogs and get back recent
+		
+		// Push my dogs and get back those that need updating locally
+		DogSyncResponse[] actionable = mAccessor.syncDogs(AccountUtils.getUserId(mContext), Prefs.currentTeamIdentifier(mContext), SyncHelper.getLastSync(mContext), locallyUpdatedDogs, currentDogIds);
 		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
-
-		DogSyncResponse[] actionable = mAccessor.syncDogs(AccountUtils.getUserId(mContext), SyncHelper.getLastSync(mContext), locallyUpdatedDogs, currentDogIds);
+		
+		if(overwritting)
+		{
+			batch.add(ContentProviderOperation.newDelete(DogshowContract.addCallerIsSyncAdapterParameter(Dogs.CONTENT_URI)).build());
+		}
 		if (actionable != null) {
 			Builder builder = null;
 			Log.d(TAG, "Taking sync action on " + actionable.length + " dogs.");

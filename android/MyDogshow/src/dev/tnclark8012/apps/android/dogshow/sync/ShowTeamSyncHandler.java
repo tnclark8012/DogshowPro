@@ -14,6 +14,7 @@ import android.util.Log;
 import dev.tnclark8012.apps.android.dogshow.Config.IApiAccessor;
 import dev.tnclark8012.apps.android.dogshow.model.Dog;
 import dev.tnclark8012.apps.android.dogshow.model.ShowTeam;
+import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
@@ -30,7 +31,7 @@ public class ShowTeamSyncHandler {
 		mAccessor = accessor;
 	}
 
-	public void sync(ContentResolver resolver, long lastSync) {
+	public void sync(ContentResolver resolver, long lastSync, int flags) {
 		// TODO test if two queries are faster, or if selection should be applied manually.
 		String currentTeamId[];
 
@@ -82,7 +83,8 @@ public class ShowTeamSyncHandler {
 		ContentValues values = new ContentValues(12);
 		values.put(ShowTeams.SHOW_TEAM_ID, team.identifier);
 		values.put(ShowTeams.SHOW_TEAM_NAME, team.teamName);
-		values.put(Dogs.UPDATED, System.currentTimeMillis());// TODO set a "sync time" per sync
+		values.put(ShowTeams.SHOW_TEAM_ACTIVE, team.identifier.equals(Prefs.currentTeamIdentifier(mContext)));
+		values.put(ShowTeams.UPDATED, System.currentTimeMillis());// TODO set a "sync time" per sync
 		return values;
 	}
 }

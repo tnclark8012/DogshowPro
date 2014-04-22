@@ -32,6 +32,7 @@ import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.ShowTeamsQuery;
+import dev.tnclark8012.apps.android.dogshow.sync.SyncAdapter;
 import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.ui.DashboardFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.ShowTeamListFragment;
@@ -53,7 +54,7 @@ public class HomeActivity extends BaseActivity implements LoaderCallbacks<Cursor
 	private final ContentObserver mObserver = new ContentObserver(new Handler()) {
 		@Override
 		public void onChange(boolean selfChange) {
-			Loader<Cursor> loader = getLoaderManager().getLoader(Query.ShowTeamsQuery._TOKEN);
+			Loader<Cursor> loader = getLoaderManager().getLoader(ShowTeamsQuery._TOKEN);
 			if (loader != null) {
 				loader.forceLoad();
 			}
@@ -106,9 +107,9 @@ public class HomeActivity extends BaseActivity implements LoaderCallbacks<Cursor
 			getActionBar().setHomeButtonEnabled(true);
 		}
 		mDrawerList = (ListView) findViewById(R.id.left_drawer);
-		String currentTeam = Prefs.currentTeamName(this);
+		String currentTeam = Prefs.currentTeamIdentifier(this);
 		// Set the adapter for the list view
-		mAdapter = new NavigationDrawerCursorAdapter(this, null, false, R.layout.list_item_simple, R.id.text1, Query.ShowTeamsQuery.TEAM_NAME, currentTeam);
+		mAdapter = new NavigationDrawerCursorAdapter(this, null, false, R.layout.list_item_simple, R.id.text1, ShowTeamsQuery.TEAM_NAME, currentTeam, ShowTeamsQuery.IDENTIFIER);
 		mDrawerList.setAdapter(mAdapter);
 		// Set the list's click listener
 		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
@@ -118,9 +119,7 @@ public class HomeActivity extends BaseActivity implements LoaderCallbacks<Cursor
 		FragmentManager fragmentManager = getFragmentManager();
 		fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 		getLoaderManager().initLoader(ShowTeamsQuery._TOKEN, null, this);
-		if (currentTeam != null) {
-			setTitle(currentTeam);
-		}
+		setTitle("Dog Show Pro");
 	}
 
 	@Override
@@ -161,17 +160,19 @@ public class HomeActivity extends BaseActivity implements LoaderCallbacks<Cursor
 	private void selectItem(int position) {
 
 		// Highlight the selected item, update the title, and close the drawer
-		String selectedTeam = mAdapter.getCursor().getString(ShowTeamsQuery.TEAM_NAME);
-		Prefs.setCurrentTeam(HomeActivity.this, selectedTeam);
+		String selectedTeamIdentifier = mAdapter.getCursor().getString(ShowTeamsQuery.IDENTIFIER);
+		String selectedTeamName = mAdapter.getCursor().getString(ShowTeamsQuery.TEAM_NAME);
+		setTitle(selectedTeamName);
+		Prefs.setCurrentTeamIdentifier(HomeActivity.this, selectedTeamIdentifier);
 		mDrawerList.setItemChecked(position, true);
-		setTitle(selectedTeam);
+		SyncHelper.requestManualSync(this, AccountUtils.getChosenAccount(this), SyncHelper.FLAG_SYNC_REMOTE);
 		mDrawerLayout.closeDrawer(mDrawerConents);
 	}
 
 	/* Called whenever we call invalidateOptionsMenu() */
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
-		// If the nav drawer is open, hide action items related to the content view
+		// TODO If the nav drawer is open, hide action items related to the content view
 		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerConents);
 		return super.onPrepareOptionsMenu(menu);
 	}
@@ -196,9 +197,6 @@ public class HomeActivity extends BaseActivity implements LoaderCallbacks<Cursor
 		case R.id.menu_sign_out:
 			AccountUtils.signOut(this);
 			finish();
-			return true;
-		case R.id.menu_sync:
-			SyncHelper.requestManualSync(this, AccountUtils.getChosenAccount(this));
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
@@ -227,7 +225,6 @@ public class HomeActivity extends BaseActivity implements LoaderCallbacks<Cursor
 
 	@Override
 	public void onLoaderReset(Loader<Cursor> arg0) {
-		// TODO Auto-generated method stub
-
+		Log.v(TAG, "onLoaderReset");
 	}
 }

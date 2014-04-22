@@ -101,9 +101,10 @@ public class Query {
 
 	public interface ShowTeamsQuery {
 		int _TOKEN = 0x6;
-		final String[] PROJECTION = { ShowTeams._ID, ShowTeams.SHOW_TEAM_NAME };
+		final String[] PROJECTION = { ShowTeams._ID, ShowTeams.SHOW_TEAM_NAME, ShowTeams.SHOW_TEAM_ID };
 		int _ID = 0;
 		int TEAM_NAME = 1;
+		int IDENTIFIER = 2;
 	}
 
 	public interface ShowTeamsSyncQuery {

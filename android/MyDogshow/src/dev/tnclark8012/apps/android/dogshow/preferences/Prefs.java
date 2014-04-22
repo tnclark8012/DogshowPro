@@ -3,6 +3,8 @@ package dev.tnclark8012.apps.android.dogshow.preferences;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
+import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 
 public final class Prefs {
@@ -46,20 +48,20 @@ public final class Prefs {
 	}
 
 	/**
-	 * Set the current team name.
+	 * Set the current team identifier.
 	 * 
 	 * @param context
 	 * @param currentTeam
 	 * @return true if the team changed
 	 */
-	public static boolean setCurrentTeam(Context context, String currentTeam) {
-		if (currentTeam != currentTeamName(context)) {
+	public static boolean setCurrentTeamIdentifier(Context context, String currentTeam) {
+		if (currentTeam != currentTeamIdentifier(context)) {
 			get(context).edit().putString(KEY_CURRENT_TEAM, currentTeam).commit();
 		}
 		return false;
 	}
 
-	public static String currentTeamName(Context context) {
-		return get(context).getString(KEY_CURRENT_TEAM, "Just Me");
+	public static String currentTeamIdentifier(Context context) {
+		return get(context).getString(KEY_CURRENT_TEAM, AccountUtils.getUserId(context));//FIXME should be user identifier, but intellisense isn't working right now
 	}
 }

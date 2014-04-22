@@ -73,7 +73,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 
 	private void createShowTeamsTable(SQLiteDatabase db) {
 		db.execSQL("CREATE TABLE " + Tables.SHOW_TEAMS + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + ShowTeamsColumns.SHOW_TEAM_ID + " TEXT NOT NULL, " + ShowTeams.SHOW_TEAM_ACTIVE + " INTEGER DEFAULT 0, " + ShowTeams.SHOW_TEAM_JUST_ME + " INTEGER DEFAULT 0, " + ShowTeamsColumns.SHOW_TEAM_NAME + " TEXT NOT NULL, " + ShowTeamsColumns.SHOW_TEAM_STATE + " INTEGER DEFAULT 1, " + ShowTeams.ENTERED_SHOW + " TEXT," + ShowTeams.UPDATED + " INTEGER DEFAULT 0)");
-		db.execSQL("INSERT INTO " + Tables.SHOW_TEAMS + " (" + ShowTeams.SHOW_TEAM_ID + ", " + ShowTeams.SHOW_TEAM_NAME + "," + ShowTeams.SHOW_TEAM_STATE + ", " + ShowTeams.SHOW_TEAM_ACTIVE + ", " + ShowTeams.SHOW_TEAM_JUST_ME + ") VALUES (\"ME\", \"Just Me\", 1,1,1)");
+		//db.execSQL("INSERT INTO " + Tables.SHOW_TEAMS + " (" + ShowTeams.SHOW_TEAM_ID + ", " + ShowTeams.SHOW_TEAM_NAME + "," + ShowTeams.SHOW_TEAM_STATE + ", " + ShowTeams.SHOW_TEAM_ACTIVE + ", " + ShowTeams.SHOW_TEAM_JUST_ME + ") VALUES (\"ME\", \"Just Me\", 1,1,1)");
 	}
 
 	private void createDogsTable(SQLiteDatabase db) {

@@ -42,6 +42,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
     private final Context mContext;
     private SyncHelper mSyncHelper;
+    public static final String SYNC_EXTRAS_FLAGS = "flags";
 
     public SyncAdapter(Context context, boolean autoInitialize) {
         super(context, autoInitialize);
@@ -65,7 +66,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         final boolean uploadOnly = extras.getBoolean(ContentResolver.SYNC_EXTRAS_UPLOAD, false);
         final boolean manualSync = extras.getBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, false);
         final boolean initialize = extras.getBoolean(ContentResolver.SYNC_EXTRAS_INITIALIZE, false);
-
+        final int flags = extras.getInt(SYNC_EXTRAS_FLAGS, SyncHelper.FLAG_SYNC_LOCAL | SyncHelper.FLAG_SYNC_REMOTE);
         final String logSanitizedAccountName = sSanitizeAccountNamePattern
                 .matcher(account.name).replaceAll("$1...$2@");
 
@@ -97,11 +98,6 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         }
 
         try {
-        	int flags = SyncHelper.FLAG_SYNC_LOCAL | SyncHelper.FLAG_SYNC_REMOTE;
-        	if(manualSync)
-        	{
-        		flags |= SyncHelper.FLAG_SYNC_FORCE;
-        	}
             mSyncHelper.performSync(syncResult,
                     flags);
 

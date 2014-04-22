@@ -30,7 +30,7 @@ import dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamSyncResponse;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 
 public class AzureApiAccessor extends ApiAccessor {
-
+//TODO implement required parameters? User ID or some such things?
 	private URL BASE_URL;
 	public URL GET_SHOW_URL;
 	public URL GET_BREED_RINGS_URL;
@@ -162,9 +162,10 @@ public class AzureApiAccessor extends ApiAccessor {
 	}
 
 	@Override
-	public DogSyncResponse[] syncDogs(String userId, long lastSync, Dog[] dogs, String[] currentDogIds) {
+	public DogSyncResponse[] syncDogs(String userId, String teamIdentifier, long lastSync, Dog[] dogs, String[] currentDogIds) {
 		DogSyncRequest request = new DogSyncRequest();
 		request.lastSync = lastSync;
+		request.teamIdentifier = teamIdentifier;
 		request.dogs = dogs;
 		request.userIdentifier = userId;
 		request.allDogIds = currentDogIds;

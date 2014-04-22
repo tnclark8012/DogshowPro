@@ -14,8 +14,9 @@ public class NavigationDrawerCursorAdapter extends SimpleCursorAdapter {
 	private String mDefaultSelectedText;
 	private int selectedItem = -1;
 	private int mTextViewResourceId;
-	int selectedColor;
-	int defaultColor;
+	private int selectedColor;
+	private int defaultColor;
+	private int mDefaultSelectedTextColumn;
 
 	public NavigationDrawerCursorAdapter(Activity activity, Cursor c, boolean autoRequery, int layoutId, int textViewResourceId, int textColumnIndex) {
 		super(activity, c, autoRequery, layoutId, textViewResourceId, textColumnIndex);
@@ -24,9 +25,10 @@ public class NavigationDrawerCursorAdapter extends SimpleCursorAdapter {
 		defaultColor = activity.getResources().getColor(R.color.black);
 	}
 
-	public NavigationDrawerCursorAdapter(Activity activity, Cursor c, boolean autoRequery, int layoutId, int textViewResourceId, int textColumnIndex, String defaultSelectedText) {
+	public NavigationDrawerCursorAdapter(Activity activity, Cursor c, boolean autoRequery, int layoutId, int textViewResourceId, int textColumnIndex, String defaultSelectedText, int defaultSelectTextColumn) {
 		super(activity, c, autoRequery, layoutId, textViewResourceId, textColumnIndex);
 		mDefaultSelectedText = defaultSelectedText;
+		mDefaultSelectedTextColumn = defaultSelectTextColumn;
 		mTextViewResourceId = textViewResourceId;
 		selectedColor = activity.getResources().getColor(R.color.accent_1);
 		defaultColor = activity.getResources().getColor(R.color.black);
@@ -40,7 +42,7 @@ public class NavigationDrawerCursorAdapter extends SimpleCursorAdapter {
 	public void bindView(View view, Context context, Cursor cursor) {
 		super.bindView(view, context, cursor);
 		TextView textView = (TextView) view.findViewById(mTextViewResourceId);
-		if (selectedItem == -1 && mDefaultSelectedText != null && mDefaultSelectedText.equals(cursor.getString(ShowTeamsQuery.TEAM_NAME))) {
+		if (selectedItem == -1 && mDefaultSelectedText != null && mDefaultSelectedText.equals(cursor.getString(mDefaultSelectedTextColumn))) {
 			textView.setTypeface(null, Typeface.BOLD);
 			textView.setTextColor(selectedColor);
 		} else if (cursor.getPosition() == selectedItem) {

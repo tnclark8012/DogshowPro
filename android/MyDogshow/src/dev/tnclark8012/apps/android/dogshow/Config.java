@@ -55,7 +55,7 @@ public class Config {
 		 * 
 		 * @return dogs which were updated server-side since last sync
 		 */
-		DogSyncResponse[] syncDogs(String userId, long lastSync, Dog[] dogs, String[] currentDogIds);
+		DogSyncResponse[] syncDogs(String userId, String teamIdentifier, long lastSync, Dog[] dogs, String[] currentDogIds);
 
 		ShowTeamSyncResponse[] syncShowTeams(String userId, long lastSync, String[] currentTeamIds);
 

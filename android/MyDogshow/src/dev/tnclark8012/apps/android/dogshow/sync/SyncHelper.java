@@ -32,9 +32,18 @@ public class SyncHelper {
 	private final static String TAG = SyncHelper.class.getSimpleName();
 	private IApiAccessor mAccessor;
 	private Context mContext;
+	/**
+	 * If set, local entities will be pushed to the server for reconcilation
+	 */
 	public static final int FLAG_SYNC_LOCAL = 0x1;
+	/**
+	 * If set, server entities will be requested
+	 */
 	public static final int FLAG_SYNC_REMOTE = 0x2;
-	public static final int FLAG_SYNC_FORCE = 0x3;
+//	/**
+//	 * If set, sync will ignore modification times.
+//	 */
+//	public static final int FLAG_SYNC_FORCE = 0x3;
 
 	public SyncHelper(Context context) {
 		mContext = context;
@@ -142,8 +151,16 @@ public class SyncHelper {
 			return null;
 		}
 	};
-	private int LOCAL_VERSION_CURRENT;
 
+	public static void requestManualSync(Context context, Account mChosenAccount, int flags)
+	{
+		if (Prefs.isSyncEnabled(context)) {
+			Bundle b = new Bundle();
+			b.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true);
+			b.putInt(SyncAdapter.SYNC_EXTRAS_FLAGS, flags);
+			ContentResolver.requestSync(mChosenAccount, DogshowContract.CONTENT_AUTHORITY, b);
+		}
+	}
 	public static void requestManualSync(Context context, Account mChosenAccount) {
 		if (Prefs.isSyncEnabled(context)) {
 			Bundle b = new Bundle();
@@ -156,18 +173,16 @@ public class SyncHelper {
 
 	public void performSync(SyncResult syncResult, int flags) throws IOException {
 
-		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
-		final int localVersion = prefs.getInt("local_data_version", 0);
-		final long lastSync = ((flags & FLAG_SYNC_FORCE)!=0) ? 0 : getLastSync(mContext);
+		final long lastSync = getLastSync(mContext);
 
 		// Bulk of sync work, performed by executing several fetches from
 		// local and online sources.
 		final ContentResolver resolver = mContext.getContentResolver();
-		DogSyncHandler dogHelper = new DogSyncHandler(mContext, mAccessor);
-		dogHelper.sync(resolver, lastSync);
-		Log.i(TAG, "Completed dog sync");
 		ShowTeamSyncHandler teamHelper = new ShowTeamSyncHandler(mContext, mAccessor);
-		teamHelper.sync(resolver, lastSync);
+		teamHelper.sync(resolver, lastSync, flags);
+		DogSyncHandler dogHelper = new DogSyncHandler(mContext, mAccessor);
+		dogHelper.sync(resolver, lastSync, flags);
+		Log.i(TAG, "Completed dog sync");
 		Log.i(TAG, "Completed team sync");
 		setLastSync(mContext, System.currentTimeMillis());
 

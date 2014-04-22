@@ -60,14 +60,6 @@ public class DashboardFragment extends Fragment {
 			});
 			view.setVisibility(View.VISIBLE);
 		}
-		// root.findViewById(R.id.dashboard_find_show).setOnClickListener(new View.OnClickListener() {
-		// public void onClick(View view) {
-		// Intent intent = new Intent(getActivity(), ShowSetupActivity.class);
-		// intent.setData(DogshowContract.Dogs.CONTENT_URI);
-		// startActivity(intent);
-		// }
-		//
-		// });
 		return root;
 	}
 
@@ -76,7 +68,6 @@ public class DashboardFragment extends Fragment {
 		super.onCreateOptionsMenu(menu, inflater);
 		inflater.inflate(R.menu.dashboard, menu);
 		if (!Prefs.isSyncEnabled(getActivity())) {
-			menu.findItem(R.id.menu_sync).setVisible(false).setEnabled(false);
 			menu.findItem(R.id.menu_sign_out).setVisible(false).setEnabled(false);
 		}
 	}
