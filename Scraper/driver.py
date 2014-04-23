@@ -21,8 +21,8 @@ def postShow(show, parsedJson):
     printv(json.loads(json.dumps(locationList)))
     printv(show.getDateList())
     
-    with open('./test.json') as json_file:
-        parsedJson = json.load(json_file)
+#    with open() as json_file:
+#        parsedJson = json.load(json_file)
     printv(parsedJson)
     values = {'ShowId': show.code, 'Clubs':show.getClubList(), 'ShowName' : show.name, 'City' : locationList[0]['city'], 'State': locationList[0]['state'], 'StartDateMillis' : min(show.getDateList()), 'RingJson' : str(parsedJson)}
     values = json.loads(json.dumps(values))
@@ -112,6 +112,7 @@ def main(argv):
         config.Env.LOG_DEBUG = True;
 
         #http://www.onofrio.com/execpgm/wbshwpg?SHOW=LAND164052
+        #
     for opt, arg in opts:
       printv("opt: " + opt)
       if opt == '-r':
