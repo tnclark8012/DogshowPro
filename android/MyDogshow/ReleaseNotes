@@ -6,6 +6,9 @@ Version Notes
 	* Rings are sorted on estimated time instead of block start.
 	
 
+4/23 0.4.2a
+----------------
+* Fixed bug showing un-entered dogs on show day
 
 3/15 0.3.4a
 -----------------------
