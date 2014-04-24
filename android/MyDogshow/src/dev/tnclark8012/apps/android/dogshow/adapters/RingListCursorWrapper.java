@@ -85,7 +85,6 @@ public class RingListCursorWrapper extends CursorWrapper {
 				}
 			}
 			int ringNumber = cursor.getInt(cursor.getColumnIndex(EnteredRings.RING_NUMBER));
-			int x = ringNumber;
 			long perDogMillis = Utils.getMaybeNull(cursor, options.perDogJudgeMillsColumnIndex, options.defaultPerDogJudgeMillis);
 			estMillis = Utils.estimateBlockStart(countAhead, cursor.getLong(options.blockStartColumnIndex), perDogMillis);
 			pairs[i] = new Pair(i, estMillis, dev.tnclark8012.apps.android.dogshow.util.Arrays.concat("-", breedCount));

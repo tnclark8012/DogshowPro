@@ -39,7 +39,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 		String HANDLERS = "handlers";
 		String JUNIORS_RINGS = "juniors_rings";
 		String SHOW_TEAMS = "show_teams";
-		String ENTERED_DOGS_BY_BREED = "(SELECT *, " + Dogs.DOG_BREED + " as " + Dogs.ENTERED_DOGS_BREED + ", group_concat(" + Qualified.DOG_CALL_NAME + ", \", \" ) as " + Dogs.ENTERED_DOGS_NAMES + ", MIN(" + Dogs.DOG_CLASS + ") as " + Dogs.ENTERED_DOGS_FIRST_CLASS + " FROM " + Tables.DOGS + " GROUP BY " + Dogs.DOG_BREED + "," + Dogs.DOG_IS_SHOWING_SWEEPSTAKES + ", " + Dogs.DOG_IS_VETERAN + ")";
+		String ENTERED_DOGS_BY_BREED = "(SELECT *, " + Dogs.DOG_BREED + " as " + Dogs.ENTERED_DOGS_BREED + ", group_concat(" + Qualified.DOG_CALL_NAME + ", \", \" ) as " + Dogs.ENTERED_DOGS_NAMES + ", MIN(" + Dogs.DOG_CLASS + ") as " + Dogs.ENTERED_DOGS_FIRST_CLASS + " FROM " + Tables.DOGS + " WHERE "+ Dogs.DOG_IS_SHOWING + "=1" + " GROUP BY " + Dogs.DOG_BREED + "," + Dogs.DOG_IS_SHOWING_SWEEPSTAKES + ", " + Dogs.DOG_IS_VETERAN + ")";
 		String ENTERED_JUNIORS_RINGS = "(" + JUNIORS_RINGS + " JOIN " + Subquery.ENTERED_JUNIOR_HANDLERS + " as entered_junior_handlers ON " + Handlers.HANDLER_JUNIOR_CLASS + "=" + JuniorsRings.RING_JUNIOR_CLASS_NAME + ")";
 		String ENTERED_BREED_RINGS_JOIN_DOGS_JOIN_ON = Qualified.BREED_RINGS_RING_BREED + "=" + Dogs.ENTERED_DOGS_BREED + " AND "/* + Qualified.BREED_RINGS_IS_SWEEPSTAKES + "=" + Dogs.DOG_IS_SHOWING_SWEEPSTAKES + " AND " TODO Sweepstakes should be optional */+ Qualified.BREED_RINGS_IS_VETERAN + "=" + Dogs.DOG_IS_VETERAN;
 		String ENTERED_BREED_RINGS_JOIN_DOGS = "(" + BREED_RINGS + " " + "JOIN " + ENTERED_DOGS_BY_BREED + " as entered_breed_rings_dogs ON " + ENTERED_BREED_RINGS_JOIN_DOGS_JOIN_ON + ")";
