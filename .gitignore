@@ -4,6 +4,7 @@ android/Libraries/sticky-headers-library/gen/se/emilsjolander/stickylistheaders/
 android/Libraries/sticky-headers-library/.settings/org.eclipse.jdt.core.prefs
 android/Libraries/sticky-headers-library/gen/se/emilsjolander/stickylistheaders/BuildConfig.java
 eclipse\configuration\org.eclipse.core.runtime\*
+eclipse\configuration\org.eclipse.osgi\*
 android/configuration/org.eclipse.core.runtime/.manager
 android/eclipse/configuration/org.eclipse.osgi/.manager
 Scraper/scraper-project.sublime-workspace
