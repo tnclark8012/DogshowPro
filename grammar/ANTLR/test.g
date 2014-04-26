@@ -257,7 +257,7 @@ timeblock_comment returns [String str]//No time
 
 		
 ring_comment returns [String str]
-    :   STANDALONE_COMMENT{str=$STANDALONE_COMMENT.text;}|(tComment=timeblock_comment{str=tComment;})|(GROUP{str=$GROUP.text;} ~RING);
+    :   GROUP_TYPE|STANDALONE_COMMENT{str=$STANDALONE_COMMENT.text;}|(tComment=timeblock_comment{str=tComment;})|(GROUP{str=$GROUP.text;} ~RING);
 
 timeblock returns [JsonObject json] 
 	@init {json = new JsonObject(); String comment = ""; String time = "";}	
@@ -458,7 +458,7 @@ group_ring returns [String str]
 	:	 ((GROUP_NAME{str=$GROUP_NAME.text;} GROUP{str+=" " + $GROUP.text;})|GROUP_RING{str=$GROUP_RING.text;}) HYPHEN{str+=" -";} (JUDGE_NAME{str+=" " + $JUDGE_NAME.text;}|COMMENT{str+=" " + $COMMENT.text;}|PARENTHETICAL{str+= " " + $PARENTHETICAL.text;})+;
 group_block returns [JsonObject json]
 	@init {json = new JsonObject(); JsonArray rings = new JsonArray();}
-	:	TIME{currentBlockTime=$TIME.text;json.addProperty("BlockStart", currentBlockTime);} STANDALONE_COMMENT? (mRing=group_ring {if(!mRelational){json = new JsonObject();json.addProperty("RingType","Group");String[] arr = parseGroupRing(mRing);json.addProperty("Group", arr[0]);json.addProperty("Judge",arr[1]);json.addProperty("BlockStart",currentBlockTime);mShowRings.add(json);}else{rings.add(new JsonPrimitive(mRing));}})+ {if(mRelational){json.add("Rings", rings);}} GROUP_ENDING_ANNOUNCEMENT;
+	:	TIME{currentBlockTime=$TIME.text;json.addProperty("BlockStart", currentBlockTime);} GROUP_TYPE? (mRing=group_ring {if(!mRelational){json = new JsonObject();json.addProperty("RingType","Group");String[] arr = parseGroupRing(mRing);json.addProperty("Group", arr[0]);json.addProperty("Judge",arr[1]);json.addProperty("BlockStart",currentBlockTime);mShowRings.add(json);}else{rings.add(new JsonPrimitive(mRing));}})+ {if(mRelational){json.add("Rings", rings);}} GROUP_ENDING_ANNOUNCEMENT;
 
 	
 
@@ -959,7 +959,9 @@ fragment FRAG_WEEK_DAY:   'Sunday'|'SUNDAY'|
 *
 **********************************/   
 STANDALONE_COMMENT
-    :   'LUNCH'|'VARIETY GROUP JUDGING';  
+    :   'LUNCH';  
+GROUP_TYPE
+	:	'VARIETY GROUP JUDGING'|'OWNER-HANDLED GROUP JUDGING';
 
 BREED_COUNT  :  INT '-' INT '-' INT '-' INT;
 JUDGE_NAME: {allowJudge}?=>(FRAG_TITLE WS FRAG_PROPER_NAME (' ' (PARENTHETICAL_NAME|FRAG_PROPER_NAME))+ (WS? PARENTHETICAL_INT?));
