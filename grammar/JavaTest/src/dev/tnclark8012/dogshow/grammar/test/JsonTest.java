@@ -56,6 +56,11 @@ public class JsonTest {
 		runTestOnProgram("MNJS1JP.pdf");
 	}
 	
+	@Test
+	public void SEWA1JP(){
+		runTestOnProgram("SEWA1.pdf");
+	}
+	
 	
 	private void runTestOnProgram(String programName) 
 	{

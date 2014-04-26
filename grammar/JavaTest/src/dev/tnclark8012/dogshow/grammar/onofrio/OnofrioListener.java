@@ -13,7 +13,8 @@ public class OnofrioListener extends OnofrioParserBaseListener{
 			JsonObject json = new JsonObject(); 
 			String comments = ""; 
 			JsonArray ringArray = new JsonArray();
-			System.out.println("Done");
+//			System.out.println("Done");
+//			System.out.println(ctx.json.getAsJsonArray("Rings").size() + " rings");
 			System.out.println(ctx.json);
 			super.exitStart(ctx);
 		}

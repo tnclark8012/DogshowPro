@@ -20,10 +20,8 @@ def postShow(show, parsedJson):
     [locationList.append(l.toJson()) for l in show.locations];
     printv(json.loads(json.dumps(locationList)))
     printv(show.getDateList())
-    
-#    with open() as json_file:
-#        parsedJson = json.load(json_file)
     printv(parsedJson)
+    dumpJson(config.AppServer.DUMP_DIR+show.code+'.pdf', parsedJson);
     values = {'ShowId': show.code, 'Clubs':show.getClubList(), 'ShowName' : show.name, 'City' : locationList[0]['city'], 'State': locationList[0]['state'], 'StartDateMillis' : min(show.getDateList()), 'RingJson' : str(parsedJson)}
     values = json.loads(json.dumps(values))
 
