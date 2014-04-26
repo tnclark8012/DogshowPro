@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is the feature manifest file.  -->
+<feature
+      id="com.google.i18n.inkstone.eclipse.localization"
+      label="ADT Translation Manager plugin"
+      version="1.0.0.201306121019"
+      provider-name="Google Inc.">
+
+   <description>
+      Android Localization Plugin for Eclipse.
+   </description>
+
+   <copyright>
+      Copyright 2013 Google Inc. All Rights Reserved.
+   </copyright>
+
+   <license url="http://www.google.com/intl/en/policies/terms/">
+Your use of the ADT Translation Manager plugin is subject to the Google Terms of Service. You can find a copy of Google Terms of Service at http://www.google.com/intl/en/policies/terms/.
+
+Note: Portions of the code are under Eclipse public license Version 1.0. You can find a copy of EPL 1.0 at http://www.eclipse.org/legal/epl-v10.html.
+
+guava*.jar and jackson-core-asl*.jar are under Apache License, Version 2.0. You can find a copy of APL 2.0 at http://www.apache.org/licenses/LICENSE-2.0.
+
+icu4j*.jar is under ICU license. You can find a copy of ICU license at http://www.icu-project.org/repos/icu/icu/trunk/license.html.
+
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.jdt.core"/>
+      <import plugin="com.android.ide.eclipse.adt"/>
+      <import plugin="org.eclipse.jdt.ui"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.ui.editors"/>
+      <import plugin="org.eclipse.wst.sse.core"/>
+      <import plugin="org.eclipse.wst.xml.core"/>
+   </requires>
+
+   <plugin
+         id="com.google.i18n.inkstone.eclipse.localization"
+         download-size="0"
+         install-size="0"
+         version="1.0.0.201306121019"
+         unpack="false"/>
+
+</feature>
