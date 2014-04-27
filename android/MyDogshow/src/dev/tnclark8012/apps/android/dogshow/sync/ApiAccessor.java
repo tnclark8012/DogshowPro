@@ -202,6 +202,8 @@ public abstract class ApiAccessor implements Config.IApiAccessor {
 		}
 		if (urlConnection != null) {
 			try {
+				Log.v(TAG, "request to " + url.toString());
+				Log.v(TAG, "request content: " + json.toString());
 				String message = URLEncoder.encode(json.toString(), "UTF-8");
 				urlConnection.setDoOutput(true);
 				urlConnection.setDoInput(true);
