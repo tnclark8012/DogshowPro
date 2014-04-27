@@ -3,7 +3,10 @@ bin
 android/Libraries/sticky-headers-library/gen/se/emilsjolander/stickylistheaders/R.java
 android/Libraries/sticky-headers-library/.settings/org.eclipse.jdt.core.prefs
 android/Libraries/sticky-headers-library/gen/se/emilsjolander/stickylistheaders/BuildConfig.java
+gen
 scraper/scraper-project.sublime-workspace
 eclipse/configuration/org.eclipse.core.runtime
 eclipse/configuration/org.eclipse.osgi
 eclipse/configuration/org.eclipse.update
+.classpath
+project.properties
