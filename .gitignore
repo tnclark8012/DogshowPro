@@ -10,3 +10,5 @@ eclipse/configuration/org.eclipse.osgi
 eclipse/configuration/org.eclipse.update
 .classpath
 project.properties
+p2
+.manager
