@@ -9381,20 +9381,20 @@ dev.tnclark8012.apps.android.dogshow.util.UIUtils -> dev.tnclark8012.apps.androi
     com.nostra13.universalimageloader.core.ImageLoader mLoader -> f
     java.text.SimpleDateFormat standardTimeFormatAmPm -> g
     java.text.SimpleDateFormat standardTimeFormat -> h
-    211:213:android.graphics.Bitmap loadBitmap(java.lang.String,int,int) -> a
-    275:280:java.lang.String timeStringFromMillis(long,boolean) -> a
-    285:289:java.lang.String timeAmPmFromMillis(long) -> a
-    293:294:void displayImage(android.content.Context,android.widget.ImageView,java.lang.String) -> a
-    301:302:void displayImage(android.content.Context,com.nostra13.universalimageloader.core.DisplayImageOptions,android.widget.ImageView,java.lang.String) -> a
-    305:311:void displayImage(android.content.Context,com.nostra13.universalimageloader.core.DisplayImageOptions,android.widget.ImageView,android.net.Uri) -> a
-    314:315:void loadImage(android.content.Context,com.nostra13.universalimageloader.core.assist.ImageLoadingListener,java.lang.String) -> a
-    318:319:void loadImage(android.content.Context,com.nostra13.universalimageloader.core.assist.ImageLoadingListener,android.net.Uri) -> a
-    326:332:void loadImage(android.content.Context,com.nostra13.universalimageloader.core.DisplayImageOptions,com.nostra13.universalimageloader.core.assist.ImageLoadingListener,java.lang.String) -> a
-    335:342:com.nostra13.universalimageloader.core.ImageLoader getImageLoaderInstance(android.content.Context) -> a
-    347:356:java.lang.String stripQuotes(java.lang.String) -> a
+    224:227:android.graphics.Bitmap loadBitmap(java.lang.String,int,int) -> a
+    295:300:java.lang.String timeStringFromMillis(long,boolean) -> a
+    305:309:java.lang.String timeAmPmFromMillis(long) -> a
+    314:315:void displayImage(android.content.Context,android.widget.ImageView,java.lang.String) -> a
+    324:325:void displayImage(android.content.Context,com.nostra13.universalimageloader.core.DisplayImageOptions,android.widget.ImageView,java.lang.String) -> a
+    329:335:void displayImage(android.content.Context,com.nostra13.universalimageloader.core.DisplayImageOptions,android.widget.ImageView,android.net.Uri) -> a
+    339:340:void loadImage(android.content.Context,com.nostra13.universalimageloader.core.assist.ImageLoadingListener,java.lang.String) -> a
+    344:345:void loadImage(android.content.Context,com.nostra13.universalimageloader.core.assist.ImageLoadingListener,android.net.Uri) -> a
+    354:360:void loadImage(android.content.Context,com.nostra13.universalimageloader.core.DisplayImageOptions,com.nostra13.universalimageloader.core.assist.ImageLoadingListener,java.lang.String) -> a
+    363:371:com.nostra13.universalimageloader.core.ImageLoader getImageLoaderInstance(android.content.Context) -> a
+    375:387:java.lang.String stripQuotes(java.lang.String) -> a
 dev.tnclark8012.apps.android.dogshow.util.UIUtils$BitmapLoader -> dev.tnclark8012.apps.android.dogshow.util.i:
-    220:234:int getScale(int,int,int,int) -> a
-    239:261:android.graphics.BitmapFactory$Options getOptions(java.lang.String,int,int) -> a
+    235:250:int getScale(int,int,int,int) -> a
+    256:279:android.graphics.BitmapFactory$Options getOptions(java.lang.String,int,int) -> a
 dev.tnclark8012.apps.android.dogshow.util.Utils -> dev.tnclark8012.apps.android.dogshow.util.j:
     java.lang.String TAG -> a
     23:23:java.lang.String getGuid() -> a
