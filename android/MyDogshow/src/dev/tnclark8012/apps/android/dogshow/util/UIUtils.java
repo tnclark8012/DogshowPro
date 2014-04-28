@@ -59,9 +59,11 @@ import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 public class UIUtils {
 	private static final String TAG = UIUtils.class.getSimpleName();
 	/**
-	 * Time zone to use when formatting all session times. To always use the phone local time, use {@link TimeZone#getDefault()}.
+	 * Time zone to use when formatting all session times. To always use the
+	 * phone local time, use {@link TimeZone#getDefault()}.
 	 */
-	public static final TimeZone CONFERENCE_TIME_ZONE = TimeZone.getTimeZone("America/Los_Angeles");
+	public static final TimeZone CONFERENCE_TIME_ZONE = TimeZone
+			.getTimeZone("America/Los_Angeles");
 
 	public static final String CONFERENCE_HASHTAG = "#io12";
 
@@ -71,18 +73,22 @@ public class UIUtils {
 	private static final int DAY_MILLIS = 24 * HOUR_MILLIS;
 
 	/** Flags used with {@link DateUtils#formatDateRange}. */
-	private static final int TIME_FLAGS = DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_ABBREV_WEEKDAY;
+	private static final int TIME_FLAGS = DateUtils.FORMAT_SHOW_TIME
+			| DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_ABBREV_WEEKDAY;
 
 	/** {@link StringBuilder} used for formatting time block. */
 	private static StringBuilder sBuilder = new StringBuilder(50);
 	/** {@link Formatter} used for formatting time block. */
-	private static Formatter sFormatter = new Formatter(sBuilder, Locale.getDefault());
+	private static Formatter sFormatter = new Formatter(sBuilder,
+			Locale.getDefault());
 
 	private static StyleSpan sBoldSpan = new StyleSpan(Typeface.BOLD);
 	private static ImageLoader mLoader;
 
 	/**
-	 * Populate the given {@link TextView} with the requested text, formatting through {@link Html#fromHtml(String)} when applicable. Also sets {@link TextView#setMovementMethod} so inline links are handled.
+	 * Populate the given {@link TextView} with the requested text, formatting
+	 * through {@link Html#fromHtml(String)} when applicable. Also sets
+	 * {@link TextView#setMovementMethod} so inline links are handled.
 	 */
 	public static void setTextMaybeHtml(TextView view, String text) {
 		if (TextUtils.isEmpty(text)) {
@@ -98,10 +104,12 @@ public class UIUtils {
 	}
 
 	/**
-	 * Given a snippet string with matching segments surrounded by curly braces, turn those areas into bold spans, removing the curly braces.
+	 * Given a snippet string with matching segments surrounded by curly braces,
+	 * turn those areas into bold spans, removing the curly braces.
 	 */
 	public static Spannable buildStyledSnippet(String snippet) {
-		final SpannableStringBuilder builder = new SpannableStringBuilder(snippet);
+		final SpannableStringBuilder builder = new SpannableStringBuilder(
+				snippet);
 
 		// Walk through string, inserting bold snippet spans
 		int startIndex = -1, endIndex = -1, delta = 0;
@@ -113,7 +121,8 @@ public class UIUtils {
 			builder.delete(endIndex - delta - 1, endIndex - delta);
 
 			// Insert bold style
-			builder.setSpan(sBoldSpan, startIndex - delta, endIndex - delta - 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+			builder.setSpan(sBoldSpan, startIndex - delta,
+					endIndex - delta - 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
 			delta += 2;
 		}
@@ -121,7 +130,8 @@ public class UIUtils {
 		return builder;
 	}
 
-	public static void preferPackageForIntent(Context context, Intent intent, String packageName) {
+	public static void preferPackageForIntent(Context context, Intent intent,
+			String packageName) {
 		PackageManager pm = context.getPackageManager();
 		for (ResolveInfo resolveInfo : pm.queryIntentActivities(intent, 0)) {
 			if (resolveInfo.activityInfo.packageName.equals(packageName)) {
@@ -134,12 +144,14 @@ public class UIUtils {
 	private static final int BRIGHTNESS_THRESHOLD = 130;
 
 	/**
-	 * Calculate whether a color is light or dark, based on a commonly known brightness formula.
+	 * Calculate whether a color is light or dark, based on a commonly known
+	 * brightness formula.
 	 * 
 	 * @see {@literal http://en.wikipedia.org/wiki/HSV_color_space%23Lightness}
 	 */
 	public static boolean isColorDark(int color) {
-		return ((30 * Color.red(color) + 59 * Color.green(color) + 11 * Color.blue(color)) / 100) <= BRIGHTNESS_THRESHOLD;
+		return ((30 * Color.red(color) + 59 * Color.green(color) + 11 * Color
+				.blue(color)) / 100) <= BRIGHTNESS_THRESHOLD;
 	}
 
 	public static void logBundle(String tag, Bundle bundle) {
@@ -206,22 +218,26 @@ public class UIUtils {
 		return hasHoneycomb() && isTablet(context);
 	}
 
-	public static Bitmap loadBitmap(String filePath, int requiredWidth, int requiredHeight) {
+	public static Bitmap loadBitmap(String filePath, int requiredWidth,
+			int requiredHeight) {
 
-		BitmapFactory.Options options = BitmapLoader.getOptions(filePath, requiredWidth, requiredHeight);
+		BitmapFactory.Options options = BitmapLoader.getOptions(filePath,
+				requiredWidth, requiredHeight);
 
 		return BitmapFactory.decodeFile(filePath, options);
 	}
 
 	private static class BitmapLoader {
-		public static int getScale(int originalWidth, int originalHeight, final int requiredWidth, final int requiredHeight) {
+		public static int getScale(int originalWidth, int originalHeight,
+				final int requiredWidth, final int requiredHeight) {
 			// a scale of 1 means the original dimensions
 			// of the image are maintained
 			int scale = 1;
 
 			// calculate scale only if the height or width of
 			// the image exceeds the required value.
-			if ((originalWidth > requiredWidth) || (originalHeight > requiredHeight)) {
+			if ((originalWidth > requiredWidth)
+					|| (originalHeight > requiredHeight)) {
 				// calculate scale with respect to
 				// the smaller dimension
 				if (originalWidth < originalHeight)
@@ -234,7 +250,8 @@ public class UIUtils {
 			return scale;
 		}
 
-		public static BitmapFactory.Options getOptions(String filePath, int requiredWidth, int requiredHeight) {
+		public static BitmapFactory.Options getOptions(String filePath,
+				int requiredWidth, int requiredHeight) {
 
 			BitmapFactory.Options options = new BitmapFactory.Options();
 			// setting inJustDecodeBounds to true
@@ -251,7 +268,8 @@ public class UIUtils {
 			// options.outWidth and options.outHeight
 			// are the measured dimensions of the
 			// original image
-			options.inSampleSize = getScale(options.outWidth, options.outHeight, requiredWidth, requiredHeight);
+			options.inSampleSize = getScale(options.outWidth,
+					options.outHeight, requiredWidth, requiredHeight);
 
 			// set inJustDecodeBounds to false again
 			// so that we can now actually allocate the
@@ -264,8 +282,10 @@ public class UIUtils {
 
 	}
 
-	private static final SimpleDateFormat standardTimeFormatAmPm = new SimpleDateFormat("h:mm a", Locale.US);
-	private static final SimpleDateFormat standardTimeFormat = new SimpleDateFormat("h:mm", Locale.US);
+	private static final SimpleDateFormat standardTimeFormatAmPm = new SimpleDateFormat(
+			"h:mm a", Locale.US);
+	private static final SimpleDateFormat standardTimeFormat = new SimpleDateFormat(
+			"h:mm", Locale.US);
 	static {
 		standardTimeFormatAmPm.setTimeZone(TimeZone.getTimeZone("UTC"));
 		standardTimeFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
@@ -289,19 +309,23 @@ public class UIUtils {
 		return format.format(cal.getTime());
 	}
 
-	public static void displayImage(Context context, ImageView imageView, String imagePath) {
+	public static void displayImage(Context context, ImageView imageView,
+			String imagePath) {
 		displayImage(context, null, imageView, Uri.parse(imagePath));
 	}
 
-	public static void displayImage(Context context, ImageView imageView, Uri imageUri) {
+	public static void displayImage(Context context, ImageView imageView,
+			Uri imageUri) {
 		displayImage(context, null, imageView, imageUri);
 	}
 
-	public static void displayImage(Context context, DisplayImageOptions options, ImageView imageView, String imagePath) {
+	public static void displayImage(Context context,
+			DisplayImageOptions options, ImageView imageView, String imagePath) {
 		displayImage(context, options, imageView, Uri.parse(imagePath));
 	}
 
-	public static void displayImage(Context context, DisplayImageOptions options, ImageView imageView, Uri imageUri) {
+	public static void displayImage(Context context,
+			DisplayImageOptions options, ImageView imageView, Uri imageUri) {
 		ImageLoader imageLoader = getImageLoaderInstance(context);
 		if (options != null) {
 			imageLoader.displayImage(imageUri.toString(), imageView, options);
@@ -310,19 +334,23 @@ public class UIUtils {
 		}
 	}
 
-	public static void loadImage(Context context, ImageLoadingListener listener, String imageUri) {
+	public static void loadImage(Context context,
+			ImageLoadingListener listener, String imageUri) {
 		loadImage(context, listener, Uri.parse(imageUri));
 	}
 
-	public static void loadImage(Context context, ImageLoadingListener listener, Uri imageUri) {
+	public static void loadImage(Context context,
+			ImageLoadingListener listener, Uri imageUri) {
 		loadImage(context, null, listener, imageUri.toString());
 	}
 
-	public static void loadImage(Context context, DisplayImageOptions options, ImageLoadingListener listener, Uri imageUri) {
+	public static void loadImage(Context context, DisplayImageOptions options,
+			ImageLoadingListener listener, Uri imageUri) {
 		loadImage(context, options, listener, imageUri.toString());
 	}
 
-	public static void loadImage(Context context, DisplayImageOptions options, ImageLoadingListener listener, String imagePath) {
+	public static void loadImage(Context context, DisplayImageOptions options,
+			ImageLoadingListener listener, String imagePath) {
 		ImageLoader imageLoader = getImageLoaderInstance(context);
 		if (options != null) {
 			imageLoader.loadImage(imagePath, options, listener);
@@ -333,7 +361,8 @@ public class UIUtils {
 
 	public static ImageLoader getImageLoaderInstance(Context context) {
 		if (mLoader == null) {
-			Builder builder = new ImageLoaderConfiguration.Builder(context).writeDebugLogs();
+			Builder builder = new ImageLoaderConfiguration.Builder(context)
+					.writeDebugLogs();
 			ImageLoaderConfiguration config = builder.build();
 			mLoader = ImageLoader.getInstance();
 			mLoader.init(config);
@@ -341,19 +370,22 @@ public class UIUtils {
 
 		return mLoader;
 	}
-	
-	public static String stripQuotes(String quoted)
-	{
-		String str = quoted;
-		if(str.charAt(0)=='"')
-		{
-			str = str.substring(1);
+
+	public static String stripQuotes(String quoted) {
+		if (quoted == null || quoted.length() == 0) {
+			return quoted;
+		} else if (quoted.length() == 1 && quoted.charAt(0) == '"') {
+			return "";
+		} else {
+			String str = quoted;
+			if (str.charAt(0) == '"') {
+				str = str.substring(1);
+			}
+			if (str.charAt(str.length() - 1) == '"') {
+				str = str.substring(0, str.length() - 1);
+			}
+			return str;
 		}
-		if(str.charAt(str.length()-1)=='"')
-		{
-			str = str.substring(0,str.length()-1);
-		}
-		return str;
 	}
 
 }
