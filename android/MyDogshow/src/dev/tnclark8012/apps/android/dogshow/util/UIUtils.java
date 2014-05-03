@@ -71,6 +71,7 @@ public class UIUtils {
 	private static final int MINUTE_MILLIS = 60 * SECOND_MILLIS;
 	private static final int HOUR_MILLIS = 60 * MINUTE_MILLIS;
 	private static final int DAY_MILLIS = 24 * HOUR_MILLIS;
+	public static int NAVIGATION_POSITION = 0;
 
 	/** Flags used with {@link DateUtils#formatDateRange}. */
 	private static final int TIME_FLAGS = DateUtils.FORMAT_SHOW_TIME

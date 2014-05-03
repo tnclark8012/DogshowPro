@@ -1,5 +1,9 @@
 package dev.tnclark8012.apps.android.dogshow.ui.phone;
 
+import java.text.ChoiceFormat;
+import java.util.ArrayList;
+import java.util.List;
+
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -20,30 +24,32 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.adapters.NavigationDrawerCursorAdapter;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
-import dev.tnclark8012.apps.android.dogshow.sql.query.Query;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.ShowTeamsQuery;
-import dev.tnclark8012.apps.android.dogshow.sync.SyncAdapter;
 import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.ui.DashboardFragment;
-import dev.tnclark8012.apps.android.dogshow.ui.ShowTeamListFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseActivity;
+import dev.tnclark8012.apps.android.dogshow.ui.navigation.CustomDrawerAdapter;
+import dev.tnclark8012.apps.android.dogshow.ui.navigation.DrawerItem;
+import dev.tnclark8012.apps.android.dogshow.ui.navigation.DrawerItemNavigation;
+import dev.tnclark8012.apps.android.dogshow.ui.navigation.DrawerItemOption;
+import dev.tnclark8012.apps.android.dogshow.ui.navigation.DrawerItemSpinner;
+import dev.tnclark8012.apps.android.dogshow.ui.navigation.SpinnerItem;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 
 /**
  * The landing screen for the app, once the user has logged in.
  */
-public class HomeActivity extends BaseActivity implements LoaderCallbacks<Cursor> {
+public class HomeActivity extends BaseActivity implements
+		LoaderCallbacks<Cursor> {
 	private static final String TAG = HomeActivity.class.getSimpleName();
 	private DrawerLayout mDrawerLayout;
 	private LinearLayout mDrawerConents;
@@ -54,16 +60,20 @@ public class HomeActivity extends BaseActivity implements LoaderCallbacks<Cursor
 	private final ContentObserver mObserver = new ContentObserver(new Handler()) {
 		@Override
 		public void onChange(boolean selfChange) {
-			Loader<Cursor> loader = getLoaderManager().getLoader(ShowTeamsQuery._TOKEN);
+			Loader<Cursor> loader = getLoaderManager().getLoader(
+					ShowTeamsQuery._TOKEN);
 			if (loader != null) {
 				loader.forceLoad();
 			}
 		}
 	};
+
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle data) {
 		if (id == ShowTeamsQuery._TOKEN) {
-			return new CursorLoader(this, ShowTeams.CONTENT_URI, ShowTeamsQuery.PROJECTION, null, null, ShowTeams.DEFAULT_SORT);
+			return new CursorLoader(this, ShowTeams.CONTENT_URI,
+					ShowTeamsQuery.PROJECTION, null, null,
+					ShowTeams.DEFAULT_SORT);
 		} else {
 			Log.w(TAG, "Couldn't create loader");
 			return null;
@@ -74,7 +84,7 @@ public class HomeActivity extends BaseActivity implements LoaderCallbacks<Cursor
 	public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
 		int token = loader.getId();
 		if (token == ShowTeamsQuery._TOKEN) {
-			mAdapter.changeCursor(cursor);
+			// mAdapter.changeCursor(cursor);
 		} else {
 			Log.d(TAG, "Query complete, Not Actionable: " + token);
 			cursor.close();
@@ -96,32 +106,38 @@ public class HomeActivity extends BaseActivity implements LoaderCallbacks<Cursor
 		setContentView(R.layout.activity_home);
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		mDrawerConents = (LinearLayout) findViewById(R.id.drawer_contents);
-		mJoinButton = (RelativeLayout) findViewById(R.id.button_join_team);
-		mJoinButton.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				if (Prefs.isSyncEnabled(HomeActivity.this)) {
-					// Create a new fragment and specify the planet to show based on position
-					Fragment fragment = new ShowTeamListFragment();
-					// // Insert the fragment by replacing any existing fragment
-					FragmentManager fragmentManager = getFragmentManager();
-					fragmentManager.beginTransaction().replace(R.id.content_frame, fragment, "join").addToBackStack("base").commit();
-					mDrawerLayout.closeDrawer(mDrawerConents);
-				}
-			}
-		});
-		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.ic_drawer_white, R.string.app_name, R.string.action_settings) {
+		// mJoinButton = (RelativeLayout) findViewById(R.id.button_join_team);
+		// mJoinButton.setOnClickListener(new OnClickListener() {
+		// @Override
+		// public void onClick(View v) {
+		// if (Prefs.isSyncEnabled(HomeActivity.this)) {
+		// // Create a new fragment and specify the planet to show based on
+		// position
+		// Fragment fragment = new ShowTeamListFragment();
+		// // // Insert the fragment by replacing any existing fragment
+		// FragmentManager fragmentManager = getFragmentManager();
+		// fragmentManager.beginTransaction().replace(R.id.content_frame,
+		// fragment, "join").addToBackStack("base").commit();
+		// mDrawerLayout.closeDrawer(mDrawerConents);
+		// }
+		// }
+		// });
+		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
+				R.drawable.ic_drawer_white, R.string.app_name,
+				R.string.action_settings) {
 
 			/** Called when a drawer has settled in a completely closed state. */
 			public void onDrawerClosed(View view) {
 				super.onDrawerClosed(view);
-				invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+				invalidateOptionsMenu(); // creates call to
+											// onPrepareOptionsMenu()
 			}
 
 			/** Called when a drawer has settled in a completely open state. */
 			public void onDrawerOpened(View drawerView) {
 				super.onDrawerOpened(drawerView);
-				invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+				invalidateOptionsMenu(); // creates call to
+											// onPrepareOptionsMenu()
 			}
 		};
 
@@ -132,18 +148,48 @@ public class HomeActivity extends BaseActivity implements LoaderCallbacks<Cursor
 			getActionBar().setHomeButtonEnabled(true);
 		}
 		mDrawerList = (ListView) findViewById(R.id.left_drawer);
-		mDrawerList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-		String currentTeam = Prefs.currentTeamIdentifier(this);
-		// Set the adapter for the list view
-		mAdapter = new NavigationDrawerCursorAdapter(this, null, false, R.layout.list_item_simple, R.id.text1, ShowTeamsQuery.TEAM_NAME, currentTeam, ShowTeamsQuery.IDENTIFIER);
-		mDrawerList.setAdapter(mAdapter);
-		// Set the list's click listener
+
+		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
+				GravityCompat.START);
+		ArrayList<DrawerItem> dataList = new ArrayList<DrawerItem>();
+		// Add Drawer Item to dataList
+		List<SpinnerItem> userList = new ArrayList<SpinnerItem>();
+
+		userList.add(new SpinnerItem(-1, "Ahamed Ishak", "ishak@gmail.com"));
+		userList.add(new SpinnerItem(-1, "Brain Jekob", "brain.j@gmail.com"));
+		dataList.add(new DrawerItemSpinner(userList)); // adding a
+																// spinner to
+																// the list
+
+		// dataList.add(new DrawerItem("My Favorites")); // adding a header to
+		// the list
+		dataList.add(new DrawerItemNavigation("Show Day"));
+		dataList.add(new DrawerItemNavigation("Dogs"));
+		dataList.add(new DrawerItemNavigation("Handlers"));
+		dataList.add(new DrawerItemNavigation("History"));
+		dataList.add(new DrawerItemOption("Settings"));
+		dataList.add(new DrawerItemOption("Manage Teams"));
+
+		CustomDrawerAdapter adapter = new CustomDrawerAdapter(this,
+				R.layout.custom_drawer_item, dataList);
+		mDrawerList.setAdapter(adapter);
+	
+		// String currentTeam = Prefs.currentTeamIdentifier(this);
+		// // Set the adapter for the list view
+		// mAdapter = new NavigationDrawerCursorAdapter(this, null, false,
+		// R.layout.list_item_simple, R.id.text1, ShowTeamsQuery.TEAM_NAME,
+		// currentTeam, ShowTeamsQuery.IDENTIFIER);
+		// mDrawerList.setAdapter(mAdapter);
+		// // Set the list's click listener
 		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
+//		mDrawerList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
+				GravityCompat.START);
 		Fragment fragment = new DashboardFragment();
 		// // Insert the fragment by replacing any existing fragment
 		FragmentManager fragmentManager = getFragmentManager();
-		fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+		fragmentManager.beginTransaction()
+				.replace(R.id.content_frame, fragment).commit();
 		getLoaderManager().initLoader(ShowTeamsQuery._TOKEN, null, this);
 		setTitle("Dog Show Pro");
 	}
@@ -157,7 +203,8 @@ public class HomeActivity extends BaseActivity implements LoaderCallbacks<Cursor
 	@Override
 	protected void onResume() {
 		super.onResume();
-		getContentResolver().registerContentObserver(ShowTeams.CONTENT_URI, true, mObserver);
+		getContentResolver().registerContentObserver(ShowTeams.CONTENT_URI,
+				true, mObserver);
 	}
 
 	@Override
@@ -173,10 +220,13 @@ public class HomeActivity extends BaseActivity implements LoaderCallbacks<Cursor
 		mDrawerToggle.onConfigurationChanged(newConfig);
 	}
 
-	private class DrawerItemClickListener implements ListView.OnItemClickListener {
+	private class DrawerItemClickListener implements
+			ListView.OnItemClickListener {
 		@Override
-		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-			((NavigationDrawerCursorAdapter) parent.getAdapter()).selectItem(position);
+		public void onItemClick(AdapterView<?> parent, View view, int position,
+				long id) {
+			((NavigationDrawerCursorAdapter) parent.getAdapter())
+					.selectItem(position);
 			selectItem(position);
 
 		}
@@ -186,19 +236,24 @@ public class HomeActivity extends BaseActivity implements LoaderCallbacks<Cursor
 	private void selectItem(int position) {
 
 		// Highlight the selected item, update the title, and close the drawer
-		String selectedTeamIdentifier = mAdapter.getCursor().getString(ShowTeamsQuery.IDENTIFIER);
-		String selectedTeamName = mAdapter.getCursor().getString(ShowTeamsQuery.TEAM_NAME);
+		String selectedTeamIdentifier = mAdapter.getCursor().getString(
+				ShowTeamsQuery.IDENTIFIER);
+		String selectedTeamName = mAdapter.getCursor().getString(
+				ShowTeamsQuery.TEAM_NAME);
 		setTitle(selectedTeamName);
-		Prefs.setCurrentTeamIdentifier(HomeActivity.this, selectedTeamIdentifier);
+		Prefs.setCurrentTeamIdentifier(HomeActivity.this,
+				selectedTeamIdentifier);
 		mDrawerList.setItemChecked(position, true);
-		SyncHelper.requestManualSync(this, AccountUtils.getChosenAccount(this), SyncHelper.FLAG_SYNC_REMOTE);
+		SyncHelper.requestManualSync(this, AccountUtils.getChosenAccount(this),
+				SyncHelper.FLAG_SYNC_REMOTE);
 		mDrawerLayout.closeDrawer(mDrawerConents);
 	}
 
 	/* Called whenever we call invalidateOptionsMenu() */
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
-		// TODO If the nav drawer is open, hide action items related to the content view
+		// TODO If the nav drawer is open, hide action items related to the
+		// content view
 		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerConents);
 		return super.onPrepareOptionsMenu(menu);
 	}

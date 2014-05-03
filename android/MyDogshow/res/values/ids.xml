@@ -9,4 +9,7 @@
     <item type="id" name="dashboard_find_show"/>
     <item type="id" name="dashboard_handlers"/>
     <item type="id" name="dashboard_doghouse"/>
+    <item type="id" name="drawer_item_text1"/>
+    <item type="id" name="drawer_item_text2"/>
+    <item type="id" name="drawer_item_icon"/>
 </resources>
