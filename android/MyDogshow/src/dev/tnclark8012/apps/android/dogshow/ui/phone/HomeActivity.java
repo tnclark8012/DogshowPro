@@ -60,6 +60,31 @@ public class HomeActivity extends BaseActivity implements LoaderCallbacks<Cursor
 			}
 		}
 	};
+	@Override
+	public Loader<Cursor> onCreateLoader(int id, Bundle data) {
+		if (id == ShowTeamsQuery._TOKEN) {
+			return new CursorLoader(this, ShowTeams.CONTENT_URI, ShowTeamsQuery.PROJECTION, null, null, ShowTeams.DEFAULT_SORT);
+		} else {
+			Log.w(TAG, "Couldn't create loader");
+			return null;
+		}
+	}
+
+	@Override
+	public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
+		int token = loader.getId();
+		if (token == ShowTeamsQuery._TOKEN) {
+			mAdapter.changeCursor(cursor);
+		} else {
+			Log.d(TAG, "Query complete, Not Actionable: " + token);
+			cursor.close();
+		}
+	}
+
+	@Override
+	public void onLoaderReset(Loader<Cursor> arg0) {
+		Log.v(TAG, "onLoaderReset");
+	}
 
 	@SuppressLint("NewApi")
 	@Override
@@ -107,6 +132,7 @@ public class HomeActivity extends BaseActivity implements LoaderCallbacks<Cursor
 			getActionBar().setHomeButtonEnabled(true);
 		}
 		mDrawerList = (ListView) findViewById(R.id.left_drawer);
+		mDrawerList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 		String currentTeam = Prefs.currentTeamIdentifier(this);
 		// Set the adapter for the list view
 		mAdapter = new NavigationDrawerCursorAdapter(this, null, false, R.layout.list_item_simple, R.id.text1, ShowTeamsQuery.TEAM_NAME, currentTeam, ShowTeamsQuery.IDENTIFIER);
@@ -202,29 +228,4 @@ public class HomeActivity extends BaseActivity implements LoaderCallbacks<Cursor
 		return super.onOptionsItemSelected(item);
 	}
 
-	@Override
-	public Loader<Cursor> onCreateLoader(int id, Bundle data) {
-		if (id == ShowTeamsQuery._TOKEN) {
-			return new CursorLoader(this, ShowTeams.CONTENT_URI, ShowTeamsQuery.PROJECTION, null, null, ShowTeams.DEFAULT_SORT);
-		} else {
-			Log.w(TAG, "Couldn't create loader");
-			return null;
-		}
-	}
-
-	@Override
-	public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
-		int token = loader.getId();
-		if (token == ShowTeamsQuery._TOKEN) {
-			mAdapter.changeCursor(cursor);
-		} else {
-			Log.d(TAG, "Query complete, Not Actionable: " + token);
-			cursor.close();
-		}
-	}
-
-	@Override
-	public void onLoaderReset(Loader<Cursor> arg0) {
-		Log.v(TAG, "onLoaderReset");
-	}
 }

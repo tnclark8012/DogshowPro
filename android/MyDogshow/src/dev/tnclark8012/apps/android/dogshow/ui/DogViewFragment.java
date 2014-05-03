@@ -30,6 +30,7 @@ import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
 public class DogViewFragment extends BaseEditableEntityViewFragment {
 	private static final String TAG = DogViewFragment.class.getSimpleName();
+
 	private interface DogQuery {
 		int _TOKEN = 0x1;
 
@@ -38,10 +39,8 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 				DogshowContract.Dogs.DOG_CALL_NAME,
 				DogshowContract.Dogs.DOG_IMAGE_PATH,
 				DogshowContract.Dogs.DOG_MAJORS,
-				DogshowContract.Dogs.DOG_POINTS,
-				DogshowContract.Dogs.DOG_SEX,
-				DogshowContract.Dogs.DOG_IS_SHOWING,
-				Dogs.DOG_CLASS};
+				DogshowContract.Dogs.DOG_POINTS, DogshowContract.Dogs.DOG_SEX,
+				DogshowContract.Dogs.DOG_IS_SHOWING, Dogs.DOG_CLASS };
 		int DOG_ID = 0;
 		int DOG_BREED = 1;
 		int DOG_CALL_NAME = 2;
@@ -52,6 +51,7 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 		int DOG_IS_SHOWING = 7;
 		int DOG_CLASS = 8;
 	}
+
 	private String mCallName;
 	private String mBreedName;
 	private String mImagePath;
@@ -72,21 +72,25 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 	private ImageLoadingListener mImageLoadingListener = new SimpleImageLoadingListener() {
 		@SuppressLint("NewApi")
 		@Override
-		public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+		public void onLoadingComplete(String imageUri, View view,
+				Bitmap loadedImage) {
 			if (Utils.isJellybean()) {
-				mViewImage.setBackground(new BitmapDrawable(getResources(), loadedImage));
+				mViewImage.setBackground(new BitmapDrawable(getResources(),
+						loadedImage));
 			} else {
-				mViewImage.setBackgroundDrawable(new BitmapDrawable(getResources(), loadedImage));
+				mViewImage.setBackgroundDrawable(new BitmapDrawable(
+						getResources(), loadedImage));
 			}
 			mImagePath = imageUri;
 			Log.v(TAG, "done");
 		}
 	};
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		mRootView = (ViewGroup) inflater.inflate(R.layout.fragment_dog_view_next,
-				null);
+		mRootView = (ViewGroup) inflater.inflate(
+				R.layout.fragment_dog_view_next, null);
 		mViewName = (TextView) mRootView.findViewById(R.id.dog_view_name);
 		mViewBreed = (TextView) mRootView
 				.findViewById(R.id.dog_view_section_breed_text);
@@ -94,50 +98,52 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 				.findViewById(R.id.dog_view_section_majors_text);
 		mViewPoints = (TextView) mRootView
 				.findViewById(R.id.dog_view_section_points_text);
-//		mViewOwner = (TextView) mRootView
-//				.findViewById(R.id.dog_view_section_owner_text);
-		mViewImage = (ImageView)mRootView
-				.findViewById(R.id.dog_view_image);
-		mViewSex = (TextView) mRootView.findViewById(R.id.dog_view_section_sex_text);
+		// mViewOwner = (TextView) mRootView
+		// .findViewById(R.id.dog_view_section_owner_text);
+		mViewImage = (ImageView) mRootView.findViewById(R.id.dog_view_image);
+		mViewSex = (TextView) mRootView
+				.findViewById(R.id.dog_view_section_sex_text);
 		return mRootView;
 	}
 
 	protected void onQueryComplete(Cursor cursor) {
-		cursor.moveToFirst();
-		mBreedName = cursor.getString(DogQuery.DOG_BREED);
-		mCallName = cursor.getString(DogQuery.DOG_CALL_NAME);
-		getActivity().setTitle(mCallName);
-		getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
-		mImagePath = cursor.getString(DogQuery.DOG_IMAGE_PATH);
-		mMajors = cursor.getInt(DogQuery.DOG_MAJORS);
-		mPoints = cursor.getInt(DogQuery.DOG_POINTS);
-		mSex = (cursor.getInt(DogQuery.DOG_SEX)==Dogs.MALE)? "Male" : "Female";//TODO string resource
-		mViewBreed.setText(Breeds.parse(mBreedName).getPrimaryName());
-		mViewSex.setText(mSex);
-		if(mViewName != null)	mViewName.setText(mCallName);
-		Log.v(TAG, "DOG_IS_SHOWING: " + cursor.getInt(DogQuery.DOG_IS_SHOWING));
-		if (mImagePath != null) {
-			UIUtils.loadImage(getActivity(), mImageLoadingListener, mImagePath);
-		} else {
-			Log.w(TAG, "Image path was null");
-			mViewImage.setBackgroundResource(R.drawable.dog);
+		if (cursor.moveToFirst()) {
+			mBreedName = cursor.getString(DogQuery.DOG_BREED);
+			mCallName = cursor.getString(DogQuery.DOG_CALL_NAME);
+			getActivity().setTitle(mCallName);
+			getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
+			mImagePath = cursor.getString(DogQuery.DOG_IMAGE_PATH);
+			mMajors = cursor.getInt(DogQuery.DOG_MAJORS);
+			mPoints = cursor.getInt(DogQuery.DOG_POINTS);
+			mSex = (cursor.getInt(DogQuery.DOG_SEX) == Dogs.MALE) ? "Male"
+					: "Female";// TODO string resource
+			mViewBreed.setText(Breeds.parse(mBreedName).getPrimaryName());
+			mViewSex.setText(mSex);
+			if (mViewName != null)
+				mViewName.setText(mCallName);
+			Log.v(TAG,
+					"DOG_IS_SHOWING: " + cursor.getInt(DogQuery.DOG_IS_SHOWING));
+			if (mImagePath != null) {
+				UIUtils.loadImage(getActivity(), mImageLoadingListener,
+						mImagePath);
+			} else {
+				Log.w(TAG, "Image path was null");
+				mViewImage.setBackgroundResource(R.drawable.dog);
+			}
+			// String majorsTemplate = ;
+			Resources res = getResources();
+			mViewMajors.setText(res.getQuantityString(
+					R.plurals.template_majors, mMajors, mMajors));
+			Log.d(TAG, "Points: " + mPoints);
+			if (mPoints >= 15) {
+				mViewPoints.setText(res.getString(
+						R.string.template_points_finished, mPoints));
+			} else {
+				mViewPoints.setText(res.getQuantityString(
+						R.plurals.template_points_needed, mPoints, mPoints,
+						15 - mPoints));
+			}
 		}
-		// String majorsTemplate = ;
-		Resources res = getResources();
-		mViewMajors.setText(res.getQuantityString(R.plurals.template_majors,
-				mMajors, mMajors ));
-		Log.d(TAG, "Points: " + mPoints);
-		if(mPoints >= 15)
-		{
-			mViewPoints.setText(res.getString(R.string.template_points_finished,
-					mPoints));
-		}
-		else
-		{
-			mViewPoints.setText(res.getQuantityString(R.plurals.template_points_needed,
-					mPoints, mPoints, 15- mPoints));
-		}
-
 	}
 
 	@Override
@@ -147,7 +153,8 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 
 	@Override
 	protected CursorLoader getCursorLoader(Activity activity, Uri uri) {
-		return new CursorLoader(activity, uri, DogQuery.PROJECTION, null, null, null);
+		return new CursorLoader(activity, uri, DogQuery.PROJECTION, null, null,
+				null);
 	}
 
 	@Override

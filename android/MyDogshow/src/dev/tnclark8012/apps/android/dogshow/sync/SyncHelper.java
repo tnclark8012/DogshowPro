@@ -180,10 +180,10 @@ public class SyncHelper {
 		final ContentResolver resolver = mContext.getContentResolver();
 		ShowTeamSyncHandler teamHelper = new ShowTeamSyncHandler(mContext, mAccessor);
 		teamHelper.sync(resolver, lastSync, flags);
+		Log.i(TAG, "Completed team sync");
 		DogSyncHandler dogHelper = new DogSyncHandler(mContext, mAccessor);
 		dogHelper.sync(resolver, lastSync, flags);
 		Log.i(TAG, "Completed dog sync");
-		Log.i(TAG, "Completed team sync");
 		setLastSync(mContext, System.currentTimeMillis());
 
 		if (syncResult != null) {

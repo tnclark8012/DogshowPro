@@ -73,7 +73,7 @@ public class AccountUtils {
 		Prefs.get(context).edit().putString(Prefs.KEY_USER_ID, userId).commit();
 	}
 
-	public static String getUserId(Context context) {
+	public static String getUserIdentifier(Context context) {
 		return Prefs.get(context).getString(Prefs.KEY_USER_ID, null);
 	}
 

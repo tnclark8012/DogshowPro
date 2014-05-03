@@ -39,7 +39,7 @@ public class PersistHelper {
 		if (meCursor.getCount() == 0) {
 			Log.v(TAG, "Creating Me");
 			Map<String, Object> values = new HashMap<String, Object>();
-			values.put(Handlers.HANDLER_ID, AccountUtils.getUserId(mContext));
+			values.put(Handlers.HANDLER_ID, AccountUtils.getUserIdentifier(mContext));
 			values.put(Handlers.HANDLER_IS_ME, 1);
 			values.put(Handlers.HANDLER_NAME, AccountUtils.getPlusProfileName(mContext));
 			createEntity(Handlers.CONTENT_URI, values);

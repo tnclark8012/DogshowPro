@@ -90,9 +90,9 @@ public class ShowTeamDialog extends DialogFragment implements OnClickListener {
 						@Override
 						protected ShowTeamResponse doInBackground(String... params) {
 							if (mMode == MODE_CREATE) {
-								return ApiAccessor.getInstance(getActivity()).createShowTeam(AccountUtils.getUserId(getActivity()), params[0], params[1]);
+								return ApiAccessor.getInstance(getActivity()).createShowTeam(AccountUtils.getUserIdentifier(getActivity()), params[0], params[1]);
 							} else {
-								return ApiAccessor.getInstance(getActivity()).joinShowTeam(AccountUtils.getUserId(getActivity()), params[0], params[1]);
+								return ApiAccessor.getInstance(getActivity()).joinShowTeam(AccountUtils.getUserIdentifier(getActivity()), params[0], params[1]);
 							}
 						}
 

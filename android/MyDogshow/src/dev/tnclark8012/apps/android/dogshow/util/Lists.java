@@ -17,8 +17,7 @@ public class Lists {
 		for(int i = 0; i < length; i++)
 		{
 			current = ints.get(i);
-			if(current!=null) primitive[i] = current.intValue();
-			else primitive[i] = defaultValue;
+			primitive[i] = (current!=null) ?  current.intValue() : defaultValue;
 		}
 		return primitive;
 	}

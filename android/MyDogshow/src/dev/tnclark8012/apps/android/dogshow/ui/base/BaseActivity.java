@@ -24,10 +24,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import dev.tnclark8012.apps.android.dogshow.Config;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.preferences.PrefsActivity;
+import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.ui.phone.HomeActivity;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 
@@ -36,30 +36,30 @@ import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
  */
 public abstract class BaseActivity extends Activity {
 	private static final String TAG = BaseActivity.class.getSimpleName();
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// If we're not on Google TV and we're not authenticated, finish this
 		// activity
 		// and show the authentication screen.
-			if (Prefs.isSyncEnabled(this) && !AccountUtils.isAuthenticated(this)) {//TODO implement
-//				new Intent(this, DogActivity.class)
-				AccountUtils.startAuthenticationFlow(this, getIntent());
-				finish();
-			}
-			else
-			{
-				Log.i(TAG, "Is authenticated");
-			}
-//		getActionBar().setHomeButtonEnabled(true);
+		if (Prefs.isSyncEnabled(this) && !AccountUtils.isAuthenticated(this)) {// TODO
+																				// implement
+			// new Intent(this, DogActivity.class)
+			AccountUtils.startAuthenticationFlow(this, getIntent());
+			finish();
+		} else {
+			Log.i(TAG, "Is authenticated");
+		}
+		// getActionBar().setHomeButtonEnabled(true);
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
-	    MenuInflater inflater = getMenuInflater();
-	    inflater.inflate(R.menu.base, menu);
-	    return true;
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.base, menu);
+		return true;
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
@@ -71,11 +71,16 @@ public abstract class BaseActivity extends Activity {
 		case R.id.menu_preferences:
 			startActivity(new Intent(this, PrefsActivity.class));
 			return true;
+		case R.id.menu_sync:
+			SyncHelper.requestManualSync(this,
+					AccountUtils.getChosenAccount(this),
+					SyncHelper.FLAG_SYNC_REMOTE);
+			return true;
 		}
-		
+
 		return super.onOptionsItemSelected(item);
 	}
-	
+
 	/**
 	 * Converts an intent into a {@link Bundle} suitable for use as fragment
 	 * arguments.
