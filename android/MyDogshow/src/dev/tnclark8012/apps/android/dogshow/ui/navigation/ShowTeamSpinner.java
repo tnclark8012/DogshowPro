@@ -2,35 +2,39 @@ package dev.tnclark8012.apps.android.dogshow.ui.navigation;
 
 import java.util.List;
 
+import android.database.Cursor;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.CursorAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 import dev.tnclark8012.apps.android.dogshow.R;
-import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
-import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 
-public class DrawerItemSpinner extends NonNavigationDrawerItem {
+public class ShowTeamSpinner extends NonNavigationDrawerItem {
+	private Spinner mSpinner;
+	private CursorAdapter mAdapter;
 
-	private List<SpinnerItem> mItems;
-
-	public DrawerItemSpinner(List<SpinnerItem> items,
-			OnClickListener spinnerClickListener) {
+	public ShowTeamSpinner(OnClickListener spinnerClickListener) {
 		super(R.layout.drawer_item_spinner, IGNORE_RESOURCE, null,
 				spinnerClickListener);
-		mItems = items;
 	}
 
-	public DrawerItemSpinner(List<SpinnerItem> items) {
-		this(items, null);
+	public ShowTeamSpinner() {
+		this(null);
 	}
 
 	@Override
 	protected DrawerItemViewHolder getViewHolder() {
 		return new DrawerItemSpinnerViewHolder();
+	}
+
+	public void changeCursor(Cursor cursor) {
+		if (mAdapter != null) {
+			mAdapter.changeCursor(cursor);
+		}
 	}
 
 	@Override
@@ -45,20 +49,13 @@ public class DrawerItemSpinner extends NonNavigationDrawerItem {
 			holder.spinner = (Spinner) convertView
 					.findViewById(R.id.drawerSpinner);
 		}
-		CustomSpinnerAdapter adapter = new CustomSpinnerAdapter(
-				parent.getContext(), R.layout.spinner_item_team, mItems);
-
-		holder.spinner.setAdapter(new ShowTeamSpinnerAdapter(parent
-				.getContext(), null, false));
-
 		holder.spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			@Override
 			public void onItemSelected(AdapterView<?> adapter, View view,
 					int position, long id) {
-				// new
-				// PersistHelper(view.getContext()).updateEntity(ShowTeams.CONTENT_URI,
-				// id, updateValues);
+				Toast.makeText(view.getContext(), "OnItemSelected",
+						Toast.LENGTH_SHORT).show();
 			}
 
 			@Override
@@ -67,6 +64,10 @@ public class DrawerItemSpinner extends NonNavigationDrawerItem {
 
 			}
 		});
+		mAdapter = new ShowTeamSpinnerAdapter(convertView.getContext(), null,
+				false);
+		holder.spinner.setAdapter(mAdapter);
+		mSpinner = holder.spinner;
 		return convertView;
 	}
 

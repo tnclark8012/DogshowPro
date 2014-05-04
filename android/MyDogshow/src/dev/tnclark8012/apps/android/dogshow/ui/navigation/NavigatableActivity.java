@@ -3,12 +3,11 @@ package dev.tnclark8012.apps.android.dogshow.ui.navigation;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.android.gms.maps.GoogleMap.SnapshotReadyCallback;
-
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.LoaderManager;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.CursorLoader;
 import android.content.Intent;
@@ -28,9 +27,10 @@ import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.Spinner;
+import android.widget.Toast;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.adapters.NavigationDrawerCursorAdapter;
+import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.preferences.PrefsActivity;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.ShowTeamsQuery;
@@ -38,7 +38,6 @@ import dev.tnclark8012.apps.android.dogshow.ui.DogListFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.HandlerListFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.IncompleteFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment;
-import dev.tnclark8012.apps.android.dogshow.ui.ShowTeamListFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.SimpleSinglePaneActivity;
 import dev.tnclark8012.apps.android.dogshow.ui.phone.HomeActivity;
 import dev.tnclark8012.apps.android.dogshow.ui.phone.ShowTeamListActivity;
@@ -64,7 +63,7 @@ public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 	private ActionBarDrawerToggle mDrawerToggle;
 	private RelativeLayout mJoinButton;
 	private NavigationDrawerCursorAdapter mAdapter;
-	private Spinner showTeamSpinner;
+	private ShowTeamSpinner showTeamSpinner;
 	ArrayList<DrawerItem> mDrawerItems;
 	private final ContentObserver mObserver = new ContentObserver(new Handler()) {
 		@Override
@@ -81,8 +80,9 @@ public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 	public Loader<Cursor> onCreateLoader(int id, Bundle data) {
 		if (id == ShowTeamsQuery._TOKEN) {
 			return new CursorLoader(this, ShowTeams.CONTENT_URI,
-					ShowTeamsQuery.PROJECTION, null, null,
-					ShowTeams.DEFAULT_SORT);
+					ShowTeamsQuery.PROJECTION, ShowTeams.SHOW_TEAM_ID + "=?",
+					new String[] { Prefs.currentTeamIdentifier(this) },
+					ShowTeams.DEFAULT_SORT + " limit 1");
 		} else {
 			Log.w(TAG, "Couldn't create loader");
 			return null;
@@ -93,7 +93,7 @@ public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 	public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
 		int token = loader.getId();
 		if (token == ShowTeamsQuery._TOKEN) {
-
+			showTeamSpinner.changeCursor(cursor);
 		} else {
 			Log.d(TAG, "Query complete, Not Actionable: " + token);
 			cursor.close();
@@ -134,14 +134,16 @@ public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 				GravityCompat.START);
 		mDrawerItems = new ArrayList<DrawerItem>();
 		// Add Drawer Item to dataList
-		List<SpinnerItem> userList = new ArrayList<SpinnerItem>();
-
-		userList.add(new SpinnerItem(-1, "Ahamed Ishak", "ishak@gmail.com"));
-		userList.add(new SpinnerItem(-1, "Brain Jekob", "brain.j@gmail.com"));
-
-		mDrawerItems.add(new DrawerItemSpinner(userList)); // adding a
-															// spinner to
-															// the list
+		showTeamSpinner = new ShowTeamSpinner(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Toast.makeText(NavigatableActivity.this, "Clicked a team",
+						Toast.LENGTH_SHORT).show();
+			}
+		});
+		mDrawerItems.add(showTeamSpinner); // adding a
+											// spinner to
+											// the list
 
 		// dataList.add(new DrawerItem("My Favorites")); // adding a header to
 		// the list
@@ -196,6 +198,8 @@ public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
 				GravityCompat.START);
 
+		LoaderManager manager = getLoaderManager();
+		manager.restartLoader(ShowTeamsQuery._TOKEN, null, this);
 		// dataList.get(selectedNavigation).onClick();
 		// Fragment fragment = getFragment();
 		// // // Insert the fragment by replacing any existing fragment

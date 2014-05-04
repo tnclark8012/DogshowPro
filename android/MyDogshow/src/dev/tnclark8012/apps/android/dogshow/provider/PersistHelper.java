@@ -35,13 +35,17 @@ public class PersistHelper {
 		final ContentResolver resolver = mContext.getContentResolver();
 		String selection = Handlers.HANDLER_IS_ME + "=?";
 		String[] selectionArgs = new String[] { "1" };
-		Cursor meCursor = resolver.query(Handlers.CONTENT_URI, new String[] { Handlers.HANDLER_IS_ME }, selection, selectionArgs, null);
+		Cursor meCursor = resolver.query(Handlers.CONTENT_URI,
+				new String[] { Handlers.HANDLER_IS_ME }, selection,
+				selectionArgs, null);
 		if (meCursor.getCount() == 0) {
 			Log.v(TAG, "Creating Me");
 			Map<String, Object> values = new HashMap<String, Object>();
-			values.put(Handlers.HANDLER_ID, AccountUtils.getUserIdentifier(mContext));
+			values.put(Handlers.HANDLER_ID,
+					AccountUtils.getUserIdentifier(mContext));
 			values.put(Handlers.HANDLER_IS_ME, 1);
-			values.put(Handlers.HANDLER_NAME, AccountUtils.getPlusProfileName(mContext));
+			values.put(Handlers.HANDLER_NAME,
+					AccountUtils.getPlusProfileName(mContext));
 			createEntity(Handlers.CONTENT_URI, values);
 			meCursor.close();
 			return true;
@@ -52,9 +56,17 @@ public class PersistHelper {
 	}
 
 	// TODO use only this?
-	public void updateEntity(Uri contentUri, long id, Map<String, Object> updateValues) {
+	public void updateEntity(Uri contentUri, long id,
+			Map<String, Object> updateValues) {
 		// TODO is it safe to use this ID instead of the GUID id?
-		updateTable(contentUri, updateValues, BaseColumns._ID + "=?", new String[] { String.valueOf(id) });
+		updateTable(contentUri, updateValues, BaseColumns._ID + "=?",
+				new String[] { String.valueOf(id) });
+	}
+
+	public void updateEntity(Uri contentUri, Map<String, Object> updateValues,
+			String selection, String[] selectionArgs) {
+		// TODO is it safe to use this ID instead of the GUID id?
+		updateTable(contentUri, updateValues, selection, selectionArgs);
 	}
 
 	// TODO use only this?
@@ -74,13 +86,17 @@ public class PersistHelper {
 		updateEntity(Dogs.CONTENT_URI, id, updateValues);
 	}
 
-	private void updateTable(Uri contentUri, Map<String, Object> updateValues, String selection, String[] selectionArgs) {
+	private void updateTable(Uri contentUri, Map<String, Object> updateValues,
+			String selection, String[] selectionArgs) {
 
-		ContentProviderOperation.Builder builder = ContentProviderOperation.newUpdate(DogshowContract.addCallerIsSyncAdapterParameter(contentUri));
+		ContentProviderOperation.Builder builder = ContentProviderOperation
+				.newUpdate(DogshowContract
+						.addCallerIsSyncAdapterParameter(contentUri));
 		buildAndApplyBatch(builder, updateValues, selection, selectionArgs);
 	}
 
-	private void buildAndApplyBatch(ContentProviderOperation.Builder builder, Map<String, Object> values, String selection, String[] selectionArgs) {
+	private void buildAndApplyBatch(ContentProviderOperation.Builder builder,
+			Map<String, Object> values, String selection, String[] selectionArgs) {
 		// TODO LOW: move these calls to a Service
 		if (values != null) {
 			Set<String> keys = values.keySet();
@@ -97,13 +113,18 @@ public class PersistHelper {
 		}
 	}
 
-	private void insertIntoTable(Uri contentUri, Map<String, Object> insertValues, String selection, String[] selectionArgs) {
-		ContentProviderOperation.Builder builder = ContentProviderOperation.newInsert(DogshowContract.addCallerIsSyncAdapterParameter(contentUri));
+	private void insertIntoTable(Uri contentUri,
+			Map<String, Object> insertValues, String selection,
+			String[] selectionArgs) {
+		ContentProviderOperation.Builder builder = ContentProviderOperation
+				.newInsert(DogshowContract
+						.addCallerIsSyncAdapterParameter(contentUri));
 		buildAndApplyBatch(builder, insertValues, null, null);
 	}
 
 	public void deleteEntity(Uri entityUri) {
-		ContentProviderOperation.Builder builder = ContentProviderOperation.newDelete(entityUri);
+		ContentProviderOperation.Builder builder = ContentProviderOperation
+				.newDelete(entityUri);
 		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
 		batch.add(builder.build());
 		applyBatch(batch);
@@ -111,7 +132,8 @@ public class PersistHelper {
 
 	private void applyBatch(ArrayList<ContentProviderOperation> batch) {
 		try {
-			mContext.getContentResolver().applyBatch(DogshowContract.CONTENT_AUTHORITY, batch);
+			mContext.getContentResolver().applyBatch(
+					DogshowContract.CONTENT_AUTHORITY, batch);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		} catch (OperationApplicationException e) {

@@ -3,7 +3,9 @@ package dev.tnclark8012.apps.android.dogshow.preferences;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import dev.tnclark8012.apps.android.dogshow.model.ShowTeam;
 import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
+import dev.tnclark8012.apps.android.dogshow.ui.navigation.ShowTeamSpinner;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 
@@ -21,6 +23,7 @@ public final class Prefs {
 	public static final String KEY_USER_ID = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.USER_ID";
 	public static final String KEY_LAST_SYNC = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.LAST_SYNC";
 	public static final String KEY_ENABLE_SYNC = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.SYNC";
+	public static final String KEY_CURRENT_TEAM_ID = "dev.tclark8012.dogshow.android.dogshow.prefs.key.CURRENT_TEAM_ID";
 	public static final String KEY_CURRENT_TEAM = "dev.tclark8012.dogshow.android.dogshow.prefs.key.CURRENT_TEAM_NAME";
 	public static final String KEY_LOCAL_SERVER = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.LOCAL_SERVER";
 
@@ -43,7 +46,8 @@ public final class Prefs {
 	 * @return milliseconds per dog
 	 */
 	public static long getEstimatedJudgingTime(Context context) {
-		String number = PreferenceManager.getDefaultSharedPreferences(context).getString(KEY_JUDGE_TIME, "2.5");
+		String number = PreferenceManager.getDefaultSharedPreferences(context)
+				.getString(KEY_JUDGE_TIME, "2.5");
 		return (long) (Utils.parseSafely(number, 2.5f) * 60000);// 2.5 minutes
 	}
 
@@ -54,14 +58,42 @@ public final class Prefs {
 	 * @param currentTeam
 	 * @return true if the team changed
 	 */
-	public static boolean setCurrentTeamIdentifier(Context context, String currentTeam) {
+	public static boolean setCurrentTeamIdentifier(Context context,
+			String currentTeam) {
 		if (currentTeam != currentTeamIdentifier(context)) {
-			get(context).edit().putString(KEY_CURRENT_TEAM, currentTeam).commit();
+			get(context).edit().putString(KEY_CURRENT_TEAM_ID, currentTeam)
+					.commit();
+		}
+		return false;
+	}
+
+	public static boolean setCurrentTeamName(Context context,
+			String currentTeamName) {
+		if (currentTeamName != currentTeamName(context)) {
+			get(context).edit().putString(KEY_CURRENT_TEAM, currentTeamName)
+					.commit();
 		}
 		return false;
 	}
 
 	public static String currentTeamIdentifier(Context context) {
-		return get(context).getString(KEY_CURRENT_TEAM, AccountUtils.getUserIdentifier(context));//FIXME should be user identifier, but intellisense isn't working right now
+		return get(context).getString(KEY_CURRENT_TEAM_ID,
+				AccountUtils.getUserIdentifier(context));// FIXME should be user
+															// identifier, but
+															// intellisense
+															// isn't working
+															// right now
+	}
+
+	public static String currentTeamName(Context context) {
+		return get(context).getString(KEY_CURRENT_TEAM, "Just Me");// FIXME
+																	// should be
+																	// user
+																	// identifier,
+																	// but
+																	// intellisense
+																	// isn't
+																	// working
+																	// right now
 	}
 }
