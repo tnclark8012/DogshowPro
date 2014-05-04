@@ -5,7 +5,6 @@ import android.app.Fragment;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Intent;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
@@ -19,10 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.adapters.NavigationDrawerCursorAdapter;
-import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.ui.DashboardFragment;
-import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment;
-import dev.tnclark8012.apps.android.dogshow.ui.navigation.DogshowActionBarDrawerToggle;
 import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigatableActivity;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 
@@ -30,7 +26,7 @@ import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
  * The landing screen for the app, once the user has logged in.
  */
 public class HomeActivity extends NavigatableActivity implements
-		LoaderCallbacks<Cursor>, BaseEntityListFragment.Callbacks {
+		LoaderCallbacks<Cursor> {
 	private static final String TAG = HomeActivity.class.getSimpleName();
 	private DrawerLayout mDrawerLayout;
 	private LinearLayout mDrawerConents;
@@ -207,25 +203,9 @@ public class HomeActivity extends NavigatableActivity implements
 		return super.onOptionsItemSelected(item);
 	}
 
-	@Override
-	protected Fragment onCreatePane() {
-		return new DashboardFragment();
-	}
+//	@Override
+//	protected Fragment onCreatePane() {
+//		return new DashboardFragment();
+//	}
 
-	@Override
-	public boolean onEntityClick(Uri uri, String entityId) {
-		startActivity(new Intent(Intent.ACTION_VIEW));
-		return true;
-	}
-
-	@Override
-	public boolean onAddEntityClick(Uri uri) {
-		startActivity(new Intent(Intent.ACTION_VIEW, uri));
-		return true;
-	}
-
-	@Override
-	public void onDeleteEntity(Uri uri, String entityId) {
-
-	}
 }

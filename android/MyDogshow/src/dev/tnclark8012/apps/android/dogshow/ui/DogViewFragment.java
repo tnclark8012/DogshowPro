@@ -1,9 +1,5 @@
 package dev.tnclark8012.apps.android.dogshow.ui;
 
-import java.io.File;
-
-import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.CursorLoader;
@@ -19,13 +15,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
+
+import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 import dev.tnclark8012.apps.android.dogshow.util.image.SimpleImageLoadingListener;
-import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
 public class DogViewFragment extends BaseEditableEntityViewFragment {
@@ -154,7 +153,7 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 	@Override
 	protected CursorLoader getCursorLoader(Activity activity, Uri uri) {
 		return new CursorLoader(activity, uri, DogQuery.PROJECTION, null, null,
-				null);
+				Dogs.SORT_NEWEST_FIRST);
 	}
 
 	@Override

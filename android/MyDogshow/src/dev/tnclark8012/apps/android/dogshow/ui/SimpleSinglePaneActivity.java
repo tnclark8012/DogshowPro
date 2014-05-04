@@ -23,43 +23,47 @@ import dev.tnclark8012.apps.android.dogshow.ui.base.BaseActivity;
 import dev.tnclark8012.apps.android.dogshow.R;
 
 /**
- * A {@link BaseActivity} that simply contains a single fragment. The intent used to invoke this
- * activity is forwarded to the fragment as arguments during fragment instantiation. Derived
- * activities should only need to implement {@link SimpleSinglePaneActivity#onCreatePane()}.
+ * A {@link BaseActivity} that simply contains a single fragment. The intent
+ * used to invoke this activity is forwarded to the fragment as arguments during
+ * fragment instantiation. Derived activities should only need to implement
+ * {@link SimpleSinglePaneActivity#onCreatePane()}.
  */
 public abstract class SimpleSinglePaneActivity extends BaseActivity {
-    private Fragment mFragment;
+	private Fragment mFragment;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_singlepane_empty);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_singlepane_empty);
 
-        if (getIntent().hasExtra(Intent.EXTRA_TITLE)) {
-            setTitle(getIntent().getStringExtra(Intent.EXTRA_TITLE));
-        }
+		if (getIntent().hasExtra(Intent.EXTRA_TITLE)) {
+			setTitle(getIntent().getStringExtra(Intent.EXTRA_TITLE));
+		}
 
-        final String customTitle = getIntent().getStringExtra(Intent.EXTRA_TITLE);
-        setTitle(customTitle != null ? customTitle : getTitle());
+		final String customTitle = getIntent().getStringExtra(
+				Intent.EXTRA_TITLE);
+		setTitle(customTitle != null ? customTitle : getTitle());
 
-        if (savedInstanceState == null) {
-            mFragment = onCreatePane();
-            mFragment.setArguments(intentToFragmentArguments(getIntent()));
+		if (savedInstanceState == null) {
+			mFragment = onCreatePane();
+			mFragment.setArguments(intentToFragmentArguments(getIntent(),
+					mFragment.getArguments()));
 			getFragmentManager().beginTransaction()
-                    .add(R.id.root_container, mFragment, "single_pane")
-                    .commit();
-        } else {
-            mFragment = getFragmentManager().findFragmentByTag("single_pane");
-        }
-    }
+					.add(R.id.root_container, mFragment, "single_pane")
+					.commit();
+		} else {
+			mFragment = getFragmentManager().findFragmentByTag("single_pane");
+		}
+	}
 
-    /**
-     * Called in <code>onCreate</code> when the fragment constituting this activity is needed.
-     * The returned fragment's arguments will be set to the intent used to invoke this activity.
-     */
-    protected abstract Fragment onCreatePane();
+	/**
+	 * Called in <code>onCreate</code> when the fragment constituting this
+	 * activity is needed. The returned fragment's arguments will be set to the
+	 * intent used to invoke this activity.
+	 */
+	protected abstract Fragment onCreatePane();
 
-    public Fragment getFragment() {
-        return mFragment;
-    }
+	public Fragment getFragment() {
+		return mFragment;
+	}
 }

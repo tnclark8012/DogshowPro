@@ -1,14 +1,18 @@
 package dev.tnclark8012.apps.android.dogshow.ui.base;
 
-import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import dev.tnclark8012.apps.android.dogshow.ui.SimpleSinglePaneActivity;
 import dev.tnclark8012.apps.android.dogshow.R;
+import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigatableActivity;
 
-public abstract class BaseEditableEntityActivity extends SimpleSinglePaneActivity implements BaseEditableEntityViewFragment.Callbacks, BaseEditableEntityEditFragment.Callbacks {
-	private static final String TAG = BaseEditableEntityActivity.class.getSimpleName();
+public abstract class BaseEditableEntityActivity extends
+		NavigatableActivity implements
+		BaseEditableEntityViewFragment.Callbacks,
+		BaseEditableEntityEditFragment.Callbacks {
+	private static final String TAG = BaseEditableEntityActivity.class
+			.getSimpleName();
 	private boolean isEditing = false;
 	private Bundle mIntentBundle;
 	private BaseEditableEntityViewFragment mViewFragment;
@@ -20,33 +24,44 @@ public abstract class BaseEditableEntityActivity extends SimpleSinglePaneActivit
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-
-		super.onCreate(savedInstanceState);
+		// Setup our fragments before calling super.onCreate so they're ready
+		// for createPane()
 		mIntentBundle = intentToFragmentArguments(getIntent());
 		if (mViewFragment == null)
 			mViewFragment = getViewFragment();
 		if (mEditFragment == null)
 			mEditFragment = getEditFragment();
 		mViewFragment.setArguments(mIntentBundle);
+		String action = getIntent().getAction();
+		if (action.equals(Intent.ACTION_INSERT)) {
+			mIntentBundle.putBoolean(
+					BaseEditableEntityEditFragment.INTENT_EXTRA_NEW_ENTITY,
+					true);
+		}
 		mEditFragment.setArguments(mIntentBundle);
-		ActionBar actionBar = getActionBar();
-		actionBar.setDisplayShowHomeEnabled(false);
-		actionBar.setDisplayHomeAsUpEnabled(true);
+		
+		super.onCreate(savedInstanceState);
+
 		// actionBar.setHomeButtonEnabled(true);
 	}
 
 	@Override
 	protected final Fragment onCreatePane() {
-		if (mViewFragment == null) {
-			mViewFragment = getViewFragment();
+		String action = getIntent().getAction();
+		if (action.equals(Intent.ACTION_INSERT)
+				|| action.equals(Intent.ACTION_EDIT)) {
+			return mEditFragment;
+		} else if (action.equals(Intent.ACTION_VIEW)) {
+			return mViewFragment;
 		}
-		return mViewFragment;
+		throw new RuntimeException("No action specified for entity!");
 	}
 
 	private void swapFragments(boolean toEdit) {
 		Fragment swapIn = (toEdit) ? mEditFragment : mViewFragment;
 		swapIn.setArguments(mIntentBundle);
-		getFragmentManager().beginTransaction().replace(R.id.root_container, swapIn, "single_pane").commit();
+		getFragmentManager().beginTransaction()
+				.replace(R.id.root_container, swapIn, "single_pane").commit();
 	}
 
 	@Override

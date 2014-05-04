@@ -3,7 +3,10 @@ package dev.tnclark8012.apps.android.dogshow.ui.navigation;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.android.gms.maps.GoogleMap.SnapshotReadyCallback;
+
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.LoaderManager.LoaderCallbacks;
@@ -33,9 +36,12 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.ShowTeamsQuery;
 import dev.tnclark8012.apps.android.dogshow.ui.DogListFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.HandlerListFragment;
+import dev.tnclark8012.apps.android.dogshow.ui.IncompleteFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.ShowTeamListFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.SimpleSinglePaneActivity;
+import dev.tnclark8012.apps.android.dogshow.ui.phone.HomeActivity;
+import dev.tnclark8012.apps.android.dogshow.ui.phone.ShowTeamListActivity;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 
 /**
@@ -44,6 +50,14 @@ import dev.tnclark8012.apps.android.dogshow.util.Utils;
 public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 		implements LoaderCallbacks<Cursor> {
 	private static final String TAG = NavigatableActivity.class.getSimpleName();
+	public static final String EXTRA_SELECTED_NAVIGATION = "selected_navigation";
+	public static final int NAVIGATION_SHOW = 1;
+	public static final int NAVIGATION_DOGS = 2;
+	public static final int NAVIGATION_HANDLERS = 3;
+	public static final int NAVIGATION_HISTORY = 4;
+	public static final int NAVIGATION_SETTINGS = 5;
+	public static final int NAVIGATION_SHOW_TEAM = 6;
+	static int sCurrentNavigation = NAVIGATION_SHOW;
 	private DrawerLayout mDrawerLayout;
 	private LinearLayout mDrawerConents;
 	private ListView mDrawerList;
@@ -51,6 +65,7 @@ public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 	private RelativeLayout mJoinButton;
 	private NavigationDrawerCursorAdapter mAdapter;
 	private Spinner showTeamSpinner;
+	ArrayList<DrawerItem> mDrawerItems;
 	private final ContentObserver mObserver = new ContentObserver(new Handler()) {
 		@Override
 		public void onChange(boolean selfChange) {
@@ -103,76 +118,103 @@ public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 		mDrawerToggle = new DogshowActionBarDrawerToggle(this, mDrawerLayout);
 		// Set the drawer toggle as the DrawerListener
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		ActionBar actionBar = getActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
+		if (this instanceof HomeActivity) {
+			setDrawerIndicatorEnabled(true);
+		} else {
+			setDrawerIndicatorEnabled(false);
+		}
+
 		if (Utils.isJellybean()) {
 			getActionBar().setHomeButtonEnabled(true);
 		}
 		mDrawerList = (ListView) findViewById(R.id.left_drawer);
 		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
 				GravityCompat.START);
-		ArrayList<DrawerItem> dataList = new ArrayList<DrawerItem>();
+		mDrawerItems = new ArrayList<DrawerItem>();
 		// Add Drawer Item to dataList
 		List<SpinnerItem> userList = new ArrayList<SpinnerItem>();
 
 		userList.add(new SpinnerItem(-1, "Ahamed Ishak", "ishak@gmail.com"));
 		userList.add(new SpinnerItem(-1, "Brain Jekob", "brain.j@gmail.com"));
 
-		dataList.add(new DrawerItemSpinner(userList)); // adding a
-														// spinner to
-														// the list
+		mDrawerItems.add(new DrawerItemSpinner(userList)); // adding a
+															// spinner to
+															// the list
 
 		// dataList.add(new DrawerItem("My Favorites")); // adding a header to
 		// the list
-		dataList.add(new DrawerItemNavigation("Show Day",
+		mDrawerItems.add(new DrawerItemNavigation("Show Day",
 				new OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						changeRootFragment(new MyScheduleFragment());
+						changeRootFragment(NAVIGATION_SHOW);
 					}
 				}));
-		dataList.add(new DrawerItemNavigation("Dogs", new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				changeRootFragment(new DogListFragment());
-			}
-		}));
-		dataList.add(new DrawerItemNavigation("Handlers",
+		mDrawerItems.add(new DrawerItemNavigation("Dogs",
 				new OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						changeRootFragment(new HandlerListFragment());
+						changeRootFragment(NAVIGATION_DOGS);
 					}
 				}));
-		dataList.add(new DrawerItemNavigation("History"));
-		dataList.add(new DrawerItemOption("Settings", new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				startActivity(new Intent(NavigatableActivity.this,
-						PrefsActivity.class));
-				mDrawerLayout.closeDrawer(mDrawerConents);
-			}
-		}));
-		dataList.add(new DrawerItemOption("Manage Teams",
+		mDrawerItems.add(new DrawerItemNavigation("Handlers",
 				new OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						changeRootFragment(new ShowTeamListFragment());
+						changeRootFragment(NAVIGATION_HANDLERS);
+					}
+				}));
+		mDrawerItems.add(new DrawerItemNavigation("History"));
+		mDrawerItems.add(new DrawerItemOption("Settings",
+				new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						startActivity(new Intent(NavigatableActivity.this,
+								PrefsActivity.class));
+						mDrawerLayout.closeDrawer(mDrawerConents);
+					}
+				}));
+		mDrawerItems.add(new DrawerItemOption("Manage Teams",
+				new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						startActivity(new Intent(NavigatableActivity.this,
+								ShowTeamListActivity.class));
+						mDrawerLayout.closeDrawer(mDrawerConents);
 					}
 				}));
 
+		mDrawerItems.get(sCurrentNavigation).setChecked(true);
 		CustomDrawerAdapter adapter = new CustomDrawerAdapter(this,
-				R.layout.custom_drawer_item, dataList);
+				R.layout.custom_drawer_item, mDrawerItems);
 		mDrawerList.setAdapter(adapter);
+
 		// mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 		// mDrawerList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
 				GravityCompat.START);
+
+		// dataList.get(selectedNavigation).onClick();
 		// Fragment fragment = getFragment();
 		// // // Insert the fragment by replacing any existing fragment
 		// FragmentManager fragmentManager = getFragmentManager();
 		// fragmentManager.beginTransaction()
 		// .replace(R.id.content_frame, fragment).commit();
 		// getLoaderManager().initLoader(ShowTeamsQuery._TOKEN, null, this);
+	}
+
+	@Override
+	protected void onNewIntent(Intent intent) {
+		// TODO Auto-generated method stub
+		super.onNewIntent(intent);
+		Bundle extras = getIntent().getExtras();
+		if (extras != null) {
+			sCurrentNavigation = extras.getInt(EXTRA_SELECTED_NAVIGATION,
+					sCurrentNavigation);
+		}
+		changeRootFragment(sCurrentNavigation);
 	}
 
 	@Override
@@ -201,64 +243,58 @@ public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 		mDrawerToggle.onConfigurationChanged(newConfig);
 	}
 
-	// private class DrawerItemClickListener implements
-	// ListView.OnItemClickListener {
-	// @Override
-	// public void onItemClick(AdapterView<?> parent, View view, int position,
-	// long id) {
-	// ((NavigationDrawerCursorAdapter) parent.getAdapter())
-	// .selectItem(position);
-	// selectItem(position);
-	//
-	// }
-	// }
-	//
-	// /** Swaps fragments in the main content view */
-	// private void selectItem(int position) {
-	// // Highlight the selected item, update the title, and close the drawer
-	// String selectedTeamIdentifier = mAdapter.getCursor().getString(
-	// ShowTeamsQuery.IDENTIFIER);
-	// String selectedTeamName = mAdapter.getCursor().getString(
-	// ShowTeamsQuery.TEAM_NAME);
-	// setTitle(selectedTeamName);
-	// Prefs.setCurrentTeamIdentifier(NavigatableActivity.this,
-	// selectedTeamIdentifier);
-	// mDrawerList.setItemChecked(position, true);
-	// SyncHelper.requestManualSync(this, AccountUtils.getChosenAccount(this),
-	// SyncHelper.FLAG_SYNC_REMOTE);
-	// mDrawerLayout.closeDrawer(mDrawerConents);
-	// }
-
-	// @Override
-	// public boolean onCreateOptionsMenu(Menu menu) {
-	// super.onCreateOptionsMenu(menu);
-	// MenuInflater inflater = getMenuInflater();
-	// inflater.inflate(R.menu.home, menu);
-	// return true;
-	// }
+	protected void setDrawerIndicatorEnabled(boolean enabled) {
+		mDrawerToggle.setDrawerIndicatorEnabled(enabled);
+	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (mDrawerToggle.onOptionsItemSelected(item)) {
 			return true;
 		}
-		// switch (item.getItemId()) {
-		// case R.id.menu_preferences:
-		// startActivity(new Intent(this, PrefsActivity.class));
-		// return true;
-		// }
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void changeRootFragment(Fragment fragment) {
-
+	public void changeRootFragment(int navigationPosition) {
 		// // Insert the fragment by replacing any existing
 		// fragment
+		sCurrentNavigation = navigationPosition;
+		if (!(this instanceof HomeActivity)) {
+			Intent intent = new Intent(this, HomeActivity.class);
+			intent.putExtra(EXTRA_SELECTED_NAVIGATION, sCurrentNavigation);
+			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(intent);
+			finish();
+			return;
+		}
 		mDrawerLayout.closeDrawer(mDrawerConents);
 		FragmentManager fragmentManager = getFragmentManager();
 		fragmentManager.beginTransaction()
 				.setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-				.replace(R.id.root_container, fragment).commit();
+				.replace(R.id.root_container, getFragment(sCurrentNavigation))
+				.commit();
+	}
+
+	@Override
+	protected Fragment onCreatePane() {
+		Bundle extras = getIntent().getExtras();
+		if (extras != null) {
+			sCurrentNavigation = extras.getInt(EXTRA_SELECTED_NAVIGATION,
+					sCurrentNavigation);
+		}
+		return getFragment(sCurrentNavigation);
+	}
+
+	private Fragment getFragment(int navigationPostion) {
+		switch (navigationPostion) {
+		case NAVIGATION_SHOW:
+			return new MyScheduleFragment();
+		case NAVIGATION_DOGS:
+			return new DogListFragment();
+		case NAVIGATION_HANDLERS:
+			return new HandlerListFragment();
+		}
+		return new IncompleteFragment();
 	}
 
 }

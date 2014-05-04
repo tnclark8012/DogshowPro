@@ -102,4 +102,9 @@ public class ShowTeamListFragment extends BaseEntityListFragment implements Call
 		// ignore delete
 	}
 
+	@Override
+	protected Uri buildEntityUri(String entityId) {
+		return ShowTeams.buildShowTeamUri(entityId);
+	}
+
 }

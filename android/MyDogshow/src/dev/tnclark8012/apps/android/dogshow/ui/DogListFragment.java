@@ -3,7 +3,9 @@ package dev.tnclark8012.apps.android.dogshow.ui;
 import android.app.Activity;
 import android.content.CursorLoader;
 import android.net.Uri;
+import android.os.Bundle;
 import android.widget.CursorAdapter;
+import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.adapters.DogListAdapter;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.DogsQuery;
@@ -12,6 +14,12 @@ import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment;
 public class DogListFragment extends BaseEntityListFragment {
 	private static final String TAG = DogListFragment.class.getSimpleName();
 
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		getActivity().getActionBar().setTitle(R.string.dashboard_doghouse);
+	}
 	@Override
 	protected Uri getContentUri() {
 		return Dogs.CONTENT_URI;
@@ -35,6 +43,11 @@ public class DogListFragment extends BaseEntityListFragment {
 	@Override
 	protected int getTitleColumnIndex() {
 		return DogsQuery.DOG_CALL_NAME;
+	}
+
+	@Override
+	protected Uri buildEntityUri(String entityId) {
+		return Dogs.buildDogUri(entityId);
 	}
 
 }

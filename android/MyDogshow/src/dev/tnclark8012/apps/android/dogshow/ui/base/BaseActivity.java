@@ -78,9 +78,16 @@ public abstract class BaseActivity extends Activity {
 	 * arguments.
 	 */
 	public static Bundle intentToFragmentArguments(Intent intent) {
-		Bundle arguments = new Bundle();
+		return intentToFragmentArguments(intent, new Bundle());
+	}
+
+	public static Bundle intentToFragmentArguments(Intent intent,
+			Bundle arguments) {
 		if (intent == null) {
 			return arguments;
+		}
+		if (arguments == null) {
+			arguments = new Bundle();
 		}
 
 		final Uri data = intent.getData();

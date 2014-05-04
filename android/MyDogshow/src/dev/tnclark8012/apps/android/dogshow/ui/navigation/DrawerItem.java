@@ -74,6 +74,10 @@ public abstract class DrawerItem implements Checkable, OnClickListener {
 		TextView textView;
 	}
 
+	public final void onClick() {
+		onClick(mView);
+	}
+
 	@Override
 	public final void onClick(View v) {
 		if (mClickListener != null) {

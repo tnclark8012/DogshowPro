@@ -25,7 +25,8 @@ public class HandlerListFragment extends BaseEntityListFragment {
 
 	@Override
 	protected CursorLoader getCursorLoader(Activity activity, Uri uri) {
-		return new CursorLoader(activity, uri, HandlersQuery.PROJECTION, null, null, Handlers.DEFAULT_SORT);
+		return new CursorLoader(activity, uri, HandlersQuery.PROJECTION, null,
+				null, Handlers.DEFAULT_SORT);
 	}
 
 	@Override
@@ -36,6 +37,11 @@ public class HandlerListFragment extends BaseEntityListFragment {
 	@Override
 	protected int getTitleColumnIndex() {
 		return HandlersQuery.HANDLER_NAME;
+	}
+
+	@Override
+	protected Uri buildEntityUri(String entityId) {
+		return Handlers.buildHandlerUri(entityId);
 	}
 
 }

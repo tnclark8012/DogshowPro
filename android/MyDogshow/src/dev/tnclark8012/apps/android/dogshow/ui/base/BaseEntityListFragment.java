@@ -7,6 +7,7 @@ import android.app.DialogFragment;
 import android.app.ListFragment;
 import android.app.LoaderManager;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.ContentObserver;
 import android.database.Cursor;
@@ -23,6 +24,7 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import dev.tnclark8012.apps.android.dogshow.R;
+import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
 import dev.tnclark8012.apps.android.dogshow.ui.dialog.YesNoDialog;
 import dev.tnclark8012.apps.android.dogshow.ui.dialog.YesNoDialog.Callback;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
@@ -47,6 +49,8 @@ public abstract class BaseEntityListFragment extends ListFragment implements
 	protected abstract int getIdColumnIndex();
 
 	protected abstract int getTitleColumnIndex();
+
+	protected abstract Uri buildEntityUri(String entityId);
 
 	private static final String TAG = BaseEntityListFragment.class
 			.getSimpleName();
@@ -105,8 +109,9 @@ public abstract class BaseEntityListFragment extends ListFragment implements
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 
-		if (item.getItemId() == R.id.menu_list_entity_add
-				&& mCallbacks.onAddEntityClick(getContentUri())) {
+		if (item.getItemId() == R.id.menu_list_entity_add) {
+			mCallbacks.onAddEntityClick(getContentUri());
+			startActivity(new Intent(Intent.ACTION_INSERT, getContentUri()));
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
@@ -177,9 +182,8 @@ public abstract class BaseEntityListFragment extends ListFragment implements
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		final Cursor cursor = (Cursor) mAdapter.getItem(position);
 		String entityId = cursor.getString(getIdColumnIndex());
-		if (mCallbacks.onEntityClick(getContentUri(), entityId)) {
-			mAdapter.notifyDataSetChanged();
-		}
+		mCallbacks.onEntityClick(getContentUri(), entityId);
+		startActivity(new Intent(Intent.ACTION_VIEW, buildEntityUri(entityId)));
 	}
 
 	protected CursorAdapter getAdapter() {
@@ -207,8 +211,11 @@ public abstract class BaseEntityListFragment extends ListFragment implements
 			@Override
 			public void onFinishDialog(int status, Bundle args) {
 				if (status == YesNoDialog.STATUS_YES) {
-					mCallbacks.onDeleteEntity(getContentUri(),
-							args.getString("Id"));
+					String entityId = args.getString("Id");
+					Uri contentUri = getContentUri();
+					mCallbacks.onDeleteEntity(contentUri, entityId);
+					new PersistHelper(getActivity())
+							.deleteEntity(buildEntityUri(entityId));
 					setRetainInstance(false);
 				}
 			}

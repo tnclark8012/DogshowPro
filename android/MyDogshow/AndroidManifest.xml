@@ -63,10 +63,14 @@
             android:theme="@style/Theme.Dogshow" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
+                <action android:name="android.intent.action.EDIT" />
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/vnd.dogshow.dog" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.dir/vnd.dogshow.dog" />
             </intent-filter>
 
             <meta-data
@@ -103,10 +107,14 @@
             android:theme="@style/Theme.Dogshow" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
+                <action android:name="android.intent.action.EDIT" />
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/vnd.dogshow.handler" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.dir/vnd.dogshow.handler" />
             </intent-filter>
 
             <meta-data
@@ -154,7 +162,7 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.phone.HomeActivity" />
-        </activity>
+        </activity>
         -->
         <activity
             android:name=".ui.phone.MyScheduleActivity"
