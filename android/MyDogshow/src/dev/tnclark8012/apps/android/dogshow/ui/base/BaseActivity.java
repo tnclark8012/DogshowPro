@@ -40,18 +40,12 @@ public abstract class BaseActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// If we're not on Google TV and we're not authenticated, finish this
-		// activity
-		// and show the authentication screen.
-		if (Prefs.isSyncEnabled(this) && !AccountUtils.isAuthenticated(this)) {// TODO
-																				// implement
-			// new Intent(this, DogActivity.class)
+		if (Prefs.isSyncEnabled(this) && !AccountUtils.isAuthenticated(this)) {
 			AccountUtils.startAuthenticationFlow(this, getIntent());
 			finish();
 		} else {
 			Log.i(TAG, "Is authenticated");
 		}
-		// getActionBar().setHomeButtonEnabled(true);
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -67,9 +61,7 @@ public abstract class BaseActivity extends Activity {
 			if (this instanceof HomeActivity) {
 				return false;
 			}
-			return true;
-		case R.id.menu_preferences:
-			startActivity(new Intent(this, PrefsActivity.class));
+			finish();
 			return true;
 		case R.id.menu_sync:
 			SyncHelper.requestManualSync(this,
@@ -123,13 +115,4 @@ public abstract class BaseActivity extends Activity {
 		return intent;
 	}
 
-	@Override
-	public void onStart() {
-		super.onStart();
-	}
-
-	@Override
-	public void onStop() {
-		super.onStop();
-	}
 }

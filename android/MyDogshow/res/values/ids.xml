@@ -12,4 +12,5 @@
     <item type="id" name="drawer_item_text1"/>
     <item type="id" name="drawer_item_text2"/>
     <item type="id" name="drawer_item_icon"/>
+    <item type="id" name="root_container"/>
 </resources>

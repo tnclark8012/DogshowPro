@@ -7,7 +7,7 @@ import android.view.View.OnClickListener;
 import android.widget.Checkable;
 import android.widget.TextView;
 
-public abstract class DrawerItem implements Checkable {
+public abstract class DrawerItem implements Checkable, OnClickListener {
 
 	public static final int TYPE_SPINNER = 0;
 	public static final int TYPE_MAJOR = 1;
@@ -17,6 +17,13 @@ public abstract class DrawerItem implements Checkable {
 	protected int mLayoutResId;
 	protected View mView;
 	public static final int IGNORE_RESOURCE = -1;
+	private OnClickListener mClickListener;
+
+	public DrawerItem(int layoutResId, int textResId, String text,
+			OnClickListener clickListener) {
+		this(layoutResId, textResId, text);
+		mClickListener = clickListener;
+	}
 
 	public DrawerItem(int layoutResId, int textResId, String text) {
 		mText = text;
@@ -28,8 +35,8 @@ public abstract class DrawerItem implements Checkable {
 		return mLayoutResId;
 	}
 
-	public final View getView(LayoutInflater inflater, int position, int totalItems,
-			View convertView, ViewGroup parent) {
+	public final View getView(LayoutInflater inflater, int position,
+			int totalItems, View convertView, ViewGroup parent) {
 		View view = convertView;
 		DrawerItemViewHolder holder = getViewHolder();
 		if (view != null) {
@@ -57,8 +64,8 @@ public abstract class DrawerItem implements Checkable {
 		return new DrawerItemViewHolder();
 	}
 
-	protected View getCustomView(int position, int totalItems, View convertView,
-			ViewGroup parent) {
+	protected View getCustomView(int position, int totalItems,
+			View convertView, ViewGroup parent) {
 		return convertView;
 	}
 
@@ -67,4 +74,10 @@ public abstract class DrawerItem implements Checkable {
 		TextView textView;
 	}
 
+	@Override
+	public final void onClick(View v) {
+		if (mClickListener != null) {
+			mClickListener.onClick(v);
+		}
+	}
 }

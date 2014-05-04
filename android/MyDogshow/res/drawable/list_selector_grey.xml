@@ -2,6 +2,6 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:drawable="@drawable/list_pressed_holo_dark" android:state_pressed="true"/>
-    <item android:drawable="@color/white"/>
+    <item android:drawable="@color/layout_background"/>
 
 </selector>

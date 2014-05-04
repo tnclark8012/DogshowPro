@@ -49,12 +49,12 @@ public class ShowTeamListFragment extends BaseEntityListFragment implements Call
 	}
 
 	@Override
-	public boolean onEntityClick(String entityId) {
+	public boolean onEntityClick(Uri uri, String entityId) {
 		return false;
 	}
 
 	@Override
-	public boolean onAddEntityClick() {
+	public boolean onAddEntityClick(Uri uri) {
 		return false;
 	}
 
@@ -98,7 +98,7 @@ public class ShowTeamListFragment extends BaseEntityListFragment implements Call
 	}
 
 	@Override
-	public void onDeleteEntity(String entityId) {
+	public void onDeleteEntity(Uri uri, String entityId) {
 		// ignore delete
 	}
 

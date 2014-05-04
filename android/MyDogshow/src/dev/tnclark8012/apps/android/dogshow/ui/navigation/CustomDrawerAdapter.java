@@ -64,6 +64,7 @@ public class CustomDrawerAdapter extends ArrayAdapter<DrawerItem> {
 						drawerItemList.get(i).setChecked(i == position);
 					}
 				}
+				drawerItemList.get(position).onClick(v);
 			}
 		});
 		return convertView;

@@ -53,13 +53,13 @@ public abstract class BaseEntityListActivity extends SimpleSinglePaneActivity im
 	}
 
 	@Override
-	public final boolean onEntityClick(String entityId) {
+	public final boolean onEntityClick(Uri uri, String entityId) {
 		startActivity(new Intent(Intent.ACTION_VIEW, getEntityUri(entityId)));
 		return false;
 	}
 
 	@Override
-	public final boolean onAddEntityClick() {
+	public final boolean onAddEntityClick(Uri uri) {
 		swapFragments(true);
 		return true;
 	}
@@ -76,7 +76,7 @@ public abstract class BaseEntityListActivity extends SimpleSinglePaneActivity im
 	}
 
 	@Override
-	public void onDeleteEntity(String entityId) {
+	public void onDeleteEntity(Uri uri, String entityId) {
 		Log.d(TAG, "Delete request for entity Id: " + entityId);
 		PersistHelper helper = new PersistHelper(this);
 		helper.deleteEntity(getEntityUri(entityId));

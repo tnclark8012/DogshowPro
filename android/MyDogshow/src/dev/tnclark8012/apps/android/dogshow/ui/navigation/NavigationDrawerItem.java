@@ -1,12 +1,12 @@
 package dev.tnclark8012.apps.android.dogshow.ui.navigation;
 
 import android.graphics.Typeface;
-import dev.tnclark8012.apps.android.dogshow.R;
+import android.view.View.OnClickListener;
 import dev.tnclark8012.apps.android.dogshow.util.Typefaces;
 
-public class NavigationDrawerItem extends DrawerItem {
-	public NavigationDrawerItem(int layoutResId, int textResId, String text) {
-		super(layoutResId, textResId, text);
+public abstract class NavigationDrawerItem extends DrawerItem {
+	public NavigationDrawerItem(int layoutResId, int textResId, String text, OnClickListener clickListener) {
+		super(layoutResId, textResId, text, clickListener);
 	}
 
 	private boolean mChecked;

@@ -7,7 +7,6 @@ import android.app.DialogFragment;
 import android.app.ListFragment;
 import android.app.LoaderManager;
 import android.content.CursorLoader;
-import android.content.Intent;
 import android.content.Loader;
 import android.database.ContentObserver;
 import android.database.Cursor;
@@ -15,12 +14,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.CursorAdapter;
@@ -30,14 +27,15 @@ import dev.tnclark8012.apps.android.dogshow.ui.dialog.YesNoDialog;
 import dev.tnclark8012.apps.android.dogshow.ui.dialog.YesNoDialog.Callback;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 
-public abstract class BaseEntityListFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor>, OnItemLongClickListener {
+public abstract class BaseEntityListFragment extends ListFragment implements
+		LoaderManager.LoaderCallbacks<Cursor>, OnItemLongClickListener {
 	// TODO HIGH
 	public interface Callbacks {
-		public boolean onEntityClick(String entityId);
+		public boolean onEntityClick(Uri uri, String entityId);
 
-		public boolean onAddEntityClick();
+		public boolean onAddEntityClick(Uri uri);
 
-		public void onDeleteEntity(String entityId);
+		public void onDeleteEntity(Uri uri, String entityId);
 	}
 
 	protected abstract Uri getContentUri();
@@ -50,21 +48,22 @@ public abstract class BaseEntityListFragment extends ListFragment implements Loa
 
 	protected abstract int getTitleColumnIndex();
 
-	private static final String TAG = BaseEntityListFragment.class.getSimpleName();
+	private static final String TAG = BaseEntityListFragment.class
+			.getSimpleName();
 	private final int mQueryToken = new Random().nextInt();
 	private CursorAdapter mAdapter;
 	private static Callbacks sDummyCallbacks = new Callbacks() {
 		@Override
-		public boolean onEntityClick(String entityId) {
+		public boolean onEntityClick(Uri uri, String entityId) {
 			return true;
 		}
 
-		public boolean onAddEntityClick() {
+		public boolean onAddEntityClick(Uri uri) {
 			return false;
 		}
 
 		@Override
-		public void onDeleteEntity(String entityId) {
+		public void onDeleteEntity(Uri uri, String entityId) {
 		}
 	};
 
@@ -106,7 +105,8 @@ public abstract class BaseEntityListFragment extends ListFragment implements Loa
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 
-		if (item.getItemId() == R.id.menu_list_entity_add && mCallbacks.onAddEntityClick()) {
+		if (item.getItemId() == R.id.menu_list_entity_add
+				&& mCallbacks.onAddEntityClick(getContentUri())) {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
@@ -114,7 +114,6 @@ public abstract class BaseEntityListFragment extends ListFragment implements Loa
 
 	protected void reloadFromArguments(Bundle arguments) {
 		setListAdapter(null);
-		final Intent intent = BaseActivity.fragmentArgumentsToIntent(arguments);
 		// TODO HIGH get Uri from intent
 		mAdapter = getCursorAdapter(getActivity());
 		setListAdapter(mAdapter);
@@ -130,9 +129,11 @@ public abstract class BaseEntityListFragment extends ListFragment implements Loa
 		} else if (this instanceof Callbacks) {
 			mCallbacks = (Callbacks) this;
 		} else {
-			throw new ClassCastException("Activity or fragment must implement fragment's callbacks.");
+			// throw new
+			// ClassCastException("Activity or fragment must implement fragment's callbacks.");
 		}
-		activity.getContentResolver().registerContentObserver(getContentUri(), true, mObserver);
+		activity.getContentResolver().registerContentObserver(getContentUri(),
+				true, mObserver);
 	}
 
 	@Override
@@ -144,11 +145,9 @@ public abstract class BaseEntityListFragment extends ListFragment implements Loa
 
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle data) {
-		final Intent intent = BaseActivity.fragmentArgumentsToIntent(data);
-		final Uri uri = intent.getData();
 		Loader<Cursor> loader = null;
 		if (id == mQueryToken) {
-			loader = getCursorLoader(getActivity(), uri);
+			loader = getCursorLoader(getActivity(), getContentUri());
 		} else {
 			Log.w(TAG, "Couldn't create loader");
 		}
@@ -178,7 +177,7 @@ public abstract class BaseEntityListFragment extends ListFragment implements Loa
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		final Cursor cursor = (Cursor) mAdapter.getItem(position);
 		String entityId = cursor.getString(getIdColumnIndex());
-		if (mCallbacks.onEntityClick(entityId)) {
+		if (mCallbacks.onEntityClick(getContentUri(), entityId)) {
 			mAdapter.notifyDataSetChanged();
 		}
 	}
@@ -188,23 +187,28 @@ public abstract class BaseEntityListFragment extends ListFragment implements Loa
 	}
 
 	@Override
-	public boolean onItemLongClick(AdapterView<?> adapter, View view, int position, long id) {
+	public boolean onItemLongClick(AdapterView<?> adapter, View view,
+			int position, long id) {
 		setRetainInstance(true);
 		final Cursor cursor = (Cursor) mAdapter.getItem(position);
-		String entityTitle = Utils.getMaybeNull(cursor, getTitleColumnIndex(), "It");
+		String entityTitle = Utils.getMaybeNull(cursor, getTitleColumnIndex(),
+				"It");
 		if ((Utils.isNullOrEmpty(entityTitle))) {
 			entityTitle = "It";
 		}
-		final String entityId = Utils.getMaybeNull(cursor, getIdColumnIndex(), null);
+		final String entityId = Utils.getMaybeNull(cursor, getIdColumnIndex(),
+				null);
 		Bundle args = new Bundle();
 		args.putString("Id", entityId);
 		args.putString(YesNoDialog.BUNDLE_KEY_TITLE, "Delete " + entityTitle);
-		args.putString(YesNoDialog.BUNDLE_KEY_MESSAGE, entityTitle + " will be gone for-e-ver.");
+		args.putString(YesNoDialog.BUNDLE_KEY_MESSAGE, entityTitle
+				+ " will be gone for-e-ver.");
 		DialogFragment d = YesNoDialog.newInstance(args, new Callback() {
 			@Override
 			public void onFinishDialog(int status, Bundle args) {
 				if (status == YesNoDialog.STATUS_YES) {
-					mCallbacks.onDeleteEntity(args.getString("Id"));
+					mCallbacks.onDeleteEntity(getContentUri(),
+							args.getString("Id"));
 					setRetainInstance(false);
 				}
 			}

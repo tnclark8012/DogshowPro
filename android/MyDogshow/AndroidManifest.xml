@@ -38,6 +38,7 @@
         <activity
             android:name="dev.tnclark8012.apps.android.dogshow.ui.phone.HomeActivity"
             android:label="@string/app_name"
+            android:launchMode="singleTop"
             android:theme="@style/Theme.Dogshow" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
