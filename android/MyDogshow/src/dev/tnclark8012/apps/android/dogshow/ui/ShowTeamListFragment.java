@@ -15,11 +15,14 @@ import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.adapters.SimpleCursorAdapter;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.ShowTeamsQuery;
+import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment;
+import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment.Callbacks;
 import dev.tnclark8012.apps.android.dogshow.ui.dialog.ShowTeamDialog;
 
-public class ShowTeamListFragment extends BaseEntityListFragment implements Callbacks {
+public class ShowTeamListFragment extends BaseEntityListFragment implements
+		Callbacks {
 
 	@Override
 	protected Uri getContentUri() {
@@ -35,12 +38,15 @@ public class ShowTeamListFragment extends BaseEntityListFragment implements Call
 
 	@Override
 	protected CursorAdapter getCursorAdapter(Activity activity) {
-		return new SimpleCursorAdapter(activity, null, false, R.layout.list_item_simple, R.id.text1, ShowTeamsQuery.TEAM_NAME);
+		return new SimpleCursorAdapter(activity, null, false,
+				R.layout.list_item_simple, R.id.text1, ShowTeamsQuery.TEAM_NAME);
 	}
 
 	@Override
 	protected CursorLoader getCursorLoader(Activity activity, Uri uri) {
-		return new CursorLoader(activity, ShowTeams.CONTENT_URI, ShowTeamsQuery.PROJECTION, ShowTeams.NOT_ME_SELECTION, null, ShowTeams.DEFAULT_SORT);
+		return new CursorLoader(activity, ShowTeams.CONTENT_URI,
+				ShowTeamsQuery.PROJECTION, ShowTeams.NOT_ME_SELECTION, null,
+				ShowTeams.DEFAULT_SORT);
 	}
 
 	@Override
@@ -92,7 +98,8 @@ public class ShowTeamListFragment extends BaseEntityListFragment implements Call
 	}
 
 	@Override
-	public boolean onItemLongClick(AdapterView<?> adapter, View view, int position, long id) {
+	public boolean onItemLongClick(AdapterView<?> adapter, View view,
+			int position, long id) {
 		// ignore long click and prevent default delete behavior
 		return true;
 	}
@@ -105,6 +112,16 @@ public class ShowTeamListFragment extends BaseEntityListFragment implements Call
 	@Override
 	protected Uri buildEntityUri(String entityId) {
 		return ShowTeams.buildShowTeamUri(entityId);
+	}
+
+	@Override
+	protected BaseEditableEntityViewFragment getViewFragment() {
+		return null;
+	}
+
+	@Override
+	protected BaseEditableEntityEditFragment getEditFragment() {
+		return null;
 	}
 
 }

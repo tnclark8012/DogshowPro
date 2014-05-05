@@ -9,11 +9,22 @@ import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.adapters.DogListAdapter;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.DogsQuery;
+import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment;
+import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment;
 
 public class DogListFragment extends BaseEntityListFragment {
 	private static final String TAG = DogListFragment.class.getSimpleName();
 
+		@Override
+		protected BaseEditableEntityViewFragment getViewFragment() {
+			return new DogViewFragment();
+		}
+	
+		@Override
+		protected BaseEditableEntityEditFragment getEditFragment() {
+			return new DogEditFragment();
+		}
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub

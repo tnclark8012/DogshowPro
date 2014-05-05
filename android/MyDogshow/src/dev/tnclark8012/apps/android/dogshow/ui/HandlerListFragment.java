@@ -7,6 +7,8 @@ import android.widget.CursorAdapter;
 import dev.tnclark8012.apps.android.dogshow.adapters.HandlerListAdapter;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.HandlersQuery;
+import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment;
+import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment;
 
 public class HandlerListFragment extends BaseEntityListFragment {
@@ -42,6 +44,17 @@ public class HandlerListFragment extends BaseEntityListFragment {
 	@Override
 	protected Uri buildEntityUri(String entityId) {
 		return Handlers.buildHandlerUri(entityId);
+	}
+
+	@Override
+	protected BaseEditableEntityViewFragment getViewFragment() {
+		return new HandlerViewFragment();
+	}
+
+	@Override
+	protected BaseEditableEntityEditFragment getEditFragment() {
+		// TODO Auto-generated method stub
+		return new HandlerEditFragment();
 	}
 
 }

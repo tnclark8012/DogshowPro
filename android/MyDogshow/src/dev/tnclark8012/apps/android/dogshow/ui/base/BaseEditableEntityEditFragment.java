@@ -25,7 +25,8 @@ import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 import dev.tnclark8012.apps.android.dogshow.R;
 
-public abstract class BaseEditableEntityEditFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
+public abstract class BaseEditableEntityEditFragment extends Fragment implements
+		LoaderManager.LoaderCallbacks<Cursor> {
 	public static final String INTENT_EXTRA_NEW_ENTITY = "dev.tnclark8012.dogshow.intent.extra.NEW_ENTITY";
 	private boolean mCreateNewEntity = false;
 	private int mEntityId = -1;
@@ -50,7 +51,9 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 	protected abstract Map<String, Object> getEntityValueMap();
 
 	/**
-	 * TODO This method and {@link #getQueryToken()} match {@link BaseEntityListFragment#getCursorLoader(Activity, Uri)} etc. Super class?
+	 * TODO This method and {@link #getQueryToken()} match
+	 * {@link BaseEntityListFragment#getCursorLoader(Activity, Uri)} etc. Super
+	 * class?
 	 * 
 	 * @param activity
 	 * @param uri
@@ -68,7 +71,8 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 			if (getActivity() == null) {
 				return;
 			}
-			SyncHelper.requestManualSync(getActivity(), AccountUtils.getChosenAccount(getActivity()));
+			SyncHelper.requestManualSync(getActivity(),
+					AccountUtils.getChosenAccount(getActivity()));
 			Loader<Cursor> loader = getLoaderManager().getLoader(mQueryToken);
 			if (loader != null) {
 				loader.forceLoad();
@@ -104,7 +108,8 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);
 
-		final Intent intent = BaseActivity.fragmentArgumentsToIntent(getArguments());
+		final Intent intent = BaseActivity
+				.fragmentArgumentsToIntent(getArguments());
 		if (intent.getBooleanExtra(INTENT_EXTRA_NEW_ENTITY, false)) {
 			mCreateNewEntity = true;
 		} else {
@@ -125,11 +130,14 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
 		if (!(activity instanceof Callbacks)) {
-			throw new ClassCastException("Activity must implement fragment's callbacks.");
-		}
 
-		mCallbacks = (Callbacks) activity;
-		activity.getContentResolver().registerContentObserver(getContentUri(), true, mObserver);
+			// throw new
+			// ClassCastException("Activity must implement fragment's callbacks.");
+		} else {
+			mCallbacks = (Callbacks) activity;
+		}
+		activity.getContentResolver().registerContentObserver(getContentUri(),
+				true, mObserver);
 	}
 
 	@Override
@@ -143,7 +151,8 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 		super.onPause();
 		View focused = getActivity().getCurrentFocus();
 		if (focused != null) {// TODO mActivity
-			InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+			InputMethodManager imm = (InputMethodManager) getActivity()
+					.getSystemService(Context.INPUT_METHOD_SERVICE);
 			imm.hideSoftInputFromWindow(focused.getWindowToken(), 0);
 		}
 
@@ -160,16 +169,21 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 		switch (item.getItemId()) {
 		case android.R.id.home:
 		case R.id.menu_entity_edit_cancel:
-			mCallbacks.onCancel();
+			if (mCallbacks != null) {
+				mCallbacks.onCancel();
+			}
 			return true;
 		case R.id.menu_entity_edit_save:
 			PersistHelper helper = new PersistHelper(getActivity());
 			if (mCreateNewEntity) {
 				helper.createEntity(getContentUri(), getEntityValueMap());
 			} else {
-				helper.updateEntity(getContentUri(), mEntityId, getEntityValueMap());
+				helper.updateEntity(getContentUri(), mEntityId,
+						getEntityValueMap());
 			}
-			mCallbacks.onSave();
+			if (mCallbacks != null) {
+				mCallbacks.onSave();
+			}
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

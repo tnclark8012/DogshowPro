@@ -17,25 +17,39 @@ import android.view.MenuItem;
 import dev.tnclark8012.apps.android.dogshow.R;
 
 public abstract class BaseEditableEntityViewFragment extends Fragment implements
-LoaderManager.LoaderCallbacks<Cursor>{
+		LoaderManager.LoaderCallbacks<Cursor> {
 	public static final String INTENT_EXTRA_NEW_ENTITY = "dev.tnclark8012.dogshow.intent.extra.NEW_ENTITY";
 	private Uri mEntityUri;
 	private final int mQueryToken = getQueryToken();
 	private Callbacks mCallbacks;
-	public interface Callbacks{
+
+	public interface Callbacks {
 		public void onEditClick();
 	}
+
+	private static Callbacks sDummyCallbacks = new Callbacks() {
+		@Override
+		public void onEditClick() {
+		}
+	};
+
 	protected abstract int getQueryToken();
+
 	/**
-	 * TODO This method and {@link #getQueryToken()} match {@link BaseEntityListFragment#getCursorLoader(Activity, Uri)} etc. Super class?
+	 * TODO This method and {@link #getQueryToken()} match
+	 * {@link BaseEntityListFragment#getCursorLoader(Activity, Uri)} etc. Super
+	 * class?
+	 * 
 	 * @param activity
 	 * @param uri
 	 * @return
 	 */
 	protected abstract CursorLoader getCursorLoader(Activity activity, Uri uri);
+
 	protected abstract void onQueryComplete(Cursor cursor);
+
 	protected abstract Uri getContentUri();
-	
+
 	private final ContentObserver mObserver = new ContentObserver(new Handler()) {
 		@Override
 		public void onChange(boolean selfChange) {
@@ -49,7 +63,7 @@ LoaderManager.LoaderCallbacks<Cursor>{
 			}
 		}
 	};
-	
+
 	@Override
 	public final Loader<Cursor> onCreateLoader(int id, Bundle data) {
 		CursorLoader loader = null;
@@ -73,7 +87,6 @@ LoaderManager.LoaderCallbacks<Cursor>{
 	public final void onLoaderReset(Loader<Cursor> arg0) {
 	}
 
-	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -89,17 +102,17 @@ LoaderManager.LoaderCallbacks<Cursor>{
 		LoaderManager manager = getLoaderManager();
 		manager.restartLoader(getQueryToken(), null, this);
 	}
-	
 
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
 		if (!(activity instanceof Callbacks)) {
-			throw new ClassCastException("Activity must implement fragment's callbacks.");
+			mCallbacks = sDummyCallbacks;
+		} else {
+			mCallbacks = (Callbacks) activity;
 		}
-
-		mCallbacks = (Callbacks) activity;
-		activity.getContentResolver().registerContentObserver(getContentUri(), true, mObserver);
+		activity.getContentResolver().registerContentObserver(getContentUri(),
+				true, mObserver);
 	}
 
 	@Override
@@ -107,7 +120,7 @@ LoaderManager.LoaderCallbacks<Cursor>{
 		super.onDetach();
 		getActivity().getContentResolver().unregisterContentObserver(mObserver);
 	}
-	
+
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		super.onCreateOptionsMenu(menu, inflater);
@@ -123,5 +136,4 @@ LoaderManager.LoaderCallbacks<Cursor>{
 		return super.onOptionsItemSelected(item);
 	}
 
-	
 }

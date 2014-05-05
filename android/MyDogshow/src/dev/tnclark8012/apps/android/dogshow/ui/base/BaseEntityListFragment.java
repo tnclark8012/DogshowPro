@@ -4,6 +4,7 @@ import java.util.Random;
 
 import android.app.Activity;
 import android.app.DialogFragment;
+import android.app.Fragment;
 import android.app.ListFragment;
 import android.app.LoaderManager;
 import android.content.CursorLoader;
@@ -51,6 +52,10 @@ public abstract class BaseEntityListFragment extends ListFragment implements
 	protected abstract int getTitleColumnIndex();
 
 	protected abstract Uri buildEntityUri(String entityId);
+
+	protected abstract BaseEditableEntityViewFragment getViewFragment();
+
+	protected abstract BaseEditableEntityEditFragment getEditFragment();
 
 	private static final String TAG = BaseEntityListFragment.class
 			.getSimpleName();
@@ -111,7 +116,14 @@ public abstract class BaseEntityListFragment extends ListFragment implements
 
 		if (item.getItemId() == R.id.menu_list_entity_add) {
 			mCallbacks.onAddEntityClick(getContentUri());
-			startActivity(new Intent(Intent.ACTION_INSERT, getContentUri()));
+			Fragment f = getEditFragment();
+			if (f != null) {
+				Bundle b = new Bundle();
+				f.setArguments(b);
+				getFragmentManager().beginTransaction()
+						.add(R.id.root_container, f, "add_entity").commit();
+			}
+			// startActivity(new Intent(Intent.ACTION_INSERT, getContentUri()));
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
@@ -183,7 +195,18 @@ public abstract class BaseEntityListFragment extends ListFragment implements
 		final Cursor cursor = (Cursor) mAdapter.getItem(position);
 		String entityId = cursor.getString(getIdColumnIndex());
 		mCallbacks.onEntityClick(getContentUri(), entityId);
-		startActivity(new Intent(Intent.ACTION_VIEW, buildEntityUri(entityId)));
+		Fragment f = getViewFragment();
+		if (f != null) {
+			Bundle b = new Bundle();
+			b.putParcelable("_uri", buildEntityUri(entityId));
+
+			f.setArguments(b);
+			getFragmentManager().beginTransaction()
+					.add(R.id.root_container, f, "entity_view")
+					.addToBackStack("view").commit();
+			// startActivity(new Intent(Intent.ACTION_VIEW,
+			// buildEntityUri(entityId)));
+		}
 	}
 
 	protected CursorAdapter getAdapter() {

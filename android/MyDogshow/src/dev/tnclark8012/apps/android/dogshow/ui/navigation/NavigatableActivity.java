@@ -193,20 +193,9 @@ public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 				R.layout.custom_drawer_item, mDrawerItems);
 		mDrawerList.setAdapter(adapter);
 
-		// mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-		// mDrawerList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
 				GravityCompat.START);
 
-		LoaderManager manager = getLoaderManager();
-		manager.restartLoader(ShowTeamsQuery._TOKEN, null, this);
-		// dataList.get(selectedNavigation).onClick();
-		// Fragment fragment = getFragment();
-		// // // Insert the fragment by replacing any existing fragment
-		// FragmentManager fragmentManager = getFragmentManager();
-		// fragmentManager.beginTransaction()
-		// .replace(R.id.content_frame, fragment).commit();
-		// getLoaderManager().initLoader(ShowTeamsQuery._TOKEN, null, this);
 	}
 
 	@Override

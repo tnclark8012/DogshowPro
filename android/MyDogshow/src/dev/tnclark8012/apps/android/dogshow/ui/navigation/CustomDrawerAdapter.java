@@ -1,11 +1,10 @@
 package dev.tnclark8012.apps.android.dogshow.ui.navigation;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.SparseIntArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,19 +18,30 @@ public class CustomDrawerAdapter extends ArrayAdapter<DrawerItem> {
 	int layoutResID;
 	int mViewTypeCount;
 	int totalItems;
+	SparseIntArray mPositionViewTypeMap;
 
 	public CustomDrawerAdapter(Context context, int layoutResourceID,
 			List<DrawerItem> listItems) {
 		super(context, layoutResourceID, listItems);
 		this.context = context;
-		this.drawerItemList = listItems;
-		this.layoutResID = layoutResourceID;
-		Set<Integer> viewTypes = new HashSet<Integer>();
-		for (DrawerItem d : listItems) {
-			viewTypes.add(d.getLayoutResId());
-		}
-		mViewTypeCount = viewTypes.size();
+		drawerItemList = listItems;
 		totalItems = drawerItemList.size();
+		this.layoutResID = layoutResourceID;
+		mPositionViewTypeMap = new SparseIntArray(totalItems);// [position,
+																// viewTypeId]
+		int currentResId;
+		SparseIntArray viewTypeResIdMap = new SparseIntArray();
+		for (int i = 0; i < totalItems; i++) {
+			currentResId = drawerItemList.get(i).getLayoutResId();
+			if (viewTypeResIdMap.indexOfValue(currentResId) == -1) {
+				// new resId
+				viewTypeResIdMap.put(mViewTypeCount, currentResId);// [viewTypeId,
+																	// resId]
+				mViewTypeCount++;
+			}
+			mPositionViewTypeMap.put(i,
+					viewTypeResIdMap.indexOfValue(currentResId));
+		}
 	}
 
 	@Override
@@ -46,7 +56,7 @@ public class CustomDrawerAdapter extends ArrayAdapter<DrawerItem> {
 
 	@Override
 	public int getItemViewType(int position) {
-		return drawerItemList.get(position).getLayoutResId();
+		return mPositionViewTypeMap.get(position);
 	}
 
 	@Override
