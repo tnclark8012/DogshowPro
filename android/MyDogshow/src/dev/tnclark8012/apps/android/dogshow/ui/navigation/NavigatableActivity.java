@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.LoaderManager;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.CursorLoader;
@@ -33,6 +34,7 @@ import dev.tnclark8012.apps.android.dogshow.adapters.NavigationDrawerCursorAdapt
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.preferences.PrefsActivity;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
+import dev.tnclark8012.apps.android.dogshow.sql.query.Query;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.ShowTeamsQuery;
 import dev.tnclark8012.apps.android.dogshow.ui.DogListFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.HandlerListFragment;
@@ -196,6 +198,8 @@ public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
 				GravityCompat.START);
 
+		getLoaderManager().restartLoader(Query.ShowTeamsQuery._TOKEN, null,
+				this);
 	}
 
 	@Override
@@ -252,6 +256,13 @@ public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 		// // Insert the fragment by replacing any existing
 		// fragment
 		sCurrentNavigation = navigationPosition;
+		FragmentManager fragmentManager = getFragmentManager();
+		fragmentManager
+				.beginTransaction()
+				// .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+				// .setTransition(FragmentTransaction.TRANSIT_NONE)
+				.replace(R.id.root_container, getFragment(sCurrentNavigation))
+				.commit();
 		if (!(this instanceof HomeActivity)) {
 			Intent intent = new Intent(this, HomeActivity.class);
 			intent.putExtra(EXTRA_SELECTED_NAVIGATION, sCurrentNavigation);
@@ -261,11 +272,7 @@ public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 			return;
 		}
 		mDrawerLayout.closeDrawer(mDrawerConents);
-		FragmentManager fragmentManager = getFragmentManager();
-		fragmentManager.beginTransaction()
-				.setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-				.replace(R.id.root_container, getFragment(sCurrentNavigation))
-				.commit();
+
 	}
 
 	@Override
@@ -289,5 +296,4 @@ public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 		}
 		return new IncompleteFragment();
 	}
-
 }

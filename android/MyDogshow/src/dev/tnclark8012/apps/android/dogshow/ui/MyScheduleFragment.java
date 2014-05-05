@@ -98,6 +98,7 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		getActivity().getActionBar().setTitle(R.string.dashboard_schedule);
 		mAdapter = new RingListAdapter(getActivity());
 		LoaderManager manager = getLoaderManager();
 		manager.restartLoader(UpcomingRingQuery._TOKEN, getArguments(), this);// TODO use argument ring query token to choose ring types to show

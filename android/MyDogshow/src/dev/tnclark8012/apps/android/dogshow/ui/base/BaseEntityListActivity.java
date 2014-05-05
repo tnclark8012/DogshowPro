@@ -53,7 +53,7 @@ public abstract class BaseEntityListActivity extends SimpleSinglePaneActivity im
 	}
 
 	@Override
-	public final boolean onEntityClick(Uri uri, String entityId) {
+	public boolean onEntityClick(Uri uri, String entityId) {
 		startActivity(new Intent(Intent.ACTION_VIEW, getEntityUri(entityId)));
 		return false;
 	}

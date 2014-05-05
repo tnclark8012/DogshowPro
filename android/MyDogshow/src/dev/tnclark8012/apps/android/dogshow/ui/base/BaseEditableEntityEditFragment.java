@@ -145,6 +145,12 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 		super.onDetach();
 		getActivity().getContentResolver().unregisterContentObserver(mObserver);
 	}
+	
+	@Override
+	public void onResume() {
+		super.onResume();
+		
+	}
 
 	@Override
 	public void onPause() {

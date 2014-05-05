@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CursorAdapter;
+import android.widget.ListView;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.adapters.SimpleCursorAdapter;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
@@ -62,6 +63,10 @@ public class ShowTeamListFragment extends BaseEntityListFragment implements
 	@Override
 	public boolean onAddEntityClick(Uri uri) {
 		return false;
+	}
+	
+	@Override
+	public void onListItemClick(ListView l, View v, int position, long id) {
 	}
 
 	@Override

@@ -3,7 +3,9 @@ package dev.tnclark8012.apps.android.dogshow.ui;
 import android.app.Activity;
 import android.content.CursorLoader;
 import android.net.Uri;
+import android.os.Bundle;
 import android.widget.CursorAdapter;
+import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.adapters.HandlerListAdapter;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.HandlersQuery;
@@ -14,6 +16,13 @@ import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment;
 public class HandlerListFragment extends BaseEntityListFragment {
 
 	private static final String TAG = HandlerListFragment.class.getSimpleName();
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		getActivity().getActionBar().setTitle(R.string.dashboard_handlers);
+	}
 
 	@Override
 	protected Uri getContentUri() {
