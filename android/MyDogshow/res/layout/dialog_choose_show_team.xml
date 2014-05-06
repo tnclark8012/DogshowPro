@@ -1,12 +1,14 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/edit_judge_time"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content" >
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
 
     <ListView
         android:id="@+id/list_choose_show_team"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent" >
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
     </ListView>
 
     <View
@@ -14,7 +16,6 @@
         android:layout_width="fill_parent"
         android:layout_height="1dp"
         android:layout_marginLeft="@dimen/element_margin_normal"
-        android:layout_below="@+id/list_choose_show_team"
         android:layout_marginRight="@dimen/element_margin_normal"
         android:background="@drawable/list_divider" />
 
@@ -23,9 +24,6 @@
         style="?android:attr/buttonBarStyle"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/divider"
-        
         android:orientation="horizontal" >
 
         <Button
@@ -45,4 +43,4 @@
             android:text="Ok" />
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

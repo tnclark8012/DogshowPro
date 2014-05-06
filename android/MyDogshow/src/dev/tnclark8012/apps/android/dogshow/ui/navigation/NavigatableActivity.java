@@ -136,7 +136,7 @@ public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 				GravityCompat.START);
 		mDrawerItems = new ArrayList<DrawerItem>();
 		// Add Drawer Item to dataList
-		showTeamSpinner = new ShowTeamSpinner(new OnClickListener() {
+		showTeamSpinner = new ShowTeamSpinner(this, new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Toast.makeText(NavigatableActivity.this, "Clicked a team",

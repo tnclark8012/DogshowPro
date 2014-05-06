@@ -14,14 +14,16 @@ import android.widget.Toast;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query;
+import dev.tnclark8012.apps.android.dogshow.ui.dialog.ShowTeamChooserDialog;
 
 public class ShowTeamSpinnerAdapter extends CursorAdapter implements
 		SpinnerAdapter {
 	Cursor mCursor;
-
-	public ShowTeamSpinnerAdapter(Context context, Cursor c, boolean autoRequery) {
-		super(context, c, autoRequery);
+	Activity mActivity;
+	public ShowTeamSpinnerAdapter(Activity activity, Cursor c, boolean autoRequery) {
+		super(activity, c, autoRequery);
 		mCursor = c;
+		mActivity = activity;
 	}
 
 	private static class SpinnerHolder {
@@ -58,6 +60,7 @@ public class ShowTeamSpinnerAdapter extends CursorAdapter implements
 			public void onClick(View v) {
 				Toast.makeText(v.getContext(), "OnBindClicked",
 						Toast.LENGTH_SHORT).show();
+				ShowTeamChooserDialog.newInstance().show(mActivity.getFragmentManager(), "tag");
 				Prefs.setCurrentTeamIdentifier(context, identifier);
 			}
 		});
