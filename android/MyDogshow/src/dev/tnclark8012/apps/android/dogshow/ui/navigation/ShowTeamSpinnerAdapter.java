@@ -2,6 +2,7 @@ package dev.tnclark8012.apps.android.dogshow.ui.navigation;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,12 +16,15 @@ import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query;
 import dev.tnclark8012.apps.android.dogshow.ui.dialog.ShowTeamChooserDialog;
+import dev.tnclark8012.apps.android.dogshow.ui.phone.ShowTeamAddActivity;
 
 public class ShowTeamSpinnerAdapter extends CursorAdapter implements
-		SpinnerAdapter {
+		SpinnerAdapter, ShowTeamChooserDialog.Callback {
 	Cursor mCursor;
 	Activity mActivity;
-	public ShowTeamSpinnerAdapter(Activity activity, Cursor c, boolean autoRequery) {
+
+	public ShowTeamSpinnerAdapter(Activity activity, Cursor c,
+			boolean autoRequery) {
 		super(activity, c, autoRequery);
 		mCursor = c;
 		mActivity = activity;
@@ -48,8 +52,6 @@ public class ShowTeamSpinnerAdapter extends CursorAdapter implements
 	public void bindView(View view, final Context context, Cursor cursor) {
 		SpinnerHolder holder;
 		holder = (SpinnerHolder) view.getTag();
-		// boolean active =
-		// cursor.getString(Query.ShowTeamsQuery.IDENTIFIER).equals(Prefs.currentTeamIdentifier(context));
 		String name = cursor.getString(Query.ShowTeamsQuery.TEAM_NAME);
 		final String identifier = cursor
 				.getString(Query.ShowTeamsQuery.IDENTIFIER);
@@ -58,11 +60,20 @@ public class ShowTeamSpinnerAdapter extends CursorAdapter implements
 		view.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(v.getContext(), "OnBindClicked",
-						Toast.LENGTH_SHORT).show();
-				ShowTeamChooserDialog.newInstance().show(mActivity.getFragmentManager(), "tag");
+				ShowTeamChooserDialog dialog = ShowTeamChooserDialog
+						.newInstance();
+				dialog.setCallback(ShowTeamSpinnerAdapter.this);
+				dialog.show(mActivity.getFragmentManager(), "tag");//TODO real tag
 				Prefs.setCurrentTeamIdentifier(context, identifier);
 			}
 		});
+	}
+
+	@Override
+	public void onFinishDialog(int status, String teamName) {
+		if (status == ShowTeamChooserDialog.STATUS_ADD) {
+			mActivity.startActivity(new Intent(mActivity,
+					ShowTeamAddActivity.class));
+		}
 	}
 }
