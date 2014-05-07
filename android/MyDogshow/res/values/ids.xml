@@ -13,4 +13,5 @@
     <item type="id" name="drawer_item_text2"/>
     <item type="id" name="drawer_item_icon"/>
     <item type="id" name="root_container"/>
+    <item type="id" name="text_error"/>
 </resources>
