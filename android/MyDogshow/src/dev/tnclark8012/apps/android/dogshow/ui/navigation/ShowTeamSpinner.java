@@ -66,6 +66,7 @@ public class ShowTeamSpinner extends NonNavigationDrawerItem {
 
 			}
 		});
+		holder.spinner.setClickable(false);
 		mAdapter = new ShowTeamSpinnerAdapter(mActivity, null, false);
 		holder.spinner.setAdapter(mAdapter);
 		mSpinner = holder.spinner;

@@ -139,8 +139,8 @@ public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 		showTeamSpinner = new ShowTeamSpinner(this, new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(NavigatableActivity.this, "Clicked a team",
-						Toast.LENGTH_SHORT).show();
+//				Toast.makeText(NavigatableActivity.this, "Clicked a team",
+//						Toast.LENGTH_SHORT).show();
 			}
 		});
 		mDrawerItems.add(showTeamSpinner); // adding a
