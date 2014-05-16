@@ -255,6 +255,8 @@ public class DogshowContract {
 				+ " DESC, " + ShowTeamsColumns.SHOW_TEAM_NAME
 				+ " COLLATE NOCASE ASC";
 
+		public static final String ACTIVE_FIRST_SORT = ShowTeams.SHOW_TEAM_ACTIVE
+				+ " DESC";
 		public static final String NOT_ME_SELECTION = ShowTeams.SHOW_TEAM_ID
 				+ " IS NOT \"ME\"";
 

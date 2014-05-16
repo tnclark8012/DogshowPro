@@ -1,6 +1,8 @@
 package dev.tnclark8012.apps.android.dogshow.ui.dialog;
 
+import android.app.Activity;
 import android.app.DialogFragment;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,10 +10,11 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 import dev.tnclark8012.apps.android.dogshow.R;
+import dev.tnclark8012.apps.android.dogshow.adapters.SimpleCursorAdapter;
+import dev.tnclark8012.apps.android.dogshow.sql.query.Query;
 
 public class ShowTeamChooserDialog extends DialogFragment implements
 		OnClickListener {
@@ -21,6 +24,8 @@ public class ShowTeamChooserDialog extends DialogFragment implements
 
 	private Callback mCallback = null;
 	private ListView mListView;
+	private SimpleCursorAdapter mAdapter;
+	private Cursor mCursor;
 	public static final int STATUS_CANCELLED = -1;
 	public static final int STATUS_SELECT = 0;
 	public static final int STATUS_ADD = 1;
@@ -31,9 +36,10 @@ public class ShowTeamChooserDialog extends DialogFragment implements
 		View view = inflater.inflate(R.layout.dialog_choose_show_team,
 				container);
 		mListView = (ListView) view.findViewById(R.id.list_choose_show_team);
-		mListView.setAdapter(new ArrayAdapter<String>(getActivity(),
-				android.R.layout.simple_list_item_single_choice, new String[] {
-						"Just Me", "Stellar", "Add Team" }));
+		mListView.setAdapter(mAdapter);
+		// new ArrayAdapter<String>(getActivity(),
+		// android.R.layout.simple_list_item_single_choice, new String[] {
+		// "Just Me", "Stellar", "Add Team" }));
 		mListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
 		mListView.setOnItemClickListener(new OnItemClickListener() {
@@ -81,6 +87,25 @@ public class ShowTeamChooserDialog extends DialogFragment implements
 
 	public void setCallback(Callback callback) {
 		mCallback = callback;
+	}
+
+	@Override
+	public void onAttach(Activity activity) {
+		// TODO Auto-generated method stub
+		super.onAttach(activity);
+		if (mAdapter == null) {
+			mAdapter = new SimpleCursorAdapter(activity, mCursor, false,
+					android.R.layout.simple_list_item_single_choice,
+					android.R.id.text1, Query.ShowTeamsQuery.TEAM_NAME);
+		}
+
+	}
+
+	public void changeCursor(Cursor c) {
+		mCursor = c;
+		if (mAdapter != null) {
+			mAdapter.changeCursor(mCursor);
+		}
 	}
 
 	public static ShowTeamChooserDialog newInstance() {

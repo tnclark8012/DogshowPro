@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query;
@@ -34,6 +33,12 @@ public class ShowTeamSpinnerAdapter extends CursorAdapter implements
 		TextView teamIcon;
 		TextView name;
 		TextView email;
+	}
+
+	@Override
+	public void changeCursor(Cursor cursor) {
+		mCursor = cursor;
+		super.changeCursor(cursor);
 	}
 
 	@Override
@@ -63,7 +68,10 @@ public class ShowTeamSpinnerAdapter extends CursorAdapter implements
 				ShowTeamChooserDialog dialog = ShowTeamChooserDialog
 						.newInstance();
 				dialog.setCallback(ShowTeamSpinnerAdapter.this);
-				dialog.show(mActivity.getFragmentManager(), "tag");//TODO real tag
+				mCursor.moveToFirst();
+				dialog.changeCursor(mCursor);
+				dialog.show(mActivity.getFragmentManager(), "tag");// TODO real
+																	// tag
 				Prefs.setCurrentTeamIdentifier(context, identifier);
 			}
 		});
