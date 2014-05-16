@@ -40,6 +40,7 @@ public class SyncHelper {
 	 * If set, server entities will be requested
 	 */
 	public static final int FLAG_SYNC_REMOTE = 0x2;
+
 //	/**
 //	 * If set, sync will ignore modification times.
 //	 */

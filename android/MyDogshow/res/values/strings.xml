@@ -21,7 +21,7 @@
     <string name="error_team_already_exists">The team "%1$s" already exists. Go back and select Join or choose a different name.</string>
     <string name="error_team_name_empty_join">Enter the name of the team</string>
     <string name="error_team_name_empty_create">Enter the name of your new team</string>
-    <string name="error_team_doesnt_exist">The team "%1$s" doesn\'t exist. Go back select Create it if you\'d like to make it.</string>
+    <string name="error_team_doesnt_exist">The team "%1$s" doesn\'t exist. Go back select \"Create\" if you\'d like to make it.</string>
     <string name="error_team_password_empty">What\'s the password?</string>
     <string name="description_add_account">Add a gmail account to begin!</string>
     <string name="description_choose_account">Choose an account</string>
@@ -46,6 +46,9 @@
     <string name="menu_select_all">Select All</string>
     <string name="menu_select_none">Select None</string>
     <string name="menu_delete">Delete</string>
+    <string name="progress_title_joining_team">Joining team</string>
+    <string name="progress_message_joining_team_sync">Syncing team data</string>
+    <string name="progress_title_creating_team">Creating team</string>
     <string name="template_ring_number">Ring %1$d</string>
 
     <plurals name="template_points_needed">

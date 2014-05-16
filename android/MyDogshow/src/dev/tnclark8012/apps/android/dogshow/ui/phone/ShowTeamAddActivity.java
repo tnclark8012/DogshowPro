@@ -45,6 +45,7 @@ public class ShowTeamAddActivity extends SimpleSinglePaneActivity implements
 	public void onCreateFinish(int status, String teamName) {
 		if (status == ShowTeamCreateFragment.STATUS_SUCCESS) {
 			Toast.makeText(this, "Created", Toast.LENGTH_SHORT).show();
+			finish();
 		} else if (status == ShowTeamCreateFragment.STATUS_BACK) {
 			if (mStep > STEP_CREATE_OR_JOIN) {
 				mStep = STEP_CREATE_OR_JOIN;

@@ -36,6 +36,7 @@
         android:layout_below="@+id/divider"
         android:layout_marginLeft="@dimen/element_padding_normal"
         android:hint="@string/hint_team_name"
+        android:inputType="text"
         android:paddingLeft="@dimen/element_margin_normal"
         android:paddingTop="@dimen/element_margin_normal"
         android:textColor="#999999"
@@ -45,11 +46,11 @@
         xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
         android:id="@+id/edit_show_team_password"
         android:layout_width="fill_parent"
-        android:inputType="textPassword"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edit_show_team_name"
         android:layout_marginLeft="@dimen/element_padding_normal"
         android:hint="@string/hint_password"
+        android:inputType="textPassword"
         android:paddingLeft="@dimen/element_margin_normal"
         android:paddingTop="@dimen/element_margin_normal"
         android:textColor="#999999"
@@ -64,12 +65,18 @@
         android:layout_below="@+id/edit_show_team_password"
         android:layout_marginLeft="@dimen/element_padding_normal"
         android:hint="@string/hint_password_confirm"
+        android:inputType="textPassword"
         android:paddingLeft="@dimen/element_margin_normal"
         android:paddingTop="@dimen/element_margin_normal"
-        android:inputType="textPassword"
         android:textColor="#999999"
         ttv:typeface="Roboto-Medium.ttf" >
     </dev.tnclark8012.apps.android.dogshow.widget.TypefacedEditText>
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_show_team_confirm_password"
+        layout="@layout/indeterminate_progress" />
 
     <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
         xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
