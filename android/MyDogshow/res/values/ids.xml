@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item type="id" name="dog_view_image" />
-    <item type="id" name="dog_view_name" />
-    <item type="id" name="dog_view_section_sex_text" />
-    <item type="id" name="dog_view_section_breed_text" />
-    <item type="id" name="dog_view_section_points_text"/>
-    <item type="id" name="dashboard_schedule"/>
-    <item type="id" name="dashboard_find_show"/>
-    <item type="id" name="dashboard_handlers"/>
-    <item type="id" name="dashboard_doghouse"/>
-    <item type="id" name="drawer_item_text1"/>
-    <item type="id" name="drawer_item_text2"/>
-    <item type="id" name="drawer_item_icon"/>
-    <item type="id" name="root_container"/>
-    <item type="id" name="text_error"/>
+
+    <item name="dog_view_image" type="id"/>
+    <item name="dog_view_name" type="id"/>
+    <item name="dog_view_section_sex_text" type="id"/>
+    <item name="dog_view_section_breed_text" type="id"/>
+    <item name="dog_view_section_points_text" type="id"/>
+    <item name="dashboard_schedule" type="id"/>
+    <item name="dashboard_find_show" type="id"/>
+    <item name="dashboard_handlers" type="id"/>
+    <item name="dashboard_doghouse" type="id"/>
+    <item name="drawer_item_text1" type="id"/>
+    <item name="drawer_item_text2" type="id"/>
+    <item name="drawer_item_icon" type="id"/>
+    <item name="root_container" type="id"/>
+    <item name="text_error" type="id"/>
+    <item name="tag_identifier" type="id"/>
+
 </resources>

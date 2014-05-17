@@ -13,7 +13,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 import dev.tnclark8012.apps.android.dogshow.R;
+import dev.tnclark8012.apps.android.dogshow.adapters.ShowTeamDialogListAdapter;
 import dev.tnclark8012.apps.android.dogshow.adapters.SimpleCursorAdapter;
+import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query;
 
 public class ShowTeamChooserDialog extends DialogFragment implements
@@ -24,7 +26,7 @@ public class ShowTeamChooserDialog extends DialogFragment implements
 
 	private Callback mCallback = null;
 	private ListView mListView;
-	private SimpleCursorAdapter mAdapter;
+	private ShowTeamDialogListAdapter mAdapter;
 	private Cursor mCursor;
 	public static final int STATUS_CANCELLED = -1;
 	public static final int STATUS_SELECT = 0;
@@ -37,23 +39,23 @@ public class ShowTeamChooserDialog extends DialogFragment implements
 				container);
 		mListView = (ListView) view.findViewById(R.id.list_choose_show_team);
 		mListView.setAdapter(mAdapter);
-		// new ArrayAdapter<String>(getActivity(),
-		// android.R.layout.simple_list_item_single_choice, new String[] {
-		// "Just Me", "Stellar", "Add Team" }));
 		mListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-
+		if (mAdapter.getCount() > 1) {
+			mListView.setItemChecked(0, true);
+		}
 		mListView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				Toast.makeText(getActivity(), "Clicked " + position,
-						Toast.LENGTH_SHORT).show();
 				if (position == parent.getCount() - 1) {
 					if (mCallback != null) {
 						mCallback.onFinishDialog(STATUS_ADD, null);
 					}
-					dismiss();
+				} else {
+					new PersistHelper(getActivity()).setActiveTeam(mAdapter
+							.getIdentifierForPosition(position));
 				}
+				dismiss();
 			}
 		});
 		view.findViewById(R.id.dialog_ok).setOnClickListener(this);
@@ -75,7 +77,6 @@ public class ShowTeamChooserDialog extends DialogFragment implements
 			break;
 		}
 		case R.id.dialog_cancel: {
-			Toast.makeText(getActivity(), "Cancel", Toast.LENGTH_SHORT).show();
 			if (mCallback != null) {
 				mCallback.onFinishDialog(STATUS_CANCELLED, null);
 			}
@@ -94,9 +95,7 @@ public class ShowTeamChooserDialog extends DialogFragment implements
 		// TODO Auto-generated method stub
 		super.onAttach(activity);
 		if (mAdapter == null) {
-			mAdapter = new SimpleCursorAdapter(activity, mCursor, false,
-					android.R.layout.simple_list_item_single_choice,
-					android.R.id.text1, Query.ShowTeamsQuery.TEAM_NAME);
+			mAdapter = new ShowTeamDialogListAdapter(activity, mCursor);
 		}
 
 	}
@@ -105,6 +104,9 @@ public class ShowTeamChooserDialog extends DialogFragment implements
 		mCursor = c;
 		if (mAdapter != null) {
 			mAdapter.changeCursor(mCursor);
+			if (mAdapter.getCount() > 1) {
+				mListView.setItemChecked(0, true);
+			}
 		}
 	}
 

@@ -82,9 +82,8 @@ public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 	public Loader<Cursor> onCreateLoader(int id, Bundle data) {
 		if (id == ShowTeamsQuery._TOKEN) {
 			return new CursorLoader(this, ShowTeams.CONTENT_URI,
-					ShowTeamsQuery.PROJECTION, ShowTeams.SHOW_TEAM_ID + "=?",
-					new String[] { Prefs.currentTeamIdentifier(this) },
-					ShowTeams.DEFAULT_SORT + " limit 1");
+					ShowTeamsQuery.PROJECTION, null, null,
+					ShowTeams.ACTIVE_FIRST_SORT);
 		} else {
 			Log.w(TAG, "Couldn't create loader");
 			return null;
@@ -139,8 +138,9 @@ public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 		showTeamSpinner = new ShowTeamSpinner(this, new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-//				Toast.makeText(NavigatableActivity.this, "Clicked a team",
-//						Toast.LENGTH_SHORT).show();
+				// TODO not required
+				// Toast.makeText(NavigatableActivity.this, "Clicked a team",
+				// Toast.LENGTH_SHORT).show();
 			}
 		});
 		mDrawerItems.add(showTeamSpinner); // adding a

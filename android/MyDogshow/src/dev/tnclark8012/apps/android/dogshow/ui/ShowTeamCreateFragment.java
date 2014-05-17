@@ -21,7 +21,7 @@ import dev.tnclark8012.apps.android.dogshow.util.Utils;
 
 public class ShowTeamCreateFragment extends Fragment {
 	public interface Callback {
-		void onCreateFinish(int status, String teamName);
+		void onCreateFinish(int status, String teamName, String teamIdentifier);
 	}
 
 	private Callback mCallback = null;
@@ -53,7 +53,7 @@ public class ShowTeamCreateFragment extends Fragment {
 				.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						mCallback.onCreateFinish(STATUS_BACK, null);
+						mCallback.onCreateFinish(STATUS_BACK, null, null);
 					}
 				});
 		mNameEditText = (EditText) view.findViewById(R.id.edit_show_team_name);
@@ -121,7 +121,7 @@ public class ShowTeamCreateFragment extends Fragment {
 						mProgressLayout.setVisibility(View.GONE);
 						if (mCallback != null) {
 							mCallback.onCreateFinish(STATUS_SUCCESS,
-									response.teamName);
+									response.teamName, response.identifier);
 						}
 					};
 				}.execute(teamName, password);

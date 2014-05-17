@@ -56,23 +56,26 @@ public class ShowTeamSpinnerAdapter extends CursorAdapter implements
 	@Override
 	public void bindView(View view, final Context context, Cursor cursor) {
 		SpinnerHolder holder;
+		// Since this spinner will always only show the selected item (the first
+		// in the cursor), move it to the beginning
+		cursor.moveToFirst();
 		holder = (SpinnerHolder) view.getTag();
 		String name = cursor.getString(Query.ShowTeamsQuery.TEAM_NAME);
 		final String identifier = cursor
 				.getString(Query.ShowTeamsQuery.IDENTIFIER);
 		holder.name.setText(name);
 		holder.teamIcon.setText(name.toUpperCase().substring(0, 1));
+		//TODO set team owner email
 		view.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				ShowTeamChooserDialog dialog = ShowTeamChooserDialog
 						.newInstance();
 				dialog.setCallback(ShowTeamSpinnerAdapter.this);
-				mCursor.moveToFirst();
 				dialog.changeCursor(mCursor);
 				dialog.show(mActivity.getFragmentManager(), "tag");// TODO real
-																	// tag
-				Prefs.setCurrentTeamIdentifier(context, identifier);
+																	// // tag
+				// Prefs.setCurrentTeamIdentifier(context, identifier);
 			}
 		});
 	}

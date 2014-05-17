@@ -24,7 +24,6 @@ public final class Prefs {
 	public static final String KEY_LAST_SYNC = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.LAST_SYNC";
 	public static final String KEY_ENABLE_SYNC = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.SYNC";
 	public static final String KEY_CURRENT_TEAM_ID = "dev.tclark8012.dogshow.android.dogshow.prefs.key.CURRENT_TEAM_ID";
-	public static final String KEY_CURRENT_TEAM = "dev.tclark8012.dogshow.android.dogshow.prefs.key.CURRENT_TEAM_NAME";
 	public static final String KEY_LOCAL_SERVER = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.LOCAL_SERVER";
 
 	public static SharedPreferences get(Context context) {
@@ -60,40 +59,19 @@ public final class Prefs {
 	 */
 	public static boolean setCurrentTeamIdentifier(Context context,
 			String currentTeam) {
-		if (currentTeam != currentTeamIdentifier(context)) {
+		if (currentTeam != getCurrentTeamIdentifier(context)) {
 			get(context).edit().putString(KEY_CURRENT_TEAM_ID, currentTeam)
 					.commit();
 		}
 		return false;
 	}
 
-	public static boolean setCurrentTeamName(Context context,
-			String currentTeamName) {
-		if (currentTeamName != currentTeamName(context)) {
-			get(context).edit().putString(KEY_CURRENT_TEAM, currentTeamName)
-					.commit();
-		}
-		return false;
-	}
-
-	public static String currentTeamIdentifier(Context context) {
+	public static String getCurrentTeamIdentifier(Context context) {
 		return get(context).getString(KEY_CURRENT_TEAM_ID,
 				AccountUtils.getUserIdentifier(context));// FIXME should be user
 															// identifier, but
 															// intellisense
 															// isn't working
 															// right now
-	}
-
-	public static String currentTeamName(Context context) {
-		return get(context).getString(KEY_CURRENT_TEAM, "Just Me");// FIXME
-																	// should be
-																	// user
-																	// identifier,
-																	// but
-																	// intellisense
-																	// isn't
-																	// working
-																	// right now
 	}
 }

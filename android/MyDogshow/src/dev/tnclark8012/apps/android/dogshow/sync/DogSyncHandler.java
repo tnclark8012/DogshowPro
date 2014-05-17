@@ -71,7 +71,7 @@ public class DogSyncHandler {
 		}
 		
 		// Push my dogs and get back those that need updating locally
-		DogSyncResponse[] actionable = mAccessor.syncDogs(AccountUtils.getUserIdentifier(mContext), Prefs.currentTeamIdentifier(mContext), SyncHelper.getLastSync(mContext), locallyUpdatedDogs, currentDogIds);
+		DogSyncResponse[] actionable = mAccessor.syncDogs(AccountUtils.getUserIdentifier(mContext), Prefs.getCurrentTeamIdentifier(mContext), SyncHelper.getLastSync(mContext), locallyUpdatedDogs, currentDogIds);
 		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
 		
 		if(overwritting)

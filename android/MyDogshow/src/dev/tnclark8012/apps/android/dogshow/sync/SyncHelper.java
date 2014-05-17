@@ -41,10 +41,10 @@ public class SyncHelper {
 	 */
 	public static final int FLAG_SYNC_REMOTE = 0x2;
 
-//	/**
-//	 * If set, sync will ignore modification times.
-//	 */
-//	public static final int FLAG_SYNC_FORCE = 0x3;
+	// /**
+	// * If set, sync will ignore modification times.
+	// */
+	// public static final int FLAG_SYNC_FORCE = 0x3;
 
 	public SyncHelper(Context context) {
 		mContext = context;
@@ -56,7 +56,8 @@ public class SyncHelper {
 	}
 
 	public static void setLastSync(Context context, long timestamp) {
-		Prefs.get(context).edit().putLong(Prefs.KEY_LAST_SYNC, timestamp).commit();
+		Prefs.get(context).edit().putLong(Prefs.KEY_LAST_SYNC, timestamp)
+				.commit();
 	}
 
 	public Show[] getShows() {
@@ -69,15 +70,26 @@ public class SyncHelper {
 	public void executeSync(String showId) {
 		final ContentResolver resolver = mContext.getContentResolver();
 		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
-		Cursor breedsCursor = resolver.query(DogshowContract.Dogs.buildEnteredGroupedBreedUri(), new String[] { DogshowContract.Dogs.DOG_BREED, DogshowContract.Dogs.DOG_IS_SHOWING_SWEEPSTAKES, DogshowContract.Dogs.DOG_IS_VETERAN }, null, null, null);
+		Cursor breedsCursor = resolver
+				.query(DogshowContract.Dogs.buildEnteredGroupedBreedUri(),
+						new String[] {
+								DogshowContract.Dogs.DOG_BREED,
+								DogshowContract.Dogs.DOG_IS_SHOWING_SWEEPSTAKES,
+								DogshowContract.Dogs.DOG_IS_VETERAN }, null,
+						null, null);
 		batch = new ArrayList<ContentProviderOperation>();
 		String breedName = null;
 		boolean isVeteran;
 		boolean isSweepstakes;
-		Log.i(TAG, "Syncing breed rings for " + breedsCursor.getCount() + " breeds");
+		Log.i(TAG, "Syncing breed rings for " + breedsCursor.getCount()
+				+ " breeds");
 		int numBreeds = 0;
 		if (breedsCursor.getCount() == 0) {
-			batch.add(ContentProviderOperation.newDelete(DogshowContract.addCallerIsSyncAdapterParameter(BreedRings.CONTENT_URI)).build());
+			batch.add(ContentProviderOperation
+					.newDelete(
+							DogshowContract
+									.addCallerIsSyncAdapterParameter(BreedRings.CONTENT_URI))
+					.build());
 		}
 		BreedRingsHandler handler = new BreedRingsHandler(mContext, true);
 		// TODO make this available in a single HTTP request?
@@ -86,11 +98,16 @@ public class SyncHelper {
 			isSweepstakes = Utils.getMaybeNull(breedsCursor, 1, false);
 			isVeteran = Utils.getMaybeNull(breedsCursor, 2, false);
 			Log.v(TAG, "Requesting breed ring: " + breedName);
-			// When entered in sweeps, request the non-sweeps rings as well. TODO make this optional
+			// When entered in sweeps, request the non-sweeps rings as well.
+			// TODO make this optional
 			if (isSweepstakes) {
-				batch.addAll(handler.parse(mAccessor.getBreedRings(showId, DogshowEnums.Breeds.parse(breedName).getPrimaryName(), isVeteran, isSweepstakes)));
+				batch.addAll(handler.parse(mAccessor.getBreedRings(showId,
+						DogshowEnums.Breeds.parse(breedName).getPrimaryName(),
+						isVeteran, isSweepstakes)));
 			}
-			batch.addAll(handler.parse(mAccessor.getBreedRings(showId, DogshowEnums.Breeds.parse(breedName).getPrimaryName(), isVeteran, false)));
+			batch.addAll(handler.parse(mAccessor.getBreedRings(showId,
+					DogshowEnums.Breeds.parse(breedName).getPrimaryName(),
+					isVeteran, false)));
 			numBreeds++;
 		}
 		Log.v(TAG, "Pulled breed rings for " + numBreeds + " breeds");
@@ -118,22 +135,34 @@ public class SyncHelper {
 			final ContentResolver resolver = mContext.getContentResolver();
 			ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
 			boolean auth = AccountUtils.isAuthenticated(mContext);
-			String selection = Handlers.HANDLER_IS_SHOWING + "=? AND " + Handlers.HANDLER_IS_SHOWING_JUNIORS + "=?";
+			String selection = Handlers.HANDLER_IS_SHOWING + "=? AND "
+					+ Handlers.HANDLER_IS_SHOWING_JUNIORS + "=?";
 			String[] selectionArgs = new String[] { "1", "1" };
-			Cursor juniorsCursor = resolver.query(Handlers.buildEnteredJuniorsClassesUri(), new String[] { Handlers.HANDLER_JUNIOR_CLASS }, selection, selectionArgs, null);
+			Cursor juniorsCursor = resolver.query(
+					Handlers.buildEnteredJuniorsClassesUri(),
+					new String[] { Handlers.HANDLER_JUNIOR_CLASS }, selection,
+					selectionArgs, null);
 			batch = new ArrayList<ContentProviderOperation>();
 			String className = null;
-			Log.i(TAG, "Syncing junior rings for " + juniorsCursor.getCount() + " classes");
+			Log.i(TAG, "Syncing junior rings for " + juniorsCursor.getCount()
+					+ " classes");
 			if (juniorsCursor.getCount() == 0) {
-				batch.add(ContentProviderOperation.newDelete(DogshowContract.addCallerIsSyncAdapterParameter(JuniorsRings.CONTENT_URI)).build());
+				batch.add(ContentProviderOperation
+						.newDelete(
+								DogshowContract
+										.addCallerIsSyncAdapterParameter(JuniorsRings.CONTENT_URI))
+						.build());
 			}
 			int numClasses = 0;
-			JuniorsRingsHandler handler = new JuniorsRingsHandler(mContext, true);
+			JuniorsRingsHandler handler = new JuniorsRingsHandler(mContext,
+					true);
 			while (juniorsCursor.moveToNext()) {
 				className = juniorsCursor.getString(0);
 				if (className != null) {
 					Log.v(TAG, "Requesting juniors ring: " + className);
-					batch.addAll(handler.parse(mAccessor.getJuniorsRings(params[0], DogshowEnums.JuniorClass.parse(className).getPrimaryName())));
+					batch.addAll(handler.parse(mAccessor.getJuniorsRings(
+							params[0], DogshowEnums.JuniorClass
+									.parse(className).getPrimaryName())));
 					numClasses++;
 				}
 			}
@@ -153,33 +182,34 @@ public class SyncHelper {
 		}
 	};
 
-	public static void requestManualSync(Context context, Account mChosenAccount, int flags)
-	{
+	public static void requestManualSync(Context context,
+			Account mChosenAccount, int flags) {
 		if (Prefs.isSyncEnabled(context)) {
 			Bundle b = new Bundle();
 			b.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true);
 			b.putInt(SyncAdapter.SYNC_EXTRAS_FLAGS, flags);
-			ContentResolver.requestSync(mChosenAccount, DogshowContract.CONTENT_AUTHORITY, b);
+			ContentResolver.requestSync(mChosenAccount,
+					DogshowContract.CONTENT_AUTHORITY, b);
 		}
 	}
+
 	public static void requestManualSync(Context context, Account mChosenAccount) {
 		if (Prefs.isSyncEnabled(context)) {
-			Bundle b = new Bundle();
-			b.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true);
-			
-			ContentResolver.requestSync(mChosenAccount, DogshowContract.CONTENT_AUTHORITY, b);
+			requestManualSync(context, mChosenAccount,
+					SyncHelper.FLAG_SYNC_LOCAL | SyncHelper.FLAG_SYNC_REMOTE);
 		}
 	}
-	
 
-	public void performSync(SyncResult syncResult, int flags) throws IOException {
+	public void performSync(SyncResult syncResult, int flags)
+			throws IOException {
 
 		final long lastSync = getLastSync(mContext);
 
 		// Bulk of sync work, performed by executing several fetches from
 		// local and online sources.
 		final ContentResolver resolver = mContext.getContentResolver();
-		ShowTeamSyncHandler teamHelper = new ShowTeamSyncHandler(mContext, mAccessor);
+		ShowTeamSyncHandler teamHelper = new ShowTeamSyncHandler(mContext,
+				mAccessor);
 		teamHelper.sync(resolver, lastSync, flags);
 		Log.i(TAG, "Completed team sync");
 		DogSyncHandler dogHelper = new DogSyncHandler(mContext, mAccessor);
@@ -188,14 +218,17 @@ public class SyncHelper {
 		setLastSync(mContext, System.currentTimeMillis());
 
 		if (syncResult != null) {
-			++syncResult.stats.numUpdates; // TODO: better way of indicating progress?
+			++syncResult.stats.numUpdates; // TODO: better way of indicating
+											// progress?
 			++syncResult.stats.numEntries;
 		}
 		Log.i(TAG, "Sync complete");
 	}
 
 	private boolean isOnline() {
-		ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
-		return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnectedOrConnecting();
+		ConnectivityManager cm = (ConnectivityManager) mContext
+				.getSystemService(Context.CONNECTIVITY_SERVICE);
+		return cm.getActiveNetworkInfo() != null
+				&& cm.getActiveNetworkInfo().isConnectedOrConnecting();
 	}
 }

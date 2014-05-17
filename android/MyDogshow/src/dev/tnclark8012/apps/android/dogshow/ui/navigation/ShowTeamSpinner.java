@@ -51,21 +51,6 @@ public class ShowTeamSpinner extends NonNavigationDrawerItem {
 			holder.spinner = (Spinner) convertView
 					.findViewById(R.id.drawerSpinner);
 		}
-		holder.spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-
-			@Override
-			public void onItemSelected(AdapterView<?> adapter, View view,
-					int position, long id) {
-				Toast.makeText(view.getContext(), "OnItemSelected",
-						Toast.LENGTH_SHORT).show();
-			}
-
-			@Override
-			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
-
-			}
-		});
 		holder.spinner.setClickable(false);
 		mAdapter = new ShowTeamSpinnerAdapter(mActivity, null, false);
 		holder.spinner.setAdapter(mAdapter);

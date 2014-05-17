@@ -65,8 +65,7 @@ public abstract class BaseActivity extends Activity {
 			return true;
 		case R.id.menu_sync:
 			SyncHelper.requestManualSync(this,
-					AccountUtils.getChosenAccount(this),
-					SyncHelper.FLAG_SYNC_REMOTE);
+					AccountUtils.getChosenAccount(this));
 			return true;
 		}
 

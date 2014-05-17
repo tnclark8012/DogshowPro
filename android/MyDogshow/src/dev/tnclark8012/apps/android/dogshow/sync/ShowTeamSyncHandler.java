@@ -100,7 +100,7 @@ public class ShowTeamSyncHandler {
 		values.put(ShowTeams.SHOW_TEAM_ID, team.identifier);
 		values.put(ShowTeams.SHOW_TEAM_NAME, team.teamName);
 		values.put(ShowTeams.SHOW_TEAM_ACTIVE,
-				team.identifier.equals(Prefs.currentTeamIdentifier(mContext)));
+				team.identifier.equals(Prefs.getCurrentTeamIdentifier(mContext)));
 		values.put(ShowTeams.UPDATED, System.currentTimeMillis());// TODO set a
 																	// "sync time"
 																	// per sync

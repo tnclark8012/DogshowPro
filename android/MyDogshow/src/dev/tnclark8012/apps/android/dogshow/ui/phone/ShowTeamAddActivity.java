@@ -42,20 +42,9 @@ public class ShowTeamAddActivity extends SimpleSinglePaneActivity implements
 	}
 
 	@Override
-	public void onCreateFinish(int status, String teamName) {
-		if (status == ShowTeamCreateFragment.STATUS_SUCCESS) {
-			Toast.makeText(this, "Created", Toast.LENGTH_SHORT).show();
-			finish();
-		} else if (status == ShowTeamCreateFragment.STATUS_BACK) {
-			if (mStep > STEP_CREATE_OR_JOIN) {
-				mStep = STEP_CREATE_OR_JOIN;
-				showFragment(mStep);
-			} else {
-				finish();
-			}
-		} else if (status == ShowTeamCreateFragment.STATUS_FAIL) {
-			Toast.makeText(this, "Fail", Toast.LENGTH_SHORT).show();
-		}
+	public void onCreateFinish(int status, String teamName,
+			String teamIdentifier) {
+		handleJoinCreateResult(status, teamName, teamIdentifier);
 	}
 
 	@Override
@@ -70,10 +59,17 @@ public class ShowTeamAddActivity extends SimpleSinglePaneActivity implements
 		showFragment(mStep);
 	}
 
-	@Override
-	public void onJoinFinish(int status, String teamName) {
+	private void handleJoinCreateResult(int status, String teamName,
+			String teamIdentifier) {
+		// TODO
+		// lose
+		// teamName
+		// param.
+		// Not
+		// used
 		if (status == ShowTeamJoinFragment.STATUS_SUCCESS) {
-			Toast.makeText(this, "Created", Toast.LENGTH_SHORT).show();
+			new PersistHelper(this).setActiveTeam(teamIdentifier);
+			finish();
 		}
 		if (status == ShowTeamJoinFragment.STATUS_BACK) {
 			if (mStep > STEP_CREATE_OR_JOIN) {
@@ -85,6 +81,11 @@ public class ShowTeamAddActivity extends SimpleSinglePaneActivity implements
 		} else if (status == ShowTeamJoinFragment.STATUS_FAIL) {
 			Toast.makeText(this, "Fail", Toast.LENGTH_SHORT).show();
 		}
+	}
+
+	@Override
+	public void onJoinFinish(int status, String teamName, String teamIdentifier) {
+		handleJoinCreateResult(status, teamName, teamIdentifier);
 	}
 
 	private void showFragment(int step) {

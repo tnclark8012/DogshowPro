@@ -256,7 +256,7 @@ public class DogshowContract {
 				+ " COLLATE NOCASE ASC";
 
 		public static final String ACTIVE_FIRST_SORT = ShowTeams.SHOW_TEAM_ACTIVE
-				+ " DESC";
+				+ " DESC, " + DEFAULT_SORT;
 		public static final String NOT_ME_SELECTION = ShowTeams.SHOW_TEAM_ID
 				+ " IS NOT \"ME\"";
 

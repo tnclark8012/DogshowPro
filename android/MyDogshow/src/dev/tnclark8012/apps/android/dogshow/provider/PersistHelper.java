@@ -14,11 +14,13 @@ import android.net.Uri;
 import android.os.RemoteException;
 import android.provider.BaseColumns;
 import android.util.Log;
+import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.JuniorsRings;
+import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.SyncColumns;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 
@@ -53,6 +55,26 @@ public class PersistHelper {
 			meCursor.close();
 			return true;
 		}
+	}
+
+	public void setActiveTeam(String teamIdentifier) {
+		ArrayList<ContentProviderOperation> ops = new ArrayList<ContentProviderOperation>(
+				2);
+		// reset other show teams
+		ContentProviderOperation.Builder builder = ContentProviderOperation
+				.newUpdate(ShowTeams.CONTENT_URI);
+		builder.withValue(ShowTeams.SHOW_TEAM_ACTIVE, 0).withSelection(
+				ShowTeams.SHOW_TEAM_ID + "<> ?",
+				new String[] { teamIdentifier });
+		ops.add(builder.build());
+		// set new show team as active
+		builder = ContentProviderOperation.newUpdate(ShowTeams.CONTENT_URI);
+		builder.withValue(ShowTeams.SHOW_TEAM_ACTIVE, 1)
+				.withSelection(ShowTeams.SHOW_TEAM_ID + "= ?",
+						new String[] { teamIdentifier });
+		ops.add(builder.build());
+		applyBatch(ops);
+		Prefs.setCurrentTeamIdentifier(mContext, teamIdentifier);
 	}
 
 	// TODO use only this?
