@@ -62,7 +62,7 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 
 				@Override
 				protected Void doInBackground(String... params) {
-					new SyncHelper(ShowSetupActivity.this).executeSync(params[0]);
+					new SyncHelper(ShowSetupActivity.this).enterShow(params[0]);
 					return null;
 				}
 			}.execute(showId);

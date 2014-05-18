@@ -24,6 +24,8 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.JuniorsRings;
+import dev.tnclark8012.apps.android.dogshow.sync.request.ConformationRingsRequest;
+import dev.tnclark8012.apps.android.dogshow.sync.request.JuniorsRingsRequest;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums;
@@ -67,120 +69,14 @@ public class SyncHelper {
 	}
 
 	// TODO move this to a service
-	public void executeSync(String showId) {
-		final ContentResolver resolver = mContext.getContentResolver();
-		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
-		Cursor breedsCursor = resolver
-				.query(DogshowContract.Dogs.buildEnteredGroupedBreedUri(),
-						new String[] {
-								DogshowContract.Dogs.DOG_BREED,
-								DogshowContract.Dogs.DOG_IS_SHOWING_SWEEPSTAKES,
-								DogshowContract.Dogs.DOG_IS_VETERAN }, null,
-						null, null);
-		batch = new ArrayList<ContentProviderOperation>();
-		String breedName = null;
-		boolean isVeteran;
-		boolean isSweepstakes;
-		Log.i(TAG, "Syncing breed rings for " + breedsCursor.getCount()
-				+ " breeds");
-		int numBreeds = 0;
-		if (breedsCursor.getCount() == 0) {
-			batch.add(ContentProviderOperation
-					.newDelete(
-							DogshowContract
-									.addCallerIsSyncAdapterParameter(BreedRings.CONTENT_URI))
-					.build());
-		}
-		BreedRingsHandler handler = new BreedRingsHandler(mContext, true);
-		// TODO make this available in a single HTTP request?
-		while (breedsCursor.moveToNext()) {
-			breedName = breedsCursor.getString(0);
-			isSweepstakes = Utils.getMaybeNull(breedsCursor, 1, false);
-			isVeteran = Utils.getMaybeNull(breedsCursor, 2, false);
-			Log.v(TAG, "Requesting breed ring: " + breedName);
-			// When entered in sweeps, request the non-sweeps rings as well.
-			// TODO make this optional
-			if (isSweepstakes) {
-				batch.addAll(handler.parse(mAccessor.getBreedRings(showId,
-						DogshowEnums.Breeds.parse(breedName).getPrimaryName(),
-						isVeteran, isSweepstakes)));
-			}
-			batch.addAll(handler.parse(mAccessor.getBreedRings(showId,
-					DogshowEnums.Breeds.parse(breedName).getPrimaryName(),
-					isVeteran, false)));
-			numBreeds++;
-		}
-		Log.v(TAG, "Pulled breed rings for " + numBreeds + " breeds");
-		breedsCursor.close();
-		// FIXME clear rings if no breeds and or juniors entered
-
-		try {
-			resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY, batch);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (OperationApplicationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		requestJuniorsRingsTask.execute(showId);
-
+	public void enterShow(Show show) {
+		
+		ConformationRingsRequest confRingsRequest = new ConformationRingsRequest(mContext);
+		JuniorsRingsRequest juniorsRingsRequest = new JuniorsRingsRequest(mContext);
+		confRingsRequest.execute(showId);
+		juniorsRingsRequest.execute(showId);
+		//TODO callbacks for completion?
 	}
-
-	private AsyncTask<String, Void, Void> requestJuniorsRingsTask = new AsyncTask<String, Void, Void>() {
-
-		@Override
-		protected Void doInBackground(String... params) {
-
-			final ContentResolver resolver = mContext.getContentResolver();
-			ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
-			boolean auth = AccountUtils.isAuthenticated(mContext);
-			String selection = Handlers.HANDLER_IS_SHOWING + "=? AND "
-					+ Handlers.HANDLER_IS_SHOWING_JUNIORS + "=?";
-			String[] selectionArgs = new String[] { "1", "1" };
-			Cursor juniorsCursor = resolver.query(
-					Handlers.buildEnteredJuniorsClassesUri(),
-					new String[] { Handlers.HANDLER_JUNIOR_CLASS }, selection,
-					selectionArgs, null);
-			batch = new ArrayList<ContentProviderOperation>();
-			String className = null;
-			Log.i(TAG, "Syncing junior rings for " + juniorsCursor.getCount()
-					+ " classes");
-			if (juniorsCursor.getCount() == 0) {
-				batch.add(ContentProviderOperation
-						.newDelete(
-								DogshowContract
-										.addCallerIsSyncAdapterParameter(JuniorsRings.CONTENT_URI))
-						.build());
-			}
-			int numClasses = 0;
-			JuniorsRingsHandler handler = new JuniorsRingsHandler(mContext,
-					true);
-			while (juniorsCursor.moveToNext()) {
-				className = juniorsCursor.getString(0);
-				if (className != null) {
-					Log.v(TAG, "Requesting juniors ring: " + className);
-					batch.addAll(handler.parse(mAccessor.getJuniorsRings(
-							params[0], DogshowEnums.JuniorClass
-									.parse(className).getPrimaryName())));
-					numClasses++;
-				}
-			}
-			Log.v(TAG, "Pulled juniors rings for " + numClasses + " classes");
-			juniorsCursor.close();
-
-			try {
-				resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY, batch);
-			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (OperationApplicationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return null;
-		}
-	};
 
 	public static void requestManualSync(Context context,
 			Account mChosenAccount, int flags) {
@@ -223,12 +119,5 @@ public class SyncHelper {
 			++syncResult.stats.numEntries;
 		}
 		Log.i(TAG, "Sync complete");
-	}
-
-	private boolean isOnline() {
-		ConnectivityManager cm = (ConnectivityManager) mContext
-				.getSystemService(Context.CONNECTIVITY_SERVICE);
-		return cm.getActiveNetworkInfo() != null
-				&& cm.getActiveNetworkInfo().isConnectedOrConnecting();
 	}
 }

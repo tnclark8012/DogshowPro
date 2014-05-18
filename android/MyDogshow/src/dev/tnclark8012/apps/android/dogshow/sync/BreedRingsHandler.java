@@ -16,7 +16,7 @@ public class BreedRingsHandler extends JsonHandler<BreedRing> {
 	boolean clearExisting = false;
 	boolean hasCleared = false;
 
-	protected BreedRingsHandler(Context context, boolean clearExisting) {
+	public BreedRingsHandler(Context context, boolean clearExisting) {
 		super(context);
 		this.clearExisting = clearExisting;
 	}
