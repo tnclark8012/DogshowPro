@@ -1,4 +1,4 @@
-// Generated from C:\Users\Taylor\Documents\GitHub\dogshow\grammar\JavaTest\src\dev\tclark\dogshow\grammar\onofrio\OnofrioParser.g4 by ANTLR 4.1
+// Generated from C:\Users\Taylor\Documents\GitHub\dogshow\IntegrationTest\src\dev\tnclark8012\dogshow\grammar\onofrio\OnofrioParser.g4 by ANTLR 4.1
 package dev.tnclark8012.dogshow.grammar.onofrio;
 
 //TODO Puppy groups
@@ -1993,7 +1993,9 @@ public class OnofrioParser extends Parser {
 			case 1:
 				{
 				setState(335); ((Ring_with_breedContext)_localctx).suffix = special_suffix();
-				mergeJson(_localctx.json,((Ring_with_breedContext)_localctx).suffix.json);
+
+				            _localctx.json.addProperty("RingType", "Conformation");
+				            mergeJson(_localctx.json,((Ring_with_breedContext)_localctx).suffix.json);
 				}
 				break;
 
@@ -2289,6 +2291,7 @@ public class OnofrioParser extends Parser {
 				setState(372); ((Ring_without_breedContext)_localctx).mEmptyRing = empty_breed_ring();
 
 				            mergeJson(_localctx.json,((Ring_without_breedContext)_localctx).mEmptyRing.json);
+				            _localctx.json.addProperty("RingType", "Conformation");
 				            _localctx.json.addProperty("BreedName",mLastBreedName);
 				            
 				}
@@ -2328,6 +2331,7 @@ public class OnofrioParser extends Parser {
 				{
 				setState(381); ((Ring_without_breedContext)_localctx).mSpecial = special_suffix();
 
+				            _localctx.json.addProperty("RingType", "Conformation");
 				            mergeJson(_localctx.json, ((Ring_without_breedContext)_localctx).mSpecial.json);
 				            _localctx.json.addProperty("BreedName",mLastBreedName);
 				            
