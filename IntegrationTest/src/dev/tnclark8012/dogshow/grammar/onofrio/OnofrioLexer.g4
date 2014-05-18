@@ -33,208 +33,206 @@ JUNIOR_CLASS
         
 fragment FRAG_BREED_NAME_SINGLE
     :
-   ('Affenpinscher'|
-    'Afghan Hound'|
-    'Airedale Terrier'|
-    'Akita'|
-    'Alaskan Malamute'|
-    'American English Coonhound'|
-    'American Eskimo Dog'|
-    'American Foxhound'|
-    'American Staffordshire Terrier'|
-//    Captured by "Spaniels (American Water)" 'American Water Spaniel'|
-    'Anatolian Shepherd Dog'|
-    'Appenzeller Sennenhunde'|
-    'Australian Cattle Dog'|
-    'Australian Shepherd'|
-    'Australian Terrier'|
-    'Basenji'|
-    'Basset Hound'|
-    'Beagle'|
-    'Bearded Collie'|
-    'Beauceron'|
-    'Bedlington Terrier'|
-    'Belgian Malinois'|
-    'Belgian Sheepdog'|
-    'Belgian Tervuren'|
-    'Berger Picard'|
-    'Bernese Mountain Dog'|
-    'Bichon Frise'|
-    'Bichons Frise'|//odd plural
-    'Black and Tan Coonhound'|
-    'Black & Tan Coonhound'|
-    'Black Russian Terrier'|
-    'Bloodhound'|
-    'Bluetick Coonhound'|
-    'Border Collie'|
-    'Border Terrier'|
-    'Borzoi'|
-    'Boston Terrier'|
-    'Bouvier des Flandres'|
-    'Bouviers des Flandres'|
-    'Boxer'|
-    'Boykin Spaniel'|
-    'Briard'|
-    'Brittany'|
-    'Brussels Griffon'|
-    'Bull Terrier'|
-    'Bulldog'|
-    'Bullmastiff'|
-    'Cairn Terrier'|
-    'Canaan Dog'|
-    'Cane Corso'|
-    'Cardigan Welsh Corgi'|
-    'Cavalier King Charles Spaniel'|
-    'Cesky Terrier'|
-    'Chesapeake Bay Retriever'|
-    'Chihuahua'|
-    'Chinese Crested'|
-    'Chinese Shar-Pei'|
-    'Cirneco dell’Etna'|
-    'Chow Chow'|
-    'Clumber Spaniel'|
-    'Cocker Spaniel'|
-    'Collie'|
-    'Curly-Coated Retriever'|
-    'Dachshund'|
-    'Dalmatian'|
-    'Dandie Dinmont Terrier'|
-    'Doberman Pinscher'|
-    'Dogo Argentine'|
-    'Dogue de Bordeaux'|
-    'Dogues de Bordeaux'|//odd plural
-    'English Cocker Spaniel'|
-    'English Foxhound'|
-    'English Setter'|
-    'English Springer Spaniel'|
-    'English Toy Spaniel'|
-    'Entlebucher Mountain Dog'|
-    'Field Spaniel'|
-    'Finnish Lapphund'|
-    'Finnish Spitz'|
-    'Flat-Coated Retriever'|
-    'Fox Terrier'|
-    'French Bulldog'|
-    'German Pinscher'|
-    'German Shepherd Dog'|
-    'German Shorthaired Pointer'|
-    'German Wirehaired Pointer'|
-    'Giant Schnauzer'|
-    'Glen of Imaal Terrier'|
-    'Golden Retriever'|
-    'Gordon Setter'|
-    ('Grand Basset''t'?'s'?' Griffon''s'?' Vend'('é'|'e')'en')|
-//    ('Grand Bassets Griffons Vendeen')|
-   
-    'Great Dane'|
-    'Great Pyrenees'|
-    'Greater Swiss Mountain Dog'|
-    'Greyhound'|
-    'Harrier'|
-    'Havanese'|
-    'Ibizan Hound'|
-    'Icelandic Sheepdog'|
-    'Irish Red and White Setter'|
-    'Irish Setter'|
-    'Irish Terrier'|
-    'Irish Water Spaniel'|
-    'Irish Wolfhound'|
-    'Italian Greyhound'|
-    'Japanese Chin'|
-    'Keeshond'|
-    'Keeshonden'|//odd singular
-    'Kerry Blue Terrier'|
-    'Komondor'|
-    'Kuvasz'|
-    'Kuvaszok'|
-    'Labrador Retriever'|
-    'Lagotto Romagnolo'|
-    'Lakeland Terrier'|
-    'Leonberger'|
-    'Lhasa Apso'|
-    'Löwchen'|
-    'Lowchen'|
-    'Maltese'|
-    'Manchester Terrier'|
-    'Mastiff'|
-    'Miniature American Shepherd'|
-    'Miniature Bull Terrier'|
-    'Miniature Pinscher'|
-    'Miniature Schnauzer'|
-    'Neapolitan Mastiff'|
-    'Newfoundland'|
-    'Norfolk Terrier'|
-    'Norwegian Buhund'|
-    'Norwegian Elkhound'|
-    'Norwegian Lundehund'|
-    'Norwich Terrier'|
-    'Nova Scotia Duck Tolling Retriever'|
-    'Old English Sheepdog'|
-    'Otterhound'|
-    'Papillon'|
-    'Parson Russell Terrier'|
-    'Pekingese'|
-    'Pembroke Welsh Corgi'|
-    'Petit Basset Griffon Vendéen'|
-    'Petits Bassets Griffons Vendeen'|
-    'Pharaoh Hound'|
-    'Plott'|
-    'Pointer'|
-    'Polish Lowland Sheepdog'|
-    'Pomeranian'|
-    'Poodle'|
-    'Portuguese Podengo'|
-    'Portuguese Podengo Pequenos'|
-    'Portuguese Water Dog'|
-    'Pug'|
-    'Puli'|
-    'Pulik'|
-    'Pyrenean Shepherd'|
-    'Rat Terrier'|
-    'Redbone Coonhound'|
-    'Retriever'|//labrador
-    'Rhodesian Ridgeback'|
-    'Rottweiler'|
-    'Russell Terrier'|
-    'Saint Bernard'|
-    'Saluki'|
-    'Samoyed'|
-    'Schipperke'|
-    'Scottish Deerhound'|
-    'Scottish Terrier'|
-    'Sealyham Terrier'|
-    'Setters'|
-    'Shetland Sheepdog'|
-    'Shiba Inu'|
-    'Shih Tzu'|
-    'Siberian Husky'|
-    'Siberian Huskies'|//odd plural
-    'Silky Terrier'|
-    'Skye Terrier'|
-    'Soft Coated Wheaten Terrier'|
-    'Spaniels'|
-    'Spinone Italiano'|
-    'Spinoni Italiani'|
-    'Staffordshire Bull Terrier'|
-    'Standard Schnauzer'|
-    'Sussex Spaniel'|
-    'Swedish Vallhund'|
-    'Tibetan Mastiff'|
-    'Tibetan Spaniel'|
-    'Tibetan Terrier'|
-    'Toy Fox Terrier'|
-    'Treeing Walker Coonhound'|
-    'Vizsla'|
-    'Weimaraner'|
-    'Welsh Springer Spaniel'|
-    'Welsh Terrier'|
-    'West Highland White Terrier'|
-    'Whippet'|
-    'Wire Fox Terrier'|
-    'Wirehaired Pointing Griffon'|
-	'Wirehaired Vizsla'|
-    'Xoloitzcuintli'|
-    'Yorkshire Terrier');
+        ('Affenpinscher'|'AFFENPINSCHER'|
+'Afghan Hound'|'AFGHAN HOUND'|
+'Airedale Terrier'|'AIREDALE TERRIER'|
+'Akita'|'AKITA'|
+'Alaskan Malamute'|'ALASKAN MALAMUTE'|
+'American English Coonhound'|'AMERICAN ENGLISH COONHOUND'|
+'American Eskimo Dog'|'AMERICAN ESKIMO DOG'|
+'American Foxhound'|'AMERICAN FOXHOUND'|
+'American Staffordshire Terrier'|'AMERICAN STAFFORDSHIRE TERRIER'|
+'Anatolian Shepherd Dog'|'ANATOLIAN SHEPHERD DOG'|
+'Appenzeller Sennenhunde'|'APPENZELLER SENNENHUNDE'|
+'Australian Cattle Dog'|'AUSTRALIAN CATTLE DOG'|
+'Australian Shepherd'|'AUSTRALIAN SHEPHERD'|
+'Australian Terrier'|'AUSTRALIAN TERRIER'|
+'Basenji'|'BASENJI'|
+'Basset Hound'|'BASSET HOUND'|
+'Beagle'|'BEAGLE'|
+'Bearded Collie'|'BEARDED COLLIE'|
+'Beauceron'|'BEAUCERON'|
+'Bedlington Terrier'|'BEDLINGTON TERRIER'|
+'Belgian Malinois'|'BELGIAN MALINOIS'|
+'Belgian Sheepdog'|'BELGIAN SHEEPDOG'|
+'Belgian Tervuren'|'BELGIAN TERVUREN'|
+'Berger Picard'|'BERGER PICARD'|
+'Bernese Mountain Dog'|'BERNESE MOUNTAIN DOG'|
+'Bichon Frise'|'BICHON FRISE'|
+'Bichons Frise'|'BICHONS FRISE'|
+'Black and Tan Coonhound'|'BLACK AND TAN COONHOUND'|
+'Black & Tan Coonhound'|'BLACK & TAN COONHOUND'|
+'Black Russian Terrier'|'BLACK RUSSIAN TERRIER'|
+'Bloodhound'|'BLOODHOUND'|
+'Bluetick Coonhound'|'BLUETICK COONHOUND'|
+'Border Collie'|'BORDER COLLIE'|
+'Border Terrier'|'BORDER TERRIER'|
+'Borzoi'|'BORZOI'|
+'Boston Terrier'|'BOSTON TERRIER'|
+'Bouvier des Flandres'|'BOUVIER DES FLANDRES'|
+'Bouviers des Flandres'|'BOUVIERS DES FLANDRES'|
+'Boxer'|'BOXER'|
+'Boykin Spaniel'|'BOYKIN SPANIEL'|
+'Briard'|'BRIARD'|
+'Brittany'|'BRITTANY'|
+'Brussels Griffon'|'BRUSSELS GRIFFON'|
+'Bull Terrier'|'BULL TERRIER'|
+'Bulldog'|'BULLDOG'|
+'Bullmastiff'|'BULLMASTIFF'|
+'Cairn Terrier'|'CAIRN TERRIER'|
+'Canaan Dog'|'CANAAN DOG'|
+'Cane Corso'|'CANE CORSO'|
+'Cardigan Welsh Corgi'|'CARDIGAN WELSH CORGI'|
+'Cavalier King Charles Spaniel'|'CAVALIER KING CHARLES SPANIEL'|
+'Cesky Terrier'|'CESKY TERRIER'|
+'Chesapeake Bay Retriever'|'CHESAPEAKE BAY RETRIEVER'|
+'Chihuahua'|'CHIHUAHUA'|
+'Chinese Crested'|'CHINESE CRESTED'|
+'Chinese Shar-Pei'|'CHINESE SHAR-PEI'|
+'Cirneco dell’Etna'|'CIRNECO DELL’ETNA'|
+'Chow Chow'|'CHOW CHOW'|
+'Clumber Spaniel'|'CLUMBER SPANIEL'|
+'Cocker Spaniel'|'COCKER SPANIEL'|
+'Collie'|'COLLIE'|
+'Curly-Coated Retriever'|'CURLY-COATED RETRIEVER'|
+'Dachshund'|'DACHSHUND'|
+'Dalmatian'|'DALMATIAN'|
+'Dandie Dinmont Terrier'|'DANDIE DINMONT TERRIER'|
+'Doberman Pinscher'|'DOBERMAN PINSCHER'|
+'Dogo Argentine'|'DOGO ARGENTINE'|
+'Dogue de Bordeaux'|'DOGUE DE BORDEAUX'|
+'Dogues de Bordeaux'|'DOGUES DE BORDEAUX'|
+'English Cocker Spaniel'|'ENGLISH COCKER SPANIEL'|
+'English Foxhound'|'ENGLISH FOXHOUND'|
+'English Setter'|'ENGLISH SETTER'|
+'English Springer Spaniel'|'ENGLISH SPRINGER SPANIEL'|
+'English Toy Spaniel'|'ENGLISH TOY SPANIEL'|
+'Entlebucher Mountain Dog'|'ENTLEBUCHER MOUNTAIN DOG'|
+'Field Spaniel'|'FIELD SPANIEL'|
+'Finnish Lapphund'|'FINNISH LAPPHUND'|
+'Finnish Spitz'|'FINNISH SPITZ'|
+'Flat-Coated Retriever'|'FLAT-COATED RETRIEVER'|
+'Fox Terrier'|'FOX TERRIER'|
+'French Bulldog'|'FRENCH BULLDOG'|
+'German Pinscher'|'GERMAN PINSCHER'|
+'German Shepherd Dog'|'GERMAN SHEPHERD DOG'|
+'German Shorthaired Pointer'|'GERMAN SHORTHAIRED POINTER'|
+'German Wirehaired Pointer'|'GERMAN WIREHAIRED POINTER'|
+'Giant Schnauzer'|'GIANT SCHNAUZER'|
+'Glen of Imaal Terrier'|'GLEN OF IMAAL TERRIER'|
+'Golden Retriever'|'GOLDEN RETRIEVER'|
+'Gordon Setter'|'GORDON SETTER'|
+('Grand Basset''t'?'s'?' Griffon''s'?' Vend'('é'|'e')'en')|
+('GRAND BASSET''T'?'T'?' GRIFFON''S'?' VEND'('É'|'E')'EN')|
+'Great Dane'|'GREAT DANE'|
+'Great Pyrenees'|'GREAT PYRENEES'|
+'Greater Swiss Mountain Dog'|'GREATER SWISS MOUNTAIN DOG'|
+'Greyhound'|'GREYHOUND'|
+'Harrier'|'HARRIER'|
+'Havanese'|'HAVANESE'|
+'Ibizan Hound'|'IBIZAN HOUND'|
+'Icelandic Sheepdog'|'ICELANDIC SHEEPDOG'|
+'Irish Red and White Setter'|'IRISH RED AND WHITE SETTER'|
+'Irish Setter'|'IRISH SETTER'|
+'Irish Terrier'|'IRISH TERRIER'|
+'Irish Water Spaniel'|'IRISH WATER SPANIEL'|
+'Irish Wolfhound'|'IRISH WOLFHOUND'|
+'Italian Greyhound'|'ITALIAN GREYHOUND'|
+'Japanese Chin'|'JAPANESE CHIN'|
+'Keeshond'|'KEESHOND'|
+'Keeshonden'|'KEESHONDEN'|
+'Kerry Blue Terrier'|'KERRY BLUE TERRIER'|
+'Komondor'|'KOMONDOR'|
+'Kuvasz'|'KUVASZ'|
+'Kuvaszok'|'KUVASZOK'|
+'Labrador Retriever'|'LABRADOR RETRIEVER'|
+'Lagotto Romagnolo'|'LAGOTTO ROMAGNOLO'|
+'Lakeland Terrier'|'LAKELAND TERRIER'|
+'Leonberger'|'LEONBERGER'|
+'Lhasa Apso'|'LHASA APSO'|
+'Löwchen'|'LöWCHEN'|
+'Lowchen'|'LOWCHEN'|
+'Maltese'|'MALTESE'|
+'Manchester Terrier'|'MANCHESTER TERRIER'|
+'Mastiff'|'MASTIFF'|
+'Miniature American Shepherd'|'MINIATURE AMERICAN SHEPHERD'|
+'Miniature Bull Terrier'|'MINIATURE BULL TERRIER'|
+'Miniature Pinscher'|'MINIATURE PINSCHER'|
+'Miniature Schnauzer'|'MINIATURE SCHNAUZER'|
+'Neapolitan Mastiff'|'NEAPOLITAN MASTIFF'|
+'Newfoundland'|'NEWFOUNDLAND'|
+'Norfolk Terrier'|'NORFOLK TERRIER'|
+'Norwegian Buhund'|'NORWEGIAN BUHUND'|
+'Norwegian Elkhound'|'NORWEGIAN ELKHOUND'|
+'Norwegian Lundehund'|'NORWEGIAN LUNDEHUND'|
+'Norwich Terrier'|'NORWICH TERRIER'|
+'Nova Scotia Duck Tolling Retriever'|'NOVA SCOTIA DUCK TOLLING RETRIEVER'|
+'Old English Sheepdog'|'OLD ENGLISH SHEEPDOG'|
+'Otterhound'|'OTTERHOUND'|
+'Papillon'|'PAPILLON'|
+'Parson Russell Terrier'|'PARSON RUSSELL TERRIER'|
+'Pekingese'|'PEKINGESE'|
+'Pembroke Welsh Corgi'|'PEMBROKE WELSH CORGI'|
+'Petit Basset Griffon Vendéen'|'PETIT BASSET GRIFFON VENDÉEN'|
+'Petits Bassets Griffons Vendeen'|'PETITS BASSETS GRIFFONS VENDEEN'|
+'Pharaoh Hound'|'PHARAOH HOUND'|
+'Plott'|'PLOTT'|
+'Pointer'|'POINTER'|
+'Polish Lowland Sheepdog'|'POLISH LOWLAND SHEEPDOG'|
+'Pomeranian'|'POMERANIAN'|
+'Poodle'|'POODLE'|
+'Portuguese Podengo'|'PORTUGUESE PODENGO'|
+'Portuguese Podengo Pequenos'|'PORTUGUESE PODENGO PEQUENOS'|
+'Portuguese Water Dog'|'PORTUGUESE WATER DOG'|
+'Pug'|'PUG'|
+'Puli'|'PULI'|
+'Pulik'|'PULIK'|
+'Pyrenean Shepherd'|'PYRENEAN SHEPHERD'|
+'Rat Terrier'|'RAT TERRIER'|
+'Redbone Coonhound'|'REDBONE COONHOUND'|
+'Retriever'|'RETRIEVER'|
+'Rhodesian Ridgeback'|'RHODESIAN RIDGEBACK'|
+'Rottweiler'|'ROTTWEILER'|
+'Russell Terrier'|'RUSSELL TERRIER'|
+'Saint Bernard'|'SAINT BERNARD'|
+'Saluki'|'SALUKI'|
+'Samoyed'|'SAMOYED'|
+'Schipperke'|'SCHIPPERKE'|
+'Scottish Deerhound'|'SCOTTISH DEERHOUND'|
+'Scottish Terrier'|'SCOTTISH TERRIER'|
+'Sealyham Terrier'|'SEALYHAM TERRIER'|
+'Setters'|'SETTERS'|
+'Shetland Sheepdog'|'SHETLAND SHEEPDOG'|
+'Shiba Inu'|'SHIBA INU'|
+'Shih Tzu'|'SHIH TZU'|
+'Siberian Husky'|'SIBERIAN HUSKY'|
+'Siberian Huskies'|'SIBERIAN HUSKIES'|
+'Silky Terrier'|'SILKY TERRIER'|
+'Skye Terrier'|'SKYE TERRIER'|
+'Soft Coated Wheaten Terrier'|'SOFT COATED WHEATEN TERRIER'|
+'Spaniels'|'SPANIELS'|
+'Spinone Italiano'|'SPINONE ITALIANO'|
+'Spinoni Italiani'|'SPINONI ITALIANI'|
+'Staffordshire Bull Terrier'|'STAFFORDSHIRE BULL TERRIER'|
+'Standard Schnauzer'|'STANDARD SCHNAUZER'|
+'Sussex Spaniel'|'SUSSEX SPANIEL'|
+'Swedish Vallhund'|'SWEDISH VALLHUND'|
+'Tibetan Mastiff'|'TIBETAN MASTIFF'|
+'Tibetan Spaniel'|'TIBETAN SPANIEL'|
+'Tibetan Terrier'|'TIBETAN TERRIER'|
+'Toy Fox Terrier'|'TOY FOX TERRIER'|
+'Treeing Walker Coonhound'|'TREEING WALKER COONHOUND'|
+'Vizsla'|'VIZSLA'|
+'Weimaraner'|'WEIMARANER'|
+'Welsh Springer Spaniel'|'WELSH SPRINGER SPANIEL'|
+'Welsh Terrier'|'WELSH TERRIER'|
+'West Highland White Terrier'|'WEST HIGHLAND WHITE TERRIER'|
+'Whippet'|'WHIPPET'|
+'Wire Fox Terrier'|'WIRE FOX TERRIER'|
+'Wirehaired Pointing Griffon'|'WIREHAIRED POINTING GRIFFON'|
+'Wirehaired Vizsla'|'WIREHAIRED VIZSLA'|
+'Xoloitzcuintli'|'XOLOITZCUINTLI'|
+'Yorkshire Terrier'|'YORKSHIRE TERRIER');
 
 BREED_CLASSIFIER
 	:	(FRAG_BREED_NAME_ALT 's'?);
