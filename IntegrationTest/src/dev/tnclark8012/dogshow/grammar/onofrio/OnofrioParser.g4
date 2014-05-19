@@ -427,7 +427,9 @@ ring_with_breed
             mergeJson($json,$breedName.json);
             } 
 	(
-            suffix=special_suffix{mergeJson($json,$suffix.json);}|
+            suffix=special_suffix{
+            $json.addProperty("RingType", "Conformation");
+            mergeJson($json,$suffix.json);}|
             (obedience=obedience_with_breed{$json.addProperty("Skip",true);})|
             ((BREED_COUNT{int counted = addBreedCountToJson($json, $BREED_COUNT.text);})?)
         );
@@ -488,6 +490,7 @@ ring_without_breed
         |(mEmptyRing=empty_breed_ring
             {
             mergeJson($json,$mEmptyRing.json);
+            $json.addProperty("RingType", "Conformation");
             $json.addProperty("BreedName",mLastBreedName);
             }
         )
@@ -508,6 +511,7 @@ ring_without_breed
         )
         |(mSpecial=special_suffix
             {
+            $json.addProperty("RingType", "Conformation");
             mergeJson($json, $mSpecial.json);
             $json.addProperty("BreedName",mLastBreedName);
             }
