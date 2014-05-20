@@ -22,7 +22,7 @@ def postShow(show, parsedJson):
     printv(show.getDateList())
     printv(parsedJson)
     dumpJson(config.AppServer.DUMP_DIR+show.code+'.pdf', parsedJson);
-    values = {'ShowId': show.code, 'Clubs':show.getClubList(), 'ShowName' : show.name, 'City' : locationList[0]['city'], 'State': locationList[0]['state'], 'StartDateMillis' : min(show.getDateList()), 'RingJson' : str(parsedJson)}
+    values = {'ShowId': show.code, 'Clubs':show.getClubList(), 'ShowName' : show.name, 'City' : locationList[0]['city'], 'State': locationList[0]['state'], 'StartDateMillis' : min(show.getDateList()), 'EndDateMillis' : max(show.getDateList()), 'RingJson' : str(parsedJson)}
     values = json.loads(json.dumps(values))
 
     response = urlopen_with_retry(url, values)
