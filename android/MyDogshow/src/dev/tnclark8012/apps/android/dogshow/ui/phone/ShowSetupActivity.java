@@ -7,7 +7,8 @@ import android.app.Fragment;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.SparseBooleanArray;
+import dev.tnclark8012.apps.android.dogshow.R;
+import dev.tnclark8012.apps.android.dogshow.model.Show;
 import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
@@ -17,7 +18,6 @@ import dev.tnclark8012.apps.android.dogshow.ui.FindShowFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.HandlerEntryFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.SimpleSinglePaneActivity;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
-import dev.tnclark8012.apps.android.dogshow.R;
 
 public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEntryFragment.Callbacks, FindShowFragment.Callbacks, HandlerEntryFragment.Callbacks {
 	private static final String TAG = ShowSetupActivity.class.getSimpleName();
@@ -25,7 +25,7 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 	HandlerEntryFragment mHandlerFragment;
 	FindShowFragment mFindShowFragment;
 	int active = 1;
-	String showId;
+	Show show;
 
 	PersistHelper helper = new PersistHelper(this);
 
@@ -58,14 +58,14 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 
 			break;
 		case 3:
-			new AsyncTask<String, Void, Void>() {
+			new AsyncTask<Show, Void, Void>() {
 
 				@Override
-				protected Void doInBackground(String... params) {
+				protected Void doInBackground(Show... params) {
 					new SyncHelper(ShowSetupActivity.this).enterShow(params[0]);
 					return null;
 				}
-			}.execute(showId);
+			}.execute(show);
 			// new SyncHelper(this).executeSync(showId);
 			finish();
 			break;
@@ -92,8 +92,8 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 	}
 
 	@Override
-	public void onShowSelected(String showId) {
-		this.showId = showId;
+	public void onShowSelected(Show show) {
+		this.show = show;
 		onNextClick();
 	}
 

@@ -3,6 +3,7 @@ package dev.tnclark8012.apps.android.dogshow.ui.phone;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
+import dev.tnclark8012.apps.android.dogshow.model.Show;
 import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.ui.FindShowFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.SimpleSinglePaneActivity;
@@ -18,9 +19,9 @@ public class FindShowActivity extends SimpleSinglePaneActivity implements FindSh
 		return new FindShowFragment();
 	}
 	@Override
-	public void onShowSelected(String showId) {
-		Log.v(TAG, "selected show. id: " + showId);
-		new SyncHelper(this).enterShow(showId);
+	public void onShowSelected(Show show) {
+		Log.v(TAG, "selected show. id: " + show.showId);
+		new SyncHelper(this).enterShow(show);
 		finish();
 	}
 	@Override

@@ -73,8 +73,8 @@ public class SyncHelper {
 		
 		ConformationRingsRequest confRingsRequest = new ConformationRingsRequest(mContext);
 		JuniorsRingsRequest juniorsRingsRequest = new JuniorsRingsRequest(mContext);
-		confRingsRequest.execute(showId);
-		juniorsRingsRequest.execute(showId);
+		confRingsRequest.execute(show.showId);
+		juniorsRingsRequest.execute(show.showId);
 		//TODO callbacks for completion?
 	}
 

@@ -44,7 +44,7 @@ public class FindShowFragment extends ListFragment {
 	private String mSelectedShowId = "[not set]";
 
 	public interface Callbacks {
-		void onShowSelected(String showId);
+		void onShowSelected(Show show);
 
 		void onShowSynced();
 	}
@@ -59,7 +59,7 @@ public class FindShowFragment extends ListFragment {
 
 	private static Callbacks sDummyCallbacks = new Callbacks() {
 		@Override
-		public void onShowSelected(String showId) {
+		public void onShowSelected(Show show) {
 		}
 
 		@Override
@@ -132,7 +132,7 @@ public class FindShowFragment extends ListFragment {
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		Show show = mAdapter.getItem(position);
 		mSelectedShowId = show.showId;
-		mCallbacks.onShowSelected(mSelectedShowId);
+		mCallbacks.onShowSelected(show);
 	}
 
 	private class ShowListAdapter extends ArrayAdapter<Show> {
