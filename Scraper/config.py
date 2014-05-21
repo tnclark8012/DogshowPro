@@ -7,7 +7,7 @@ MONTH_REGEX = "January|February|March|April|May|June|July|August|September|Octob
 class Env(object):
     FORCE_ALL = False;
     OFFLINE = False;
-    DEBUG = True;
+    DEBUG = False;
     DO_DOWNLOAD = True;
     VERBOSE = False;
     LOG_VERBOSE = False;
@@ -15,8 +15,6 @@ class Env(object):
     SANDBOX_DIR = os.getcwd();
     def FORCEALL():
         return Env.FORCE_ALL;
-    def DEBUG():
-        return Env.DEBUG;
 
 class AppServer(object):
     SERVER_URL = "http://localhost:49414/api/" if Env.DEBUG else 'http://dogshow.azurewebsites.net/api/'

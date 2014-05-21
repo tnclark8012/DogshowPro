@@ -966,6 +966,10 @@ com.nostra13.universalimageloader.core.assist.ViewScaleType: com.nostra13.univer
 com.nostra13.universalimageloader.core.assist.ViewScaleType: com.nostra13.universalimageloader.core.assist.ViewScaleType valueOf(java.lang.String)
 com.nostra13.universalimageloader.core.download.ImageDownloader$Scheme: com.nostra13.universalimageloader.core.download.ImageDownloader$Scheme[] values()
 com.nostra13.universalimageloader.core.download.ImageDownloader$Scheme: com.nostra13.universalimageloader.core.download.ImageDownloader$Scheme valueOf(java.lang.String)
+dev.tnclark8012.apps.android.dogshow.R$anim: int fade_in
+dev.tnclark8012.apps.android.dogshow.R$anim: int fade_out
+dev.tnclark8012.apps.android.dogshow.R$anim: int left_to_right
+dev.tnclark8012.apps.android.dogshow.R$anim: int right_to_left
 dev.tnclark8012.apps.android.dogshow.R$attr: int activatableItemBackground
 dev.tnclark8012.apps.android.dogshow.R$attr: int adSize
 dev.tnclark8012.apps.android.dogshow.R$attr: int adSizes
@@ -1011,11 +1015,20 @@ dev.tnclark8012.apps.android.dogshow.R$color: int common_signin_btn_light_text_f
 dev.tnclark8012.apps.android.dogshow.R$color: int common_signin_btn_light_text_pressed
 dev.tnclark8012.apps.android.dogshow.R$color: int common_signin_btn_text_dark
 dev.tnclark8012.apps.android.dogshow.R$color: int common_signin_btn_text_light
+dev.tnclark8012.apps.android.dogshow.R$color: int dark_blue
+dev.tnclark8012.apps.android.dogshow.R$color: int dark_green
 dev.tnclark8012.apps.android.dogshow.R$color: int dark_grey
+dev.tnclark8012.apps.android.dogshow.R$color: int dark_orange
+dev.tnclark8012.apps.android.dogshow.R$color: int dark_purple
+dev.tnclark8012.apps.android.dogshow.R$color: int dark_red
 dev.tnclark8012.apps.android.dogshow.R$color: int header_color
 dev.tnclark8012.apps.android.dogshow.R$color: int header_title
 dev.tnclark8012.apps.android.dogshow.R$color: int layout_background
 dev.tnclark8012.apps.android.dogshow.R$color: int light_blue
+dev.tnclark8012.apps.android.dogshow.R$color: int light_green
+dev.tnclark8012.apps.android.dogshow.R$color: int light_orange
+dev.tnclark8012.apps.android.dogshow.R$color: int light_purple
+dev.tnclark8012.apps.android.dogshow.R$color: int light_red
 dev.tnclark8012.apps.android.dogshow.R$color: int list_divider_bottom
 dev.tnclark8012.apps.android.dogshow.R$color: int list_divider_top
 dev.tnclark8012.apps.android.dogshow.R$color: int list_item_activated
@@ -1148,7 +1161,9 @@ dev.tnclark8012.apps.android.dogshow.R$drawable: int ic_rotate_left
 dev.tnclark8012.apps.android.dogshow.R$drawable: int ic_rotate_right
 dev.tnclark8012.apps.android.dogshow.R$drawable: int indicator_autocrop
 dev.tnclark8012.apps.android.dogshow.R$drawable: int list_divider
+dev.tnclark8012.apps.android.dogshow.R$drawable: int list_pressed_holo_dark
 dev.tnclark8012.apps.android.dogshow.R$drawable: int list_selector
+dev.tnclark8012.apps.android.dogshow.R$drawable: int list_selector_grey
 dev.tnclark8012.apps.android.dogshow.R$drawable: int old_ic_junior_entry_off
 dev.tnclark8012.apps.android.dogshow.R$drawable: int old_ic_junior_entry_on
 dev.tnclark8012.apps.android.dogshow.R$drawable: int selector_crop_button
@@ -1159,10 +1174,10 @@ dev.tnclark8012.apps.android.dogshow.R$id: int actual_image
 dev.tnclark8012.apps.android.dogshow.R$id: int button_bar
 dev.tnclark8012.apps.android.dogshow.R$id: int button_bar_button_left
 dev.tnclark8012.apps.android.dogshow.R$id: int button_bar_button_right
-dev.tnclark8012.apps.android.dogshow.R$id: int button_join_team
+dev.tnclark8012.apps.android.dogshow.R$id: int button_team_create
+dev.tnclark8012.apps.android.dogshow.R$id: int button_team_join
 dev.tnclark8012.apps.android.dogshow.R$id: int cancel
 dev.tnclark8012.apps.android.dogshow.R$id: int choose_account_intro
-dev.tnclark8012.apps.android.dogshow.R$id: int content_frame
 dev.tnclark8012.apps.android.dogshow.R$id: int dashboard_doghouse
 dev.tnclark8012.apps.android.dogshow.R$id: int dashboard_find_show
 dev.tnclark8012.apps.android.dogshow.R$id: int dashboard_handlers
@@ -1200,9 +1215,19 @@ dev.tnclark8012.apps.android.dogshow.R$id: int dog_view_section_points_text
 dev.tnclark8012.apps.android.dogshow.R$id: int dog_view_section_sex_label
 dev.tnclark8012.apps.android.dogshow.R$id: int dog_view_section_sex_text
 dev.tnclark8012.apps.android.dogshow.R$id: int dog_view_section_veteran_text
+dev.tnclark8012.apps.android.dogshow.R$id: int drawerSpinner
 dev.tnclark8012.apps.android.dogshow.R$id: int drawer_contents
+dev.tnclark8012.apps.android.dogshow.R$id: int drawer_icon
+dev.tnclark8012.apps.android.dogshow.R$id: int drawer_itemName
+dev.tnclark8012.apps.android.dogshow.R$id: int drawer_item_icon
+dev.tnclark8012.apps.android.dogshow.R$id: int drawer_item_minor_bottom_divider
+dev.tnclark8012.apps.android.dogshow.R$id: int drawer_item_text1
+dev.tnclark8012.apps.android.dogshow.R$id: int drawer_item_text2
 dev.tnclark8012.apps.android.dogshow.R$id: int drawer_layout
 dev.tnclark8012.apps.android.dogshow.R$id: int edit_judge_time
+dev.tnclark8012.apps.android.dogshow.R$id: int edit_show_team_confirm_password
+dev.tnclark8012.apps.android.dogshow.R$id: int edit_show_team_name
+dev.tnclark8012.apps.android.dogshow.R$id: int edit_show_team_password
 dev.tnclark8012.apps.android.dogshow.R$id: int edit_text_show_name
 dev.tnclark8012.apps.android.dogshow.R$id: int edit_text_show_password
 dev.tnclark8012.apps.android.dogshow.R$id: int edit_text_team_password_confirm
@@ -1219,18 +1244,22 @@ dev.tnclark8012.apps.android.dogshow.R$id: int handler_edit_section_juniors_text
 dev.tnclark8012.apps.android.dogshow.R$id: int handler_view_image
 dev.tnclark8012.apps.android.dogshow.R$id: int handler_view_section_juniors_label
 dev.tnclark8012.apps.android.dogshow.R$id: int handler_view_section_juniors_text
+dev.tnclark8012.apps.android.dogshow.R$id: int headerLayout
 dev.tnclark8012.apps.android.dogshow.R$id: int header_line
 dev.tnclark8012.apps.android.dogshow.R$id: int header_text
 dev.tnclark8012.apps.android.dogshow.R$id: int hybrid
 dev.tnclark8012.apps.android.dogshow.R$id: int image
 dev.tnclark8012.apps.android.dogshow.R$id: int imageButton1
-dev.tnclark8012.apps.android.dogshow.R$id: int image_join_team
+dev.tnclark8012.apps.android.dogshow.R$id: int indeterminate_progress
 dev.tnclark8012.apps.android.dogshow.R$id: int input_handler_name
+dev.tnclark8012.apps.android.dogshow.R$id: int instructions
+dev.tnclark8012.apps.android.dogshow.R$id: int itemLayout
 dev.tnclark8012.apps.android.dogshow.R$id: int lbl_edit_time
 dev.tnclark8012.apps.android.dogshow.R$id: int lbl_team_name
 dev.tnclark8012.apps.android.dogshow.R$id: int lbl_team_password
 dev.tnclark8012.apps.android.dogshow.R$id: int lbl_team_password_confirm
 dev.tnclark8012.apps.android.dogshow.R$id: int left_drawer
+dev.tnclark8012.apps.android.dogshow.R$id: int list_choose_show_team
 dev.tnclark8012.apps.android.dogshow.R$id: int list_item_dog_breed
 dev.tnclark8012.apps.android.dogshow.R$id: int list_item_dog_entry_breed
 dev.tnclark8012.apps.android.dogshow.R$id: int list_item_dog_entry_checkbox
@@ -1264,13 +1293,15 @@ dev.tnclark8012.apps.android.dogshow.R$id: int menu_entity_edit_save
 dev.tnclark8012.apps.android.dogshow.R$id: int menu_find_show
 dev.tnclark8012.apps.android.dogshow.R$id: int menu_list_entity_add
 dev.tnclark8012.apps.android.dogshow.R$id: int menu_list_team_join
-dev.tnclark8012.apps.android.dogshow.R$id: int menu_preferences
+dev.tnclark8012.apps.android.dogshow.R$id: int menu_log
 dev.tnclark8012.apps.android.dogshow.R$id: int menu_sign_out
+dev.tnclark8012.apps.android.dogshow.R$id: int menu_sync
 dev.tnclark8012.apps.android.dogshow.R$id: int message_team_error
 dev.tnclark8012.apps.android.dogshow.R$id: int none
 dev.tnclark8012.apps.android.dogshow.R$id: int normal
 dev.tnclark8012.apps.android.dogshow.R$id: int pager
 dev.tnclark8012.apps.android.dogshow.R$id: int points_bezel
+dev.tnclark8012.apps.android.dogshow.R$id: int progressBar1
 dev.tnclark8012.apps.android.dogshow.R$id: int retry_button
 dev.tnclark8012.apps.android.dogshow.R$id: int ring_list
 dev.tnclark8012.apps.android.dogshow.R$id: int root_container
@@ -1288,9 +1319,20 @@ dev.tnclark8012.apps.android.dogshow.R$id: int schedule_ring_time
 dev.tnclark8012.apps.android.dogshow.R$id: int schedule_upcoming_header
 dev.tnclark8012.apps.android.dogshow.R$id: int sign_in_button
 dev.tnclark8012.apps.android.dogshow.R$id: int sign_in_description
+dev.tnclark8012.apps.android.dogshow.R$id: int spinnerLayout
+dev.tnclark8012.apps.android.dogshow.R$id: int spinner_team_icon
+dev.tnclark8012.apps.android.dogshow.R$id: int spinner_team_name
+dev.tnclark8012.apps.android.dogshow.R$id: int spinner_team_owner
+dev.tnclark8012.apps.android.dogshow.R$id: int tag_identifier
 dev.tnclark8012.apps.android.dogshow.R$id: int taking_a_while_panel
+dev.tnclark8012.apps.android.dogshow.R$id: int team_create_title
+dev.tnclark8012.apps.android.dogshow.R$id: int team_join_title
 dev.tnclark8012.apps.android.dogshow.R$id: int terrain
 dev.tnclark8012.apps.android.dogshow.R$id: int text1
+dev.tnclark8012.apps.android.dogshow.R$id: int text_error
+dev.tnclark8012.apps.android.dogshow.R$id: int text_progress_message
+dev.tnclark8012.apps.android.dogshow.R$id: int text_progress_title
+dev.tnclark8012.apps.android.dogshow.R$id: int title_text
 dev.tnclark8012.apps.android.dogshow.R$id: int txt_time
 dev.tnclark8012.apps.android.dogshow.R$integer: int google_play_services_version
 dev.tnclark8012.apps.android.dogshow.R$layout: int accent_bar
@@ -1303,9 +1345,15 @@ dev.tnclark8012.apps.android.dogshow.R$layout: int activity_schedule
 dev.tnclark8012.apps.android.dogshow.R$layout: int activity_singlepane_empty
 dev.tnclark8012.apps.android.dogshow.R$layout: int button_bar
 dev.tnclark8012.apps.android.dogshow.R$layout: int cropimage
+dev.tnclark8012.apps.android.dogshow.R$layout: int custom_drawer_item
 dev.tnclark8012.apps.android.dogshow.R$layout: int dashboard
+dev.tnclark8012.apps.android.dogshow.R$layout: int dialog_choose_show_team
 dev.tnclark8012.apps.android.dogshow.R$layout: int dialog_schedule_edit_judge_time
 dev.tnclark8012.apps.android.dogshow.R$layout: int dialog_show_team
+dev.tnclark8012.apps.android.dogshow.R$layout: int drawer_item_header
+dev.tnclark8012.apps.android.dogshow.R$layout: int drawer_item_major
+dev.tnclark8012.apps.android.dogshow.R$layout: int drawer_item_minor
+dev.tnclark8012.apps.android.dogshow.R$layout: int drawer_item_spinner
 dev.tnclark8012.apps.android.dogshow.R$layout: int empty_list_text
 dev.tnclark8012.apps.android.dogshow.R$layout: int empty_waiting_for_sync
 dev.tnclark8012.apps.android.dogshow.R$layout: int fragment_dog_edit
@@ -1318,14 +1366,19 @@ dev.tnclark8012.apps.android.dogshow.R$layout: int fragment_handler_add
 dev.tnclark8012.apps.android.dogshow.R$layout: int fragment_handler_edit
 dev.tnclark8012.apps.android.dogshow.R$layout: int fragment_handler_view
 dev.tnclark8012.apps.android.dogshow.R$layout: int fragment_incomplete
+dev.tnclark8012.apps.android.dogshow.R$layout: int fragment_indeterminate_progress
 dev.tnclark8012.apps.android.dogshow.R$layout: int fragment_list_with_empty_container
 dev.tnclark8012.apps.android.dogshow.R$layout: int fragment_login_choose_account
 dev.tnclark8012.apps.android.dogshow.R$layout: int fragment_login_loading
 dev.tnclark8012.apps.android.dogshow.R$layout: int fragment_login_main
 dev.tnclark8012.apps.android.dogshow.R$layout: int fragment_login_setup
 dev.tnclark8012.apps.android.dogshow.R$layout: int fragment_schedule_list
+dev.tnclark8012.apps.android.dogshow.R$layout: int fragment_team_create
+dev.tnclark8012.apps.android.dogshow.R$layout: int fragment_team_create_or_join
+dev.tnclark8012.apps.android.dogshow.R$layout: int fragment_team_join
 dev.tnclark8012.apps.android.dogshow.R$layout: int header_image
 dev.tnclark8012.apps.android.dogshow.R$layout: int home_next
+dev.tnclark8012.apps.android.dogshow.R$layout: int indeterminate_progress
 dev.tnclark8012.apps.android.dogshow.R$layout: int list_header_dog_entry
 dev.tnclark8012.apps.android.dogshow.R$layout: int list_item_dog
 dev.tnclark8012.apps.android.dogshow.R$layout: int list_item_dog_entry
@@ -1337,6 +1390,7 @@ dev.tnclark8012.apps.android.dogshow.R$layout: int list_item_ring_header
 dev.tnclark8012.apps.android.dogshow.R$layout: int list_item_ring_with_header
 dev.tnclark8012.apps.android.dogshow.R$layout: int list_item_simple
 dev.tnclark8012.apps.android.dogshow.R$layout: int main
+dev.tnclark8012.apps.android.dogshow.R$layout: int spinner_item_team
 dev.tnclark8012.apps.android.dogshow.R$layout: int test
 dev.tnclark8012.apps.android.dogshow.R$menu: int add_account
 dev.tnclark8012.apps.android.dogshow.R$menu: int base
@@ -1357,6 +1411,11 @@ dev.tnclark8012.apps.android.dogshow.R$string: int auth_client_needs_update_titl
 dev.tnclark8012.apps.android.dogshow.R$string: int auth_client_play_services_err_notification_msg
 dev.tnclark8012.apps.android.dogshow.R$string: int auth_client_requested_by_msg
 dev.tnclark8012.apps.android.dogshow.R$string: int auth_client_using_bad_version_title
+dev.tnclark8012.apps.android.dogshow.R$string: int button_back
+dev.tnclark8012.apps.android.dogshow.R$string: int button_create
+dev.tnclark8012.apps.android.dogshow.R$string: int button_finish
+dev.tnclark8012.apps.android.dogshow.R$string: int button_join
+dev.tnclark8012.apps.android.dogshow.R$string: int button_next
 dev.tnclark8012.apps.android.dogshow.R$string: int cancel
 dev.tnclark8012.apps.android.dogshow.R$string: int common_google_play_services_enable_button
 dev.tnclark8012.apps.android.dogshow.R$string: int common_google_play_services_enable_text
@@ -1384,8 +1443,23 @@ dev.tnclark8012.apps.android.dogshow.R$string: int dashboard_schedule
 dev.tnclark8012.apps.android.dogshow.R$string: int description_add_account
 dev.tnclark8012.apps.android.dogshow.R$string: int description_choose_account
 dev.tnclark8012.apps.android.dogshow.R$string: int description_sign_in_main
+dev.tnclark8012.apps.android.dogshow.R$string: int error_password_mismatch
+dev.tnclark8012.apps.android.dogshow.R$string: int error_password_wrong
+dev.tnclark8012.apps.android.dogshow.R$string: int error_team_already_exists
+dev.tnclark8012.apps.android.dogshow.R$string: int error_team_doesnt_exist
+dev.tnclark8012.apps.android.dogshow.R$string: int error_team_locked_out
+dev.tnclark8012.apps.android.dogshow.R$string: int error_team_name_already_member
+dev.tnclark8012.apps.android.dogshow.R$string: int error_team_name_empty_create
+dev.tnclark8012.apps.android.dogshow.R$string: int error_team_name_empty_join
+dev.tnclark8012.apps.android.dogshow.R$string: int error_team_name_forbidden
+dev.tnclark8012.apps.android.dogshow.R$string: int error_team_password_empty
+dev.tnclark8012.apps.android.dogshow.R$string: int error_team_password_still_wrong
 dev.tnclark8012.apps.android.dogshow.R$string: int hello_world
+dev.tnclark8012.apps.android.dogshow.R$string: int hint_password
+dev.tnclark8012.apps.android.dogshow.R$string: int hint_password_confirm
+dev.tnclark8012.apps.android.dogshow.R$string: int hint_team_name
 dev.tnclark8012.apps.android.dogshow.R$string: int img_description_handler
+dev.tnclark8012.apps.android.dogshow.R$string: int instructions_team_create_or_join
 dev.tnclark8012.apps.android.dogshow.R$string: int location_client_powered_by_google
 dev.tnclark8012.apps.android.dogshow.R$string: int menu_delete
 dev.tnclark8012.apps.android.dogshow.R$string: int menu_multiple_select_title
@@ -1398,18 +1472,29 @@ dev.tnclark8012.apps.android.dogshow.R$string: int menu_single_select_title
 dev.tnclark8012.apps.android.dogshow.R$string: int no_storage_card
 dev.tnclark8012.apps.android.dogshow.R$string: int not_enough_space
 dev.tnclark8012.apps.android.dogshow.R$string: int preparing_card
+dev.tnclark8012.apps.android.dogshow.R$string: int progress_message_joining_team_sync
+dev.tnclark8012.apps.android.dogshow.R$string: int progress_title_creating_team
+dev.tnclark8012.apps.android.dogshow.R$string: int progress_title_joining_team
 dev.tnclark8012.apps.android.dogshow.R$string: int save
 dev.tnclark8012.apps.android.dogshow.R$string: int saving_image
 dev.tnclark8012.apps.android.dogshow.R$string: int template_points_finished
 dev.tnclark8012.apps.android.dogshow.R$string: int template_ring_number
+dev.tnclark8012.apps.android.dogshow.R$string: int title_dogs
 dev.tnclark8012.apps.android.dogshow.R$string: int title_full_schedule
+dev.tnclark8012.apps.android.dogshow.R$string: int title_handlers
 dev.tnclark8012.apps.android.dogshow.R$string: int title_my_schedule
+dev.tnclark8012.apps.android.dogshow.R$string: int title_show_day
+dev.tnclark8012.apps.android.dogshow.R$string: int title_team_add
+dev.tnclark8012.apps.android.dogshow.R$string: int title_team_create
+dev.tnclark8012.apps.android.dogshow.R$string: int title_team_join
 dev.tnclark8012.apps.android.dogshow.R$string: int title_team_schedule
+dev.tnclark8012.apps.android.dogshow.R$string: int title_teams
 dev.tnclark8012.apps.android.dogshow.R$style: int AppBaseTheme
 dev.tnclark8012.apps.android.dogshow.R$style: int Compat_IndeterminateProgress
 dev.tnclark8012.apps.android.dogshow.R$style: int CropButton
 dev.tnclark8012.apps.android.dogshow.R$style: int DashboardButton
 dev.tnclark8012.apps.android.dogshow.R$style: int DogshowActionBar
+dev.tnclark8012.apps.android.dogshow.R$style: int NoWindowAnimation
 dev.tnclark8012.apps.android.dogshow.R$style: int Theme_Dogshow
 dev.tnclark8012.apps.android.dogshow.R$style: int Theme_Dogshow_GreyBackground
 dev.tnclark8012.apps.android.dogshow.R$styleable: int[] AdsAttrs
@@ -1463,6 +1548,8 @@ dev.tnclark8012.apps.android.dogshow.R$styleable: int StickyListHeadersListView_
 dev.tnclark8012.apps.android.dogshow.R$styleable: int StickyListHeadersListView_isDrawingListUnderStickyHeader
 dev.tnclark8012.apps.android.dogshow.R$styleable: int[] TypefacedTextView
 dev.tnclark8012.apps.android.dogshow.R$styleable: int TypefacedTextView_typeface
+dev.tnclark8012.apps.android.dogshow.R$xml: int developer_prefs
+dev.tnclark8012.apps.android.dogshow.R$xml: int preference_headers
 dev.tnclark8012.apps.android.dogshow.R$xml: int prefs
 dev.tnclark8012.apps.android.dogshow.R$xml: int syncadapter
 dev.tnclark8012.apps.android.dogshow.model.BreedRing: java.lang.String showId
@@ -1520,6 +1607,7 @@ dev.tnclark8012.apps.android.dogshow.model.Location: double longitude
 dev.tnclark8012.apps.android.dogshow.model.Location: Location()
 dev.tnclark8012.apps.android.dogshow.model.Show: java.lang.String showName
 dev.tnclark8012.apps.android.dogshow.model.Show: long startDateMillis
+dev.tnclark8012.apps.android.dogshow.model.Show: long endDateMillis
 dev.tnclark8012.apps.android.dogshow.model.Show: java.lang.String city
 dev.tnclark8012.apps.android.dogshow.model.Show: java.lang.String state
 dev.tnclark8012.apps.android.dogshow.model.Show: java.lang.String showId
@@ -1544,6 +1632,7 @@ dev.tnclark8012.apps.android.dogshow.ui.base.AccountActivity: AccountActivity()
 dev.tnclark8012.apps.android.dogshow.ui.base.BaseActivity: BaseActivity()
 dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityActivity: BaseEditableEntityActivity()
 dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListActivity: BaseEntityListActivity()
+dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigatableActivity: NavigatableActivity()
 dev.tnclark8012.apps.android.dogshow.ui.phone.BreedSelectActivity
 dev.tnclark8012.apps.android.dogshow.ui.phone.BreedSelectActivity: BreedSelectActivity()
 dev.tnclark8012.apps.android.dogshow.ui.phone.DogActivity
@@ -1564,6 +1653,10 @@ dev.tnclark8012.apps.android.dogshow.ui.phone.MyScheduleActivity
 dev.tnclark8012.apps.android.dogshow.ui.phone.MyScheduleActivity: MyScheduleActivity()
 dev.tnclark8012.apps.android.dogshow.ui.phone.ShowSetupActivity
 dev.tnclark8012.apps.android.dogshow.ui.phone.ShowSetupActivity: ShowSetupActivity()
+dev.tnclark8012.apps.android.dogshow.ui.phone.ShowTeamAddActivity
+dev.tnclark8012.apps.android.dogshow.ui.phone.ShowTeamAddActivity: ShowTeamAddActivity()
+dev.tnclark8012.apps.android.dogshow.ui.phone.ShowTeamListActivity
+dev.tnclark8012.apps.android.dogshow.ui.phone.ShowTeamListActivity: ShowTeamListActivity()
 dev.tnclark8012.apps.android.dogshow.util.DetachableResultReceiver
 dev.tnclark8012.apps.android.dogshow.util.image.ImageChooserActivity
 dev.tnclark8012.apps.android.dogshow.util.image.ImageChooserActivity: ImageChooserActivity()

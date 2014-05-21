@@ -62,7 +62,11 @@ import dev.tnclark8012.apps.android.dogshow.sync.AzureApiAccessor;
 import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 
-public class AccountActivity extends Activity implements AccountUtils.AuthenticateCallback, GooglePlayServicesClient.ConnectionCallbacks, GooglePlayServicesClient.OnConnectionFailedListener, PlusClient.OnPeopleLoadedListener {
+public class AccountActivity extends Activity implements
+		AccountUtils.AuthenticateCallback,
+		GooglePlayServicesClient.ConnectionCallbacks,
+		GooglePlayServicesClient.OnConnectionFailedListener,
+		PlusClient.OnPeopleLoadedListener {
 
 	private static final String TAG = AccountActivity.class.getSimpleName();
 
@@ -98,16 +102,23 @@ public class AccountActivity extends Activity implements AccountUtils.Authentica
 
 		if (savedInstanceState == null) {
 			if (!AccountUtils.isAuthenticated(this)) {
-				getFragmentManager().beginTransaction().add(R.id.root_container, new SignInMainFragment(), "signin_main").commit();
+				getFragmentManager()
+						.beginTransaction()
+						.add(R.id.root_container, new SignInMainFragment(),
+								"signin_main").commit();
 			} else {
-				mChosenAccount = new Account(AccountUtils.getChosenAccountName(this), "com.google");
+				mChosenAccount = new Account(
+						AccountUtils.getChosenAccountName(this), "com.google");
 				finishSetup();
 			}
 		} else {
-			String accountName = savedInstanceState.getString(KEY_CHOSEN_ACCOUNT);
+			String accountName = savedInstanceState
+					.getString(KEY_CHOSEN_ACCOUNT);
 			if (accountName != null) {
 				mChosenAccount = new Account(accountName, "com.google");
-				mPlusClient = (new PlusClient.Builder(this, this, this)).setAccountName(accountName).setScopes(AccountUtils.AUTH_SCOPES).build();
+				mPlusClient = (new PlusClient.Builder(this, this, this))
+						.setAccountName(accountName)
+						.setScopes(AccountUtils.AUTH_SCOPES).build();
 			}
 		}
 	}
@@ -117,7 +128,9 @@ public class AccountActivity extends Activity implements AccountUtils.Authentica
 		runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
-				final Dialog d = GooglePlayServicesUtil.getErrorDialog(code, AccountActivity.this, REQUEST_RECOVER_FROM_PLAY_SERVICES_ERROR);
+				final Dialog d = GooglePlayServicesUtil.getErrorDialog(code,
+						AccountActivity.this,
+						REQUEST_RECOVER_FROM_PLAY_SERVICES_ERROR);
 				d.show();
 			}
 		});
@@ -125,6 +138,7 @@ public class AccountActivity extends Activity implements AccountUtils.Authentica
 
 	@Override
 	public void onUnRecoverableException(final String errorMessage) {
+		makeToast(this, "Unrecoverable: " + errorMessage);
 		Log.w(TAG, "Encountered unrecoverable exception: " + errorMessage);
 	}
 
@@ -137,7 +151,9 @@ public class AccountActivity extends Activity implements AccountUtils.Authentica
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (requestCode == REQUEST_AUTHENTICATE || requestCode == REQUEST_RECOVER_FROM_AUTH_ERROR || requestCode == REQUEST_PLAY_SERVICES_ERROR_DIALOG) {
+		if (requestCode == REQUEST_AUTHENTICATE
+				|| requestCode == REQUEST_RECOVER_FROM_AUTH_ERROR
+				|| requestCode == REQUEST_PLAY_SERVICES_ERROR_DIALOG) {
 			if (resultCode == RESULT_OK) {
 				if (mPlusClient != null)
 					mPlusClient.connect();
@@ -168,58 +184,77 @@ public class AccountActivity extends Activity implements AccountUtils.Authentica
 	}
 
 	/**
-	 * Called once connection to user's Google+ account is available. Sets the Plus profile id and name
+	 * Called once connection to user's Google+ account is available. Sets the
+	 * Plus profile id and name
 	 */
 	@Override
-	public void onPeopleLoaded(ConnectionResult status, PersonBuffer personBuffer, String nextPageToken) {
+	public void onPeopleLoaded(ConnectionResult status,
+			PersonBuffer personBuffer, String nextPageToken) {
 		if (status.isSuccess()) {
 			if (personBuffer != null && personBuffer.getCount() > 0) {
 				// Set the profile id
 				Person person = personBuffer.get(0);
 				AccountUtils.setPlusProfileId(this, person.getId());
 				AccountUtils.setProfileName(this, person.getDisplayName());
-				
+
 				// TODO image
 				String name = person.getDisplayName();
 				if (person.hasImage()) {
 					String imageUrl = personBuffer.get(0).getImage().getUrl();
-//					imageUrl.concat("?sz=" + this.getResources().getInteger(R.dimen.header_icon_height));
+					// imageUrl.concat("?sz=" +
+					// this.getResources().getInteger(R.dimen.header_icon_height));
 				}
 			}
 		} else {
-			Log.e(TAG, "Got " + status.getErrorCode() + ". Could not load plus profile.");
+			Log.e(TAG, "Got " + status.getErrorCode()
+					+ ". Could not load plus profile.");
 		}
 	}
-	
+
 	/**
-	 * Sign-in fragment. Consists of {@link ChooseAccountFragment} and {@link AuthProgressFragment}
+	 * Sign-in fragment. Consists of {@link ChooseAccountFragment} and
+	 * {@link AuthProgressFragment}
+	 * 
 	 * @author Taylor
-	 *
+	 * 
 	 */
 	public static class SignInMainFragment extends Fragment {
 		public SignInMainFragment() {
 		}
 
 		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-			ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_login_main, container, false);
-			TextView descriptionTextView = (TextView) rootView.findViewById(R.id.sign_in_description);
-			descriptionTextView.setText(Html.fromHtml(getString(R.string.description_sign_in_main)));
-			SignInButton signinButtonView = (SignInButton) rootView.findViewById(R.id.sign_in_button);
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+				Bundle savedInstanceState) {
+			ViewGroup rootView = (ViewGroup) inflater.inflate(
+					R.layout.fragment_login_main, container, false);
+			TextView descriptionTextView = (TextView) rootView
+					.findViewById(R.id.sign_in_description);
+			descriptionTextView.setText(Html
+					.fromHtml(getString(R.string.description_sign_in_main)));
+			SignInButton signinButtonView = (SignInButton) rootView
+					.findViewById(R.id.sign_in_button);
 			signinButtonView.setSize(SignInButton.SIZE_WIDE);
 			signinButtonView.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View view) {
-					getActivity().getFragmentManager().beginTransaction().replace(R.id.root_container, new ChooseAccountFragment(), "choose_account").addToBackStack("signin_main").commit();
+					getActivity()
+							.getFragmentManager()
+							.beginTransaction()
+							.replace(R.id.root_container,
+									new ChooseAccountFragment(),
+									"choose_account")
+							.addToBackStack("signin_main").commit();
 				}
 			});
 			return rootView;
 		}
 	}
+
 	/**
 	 * Fragment for selecting a user account to connect with
+	 * 
 	 * @author Taylor
-	 *
+	 * 
 	 */
 	public static class ChooseAccountFragment extends ListFragment {
 		public ChooseAccountFragment() {
@@ -232,10 +267,14 @@ public class AccountActivity extends Activity implements AccountUtils.Authentica
 		}
 
 		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-			ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_login_choose_account, container, false);
-			TextView descriptionView = (TextView) rootView.findViewById(R.id.choose_account_intro);
-			descriptionView.setText(Html.fromHtml(getString(R.string.description_choose_account)));
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+				Bundle savedInstanceState) {
+			ViewGroup rootView = (ViewGroup) inflater.inflate(
+					R.layout.fragment_login_choose_account, container, false);
+			TextView descriptionView = (TextView) rootView
+					.findViewById(R.id.choose_account_intro);
+			descriptionView.setText(Html
+					.fromHtml(getString(R.string.description_choose_account)));
 			return rootView;
 		}
 
@@ -247,8 +286,10 @@ public class AccountActivity extends Activity implements AccountUtils.Authentica
 			}
 
 			AccountManager am = AccountManager.get(getActivity());
-			Account[] accounts = am.getAccountsByType(GoogleAuthUtil.GOOGLE_ACCOUNT_TYPE);
-			mAccountListAdapter = new AccountListAdapter(getActivity(), Arrays.asList(accounts));
+			Account[] accounts = am
+					.getAccountsByType(GoogleAuthUtil.GOOGLE_ACCOUNT_TYPE);
+			mAccountListAdapter = new AccountListAdapter(getActivity(),
+					Arrays.asList(accounts));
 			setListAdapter(mAccountListAdapter);
 		}
 
@@ -272,10 +313,12 @@ public class AccountActivity extends Activity implements AccountUtils.Authentica
 				ViewHolder holder;
 
 				if (convertView == null) {
-					convertView = getActivity().getLayoutInflater().inflate(LAYOUT_RESOURCE, null);
+					convertView = getActivity().getLayoutInflater().inflate(
+							LAYOUT_RESOURCE, null);
 
 					holder = new ViewHolder();
-					holder.text1 = (TextView) convertView.findViewById(android.R.id.text1);
+					holder.text1 = (TextView) convertView
+							.findViewById(android.R.id.text1);
 
 					convertView.setTag(holder);
 				} else {
@@ -301,34 +344,46 @@ public class AccountActivity extends Activity implements AccountUtils.Authentica
 		@Override
 		public void onListItemClick(ListView l, View v, int position, long id) {
 			if (position == mAccountListAdapter.getCount() - 1) {
-				Intent addAccountIntent = new Intent(Settings.ACTION_ADD_ACCOUNT);
-				addAccountIntent.putExtra(Settings.EXTRA_AUTHORITIES, new String[] { DogshowContract.CONTENT_AUTHORITY });
+				Intent addAccountIntent = new Intent(
+						Settings.ACTION_ADD_ACCOUNT);
+				addAccountIntent.putExtra(Settings.EXTRA_AUTHORITIES,
+						new String[] { DogshowContract.CONTENT_AUTHORITY });
 				startActivity(addAccountIntent);
 				return;
 			}
 
 			AccountActivity activity = (AccountActivity) getActivity();
-			ConnectivityManager cm = (ConnectivityManager) activity.getSystemService(CONNECTIVITY_SERVICE);
+			ConnectivityManager cm = (ConnectivityManager) activity
+					.getSystemService(CONNECTIVITY_SERVICE);
 			NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
 			if (activeNetwork == null || !activeNetwork.isConnected()) {
-				Toast.makeText(activity, "Can't connect. Check your internet connection.", Toast.LENGTH_SHORT).show();
+				Toast.makeText(activity,
+						"Can't connect. Check your internet connection.",
+						Toast.LENGTH_SHORT).show();
 				return;
 			}
 
 			activity.mCancelAuth = false;
 			activity.mChosenAccount = mAccountListAdapter.getItem(position);
-			activity.getFragmentManager().beginTransaction().replace(R.id.root_container, new AuthProgressFragment(), "loading").addToBackStack("choose_account").commit();
+			activity.getFragmentManager()
+					.beginTransaction()
+					.replace(R.id.root_container, new AuthProgressFragment(),
+							"loading").addToBackStack("choose_account")
+					.commit();
 
-			PlusClient.Builder builder = new PlusClient.Builder(activity, activity, activity);
-			activity.mPlusClient = builder.setScopes(AccountUtils.AUTH_SCOPES).setAccountName(activity.mChosenAccount.name).build();
+			PlusClient.Builder builder = new PlusClient.Builder(activity,
+					activity, activity);
+			activity.mPlusClient = builder.setScopes(AccountUtils.AUTH_SCOPES)
+					.setAccountName(activity.mChosenAccount.name).build();
 			activity.mPlusClient.connect();
 		}
 	}
 
 	/**
 	 * Fragment for showing progress of account setup and authorization
+	 * 
 	 * @author Taylor
-	 *
+	 * 
 	 */
 	public static class AuthProgressFragment extends Fragment {
 		private static final int TRY_AGAIN_DELAY_MILLIS = 7 * 1000; // 7 seconds
@@ -338,11 +393,15 @@ public class AccountActivity extends Activity implements AccountUtils.Authentica
 		}
 
 		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-			ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_login_loading, container, false);
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+				Bundle savedInstanceState) {
+			ViewGroup rootView = (ViewGroup) inflater.inflate(
+					R.layout.fragment_login_loading, container, false);
 
-			final View takingAWhilePanel = rootView.findViewById(R.id.taking_a_while_panel);
-			final View tryAgainButton = rootView.findViewById(R.id.retry_button);
+			final View takingAWhilePanel = rootView
+					.findViewById(R.id.taking_a_while_panel);
+			final View tryAgainButton = rootView
+					.findViewById(R.id.retry_button);
 			tryAgainButton.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View view) {
@@ -357,7 +416,8 @@ public class AccountActivity extends Activity implements AccountUtils.Authentica
 						return;
 					}
 					if (AccountUtils.isAuthenticated(getActivity())) {
-						((AccountActivity) getActivity()).onAuthTokenAvailable();
+						((AccountActivity) getActivity())
+								.onAuthTokenAvailable();
 						return;
 					}
 					takingAWhilePanel.setVisibility(View.VISIBLE);
@@ -395,7 +455,11 @@ public class AccountActivity extends Activity implements AccountUtils.Authentica
 	private void tryAuthenticate() {
 		// Authenticate through the Google Play OAuth client.
 		mAuthInProgress = true;
-		AccountUtils.tryAuthenticate(this, this, mChosenAccount.name, REQUEST_RECOVER_FROM_AUTH_ERROR);
+		if (mChosenAccount != null) {
+
+			AccountUtils.tryAuthenticate(this, this, mChosenAccount.name,
+					REQUEST_RECOVER_FROM_AUTH_ERROR);
+		}
 	}
 
 	@Override
@@ -403,17 +467,20 @@ public class AccountActivity extends Activity implements AccountUtils.Authentica
 		return mCancelAuth;
 	}
 
-
 	/**
 	 * Initiate syncing and start the next activity
 	 */
 	private void finishSetup() {
-		ContentResolver.setIsSyncable(mChosenAccount, DogshowContract.CONTENT_AUTHORITY, 1);
-		ContentResolver.setSyncAutomatically(mChosenAccount, DogshowContract.CONTENT_AUTHORITY, true);
+		ContentResolver.setIsSyncable(mChosenAccount,
+				DogshowContract.CONTENT_AUTHORITY, 1);
+		ContentResolver.setSyncAutomatically(mChosenAccount,
+				DogshowContract.CONTENT_AUTHORITY, true);
 		SyncHelper.requestManualSync(this, mChosenAccount);
 		if (mFinishIntent != null) {
-			// Ensure the finish intent is unique within the task. Otherwise, if the task was
-			// started with this intent, and it finishes like it should, then startActivity on
+			// Ensure the finish intent is unique within the task. Otherwise, if
+			// the task was
+			// started with this intent, and it finishes like it should, then
+			// startActivity on
 			// the intent again won't work.
 			mFinishIntent.addCategory(POST_AUTH_CATEGORY);
 			startActivity(mFinishIntent);
@@ -421,8 +488,7 @@ public class AccountActivity extends Activity implements AccountUtils.Authentica
 
 		finish();
 	}
-	
-	
+
 	@Override
 	public void onAuthTokenAvailable() {
 		// Cancel progress fragment.
@@ -444,22 +510,30 @@ public class AccountActivity extends Activity implements AccountUtils.Authentica
 
 	@Override
 	public void onDisconnected() {
+		makeToast(this, "Disconnected");
 	}
 
 	@Override
 	public void onConnectionFailed(ConnectionResult connectionResult) {
 		if (connectionResult.hasResolution()) {
 			try {
-				connectionResult.startResolutionForResult(this, REQUEST_RECOVER_FROM_AUTH_ERROR);
+				connectionResult.startResolutionForResult(this,
+						REQUEST_RECOVER_FROM_AUTH_ERROR);
 			} catch (IntentSender.SendIntentException e) {
 				Log.e(TAG, "Internal error encountered: " + e.getMessage());
+				makeToast(this, "Internal error occured: " + e.getMessage());
 			}
 			return;
 		}
 
 		final int errorCode = connectionResult.getErrorCode();
 		if (GooglePlayServicesUtil.isUserRecoverableError(errorCode)) {
-			GooglePlayServicesUtil.getErrorDialog(errorCode, this, REQUEST_PLAY_SERVICES_ERROR_DIALOG).show();
+			GooglePlayServicesUtil.getErrorDialog(errorCode, this,
+					REQUEST_PLAY_SERVICES_ERROR_DIALOG).show();
 		}
+	}
+
+	public void makeToast(Context context, String message) {
+		Toast.makeText(context, message, Toast.LENGTH_LONG).show();
 	}
 }

@@ -46,8 +46,10 @@ public abstract class ApiAccessor implements Config.IApiAccessor {
 		// }
 	}
 
-	protected String readInputStream(InputStream inputStream) throws IOException {
-		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+	protected String readInputStream(InputStream inputStream)
+			throws IOException {
+		BufferedReader bufferedReader = new BufferedReader(
+				new InputStreamReader(inputStream));
 		String responseLine;
 		StringBuilder responseBuilder = new StringBuilder();
 		while ((responseLine = bufferedReader.readLine()) != null) {
@@ -74,24 +76,28 @@ public abstract class ApiAccessor implements Config.IApiAccessor {
 		String response = null;
 
 		if (!Config.DEBUG_OFFLINE) {
-			HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+			HttpURLConnection urlConnection = (HttpURLConnection) url
+					.openConnection();
 			urlConnection.connect();
 			throwErrors(urlConnection);
 			response = readInputStream(urlConnection.getInputStream());
 		} else {
 			Log.i(TAG, "Debugging offline, response is set.");
-			throw new UnsupportedOperationException("Debug offline is not yet implemented");
+			throw new UnsupportedOperationException(
+					"Debug offline is not yet implemented");
 		}
 		Log.v(TAG, "HTTP response: " + response);
 		return response;
 	}
 
-	protected void throwErrors(HttpURLConnection urlConnection) throws IOException {
+	protected void throwErrors(HttpURLConnection urlConnection)
+			throws IOException {
 		final int status = urlConnection.getResponseCode();
 		if (status < 200 || status >= 300) {
 			String errorMessage = null;
 			try {
-				String errorContent = readInputStream(urlConnection.getErrorStream());
+				String errorContent = readInputStream(urlConnection
+						.getErrorStream());
 				Log.v(TAG, "Error content: " + errorContent);
 			} catch (IOException ignored) {
 			}
@@ -99,10 +105,12 @@ public abstract class ApiAccessor implements Config.IApiAccessor {
 	}
 
 	@Override
-	public String register(String account, String token, String provider, String installId) {
+	public String register(String account, String token, String provider,
+			String installId) {
 		// URL createTeamUrl = null;
 		// try {
-		// createTeamUrl = new URL("http://192.168.0.5:49414/api/" + "ShowTeam/Create");
+		// createTeamUrl = new URL("http://192.168.0.5:49414/api/" +
+		// "ShowTeam/Create");
 		// } catch (MalformedURLException e4) {
 		// // TODO Auto-generated catch block
 		// e4.printStackTrace();
@@ -141,9 +149,11 @@ public abstract class ApiAccessor implements Config.IApiAccessor {
 		// // httpost.setHeader("Accept", "application/json");
 		// httpost.setHeader("Content-type", "application/json");
 		// try {
-		// String response = httpclient.execute(httpost, new BasicResponseHandler());
+		// String response = httpclient.execute(httpost, new
+		// BasicResponseHandler());
 		// Log.d(TAG, response.toString());
-		// return UIUtils.stripQuotes(response);// TODO ALPHA Response should be JSON to prevent storing an error message as user id :)
+		// return UIUtils.stripQuotes(response);// TODO ALPHA Response should be
+		// JSON to prevent storing an error message as user id :)
 		// } catch (ClientProtocolException e) {
 		// // TODO Auto-generated catch block
 		// e.printStackTrace();
@@ -155,39 +165,11 @@ public abstract class ApiAccessor implements Config.IApiAccessor {
 	}
 
 	protected String makePostRequest(URL url, JsonObject json) {
-
-		if (true)
-			return finalPost(url, json);
-		// instantiates httpclient to make request
-		// TODO ALPHA convert to URLConnection
-		DefaultHttpClient httpclient = new DefaultHttpClient();
-		// url with the post data
-		HttpPost httpost = new HttpPost(url.toString());
-		try {
-			httpost.setEntity(new StringEntity(json.toString()));
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		// sets a request header so the page receving the request
-		// will know what to do with it
-		// httpost.setHeader("Accept", "application/json");
-		httpost.setHeader("Content-type", "application/json");
-		try {
-			String response = httpclient.execute(httpost, new BasicResponseHandler());
-			Log.v(TAG, response.toString());
-			return response;// TODO ALPHA Response should be JSON to prevent storing an error message as user id :)
-		} catch (ClientProtocolException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
+		return finalPost(url, json);
 	}
 
 	private String finalPost(URL url, JsonObject json) {
+		
 		HttpURLConnection urlConnection = null;
 		HttpPost post = new HttpPost(url.toString());
 		try {
@@ -208,9 +190,11 @@ public abstract class ApiAccessor implements Config.IApiAccessor {
 				urlConnection.setDoOutput(true);
 				urlConnection.setDoInput(true);
 				urlConnection.setRequestMethod("POST");
-				urlConnection.setRequestProperty("Content-Type", "application/json");
+				urlConnection.setRequestProperty("Content-Type",
+						"application/json");
 				urlConnection.setChunkedStreamingMode(0);
-				DataOutputStream wr = new DataOutputStream(urlConnection.getOutputStream());
+				DataOutputStream wr = new DataOutputStream(
+						urlConnection.getOutputStream());
 				post.getEntity().writeTo(wr);
 				wr.flush();
 				wr.close();
@@ -230,11 +214,13 @@ public abstract class ApiAccessor implements Config.IApiAccessor {
 				response.setContent(content);
 				// check for gzip compression
 				Header contentEncoding = response.getContentEncoding();
-				if (contentEncoding != null && contentEncoding.getValue().equalsIgnoreCase("gzip")) {
+				if (contentEncoding != null
+						&& contentEncoding.getValue().equalsIgnoreCase("gzip")) {
 					content = new GZIPInputStream(content);
 				}
 
-				BufferedReader reader = new BufferedReader(new InputStreamReader(content));
+				BufferedReader reader = new BufferedReader(
+						new InputStreamReader(content));
 				String line;
 				while ((line = reader.readLine()) != null) {
 					builder.append(line);

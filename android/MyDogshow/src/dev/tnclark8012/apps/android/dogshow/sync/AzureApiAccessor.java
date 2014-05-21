@@ -7,6 +7,7 @@ import java.util.Date;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -27,10 +28,11 @@ import dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamSyncRequest;
 import dev.tnclark8012.apps.android.dogshow.sync.response.DogSyncResponse;
 import dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamResponse;
 import dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamSyncResponse;
+import dev.tnclark8012.apps.android.dogshow.util.DebugUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 
 public class AzureApiAccessor extends ApiAccessor {
-//TODO implement required parameters? User ID or some such things?
+	// TODO implement required parameters? User ID or some such things?
 	private URL BASE_URL;
 	public URL GET_SHOW_URL;
 	public URL GET_BREED_RINGS_URL;
@@ -41,11 +43,16 @@ public class AzureApiAccessor extends ApiAccessor {
 	public URL JOIN_SHOW_TEAM_URL;
 	public URL SYNC_SHOW_TEAM_URL;
 	private Gson mGson;
+	private Context mContext;
 
 	public AzureApiAccessor(Context context) {
-		mGson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
+		mContext = context;
+		mGson = new GsonBuilder().setFieldNamingPolicy(
+				FieldNamingPolicy.UPPER_CAMEL_CASE).create();
 		try {
-			BASE_URL = new URL((Prefs.useLocalServer(context)) ? "http://192.168.0.5:49414/api" : "http://dogshow.azurewebsites.net/api");
+			BASE_URL = new URL(
+					(Prefs.useLocalServer(context)) ? "http://192.168.0.5:49414/api"
+							: "http://dogshow.azurewebsites.net/api");
 			GET_SHOW_URL = new URL(BASE_URL + "/Show");
 			GET_BREED_RINGS_URL = new URL(BASE_URL + "/BreedRing");
 			GET_JUNIORS_RINGS_URL = new URL(BASE_URL + "/JuniorsRing");
@@ -69,9 +76,11 @@ public class AzureApiAccessor extends ApiAccessor {
 		return null;
 	}
 
-	public final URL buildGetBreedRingsUrl(String showId, String breed, Boolean veteran, Boolean sweepstakes) {
+	public final URL buildGetBreedRingsUrl(String showId, String breed,
+			Boolean veteran, Boolean sweepstakes) {
 		try {
-			String query = "?showId=" + encode(showId) + "&breedName=" + encode(breed);
+			String query = "?showId=" + encode(showId) + "&breedName="
+					+ encode(breed);
 			if (veteran != null) {
 				query += "&veteran=" + veteran.booleanValue();
 			}
@@ -88,7 +97,8 @@ public class AzureApiAccessor extends ApiAccessor {
 
 	public final URL buildGetJuniorRingsUrl(String showId, String juniorClass) {
 		try {
-			return new URL(GET_JUNIORS_RINGS_URL, "?showId=" + encode(showId) + "&className=" + encode(juniorClass));
+			return new URL(GET_JUNIORS_RINGS_URL, "?showId=" + encode(showId)
+					+ "&className=" + encode(juniorClass));
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -107,13 +117,16 @@ public class AzureApiAccessor extends ApiAccessor {
 	}
 
 	@Override
-	public BreedRing[] getBreedRings(String showId, String breed, Boolean veteran, Boolean sweepstakes) {
+	public BreedRing[] getBreedRings(String showId, String breed,
+			Boolean veteran, Boolean sweepstakes) {
 		try {
-			String jsonStr = executeGet(buildGetBreedRingsUrl(showId, breed, veteran, sweepstakes));
+			String jsonStr = executeGet(buildGetBreedRingsUrl(showId, breed,
+					veteran, sweepstakes));
 			BreedRing[] rings = mGson.fromJson(jsonStr, BreedRing[].class);
 			for (BreedRing ring : rings) {
 				Log.d(TAG, "From " + new Date(ring.blockStartMillis));
-				ring.blockStartMillis = Utils.millisSinceEpoch(ring.blockStartMillis);
+				ring.blockStartMillis = Utils
+						.millisSinceEpoch(ring.blockStartMillis);
 				Log.d(TAG, "To " + new Date(ring.blockStartMillis));
 			}
 			return rings;
@@ -126,11 +139,13 @@ public class AzureApiAccessor extends ApiAccessor {
 	@Override
 	public JuniorsRing[] getJuniorsRings(String showId, String className) {
 		try {
-			String jsonStr = executeGet(buildGetJuniorRingsUrl(showId, className));
+			String jsonStr = executeGet(buildGetJuniorRingsUrl(showId,
+					className));
 
 			JuniorsRing[] rings = mGson.fromJson(jsonStr, JuniorsRing[].class);
 			for (JuniorsRing ring : rings) {
-				ring.blockStartMillis = Utils.millisSinceEpoch(ring.blockStartMillis);
+				ring.blockStartMillis = Utils
+						.millisSinceEpoch(ring.blockStartMillis);
 			}
 			return rings;
 		} catch (IOException e) {
@@ -147,7 +162,8 @@ public class AzureApiAccessor extends ApiAccessor {
 			Log.d(TAG, jsonStr);
 			for (Show show : shows) {
 				Log.d(TAG, show.toString());
-				show.startDateMillis = Utils.millisSinceEpoch(show.startDateMillis);
+				show.startDateMillis = Utils
+						.millisSinceEpoch(show.startDateMillis);
 			}
 			return shows;
 		} catch (IOException e) {
@@ -162,60 +178,81 @@ public class AzureApiAccessor extends ApiAccessor {
 	}
 
 	@Override
-	public DogSyncResponse[] syncDogs(String userId, String teamIdentifier, long lastSync, Dog[] dogs, String[] currentDogIds) {
+	public DogSyncResponse[] syncDogs(String userId, String teamIdentifier,
+			long lastSync, Dog[] dogs, String[] currentDogIds) {
 		DogSyncRequest request = new DogSyncRequest();
 		request.lastSync = lastSync;
 		request.teamIdentifier = teamIdentifier;
 		request.dogs = dogs;
 		request.userIdentifier = userId;
 		request.allDogIds = currentDogIds;
-		JsonObject json = mGson.toJsonTree(request, DogSyncRequest.class).getAsJsonObject();
-		return mGson.fromJson(makePostRequest(SYNC_DOG_URL, json), DogSyncResponse[].class);
+		JsonObject json = mGson.toJsonTree(request, DogSyncRequest.class)
+				.getAsJsonObject();
+		return mGson.fromJson(makePostRequest(SYNC_DOG_URL, json),
+				DogSyncResponse[].class);
 	}
 
 	@Override
-	public ShowTeamResponse createShowTeam(String userId, String teamName, String password) {
+	public ShowTeamResponse createShowTeam(String userId, String teamName,
+			String password) {
 		ShowTeamCreateRequest request = new ShowTeamCreateRequest();
 		ShowTeam team = new ShowTeam();
 		team.passwordAttempt = password;
 		team.teamName = teamName;
 		request.team = team;
 		request.userIdentifier = userId;
-		JsonObject json = mGson.toJsonTree(request, ShowTeamCreateRequest.class).getAsJsonObject();
-		return mGson.fromJson(makePostRequest(CREATE_SHOW_TEAM_URL, json), ShowTeamResponse.class);
+		JsonObject json = mGson
+				.toJsonTree(request, ShowTeamCreateRequest.class)
+				.getAsJsonObject();
+		return mGson.fromJson(makePostRequest(CREATE_SHOW_TEAM_URL, json),
+				ShowTeamResponse.class);
 	}
 
 	@Override
-	public ShowTeamResponse joinShowTeam(String userId, String teamName, String password) {
+	public ShowTeamResponse joinShowTeam(String userId, String teamName,
+			String password) {
 		ShowTeamCreateRequest request = new ShowTeamCreateRequest();
 		ShowTeam team = new ShowTeam();
 		team.passwordAttempt = password;
 		team.teamName = teamName;
 		request.team = team;
 		request.userIdentifier = userId;
-		JsonObject json = mGson.toJsonTree(request, ShowTeamCreateRequest.class).getAsJsonObject();
-		return mGson.fromJson(makePostRequest(JOIN_SHOW_TEAM_URL, json), ShowTeamResponse.class);
+		JsonObject json = mGson
+				.toJsonTree(request, ShowTeamCreateRequest.class)
+				.getAsJsonObject();
+		return mGson.fromJson(makePostRequest(JOIN_SHOW_TEAM_URL, json),
+				ShowTeamResponse.class);
 	}
 
 	@Override
-	public String register(String account, String token, String provider, String installId) {
+	public String register(String account, String token, String provider,
+			String installId) {
 		RegistrationRequest request = new RegistrationRequest();
 		request.installationId = installId;
 		request.name = account;
 		request.provider = provider;
 		request.token = token;
-		JsonObject json = mGson.toJsonTree(request, RegistrationRequest.class).getAsJsonObject();
+		DebugUtils.appendLog(mContext, request.name);
+		DebugUtils.appendLog(mContext, request.installationId);
+		DebugUtils.appendLog(mContext, request.token);
+		JsonObject json = mGson.toJsonTree(request, RegistrationRequest.class)
+				.getAsJsonObject();
+
+		DebugUtils.appendLog(mContext, mGson.toJson(request));
 		return makePostRequest(POST_REGISTRATION_URL, json);
 	}
 
 	@Override
-	public ShowTeamSyncResponse[] syncShowTeams(String userId, long lastSync, String[] currentTeamIds) {
+	public ShowTeamSyncResponse[] syncShowTeams(String userId, long lastSync,
+			String[] currentTeamIds) {
 		ShowTeamSyncRequest request = new ShowTeamSyncRequest();
 		request.lastSync = lastSync;
 		request.userIdentifier = userId;
 		request.allTeamIds = currentTeamIds;
-		JsonObject json = mGson.toJsonTree(request, ShowTeamSyncRequest.class).getAsJsonObject();
-		return mGson.fromJson(makePostRequest(SYNC_SHOW_TEAM_URL, json), ShowTeamSyncResponse[].class);
+		JsonObject json = mGson.toJsonTree(request, ShowTeamSyncRequest.class)
+				.getAsJsonObject();
+		return mGson.fromJson(makePostRequest(SYNC_SHOW_TEAM_URL, json),
+				ShowTeamSyncResponse[].class);
 	}
 
 }

@@ -1,34 +1,19 @@
 package dev.tnclark8012.apps.android.dogshow.sync;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import android.accounts.Account;
-import android.content.ContentProviderOperation;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.OperationApplicationException;
-import android.content.SharedPreferences;
 import android.content.SyncResult;
-import android.database.Cursor;
-import android.net.ConnectivityManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.RemoteException;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import dev.tnclark8012.apps.android.dogshow.Config.IApiAccessor;
 import dev.tnclark8012.apps.android.dogshow.model.Show;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
-import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.BreedRings;
-import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
-import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.JuniorsRings;
 import dev.tnclark8012.apps.android.dogshow.sync.request.ConformationRingsRequest;
 import dev.tnclark8012.apps.android.dogshow.sync.request.JuniorsRingsRequest;
-import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
-import dev.tnclark8012.apps.android.dogshow.util.Utils;
-import dev.tnclark8012.dogshow.shared.DogshowEnums;
 
 public class SyncHelper {
 	private final static String TAG = SyncHelper.class.getSimpleName();

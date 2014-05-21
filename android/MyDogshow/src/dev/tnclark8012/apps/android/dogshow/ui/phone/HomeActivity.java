@@ -6,9 +6,11 @@ import android.database.Cursor;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigatableActivity;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
+import dev.tnclark8012.apps.android.dogshow.util.DebugUtils;
 
 /**
  * The landing screen for the app, once the user has logged in.
@@ -34,6 +36,10 @@ public class HomeActivity extends NavigatableActivity implements
 		case R.id.menu_sign_out:
 			AccountUtils.signOut(this);
 			finish();
+			return true;
+		case R.id.menu_log:
+			Toast.makeText(this, DebugUtils.getLog(this), Toast.LENGTH_LONG)
+					.show();
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
