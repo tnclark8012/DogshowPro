@@ -19,7 +19,20 @@
 #   public *;
 #}
 
+
+#
+# Keep classes which are used for JSON (de)serialization
+#
 -keepclassmembers class dev.tnclark8012.apps.android.dogshow.model.* {
    public *;
 }
+-keepclassmembers class dev.tnclark8012.apps.android.dogshow.sync.request.* {
+   public *;
+   private *;
+}
+-keepclassmembers class dev.tnclark8012.apps.android.dogshow.sync.response.* {
+   public *;
+   private *;
+}
+
 -keepattributes SourceFile,LineNumberTable
