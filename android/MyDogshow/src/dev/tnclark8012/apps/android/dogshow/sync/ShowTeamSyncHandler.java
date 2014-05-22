@@ -12,11 +12,9 @@ import android.database.Cursor;
 import android.os.RemoteException;
 import android.util.Log;
 import dev.tnclark8012.apps.android.dogshow.Config.IApiAccessor;
-import dev.tnclark8012.apps.android.dogshow.model.Dog;
 import dev.tnclark8012.apps.android.dogshow.model.ShowTeam;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
-import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 import dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamSyncResponse;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
@@ -40,6 +38,7 @@ public class ShowTeamSyncHandler {
 				new String[] { ShowTeams.SHOW_TEAM_ID },null, null,
 				ShowTeams.DEFAULT_SORT);
 		allTeamIds = null;
+		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
 		if (!overwritting) {
 			allTeamIds = new String[currentTeamsIdCursor.getCount()];
 			int i = 0;
@@ -47,7 +46,10 @@ public class ShowTeamSyncHandler {
 				allTeamIds[i++] = currentTeamsIdCursor.getString(0);
 			}
 		}
-		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
+		else
+		{
+			batch.add(ContentProviderOperation.newDelete(DogshowContract.addCallerIsSyncAdapterParameter(ShowTeams.CONTENT_URI)).build());
+		}
 
 		ShowTeamSyncResponse[] actionable = mAccessor.syncShowTeams(
 				AccountUtils.getUserIdentifier(mContext),

@@ -22,6 +22,7 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.JuniorsRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.SyncColumns;
+import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 
 public class PersistHelper {

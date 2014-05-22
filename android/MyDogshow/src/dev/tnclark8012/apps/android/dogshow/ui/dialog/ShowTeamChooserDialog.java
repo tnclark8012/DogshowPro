@@ -52,8 +52,9 @@ public class ShowTeamChooserDialog extends DialogFragment implements
 						mCallback.onFinishDialog(STATUS_ADD, null);
 					}
 				} else {
-					new PersistHelper(getActivity()).setActiveTeam(mAdapter
-							.getIdentifierForPosition(position));
+					if (mCallback != null) {
+						mCallback.onFinishDialog(STATUS_SELECT, mAdapter.getIdentifierForPosition(position));
+					}
 				}
 				dismiss();
 			}

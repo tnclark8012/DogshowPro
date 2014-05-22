@@ -12,10 +12,12 @@ import android.widget.CursorAdapter;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import dev.tnclark8012.apps.android.dogshow.R;
-import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
+import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query;
+import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.ui.dialog.ShowTeamChooserDialog;
 import dev.tnclark8012.apps.android.dogshow.ui.phone.ShowTeamAddActivity;
+import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 
 public class ShowTeamSpinnerAdapter extends CursorAdapter implements
 		SpinnerAdapter, ShowTeamChooserDialog.Callback {
@@ -65,7 +67,7 @@ public class ShowTeamSpinnerAdapter extends CursorAdapter implements
 				.getString(Query.ShowTeamsQuery.IDENTIFIER);
 		holder.name.setText(name);
 		holder.teamIcon.setText(name.toUpperCase().substring(0, 1));
-		//TODO set team owner email
+		// TODO set team owner email
 		view.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -81,10 +83,15 @@ public class ShowTeamSpinnerAdapter extends CursorAdapter implements
 	}
 
 	@Override
-	public void onFinishDialog(int status, String teamName) {
+	public void onFinishDialog(int status, String teamIdentifier) {
 		if (status == ShowTeamChooserDialog.STATUS_ADD) {
 			mActivity.startActivity(new Intent(mActivity,
 					ShowTeamAddActivity.class));
+		} else if (status == ShowTeamChooserDialog.STATUS_SELECT) {
+			new PersistHelper(mActivity).setActiveTeam(teamIdentifier);
+			SyncHelper.requestManualSync(mActivity,
+					AccountUtils.getChosenAccount(mActivity), SyncHelper.FLAG_SYNC_REMOTE);
 		}
 	}
+
 }

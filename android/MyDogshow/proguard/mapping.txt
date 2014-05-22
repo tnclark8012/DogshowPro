@@ -8544,11 +8544,7 @@ dev.tnclark8012.apps.android.dogshow.sync.SyncAdapter -> dev.tnclark8012.apps.an
     android.content.Context mContext -> c
     dev.tnclark8012.apps.android.dogshow.sync.SyncHelper mSyncHelper -> d
     66:108:void onPerformSync(android.accounts.Account,android.os.Bundle,java.lang.String,android.content.ContentProviderClient,android.content.SyncResult) -> onPerformSync
-    39:39:java.lang.String access$0() -> a
-dev.tnclark8012.apps.android.dogshow.sync.SyncAdapter$1 -> dev.tnclark8012.apps.android.dogshow.sync.i:
-    dev.tnclark8012.apps.android.dogshow.sync.SyncAdapter this$0 -> a
-    56:58:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
-dev.tnclark8012.apps.android.dogshow.sync.SyncHelper -> dev.tnclark8012.apps.android.dogshow.sync.j:
+dev.tnclark8012.apps.android.dogshow.sync.SyncHelper -> dev.tnclark8012.apps.android.dogshow.sync.i:
     java.lang.String TAG -> a
     dev.tnclark8012.apps.android.dogshow.Config$IApiAccessor mAccessor -> b
     android.content.Context mContext -> c
@@ -8565,47 +8561,54 @@ dev.tnclark8012.apps.android.dogshow.sync.SyncService -> dev.tnclark8012.apps.an
     16:21:void onCreate() -> onCreate
     25:25:android.os.IBinder onBind(android.content.Intent) -> onBind
 dev.tnclark8012.apps.android.dogshow.sync.request.ConformationRingsRequest -> dev.tnclark8012.apps.android.dogshow.sync.a.a:
-    android.content.Context mContext -> b
-    dev.tnclark8012.apps.android.dogshow.Config$IApiAccessor mAccessor -> c
-    java.lang.String TAG -> a
+    android.content.Context mContext -> mContext
+    dev.tnclark8012.apps.android.dogshow.Config$IApiAccessor mAccessor -> mAccessor
+    java.lang.String TAG -> TAG
     34:90:java.lang.Void doInBackground(java.lang.String[]) -> a
     1:1:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
 dev.tnclark8012.apps.android.dogshow.sync.request.DogSyncRequest -> dev.tnclark8012.apps.android.dogshow.sync.a.b:
-    long lastSync -> a
-    java.lang.String userIdentifier -> b
-    java.lang.String teamIdentifier -> c
-    java.lang.String[] allDogIds -> d
-    dev.tnclark8012.apps.android.dogshow.model.Dog[] dogs -> e
+    long lastSync -> lastSync
+    java.lang.String userIdentifier -> userIdentifier
+    java.lang.String teamIdentifier -> teamIdentifier
+    java.lang.String[] allDogIds -> allDogIds
+    dev.tnclark8012.apps.android.dogshow.model.Dog[] dogs -> dogs
 dev.tnclark8012.apps.android.dogshow.sync.request.JuniorsRingsRequest -> dev.tnclark8012.apps.android.dogshow.sync.a.c:
-    android.content.Context mContext -> b
-    dev.tnclark8012.apps.android.dogshow.Config$IApiAccessor mAccessor -> c
-    java.lang.String TAG -> a
+    android.content.Context mContext -> mContext
+    dev.tnclark8012.apps.android.dogshow.Config$IApiAccessor mAccessor -> mAccessor
+    java.lang.String TAG -> TAG
     36:81:java.lang.Void doInBackground(java.lang.String[]) -> a
     1:1:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
 dev.tnclark8012.apps.android.dogshow.sync.request.RegistrationRequest -> dev.tnclark8012.apps.android.dogshow.sync.a.d:
-    java.lang.String installationId -> a
-    java.lang.String provider -> b
-    java.lang.String name -> c
-    java.lang.String token -> d
+    java.lang.String installationId -> installationId
+    java.lang.String provider -> provider
+    java.lang.String name -> name
+    java.lang.String token -> token
 dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamCreateRequest -> dev.tnclark8012.apps.android.dogshow.sync.a.e:
-    java.lang.String userIdentifier -> a
-    dev.tnclark8012.apps.android.dogshow.model.ShowTeam team -> b
+    java.lang.String userIdentifier -> userIdentifier
+    dev.tnclark8012.apps.android.dogshow.model.ShowTeam team -> team
 dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamSyncRequest -> dev.tnclark8012.apps.android.dogshow.sync.a.f:
-    long lastSync -> a
-    java.lang.String userIdentifier -> b
-    java.lang.String[] allTeamIds -> c
+    long lastSync -> lastSync
+    java.lang.String userIdentifier -> userIdentifier
+    java.lang.String[] allTeamIds -> allTeamIds
+    dev.tnclark8012.apps.android.dogshow.model.ShowTeam[] teams -> teams
 dev.tnclark8012.apps.android.dogshow.sync.response.DogSyncResponse -> dev.tnclark8012.apps.android.dogshow.sync.b.a:
-    int action -> a
-    dev.tnclark8012.apps.android.dogshow.model.Dog dog -> b
+    int ACTION_ADD -> ACTION_ADD
+    int ACTION_UPDATE -> ACTION_UPDATE
+    int ACTION_DELETE -> ACTION_DELETE
+    int action -> action
+    dev.tnclark8012.apps.android.dogshow.model.Dog dog -> dog
 dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamResponse -> dev.tnclark8012.apps.android.dogshow.sync.b.b:
-    java.lang.String identifier -> a
-    java.lang.String teamName -> b
-    java.lang.String enteredShow -> c
-    int state -> d
-    int statusCode -> e
+    java.lang.String identifier -> identifier
+    java.lang.String teamName -> teamName
+    java.lang.String enteredShow -> enteredShow
+    int state -> state
+    int statusCode -> statusCode
 dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamSyncResponse -> dev.tnclark8012.apps.android.dogshow.sync.b.c:
-    int action -> a
-    dev.tnclark8012.apps.android.dogshow.model.ShowTeam team -> b
+    int ACTION_ADD -> ACTION_ADD
+    int ACTION_UPDATE -> ACTION_UPDATE
+    int ACTION_DELETE -> ACTION_DELETE
+    int action -> action
+    dev.tnclark8012.apps.android.dogshow.model.ShowTeam team -> team
 dev.tnclark8012.apps.android.dogshow.ui.BreedSelectFragment -> dev.tnclark8012.apps.android.dogshow.ui.a:
     java.lang.String TAG -> a
     dev.tnclark8012.dogshow.shared.DogshowEnums$BreedGroup mGroup -> b

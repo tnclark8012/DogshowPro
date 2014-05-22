@@ -1626,6 +1626,54 @@ dev.tnclark8012.apps.android.dogshow.provider.DogshowProvider
 dev.tnclark8012.apps.android.dogshow.provider.DogshowProvider: DogshowProvider()
 dev.tnclark8012.apps.android.dogshow.sync.SyncService
 dev.tnclark8012.apps.android.dogshow.sync.SyncService: SyncService()
+dev.tnclark8012.apps.android.dogshow.sync.request.ConformationRingsRequest: android.content.Context mContext
+dev.tnclark8012.apps.android.dogshow.sync.request.ConformationRingsRequest: dev.tnclark8012.apps.android.dogshow.Config$IApiAccessor mAccessor
+dev.tnclark8012.apps.android.dogshow.sync.request.ConformationRingsRequest: java.lang.String TAG
+dev.tnclark8012.apps.android.dogshow.sync.request.ConformationRingsRequest: ConformationRingsRequest(android.content.Context)
+dev.tnclark8012.apps.android.dogshow.sync.request.DogSyncRequest: long lastSync
+dev.tnclark8012.apps.android.dogshow.sync.request.DogSyncRequest: java.lang.String userIdentifier
+dev.tnclark8012.apps.android.dogshow.sync.request.DogSyncRequest: java.lang.String teamIdentifier
+dev.tnclark8012.apps.android.dogshow.sync.request.DogSyncRequest: java.lang.String[] allDogIds
+dev.tnclark8012.apps.android.dogshow.sync.request.DogSyncRequest: dev.tnclark8012.apps.android.dogshow.model.Dog[] dogs
+dev.tnclark8012.apps.android.dogshow.sync.request.DogSyncRequest: DogSyncRequest()
+dev.tnclark8012.apps.android.dogshow.sync.request.JuniorsRingsRequest: android.content.Context mContext
+dev.tnclark8012.apps.android.dogshow.sync.request.JuniorsRingsRequest: dev.tnclark8012.apps.android.dogshow.Config$IApiAccessor mAccessor
+dev.tnclark8012.apps.android.dogshow.sync.request.JuniorsRingsRequest: java.lang.String TAG
+dev.tnclark8012.apps.android.dogshow.sync.request.JuniorsRingsRequest: JuniorsRingsRequest(android.content.Context)
+dev.tnclark8012.apps.android.dogshow.sync.request.RegistrationRequest: java.lang.String installationId
+dev.tnclark8012.apps.android.dogshow.sync.request.RegistrationRequest: java.lang.String provider
+dev.tnclark8012.apps.android.dogshow.sync.request.RegistrationRequest: java.lang.String name
+dev.tnclark8012.apps.android.dogshow.sync.request.RegistrationRequest: java.lang.String token
+dev.tnclark8012.apps.android.dogshow.sync.request.RegistrationRequest: RegistrationRequest()
+dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamCreateRequest: java.lang.String userIdentifier
+dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamCreateRequest: dev.tnclark8012.apps.android.dogshow.model.ShowTeam team
+dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamCreateRequest: ShowTeamCreateRequest()
+dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamJoinRequest: java.lang.String userIdentifier
+dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamJoinRequest: dev.tnclark8012.apps.android.dogshow.model.ShowTeam team
+dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamJoinRequest: ShowTeamJoinRequest()
+dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamSyncRequest: long lastSync
+dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamSyncRequest: java.lang.String userIdentifier
+dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamSyncRequest: java.lang.String[] allTeamIds
+dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamSyncRequest: dev.tnclark8012.apps.android.dogshow.model.ShowTeam[] teams
+dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamSyncRequest: ShowTeamSyncRequest()
+dev.tnclark8012.apps.android.dogshow.sync.response.DogSyncResponse: int ACTION_ADD
+dev.tnclark8012.apps.android.dogshow.sync.response.DogSyncResponse: int ACTION_UPDATE
+dev.tnclark8012.apps.android.dogshow.sync.response.DogSyncResponse: int ACTION_DELETE
+dev.tnclark8012.apps.android.dogshow.sync.response.DogSyncResponse: int action
+dev.tnclark8012.apps.android.dogshow.sync.response.DogSyncResponse: dev.tnclark8012.apps.android.dogshow.model.Dog dog
+dev.tnclark8012.apps.android.dogshow.sync.response.DogSyncResponse: DogSyncResponse()
+dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamResponse: java.lang.String identifier
+dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamResponse: java.lang.String teamName
+dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamResponse: java.lang.String enteredShow
+dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamResponse: int state
+dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamResponse: int statusCode
+dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamResponse: ShowTeamResponse()
+dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamSyncResponse: int ACTION_ADD
+dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamSyncResponse: int ACTION_UPDATE
+dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamSyncResponse: int ACTION_DELETE
+dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamSyncResponse: int action
+dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamSyncResponse: dev.tnclark8012.apps.android.dogshow.model.ShowTeam team
+dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamSyncResponse: ShowTeamSyncResponse()
 dev.tnclark8012.apps.android.dogshow.ui.SimpleSinglePaneActivity: SimpleSinglePaneActivity()
 dev.tnclark8012.apps.android.dogshow.ui.base.AccountActivity
 dev.tnclark8012.apps.android.dogshow.ui.base.AccountActivity: AccountActivity()
