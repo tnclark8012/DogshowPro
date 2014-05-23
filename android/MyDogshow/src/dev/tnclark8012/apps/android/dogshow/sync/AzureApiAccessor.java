@@ -7,25 +7,26 @@ import java.util.Date;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 
-import dev.tnclark8012.apps.android.dogshow.Config;
 import dev.tnclark8012.apps.android.dogshow.model.BreedRing;
 import dev.tnclark8012.apps.android.dogshow.model.Dog;
+import dev.tnclark8012.apps.android.dogshow.model.Handler;
 import dev.tnclark8012.apps.android.dogshow.model.JuniorsRing;
 import dev.tnclark8012.apps.android.dogshow.model.Show;
 import dev.tnclark8012.apps.android.dogshow.model.ShowTeam;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.sync.request.DogSyncRequest;
+import dev.tnclark8012.apps.android.dogshow.sync.request.HandlerSyncRequest;
 import dev.tnclark8012.apps.android.dogshow.sync.request.RegistrationRequest;
 import dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamCreateRequest;
 import dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamSyncRequest;
 import dev.tnclark8012.apps.android.dogshow.sync.response.DogSyncResponse;
+import dev.tnclark8012.apps.android.dogshow.sync.response.HandlerSyncResponse;
 import dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamResponse;
 import dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamSyncResponse;
 import dev.tnclark8012.apps.android.dogshow.util.DebugUtils;
@@ -39,6 +40,7 @@ public class AzureApiAccessor extends ApiAccessor {
 	public URL GET_JUNIORS_RINGS_URL;
 	public URL POST_REGISTRATION_URL;
 	public URL SYNC_DOG_URL;
+	public URL SYNC_HANDLER_URL;
 	public URL CREATE_SHOW_TEAM_URL;
 	public URL JOIN_SHOW_TEAM_URL;
 	public URL SYNC_SHOW_TEAM_URL;
@@ -58,6 +60,7 @@ public class AzureApiAccessor extends ApiAccessor {
 			GET_JUNIORS_RINGS_URL = new URL(BASE_URL + "/JuniorsRing");
 			POST_REGISTRATION_URL = new URL(BASE_URL + "/User/Register");
 			SYNC_DOG_URL = new URL(BASE_URL + "/Dog/Sync");
+			SYNC_HANDLER_URL = new URL(BASE_URL + "/Handler/Sync");
 			CREATE_SHOW_TEAM_URL = new URL(BASE_URL + "/ShowTeam/Create");
 			JOIN_SHOW_TEAM_URL = new URL(BASE_URL + "/ShowTeam/Join");
 			SYNC_SHOW_TEAM_URL = new URL(BASE_URL + "/ShowTeam/Sync");
@@ -190,6 +193,21 @@ public class AzureApiAccessor extends ApiAccessor {
 				.getAsJsonObject();
 		return mGson.fromJson(makePostRequest(SYNC_DOG_URL, json),
 				DogSyncResponse[].class);
+	}
+	
+	@Override
+	public HandlerSyncResponse[] syncHandlers(String userId, String teamIdentifier,
+			long lastSync, Handler[] handler, String[] currentHandlerIds) {
+		HandlerSyncRequest request = new HandlerSyncRequest();
+		request.lastSync = lastSync;
+		request.teamIdentifier = teamIdentifier;
+		request.handlers = handler;
+		request.userIdentifier = userId;
+		request.allHandlerIds = currentHandlerIds;
+		JsonObject json = mGson.toJsonTree(request, HandlerSyncRequest.class)
+				.getAsJsonObject();
+		return mGson.fromJson(makePostRequest(SYNC_HANDLER_URL, json),
+				HandlerSyncResponse[].class);
 	}
 
 	@Override

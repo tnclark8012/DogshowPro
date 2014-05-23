@@ -308,6 +308,7 @@ public class AccountUtils {
 				token, "PLUS", installId);// TODO Facebook and/or nothing
 		setUserId(context, id);
 		new PersistHelper(context).createMe();
+		
 
 	}
 

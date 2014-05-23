@@ -20,19 +20,21 @@ import java.net.URL;
 
 import dev.tnclark8012.apps.android.dogshow.model.BreedRing;
 import dev.tnclark8012.apps.android.dogshow.model.Dog;
+import dev.tnclark8012.apps.android.dogshow.model.Handler;
 import dev.tnclark8012.apps.android.dogshow.model.JuniorsRing;
 import dev.tnclark8012.apps.android.dogshow.model.Show;
 import dev.tnclark8012.apps.android.dogshow.sync.response.DogSyncResponse;
+import dev.tnclark8012.apps.android.dogshow.sync.response.HandlerSyncResponse;
 import dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamResponse;
 import dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamSyncResponse;
 
 public class Config {
-	
-	
+
 	public interface IApiAccessor {
 		URL buildGetBreedRingsUrl(String showId);
 
-		URL buildGetBreedRingsUrl(String showId, String breed, Boolean veteran, Boolean sweepstakes);
+		URL buildGetBreedRingsUrl(String showId, String breed, Boolean veteran,
+				Boolean sweepstakes);
 
 		URL buildGetJuniorRingsUrl(String showId, String juniorClass);
 
@@ -40,7 +42,8 @@ public class Config {
 
 		URL getShowsUrl();
 
-		BreedRing[] getBreedRings(String showId, String breed, Boolean veteran, Boolean sweepstakes);
+		BreedRing[] getBreedRings(String showId, String breed, Boolean veteran,
+				Boolean sweepstakes);
 
 		JuniorsRing[] getJuniorsRings(String showId, String className);
 
@@ -48,23 +51,33 @@ public class Config {
 
 		URL getRegistrationUrl();
 
-		String register(String account, String token, String provider, String installId);
+		String register(String account, String token, String provider,
+				String installId);
 
 		/**
 		 * Send dogs (new and updated) to the server.
 		 * 
 		 * @return dogs which were updated server-side since last sync
 		 */
-		DogSyncResponse[] syncDogs(String userId, String teamIdentifier, long lastSync, Dog[] dogs, String[] currentDogIds);
+		DogSyncResponse[] syncDogs(String userId, String teamIdentifier,
+				long lastSync, Dog[] dogs, String[] currentDogIds);
 
-		ShowTeamSyncResponse[] syncShowTeams(String userId, long lastSync, String[] currentTeamIds);
+		HandlerSyncResponse[] syncHandlers(String userId,
+				String teamIdentifier, long lastSync, Handler[] handler,
+				String[] currentHandlerIds);
 
-		ShowTeamResponse createShowTeam(String userId, String teamName, String password);
+		ShowTeamSyncResponse[] syncShowTeams(String userId, long lastSync,
+				String[] currentTeamIds);
 
-		ShowTeamResponse joinShowTeam(String userId, String teamName, String password);
+		ShowTeamResponse createShowTeam(String userId, String teamName,
+				String password);
+
+		ShowTeamResponse joinShowTeam(String userId, String teamName,
+				String password);
 	}
+
 	public static final boolean DEBUG_OFFLINE = false;// TODO implement
 	public static final boolean SYNC_ENABLED = true;// TODO implement
-	
+
 	public static final String TAG = Config.class.getName();
 }

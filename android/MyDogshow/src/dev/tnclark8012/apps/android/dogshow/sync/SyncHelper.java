@@ -27,7 +27,6 @@ public class SyncHelper {
 	 * If set, server entities will be requested
 	 */
 	public static final int FLAG_SYNC_REMOTE = 0x2;
-	
 
 	// /**
 	// * If set, sync will ignore modification times.
@@ -56,12 +55,14 @@ public class SyncHelper {
 
 	// TODO move this to a service
 	public void enterShow(Show show) {
-		
-		ConformationRingsRequest confRingsRequest = new ConformationRingsRequest(mContext);
-		JuniorsRingsRequest juniorsRingsRequest = new JuniorsRingsRequest(mContext);
+
+		ConformationRingsRequest confRingsRequest = new ConformationRingsRequest(
+				mContext);
+		JuniorsRingsRequest juniorsRingsRequest = new JuniorsRingsRequest(
+				mContext);
 		confRingsRequest.execute(show.showId);
 		juniorsRingsRequest.execute(show.showId);
-		//TODO callbacks for completion?
+		// TODO callbacks for completion?
 	}
 
 	public static void requestManualSync(Context context,
@@ -94,6 +95,10 @@ public class SyncHelper {
 				mAccessor);
 		teamHelper.sync(resolver, lastSync, flags);
 		Log.i(TAG, "Completed team sync");
+		HandlerSyncHandler handlerHelper = new HandlerSyncHandler(mContext,
+				mAccessor);
+		handlerHelper.sync(resolver, lastSync, flags);
+		Log.i(TAG, "Completed handler sync");
 		DogSyncHandler dogHelper = new DogSyncHandler(mContext, mAccessor);
 		dogHelper.sync(resolver, lastSync, flags);
 		Log.i(TAG, "Completed dog sync");
