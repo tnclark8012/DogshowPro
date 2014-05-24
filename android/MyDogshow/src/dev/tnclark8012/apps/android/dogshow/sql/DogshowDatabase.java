@@ -132,6 +132,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				db.execSQL("DROP TABLE IF EXISTS " + Tables.SHOW_TEAMS);
 				createShowTeamsTable(db);
 				version++;
+			case VER_SYNC_INTRODUCED:
 			case VER_SYNC_LIVE:
 				break;
 			}
