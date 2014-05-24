@@ -30,8 +30,9 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 	private static final int VER_HANDLERS_IS_ME = 6;
 	private static final int VER_SHOW_TEAMS = 7;
 	private static final int VER_SYNC_INTRODUCED = 8;// Added show team status sync columns
+	private static final int VER_SYNC_LIVE = 9;//Sync released as functional
 
-	private static final int DATABASE_VERSION = VER_SYNC_INTRODUCED;
+	private static final int DATABASE_VERSION = VER_SYNC_LIVE;
 
 	public interface Tables {
 		String DOGS = "dogs";
@@ -68,25 +69,25 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 	}
 
 	private void createHandlersTable(SQLiteDatabase db) {
-		db.execSQL("CREATE TABLE " + Tables.HANDLERS + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + HandlersColumns.HANDLER_ID + " TEXT NOT NULL, " + HandlersColumns.HANDLER_IS_ME + " INTEGER DEFAULT 0, " + HandlersColumns.HANDLER_NAME + " TEXT," + HandlersColumns.HANDLER_JUNIOR_CLASS + " TEXT," + HandlersColumns.HANDLER_IMAGE_PATH + " TEXT," + HandlersColumns.HANDLER_IS_SHOWING + " INTEGER DEFAULT 1," + HandlersColumns.HANDLER_IS_SHOWING_JUNIORS + " INTEGER DEFAULT 1," + SyncColumns.UPDATED + " INTEGER NOT NULL)");
+		db.execSQL("CREATE TABLE " + Tables.HANDLERS + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + HandlersColumns.HANDLER_ID + " TEXT NOT NULL, " + HandlersColumns.HANDLER_IS_ME + " INTEGER DEFAULT 0, " + HandlersColumns.HANDLER_NAME + " TEXT," + HandlersColumns.HANDLER_JUNIOR_CLASS + " TEXT," + HandlersColumns.HANDLER_IMAGE_PATH + " TEXT," + HandlersColumns.HANDLER_IS_SHOWING + " INTEGER DEFAULT 1," + HandlersColumns.HANDLER_IS_SHOWING_JUNIORS + " INTEGER DEFAULT 1," + SyncColumns.UPDATED + " LONG DEFAULT 0)");
 	}
 
 	private void createShowTeamsTable(SQLiteDatabase db) {
-		db.execSQL("CREATE TABLE " + Tables.SHOW_TEAMS + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + ShowTeamsColumns.SHOW_TEAM_ID + " TEXT NOT NULL, " + ShowTeams.SHOW_TEAM_ACTIVE + " INTEGER DEFAULT 0, " + ShowTeams.SHOW_TEAM_JUST_ME + " INTEGER DEFAULT 0, " + ShowTeamsColumns.SHOW_TEAM_NAME + " TEXT NOT NULL, " + ShowTeamsColumns.SHOW_TEAM_STATE + " INTEGER DEFAULT 1, " + ShowTeams.ENTERED_SHOW + " TEXT," + ShowTeams.UPDATED + " INTEGER DEFAULT 0)");
+		db.execSQL("CREATE TABLE " + Tables.SHOW_TEAMS + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + ShowTeamsColumns.SHOW_TEAM_ID + " TEXT NOT NULL, " + ShowTeams.SHOW_TEAM_ACTIVE + " INTEGER DEFAULT 0, " + ShowTeams.SHOW_TEAM_JUST_ME + " INTEGER DEFAULT 0, " + ShowTeamsColumns.SHOW_TEAM_NAME + " TEXT NOT NULL, " + ShowTeamsColumns.SHOW_TEAM_STATE + " INTEGER DEFAULT 1, " + ShowTeams.ENTERED_SHOW + " TEXT," + ShowTeams.UPDATED + " LONG DEFAULT 0)");
 		//db.execSQL("INSERT INTO " + Tables.SHOW_TEAMS + " (" + ShowTeams.SHOW_TEAM_ID + ", " + ShowTeams.SHOW_TEAM_NAME + "," + ShowTeams.SHOW_TEAM_STATE + ", " + ShowTeams.SHOW_TEAM_ACTIVE + ", " + ShowTeams.SHOW_TEAM_JUST_ME + ") VALUES (\"ME\", \"Just Me\", 1,1,1)");
 	}
 
 	private void createDogsTable(SQLiteDatabase db) {
-		db.execSQL("CREATE TABLE " + Tables.DOGS + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + DogsColumns.DOG_ID + " TEXT NOT NULL, " + DogsColumns.DOG_BREED + " TEXT NOT NULL," + DogsColumns.DOG_CALL_NAME + " TEXT," + DogsColumns.DOG_IMAGE_PATH + " TEXT," + DogsColumns.DOG_MAJORS + " INTEGER DEFAULT 0," + DogsColumns.DOG_OWNER_ID + " INTEGER DEFAULT -1," + DogsColumns.DOG_POINTS + " INTEGER DEFAULT 0," + DogsColumns.DOG_SEX + " INTEGER DEFAULT 0," + DogsColumns.DOG_IS_SHOWING + " INTEGER DEFAULT 1," + DogsColumns.DOG_IS_VETERAN + " INTEGER DEFAULT 0," + DogsColumns.DOG_IS_SHOWING_SWEEPSTAKES + " INTEGER DEFAULT 1," + DogsColumns.DOG_CLASS + " INTEGER DEFAULT 0, " + DogsColumns.DOG_IS_CHAMPION + " INTEGER DEFAULT 0, " + DogsColumns.DOG_UPDATED + " INTEGER NOT NULL)");
+		db.execSQL("CREATE TABLE " + Tables.DOGS + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + DogsColumns.DOG_ID + " TEXT NOT NULL, " + DogsColumns.DOG_BREED + " TEXT NOT NULL," + DogsColumns.DOG_CALL_NAME + " TEXT," + DogsColumns.DOG_IMAGE_PATH + " TEXT," + DogsColumns.DOG_MAJORS + " INTEGER DEFAULT 0," + DogsColumns.DOG_OWNER_ID + " INTEGER DEFAULT -1," + DogsColumns.DOG_POINTS + " INTEGER DEFAULT 0," + DogsColumns.DOG_SEX + " INTEGER DEFAULT 0," + DogsColumns.DOG_IS_SHOWING + " INTEGER DEFAULT 1," + DogsColumns.DOG_IS_VETERAN + " INTEGER DEFAULT 0," + DogsColumns.DOG_IS_SHOWING_SWEEPSTAKES + " INTEGER DEFAULT 1," + DogsColumns.DOG_CLASS + " INTEGER DEFAULT 0, " + DogsColumns.DOG_IS_CHAMPION + " INTEGER DEFAULT 0, " + DogsColumns.DOG_UPDATED + " LONG DEFAULT 0)");
 	}
 
 	private void createBreedRingsTable(SQLiteDatabase db) {
 		db.execSQL("CREATE TABLE " + Tables.BREED_RINGS + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + BreedRingsColumns.RING_BITCH_COUNT + " INTEGER NOT NULL," + RingColumns.RING_BLOCK_START + " INTEGER NOT NULL," + BreedRingsColumns.RING_BREED + " TEXT NOT NULL," + BreedRingsColumns.RING_BREED_COUNT + " INTEGER NOT NULL," + RingColumns.RING_COUNT_AHEAD + " INTEGER NOT NULL," + RingColumns.RING_DATE + " INTEGER NOT NULL," + BreedRingsColumns.RING_DOG_COUNT + " INTEGER NOT NULL," + RingColumns.RING_JUDGE + " TEXT NOT NULL," + RingColumns.RING_JUDGE_TIME + " INTEGER," + RingColumns.RING_NUMBER + " INTEGER NOT NULL," + RingColumns.RING_SHOW_ID + " TEXT NOT NULL," + RingColumns.RING_TITLE + " TEXT," + BreedRingsColumns.RING_SPECIAL_BITCH_COUNT + " INTEGER NOT NULL," + BreedRingsColumns.RING_SPECIAL_DOG_COUNT + " INTEGER NOT NULL," + BreedRingsColumns.RING_BREED_IS_VETERAN + " INTEGER," + BreedRingsColumns.RING_BREED_IS_SWEEPSTAKES + " INTEGER,"
-				+ BreedRingsColumns.RING_BREED_ATTRIBUTE + " TEXT," + SyncColumns.UPDATED + " INTEGER NOT NULL)");
+				+ BreedRingsColumns.RING_BREED_ATTRIBUTE + " TEXT," + SyncColumns.UPDATED + " LONG DEFAULT 0)");
 	}
 
 	private void createJuniorsRingsTable(SQLiteDatabase db) {
-		db.execSQL("CREATE TABLE " + Tables.JUNIORS_RINGS + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + RingColumns.RING_BLOCK_START + " INTEGER NOT NULL," + JuniorsRingsColumns.RING_JUNIOR_CLASS_NAME + " TEXT NOT NULL," + JuniorsRingsColumns.RING_JUNIOR_COUNT + " INTEGER NOT NULL," + RingColumns.RING_COUNT_AHEAD + " INTEGER NOT NULL," + RingColumns.RING_DATE + " INTEGER NOT NULL," + RingColumns.RING_JUDGE + " TEXT NOT NULL," + RingColumns.RING_JUDGE_TIME + " INTEGER," + RingColumns.RING_NUMBER + " INTEGER NOT NULL," + RingColumns.RING_SHOW_ID + " TEXT NOT NULL," + RingColumns.RING_TITLE + " TEXT," + SyncColumns.UPDATED + " INTEGER NOT NULL)");
+		db.execSQL("CREATE TABLE " + Tables.JUNIORS_RINGS + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + RingColumns.RING_BLOCK_START + " INTEGER NOT NULL," + JuniorsRingsColumns.RING_JUNIOR_CLASS_NAME + " TEXT NOT NULL," + JuniorsRingsColumns.RING_JUNIOR_COUNT + " INTEGER NOT NULL," + RingColumns.RING_COUNT_AHEAD + " INTEGER NOT NULL," + RingColumns.RING_DATE + " INTEGER NOT NULL," + RingColumns.RING_JUDGE + " TEXT NOT NULL," + RingColumns.RING_JUDGE_TIME + " INTEGER," + RingColumns.RING_NUMBER + " INTEGER NOT NULL," + RingColumns.RING_SHOW_ID + " TEXT NOT NULL," + RingColumns.RING_TITLE + " TEXT," + SyncColumns.UPDATED + " LONG DEFAULT 0)");
 	}
 
 	private void insertDebugEntities(SQLiteDatabase db) {
@@ -131,6 +132,8 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				db.execSQL("DROP TABLE IF EXISTS " + Tables.SHOW_TEAMS);
 				createShowTeamsTable(db);
 				version++;
+			case VER_SYNC_LIVE:
+				break;
 			}
 		} catch (Exception e) {
 			version = -1;

@@ -69,7 +69,7 @@ public class HandlerSyncHandler {
 				handler.isShowingJuniors = locallyUpdated.getInt(HandlerSyncQuery.HANDLER_IS_SHOWING_JUNIORS);
 				handler.juniorsClassString = locallyUpdated.getString(HandlerSyncQuery.HANDLER_JUNIOR_CLASS);
 				handler.name = locallyUpdated.getString(HandlerSyncQuery.HANDLER_NAME);
-				handler.modifiedTimeUtc = locallyUpdated.getInt(HandlerSyncQuery.HANDLER_UPDATED);//TODO times should be longs in SQL
+				handler.modifiedTimeUtc = locallyUpdated.getLong(HandlerSyncQuery.HANDLER_UPDATED);//TODO times should be longs in SQL
 				locallyUpdatedHandlers[i++] = handler;
 				// Create json entities and post to server with current sync and
 				// last sync time.
