@@ -11,8 +11,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
-public class CustomDrawerAdapter extends ArrayAdapter<DrawerItem> {
-	public static final String TAG = CustomDrawerAdapter.class.getSimpleName();
+public class NavigationDrawerAdapter extends ArrayAdapter<DrawerItem> {
+	public static final String TAG = NavigationDrawerAdapter.class.getSimpleName();
 	Context context;
 	List<DrawerItem> drawerItemList;
 	int layoutResID;
@@ -20,7 +20,7 @@ public class CustomDrawerAdapter extends ArrayAdapter<DrawerItem> {
 	int totalItems;
 	SparseIntArray mPositionViewTypeMap;
 
-	public CustomDrawerAdapter(Context context, int layoutResourceID,
+	public NavigationDrawerAdapter(Context context, int layoutResourceID,
 			List<DrawerItem> listItems) {
 		super(context, layoutResourceID, listItems);
 		this.context = context;
@@ -59,10 +59,12 @@ public class CustomDrawerAdapter extends ArrayAdapter<DrawerItem> {
 		return mPositionViewTypeMap.get(position);
 	}
 
+	
 	@Override
 	public View getView(final int position, View convertView,
 			final ViewGroup parent) {
 		LayoutInflater inflater = ((Activity) context).getLayoutInflater();
+		
 		convertView = drawerItemList.get(position).getView(inflater, position,
 				totalItems, convertView, parent);
 		convertView.setOnClickListener(new OnClickListener() {
@@ -79,5 +81,7 @@ public class CustomDrawerAdapter extends ArrayAdapter<DrawerItem> {
 		});
 		return convertView;
 	}
+	
+	
 
 }

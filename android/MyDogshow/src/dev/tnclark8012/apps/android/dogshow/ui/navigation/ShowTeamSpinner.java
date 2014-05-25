@@ -13,7 +13,6 @@ import android.widget.Toast;
 import dev.tnclark8012.apps.android.dogshow.R;
 
 public class ShowTeamSpinner extends NonNavigationDrawerItem {
-	private Spinner mSpinner;
 	private CursorAdapter mAdapter;
 	private Activity mActivity;
 
@@ -52,9 +51,10 @@ public class ShowTeamSpinner extends NonNavigationDrawerItem {
 					.findViewById(R.id.drawerSpinner);
 		}
 		holder.spinner.setClickable(false);
-		mAdapter = new ShowTeamSpinnerAdapter(mActivity, null, false);
+		if (mAdapter == null) {
+			mAdapter = new ShowTeamSpinnerAdapter(mActivity, null, false);
+		}
 		holder.spinner.setAdapter(mAdapter);
-		mSpinner = holder.spinner;
 		return convertView;
 	}
 
