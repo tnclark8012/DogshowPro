@@ -31,7 +31,7 @@ public final class Prefs {
 	}
 
 	public static boolean isSyncEnabled(Context context) {
-		return get(context).getBoolean(KEY_ENABLE_SYNC, false);
+		return get(context).getBoolean(KEY_ENABLE_SYNC, true);
 	}
 
 	public static boolean useLocalServer(Context context) {

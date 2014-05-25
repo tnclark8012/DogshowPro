@@ -36,6 +36,7 @@ import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
  */
 public abstract class BaseActivity extends Activity {
 	private static final String TAG = BaseActivity.class.getSimpleName();
+	public static final String EXTRA_URI = "_uri";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
