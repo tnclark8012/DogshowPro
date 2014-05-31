@@ -58,12 +58,12 @@ public abstract class BaseActivity extends Activity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case android.R.id.home:
-			if (this instanceof HomeActivity) {
-				return false;
-			}
-			finish();
-			return true;
+//		case android.R.id.home:
+//			if (this instanceof HomeActivity) {
+//				return false;
+//			}
+//			finish();
+//			return true;
 		case R.id.menu_sync:
 			SyncHelper.requestManualSync(this,
 					AccountUtils.getChosenAccount(this));

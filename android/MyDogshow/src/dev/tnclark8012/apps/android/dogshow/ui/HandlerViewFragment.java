@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
+import dev.tnclark8012.apps.android.dogshow.ui.base.BaseActivity;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
@@ -66,6 +67,14 @@ public class HandlerViewFragment extends BaseEditableEntityViewFragment {
 		}
 	};
 
+	public static HandlerViewFragment newInstance(Uri handlerUri) {
+		HandlerViewFragment f = new HandlerViewFragment();
+		Bundle b = new Bundle();
+		b.putParcelable(BaseActivity.EXTRA_URI, handlerUri);
+		f.setArguments(b);
+		return f;
+	}
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -110,5 +119,10 @@ public class HandlerViewFragment extends BaseEditableEntityViewFragment {
 	@Override
 	protected Uri getContentUri() {
 		return Handlers.CONTENT_URI;
+	}
+
+	@Override
+	public String getTitle() {
+		return mName;
 	}
 }

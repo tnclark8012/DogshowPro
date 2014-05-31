@@ -34,7 +34,7 @@ public abstract class BaseEditableEntityViewFragment extends Fragment implements
 	};
 
 	protected abstract int getQueryToken();
-
+	public abstract String getTitle();
 	/**
 	 * TODO This method and {@link #getQueryToken()} match
 	 * {@link BaseEntityListFragment#getCursorLoader(Activity, Uri)} etc. Super
@@ -80,9 +80,15 @@ public abstract class BaseEditableEntityViewFragment extends Fragment implements
 		}
 		if (loader.getId() == mQueryToken) {
 			onQueryComplete(cursor);
+			getActivity().setTitle(getTitle());
 		}
 	}
 
+	@Override
+	public void onResume() {
+		super.onResume();
+		getActivity().setTitle(getTitle());
+	}
 	@Override
 	public final void onLoaderReset(Loader<Cursor> arg0) {
 	}
@@ -134,6 +140,19 @@ public abstract class BaseEditableEntityViewFragment extends Fragment implements
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	@Override
+	public void onStart() {
+		// TODO Auto-generated method stub
+		super.onStart();
+		setMenuVisibility(true);
+	}
+
+	@Override
+	public void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+		setMenuVisibility(false);
 	}
 
 }

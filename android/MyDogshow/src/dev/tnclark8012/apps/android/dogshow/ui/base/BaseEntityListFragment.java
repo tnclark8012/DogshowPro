@@ -51,6 +51,8 @@ public abstract class BaseEntityListFragment extends ListFragment implements
 
 	protected abstract int getTitleColumnIndex();
 
+	public abstract String getTitle();
+
 	protected abstract Uri buildEntityUri(String entityId);
 
 	protected abstract BaseEditableEntityViewFragment getViewFragment();
@@ -97,6 +99,7 @@ public abstract class BaseEntityListFragment extends ListFragment implements
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);
 		reloadFromArguments(getArguments());
+		getActivity().setTitle(getTitle());
 	}
 
 	@Override
@@ -116,19 +119,19 @@ public abstract class BaseEntityListFragment extends ListFragment implements
 
 		if (item.getItemId() == R.id.menu_list_entity_add) {
 			mCallbacks.onAddEntityClick(getContentUri());
-			Fragment f = getEditFragment();
-			if (f != null) {
-				Bundle b = new Bundle();
-				b.putBoolean(
-						BaseEditableEntityEditFragment.INTENT_EXTRA_NEW_ENTITY,
-						true);
-				f.setArguments(b);
-				f.setTargetFragment(this, 0);
-				getFragmentManager().beginTransaction()
-						.addToBackStack("add_entity")
-						.add(R.id.root_container, f, "add_entity").commit();
-				setMenuVisibility(false);
-			}
+			// Fragment f = getEditFragment();
+			// if (f != null) {
+			// Bundle b = new Bundle();
+			// b.putBoolean(
+			// BaseEditableEntityEditFragment.INTENT_EXTRA_NEW_ENTITY,
+			// true);
+			// f.setArguments(b);
+			// f.setTargetFragment(this, 0);
+			// getFragmentManager().beginTransaction()
+			// .addToBackStack("add_entity")
+			// .add(R.id.root_container, f, "add_entity").commit();
+			// setMenuVisibility(false);
+			// }
 			// startActivity(new Intent(Intent.ACTION_INSERT, getContentUri()));
 			return true;
 		}
@@ -208,19 +211,6 @@ public abstract class BaseEntityListFragment extends ListFragment implements
 		final Cursor cursor = (Cursor) mAdapter.getItem(position);
 		String entityId = cursor.getString(getIdColumnIndex());
 		mCallbacks.onEntityClick(getContentUri(), entityId);
-		Fragment f = getViewFragment();
-		if (f != null) {
-			Bundle b = new Bundle();
-			b.putParcelable(BaseActivity.EXTRA_URI, buildEntityUri(entityId));
-			f.setArguments(b);
-			f.setTargetFragment(this, 0);
-			getFragmentManager().beginTransaction()
-					.addToBackStack("view_entity")
-					.add(R.id.root_container, f, "view_entity").commit();
-			setMenuVisibility(false);
-		}
-		// startActivity(new Intent(Intent.ACTION_VIEW,
-		// buildEntityUri(entityId)));
 	}
 
 	protected CursorAdapter getAdapter() {

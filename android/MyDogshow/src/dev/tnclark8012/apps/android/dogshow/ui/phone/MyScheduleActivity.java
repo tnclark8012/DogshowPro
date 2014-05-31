@@ -16,43 +16,31 @@
 
 package dev.tnclark8012.apps.android.dogshow.ui.phone;
 
-import android.app.ActionBar;
 import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
-import dev.tnclark8012.apps.android.dogshow.R;
-import dev.tnclark8012.apps.android.dogshow.ui.ExploreFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment;
-import dev.tnclark8012.apps.android.dogshow.ui.SimpleSinglePaneActivity;
+import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigatableActivity;
+import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigationDrawerFragment;
 
-/**
- * The landing screen for the app, once the user has logged in.
- * 
- * <p>
- * This activity uses different layouts to present its various fragments, depending on the device configuration. {@link MyScheduleFragment}, {@link ExploreFragment}, and {@link SocialStreamFragment} are always available to the user. {@link WhatsOnFragment} is always available on tablets and phones in portrait, but is hidden on phones held in landscape.
- * 
- * <p>
- * On phone-size screens, the three fragments are represented by {@link ActionBar} tabs, and can are held inside a {@link ViewPager} to allow horizontal swiping.
- * 
- * <p>
- * On tablets, the three fragments are always visible and are presented as either three panes (landscape) or a grid (portrait).
- */
-public class MyScheduleActivity extends SimpleSinglePaneActivity {
+public class MyScheduleActivity extends NavigatableActivity {
 
 	private static final String TAG = MyScheduleActivity.class.getSimpleName();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		if (isFinishing()) {
-			return;
-		}
-		setContentView(R.layout.activity_singlepane_empty);
-		getActionBar().setHomeButtonEnabled(true);
 	}
 
 	@Override
 	protected Fragment onCreatePane() {
 		return new MyScheduleFragment();
+	}
+
+	@Override
+	public void onNavigationDrawerItemSelected(int position) {
+		if (position != NavigationDrawerFragment.NAVIGATION_SHOW) {
+			super.onNavigationDrawerItemSelected(position);
+		}
 	}
 }

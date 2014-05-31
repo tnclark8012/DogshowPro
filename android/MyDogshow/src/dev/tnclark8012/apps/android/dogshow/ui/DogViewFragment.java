@@ -21,6 +21,7 @@ import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
+import dev.tnclark8012.apps.android.dogshow.ui.base.BaseActivity;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
@@ -85,6 +86,14 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 		}
 	};
 
+	public static DogViewFragment newInstance(Uri dogUri) {
+		DogViewFragment f = new DogViewFragment();
+		Bundle b = new Bundle();
+		b.putParcelable(BaseActivity.EXTRA_URI, dogUri);
+		f.setArguments(b);
+		return f;
+	}
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -109,7 +118,7 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 		if (cursor.moveToFirst()) {
 			mBreedName = cursor.getString(DogQuery.DOG_BREED);
 			mCallName = cursor.getString(DogQuery.DOG_CALL_NAME);
-			getActivity().setTitle(mCallName);
+			getActivity().getActionBar().setTitle(mCallName);
 			getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
 			mImagePath = cursor.getString(DogQuery.DOG_IMAGE_PATH);
 			mMajors = cursor.getInt(DogQuery.DOG_MAJORS);
@@ -159,5 +168,10 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 	@Override
 	protected Uri getContentUri() {
 		return Dogs.CONTENT_URI;
+	}
+
+	@Override
+	public String getTitle() {
+		return mCallName;
 	}
 }

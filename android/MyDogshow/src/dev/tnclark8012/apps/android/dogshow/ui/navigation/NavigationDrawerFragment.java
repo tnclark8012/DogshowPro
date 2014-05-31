@@ -51,7 +51,7 @@ public class NavigationDrawerFragment extends Fragment implements
 	/**
 	 * Remember the position of the selected item.
 	 */
-	private static final String STATE_SELECTED_POSITION = "selected_navigation_drawer_position";
+	public static final String STATE_SELECTED_POSITION = "selected_navigation_drawer_position";
 
 	/**
 	 * Per the design guidelines, you should show the drawer on launch until the
@@ -73,7 +73,7 @@ public class NavigationDrawerFragment extends Fragment implements
 	private ListView mDrawerListView;
 	private View mFragmentContainerView;
 
-	private int mCurrentSelectedPosition = 1;
+	private static int mCurrentSelectedPosition = 1;
 	private boolean mFromSavedInstanceState;
 	private boolean mUserLearnedDrawer;
 	private List<DrawerItem> mDrawerItems;
@@ -84,6 +84,7 @@ public class NavigationDrawerFragment extends Fragment implements
 	public static final int NAVIGATION_HISTORY = 4;
 	public static final int NAVIGATION_SETTINGS = 5;
 	public static final int NAVIGATION_SHOW_TEAM = 6;
+	private CharSequence oldTitle;
 
 	public NavigationDrawerFragment() {
 	}
@@ -175,7 +176,6 @@ public class NavigationDrawerFragment extends Fragment implements
 		NavigationDrawerAdapter adapter = new NavigationDrawerAdapter(
 				getActivity(), R.layout.custom_drawer_item, mDrawerItems);
 		mDrawerListView.setAdapter(adapter);
-		selectItem(mCurrentSelectedPosition);
 		// mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
 
 		getActivity().getLoaderManager().restartLoader(
@@ -221,8 +221,8 @@ public class NavigationDrawerFragment extends Fragment implements
 				if (!isAdded()) {
 					return;
 				}
-
-				getActivity().invalidateOptionsMenu(); // calls
+				getActionBar().setTitle(oldTitle);
+				getActivity().invalidateOptionsMenu(); // calls //
 														// onPrepareOptionsMenu()
 			}
 
@@ -243,7 +243,7 @@ public class NavigationDrawerFragment extends Fragment implements
 					sp.edit().putBoolean(PREF_USER_LEARNED_DRAWER, true)
 							.commit();
 				}
-
+				oldTitle = getActionBar().getTitle();
 				getActivity().invalidateOptionsMenu(); // calls
 														// onPrepareOptionsMenu()
 			}
@@ -343,6 +343,7 @@ public class NavigationDrawerFragment extends Fragment implements
 		actionBar.setTitle(R.string.app_name);
 	}
 
+	
 	private ActionBar getActionBar() {
 		return getActivity().getActionBar();
 	}
@@ -421,4 +422,12 @@ public class NavigationDrawerFragment extends Fragment implements
 				ShowTeams.CONTENT_URI, true, mObserver);
 	}
 
+	public void setDrawerIndicatorEnabled(boolean enabled) {
+		mDrawerToggle.setDrawerIndicatorEnabled(enabled);
+	}
+	
+	public boolean isDrawerIndicatorEnabled()
+	{
+		return mDrawerToggle.isDrawerIndicatorEnabled();
+	}
 }

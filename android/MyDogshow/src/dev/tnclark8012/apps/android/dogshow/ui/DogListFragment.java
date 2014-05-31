@@ -16,21 +16,23 @@ import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment;
 public class DogListFragment extends BaseEntityListFragment {
 	private static final String TAG = DogListFragment.class.getSimpleName();
 
-		@Override
-		protected BaseEditableEntityViewFragment getViewFragment() {
-			return new DogViewFragment();
-		}
-	
-		@Override
-		protected BaseEditableEntityEditFragment getEditFragment() {
-			return new DogEditFragment();
-		}
+	@Override
+	protected BaseEditableEntityViewFragment getViewFragment() {
+		return new DogViewFragment();
+	}
+
+	@Override
+	protected BaseEditableEntityEditFragment getEditFragment() {
+		return new DogEditFragment();
+	}
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		getActivity().getActionBar().setTitle(R.string.dashboard_doghouse);
 	}
+
 	@Override
 	protected Uri getContentUri() {
 		return Dogs.CONTENT_URI;
@@ -43,7 +45,8 @@ public class DogListFragment extends BaseEntityListFragment {
 
 	@Override
 	protected CursorLoader getCursorLoader(Activity activity, Uri uri) {
-		return new CursorLoader(activity, uri, DogsQuery.PROJECTION, null, null, Dogs.DEFAULT_SORT);
+		return new CursorLoader(activity, uri, DogsQuery.PROJECTION, null,
+				null, Dogs.DEFAULT_SORT);
 	}
 
 	@Override
@@ -61,4 +64,8 @@ public class DogListFragment extends BaseEntityListFragment {
 		return Dogs.buildDogUri(entityId);
 	}
 
+	@Override
+	public String getTitle() {
+		return getString(R.string.dashboard_doghouse);
+	}
 }

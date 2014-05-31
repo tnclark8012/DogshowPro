@@ -34,7 +34,6 @@ public class ShowTeamListFragment extends BaseEntityListFragment implements
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);
-		getActivity().setTitle("My Show Teams");
 	}
 
 	@Override
@@ -64,7 +63,7 @@ public class ShowTeamListFragment extends BaseEntityListFragment implements
 	public boolean onAddEntityClick(Uri uri) {
 		return false;
 	}
-	
+
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
 	}
@@ -127,6 +126,11 @@ public class ShowTeamListFragment extends BaseEntityListFragment implements
 	@Override
 	protected BaseEditableEntityEditFragment getEditFragment() {
 		return null;
+	}
+
+	@Override
+	public String getTitle() {
+		return "My Show Teams";
 	}
 
 }

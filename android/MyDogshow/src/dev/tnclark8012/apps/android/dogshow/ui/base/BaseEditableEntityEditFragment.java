@@ -5,7 +5,6 @@ import java.util.Map;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.LoaderManager;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
@@ -20,10 +19,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
+import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
-import dev.tnclark8012.apps.android.dogshow.R;
 
 public abstract class BaseEditableEntityEditFragment extends Fragment implements
 		LoaderManager.LoaderCallbacks<Cursor> {
@@ -44,11 +42,13 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 		return mCreateNewEntity;
 	}
 
+	public abstract String getTitle();
+
 	protected abstract int getEntityIdFromUri(Uri uri);
 
 	protected abstract int getQueryToken();
 
-	protected abstract Map<String, Object> getEntityValueMap();
+	public abstract Map<String, Object> getEntityValueMap();
 
 	/**
 	 * TODO This method and {@link #getQueryToken()} match
@@ -96,6 +96,7 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 		}
 		if (loader.getId() == mQueryToken) {
 			onQueryComplete(cursor);
+			getActivity().setTitle(getTitle());
 		}
 	}
 
@@ -116,6 +117,7 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 			mEntityUri = intent.getData();
 
 			if (mEntityUri == null) {
+				mCreateNewEntity = true;
 				return;
 			}
 
@@ -124,15 +126,13 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 			LoaderManager manager = getLoaderManager();
 			manager.restartLoader(mQueryToken, null, this);
 		}
+		getActivity().setTitle(getTitle());
 	}
 
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
 		if (!(activity instanceof Callbacks)) {
-
-			// throw new
-			// ClassCastException("Activity must implement fragment's callbacks.");
 		} else {
 			mCallbacks = (Callbacks) activity;
 		}
@@ -145,11 +145,11 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 		super.onDetach();
 		getActivity().getContentResolver().unregisterContentObserver(mObserver);
 	}
-	
+
 	@Override
 	public void onResume() {
 		super.onResume();
-		
+		getActivity().setTitle(getTitle());
 	}
 
 	@Override
@@ -180,13 +180,6 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 			}
 			return true;
 		case R.id.menu_entity_edit_save:
-			PersistHelper helper = new PersistHelper(getActivity());
-			if (mCreateNewEntity) {
-				helper.createEntity(getContentUri(), getEntityValueMap());
-			} else {
-				helper.updateEntity(getContentUri(), mEntityId,
-						getEntityValueMap());
-			}
 			if (mCallbacks != null) {
 				mCallbacks.onSave();
 			}

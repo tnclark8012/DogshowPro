@@ -66,4 +66,9 @@ public class HandlerListFragment extends BaseEntityListFragment {
 		return new HandlerEditFragment();
 	}
 
+	@Override
+	public String getTitle() {
+		return getString(R.string.dashboard_handlers);
+	}
+
 }
