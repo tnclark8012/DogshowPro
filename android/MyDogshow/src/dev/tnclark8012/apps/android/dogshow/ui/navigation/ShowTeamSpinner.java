@@ -15,6 +15,7 @@ import dev.tnclark8012.apps.android.dogshow.R;
 public class ShowTeamSpinner extends NonNavigationDrawerItem {
 	private CursorAdapter mAdapter;
 	private Activity mActivity;
+	private Spinner mSpinner;
 
 	public ShowTeamSpinner(Activity activity,
 			OnClickListener spinnerClickListener) {
@@ -33,9 +34,10 @@ public class ShowTeamSpinner extends NonNavigationDrawerItem {
 	}
 
 	public void changeCursor(Cursor cursor) {
-		if (mAdapter != null) {
-			mAdapter.changeCursor(cursor);
+		if (mAdapter == null) {
+			mAdapter = new ShowTeamSpinnerAdapter(mActivity, null, false);
 		}
+		mAdapter.changeCursor(cursor);
 	}
 
 	@Override
@@ -55,6 +57,7 @@ public class ShowTeamSpinner extends NonNavigationDrawerItem {
 			mAdapter = new ShowTeamSpinnerAdapter(mActivity, null, false);
 		}
 		holder.spinner.setAdapter(mAdapter);
+		mSpinner = holder.spinner;
 		return convertView;
 	}
 

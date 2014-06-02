@@ -214,8 +214,6 @@ public class AccountUtils {
 			Toast.makeText(context, "Oh, darn: " + e.getMessage(),
 					Toast.LENGTH_LONG).show();// TODO HIGH HIGH HIGH
 		}
-		setAuthToken(context, token);
-		setChosenAccountName(context, accountName);
 		return token;
 	}
 
@@ -260,32 +258,6 @@ public class AccountUtils {
 			setAuthToken(mActivity, token);
 			setChosenAccountName(mActivity, mAccountName);
 			return token;
-			// } catch (GooglePlayServicesAvailabilityException e) {
-			// mCallback.onRecoverableException(e.getConnectionStatusCode());
-			// } catch (UserRecoverableAuthException e) {
-			// mActivity.startActivityForResult(e.getIntent(), mRequestCode);
-			// } catch (IOException e) {
-			// Log.e(TAG, "transient error encountered: " + e.getMessage());
-			// mCallback.onUnRecoverableException(e.getMessage());
-			// } catch (GoogleAuthException e) {
-			// Log.e(TAG, "transient error encountered: " + e.getMessage());
-			// mCallback.onUnRecoverableException(e.getMessage());
-			// } catch (RuntimeException e) {
-			// Log.e(TAG, "Error encountered: " + e.getMessage());
-			// e.printStackTrace();
-			// mCallback.onUnRecoverableException(e.getMessage());
-			// }
-			// return null;
-		}
-
-		@Override
-		protected void onProgressUpdate(String... values) {
-			// TODO Auto-generated method stub
-			super.onProgressUpdate(values);
-//			Toast.makeText(
-//					mActivity,
-//					"Registering " + values[0] + "with id: " + values[1] + " token " + values[2],
-//					Toast.LENGTH_LONG).show();
 		}
 
 		@Override

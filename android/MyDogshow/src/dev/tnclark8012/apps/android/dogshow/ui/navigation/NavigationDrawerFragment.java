@@ -2,7 +2,7 @@ package dev.tnclark8012.apps.android.dogshow.ui.navigation;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
@@ -14,6 +14,8 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.database.ContentObserver;
 import android.database.Cursor;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -104,6 +106,8 @@ public class NavigationDrawerFragment extends Fragment implements
 			mCurrentSelectedPosition = savedInstanceState
 					.getInt(STATE_SELECTED_POSITION);
 			mFromSavedInstanceState = true;
+			getLoaderManager().initLoader(
+					Query.ShowTeamsQuery._TOKEN, null, this);
 		}
 
 		// Select either the default item (0) or the last selected item.
@@ -177,9 +181,6 @@ public class NavigationDrawerFragment extends Fragment implements
 				getActivity(), R.layout.custom_drawer_item, mDrawerItems);
 		mDrawerListView.setAdapter(adapter);
 		// mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
-
-		getActivity().getLoaderManager().restartLoader(
-				Query.ShowTeamsQuery._TOKEN, null, this);
 		return view;
 	}
 
@@ -365,6 +366,8 @@ public class NavigationDrawerFragment extends Fragment implements
 		// Indicate that this fragment would like to influence the set of
 		// actions in the action bar.
 		setHasOptionsMenu(true);
+		getLoaderManager().initLoader(
+				Query.ShowTeamsQuery._TOKEN, null, this);
 	}
 
 	private final ContentObserver mObserver = new ContentObserver(new Handler()) {
@@ -376,7 +379,6 @@ public class NavigationDrawerFragment extends Fragment implements
 				loader.forceLoad();
 			}
 		}
-
 	};
 
 	@Override
@@ -416,8 +418,8 @@ public class NavigationDrawerFragment extends Fragment implements
 	@Override
 	public void onResume() {
 		super.onResume();
-		getActivity().getLoaderManager().restartLoader(
-				Query.ShowTeamsQuery._TOKEN, null, this);
+//		getActivity().getLoaderManager().restartLoader(
+//				Query.ShowTeamsQuery._TOKEN, null, this); TODO readd? Debugging loader manager
 		getActivity().getContentResolver().registerContentObserver(
 				ShowTeams.CONTENT_URI, true, mObserver);
 	}

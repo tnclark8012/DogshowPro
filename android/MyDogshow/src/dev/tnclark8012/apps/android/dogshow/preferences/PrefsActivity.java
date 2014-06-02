@@ -4,8 +4,10 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.view.Menu;
+import android.view.MenuItem;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.ui.SimpleSinglePaneActivity;
+import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 
 public class PrefsActivity extends SimpleSinglePaneActivity {
 
@@ -22,7 +24,18 @@ public class PrefsActivity extends SimpleSinglePaneActivity {
 	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		return false;
+		getMenuInflater().inflate(R.menu.prefs, menu);
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if(item.getItemId() == R.id.menu_sign_out)
+		{
+			AccountUtils.signOut(this);
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	public static class DeveloperPrefsFragment extends PreferenceFragment {
