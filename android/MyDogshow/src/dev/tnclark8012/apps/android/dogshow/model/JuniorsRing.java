@@ -11,4 +11,5 @@ public class JuniorsRing{
 	public String className;
 	public int countAhead;
 	public String title;
+	public String breedName;
 }

@@ -174,6 +174,7 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 	public void onRingsQueryComplete(Cursor cursor) {
 		if (mEnteredRingsOptions == null) {
 			mEnteredRingsOptions = new RingListCursorWrapperOptions();
+			mEnteredRingsOptions.ringCountColumnIndex = RingsQuery.RING_COUNT;
 			mEnteredRingsOptions.bitchCountColumnIndex = RingsQuery.BITCH_COUNT;
 			mEnteredRingsOptions.blockStartColumnIndex = RingsQuery.BLOCK_START;
 			mEnteredRingsOptions.countAheadColumnIndex = RingsQuery.COUNT_AHEAD;
@@ -234,6 +235,7 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 	public void onUpcomingRingQueryComplete(Cursor orignialCursor) {
 		if (mUpcommingRingsOptions == null) {
 			mUpcommingRingsOptions = new RingListCursorWrapperOptions();
+			mUpcommingRingsOptions.ringCountColumnIndex = UpcomingRingQuery.RING_COUNT;
 			mUpcommingRingsOptions.bitchCountColumnIndex = UpcomingRingQuery.BITCH_COUNT;
 			mUpcommingRingsOptions.blockStartColumnIndex = UpcomingRingQuery.RING_BLOCK_START;
 			mUpcommingRingsOptions.countAheadColumnIndex = UpcomingRingQuery.BREED_COUNT_AHEAD;
@@ -267,6 +269,10 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 					currentColumn++;
 					firstClass--;
 				}
+			}
+			else if(type==EnteredRings.TYPE_JUNIORS_RING)
+			{
+				
 			}
 			long judgeMinutesPerDog = Utils.getMaybeNull(cursor, UpcomingRingQuery.RING_JUDGE_TIME, Prefs.getEstimatedJudgingTime(getActivity()));
 			long estimatedStart = Utils.estimateBlockStart(countAhead, upcomingBreedRingStart, judgeMinutesPerDog);

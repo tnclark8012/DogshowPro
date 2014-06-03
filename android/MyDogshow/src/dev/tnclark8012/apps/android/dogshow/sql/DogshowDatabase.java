@@ -87,7 +87,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 	}
 
 	private void createJuniorsRingsTable(SQLiteDatabase db) {
-		db.execSQL("CREATE TABLE " + Tables.JUNIORS_RINGS + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + RingColumns.RING_BLOCK_START + " INTEGER NOT NULL," + JuniorsRingsColumns.RING_JUNIOR_CLASS_NAME + " TEXT NOT NULL," + JuniorsRingsColumns.RING_JUNIOR_COUNT + " INTEGER NOT NULL," + RingColumns.RING_COUNT_AHEAD + " INTEGER NOT NULL," + RingColumns.RING_DATE + " INTEGER NOT NULL," + RingColumns.RING_JUDGE + " TEXT NOT NULL," + RingColumns.RING_JUDGE_TIME + " INTEGER," + RingColumns.RING_NUMBER + " INTEGER NOT NULL," + RingColumns.RING_SHOW_ID + " TEXT NOT NULL," + RingColumns.RING_TITLE + " TEXT," + SyncColumns.UPDATED + " LONG DEFAULT 0)");
+		db.execSQL("CREATE TABLE " + Tables.JUNIORS_RINGS + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + RingColumns.RING_BLOCK_START + " INTEGER NOT NULL," + JuniorsRingsColumns.RING_JUNIOR_CLASS_NAME + " TEXT NOT NULL," + JuniorsRingsColumns.RING_JUNIOR_COUNT + " INTEGER NOT NULL," + RingColumns.RING_COUNT_AHEAD + " INTEGER NOT NULL," + RingColumns.RING_DATE + " INTEGER NOT NULL," + RingColumns.RING_JUDGE + " TEXT NOT NULL," + RingColumns.RING_JUDGE_TIME + " INTEGER," + RingColumns.RING_NUMBER + " INTEGER NOT NULL," + RingColumns.RING_SHOW_ID + " TEXT NOT NULL," + RingColumns.RING_TITLE + " TEXT," + JuniorsRingsColumns.RING_JUNIOR_BREED + " TEXT, " + SyncColumns.UPDATED + " LONG DEFAULT 0)");
 	}
 
 	private void insertDebugEntities(SQLiteDatabase db) {

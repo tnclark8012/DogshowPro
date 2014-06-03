@@ -954,6 +954,8 @@ com.j256.ormlite.logger.LoggerFactory$LogType: com.j256.ormlite.logger.LoggerFac
 com.j256.ormlite.logger.LoggerFactory$LogType: com.j256.ormlite.logger.LoggerFactory$LogType valueOf(java.lang.String)
 com.j256.ormlite.stmt.StatementBuilder$StatementType: com.j256.ormlite.stmt.StatementBuilder$StatementType[] values()
 com.j256.ormlite.stmt.StatementBuilder$StatementType: com.j256.ormlite.stmt.StatementBuilder$StatementType valueOf(java.lang.String)
+com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver
+com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver: NotificationsBroadcastReceiver()
 com.nostra13.universalimageloader.core.assist.FailReason$FailType: com.nostra13.universalimageloader.core.assist.FailReason$FailType[] values()
 com.nostra13.universalimageloader.core.assist.FailReason$FailType: com.nostra13.universalimageloader.core.assist.FailReason$FailType valueOf(java.lang.String)
 com.nostra13.universalimageloader.core.assist.ImageScaleType: com.nostra13.universalimageloader.core.assist.ImageScaleType[] values()
@@ -1057,6 +1059,7 @@ dev.tnclark8012.apps.android.dogshow.R$dimen: int header_height
 dev.tnclark8012.apps.android.dogshow.R$dimen: int header_icon_height
 dev.tnclark8012.apps.android.dogshow.R$dimen: int header_icon_width
 dev.tnclark8012.apps.android.dogshow.R$dimen: int list_item_height
+dev.tnclark8012.apps.android.dogshow.R$dimen: int navigation_drawer_width
 dev.tnclark8012.apps.android.dogshow.R$dimen: int page_margin_width
 dev.tnclark8012.apps.android.dogshow.R$dimen: int text_large
 dev.tnclark8012.apps.android.dogshow.R$dimen: int text_medium
@@ -1293,10 +1296,10 @@ dev.tnclark8012.apps.android.dogshow.R$id: int menu_entity_edit_save
 dev.tnclark8012.apps.android.dogshow.R$id: int menu_find_show
 dev.tnclark8012.apps.android.dogshow.R$id: int menu_list_entity_add
 dev.tnclark8012.apps.android.dogshow.R$id: int menu_list_team_join
-dev.tnclark8012.apps.android.dogshow.R$id: int menu_log
 dev.tnclark8012.apps.android.dogshow.R$id: int menu_sign_out
 dev.tnclark8012.apps.android.dogshow.R$id: int menu_sync
 dev.tnclark8012.apps.android.dogshow.R$id: int message_team_error
+dev.tnclark8012.apps.android.dogshow.R$id: int navigation_drawer
 dev.tnclark8012.apps.android.dogshow.R$id: int none
 dev.tnclark8012.apps.android.dogshow.R$id: int normal
 dev.tnclark8012.apps.android.dogshow.R$id: int pager
@@ -1341,6 +1344,7 @@ dev.tnclark8012.apps.android.dogshow.R$layout: int activity_breed_select
 dev.tnclark8012.apps.android.dogshow.R$layout: int activity_handler
 dev.tnclark8012.apps.android.dogshow.R$layout: int activity_handlers
 dev.tnclark8012.apps.android.dogshow.R$layout: int activity_home
+dev.tnclark8012.apps.android.dogshow.R$layout: int activity_navigation
 dev.tnclark8012.apps.android.dogshow.R$layout: int activity_schedule
 dev.tnclark8012.apps.android.dogshow.R$layout: int activity_singlepane_empty
 dev.tnclark8012.apps.android.dogshow.R$layout: int button_bar
@@ -1372,6 +1376,7 @@ dev.tnclark8012.apps.android.dogshow.R$layout: int fragment_login_choose_account
 dev.tnclark8012.apps.android.dogshow.R$layout: int fragment_login_loading
 dev.tnclark8012.apps.android.dogshow.R$layout: int fragment_login_main
 dev.tnclark8012.apps.android.dogshow.R$layout: int fragment_login_setup
+dev.tnclark8012.apps.android.dogshow.R$layout: int fragment_navigation
 dev.tnclark8012.apps.android.dogshow.R$layout: int fragment_schedule_list
 dev.tnclark8012.apps.android.dogshow.R$layout: int fragment_team_create
 dev.tnclark8012.apps.android.dogshow.R$layout: int fragment_team_create_or_join
@@ -1397,10 +1402,13 @@ dev.tnclark8012.apps.android.dogshow.R$menu: int base
 dev.tnclark8012.apps.android.dogshow.R$menu: int dashboard
 dev.tnclark8012.apps.android.dogshow.R$menu: int entity_edit
 dev.tnclark8012.apps.android.dogshow.R$menu: int entity_view
+dev.tnclark8012.apps.android.dogshow.R$menu: int global
 dev.tnclark8012.apps.android.dogshow.R$menu: int handler
 dev.tnclark8012.apps.android.dogshow.R$menu: int home
 dev.tnclark8012.apps.android.dogshow.R$menu: int list_entity
 dev.tnclark8012.apps.android.dogshow.R$menu: int list_show_team
+dev.tnclark8012.apps.android.dogshow.R$menu: int prefs
+dev.tnclark8012.apps.android.dogshow.R$menu: int sync
 dev.tnclark8012.apps.android.dogshow.R$plurals: int template_majors
 dev.tnclark8012.apps.android.dogshow.R$plurals: int template_points_needed
 dev.tnclark8012.apps.android.dogshow.R$string: int action_settings
@@ -1587,9 +1595,14 @@ dev.tnclark8012.apps.android.dogshow.model.Dog: int showingSweepstakes
 dev.tnclark8012.apps.android.dogshow.model.Dog: int deleted
 dev.tnclark8012.apps.android.dogshow.model.Dog: Dog()
 dev.tnclark8012.apps.android.dogshow.model.Dog: java.lang.String toString()
+dev.tnclark8012.apps.android.dogshow.model.Handler: java.lang.String identifier
+dev.tnclark8012.apps.android.dogshow.model.Handler: int isShowing
+dev.tnclark8012.apps.android.dogshow.model.Handler: int isShowingJuniors
+dev.tnclark8012.apps.android.dogshow.model.Handler: java.lang.String juniorsClassString
+dev.tnclark8012.apps.android.dogshow.model.Handler: int deleted
+dev.tnclark8012.apps.android.dogshow.model.Handler: long modifiedTimeUtc
+dev.tnclark8012.apps.android.dogshow.model.Handler: java.lang.String name
 dev.tnclark8012.apps.android.dogshow.model.Handler: Handler()
-dev.tnclark8012.apps.android.dogshow.model.Handler: Handler(java.lang.String,java.util.List)
-dev.tnclark8012.apps.android.dogshow.model.Handler: java.lang.String getName()
 dev.tnclark8012.apps.android.dogshow.model.JuniorsRing: java.lang.String showId
 dev.tnclark8012.apps.android.dogshow.model.JuniorsRing: long dateMillis
 dev.tnclark8012.apps.android.dogshow.model.JuniorsRing: java.lang.String judge
@@ -1636,6 +1649,12 @@ dev.tnclark8012.apps.android.dogshow.sync.request.DogSyncRequest: java.lang.Stri
 dev.tnclark8012.apps.android.dogshow.sync.request.DogSyncRequest: java.lang.String[] allDogIds
 dev.tnclark8012.apps.android.dogshow.sync.request.DogSyncRequest: dev.tnclark8012.apps.android.dogshow.model.Dog[] dogs
 dev.tnclark8012.apps.android.dogshow.sync.request.DogSyncRequest: DogSyncRequest()
+dev.tnclark8012.apps.android.dogshow.sync.request.HandlerSyncRequest: long lastSync
+dev.tnclark8012.apps.android.dogshow.sync.request.HandlerSyncRequest: java.lang.String userIdentifier
+dev.tnclark8012.apps.android.dogshow.sync.request.HandlerSyncRequest: java.lang.String teamIdentifier
+dev.tnclark8012.apps.android.dogshow.sync.request.HandlerSyncRequest: java.lang.String[] allHandlerIds
+dev.tnclark8012.apps.android.dogshow.sync.request.HandlerSyncRequest: dev.tnclark8012.apps.android.dogshow.model.Handler[] handlers
+dev.tnclark8012.apps.android.dogshow.sync.request.HandlerSyncRequest: HandlerSyncRequest()
 dev.tnclark8012.apps.android.dogshow.sync.request.JuniorsRingsRequest: android.content.Context mContext
 dev.tnclark8012.apps.android.dogshow.sync.request.JuniorsRingsRequest: dev.tnclark8012.apps.android.dogshow.Config$IApiAccessor mAccessor
 dev.tnclark8012.apps.android.dogshow.sync.request.JuniorsRingsRequest: java.lang.String TAG
@@ -1644,6 +1663,7 @@ dev.tnclark8012.apps.android.dogshow.sync.request.RegistrationRequest: java.lang
 dev.tnclark8012.apps.android.dogshow.sync.request.RegistrationRequest: java.lang.String provider
 dev.tnclark8012.apps.android.dogshow.sync.request.RegistrationRequest: java.lang.String name
 dev.tnclark8012.apps.android.dogshow.sync.request.RegistrationRequest: java.lang.String token
+dev.tnclark8012.apps.android.dogshow.sync.request.RegistrationRequest: java.lang.String notificationId
 dev.tnclark8012.apps.android.dogshow.sync.request.RegistrationRequest: RegistrationRequest()
 dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamCreateRequest: java.lang.String userIdentifier
 dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamCreateRequest: dev.tnclark8012.apps.android.dogshow.model.ShowTeam team
@@ -1662,6 +1682,12 @@ dev.tnclark8012.apps.android.dogshow.sync.response.DogSyncResponse: int ACTION_D
 dev.tnclark8012.apps.android.dogshow.sync.response.DogSyncResponse: int action
 dev.tnclark8012.apps.android.dogshow.sync.response.DogSyncResponse: dev.tnclark8012.apps.android.dogshow.model.Dog dog
 dev.tnclark8012.apps.android.dogshow.sync.response.DogSyncResponse: DogSyncResponse()
+dev.tnclark8012.apps.android.dogshow.sync.response.HandlerSyncResponse: int ACTION_ADD
+dev.tnclark8012.apps.android.dogshow.sync.response.HandlerSyncResponse: int ACTION_UPDATE
+dev.tnclark8012.apps.android.dogshow.sync.response.HandlerSyncResponse: int ACTION_DELETE
+dev.tnclark8012.apps.android.dogshow.sync.response.HandlerSyncResponse: int action
+dev.tnclark8012.apps.android.dogshow.sync.response.HandlerSyncResponse: dev.tnclark8012.apps.android.dogshow.model.Handler handler
+dev.tnclark8012.apps.android.dogshow.sync.response.HandlerSyncResponse: HandlerSyncResponse()
 dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamResponse: java.lang.String identifier
 dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamResponse: java.lang.String teamName
 dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamResponse: java.lang.String enteredShow
@@ -1681,6 +1707,8 @@ dev.tnclark8012.apps.android.dogshow.ui.base.BaseActivity: BaseActivity()
 dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityActivity: BaseEditableEntityActivity()
 dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListActivity: BaseEntityListActivity()
 dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigatableActivity: NavigatableActivity()
+dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigationDrawerFragment
+dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigationDrawerFragment: NavigationDrawerFragment()
 dev.tnclark8012.apps.android.dogshow.ui.phone.BreedSelectActivity
 dev.tnclark8012.apps.android.dogshow.ui.phone.BreedSelectActivity: BreedSelectActivity()
 dev.tnclark8012.apps.android.dogshow.ui.phone.DogActivity

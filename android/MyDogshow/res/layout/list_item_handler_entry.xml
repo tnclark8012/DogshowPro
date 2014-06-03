@@ -21,12 +21,15 @@
 
     <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
         android:id="@+id/list_item_handler_entry_name"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/element_margin_normal"
+        android:layout_toLeftOf="@+id/list_item_handler_entry_junior_button"
         android:layout_toRightOf="@+id/list_item_handler_entry_thumb"
-        android:text="[Name]"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="I am a really long [Name]"
         android:textColor="#000"
         android:textSize="@dimen/text_large" />
 

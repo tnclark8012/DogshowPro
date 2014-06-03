@@ -244,12 +244,13 @@ public class AzureApiAccessor extends ApiAccessor {
 
 	@Override
 	public String register(String account, String token, String provider,
-			String installId) {
+			String installId, String gcmId) {
 		RegistrationRequest request = new RegistrationRequest();
 		request.installationId = installId;
 		request.name = account;
 		request.provider = provider;
 		request.token = token;
+		request.notificationId = gcmId;
 		DebugUtils.appendLog(mContext, request.name);
 		DebugUtils.appendLog(mContext, request.installationId);
 		DebugUtils.appendLog(mContext, request.token);

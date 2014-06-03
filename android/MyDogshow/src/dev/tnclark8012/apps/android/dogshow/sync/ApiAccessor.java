@@ -103,67 +103,7 @@ public abstract class ApiAccessor implements Config.IApiAccessor {
 			}
 		}
 	}
-
-	@Override
-	public String register(String account, String token, String provider,
-			String installId) {
-		// URL createTeamUrl = null;
-		// try {
-		// createTeamUrl = new URL("http://192.168.0.5:49414/api/" +
-		// "ShowTeam/Create");
-		// } catch (MalformedURLException e4) {
-		// // TODO Auto-generated catch block
-		// e4.printStackTrace();
-		// }
-		// JsonObject team = new JsonObject();
-		// team.addProperty("TeamName", "My Team Name");
-		// team.addProperty("Password", "password");
-		//
-		// JsonObject req = new JsonObject();
-		// req.addProperty("UserIdentifier", "test");
-		// req.add("Team", team);
-		// String resp = finalPost(createTeamUrl, req);
-		// Log.d(TAG, resp);
-
-		// Log.d(TAG, "Message to send: "+req[0]);
-		// String url = "http://192.168.0.5:49414/api/" + "User/Register";
-		// HttpPost p = new HttpPost(url);
-		// JsonObject json = new JsonObject();
-		// json.addProperty("InstallationId", installId);
-		// json.addProperty("Provider", provider);
-		// json.addProperty("Name", account);
-		// json.addProperty("Token", token);
-		// HttpURLConnection urlConnection = null;
-		// // instantiates httpclient to make request
-		// DefaultHttpClient httpclient = new DefaultHttpClient();
-		// // url with the post data
-		// HttpPost httpost = new HttpPost(url);
-		// try {
-		// httpost.setEntity(new StringEntity(json.toString()));
-		// } catch (UnsupportedEncodingException e1) {
-		// // TODO Auto-generated catch block
-		// e1.printStackTrace();
-		// }
-		// // sets a request header so the page receving the request
-		// // will know what to do with it
-		// // httpost.setHeader("Accept", "application/json");
-		// httpost.setHeader("Content-type", "application/json");
-		// try {
-		// String response = httpclient.execute(httpost, new
-		// BasicResponseHandler());
-		// Log.d(TAG, response.toString());
-		// return UIUtils.stripQuotes(response);// TODO ALPHA Response should be
-		// JSON to prevent storing an error message as user id :)
-		// } catch (ClientProtocolException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// } catch (IOException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
-		return null;
-	}
-
+	
 	protected String makePostRequest(URL url, JsonObject json) {
 		return finalPost(url, json);
 	}

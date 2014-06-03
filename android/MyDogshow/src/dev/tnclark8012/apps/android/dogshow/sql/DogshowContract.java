@@ -138,6 +138,7 @@ public class DogshowContract {
 		public static final String ENTERED_RINGS_SUBTITLE = "subtitle";
 		public static final String ENTERED_RINGS_TYPE = "ring_type";
 		public static final String ENTERED_RINGS_FIRST_CLASS = "first_entered_class";
+		public static final String ENTERED_RINGS_RING_COUNT = "ring_count";
 		public static final String ENTERED_RINGS_DOG_COUNT = BreedRingsColumns.RING_DOG_COUNT;
 		public static final String ENTERED_RINGS_BITCH_COUNT = BreedRingsColumns.RING_BITCH_COUNT;
 		public static final String ENTERED_RINGS_SPECIAL_DOG_COUNT = BreedRingsColumns.RING_SPECIAL_DOG_COUNT;
@@ -148,6 +149,7 @@ public class DogshowContract {
 	interface JuniorsRingsColumns {
 		String RING_JUNIOR_COUNT = "junior_ring_count";
 		String RING_JUNIOR_CLASS_NAME = "junior_ring_class_name";
+		String RING_JUNIOR_BREED = "junior_ring_breed";
 	}
 
 	/**

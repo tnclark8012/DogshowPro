@@ -45,10 +45,6 @@ public class HomeActivity extends NavigatableActivity implements
 			AccountUtils.signOut(this);
 			finish();
 			return true;
-		case R.id.menu_log:
-			Toast.makeText(this, DebugUtils.getLog(this), Toast.LENGTH_LONG)
-					.show();
-			return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}

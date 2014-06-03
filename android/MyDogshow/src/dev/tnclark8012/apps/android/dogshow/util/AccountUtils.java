@@ -32,16 +32,14 @@ import android.widget.Toast;
 
 import com.google.android.gms.auth.GoogleAuthException;
 import com.google.android.gms.auth.GoogleAuthUtil;
-import com.google.android.gms.auth.GooglePlayServicesAvailabilityException;
-import com.google.android.gms.auth.UserRecoverableAuthException;
 import com.google.android.gms.auth.UserRecoverableNotifiedException;
 import com.google.android.gms.common.Scopes;
 
+import dev.tnclark8012.apps.android.dogshow.NotificationHandler;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sync.ApiAccessor;
-import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.ui.base.AccountActivity;
 
 /**
@@ -241,7 +239,7 @@ public class AccountUtils {
 
 		@Override
 		protected String doInBackground(Void... params) {
-			// try {
+		
 			if (mCallback.shouldCancelAuthentication())
 				return null;
 			//
@@ -277,7 +275,7 @@ public class AccountUtils {
 	public static void register(final Context context,
 			final String accountName, final String token, String installId) {
 		String id = ApiAccessor.getInstance(context).register(accountName,
-				token, "PLUS", installId);// TODO Facebook and/or nothing
+				token, "PLUS", installId, NotificationHandler.getHandle());// TODO Facebook and/or nothing
 		setUserId(context, id);
 		new PersistHelper(context).createMe();
 		

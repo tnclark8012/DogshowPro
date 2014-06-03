@@ -31,7 +31,6 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
@@ -53,12 +52,11 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.plus.PlusClient;
 import com.google.android.gms.plus.model.people.Person;
 import com.google.android.gms.plus.model.people.PersonBuffer;
+import com.microsoft.windowsazure.notifications.NotificationsManager;
 
+import dev.tnclark8012.apps.android.dogshow.NotificationHandler;
 import dev.tnclark8012.apps.android.dogshow.R;
-import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
-import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
-import dev.tnclark8012.apps.android.dogshow.sync.AzureApiAccessor;
 import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 
@@ -69,7 +67,7 @@ public class AccountActivity extends Activity implements
 		PlusClient.OnPeopleLoadedListener {
 
 	private static final String TAG = AccountActivity.class.getSimpleName();
-
+	public static final String SENDER_ID = "282844312315";
 	public static final String EXTRA_FINISH_INTENT = "dev.tnclark8012.apps.android.dogshow.extra.FINISH_INTENT";
 
 	private static final String KEY_CHOSEN_ACCOUNT = "chosen_account";
@@ -92,7 +90,7 @@ public class AccountActivity extends Activity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		NotificationsManager.handleNotifications(this, SENDER_ID, NotificationHandler.class);
 		setContentView(R.layout.activity_singlepane_empty);
 
 		final Intent intent = getIntent();

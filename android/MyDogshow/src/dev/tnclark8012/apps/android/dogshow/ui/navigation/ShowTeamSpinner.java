@@ -11,6 +11,7 @@ import android.widget.CursorAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 import dev.tnclark8012.apps.android.dogshow.R;
+import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 
 public class ShowTeamSpinner extends NonNavigationDrawerItem {
 	private CursorAdapter mAdapter;
@@ -58,6 +59,8 @@ public class ShowTeamSpinner extends NonNavigationDrawerItem {
 		}
 		holder.spinner.setAdapter(mAdapter);
 		mSpinner = holder.spinner;
+		mSpinner.setVisibility((Prefs.isSyncEnabled(mActivity) ? View.VISIBLE
+				: View.GONE));
 		return convertView;
 	}
 

@@ -19,7 +19,8 @@ public class Query {
 				EnteredRings.ENTERED_RINGS_DOG_COUNT,
 				EnteredRings.ENTERED_RINGS_BITCH_COUNT,
 				EnteredRings.ENTERED_RINGS_SPECIAL_DOG_COUNT,
-				EnteredRings.ENTERED_RINGS_SPECIAL_BITCH_COUNT };
+				EnteredRings.ENTERED_RINGS_SPECIAL_BITCH_COUNT,
+				EnteredRings.ENTERED_RINGS_RING_COUNT};
 		int _ID = 0;
 		int BLOCK_START = 1;
 		int COUNT_AHEAD = 2;
@@ -34,6 +35,7 @@ public class Query {
 		int BITCH_COUNT = 11;
 		int SPECIAL_DOG_COUNT = 12;
 		int SPECIAL_BITCH_COUNT = 13;
+		int RING_COUNT = 14;
 	}
 
 	public interface UpcomingRingQuery {
@@ -48,7 +50,8 @@ public class Query {
 				EnteredRings.ENTERED_RINGS_DOG_COUNT,
 				EnteredRings.ENTERED_RINGS_BITCH_COUNT,
 				EnteredRings.ENTERED_RINGS_SPECIAL_DOG_COUNT,
-				EnteredRings.ENTERED_RINGS_SPECIAL_BITCH_COUNT };
+				EnteredRings.ENTERED_RINGS_SPECIAL_BITCH_COUNT,
+				EnteredRings.ENTERED_RINGS_RING_COUNT };
 		int _ID = 0;
 		int RING_TITLE = 1;
 		int RING_BLOCK_START = 2;
@@ -62,6 +65,7 @@ public class Query {
 		int BITCH_COUNT = 10;
 		int SPECIAL_DOG_COUNT = 11;
 		int SPECIAL_BITCH_COUNT = 12;
+		int RING_COUNT = 13;
 	}
 
 	public interface DogsQuery {

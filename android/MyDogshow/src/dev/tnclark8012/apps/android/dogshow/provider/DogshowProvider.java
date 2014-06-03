@@ -41,6 +41,7 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.JuniorsRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowDatabase;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowDatabase.Tables;
+import dev.tnclark8012.apps.android.dogshow.sync.request.JuniorsRingsRequest;
 import dev.tnclark8012.apps.android.dogshow.util.DebugUtils;
 import dev.tnclark8012.apps.android.dogshow.util.SelectionBuilder;
 
@@ -66,11 +67,12 @@ public class DogshowProvider extends ContentProvider {
 	private static final int JUNIORS_RINGS = 400;
 
 	private static final int ALL_RINGS_ENTERED = 500;
-	
+
 	private static final int SHOW_TEAMS = 600;
 
 	/**
-	 * Build and return a {@link UriMatcher} that catches all {@link Uri} variations supported by this {@link ContentProvider}.
+	 * Build and return a {@link UriMatcher} that catches all {@link Uri}
+	 * variations supported by this {@link ContentProvider}.
 	 */
 	private static UriMatcher buildUriMatcher() {
 		final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
@@ -80,10 +82,13 @@ public class DogshowProvider extends ContentProvider {
 		matcher.addURI(authority, "dogs/entered", DOGS_ENTERED);
 		matcher.addURI(authority, "dogs/*", DOGS_ID);
 		matcher.addURI(authority, "rings/breed", BREED_RINGS);
-		matcher.addURI(authority, "rings/breed/with_dogs", BREED_RINGS_WITH_DOGS);
-		matcher.addURI(authority, "rings/breed/with_dogs/entered", BREED_RINGS_WITH_DOGS_ENTERED);
+		matcher.addURI(authority, "rings/breed/with_dogs",
+				BREED_RINGS_WITH_DOGS);
+		matcher.addURI(authority, "rings/breed/with_dogs/entered",
+				BREED_RINGS_WITH_DOGS_ENTERED);
 		matcher.addURI(authority, "handlers", HANDLERS);
-		matcher.addURI(authority, "handlers/juniors/by_class", HANDLERS_BY_JUNIORS_CLASS);
+		matcher.addURI(authority, "handlers/juniors/by_class",
+				HANDLERS_BY_JUNIORS_CLASS);
 		matcher.addURI(authority, "handlers/*", HANDLERS_ID);
 		matcher.addURI(authority, "rings/juniors", JUNIORS_RINGS);
 		matcher.addURI(authority, "rings/entered", ALL_RINGS_ENTERED);
@@ -132,35 +137,44 @@ public class DogshowProvider extends ContentProvider {
 
 	/** {@inheritDoc} */
 	@Override
-	public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-		Log.v(TAG, "query(uri=" + uri + ", proj=" + Arrays.toString(projection) + ")");// TODO FIXME DogsFragment seems to make several queries to
-																						// start
+	public Cursor query(Uri uri, String[] projection, String selection,
+			String[] selectionArgs, String sortOrder) {
+		Log.v(TAG, "query(uri=" + uri + ", proj=" + Arrays.toString(projection)
+				+ ")");// TODO FIXME DogsFragment seems to make several queries
+						// to
+						// start
 		final SQLiteDatabase db = mOpenHelper.getReadableDatabase();
 
 		final int match = sUriMatcher.match(uri);
 		switch (match) {
 		case BREED_RINGS_WITH_DOGS:
 		case BREED_RINGS_WITH_DOGS_ENTERED: {
-			final SelectionBuilder exBuilder = buildExpandedSelection(uri, BREED_RINGS_WITH_DOGS_ENTERED);
+			final SelectionBuilder exBuilder = buildExpandedSelection(uri,
+					BREED_RINGS_WITH_DOGS_ENTERED);
 			Log.d(TAG, "Sort order is " + sortOrder);
 
-			return exBuilder.where(selection, selectionArgs).query(db, projection, null, null, sortOrder, null);
+			return exBuilder.where(selection, selectionArgs).query(db,
+					projection, null, null, sortOrder, null);
 		}
 		case DOGS_ENTERED: {
 			final SelectionBuilder exBuilder = buildSimpleSelection(uri);
-			String groupBy = Dogs.DOG_BREED + "," + Dogs.DOG_IS_VETERAN + "," + Dogs.DOG_IS_SHOWING_SWEEPSTAKES;
+			String groupBy = Dogs.DOG_BREED + "," + Dogs.DOG_IS_VETERAN + ","
+					+ Dogs.DOG_IS_SHOWING_SWEEPSTAKES;
 			exBuilder.where(Dogs.DOG_IS_SHOWING + "=?", String.valueOf(1));
-			return exBuilder.where(selection, selectionArgs).query(db, projection, groupBy, null, sortOrder, null);
+			return exBuilder.where(selection, selectionArgs).query(db,
+					projection, groupBy, null, sortOrder, null);
 		}
 		case HANDLERS_BY_JUNIORS_CLASS: {
 			final SelectionBuilder exBuilder = buildSimpleSelection(uri);
 			String groupBy = Handlers.HANDLER_JUNIOR_CLASS;
-			return exBuilder.where(selection, selectionArgs).query(db, projection, groupBy, null, sortOrder, null);
+			return exBuilder.where(selection, selectionArgs).query(db,
+					projection, groupBy, null, sortOrder, null);
 		}
 		default: {
 			// Most cases are handled with simple SelectionBuilder
 			final SelectionBuilder builder = buildSimpleSelection(uri);
-			return builder.where(selection, selectionArgs).query(db, projection, sortOrder);
+			return builder.where(selection, selectionArgs).query(db,
+					projection, sortOrder);
 		}
 		}
 	}
@@ -171,33 +185,40 @@ public class DogshowProvider extends ContentProvider {
 		Log.v(TAG, "insert(uri=" + uri + ", values=" + values.toString() + ")");
 		final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 		final int match = sUriMatcher.match(uri);
-		boolean syncToNetwork = !DogshowContract.hasCallerIsSyncAdapterParameter(uri);
+		boolean syncToNetwork = !DogshowContract
+				.hasCallerIsSyncAdapterParameter(uri);
 		switch (match) {
 		case DOGS: {
 			db.insertOrThrow(Tables.DOGS, null, values);
-			getContext().getContentResolver().notifyChange(uri, null, syncToNetwork);
+			getContext().getContentResolver().notifyChange(uri, null,
+					syncToNetwork);
 			return Dogs.buildDogUri(values.getAsString(Dogs._ID));
 		}
 		case BREED_RINGS: {
 			db.insertOrThrow(Tables.BREED_RINGS, null, values);
-			getContext().getContentResolver().notifyChange(uri, null, syncToNetwork);
+			getContext().getContentResolver().notifyChange(uri, null,
+					syncToNetwork);
 			return BreedRings.buildRingUri(values.getAsString(BreedRings._ID));
 		}
 		case HANDLERS: {
 			db.insertOrThrow(Tables.HANDLERS, null, values);
-			getContext().getContentResolver().notifyChange(uri, null, syncToNetwork);
+			getContext().getContentResolver().notifyChange(uri, null,
+					syncToNetwork);
 			return Handlers.buildHandlerUri(values.getAsString(Handlers._ID));
 		}
 		case JUNIORS_RINGS: {
 			db.insertOrThrow(Tables.JUNIORS_RINGS, null, values);
-			getContext().getContentResolver().notifyChange(uri, null, syncToNetwork);
-			return JuniorsRings.buildRingUri(values.getAsString(JuniorsRings._ID));
+			getContext().getContentResolver().notifyChange(uri, null,
+					syncToNetwork);
+			return JuniorsRings.buildRingUri(values
+					.getAsString(JuniorsRings._ID));
 		}
-		case SHOW_TEAMS:
-		{
+		case SHOW_TEAMS: {
 			db.insertOrThrow(Tables.SHOW_TEAMS, null, values);
-			getContext().getContentResolver().notifyChange(uri, null, syncToNetwork);
-			return ShowTeams.buildShowTeamUri(values.getAsString(ShowTeams._ID));
+			getContext().getContentResolver().notifyChange(uri, null,
+					syncToNetwork);
+			return ShowTeams
+					.buildShowTeamUri(values.getAsString(ShowTeams._ID));
 		}
 		default: {
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
@@ -207,14 +228,19 @@ public class DogshowProvider extends ContentProvider {
 
 	/** {@inheritDoc} */
 	@Override
-	public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
-		Log.v(TAG, "update(uri=" + uri + ", values=" + values.toString() + ") selection " + selection + ", selectionArgs: " + selectionArgs[0]);
+	public int update(Uri uri, ContentValues values, String selection,
+			String[] selectionArgs) {
+		Log.v(TAG, "update(uri=" + uri + ", values=" + values.toString()
+				+ ") selection " + selection + ", selectionArgs: "
+				+ selectionArgs[0]);
 		final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 		final SelectionBuilder builder = buildSimpleSelection(uri);
 		int retVal = builder.where(selection, selectionArgs).update(db, values);
 		Log.v(TAG, retVal + " row affected.");
-		boolean syncToNetwork = !DogshowContract.hasCallerIsSyncAdapterParameter(uri);
-		getContext().getContentResolver().notifyChange(uri, null, syncToNetwork);
+		boolean syncToNetwork = !DogshowContract
+				.hasCallerIsSyncAdapterParameter(uri);
+		getContext().getContentResolver()
+				.notifyChange(uri, null, syncToNetwork);
 		Log.d(TAG, "return val of update: " + retVal);
 		return retVal;
 	}
@@ -232,15 +258,20 @@ public class DogshowProvider extends ContentProvider {
 		final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 		final SelectionBuilder builder = buildSimpleSelection(uri);
 		int retVal = builder.where(selection, selectionArgs).delete(db);
-		getContext().getContentResolver().notifyChange(uri, null, !DogshowContract.hasCallerIsSyncAdapterParameter(uri));
+		getContext().getContentResolver().notifyChange(uri, null,
+				!DogshowContract.hasCallerIsSyncAdapterParameter(uri));
 		return retVal;
 	}
 
 	/**
-	 * Apply the given set of {@link ContentProviderOperation}, executing inside a {@link SQLiteDatabase} transaction. All changes will be rolled back if any single one fails.
+	 * Apply the given set of {@link ContentProviderOperation}, executing inside
+	 * a {@link SQLiteDatabase} transaction. All changes will be rolled back if
+	 * any single one fails.
 	 */
 	@Override
-	public ContentProviderResult[] applyBatch(ArrayList<ContentProviderOperation> operations) throws OperationApplicationException {
+	public ContentProviderResult[] applyBatch(
+			ArrayList<ContentProviderOperation> operations)
+			throws OperationApplicationException {
 		final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 		db.beginTransaction();
 		try {
@@ -257,7 +288,9 @@ public class DogshowProvider extends ContentProvider {
 	}
 
 	/**
-	 * Build a simple {@link SelectionBuilder} to match the requested {@link Uri}. This is usually enough to support {@link #insert}, {@link #update}, and {@link #delete} operations.
+	 * Build a simple {@link SelectionBuilder} to match the requested
+	 * {@link Uri}. This is usually enough to support {@link #insert},
+	 * {@link #update}, and {@link #delete} operations.
 	 */
 	private SelectionBuilder buildSimpleSelection(Uri uri) {
 		final SelectionBuilder builder = new SelectionBuilder();
@@ -279,13 +312,16 @@ public class DogshowProvider extends ContentProvider {
 			return builder.table(Tables.HANDLERS);
 		case HANDLERS_ID:
 			final String handlerId = String.valueOf(Handlers.getHandlerId(uri));
-			return builder.table(Tables.HANDLERS).where(Handlers._ID + "=?", handlerId);
+			return builder.table(Tables.HANDLERS).where(Handlers._ID + "=?",
+					handlerId);
 		case HANDLERS_BY_JUNIORS_CLASS:
 			return builder.table(Tables.HANDLERS);
 		case JUNIORS_RINGS:
 			return builder.table(Tables.JUNIORS_RINGS);
 		case ALL_RINGS_ENTERED:
-			return builder.table(Tables.ALL_ENTERED_RINGS);// TODO FIXME this should be Tables.All_Rings
+			return builder.table(Tables.ALL_ENTERED_RINGS);// TODO FIXME this
+															// should be
+															// Tables.All_Rings
 		case SHOW_TEAMS:
 			return builder.table(Tables.SHOW_TEAMS);
 		default: {
@@ -295,13 +331,17 @@ public class DogshowProvider extends ContentProvider {
 	}
 
 	/**
-	 * Build an advanced {@link SelectionBuilder} to match the requested {@link Uri}. This is usually only used by {@link #query}, since it performs table joins useful for {@link Cursor} data.
+	 * Build an advanced {@link SelectionBuilder} to match the requested
+	 * {@link Uri}. This is usually only used by {@link #query}, since it
+	 * performs table joins useful for {@link Cursor} data.
 	 */
 	private SelectionBuilder buildExpandedSelection(Uri uri, int match) {
 		final SelectionBuilder builder = new SelectionBuilder();
 		switch (match) {
 		case BREED_RINGS_WITH_DOGS_ENTERED: {
-			return builder.table(Tables.ENTERED_BREED_RINGS_JOIN_DOGS).mapToTable(BreedRings._ID, Tables.BREED_RINGS).where(BreedRings.ENTERED_BREED_RINGS);
+			return builder.table(Tables.ENTERED_BREED_RINGS_JOIN_DOGS)
+					.mapToTable(BreedRings._ID, Tables.BREED_RINGS)
+					.where(BreedRings.ENTERED_BREED_RINGS);
 		}
 		default: {
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
@@ -310,7 +350,8 @@ public class DogshowProvider extends ContentProvider {
 	}
 
 	@Override
-	public ParcelFileDescriptor openFile(Uri uri, String mode) throws FileNotFoundException {
+	public ParcelFileDescriptor openFile(Uri uri, String mode)
+			throws FileNotFoundException {
 		final int match = sUriMatcher.match(uri);
 		switch (match) {
 		default: {
@@ -320,24 +361,77 @@ public class DogshowProvider extends ContentProvider {
 	}
 
 	public interface Qualified {
-		public static final String BREED_RINGS_RING_BREED = Tables.BREED_RINGS + "." + BreedRings.RING_BREED;
-		public static final String DOG_CALL_NAME = Tables.DOGS + "." + Dogs.DOG_CALL_NAME;
-		public static final String JUNIORS_RINGS_ID = Tables.JUNIORS_RINGS + "." + JuniorsRings._ID;
-		public static final String BREED_RINGS_ID = Tables.BREED_RINGS + "." + BreedRings._ID;
-		public static final String BREED_RINGS_IS_VETERAN = Tables.BREED_RINGS + "." + BreedRings.RING_BREED_IS_VETERAN;
-		public static final String BREED_RINGS_IS_SWEEPSTAKES = Tables.BREED_RINGS + "." + BreedRings.RING_BREED_IS_SWEEPSTAKES;
+		public static final String BREED_RINGS_RING_BREED = Tables.BREED_RINGS
+				+ "." + BreedRings.RING_BREED;
+		public static final String DOG_CALL_NAME = Tables.DOGS + "."
+				+ Dogs.DOG_CALL_NAME;
+		public static final String JUNIORS_RINGS_ID = Tables.JUNIORS_RINGS
+				+ "." + JuniorsRings._ID;
+		public static final String BREED_RINGS_ID = Tables.BREED_RINGS + "."
+				+ BreedRings._ID;
+		public static final String BREED_RINGS_IS_VETERAN = Tables.BREED_RINGS
+				+ "." + BreedRings.RING_BREED_IS_VETERAN;
+		public static final String BREED_RINGS_IS_SWEEPSTAKES = Tables.BREED_RINGS
+				+ "." + BreedRings.RING_BREED_IS_SWEEPSTAKES;
 	}
 
 	public interface Subquery {
-		public static final String BREED_RING_OVERVIEW = "SELECT " + Qualified.BREED_RINGS_ID + ", " + EnteredRings.TYPE_BREED_RING + " as ring_type, " + // TODO TYPE_BREED_RING to BreedRings.TYPE etc. with juniors
-				BreedRings.RING_NUMBER + ", " + BreedRings.RING_TITLE + " as " + EnteredRings.ENTERED_RINGS_TITLE + "," + Dogs.ENTERED_DOGS_NAMES + " as " + EnteredRings.ENTERED_RINGS_SUBTITLE + ", " + BreedRings.RING_BLOCK_START + ", " + BreedRings.RING_COUNT_AHEAD + ", " + BreedRings.RING_JUDGE_TIME + "," + Dogs.DOG_IMAGE_PATH + " as image_path, " + Dogs.ENTERED_DOGS_FIRST_CLASS + " as " + EnteredRings.ENTERED_RINGS_FIRST_CLASS + "," + BreedRings.RING_DOG_COUNT + " as " + EnteredRings.ENTERED_RINGS_DOG_COUNT + "," + BreedRings.RING_BITCH_COUNT + " as " + EnteredRings.ENTERED_RINGS_BITCH_COUNT + "," + BreedRings.RING_SPECIAL_DOG_COUNT + " as " + EnteredRings.ENTERED_RINGS_SPECIAL_DOG_COUNT + "," + BreedRings.RING_SPECIAL_BITCH_COUNT + " as " + EnteredRings.ENTERED_RINGS_SPECIAL_BITCH_COUNT + " FROM ( " + Tables.ENTERED_BREED_RINGS_JOIN_DOGS + " )";
-		public static final String JUNIOR_RING_OVERVIEW = "SELECT " + Qualified.JUNIORS_RINGS_ID + ", " + EnteredRings.TYPE_JUNIORS_RING + " as " + EnteredRings.ENTERED_RINGS_TYPE + ", " + JuniorsRings.RING_NUMBER + ", " + JuniorsRings.RING_TITLE + "," + Handlers.ENTERED_JUNIOR_HANDLER_NAMES + ", " + JuniorsRings.RING_BLOCK_START + ", " + JuniorsRings.RING_COUNT_AHEAD + ", " + JuniorsRings.RING_JUDGE_TIME + ", " + "NULL" + "," + // image path
-				"NULL" + "," + // class
+		public static final String BREED_RING_OVERVIEW = "SELECT "
+				+ Qualified.BREED_RINGS_ID
+				+ ", "
+				+ EnteredRings.TYPE_BREED_RING
+				+ " as ring_type, "
+				+ // TODO TYPE_BREED_RING to BreedRings.TYPE etc. with juniors
+				BreedRings.RING_NUMBER + ", " + BreedRings.RING_TITLE + " as "
+				+ EnteredRings.ENTERED_RINGS_TITLE + ","
+				+ Dogs.ENTERED_DOGS_NAMES + " as "
+				+ EnteredRings.ENTERED_RINGS_SUBTITLE + ", "
+				+ BreedRings.RING_BLOCK_START + ", "
+				+ BreedRings.RING_COUNT_AHEAD + ", "
+				+ BreedRings.RING_BREED_COUNT + " as "
+				+ EnteredRings.ENTERED_RINGS_RING_COUNT + ","
+				+ BreedRings.RING_JUDGE_TIME + "," + Dogs.DOG_IMAGE_PATH
+				+ " as image_path, " + Dogs.ENTERED_DOGS_FIRST_CLASS + " as "
+				+ EnteredRings.ENTERED_RINGS_FIRST_CLASS + ","
+				+ BreedRings.RING_DOG_COUNT + " as "
+				+ EnteredRings.ENTERED_RINGS_DOG_COUNT + ","
+				+ BreedRings.RING_BITCH_COUNT + " as "
+				+ EnteredRings.ENTERED_RINGS_BITCH_COUNT + ","
+				+ BreedRings.RING_SPECIAL_DOG_COUNT + " as "
+				+ EnteredRings.ENTERED_RINGS_SPECIAL_DOG_COUNT + ","
+				+ BreedRings.RING_SPECIAL_BITCH_COUNT + " as "
+				+ EnteredRings.ENTERED_RINGS_SPECIAL_BITCH_COUNT + " FROM ( "
+				+ Tables.ENTERED_BREED_RINGS_JOIN_DOGS + " )";
+		public static final String JUNIOR_RING_OVERVIEW = "SELECT "
+				+ Qualified.JUNIORS_RINGS_ID + ", "
+				+ EnteredRings.TYPE_JUNIORS_RING + " as "
+				+ EnteredRings.ENTERED_RINGS_TYPE + ", "
+				+ JuniorsRings.RING_NUMBER + ", " + 
+				JuniorsRings.RING_TITLE + " || IFNULL(" + JuniorsRings.RING_JUNIOR_BREED + ", '')" + "," 
+				+ Handlers.ENTERED_JUNIOR_HANDLER_NAMES + ", "
+				+ JuniorsRings.RING_BLOCK_START + ", "
+				+ JuniorsRings.RING_COUNT_AHEAD + ", "
+				+ JuniorsRings.RING_JUNIOR_COUNT + ","
+				+ JuniorsRings.RING_JUDGE_TIME + ", " + "NULL" + "," + // image
+																		// path
+				"NULL" + "," + // first class
 				"NULL" + "," + // dog
 				"NULL" + "," + // bitch
 				"NULL" + "," + // s. dog
 				"NULL" + // s. bitch
 				" FROM " + Tables.ENTERED_JUNIORS_RINGS;
-		public static final String ENTERED_JUNIOR_HANDLERS = "(SELECT *,group_concat(" + Handlers.HANDLER_NAME + ", \", \" ) as " + Handlers.ENTERED_JUNIOR_HANDLER_NAMES + " FROM " + Tables.HANDLERS + " AS handlerTable " + " WHERE " + Handlers.HANDLER_IS_SHOWING_JUNIORS + "=1 AND " + Handlers.HANDLER_JUNIOR_CLASS + " IS NOT NULL " + " GROUP BY " + Handlers.HANDLER_JUNIOR_CLASS + ")";
+		public static final String ENTERED_JUNIOR_HANDLERS = "(SELECT *,group_concat("
+				+ Handlers.HANDLER_NAME
+				+ ", \", \" ) as "
+				+ Handlers.ENTERED_JUNIOR_HANDLER_NAMES
+				+ " FROM "
+				+ Tables.HANDLERS
+				+ " AS handlerTable "
+				+ " WHERE "
+				+ Handlers.HANDLER_IS_SHOWING_JUNIORS
+				+ "=1 AND "
+				+ Handlers.HANDLER_JUNIOR_CLASS
+				+ " IS NOT NULL "
+				+ " GROUP BY " + Handlers.HANDLER_JUNIOR_CLASS + ")";
 	}
 }

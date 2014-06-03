@@ -52,9 +52,11 @@ public class RingListCursorWrapper extends CursorWrapper {
 		public int blockStartColumnIndex;
 		public long defaultPerDogJudgeMillis;
 		public int perDogJudgeMillsColumnIndex;
+		public int ringCountColumnIndex;
 	}
 
-	public RingListCursorWrapper(Cursor cursor, RingListCursorWrapperOptions options) {
+	public RingListCursorWrapper(Cursor cursor,
+			RingListCursorWrapperOptions options) {
 
 		super(cursor);
 
@@ -69,12 +71,17 @@ public class RingListCursorWrapper extends CursorWrapper {
 		int currentColumn;
 		int[] breedCount;
 		long estMillis;
+		String countString = null;
 		while (cursor.moveToNext()) {
 			countAhead = cursor.getInt(options.countAheadColumnIndex);
 			type = cursor.getInt(options.ringTypeColumnIndex);
 			breedCount = null;
 			if (type == EnteredRings.TYPE_BREED_RING) {
-				breedCount = new int[] { cursor.getInt(options.dogCountColumnIndex), cursor.getInt(options.bitchCountColumnIndex), cursor.getInt(options.specialDogCountColumnIndex), cursor.getInt(options.specialBitchCountColumnIndex) };
+				breedCount = new int[] {
+						cursor.getInt(options.dogCountColumnIndex),
+						cursor.getInt(options.bitchCountColumnIndex),
+						cursor.getInt(options.specialDogCountColumnIndex),
+						cursor.getInt(options.specialBitchCountColumnIndex) };
 				firstClass = cursor.getInt(options.firstClassColumnIndex);
 				currentColumn = 0;
 				// Add the counts of classes before the first entered.
@@ -83,11 +90,23 @@ public class RingListCursorWrapper extends CursorWrapper {
 					currentColumn++;
 					firstClass--;
 				}
+				countString = dev.tnclark8012.apps.android.dogshow.util.Arrays
+						.concat("-", breedCount);
+			} else if (type == EnteredRings.TYPE_JUNIORS_RING) {
+				countString = String.valueOf(cursor
+						.getInt(options.ringCountColumnIndex));
 			}
-			int ringNumber = cursor.getInt(cursor.getColumnIndex(EnteredRings.RING_NUMBER));
-			long perDogMillis = Utils.getMaybeNull(cursor, options.perDogJudgeMillsColumnIndex, options.defaultPerDogJudgeMillis);
-			estMillis = Utils.estimateBlockStart(countAhead, cursor.getLong(options.blockStartColumnIndex), perDogMillis);
-			pairs[i] = new Pair(i, estMillis, dev.tnclark8012.apps.android.dogshow.util.Arrays.concat("-", breedCount));
+			int ringNumber = cursor.getInt(cursor
+					.getColumnIndex(EnteredRings.RING_NUMBER));
+			long perDogMillis = Utils.getMaybeNull(cursor,
+					options.perDogJudgeMillsColumnIndex,
+					options.defaultPerDogJudgeMillis);
+			estMillis = Utils
+					.estimateBlockStart(countAhead,
+							cursor.getLong(options.blockStartColumnIndex),
+							perDogMillis);
+
+			pairs[i] = new Pair(i, estMillis, countString);
 			i++;
 		}
 		Arrays.sort(pairs);

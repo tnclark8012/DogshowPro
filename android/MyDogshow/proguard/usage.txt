@@ -30,7 +30,6 @@ android.support.v4.accessibilityservice.AccessibilityServiceInfoCompatIcs
 android.support.v4.accessibilityservice.AccessibilityServiceInfoCompatJellyBeanMr2
 android.support.v4.app.ActionBarDrawerToggle:
     private static final int ID_HOME
-    258:258:public boolean isDrawerIndicatorEnabled()
 android.support.v4.app.ActionBarDrawerToggleHoneycomb:
     private static final java.lang.String TAG
     39:92:ActionBarDrawerToggleHoneycomb()
@@ -2324,8 +2323,20 @@ com.google.android.gms.games.request.a:
     public com.google.android.gms.games.Player getRecipient()
     public boolean isConsumed()
     public int getRecipientStatus()
-com.google.android.gms.gcm.GoogleCloudMessaging
-com.google.android.gms.gcm.GoogleCloudMessaging$1
+com.google.android.gms.gcm.GoogleCloudMessaging:
+    public static final java.lang.String ERROR_SERVICE_NOT_AVAILABLE
+    public static final java.lang.String ERROR_MAIN_THREAD
+    public static final java.lang.String MESSAGE_TYPE_DELETED
+    public static final java.lang.String MESSAGE_TYPE_MESSAGE
+    public static final java.lang.String MESSAGE_TYPE_SEND_ERROR
+    public void close()
+    public void send(java.lang.String,java.lang.String,android.os.Bundle)
+    public void send(java.lang.String,java.lang.String,long,android.os.Bundle)
+    private void a(java.lang.String,java.lang.String,long,int,android.os.Bundle)
+    public void unregister()
+    private void gg()
+    public java.lang.String getMessageType(android.content.Intent)
+    synchronized void gh()
 com.google.android.gms.identity.intents.Address
 com.google.android.gms.identity.intents.Address$1
 com.google.android.gms.identity.intents.Address$2
@@ -5280,6 +5291,17 @@ com.j256.ormlite.table.DatabaseTableConfig
 com.j256.ormlite.table.DatabaseTableConfigLoader
 com.j256.ormlite.table.TableInfo
 com.j256.ormlite.table.TableUtils
+com.microsoft.windowsazure.notifications.BuildConfig
+com.microsoft.windowsazure.notifications.NotificationsHandler:
+    25:25:public void onUnregistered(android.content.Context,java.lang.String)
+com.microsoft.windowsazure.notifications.NotificationsManager:
+    private static final java.lang.String NOTIFICATIONS_HANDLER_CLASS
+    private static final java.lang.String GOOGLE_CLOUD_MESSAGING_REGISTRATION_ID
+    12:12:public NotificationsManager()
+    69:92:public static void stopHandlingNotifications(android.content.Context)
+    121:124:private static java.lang.String getRegistrationId(android.content.Context)
+    120:120:static synthetic java.lang.String access$2(android.content.Context)
+com.microsoft.windowsazure.notifications.NotificationsManager$2
 com.nostra13.universalimageloader.cache.disc.BaseDiscCache:
     private static final java.lang.String ERROR_ARG_NULL
     40:41:public BaseDiscCache(java.io.File)
@@ -5598,11 +5620,10 @@ dev.tnclark8012.apps.android.dogshow.R$plurals
 dev.tnclark8012.apps.android.dogshow.R$string
 dev.tnclark8012.apps.android.dogshow.R$style
 dev.tnclark8012.apps.android.dogshow.R$styleable:
-    866:866:public R$styleable()
+    872:872:public R$styleable()
 dev.tnclark8012.apps.android.dogshow.R$xml
 dev.tnclark8012.apps.android.dogshow.adapters.BreedAdapter
 dev.tnclark8012.apps.android.dogshow.adapters.NavigationDrawerCursorAdapter
-dev.tnclark8012.apps.android.dogshow.model.Handler
 dev.tnclark8012.apps.android.dogshow.model.Location
 dev.tnclark8012.apps.android.dogshow.model.ShowRing
 dev.tnclark8012.apps.android.dogshow.model.TimeBlock
@@ -5638,9 +5659,9 @@ dev.tnclark8012.apps.android.dogshow.provider.DogshowProvider:
 dev.tnclark8012.apps.android.dogshow.provider.DogshowProvider$Qualified
 dev.tnclark8012.apps.android.dogshow.provider.DogshowProvider$Subquery
 dev.tnclark8012.apps.android.dogshow.provider.PersistHelper:
-    91:92:public void updateEntity(android.net.Uri,java.util.Map,java.lang.String,java.lang.String[])
-    100:101:public void updateBreedRing(long,java.util.Map)
-    104:105:public void updateJuniorsRing(long,java.util.Map)
+    92:93:public void updateEntity(android.net.Uri,java.util.Map,java.lang.String,java.lang.String[])
+    101:102:public void updateBreedRing(long,java.util.Map)
+    105:106:public void updateJuniorsRing(long,java.util.Map)
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract:
     public static final java.lang.String CONTENT_AUTHORITY
     private static final java.lang.String PATH_DOGS
@@ -5733,8 +5754,9 @@ dev.tnclark8012.apps.android.dogshow.sql.DogshowDatabase:
     private static final int VER_HANDLERS_IS_ME
     private static final int VER_SHOW_TEAMS
     private static final int VER_SYNC_INTRODUCED
+    private static final int VER_SYNC_LIVE
     private static final int DATABASE_VERSION
-    93:104:private void insertDebugEntities(android.database.sqlite.SQLiteDatabase)
+    94:105:private void insertDebugEntities(android.database.sqlite.SQLiteDatabase)
 dev.tnclark8012.apps.android.dogshow.sql.DogshowDatabase$Tables
 dev.tnclark8012.apps.android.dogshow.sql.SimpleCursorLoader
 dev.tnclark8012.apps.android.dogshow.sql.query.Query:
@@ -5762,6 +5784,15 @@ dev.tnclark8012.apps.android.dogshow.sql.query.Query$DogsQuery:
     public static final int DOG_IMAGE_PATH
     public static final int DOG_IS_SHOWING
     public static final int DOG_CLASS
+dev.tnclark8012.apps.android.dogshow.sql.query.Query$HandlerSyncQuery:
+    public static final int _TOKEN
+    public static final int _ID
+    public static final int HANDLER_IS_SHOWING
+    public static final int HANDLER_IS_SHOWING_JUNIORS
+    public static final int HANDLER_JUNIOR_CLASS
+    public static final int HANDLER_NAME
+    public static final int HANDLER_UPDATED
+    public static final int HANDLER_IDENTIFIER
 dev.tnclark8012.apps.android.dogshow.sql.query.Query$HandlersQuery:
     public static final int _TOKEN
     public static final int _ID
@@ -5810,9 +5841,9 @@ dev.tnclark8012.apps.android.dogshow.sync.ApiAccessor:
     protected static final java.lang.String DUMMY_SHOWS
     71:71:protected java.lang.String executeGet(java.lang.String)
 dev.tnclark8012.apps.android.dogshow.sync.AzureApiAccessor:
-    71:76:public final java.net.URL buildGetBreedRingsUrl(java.lang.String)
-    111:111:public java.net.URL getBaseUrl()
-    177:177:public java.net.URL getRegistrationUrl()
+    74:79:public final java.net.URL buildGetBreedRingsUrl(java.lang.String)
+    114:114:public java.net.URL getBaseUrl()
+    180:180:public java.net.URL getRegistrationUrl()
 dev.tnclark8012.apps.android.dogshow.sync.BreedRingsHandler:
     1:1:public bridge synthetic java.util.ArrayList parse(java.lang.Object[])
 dev.tnclark8012.apps.android.dogshow.sync.EntityJsonHandler
@@ -5830,7 +5861,6 @@ dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamJoinRequest
 dev.tnclark8012.apps.android.dogshow.ui.DashboardFragment
 dev.tnclark8012.apps.android.dogshow.ui.DashboardFragment$1
 dev.tnclark8012.apps.android.dogshow.ui.DashboardFragment$2
-dev.tnclark8012.apps.android.dogshow.ui.DashboardFragment$3
 dev.tnclark8012.apps.android.dogshow.ui.DogEditFragment:
     private android.widget.TextView mViewOwner
 dev.tnclark8012.apps.android.dogshow.ui.DogEditFragment$DogQuery:
@@ -5852,6 +5882,7 @@ dev.tnclark8012.apps.android.dogshow.ui.DogEntryFragment$DogsQuery:
     public static final int DOG_IMAGE_PATH
     public static final int DOG_IS_SHOWING
 dev.tnclark8012.apps.android.dogshow.ui.DogListFragment:
+    21:21:protected dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment getViewFragment()
     26:26:protected dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment getEditFragment()
 dev.tnclark8012.apps.android.dogshow.ui.DogViewFragment:
     private java.lang.String mOwnerId
@@ -5896,6 +5927,7 @@ dev.tnclark8012.apps.android.dogshow.ui.HandlerEntryFragment$HandlersQuery:
     public static final int HANDLER_IMAGE_PATH
     public static final int HANDLER_JUNIOR_CLASS
 dev.tnclark8012.apps.android.dogshow.ui.HandlerListFragment:
+    60:60:protected dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment getViewFragment()
     66:66:protected dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment getEditFragment()
 dev.tnclark8012.apps.android.dogshow.ui.HandlerViewFragment$HandlerQuery:
     public static final int _TOKEN
@@ -5903,8 +5935,6 @@ dev.tnclark8012.apps.android.dogshow.ui.HandlerViewFragment$HandlerQuery:
     public static final int HANDLER_NAME
     public static final int HANDLER_JUNIOR_CLASS
     public static final int HANDLER_IMAGE_PATH
-dev.tnclark8012.apps.android.dogshow.ui.IncompleteFragment:
-    13:17:public static dev.tnclark8012.apps.android.dogshow.ui.IncompleteFragment newInstance(java.lang.String)
 dev.tnclark8012.apps.android.dogshow.ui.IndeterminateProgressFragment
 dev.tnclark8012.apps.android.dogshow.ui.MapFragment
 dev.tnclark8012.apps.android.dogshow.ui.ShowEntryFragment
@@ -5919,10 +5949,12 @@ dev.tnclark8012.apps.android.dogshow.ui.ShowTeamJoinFragment:
     public static final int STATUS_SUCCESS
     161:161:public static dev.tnclark8012.apps.android.dogshow.ui.ShowTeamJoinFragment newInstance()
 dev.tnclark8012.apps.android.dogshow.ui.ShowTeamListFragment:
-    129:129:protected dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment getEditFragment()
+    123:123:protected dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment getViewFragment()
+    128:128:protected dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment getEditFragment()
 dev.tnclark8012.apps.android.dogshow.ui.SimpleSinglePaneActivity:
     67:67:public android.app.Fragment getFragment()
 dev.tnclark8012.apps.android.dogshow.ui.base.AccountActivity:
+    public static final java.lang.String SENDER_ID
     public static final java.lang.String EXTRA_FINISH_INTENT
     private static final java.lang.String KEY_CHOSEN_ACCOUNT
     private static final int REQUEST_AUTHENTICATE
@@ -5930,20 +5962,27 @@ dev.tnclark8012.apps.android.dogshow.ui.base.AccountActivity:
     private static final int REQUEST_RECOVER_FROM_PLAY_SERVICES_ERROR
     private static final int REQUEST_PLAY_SERVICES_ERROR_DIALOG
     private static final java.lang.String POST_AUTH_CATEGORY
-    128:137:public void onRecoverableException(int)
-    141:143:public void onUnRecoverableException(java.lang.String)
+    126:135:public void onRecoverableException(int)
+    139:141:public void onUnRecoverableException(java.lang.String)
 dev.tnclark8012.apps.android.dogshow.ui.base.AccountActivity$1
 dev.tnclark8012.apps.android.dogshow.ui.base.AccountActivity$AuthProgressFragment:
     private static final int TRY_AGAIN_DELAY_MILLIS
 dev.tnclark8012.apps.android.dogshow.ui.base.AccountActivity$ChooseAccountFragment$AccountListAdapter:
     private static final int LAYOUT_RESOURCE
+dev.tnclark8012.apps.android.dogshow.ui.base.BaseActivity:
+    public static final java.lang.String EXTRA_URI
 dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment:
     public static final java.lang.String INTENT_EXTRA_NEW_ENTITY
+    public abstract java.util.Map getEntityValueMap()
 dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment:
     public static final java.lang.String INTENT_EXTRA_NEW_ENTITY
-dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment:
+dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListActivity:
     protected abstract dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment getEditFragment()
-    227:227:protected android.widget.CursorAdapter getAdapter()
+    70:82:private void swapFragments(boolean)
+dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment:
+    protected abstract dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment getViewFragment()
+    protected abstract dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment getEditFragment()
+    217:217:protected android.widget.CursorAdapter getAdapter()
 dev.tnclark8012.apps.android.dogshow.ui.base.ButtonBarFragment
 dev.tnclark8012.apps.android.dogshow.ui.base.ButtonBarFragment$1
 dev.tnclark8012.apps.android.dogshow.ui.base.ButtonBarFragment$2
@@ -5958,7 +5997,7 @@ dev.tnclark8012.apps.android.dogshow.ui.dialog.ShowTeamChooserDialog:
     public static final int STATUS_CANCELLED
     public static final int STATUS_SELECT
     public static final int STATUS_ADD
-    119:123:public static dev.tnclark8012.apps.android.dogshow.ui.dialog.ShowTeamChooserDialog newInstance(java.lang.String,dev.tnclark8012.apps.android.dogshow.ui.dialog.ShowTeamChooserDialog$Callback)
+    120:124:public static dev.tnclark8012.apps.android.dogshow.ui.dialog.ShowTeamChooserDialog newInstance(java.lang.String,dev.tnclark8012.apps.android.dogshow.ui.dialog.ShowTeamChooserDialog$Callback)
 dev.tnclark8012.apps.android.dogshow.ui.dialog.ShowTeamDialog:
     public static final int STATUS_CANCELLED
     public static final int STATUS_FAIL
@@ -5990,22 +6029,31 @@ dev.tnclark8012.apps.android.dogshow.ui.navigation.DrawerItemSpinner
 dev.tnclark8012.apps.android.dogshow.ui.navigation.DrawerItemSpinner$DrawerItemSpinnerViewHolder
 dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigatableActivity:
     public static final java.lang.String EXTRA_SELECTED_NAVIGATION
+    43:47:public void changeRootFragment(android.app.Fragment)
+    50:54:public void addFragment(android.app.Fragment,java.lang.String)
+    59:65:public void changeRootFragment(int)
+    108:116:private android.app.Fragment getFragment(int)
+dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigationDrawerFragment:
+    public static final java.lang.String STATE_SELECTED_POSITION
+    private static final java.lang.String PREF_USER_LEARNED_DRAWER
     public static final int NAVIGATION_SHOW
     public static final int NAVIGATION_DOGS
     public static final int NAVIGATION_HANDLERS
     public static final int NAVIGATION_HISTORY
     public static final int NAVIGATION_SETTINGS
     public static final int NAVIGATION_SHOW_TEAM
-    private android.widget.RelativeLayout mJoinButton
-    private dev.tnclark8012.apps.android.dogshow.adapters.NavigationDrawerCursorAdapter mAdapter
 dev.tnclark8012.apps.android.dogshow.ui.navigation.NonNavigationDrawerItem:
     13:14:public NonNavigationDrawerItem(int,int,java.lang.String)
 dev.tnclark8012.apps.android.dogshow.ui.navigation.SpinnerItem
 dev.tnclark8012.apps.android.dogshow.ui.phone.BreedSelectActivity:
     public static final java.lang.String EXTRA_BREED_GROUP
     public static final int REQUEST_CODE_BREED_SELECT
+dev.tnclark8012.apps.android.dogshow.ui.phone.DogListActivity:
+    42:42:protected dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment getEditFragment()
 dev.tnclark8012.apps.android.dogshow.ui.phone.FindShowActivity:
     30:30:public void onShowSynced()
+dev.tnclark8012.apps.android.dogshow.ui.phone.HandlerListActivity:
+    44:44:protected dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment getEditFragment()
 dev.tnclark8012.apps.android.dogshow.ui.phone.JuniorClassSelectActivity:
     public static final java.lang.String EXTRA_JUNIOR_CLASS
     public static final int REQUEST_CODE_CLASS_SELECT
@@ -6026,10 +6074,10 @@ dev.tnclark8012.apps.android.dogshow.util.AccountUtils:
     private static final java.lang.String PREF_AUTH_TOKEN
     private static final java.lang.String PREF_PLUS_PROFILE_ID
     private static final java.lang.String PREF_PLUS_PROFILE_NAME
-    133:135:public static void setInstallId(android.content.Context,java.lang.String)
-    138:140:public static void markSetupDone(android.content.Context)
-    158:159:public static java.lang.String getPlusProfileId(android.content.Context)
-    169:173:public static void refreshAuthToken(android.content.Context)
+    131:133:public static void setInstallId(android.content.Context,java.lang.String)
+    136:138:public static void markSetupDone(android.content.Context)
+    156:157:public static java.lang.String getPlusProfileId(android.content.Context)
+    167:171:public static void refreshAuthToken(android.content.Context)
 dev.tnclark8012.apps.android.dogshow.util.AccountUtils$AuthenticateCallback:
     public abstract void onRecoverableException(int)
     public abstract void onUnRecoverableException(java.lang.String)
@@ -6039,6 +6087,7 @@ dev.tnclark8012.apps.android.dogshow.util.Arrays:
     16:22:public static java.lang.String concat(java.lang.String,java.lang.Object[])
 dev.tnclark8012.apps.android.dogshow.util.DebugUtils:
     7:7:public DebugUtils()
+    17:17:public static java.lang.String getLog(android.content.Context)
     21:24:public static varargs void logArray(java.lang.String,java.lang.Object[])
 dev.tnclark8012.apps.android.dogshow.util.DetachableResultReceiver:
     private static final java.lang.String TAG

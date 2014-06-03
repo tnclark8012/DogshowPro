@@ -12,7 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 public class NavigationDrawerAdapter extends ArrayAdapter<DrawerItem> {
-	public static final String TAG = NavigationDrawerAdapter.class.getSimpleName();
+	public static final String TAG = NavigationDrawerAdapter.class
+			.getSimpleName();
 	Context context;
 	List<DrawerItem> drawerItemList;
 	int layoutResID;
@@ -59,29 +60,28 @@ public class NavigationDrawerAdapter extends ArrayAdapter<DrawerItem> {
 		return mPositionViewTypeMap.get(position);
 	}
 
-	
 	@Override
 	public View getView(final int position, View convertView,
 			final ViewGroup parent) {
 		LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-		
+
 		convertView = drawerItemList.get(position).getView(inflater, position,
 				totalItems, convertView, parent);
-		convertView.setOnClickListener(new OnClickListener() {
+		if (convertView != null) {
+			convertView.setOnClickListener(new OnClickListener() {
 
-			@Override
-			public void onClick(View v) {
-				if (drawerItemList.get(position) instanceof NavigationDrawerItem) {
-					for (int i = 0; i < totalItems; i++) {
-						drawerItemList.get(i).setChecked(i == position);
+				@Override
+				public void onClick(View v) {
+					if (drawerItemList.get(position) instanceof NavigationDrawerItem) {
+						for (int i = 0; i < totalItems; i++) {
+							drawerItemList.get(i).setChecked(i == position);
+						}
 					}
+					drawerItemList.get(position).onClick(v);
 				}
-				drawerItemList.get(position).onClick(v);
-			}
-		});
+			});
+		}
 		return convertView;
 	}
-	
-	
 
 }

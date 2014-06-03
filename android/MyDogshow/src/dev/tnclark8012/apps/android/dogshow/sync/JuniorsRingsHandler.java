@@ -67,6 +67,7 @@ public class JuniorsRingsHandler extends JsonHandler<JuniorsRing> {
 									ring.ringNumber)
 							.withValue(JuniorsRings.RING_SHOW_ID, ring.showId)
 							.withValue(JuniorsRings.RING_TITLE, ring.title)
+							.withValue(JuniorsRings.RING_JUNIOR_BREED, ring.breedName)
 							.build());
 				}
 			}

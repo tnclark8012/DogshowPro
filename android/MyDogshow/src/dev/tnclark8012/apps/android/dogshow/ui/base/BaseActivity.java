@@ -51,19 +51,21 @@ public abstract class BaseActivity extends Activity {
 
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.base, menu);
+		if (Prefs.isSyncEnabled(this)) {
+			inflater.inflate(R.menu.sync, menu);
+		}
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-//		case android.R.id.home:
-//			if (this instanceof HomeActivity) {
-//				return false;
-//			}
-//			finish();
-//			return true;
+		// case android.R.id.home:
+		// if (this instanceof HomeActivity) {
+		// return false;
+		// }
+		// finish();
+		// return true;
 		case R.id.menu_sync:
 			SyncHelper.requestManualSync(this,
 					AccountUtils.getChosenAccount(this));

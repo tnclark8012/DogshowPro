@@ -52,7 +52,7 @@ public class Config {
 		URL getRegistrationUrl();
 
 		String register(String account, String token, String provider,
-				String installId);
+				String installId, String gcmId);
 
 		/**
 		 * Send dogs (new and updated) to the server.

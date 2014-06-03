@@ -5,7 +5,7 @@
         android:summary="Settings for development"
         android:title="Developer" >
         <SwitchPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:key="dev.tnclark8012.dogshow.android.dogshow.prefs.key.SYNC"
             android:summary="Turn on syncing"
             android:switchTextOff="Off"

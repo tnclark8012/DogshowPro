@@ -5,4 +5,5 @@ public class RegistrationRequest {
 	public String provider;
 	public String name;
 	public String token;
+	public String notificationId;
 }
