@@ -15,6 +15,7 @@ import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment;
 
 public class DogListFragment extends BaseEntityListFragment {
 	private static final String TAG = DogListFragment.class.getSimpleName();
+	private String mTitle;
 
 	@Override
 	protected BaseEditableEntityViewFragment getViewFragment() {
@@ -31,6 +32,12 @@ public class DogListFragment extends BaseEntityListFragment {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		getActivity().getActionBar().setTitle(R.string.dashboard_doghouse);
+	}
+
+	@Override
+	public void onAttach(Activity activity) {
+		super.onAttach(activity);
+		mTitle = getString(R.string.dashboard_doghouse);
 	}
 
 	@Override
@@ -66,6 +73,6 @@ public class DogListFragment extends BaseEntityListFragment {
 
 	@Override
 	public String getTitle() {
-		return getString(R.string.dashboard_doghouse);
+		return mTitle;
 	}
 }

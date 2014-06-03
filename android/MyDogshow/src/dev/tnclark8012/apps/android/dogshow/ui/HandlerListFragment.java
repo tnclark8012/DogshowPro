@@ -16,12 +16,17 @@ import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment;
 public class HandlerListFragment extends BaseEntityListFragment {
 
 	private static final String TAG = HandlerListFragment.class.getSimpleName();
-
+	private String mTitle;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		getActivity().getActionBar().setTitle(R.string.dashboard_handlers);
+	}
+	@Override
+	public void onAttach(Activity activity) {
+		// TODO Auto-generated method stub
+		super.onAttach(activity);
+		mTitle = getString(R.string.dashboard_handlers);
 	}
 
 	@Override
@@ -68,7 +73,7 @@ public class HandlerListFragment extends BaseEntityListFragment {
 
 	@Override
 	public String getTitle() {
-		return getString(R.string.dashboard_handlers);
+		return mTitle;
 	}
 
 }

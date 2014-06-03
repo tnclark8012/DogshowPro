@@ -26,6 +26,7 @@ public class HandlerListActivity extends BaseEntityListActivity implements
 	private HandlerEditFragment mEditFragment;
 	private HandlerViewFragment mViewFragment;
 	private HandlerListFragment mListFragment;
+	private String mTitle;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
