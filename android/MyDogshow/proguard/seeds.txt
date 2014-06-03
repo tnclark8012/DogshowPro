@@ -1612,6 +1612,7 @@ dev.tnclark8012.apps.android.dogshow.model.JuniorsRing: int count
 dev.tnclark8012.apps.android.dogshow.model.JuniorsRing: java.lang.String className
 dev.tnclark8012.apps.android.dogshow.model.JuniorsRing: int countAhead
 dev.tnclark8012.apps.android.dogshow.model.JuniorsRing: java.lang.String title
+dev.tnclark8012.apps.android.dogshow.model.JuniorsRing: java.lang.String breedName
 dev.tnclark8012.apps.android.dogshow.model.JuniorsRing: JuniorsRing()
 dev.tnclark8012.apps.android.dogshow.model.Location: java.lang.String city
 dev.tnclark8012.apps.android.dogshow.model.Location: java.lang.String state

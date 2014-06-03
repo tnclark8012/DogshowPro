@@ -4,6 +4,11 @@ Version Notes
 1;0.2a - Initial release
 2;0.3a - Added breed counts, better ring estimates, image choosing and cropping. 
 	* Rings are sorted on estimated time instead of block start.
+
+6/2 0.5a
+----------------
+* Switched to navigation drawer
+* Added Juniors class count
 	
 
 4/23 0.4.2a
@@ -27,3 +32,4 @@ Version Notes
 * Ring time estimates account for the dog's class (dog, female, special dog, special female)
 * Infrastructure for syncing and sign-in is in place
 * Bug fixes including  junior class entry
+

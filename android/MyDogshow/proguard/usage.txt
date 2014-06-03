@@ -5686,10 +5686,10 @@ dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$BreedRings:
     public static final java.lang.String DEFAULT_SORT
     public static final java.lang.String UPCOMING_SELECTION
     public static final java.lang.String CONCAT_CALL_NAME
-    298:298:public DogshowContract$BreedRings()
-    326:326:public static android.net.Uri buildEnteredRingsUri()
-    333:333:public static java.lang.String[] buildUpcomingSelectionArgs(long)
-    339:339:public static java.lang.String getRingId(android.net.Uri)
+    300:300:public DogshowContract$BreedRings()
+    328:328:public static android.net.Uri buildEnteredRingsUri()
+    335:335:public static java.lang.String[] buildUpcomingSelectionArgs(long)
+    341:341:public static java.lang.String getRingId(android.net.Uri)
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$BreedRingsColumns
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$Dogs:
     public static final java.lang.String CONTENT_TYPE
@@ -5705,9 +5705,9 @@ dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$Dogs:
     public static final java.lang.String ENTERED_DOGS_FIRST_CLASS
     public static final java.lang.String DEFAULT_SORT
     public static final java.lang.String SORT_NEWEST_FIRST
-    156:156:public DogshowContract$Dogs()
-    188:189:public static java.lang.String[] buildAtTimeSelectionArgs(long)
-    194:194:public static java.lang.String[] buildUpcomingSelectionArgs(long)
+    158:158:public DogshowContract$Dogs()
+    190:191:public static java.lang.String[] buildAtTimeSelectionArgs(long)
+    196:196:public static java.lang.String[] buildUpcomingSelectionArgs(long)
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$DogsColumns
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$EnteredRings:
     public static final java.lang.String CONTENT_TYPE
@@ -5716,7 +5716,7 @@ dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$EnteredRings:
     public static final java.lang.String UPCOMING_SELECTION
     public static final int TYPE_BREED_RING
     public static final int TYPE_JUNIORS_RING
-    274:274:public DogshowContract$EnteredRings()
+    276:276:public DogshowContract$EnteredRings()
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$EnteredRingsColumns
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$Handlers:
     public static final java.lang.String CONTENT_TYPE
@@ -5724,16 +5724,16 @@ dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$Handlers:
     public static final java.lang.String ENTERED_JUNIOR_HANDLER_NAMES
     public static final java.lang.String DEFAULT_SORT
     public static final java.lang.String SORT_NEWEST_FIRST
-    211:211:public DogshowContract$Handlers()
+    213:213:public DogshowContract$Handlers()
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$HandlersColumns
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$JuniorsRings:
     public static final java.lang.String CONTENT_TYPE
     public static final java.lang.String CONTENT_ITEM_TYPE
     public static final java.lang.String DEFAULT_SORT
     public static final java.lang.String UPCOMING_SELECTION
-    348:348:public DogshowContract$JuniorsRings()
-    368:368:public static java.lang.String[] buildUpcomingSelectionArgs(long)
-    373:373:public static java.lang.String getRingId(android.net.Uri)
+    350:350:public DogshowContract$JuniorsRings()
+    370:370:public static java.lang.String[] buildUpcomingSelectionArgs(long)
+    375:375:public static java.lang.String getRingId(android.net.Uri)
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$JuniorsRingsColumns
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$RingColumns
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$ShowTeams:
@@ -5742,8 +5742,8 @@ dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$ShowTeams:
     public static final java.lang.String DEFAULT_SORT
     public static final java.lang.String ACTIVE_FIRST_SORT
     public static final java.lang.String NOT_ME_SELECTION
-    245:245:public DogshowContract$ShowTeams()
-    270:270:public static int getTeamId(android.net.Uri)
+    247:247:public DogshowContract$ShowTeams()
+    272:272:public static int getTeamId(android.net.Uri)
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$ShowTeamsColumns
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$SyncColumns
 dev.tnclark8012.apps.android.dogshow.sql.DogshowDatabase:
@@ -5815,6 +5815,7 @@ dev.tnclark8012.apps.android.dogshow.sql.query.Query$RingsQuery:
     public static final int BITCH_COUNT
     public static final int SPECIAL_DOG_COUNT
     public static final int SPECIAL_BITCH_COUNT
+    public static final int RING_COUNT
 dev.tnclark8012.apps.android.dogshow.sql.query.Query$ShowTeamsQuery:
     public static final int _TOKEN
     public static final int _ID
@@ -5836,6 +5837,7 @@ dev.tnclark8012.apps.android.dogshow.sql.query.Query$UpcomingRingQuery:
     public static final int BITCH_COUNT
     public static final int SPECIAL_DOG_COUNT
     public static final int SPECIAL_BITCH_COUNT
+    public static final int RING_COUNT
 dev.tnclark8012.apps.android.dogshow.sync.ApiAccessor:
     protected static final java.lang.String DUMMY_BREEDS
     protected static final java.lang.String DUMMY_SHOWS
@@ -5861,6 +5863,7 @@ dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamJoinRequest
 dev.tnclark8012.apps.android.dogshow.ui.DashboardFragment
 dev.tnclark8012.apps.android.dogshow.ui.DashboardFragment$1
 dev.tnclark8012.apps.android.dogshow.ui.DashboardFragment$2
+dev.tnclark8012.apps.android.dogshow.ui.DashboardFragment$3
 dev.tnclark8012.apps.android.dogshow.ui.DogEditFragment:
     private android.widget.TextView mViewOwner
 dev.tnclark8012.apps.android.dogshow.ui.DogEditFragment$DogQuery:
