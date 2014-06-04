@@ -1595,6 +1595,14 @@ dev.tnclark8012.apps.android.dogshow.model.Dog: int showingSweepstakes
 dev.tnclark8012.apps.android.dogshow.model.Dog: int deleted
 dev.tnclark8012.apps.android.dogshow.model.Dog: Dog()
 dev.tnclark8012.apps.android.dogshow.model.Dog: java.lang.String toString()
+dev.tnclark8012.apps.android.dogshow.model.GroupRing: java.lang.String showId
+dev.tnclark8012.apps.android.dogshow.model.GroupRing: long dateMillis
+dev.tnclark8012.apps.android.dogshow.model.GroupRing: java.lang.String judge
+dev.tnclark8012.apps.android.dogshow.model.GroupRing: int ringNumber
+dev.tnclark8012.apps.android.dogshow.model.GroupRing: long blockStartMillis
+dev.tnclark8012.apps.android.dogshow.model.GroupRing: java.lang.String title
+dev.tnclark8012.apps.android.dogshow.model.GroupRing: java.lang.String groupName
+dev.tnclark8012.apps.android.dogshow.model.GroupRing: GroupRing()
 dev.tnclark8012.apps.android.dogshow.model.Handler: java.lang.String identifier
 dev.tnclark8012.apps.android.dogshow.model.Handler: int isShowing
 dev.tnclark8012.apps.android.dogshow.model.Handler: int isShowingJuniors
@@ -1650,6 +1658,10 @@ dev.tnclark8012.apps.android.dogshow.sync.request.DogSyncRequest: java.lang.Stri
 dev.tnclark8012.apps.android.dogshow.sync.request.DogSyncRequest: java.lang.String[] allDogIds
 dev.tnclark8012.apps.android.dogshow.sync.request.DogSyncRequest: dev.tnclark8012.apps.android.dogshow.model.Dog[] dogs
 dev.tnclark8012.apps.android.dogshow.sync.request.DogSyncRequest: DogSyncRequest()
+dev.tnclark8012.apps.android.dogshow.sync.request.GroupRingsRequest: android.content.Context mContext
+dev.tnclark8012.apps.android.dogshow.sync.request.GroupRingsRequest: dev.tnclark8012.apps.android.dogshow.Config$IApiAccessor mAccessor
+dev.tnclark8012.apps.android.dogshow.sync.request.GroupRingsRequest: java.lang.String TAG
+dev.tnclark8012.apps.android.dogshow.sync.request.GroupRingsRequest: GroupRingsRequest(android.content.Context)
 dev.tnclark8012.apps.android.dogshow.sync.request.HandlerSyncRequest: long lastSync
 dev.tnclark8012.apps.android.dogshow.sync.request.HandlerSyncRequest: java.lang.String userIdentifier
 dev.tnclark8012.apps.android.dogshow.sync.request.HandlerSyncRequest: java.lang.String teamIdentifier
