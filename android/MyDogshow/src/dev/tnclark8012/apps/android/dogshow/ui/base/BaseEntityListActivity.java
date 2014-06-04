@@ -1,11 +1,12 @@
 package dev.tnclark8012.apps.android.dogshow.ui.base;
 
+import java.util.Map;
+
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
 import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigatableActivity;
@@ -28,7 +29,7 @@ public abstract class BaseEntityListActivity extends NavigatableActivity
 
 	protected abstract Uri getEntityUri(String entityId);
 
-	protected abstract String getTitleForTag(String tag);
+	// protected abstract String getTitleForTag(String tag);
 
 	protected void setTopMenuVisible(String... tags) {
 		FragmentManager manager = getFragmentManager();
@@ -42,7 +43,7 @@ public abstract class BaseEntityListActivity extends NavigatableActivity
 				f.setMenuVisibility(visible);
 				if (visible) {
 					top = i;
-					getActionBar().setTitle(getTitleForTag(tag));
+					// getActionBar().setTitle(getTitleForTag(tag));
 				}
 				visible = false;
 			}
@@ -95,7 +96,7 @@ public abstract class BaseEntityListActivity extends NavigatableActivity
 	}
 
 	@Override
-	public void onSave() {
+	public void onSave(Map<String, Object> entityMap) {
 		// swapFragments(false);
 
 	}

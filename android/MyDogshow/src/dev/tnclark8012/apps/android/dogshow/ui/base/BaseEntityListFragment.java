@@ -106,6 +106,7 @@ public abstract class BaseEntityListFragment extends ListFragment implements
 	public void onResume() {
 		super.onResume();
 		getListView().setOnItemLongClickListener(this);
+		getActivity().getActionBar().setTitle(getTitle());
 	}
 
 	@Override

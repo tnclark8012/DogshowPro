@@ -1,5 +1,7 @@
 package dev.tnclark8012.apps.android.dogshow.ui.phone;
 
+import java.util.Map;
+
 import android.app.FragmentManager;
 import android.app.FragmentManager.OnBackStackChangedListener;
 import android.net.Uri;
@@ -88,14 +90,13 @@ public class DogListActivity extends BaseEntityListActivity implements
 				FragmentManager.POP_BACK_STACK_INCLUSIVE);
 	}
 
-	public void onSave() {
+	public void onSave(Map<String, Object> entityMap) {
 		PersistHelper helper = new PersistHelper(this);
 		if (currentDog == null) {
-			helper.createEntity(Dogs.CONTENT_URI,
-					mEditFragment.getEntityValueMap());
+			helper.createEntity(Dogs.CONTENT_URI, entityMap);
 		} else {
 			helper.updateEntity(Dogs.CONTENT_URI, Dogs.getDogId(currentDog),
-					mEditFragment.getEntityValueMap());
+					entityMap);
 		}
 		getFragmentManager().popBackStack("edit_dog",
 				FragmentManager.POP_BACK_STACK_INCLUSIVE);
@@ -106,15 +107,15 @@ public class DogListActivity extends BaseEntityListActivity implements
 		setTopMenuVisible("edit_dog", "view_dog", "single_pane");
 	}
 
-	@Override
-	protected String getTitleForTag(String tag) {
-		if (tag.equals("edit_dog"))
-			return "Edit";
-		if (tag.equals("view_dog"))
-			return mViewFragment.getTitle();
-		if (tag.equals("single_pane"))
-			return mListFragment.getTitle();
-		return null;
-	}
+	// @Override
+	// protected String getTitleForTag(String tag) {
+	// if (tag.equals("edit_dog"))
+	// return "Edit";
+	// if (tag.equals("view_dog"))
+	// return mViewFragment.getTitle();
+	// if (tag.equals("single_pane"))
+	// return mListFragment.getTitle();
+	// return null;
+	// }
 
 }

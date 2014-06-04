@@ -2,7 +2,6 @@ package dev.tnclark8012.apps.android.dogshow.ui;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -138,6 +137,8 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements
 		return (sex == Dogs.MALE) ? R.id.dog_edit_sex_radio_male
 				: R.id.dog_edit_sex_radio_female;
 	}
+	
+	
 
 	@Override
 	public void onClick(View v) {

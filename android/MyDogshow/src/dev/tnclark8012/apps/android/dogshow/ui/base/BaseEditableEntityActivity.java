@@ -1,5 +1,7 @@
 package dev.tnclark8012.apps.android.dogshow.ui.base;
 
+import java.util.Map;
+
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,9 +9,8 @@ import android.view.MenuItem;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigatableActivity;
 
-public abstract class BaseEditableEntityActivity extends
-		NavigatableActivity implements
-		BaseEditableEntityViewFragment.Callbacks,
+public abstract class BaseEditableEntityActivity extends NavigatableActivity
+		implements BaseEditableEntityViewFragment.Callbacks,
 		BaseEditableEntityEditFragment.Callbacks {
 	private static final String TAG = BaseEditableEntityActivity.class
 			.getSimpleName();
@@ -39,7 +40,7 @@ public abstract class BaseEditableEntityActivity extends
 					true);
 		}
 		mEditFragment.setArguments(mIntentBundle);
-		
+
 		super.onCreate(savedInstanceState);
 
 		// actionBar.setHomeButtonEnabled(true);
@@ -65,7 +66,7 @@ public abstract class BaseEditableEntityActivity extends
 	}
 
 	@Override
-	public void onSave() {
+	public void onSave(Map<String, Object> entityMap) {
 		isEditing = false;
 		swapFragments(isEditing);
 	}

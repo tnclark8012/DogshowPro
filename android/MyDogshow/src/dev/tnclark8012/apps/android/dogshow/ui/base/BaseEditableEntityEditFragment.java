@@ -33,7 +33,7 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 	private Callbacks mCallbacks;
 
 	public interface Callbacks {
-		public void onSave();
+		public void onSave(Map<String,Object> entityMap);//TODO these should just be models...
 
 		public void onCancel();
 	}
@@ -181,7 +181,7 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 			return true;
 		case R.id.menu_entity_edit_save:
 			if (mCallbacks != null) {
-				mCallbacks.onSave();
+				mCallbacks.onSave(getEntityValueMap());
 			}
 			return true;
 		}

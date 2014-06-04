@@ -5,14 +5,11 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.ui.IncompleteFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigatableActivity;
-import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigationDrawerFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigationDrawerFragment.NavigationDrawerCallbacks;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
-import dev.tnclark8012.apps.android.dogshow.util.DebugUtils;
 
 /**
  * The landing screen for the app, once the user has logged in.
