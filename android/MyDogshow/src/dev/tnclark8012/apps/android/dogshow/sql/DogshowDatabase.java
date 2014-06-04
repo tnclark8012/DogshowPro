@@ -31,9 +31,10 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 	private static final int VER_HANDLERS_IS_ME = 6;
 	private static final int VER_SHOW_TEAMS = 7;
 	private static final int VER_SYNC_INTRODUCED = 8;// Added show team status sync columns
-	private static final int VER_SYNC_LIVE = 9;//Sync released as functional
+	private static final int VER_SYNC_UPDATE = 9;
+	private static final int VER_GROUPS = 10;//Added group rings table
 
-	private static final int DATABASE_VERSION = VER_SYNC_LIVE;
+	private static final int DATABASE_VERSION = VER_GROUPS;
 
 	public interface Tables {
 		String DOGS = "dogs";
@@ -150,8 +151,10 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				createShowTeamsTable(db);
 				version++;
 			case VER_SYNC_INTRODUCED:
-			case VER_SYNC_LIVE:
 				break;
+			case VER_SYNC_UPDATE:
+				createGroupRingsTable(db);
+				version++;
 			}
 		} catch (Exception e) {
 			version = -1;
