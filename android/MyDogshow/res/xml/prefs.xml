@@ -3,7 +3,7 @@
 
     <PreferenceCategory
         android:summary="Dogshow"
-        android:title="Dogshow" >
+        android:title="Show Day" >
         <EditTextPreference
             android:defaultValue="2.5"
             android:hint="minutes"
@@ -11,6 +11,13 @@
             android:key="dev.tnclark8012.dogshow.android.dogshow.prefs.key.JUDGE_TIME"
             android:summary="Estimated minutes to judge one dog"
             android:title="Judging Time" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="dev.tnclark8012.dogshow.android.dogshow.prefs.key.SHOW_GROUPS"
+            android:summary="Show group rings"
+            android:switchTextOff="Off"
+            android:switchTextOn="On"
+            android:title="Group Rings" />
     </PreferenceCategory>
 
 </PreferenceScreen>

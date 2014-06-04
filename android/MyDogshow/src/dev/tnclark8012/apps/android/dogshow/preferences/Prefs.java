@@ -25,6 +25,7 @@ public final class Prefs {
 	public static final String KEY_ENABLE_SYNC = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.SYNC";
 	public static final String KEY_CURRENT_TEAM_ID = "dev.tclark8012.dogshow.android.dogshow.prefs.key.CURRENT_TEAM_ID";
 	public static final String KEY_LOCAL_SERVER = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.LOCAL_SERVER";
+	public static final String KEY_SHOW_GROUPS = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.SHOW_GROUPS";
 
 	public static SharedPreferences get(Context context) {
 		return PreferenceManager.getDefaultSharedPreferences(context);
@@ -37,6 +38,11 @@ public final class Prefs {
 	public static boolean useLocalServer(Context context) {
 		return get(context).getBoolean(KEY_LOCAL_SERVER, false);
 	}
+	
+	public static boolean showGroupRings(Context context) {
+		return get(context).getBoolean(KEY_SHOW_GROUPS, true);
+	}
+	
 
 	/**
 	 * Estimated judging time per dog

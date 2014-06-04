@@ -20,6 +20,7 @@ import java.net.URL;
 
 import dev.tnclark8012.apps.android.dogshow.model.BreedRing;
 import dev.tnclark8012.apps.android.dogshow.model.Dog;
+import dev.tnclark8012.apps.android.dogshow.model.GroupRing;
 import dev.tnclark8012.apps.android.dogshow.model.Handler;
 import dev.tnclark8012.apps.android.dogshow.model.JuniorsRing;
 import dev.tnclark8012.apps.android.dogshow.model.Show;
@@ -74,6 +75,8 @@ public class Config {
 
 		ShowTeamResponse joinShowTeam(String userId, String teamName,
 				String password);
+
+		GroupRing[] getGroupRings(String showId);
 	}
 
 	public static final boolean DEBUG_OFFLINE = false;// TODO implement

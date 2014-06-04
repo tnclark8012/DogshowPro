@@ -15,6 +15,7 @@ import com.google.gson.JsonObject;
 
 import dev.tnclark8012.apps.android.dogshow.model.BreedRing;
 import dev.tnclark8012.apps.android.dogshow.model.Dog;
+import dev.tnclark8012.apps.android.dogshow.model.GroupRing;
 import dev.tnclark8012.apps.android.dogshow.model.Handler;
 import dev.tnclark8012.apps.android.dogshow.model.JuniorsRing;
 import dev.tnclark8012.apps.android.dogshow.model.Show;
@@ -38,6 +39,7 @@ public class AzureApiAccessor extends ApiAccessor {
 	public URL GET_SHOW_URL;
 	public URL GET_BREED_RINGS_URL;
 	public URL GET_JUNIORS_RINGS_URL;
+	public URL GET_GROUP_RINGS_URL;
 	public URL POST_REGISTRATION_URL;
 	public URL SYNC_DOG_URL;
 	public URL SYNC_HANDLER_URL;
@@ -58,6 +60,7 @@ public class AzureApiAccessor extends ApiAccessor {
 			GET_SHOW_URL = new URL(BASE_URL + "/Show");
 			GET_BREED_RINGS_URL = new URL(BASE_URL + "/BreedRing");
 			GET_JUNIORS_RINGS_URL = new URL(BASE_URL + "/JuniorsRing");
+			GET_GROUP_RINGS_URL = new URL(BASE_URL + "/GroupRing");
 			POST_REGISTRATION_URL = new URL(BASE_URL + "/User/Register");
 			SYNC_DOG_URL = new URL(BASE_URL + "/Dog/Sync");
 			SYNC_HANDLER_URL = new URL(BASE_URL + "/Handler/Sync");
@@ -109,6 +112,15 @@ public class AzureApiAccessor extends ApiAccessor {
 		return null;
 	}
 
+	public final URL buildGetGroupRingsUrl(String showId) {
+		try {
+			return new URL(GET_GROUP_RINGS_URL, "?showId=" + encode(showId));
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 	@Override
 	public URL getBaseUrl() {
 		return BASE_URL;
@@ -147,6 +159,22 @@ public class AzureApiAccessor extends ApiAccessor {
 
 			JuniorsRing[] rings = mGson.fromJson(jsonStr, JuniorsRing[].class);
 			for (JuniorsRing ring : rings) {
+				ring.blockStartMillis = Utils
+						.millisSinceEpoch(ring.blockStartMillis);
+			}
+			return rings;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	@Override
+	public GroupRing[] getGroupRings(String showId) {
+		try {
+			String jsonStr = executeGet(buildGetGroupRingsUrl(showId));
+
+			GroupRing[] rings = mGson.fromJson(jsonStr, GroupRing[].class);
+			for (GroupRing ring : rings) {
 				ring.blockStartMillis = Utils
 						.millisSinceEpoch(ring.blockStartMillis);
 			}

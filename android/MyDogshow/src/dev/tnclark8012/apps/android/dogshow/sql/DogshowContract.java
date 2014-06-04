@@ -120,6 +120,10 @@ public class DogshowContract {
 		String SHOW_TEAM_ACTIVE = "team_is_active";
 	}
 
+	interface GroupRingsColumns {
+		String RING_GROUP = "group_ring_goup";
+	}
+
 	interface BreedRingsColumns {
 		String RING_BITCH_COUNT = "breed_ring_bitch_count";
 		String RING_BREED = "breed_ring_breed";
@@ -143,7 +147,6 @@ public class DogshowContract {
 		public static final String ENTERED_RINGS_BITCH_COUNT = BreedRingsColumns.RING_BITCH_COUNT;
 		public static final String ENTERED_RINGS_SPECIAL_DOG_COUNT = BreedRingsColumns.RING_SPECIAL_DOG_COUNT;
 		public static final String ENTERED_RINGS_SPECIAL_BITCH_COUNT = BreedRingsColumns.RING_SPECIAL_BITCH_COUNT;
-
 	}
 
 	interface JuniorsRingsColumns {
@@ -281,14 +284,21 @@ public class DogshowContract {
 		public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.dogshow.ring";
 		public static final String DEFAULT_SORT = RING_BLOCK_START + " ASC";
 		public static final String UPCOMING_SELECTION = RING_BLOCK_START
-				+ " > ? ";// TODO AND " + BreedRings.RING_BLOCK_START + " < ?";
+				+ " > ? AND " + EnteredRings.ENTERED_RINGS_TYPE + " < ? ";// TODO AND " + EnteredRings.RING_BLOCK_START + " < ?";
+		public static final String NO_GROUP_RINGS_SELECTION = EnteredRings.ENTERED_RINGS_TYPE + " < " + EnteredRings.TYPE_CAP;
 
-		public static String[] buildUpcomingSelectionArgs(long currTime) {
-			return new String[] { String.valueOf(currTime) };
+		public static String[] buildUpcomingSelectionArgs(long currTime,
+				boolean showGroups) {
+			return new String[] {
+					String.valueOf(currTime),
+					String.valueOf((showGroups) ? EnteredRings.TYPE_CAP
+							: EnteredRings.TYPE_GROUP_RING) };
 		}
 
 		public static final int TYPE_BREED_RING = 0;
 		public static final int TYPE_JUNIORS_RING = 1;
+		public static final int TYPE_GROUP_RING = 2;
+		private static final int TYPE_CAP = 3;// Update if adding another group
 
 		// TODO upcomming selection
 	}
@@ -337,6 +347,43 @@ public class DogshowContract {
 		}
 
 		/** Read _ID from {@link BreedRings} {@link Uri}. */
+		public static String getRingId(Uri uri) {
+			return uri.getPathSegments().get(1);
+		}
+
+	}
+
+	/**
+	 * Each Ring is a show ring that consists of multiple timeblocks and group
+	 * rings
+	 */
+	public static class GroupRings implements RingColumns, GroupRingsColumns,
+			SyncColumns, BaseColumns {
+
+		public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon()
+				.appendPath(PATH_RINGS).appendPath(PATH_RINGS_GROUP).build();
+
+		public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.dogshow.ring.group";
+		public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.dogshow.ring.group";
+		/** Default "ORDER BY" clause. */
+		public static final String DEFAULT_SORT = GroupRings.RING_BLOCK_START
+				+ " ASC";
+
+		public static final String UPCOMING_SELECTION = GroupRings.RING_BLOCK_START
+				+ " > ? ";// TODO AND " + GroupRings.RING_BLOCK_START + " < ?";
+
+		/** Build {@link Uri} for requested Ring ID. */
+		public static Uri buildRingUri(String RingId) {
+			return CONTENT_URI.buildUpon().appendPath(RingId).build();
+		}
+
+		// Builds selectionArgs for {@link PATH_GROUP_RINGS_UPCOMING}
+		public static String[] buildUpcomingSelectionArgs(long currTime) {
+			return new String[] { String.valueOf((BuildConfig.DEBUG) ? 0
+					: currTime) };
+		}
+
+		/** Read _ID from {@link GroupRings} {@link Uri}. */
 		public static String getRingId(Uri uri) {
 			return uri.getPathSegments().get(1);
 		}

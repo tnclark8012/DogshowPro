@@ -11,6 +11,7 @@ import dev.tnclark8012.apps.android.dogshow.provider.DogshowProvider.Subquery;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.BreedRingsColumns;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.DogsColumns;
+import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.GroupRingsColumns;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.HandlersColumns;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.JuniorsRings;
@@ -37,6 +38,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 	public interface Tables {
 		String DOGS = "dogs";
 		String BREED_RINGS = "breed_rings";
+		String GROUP_RINGS = "group_rings";
 		String HANDLERS = "handlers";
 		String JUNIORS_RINGS = "juniors_rings";
 		String SHOW_TEAMS = "show_teams";
@@ -44,7 +46,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 		String ENTERED_JUNIORS_RINGS = "(" + JUNIORS_RINGS + " JOIN " + Subquery.ENTERED_JUNIOR_HANDLERS + " as entered_junior_handlers ON " + Handlers.HANDLER_JUNIOR_CLASS + "=" + JuniorsRings.RING_JUNIOR_CLASS_NAME + ")";
 		String ENTERED_BREED_RINGS_JOIN_DOGS_JOIN_ON = Qualified.BREED_RINGS_RING_BREED + "=" + Dogs.ENTERED_DOGS_BREED + " AND "/* + Qualified.BREED_RINGS_IS_SWEEPSTAKES + "=" + Dogs.DOG_IS_SHOWING_SWEEPSTAKES + " AND " TODO Sweepstakes should be optional */+ Qualified.BREED_RINGS_IS_VETERAN + "=" + Dogs.DOG_IS_VETERAN;
 		String ENTERED_BREED_RINGS_JOIN_DOGS = "(" + BREED_RINGS + " " + "JOIN " + ENTERED_DOGS_BY_BREED + " as entered_breed_rings_dogs ON " + ENTERED_BREED_RINGS_JOIN_DOGS_JOIN_ON + ")";
-		String ALL_ENTERED_RINGS = "(select * from (" + Subquery.BREED_RING_OVERVIEW + " UNION ALL " + Subquery.JUNIOR_RING_OVERVIEW + " )) as all_entered_rings";
+		String ALL_ENTERED_RINGS = "(select * from (" + Subquery.BREED_RING_OVERVIEW + " UNION ALL " + Subquery.JUNIOR_RING_OVERVIEW + " UNION ALL " + Subquery.GROUP_RING_OVERVIEW + " )) as all_entered_rings";
 	}
 
 	public DogshowDatabase(Context context) {
@@ -62,6 +64,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 		createDogsTable(db);
 		createJuniorsRingsTable(db);
 		createShowTeamsTable(db);
+		createGroupRingsTable(db);
 		if (BuildConfig.DEBUG) {
 			// insertDebugEntities(db);
 		}
@@ -88,6 +91,20 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 
 	private void createJuniorsRingsTable(SQLiteDatabase db) {
 		db.execSQL("CREATE TABLE " + Tables.JUNIORS_RINGS + " (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + RingColumns.RING_BLOCK_START + " INTEGER NOT NULL," + JuniorsRingsColumns.RING_JUNIOR_CLASS_NAME + " TEXT NOT NULL," + JuniorsRingsColumns.RING_JUNIOR_COUNT + " INTEGER NOT NULL," + RingColumns.RING_COUNT_AHEAD + " INTEGER NOT NULL," + RingColumns.RING_DATE + " INTEGER NOT NULL," + RingColumns.RING_JUDGE + " TEXT NOT NULL," + RingColumns.RING_JUDGE_TIME + " INTEGER," + RingColumns.RING_NUMBER + " INTEGER NOT NULL," + RingColumns.RING_SHOW_ID + " TEXT NOT NULL," + RingColumns.RING_TITLE + " TEXT," + JuniorsRingsColumns.RING_JUNIOR_BREED + " TEXT, " + SyncColumns.UPDATED + " LONG DEFAULT 0)");
+	}
+	private void createGroupRingsTable(SQLiteDatabase db) {
+		db.execSQL("CREATE TABLE " + Tables.GROUP_RINGS + 
+				" (" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," 
+				+ RingColumns.RING_BLOCK_START + " INTEGER NOT NULL," + 
+				RingColumns.RING_COUNT_AHEAD + " INTEGER," + 
+				RingColumns.RING_DATE + " INTEGER NOT NULL," + 
+				RingColumns.RING_JUDGE + " TEXT NOT NULL," + 
+				RingColumns.RING_JUDGE_TIME + " INTEGER," + 
+				RingColumns.RING_NUMBER + " INTEGER NOT NULL," + 
+				RingColumns.RING_SHOW_ID + " TEXT NOT NULL," + 
+				RingColumns.RING_TITLE + " TEXT," + 
+				GroupRingsColumns.RING_GROUP + " TEXT, " + 
+				SyncColumns.UPDATED + " LONG DEFAULT 0)");
 	}
 
 	private void insertDebugEntities(SQLiteDatabase db) {
@@ -147,6 +164,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 			db.execSQL("DROP TABLE IF EXISTS " + Tables.JUNIORS_RINGS);
 			db.execSQL("DROP TABLE IF EXISTS " + Tables.BREED_RINGS);
 			db.execSQL("DROP TABLE IF EXISTS " + Tables.SHOW_TEAMS);
+			db.execSQL("DROP TABLE IF EXISTS " + Tables.GROUP_RINGS);
 			onCreate(db);
 		}
 	}

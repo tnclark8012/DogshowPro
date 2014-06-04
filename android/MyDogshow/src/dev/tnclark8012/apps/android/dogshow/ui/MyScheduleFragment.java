@@ -19,6 +19,8 @@ import android.database.Cursor;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.util.SparseBooleanArray;
@@ -51,7 +53,10 @@ import dev.tnclark8012.apps.android.dogshow.util.Lists;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 
-public class MyScheduleFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback, OnSharedPreferenceChangeListener, OnItemLongClickListener, EditJudgeTimeDialog.Callback {
+public class MyScheduleFragment extends Fragment implements
+		LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback,
+		OnSharedPreferenceChangeListener, OnItemLongClickListener,
+		EditJudgeTimeDialog.Callback {
 	private long upcomingBreedRingStart = 0;
 	private static final String TAG = MyScheduleFragment.class.getSimpleName();
 	private RingListAdapter mAdapter;
@@ -68,14 +73,17 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 	private RingListCursorWrapperOptions mUpcommingRingsOptions;
 	private RingListCursorWrapperOptions mEnteredRingsOptions;
 	private Handler handler = new Handler();
-	private DisplayImageOptions mImageOptions = new DisplayImageOptions.Builder().resetViewBeforeLoading(true).build();
+	private DisplayImageOptions mImageOptions = new DisplayImageOptions.Builder()
+			.resetViewBeforeLoading(true).build();
 
 	private Runnable updateUpcomingRunnable = new Runnable() {
 		@Override
 		public void run() {
 			LoaderManager manager = getLoaderManager();
-			manager.restartLoader(UpcomingRingQuery._TOKEN, getArguments(), MyScheduleFragment.this);
-			manager.restartLoader(RingsQuery._TOKEN, getArguments(), MyScheduleFragment.this);
+			manager.restartLoader(UpcomingRingQuery._TOKEN, getArguments(),
+					MyScheduleFragment.this);
+			manager.restartLoader(RingsQuery._TOKEN, getArguments(),
+					MyScheduleFragment.this);
 		}
 	};
 	private final ContentObserver mObserver = new ContentObserver(new Handler()) {
@@ -84,7 +92,8 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 			if (getActivity() == null) {
 				return;
 			}
-			Loader<Cursor> loader = getLoaderManager().getLoader(RingsQuery._TOKEN);
+			Loader<Cursor> loader = getLoaderManager().getLoader(
+					RingsQuery._TOKEN);
 			if (loader != null) {
 				loader.forceLoad();
 			}
@@ -101,7 +110,18 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 		getActivity().getActionBar().setTitle(R.string.dashboard_schedule);
 		mAdapter = new RingListAdapter(getActivity());
 		LoaderManager manager = getLoaderManager();
-		manager.restartLoader(UpcomingRingQuery._TOKEN, getArguments(), this);// TODO use argument ring query token to choose ring types to show
+		manager.restartLoader(UpcomingRingQuery._TOKEN, getArguments(), this);// TODO
+																				// use
+																				// argument
+																				// ring
+																				// query
+																				// token
+																				// to
+																				// choose
+																				// ring
+																				// types
+																				// to
+																				// show
 		manager.restartLoader(RingsQuery._TOKEN, getArguments(), this);
 	}
 
@@ -110,8 +130,10 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 		// TODO Use URI from arguments
 		super.onAttach(activity);
 		Prefs.get(getActivity()).registerOnSharedPreferenceChangeListener(this);
-		activity.getContentResolver().registerContentObserver(BreedRings.CONTENT_URI, true, mObserver);
-		activity.getContentResolver().registerContentObserver(JuniorsRings.CONTENT_URI, true, mObserver);
+		activity.getContentResolver().registerContentObserver(
+				BreedRings.CONTENT_URI, true, mObserver);
+		activity.getContentResolver().registerContentObserver(
+				JuniorsRings.CONTENT_URI, true, mObserver);
 
 	}
 
@@ -120,20 +142,28 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 		super.onDetach();
 		getActivity().getContentResolver().unregisterContentObserver(mObserver);
 		handler.removeCallbacks(updateUpcomingRunnable);
-		Prefs.get(getActivity()).unregisterOnSharedPreferenceChangeListener(this);
+		Prefs.get(getActivity()).unregisterOnSharedPreferenceChangeListener(
+				this);
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		mRootView = inflater.inflate(R.layout.fragment_schedule_list, container, false);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		mRootView = inflater.inflate(R.layout.fragment_schedule_list,
+				container, false);
 		mViewTitle = (TextView) mRootView.findViewById(R.id.schedule_breed);
 		mViewRing = (TextView) mRootView.findViewById(R.id.schedule_ring);
 		mViewTime = (TextView) mRootView.findViewById(R.id.schedule_ring_time);
-		mBreedImage = (RelativeLayout) mRootView.findViewById(R.id.schedule_breed_image);
-		mViewUpcomingHeader = (RelativeLayout) mRootView.findViewById(R.id.schedule_upcoming_header);
-		mViewNoUpcomingHeader = (RelativeLayout) mRootView.findViewById(R.id.schedule_no_upcoming_header);
-		mViewNoUpcomingHeaderText = (TextView) mRootView.findViewById(R.id.schedule_no_upcoming_header_text);
-		stickyList = (StickyListHeadersListView) mRootView.findViewById(R.id.ring_list);
+		mBreedImage = (RelativeLayout) mRootView
+				.findViewById(R.id.schedule_breed_image);
+		mViewUpcomingHeader = (RelativeLayout) mRootView
+				.findViewById(R.id.schedule_upcoming_header);
+		mViewNoUpcomingHeader = (RelativeLayout) mRootView
+				.findViewById(R.id.schedule_no_upcoming_header);
+		mViewNoUpcomingHeaderText = (TextView) mRootView
+				.findViewById(R.id.schedule_no_upcoming_header_text);
+		stickyList = (StickyListHeadersListView) mRootView
+				.findViewById(R.id.ring_list);
 		stickyList.setAdapter(mAdapter);
 		return mRootView;
 	}
@@ -142,14 +172,21 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 		CursorLoader loader = null;
 		String selection = EnteredRings.UPCOMING_SELECTION;
-		String[] allSelectionArgs = EnteredRings.buildUpcomingSelectionArgs(Utils.twelveAmToday());
-		String[] upcomingArgs = EnteredRings.buildUpcomingSelectionArgs(Utils.currentTimeUtc());
+		boolean includeGroups = Prefs.showGroupRings(getActivity());
+		String[] allSelectionArgs = EnteredRings.buildUpcomingSelectionArgs(
+				Utils.twelveAmToday(), includeGroups);
+		String[] upcomingArgs = EnteredRings.buildUpcomingSelectionArgs(
+				Utils.currentTimeUtc(), includeGroups);
 		switch (id) {
 		case UpcomingRingQuery._TOKEN:
-			loader = new CursorLoader(getActivity(), EnteredRings.CONTENT_URI, UpcomingRingQuery.PROJECTION, selection, upcomingArgs, BreedRings.DEFAULT_SORT);
+			loader = new CursorLoader(getActivity(), EnteredRings.CONTENT_URI,
+					UpcomingRingQuery.PROJECTION, selection, upcomingArgs,
+					BreedRings.DEFAULT_SORT);
 			break;
 		case RingsQuery._TOKEN:
-			loader = new CursorLoader(getActivity(), EnteredRings.CONTENT_URI, RingsQuery.PROJECTION, selection, allSelectionArgs, EnteredRings.DEFAULT_SORT);
+			loader = new CursorLoader(getActivity(), EnteredRings.CONTENT_URI,
+					RingsQuery.PROJECTION, selection, allSelectionArgs,
+					EnteredRings.DEFAULT_SORT);
 		}
 		return loader;
 	}
@@ -186,7 +223,8 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 			mEnteredRingsOptions.specialDogCountColumnIndex = RingsQuery.SPECIAL_DOG_COUNT;
 		}
 		// Default could change async, so don't cache
-		mEnteredRingsOptions.defaultPerDogJudgeMillis = Prefs.getEstimatedJudgingTime(getActivity());
+		mEnteredRingsOptions.defaultPerDogJudgeMillis = Prefs
+				.getEstimatedJudgingTime(getActivity());
 		int cursorSize = cursor.getCount();
 		ArrayList<Integer> newPositions = new ArrayList<Integer>();
 		ArrayList<Integer> sectionIndices = new ArrayList<Integer>();
@@ -200,9 +238,14 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 			newDayPositions.put(position, true);
 			sectionIndices.add(position);
 			newPositions.add(position);
-			// TODO HIGH this should use JUDGE_TIME estimates. I.e. setting judge time to several hours should push a ring to the next day, maybe eliminating a section altogether
+			// TODO HIGH this should use JUDGE_TIME estimates. I.e. setting
+			// judge time to several hours should push a ring to the next day,
+			// maybe eliminating a section altogether
 			long prevBlockMillis = cursor.getLong(RingsQuery.BLOCK_START);
-			String dateStr = DateUtils.formatDateTime(getActivity(), prevBlockMillis, DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NO_YEAR);
+			String dateStr = DateUtils.formatDateTime(getActivity(),
+					prevBlockMillis, DateUtils.FORMAT_SHOW_WEEKDAY
+							| DateUtils.FORMAT_SHOW_DATE
+							| DateUtils.FORMAT_NO_YEAR);
 			sectionHeaders.add(dateStr);
 			sectionIds.add(sectionIndex);
 
@@ -215,7 +258,11 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 						newDayPositions.put(position, true);
 						newPositions.add(position);
 						sectionIndices.add(position);
-						dateStr = DateUtils.formatDateTime(getActivity(), currentBlockMillis, DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NO_YEAR);
+						dateStr = DateUtils.formatDateTime(getActivity(),
+								currentBlockMillis,
+								DateUtils.FORMAT_SHOW_WEEKDAY
+										| DateUtils.FORMAT_SHOW_DATE
+										| DateUtils.FORMAT_NO_YEAR);
 						sectionHeaders.add(dateStr);
 						sectionIndex++;
 					}
@@ -225,9 +272,12 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 			}
 			cursor.moveToPosition(-1);
 			// TODO use Guava
-			mAdapter.setSections(Lists.toArray(sectionIndices, -1), sectionHeaders.toArray(new String[sectionHeaders.size()]), Lists.toArray(sectionIds, -1));
+			mAdapter.setSections(Lists.toArray(sectionIndices, -1),
+					sectionHeaders.toArray(new String[sectionHeaders.size()]),
+					Lists.toArray(sectionIds, -1));
 
-			mAdapter.changeCursor(new RingListCursorWrapper(cursor, mEnteredRingsOptions));
+			mAdapter.changeCursor(new RingListCursorWrapper(cursor,
+					mEnteredRingsOptions));
 		}
 
 	}
@@ -246,21 +296,33 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 			mUpcommingRingsOptions.specialBitchCountColumnIndex = UpcomingRingQuery.SPECIAL_BITCH_COUNT;
 			mUpcommingRingsOptions.specialDogCountColumnIndex = UpcomingRingQuery.SPECIAL_DOG_COUNT;
 		}
-		mUpcommingRingsOptions.defaultPerDogJudgeMillis = Prefs.getEstimatedJudgingTime(getActivity());
-		RingListCursorWrapper cursor = new RingListCursorWrapper(orignialCursor, mUpcommingRingsOptions);
+		mUpcommingRingsOptions.defaultPerDogJudgeMillis = Prefs
+				.getEstimatedJudgingTime(getActivity());
+		RingListCursorWrapper cursor = new RingListCursorWrapper(
+				orignialCursor, mUpcommingRingsOptions);
 
 		if (cursor.moveToFirst()) {
+			int type = cursor.getInt(UpcomingRingQuery.RING_TYPE);
 			mViewNoUpcomingHeader.setVisibility(View.GONE);
 			mViewUpcomingHeader.setVisibility(View.VISIBLE);
 			String title = cursor.getString(UpcomingRingQuery.RING_TITLE);
 			mViewTitle.setText(title);
-			mViewRing.setText(getString(R.string.template_ring_number, cursor.getInt(UpcomingRingQuery.RING_NUMBER)));
-			upcomingBreedRingStart = cursor.getLong(UpcomingRingQuery.RING_BLOCK_START);
+			mViewRing.setText(getString(R.string.template_ring_number,
+					cursor.getInt(UpcomingRingQuery.RING_NUMBER)));
+			mViewRing
+					.setVisibility((type == EnteredRings.TYPE_GROUP_RING) ? View.GONE
+							: View.VISIBLE);
+			upcomingBreedRingStart = cursor
+					.getLong(UpcomingRingQuery.RING_BLOCK_START);
 			int countAhead = cursor.getInt(UpcomingRingQuery.BREED_COUNT_AHEAD);
-			int type = cursor.getInt(UpcomingRingQuery.RING_TYPE);
+
 			int[] breedCount = null;
 			if (type == EnteredRings.TYPE_BREED_RING) {
-				breedCount = new int[] { cursor.getInt(UpcomingRingQuery.DOG_COUNT), cursor.getInt(UpcomingRingQuery.BITCH_COUNT), cursor.getInt(UpcomingRingQuery.SPECIAL_DOG_COUNT), cursor.getInt(UpcomingRingQuery.SPECIAL_BITCH_COUNT) };
+				breedCount = new int[] {
+						cursor.getInt(UpcomingRingQuery.DOG_COUNT),
+						cursor.getInt(UpcomingRingQuery.BITCH_COUNT),
+						cursor.getInt(UpcomingRingQuery.SPECIAL_DOG_COUNT),
+						cursor.getInt(UpcomingRingQuery.SPECIAL_BITCH_COUNT) };
 				int firstClass = cursor.getInt(UpcomingRingQuery.FIRST_CLASS);
 				int currentColumn = 0;
 				// Add the counts of classes before the first entered.
@@ -269,27 +331,36 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 					currentColumn++;
 					firstClass--;
 				}
-			}
-			else if(type==EnteredRings.TYPE_JUNIORS_RING)
-			{
-				
-			}
-			long judgeMinutesPerDog = Utils.getMaybeNull(cursor, UpcomingRingQuery.RING_JUDGE_TIME, Prefs.getEstimatedJudgingTime(getActivity()));
-			long estimatedStart = Utils.estimateBlockStart(countAhead, upcomingBreedRingStart, judgeMinutesPerDog);
+			} else if (type == EnteredRings.TYPE_JUNIORS_RING) {
 
-			mViewTime.setText(UIUtils.timeStringFromMillis(estimatedStart, true));
-			String imagePath = cursor.getString(UpcomingRingQuery.DOG_IMAGE_PATH);
-			// if (imagePath != null) {//TODO changed breed view to imageview then swap this with current impl.
-			// UIUtils.displayImage(getActivity(), mImageOptions, mBreedImage, imagePath);
+			}
+
+			long judgeMinutesPerDog = Utils.getMaybeNull(cursor,
+					UpcomingRingQuery.RING_JUDGE_TIME,
+					Prefs.getEstimatedJudgingTime(getActivity()));
+			long estimatedStart = Utils.estimateBlockStart(countAhead,
+					upcomingBreedRingStart, judgeMinutesPerDog);
+
+			mViewTime.setText(UIUtils
+					.timeStringFromMillis(estimatedStart, true));
+			String imagePath = cursor
+					.getString(UpcomingRingQuery.DOG_IMAGE_PATH);
+			// if (imagePath != null) {//TODO changed breed view to imageview
+			// then swap this with current impl.
+			// UIUtils.displayImage(getActivity(), mImageOptions, mBreedImage,
+			// imagePath);
 			// } else {
 			// holder.image.setImageResource(R.drawable.dog);
 			// }
 			if (imagePath != null) {
 				Resources res = getResources();
-				int height = res.getDimensionPixelSize(R.dimen.header_icon_height);
-				int width = res.getDimensionPixelSize(R.dimen.header_icon_width);
+				int height = res
+						.getDimensionPixelSize(R.dimen.header_icon_height);
+				int width = res
+						.getDimensionPixelSize(R.dimen.header_icon_width);
 
-				BitmapDrawable image = new BitmapDrawable(res, UIUtils.loadBitmap(imagePath, width, height));
+				BitmapDrawable image = new BitmapDrawable(res,
+						UIUtils.loadBitmap(imagePath, width, height));
 				mBreedImage.setBackgroundDrawable(image);
 			} else {
 				Log.w(TAG, "Image path was null");
@@ -299,12 +370,20 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 			// Setup the refresh to update upcoming
 			while (cursor.moveToNext()) {
 				countAhead = cursor.getInt(UpcomingRingQuery.BREED_COUNT_AHEAD);
-				judgeMinutesPerDog = Utils.getMaybeNull(cursor, UpcomingRingQuery.RING_JUDGE_TIME, Prefs.getEstimatedJudgingTime(getActivity()));
-				upcomingBreedRingStart = cursor.getLong(UpcomingRingQuery.RING_BLOCK_START);
-				estimatedStart = Utils.estimateBlockStart(countAhead, upcomingBreedRingStart, judgeMinutesPerDog);
+				judgeMinutesPerDog = Utils.getMaybeNull(cursor,
+						UpcomingRingQuery.RING_JUDGE_TIME,
+						Prefs.getEstimatedJudgingTime(getActivity()));
+				upcomingBreedRingStart = cursor
+						.getLong(UpcomingRingQuery.RING_BLOCK_START);
+				estimatedStart = Utils.estimateBlockStart(countAhead,
+						upcomingBreedRingStart, judgeMinutesPerDog);
 				if (estimatedStart > currentStart) {
 					long delay = estimatedStart - System.currentTimeMillis();
-					Log.i(TAG, "Closest ring is " + cursor.getString(UpcomingRingQuery.RING_TITLE) + " at " + new Date(estimatedStart).toGMTString());
+					Log.i(TAG,
+							"Closest ring is "
+									+ cursor.getString(UpcomingRingQuery.RING_TITLE)
+									+ " at "
+									+ new Date(estimatedStart).toGMTString());
 					delay = (delay > 0) ? delay : 0;
 					handler.postDelayed(updateUpcomingRunnable, delay);
 					Log.i(TAG, "Updating in " + (delay / 1000) + " seconds.");
@@ -327,7 +406,8 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		stickyList.setOnItemLongClickListener(this);
-		stickyList.setEmptyView(getActivity().getLayoutInflater().inflate(R.layout.empty_waiting_for_sync, null));
+		stickyList.setEmptyView(getActivity().getLayoutInflater().inflate(
+				R.layout.empty_waiting_for_sync, null));
 	}
 
 	@Override
@@ -350,21 +430,25 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 	}
 
 	@Override
-	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
+			String key) {
 		Log.d(TAG, "Preference changed!");
-		if (key.equals(Prefs.KEY_JUDGE_TIME)) {
+		if (key.equals(Prefs.KEY_JUDGE_TIME) || key.equals(Prefs.KEY_SHOW_GROUPS)) {
 			LoaderManager manager = getLoaderManager();
 			manager.restartLoader(RingsQuery._TOKEN, getArguments(), this);
-			manager.restartLoader(UpcomingRingQuery._TOKEN, getArguments(), this);
+			manager.restartLoader(UpcomingRingQuery._TOKEN, getArguments(),
+					this);
 		}
 
 	}
 
 	@Override
-	public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+	public boolean onItemLongClick(AdapterView<?> parent, View view,
+			int position, long id) {
 		Cursor cursor = (Cursor) mAdapter.getItem(position);
 		Bundle b = new Bundle();
-		float minutes = Utils.getMaybeNull(cursor, RingsQuery.JUDGE_TIME, Prefs.getEstimatedJudgingTime(getActivity())) / 60000f;
+		float minutes = Utils.getMaybeNull(cursor, RingsQuery.JUDGE_TIME,
+				Prefs.getEstimatedJudgingTime(getActivity())) / 60000f;
 		int ringType = cursor.getInt(RingsQuery.RING_TYPE);
 		long dogId = Utils.getMaybeNull(cursor, RingsQuery._ID, -1);
 		b.putLong(EditJudgeTimeDialog.BUNDLE_KEY_ID, dogId);
@@ -379,20 +463,31 @@ public class MyScheduleFragment extends Fragment implements LoaderManager.Loader
 	}
 
 	@Override
-	public void onFinishEditDialog(int status, long id, int ringType, float minutes) {
+	public void onFinishEditDialog(int status, long id, int ringType,
+			float minutes) {
 		if (status == EditJudgeTimeDialog.STATUS_SAVE) {
 			Map<String, Object> map = new HashMap<String, Object>();
 			Log.d(TAG, "Setting minutes to " + minutes);
 			long value = (long) (minutes * 60000);
-			map.put(EnteredRings.RING_JUDGE_TIME, (value != Prefs.getEstimatedJudgingTime(getActivity())) ? value : null);// if set to default, it's no longer "customized"
+			map.put(EnteredRings.RING_JUDGE_TIME, (value != Prefs
+					.getEstimatedJudgingTime(getActivity())) ? value : null);// if
+																				// set
+																				// to
+																				// default,
+																				// it's
+																				// no
+																				// longer
+																				// "customized"
 			switch (ringType) {
 			case EnteredRings.TYPE_BREED_RING:
 				Log.v(TAG, "updating judge time for breed ring");
-				new PersistHelper(getActivity()).updateEntity(BreedRings.CONTENT_URI, id, map);
+				new PersistHelper(getActivity()).updateEntity(
+						BreedRings.CONTENT_URI, id, map);
 				break;
 			case EnteredRings.TYPE_JUNIORS_RING:
 				Log.v(TAG, "updating judge time for juniors ring");
-				new PersistHelper(getActivity()).updateEntity(JuniorsRings.CONTENT_URI, id, map);
+				new PersistHelper(getActivity()).updateEntity(
+						JuniorsRings.CONTENT_URI, id, map);
 				break;
 			}
 		}

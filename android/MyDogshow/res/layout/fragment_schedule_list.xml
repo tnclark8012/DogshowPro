@@ -47,7 +47,8 @@
             android:layout_marginLeft="@dimen/element_spacing_normal"
             android:layout_marginTop="@dimen/element_spacing_normal"
             android:layout_toRightOf="@+id/schedule_breed_image"
-            android:text="Next up:"
+            android:text=""
+            android:visibility="gone"
             android:textColor="@color/header_title"
             android:textSize="@dimen/text_large"
             ttv:typeface="Roboto-Medium.ttf" />

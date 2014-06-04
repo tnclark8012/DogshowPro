@@ -13,6 +13,7 @@ import dev.tnclark8012.apps.android.dogshow.model.Show;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sync.request.ConformationRingsRequest;
+import dev.tnclark8012.apps.android.dogshow.sync.request.GroupRingsRequest;
 import dev.tnclark8012.apps.android.dogshow.sync.request.JuniorsRingsRequest;
 
 public class SyncHelper {
@@ -60,8 +61,11 @@ public class SyncHelper {
 				mContext);
 		JuniorsRingsRequest juniorsRingsRequest = new JuniorsRingsRequest(
 				mContext);
+		GroupRingsRequest groupRingsRequest = new GroupRingsRequest(
+				mContext);
 		confRingsRequest.execute(show.showId);
 		juniorsRingsRequest.execute(show.showId);
+		groupRingsRequest.execute(show.showId);
 		// TODO callbacks for completion?
 	}
 

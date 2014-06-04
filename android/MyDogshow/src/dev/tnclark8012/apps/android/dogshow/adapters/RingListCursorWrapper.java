@@ -71,7 +71,7 @@ public class RingListCursorWrapper extends CursorWrapper {
 		int currentColumn;
 		int[] breedCount;
 		long estMillis;
-		String countString = null;
+		String countString = "";
 		while (cursor.moveToNext()) {
 			countAhead = cursor.getInt(options.countAheadColumnIndex);
 			type = cursor.getInt(options.ringTypeColumnIndex);

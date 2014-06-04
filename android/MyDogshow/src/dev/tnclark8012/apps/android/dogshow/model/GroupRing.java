@@ -1,0 +1,12 @@
+package dev.tnclark8012.apps.android.dogshow.model;
+
+
+public class GroupRing{
+	public String showId;
+	public long dateMillis;
+	public String judge;
+	public int ringNumber;
+	public long blockStartMillis;
+	public String title;
+	public String groupName;
+}

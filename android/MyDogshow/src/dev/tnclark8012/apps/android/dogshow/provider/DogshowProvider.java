@@ -36,6 +36,7 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.EnteredRings;
+import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.GroupRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.JuniorsRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
@@ -67,8 +68,8 @@ public class DogshowProvider extends ContentProvider {
 	private static final int JUNIORS_RINGS = 400;
 
 	private static final int ALL_RINGS_ENTERED = 500;
-
 	private static final int SHOW_TEAMS = 600;
+	private static final int GROUP_RINGS = 700;
 
 	/**
 	 * Build and return a {@link UriMatcher} that catches all {@link Uri}
@@ -82,6 +83,7 @@ public class DogshowProvider extends ContentProvider {
 		matcher.addURI(authority, "dogs/entered", DOGS_ENTERED);
 		matcher.addURI(authority, "dogs/*", DOGS_ID);
 		matcher.addURI(authority, "rings/breed", BREED_RINGS);
+		matcher.addURI(authority, "rings/group", GROUP_RINGS);
 		matcher.addURI(authority, "rings/breed/with_dogs",
 				BREED_RINGS_WITH_DOGS);
 		matcher.addURI(authority, "rings/breed/with_dogs/entered",
@@ -122,6 +124,8 @@ public class DogshowProvider extends ContentProvider {
 			return Dogs.CONTENT_ITEM_TYPE;
 		case BREED_RINGS:
 			return BreedRings.CONTENT_TYPE;
+		case GROUP_RINGS:
+			return GroupRings.CONTENT_TYPE;
 		case HANDLERS:
 			return Handlers.CONTENT_TYPE;
 		case HANDLERS_ID:
@@ -151,8 +155,6 @@ public class DogshowProvider extends ContentProvider {
 		case BREED_RINGS_WITH_DOGS_ENTERED: {
 			final SelectionBuilder exBuilder = buildExpandedSelection(uri,
 					BREED_RINGS_WITH_DOGS_ENTERED);
-			Log.d(TAG, "Sort order is " + sortOrder);
-
 			return exBuilder.where(selection, selectionArgs).query(db,
 					projection, null, null, sortOrder, null);
 		}
@@ -199,6 +201,12 @@ public class DogshowProvider extends ContentProvider {
 			getContext().getContentResolver().notifyChange(uri, null,
 					syncToNetwork);
 			return BreedRings.buildRingUri(values.getAsString(BreedRings._ID));
+		}
+		case GROUP_RINGS: {
+			db.insertOrThrow(Tables.GROUP_RINGS, null, values);
+			getContext().getContentResolver().notifyChange(uri, null,
+					syncToNetwork);
+			return GroupRings.buildRingUri(values.getAsString(GroupRings._ID));
 		}
 		case HANDLERS: {
 			db.insertOrThrow(Tables.HANDLERS, null, values);
@@ -299,6 +307,9 @@ public class DogshowProvider extends ContentProvider {
 		case BREED_RINGS: {
 			return builder.table(Tables.BREED_RINGS);
 		}
+		case GROUP_RINGS: {
+			return builder.table(Tables.GROUP_RINGS);
+		}
 		case DOGS: {
 			return builder.table(Tables.DOGS);
 		}
@@ -367,6 +378,8 @@ public class DogshowProvider extends ContentProvider {
 				+ Dogs.DOG_CALL_NAME;
 		public static final String JUNIORS_RINGS_ID = Tables.JUNIORS_RINGS
 				+ "." + JuniorsRings._ID;
+		public static final String GROUP_RINGS_ID = Tables.GROUP_RINGS
+				+ "." + GroupRings._ID;
 		public static final String BREED_RINGS_ID = Tables.BREED_RINGS + "."
 				+ BreedRings._ID;
 		public static final String BREED_RINGS_IS_VETERAN = Tables.BREED_RINGS
@@ -379,8 +392,7 @@ public class DogshowProvider extends ContentProvider {
 		public static final String BREED_RING_OVERVIEW = "SELECT "
 				+ Qualified.BREED_RINGS_ID
 				+ ", "
-				+ EnteredRings.TYPE_BREED_RING
-				+ " as ring_type, "
+				+ "CAST(" +EnteredRings.TYPE_BREED_RING +" as INTEGER )"+ " as ring_type, "
 				+ // TODO TYPE_BREED_RING to BreedRings.TYPE etc. with juniors
 				BreedRings.RING_NUMBER + ", " + BreedRings.RING_TITLE + " as "
 				+ EnteredRings.ENTERED_RINGS_TITLE + ","
@@ -404,7 +416,7 @@ public class DogshowProvider extends ContentProvider {
 				+ Tables.ENTERED_BREED_RINGS_JOIN_DOGS + " )";
 		public static final String JUNIOR_RING_OVERVIEW = "SELECT "
 				+ Qualified.JUNIORS_RINGS_ID + ", "
-				+ EnteredRings.TYPE_JUNIORS_RING + " as "
+				+ "CAST(" +EnteredRings.TYPE_JUNIORS_RING +" as INTEGER )" + " as "
 				+ EnteredRings.ENTERED_RINGS_TYPE + ", "
 				+ JuniorsRings.RING_NUMBER + ", " + 
 				JuniorsRings.RING_TITLE + " || IFNULL(" + JuniorsRings.RING_JUNIOR_BREED + ", '')" + "," 
@@ -420,6 +432,23 @@ public class DogshowProvider extends ContentProvider {
 				"NULL" + "," + // s. dog
 				"NULL" + // s. bitch
 				" FROM " + Tables.ENTERED_JUNIORS_RINGS;
+		public static final String GROUP_RING_OVERVIEW = "SELECT "
+				+ Qualified.GROUP_RINGS_ID + ", "
+				+ "CAST(" +EnteredRings.TYPE_GROUP_RING+" as INTEGER )" + " as "+ EnteredRings.ENTERED_RINGS_TYPE + ", "
+				+ GroupRings.RING_NUMBER + ", " 
+				+ GroupRings.RING_GROUP + "," 
+				+ GroupRings.RING_JUDGE + ","
+				+ GroupRings.RING_BLOCK_START + ", "
+				+ "0, "
+				+ "0,"
+				+ GroupRings.RING_JUDGE_TIME + ", " + "NULL" + "," + // image
+																		// path
+				"NULL" + "," + // first class
+				"NULL" + "," + // dog
+				"NULL" + "," + // bitch
+				"NULL" + "," + // s. dog
+				"NULL" + // s. bitch
+				" FROM " + Tables.GROUP_RINGS;
 		public static final String ENTERED_JUNIOR_HANDLERS = "(SELECT *,group_concat("
 				+ Handlers.HANDLER_NAME
 				+ ", \", \" ) as "
