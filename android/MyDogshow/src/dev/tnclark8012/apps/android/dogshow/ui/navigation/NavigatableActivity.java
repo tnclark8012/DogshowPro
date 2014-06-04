@@ -25,6 +25,7 @@ public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 		implements NavigationDrawerCallbacks {
 	private static final String TAG = NavigatableActivity.class.getSimpleName();
 	public static final String EXTRA_SELECTED_NAVIGATION = "selected_navigation";
+	public static final String EXTRA_FROM_LAUNCH = "from_launch";
 	private NavigationDrawerFragment mNavigationDrawerFragment;
 
 	@Override
@@ -35,7 +36,9 @@ public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager()
 				.findFragmentById(R.id.navigation_drawer);
 		// mNavigationDrawerFragment.setArguments(getIntent().getExtras());
-		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
+		mNavigationDrawerFragment.setUp(
+				getIntent().getBooleanExtra(EXTRA_FROM_LAUNCH, false),
+				R.id.navigation_drawer,
 				(DrawerLayout) findViewById(R.id.drawer_layout));
 	}
 
@@ -72,7 +75,8 @@ public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		//If shown as "up", simulate a back button press. Otherwise, allow the drawer to open
+		// If shown as "up", simulate a back button press. Otherwise, allow the
+		// drawer to open
 		if (item.getItemId() == android.R.id.home
 				&& !mNavigationDrawerFragment.isDrawerIndicatorEnabled()) {
 			onBackPressed();
@@ -87,6 +91,7 @@ public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 	}
 
 	private Intent getIntent(int navigationPostion) {
+
 		Intent i = null;
 		switch (navigationPostion) {
 		case NavigationDrawerFragment.NAVIGATION_SHOW:
@@ -99,8 +104,13 @@ public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 			i = new Intent(this, HandlerListActivity.class);// TODO use actions?
 			break;
 		}
-		if (i != null)
+		if (i != null) {
 			i.putExtra(EXTRA_SELECTED_NAVIGATION, navigationPostion);
+			if (Intent.ACTION_MAIN.equals(getIntent().getAction())) {
+				i.putExtra(EXTRA_FROM_LAUNCH, true);
+			}
+		}
+
 		return i;
 	}
 

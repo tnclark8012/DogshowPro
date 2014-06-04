@@ -198,7 +198,7 @@ public class NavigationDrawerFragment extends Fragment implements
 	 * @param drawerLayout
 	 *            The DrawerLayout containing this fragment's UI.
 	 */
-	public void setUp(int fragmentId, DrawerLayout drawerLayout) {
+	public void setUp(boolean fromLaunch, int fragmentId, DrawerLayout drawerLayout) {
 		mFragmentContainerView = getActivity().findViewById(fragmentId);
 		mDrawerLayout = drawerLayout;
 
@@ -219,7 +219,7 @@ public class NavigationDrawerFragment extends Fragment implements
 			@Override
 			public void onDrawerClosed(View drawerView) {
 				super.onDrawerClosed(drawerView);
-				if (!isAdded()) {
+				if (!isAdded()) { 
 					return;
 				}
 				getActionBar().setTitle(oldTitle);
@@ -253,7 +253,7 @@ public class NavigationDrawerFragment extends Fragment implements
 		// If the user hasn't 'learned' about the drawer, open it to introduce
 		// them to the drawer,
 		// per the navigation drawer design guidelines.
-		if (!mUserLearnedDrawer && !mFromSavedInstanceState) {
+		if (!mUserLearnedDrawer && !mFromSavedInstanceState && fromLaunch) {
 			mDrawerLayout.openDrawer(mFragmentContainerView);
 		}
 
@@ -418,8 +418,9 @@ public class NavigationDrawerFragment extends Fragment implements
 	@Override
 	public void onResume() {
 		super.onResume();
-//		getActivity().getLoaderManager().restartLoader(
-//				Query.ShowTeamsQuery._TOKEN, null, this); TODO readd? Debugging loader manager
+		// getActivity().getLoaderManager().restartLoader(
+		// Query.ShowTeamsQuery._TOKEN, null, this); TODO readd? Debugging
+		// loader manager
 		getActivity().getContentResolver().registerContentObserver(
 				ShowTeams.CONTENT_URI, true, mObserver);
 	}
@@ -427,9 +428,8 @@ public class NavigationDrawerFragment extends Fragment implements
 	public void setDrawerIndicatorEnabled(boolean enabled) {
 		mDrawerToggle.setDrawerIndicatorEnabled(enabled);
 	}
-	
-	public boolean isDrawerIndicatorEnabled()
-	{
+
+	public boolean isDrawerIndicatorEnabled() {
 		return mDrawerToggle.isDrawerIndicatorEnabled();
 	}
 }
