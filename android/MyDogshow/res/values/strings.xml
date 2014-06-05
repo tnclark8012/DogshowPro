@@ -26,6 +26,7 @@
     <string name="description_add_account">Add a gmail account to begin!</string>
     <string name="description_choose_account">Choose an account</string>
     <string name="instructions_team_create_or_join">Do you want to join an existing team or create a new one?</string>
+    <string name="instructions_judge_time_group">Minutes to judge previous group ring</string>
     <string name="description_sign_in_main">
 <![CDATA[
         Welcome to Dog Show Pro, a companion app for Onofrio dog shows.<br>

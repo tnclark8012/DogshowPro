@@ -53,16 +53,14 @@ public class GroupRingsHandler extends JsonHandler<GroupRing> {
 									System.currentTimeMillis())
 							.withValue(GroupRings.RING_BLOCK_START,
 									ring.blockStartMillis)
-							.withValue(
-									GroupRings.RING_GROUP,
-									ring.groupName)
+							.withValue(GroupRings.RING_GROUP, ring.groupName)
 							.withValue(GroupRings.RING_DATE, ring.dateMillis)
 							.withValue(GroupRings.RING_JUDGE, ring.judge)
-							.withValue(GroupRings.RING_NUMBER,
-									ring.ringNumber)
+							.withValue(GroupRings.RING_NUMBER, ring.ringNumber)
 							.withValue(GroupRings.RING_SHOW_ID, ring.showId)
 							.withValue(GroupRings.RING_TITLE, ring.title)
-							.build());
+							.withValue(GroupRings.RING_COUNT_AHEAD,
+									ring.countAhead).build());
 				}
 			}
 		}

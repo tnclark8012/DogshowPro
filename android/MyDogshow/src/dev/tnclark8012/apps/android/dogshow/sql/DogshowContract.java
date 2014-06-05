@@ -65,7 +65,7 @@ public class DogshowContract {
 		String RING_DATE = "ring_date";
 		String RING_BLOCK_START = "ring_block_start";
 		String RING_NUMBER = "ring_number";
-		/** Custom per dog minutes TODO this should be millis or seconds */
+		/** Custom per dog millis judging timw*/
 		String RING_JUDGE_TIME = "ring_judge_time";
 		String RING_JUDGE = "ring_judge";
 		String RING_SHOW_ID = "ring_show_id";

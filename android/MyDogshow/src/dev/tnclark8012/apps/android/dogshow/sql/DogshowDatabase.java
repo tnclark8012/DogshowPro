@@ -11,6 +11,7 @@ import dev.tnclark8012.apps.android.dogshow.provider.DogshowProvider.Subquery;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.BreedRingsColumns;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.DogsColumns;
+import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.GroupRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.GroupRingsColumns;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.HandlersColumns;
@@ -34,8 +35,12 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 														// sync columns
 	private static final int VER_SYNC_UPDATE = 9;
 	private static final int VER_GROUPS = 10;// Added group rings table
+	private static final int VER_GROUP_DEFAULT_JUDGE_TIME = 11;// Added default
+																// judge time of
+																// 10 minutes
+																// per group
 
-	private static final int DATABASE_VERSION = VER_GROUPS;
+	private static final int DATABASE_VERSION = VER_GROUP_DEFAULT_JUDGE_TIME;
 
 	public interface Tables {
 		String DOGS = "dogs";
@@ -58,13 +63,15 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				+ Handlers.HANDLER_JUNIOR_CLASS + "="
 				+ JuniorsRings.RING_JUNIOR_CLASS_NAME + ")";
 		String ENTERED_BREED_RINGS_JOIN_DOGS_JOIN_ON = Qualified.BREED_RINGS_RING_BREED
-				+ "="
-				+ Dogs.ENTERED_DOGS_BREED
-				+ " AND "/*
-						 * + Qualified.BREED_RINGS_IS_SWEEPSTAKES + "=" +
-						 * Dogs.DOG_IS_SHOWING_SWEEPSTAKES + " AND " TODO
-						 * Sweepstakes should be optional
-						 */
+				+ "=" + Dogs.ENTERED_DOGS_BREED + " AND "/*
+														 * + Qualified.
+														 * BREED_RINGS_IS_SWEEPSTAKES
+														 * + "=" + Dogs.
+														 * DOG_IS_SHOWING_SWEEPSTAKES
+														 * + " AND " TODO
+														 * Sweepstakes should be
+														 * optional
+														 */
 				+ Qualified.BREED_RINGS_IS_VETERAN + "=" + Dogs.DOG_IS_VETERAN;
 		String ENTERED_BREED_RINGS_JOIN_DOGS = "(" + BREED_RINGS + " "
 				+ "JOIN " + ENTERED_DOGS_BY_BREED
@@ -197,7 +204,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				+ RingColumns.RING_COUNT_AHEAD + " INTEGER,"
 				+ RingColumns.RING_DATE + " INTEGER NOT NULL,"
 				+ RingColumns.RING_JUDGE + " TEXT NOT NULL,"
-				+ RingColumns.RING_JUDGE_TIME + " INTEGER,"
+				+ RingColumns.RING_JUDGE_TIME + " LONG DEFAULT 600000,"
 				+ RingColumns.RING_NUMBER + " INTEGER NOT NULL,"
 				+ RingColumns.RING_SHOW_ID + " TEXT NOT NULL,"
 				+ RingColumns.RING_TITLE + " TEXT,"
@@ -329,6 +336,11 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				break;
 			case VER_SYNC_UPDATE:
 				createGroupRingsTable(db);
+				version++;
+			case VER_GROUPS:
+				db.execSQL("UPDATE " + Tables.GROUP_RINGS + " SET "
+						+ GroupRings.RING_JUDGE_TIME + " = 600000");
+				// createGroupRingsTable(db);
 				version++;
 			}
 		} catch (Exception e) {

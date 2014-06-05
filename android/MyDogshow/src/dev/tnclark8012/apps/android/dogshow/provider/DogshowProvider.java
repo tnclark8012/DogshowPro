@@ -445,7 +445,7 @@ public class DogshowProvider extends ContentProvider {
 				+ GroupRings.RING_GROUP + "," 
 				+ GroupRings.RING_JUDGE + ","
 				+ GroupRings.RING_BLOCK_START + ", "
-				+ "0, "
+				+ GroupRings.RING_COUNT_AHEAD + ", " //Count Ahead
 				+ "0,"
 				+ GroupRings.RING_JUDGE_TIME + ", " + "NULL" + "," + // image
 																		// path

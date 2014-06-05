@@ -9,4 +9,5 @@ public class GroupRing{
 	public long blockStartMillis;
 	public String title;
 	public String groupName;
+	public int countAhead;
 }
