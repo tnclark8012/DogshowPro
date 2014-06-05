@@ -137,8 +137,6 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements
 		return (sex == Dogs.MALE) ? R.id.dog_edit_sex_radio_male
 				: R.id.dog_edit_sex_radio_female;
 	}
-	
-	
 
 	@Override
 	public void onClick(View v) {
@@ -172,6 +170,7 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements
 	@SuppressLint("NewApi")
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		getActivity().getActionBar().setTitle(getTitle());
 		switch (requestCode) {
 		case BreedSelectActivity.REQUEST_CODE_BREED_SELECT:
 			if (data != null
@@ -183,6 +182,7 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements
 			}
 			break;
 		case REQUEST_CODE_IMAGE:
+
 			if (resultCode != Activity.RESULT_OK) {
 				return;
 			}

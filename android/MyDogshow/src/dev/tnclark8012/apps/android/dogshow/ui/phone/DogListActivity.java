@@ -26,6 +26,11 @@ public class DogListActivity extends BaseEntityListActivity implements
 	private DogEditFragment mEditFragment;
 	private DogViewFragment mViewFragment;
 	private DogListFragment mListFragment;
+	private static final String FRAGMENT_TAG_EDIT = "edit_dog";
+	private static final String FRAGMENT_TAG_VIEW = "view_dog";
+	private static final String FRAGMENT_TAG_LIST = "single_pane";
+	private static final String[] mStackTags = new String[] {
+			FRAGMENT_TAG_EDIT, FRAGMENT_TAG_VIEW, FRAGMENT_TAG_LIST };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -59,17 +64,25 @@ public class DogListActivity extends BaseEntityListActivity implements
 	public boolean onEntityClick(Uri uri, String entityId) {
 		currentDog = Dogs.buildDogUri(entityId);
 		mViewFragment = DogViewFragment.newInstance(currentDog);
-		getFragmentManager().beginTransaction().addToBackStack("view_dog")
-				.add(R.id.root_container, mViewFragment, "view_dog").commit();
+		adding = false;
+		getFragmentManager().beginTransaction()
+				.addToBackStack(FRAGMENT_TAG_VIEW)
+				.add(R.id.root_container, mViewFragment, FRAGMENT_TAG_VIEW)
+				.commit();
 		return true;
 	}
 
+	boolean adding;
+
 	public boolean onAddEntityClick(Uri uri) {
 		currentDog = null;
+		adding = true;
 		mEditFragment = DogEditFragment.newInstance(currentDog);
 
-		getFragmentManager().beginTransaction().addToBackStack("edit_dog")
-				.add(R.id.root_container, mEditFragment, "edit_dog").commit();
+		getFragmentManager().beginTransaction()
+				.addToBackStack(FRAGMENT_TAG_EDIT)
+				.add(R.id.root_container, mEditFragment, FRAGMENT_TAG_EDIT)
+				.commit();
 		return true;
 	}
 
@@ -80,14 +93,17 @@ public class DogListActivity extends BaseEntityListActivity implements
 	@Override
 	public void onEditClick() {
 		mEditFragment = DogEditFragment.newInstance(currentDog);
-		getFragmentManager().beginTransaction().addToBackStack("edit_dog")
-				.add(R.id.root_container, mEditFragment, "edit_dog").commit();
+		getFragmentManager().beginTransaction()
+				.addToBackStack(FRAGMENT_TAG_EDIT)
+				.add(R.id.root_container, mEditFragment, FRAGMENT_TAG_EDIT)
+				.commit();
 	}
 
 	@Override
 	public final void onCancel() {
-		getFragmentManager().popBackStack("edit_dog",
+		getFragmentManager().popBackStack(FRAGMENT_TAG_EDIT,
 				FragmentManager.POP_BACK_STACK_INCLUSIVE);
+		adding = false;
 	}
 
 	public void onSave(Map<String, Object> entityMap) {
@@ -98,24 +114,25 @@ public class DogListActivity extends BaseEntityListActivity implements
 			helper.updateEntity(Dogs.CONTENT_URI, Dogs.getDogId(currentDog),
 					entityMap);
 		}
-		getFragmentManager().popBackStack("edit_dog",
+		getFragmentManager().popBackStack(FRAGMENT_TAG_EDIT,
 				FragmentManager.POP_BACK_STACK_INCLUSIVE);
+		adding = false;
 	}
 
 	@Override
 	public void onBackStackChanged() {
-		setTopMenuVisible("edit_dog", "view_dog", "single_pane");
+		String topTag = setTopMenuVisible(mStackTags);
+		String newTitle = "";
+		if (topTag.equals(FRAGMENT_TAG_LIST)) {
+			newTitle = ((DogListFragment) getFragmentManager()
+					.findFragmentByTag(topTag)).getTitle();
+		} else if (topTag.equals(FRAGMENT_TAG_VIEW)) {
+			newTitle = ((DogViewFragment) getFragmentManager()
+					.findFragmentByTag(topTag)).getTitle();
+		} else if (topTag.equals(FRAGMENT_TAG_EDIT)) {
+			newTitle = ((DogEditFragment) getFragmentManager()
+					.findFragmentByTag(topTag)).getTitle();
+		}
+		getActionBar().setTitle(newTitle);
 	}
-
-	// @Override
-	// protected String getTitleForTag(String tag) {
-	// if (tag.equals("edit_dog"))
-	// return "Edit";
-	// if (tag.equals("view_dog"))
-	// return mViewFragment.getTitle();
-	// if (tag.equals("single_pane"))
-	// return mListFragment.getTitle();
-	// return null;
-	// }
-
 }

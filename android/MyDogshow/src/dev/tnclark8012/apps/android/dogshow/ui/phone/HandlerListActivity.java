@@ -8,9 +8,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
-import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
 import dev.tnclark8012.apps.android.dogshow.ui.DogEditFragment;
+import dev.tnclark8012.apps.android.dogshow.ui.DogListFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.DogViewFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.HandlerEditFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.HandlerListFragment;
@@ -28,6 +28,11 @@ public class HandlerListActivity extends BaseEntityListActivity implements
 	private HandlerEditFragment mEditFragment;
 	private HandlerViewFragment mViewFragment;
 	private HandlerListFragment mListFragment;
+	private static final String FRAGMENT_TAG_EDIT = "handler_edit";
+	private static final String FRAGMENT_TAG_VIEW = "handler_view";
+	private static final String FRAGMENT_TAG_LIST = "single_pane";
+	private static final String[] mStackTags = new String[] {
+			FRAGMENT_TAG_EDIT, FRAGMENT_TAG_VIEW, FRAGMENT_TAG_LIST };
 	private String mTitle;
 
 	@Override
@@ -62,8 +67,9 @@ public class HandlerListActivity extends BaseEntityListActivity implements
 	public boolean onEntityClick(Uri uri, String entityId) {
 		currentHandler = getEntityUri(entityId);
 		mViewFragment = HandlerViewFragment.newInstance(currentHandler);
-		getFragmentManager().beginTransaction().addToBackStack("view_handler")
-				.add(R.id.root_container, mViewFragment, "view_handler")
+		getFragmentManager().beginTransaction()
+				.addToBackStack(FRAGMENT_TAG_VIEW)
+				.add(R.id.root_container, mViewFragment, FRAGMENT_TAG_VIEW)
 				.commit();
 		return true;
 	}
@@ -72,8 +78,9 @@ public class HandlerListActivity extends BaseEntityListActivity implements
 		currentHandler = null;
 		mEditFragment = HandlerEditFragment.newInstance(currentHandler);
 
-		getFragmentManager().beginTransaction().addToBackStack("edit_handler")
-				.add(R.id.root_container, mEditFragment, "edit_handler")
+		getFragmentManager().beginTransaction()
+				.addToBackStack(FRAGMENT_TAG_EDIT)
+				.add(R.id.root_container, mEditFragment, FRAGMENT_TAG_EDIT)
 				.commit();
 		return true;
 	}
@@ -85,14 +92,15 @@ public class HandlerListActivity extends BaseEntityListActivity implements
 	@Override
 	public void onEditClick() {
 		mEditFragment = HandlerEditFragment.newInstance(currentHandler);
-		getFragmentManager().beginTransaction().addToBackStack("edit_handler")
-				.add(R.id.root_container, mEditFragment, "edit_handler")
+		getFragmentManager().beginTransaction()
+				.addToBackStack(FRAGMENT_TAG_EDIT)
+				.add(R.id.root_container, mEditFragment, FRAGMENT_TAG_EDIT)
 				.commit();
 	}
 
 	@Override
 	public final void onCancel() {
-		getFragmentManager().popBackStack("edit_handler",
+		getFragmentManager().popBackStack(FRAGMENT_TAG_EDIT,
 				FragmentManager.POP_BACK_STACK_INCLUSIVE);
 	}
 
@@ -104,23 +112,35 @@ public class HandlerListActivity extends BaseEntityListActivity implements
 			helper.updateEntity(Handlers.CONTENT_URI,
 					Handlers.getHandlerId(currentHandler), entityMap);
 		}
-		getFragmentManager().popBackStack("edit_handler",
+		getFragmentManager().popBackStack(FRAGMENT_TAG_EDIT,
 				FragmentManager.POP_BACK_STACK_INCLUSIVE);
 	}
 
 	@Override
 	public void onBackStackChanged() {
-		setTopMenuVisible("edit_handler", "view_handler", "single_pane");
-	};
-	// @Override
-	// protected String getTitleForTag(String tag) {
-	// if (tag.equals("edit_handler"))
-	// return "Edit";
-	// if (tag.equals("view_handler"))
-	// return mViewFragment.getTitle();
-	// if (tag.equals("single_pane"))
-	// return mListFragment.getTitle();
-	// return null;
-	// }
+		String topTag = setTopMenuVisible(mStackTags);
+		String newTitle = "";
+		if (topTag.equals(FRAGMENT_TAG_LIST)) {
+			newTitle = ((HandlerListFragment) getFragmentManager()
+					.findFragmentByTag(topTag)).getTitle();
+		} else if (topTag.equals(FRAGMENT_TAG_VIEW)) {
+			newTitle = ((HandlerViewFragment) getFragmentManager()
+					.findFragmentByTag(topTag)).getTitle();
+		} else if (topTag.equals(FRAGMENT_TAG_EDIT)) {
+			newTitle = ((HandlerEditFragment) getFragmentManager()
+					.findFragmentByTag(topTag)).getTitle();
+		}
+		getActionBar().setTitle(newTitle);
+	}
+
+	protected String getTitleForTag(String tag) {
+		if (tag.equals(FRAGMENT_TAG_EDIT))
+			return "Edit";
+		if (tag.equals(FRAGMENT_TAG_VIEW))
+			return mViewFragment.getTitle();
+		if (tag.equals(FRAGMENT_TAG_LIST))
+			return mListFragment.getTitle();
+		return null;
+	}
 
 }

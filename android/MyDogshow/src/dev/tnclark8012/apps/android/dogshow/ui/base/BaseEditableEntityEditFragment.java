@@ -42,6 +42,7 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 		return mCreateNewEntity;
 	}
 
+	
 	public abstract String getTitle();
 
 	protected abstract int getEntityIdFromUri(Uri uri);
@@ -149,7 +150,7 @@ public abstract class BaseEditableEntityEditFragment extends Fragment implements
 	@Override
 	public void onResume() {
 		super.onResume();
-		getActivity().setTitle(getTitle());
+		getActivity().getActionBar().setTitle(getTitle());
 	}
 
 	@Override

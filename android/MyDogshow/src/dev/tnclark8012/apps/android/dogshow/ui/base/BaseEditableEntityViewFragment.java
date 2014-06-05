@@ -34,7 +34,9 @@ public abstract class BaseEditableEntityViewFragment extends Fragment implements
 	};
 
 	protected abstract int getQueryToken();
+
 	public abstract String getTitle();
+
 	/**
 	 * TODO This method and {@link #getQueryToken()} match
 	 * {@link BaseEntityListFragment#getCursorLoader(Activity, Uri)} etc. Super
@@ -87,8 +89,9 @@ public abstract class BaseEditableEntityViewFragment extends Fragment implements
 	@Override
 	public void onResume() {
 		super.onResume();
-		getActivity().setTitle(getTitle());
+		getActivity().getActionBar().setTitle(getTitle());
 	}
+
 	@Override
 	public final void onLoaderReset(Loader<Cursor> arg0) {
 	}
@@ -141,6 +144,7 @@ public abstract class BaseEditableEntityViewFragment extends Fragment implements
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
 	@Override
 	public void onStart() {
 		// TODO Auto-generated method stub

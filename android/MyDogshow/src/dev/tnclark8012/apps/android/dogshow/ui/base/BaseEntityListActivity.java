@@ -31,7 +31,7 @@ public abstract class BaseEntityListActivity extends NavigatableActivity
 
 	// protected abstract String getTitleForTag(String tag);
 
-	protected void setTopMenuVisible(String... tags) {
+	protected String setTopMenuVisible(String[] tags) {
 		FragmentManager manager = getFragmentManager();
 		Fragment f = null;
 		String tag;
@@ -43,12 +43,12 @@ public abstract class BaseEntityListActivity extends NavigatableActivity
 				f.setMenuVisibility(visible);
 				if (visible) {
 					top = i;
-					// getActionBar().setTitle(getTitleForTag(tag));
 				}
 				visible = false;
 			}
 		}
 		setDrawerIndicatorEnabled(top == tags.length - 1);
+		return tags[top];
 	}
 
 	@Override
