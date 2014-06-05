@@ -200,15 +200,11 @@ public class DogshowProvider extends ContentProvider {
 			db.insertOrThrow(Tables.BREED_RINGS, null, values);
 			getContext().getContentResolver().notifyChange(uri, null,
 					syncToNetwork);
-			getContext().getContentResolver().notifyChange(EnteredRings.CONTENT_URI, null,
-					syncToNetwork);
 			return BreedRings.buildRingUri(values.getAsString(BreedRings._ID));
 		}
 		case GROUP_RINGS: {
 			db.insertOrThrow(Tables.GROUP_RINGS, null, values);
 			getContext().getContentResolver().notifyChange(uri, null,
-					syncToNetwork);
-			getContext().getContentResolver().notifyChange(EnteredRings.CONTENT_URI, null,
 					syncToNetwork);
 			return GroupRings.buildRingUri(values.getAsString(GroupRings._ID));
 		}
@@ -221,8 +217,6 @@ public class DogshowProvider extends ContentProvider {
 		case JUNIORS_RINGS: {
 			db.insertOrThrow(Tables.JUNIORS_RINGS, null, values);
 			getContext().getContentResolver().notifyChange(uri, null,
-					syncToNetwork);
-			getContext().getContentResolver().notifyChange(EnteredRings.CONTENT_URI, null,
 					syncToNetwork);
 			return JuniorsRings.buildRingUri(values
 					.getAsString(JuniorsRings._ID));
@@ -384,8 +378,8 @@ public class DogshowProvider extends ContentProvider {
 				+ Dogs.DOG_CALL_NAME;
 		public static final String JUNIORS_RINGS_ID = Tables.JUNIORS_RINGS
 				+ "." + JuniorsRings._ID;
-		public static final String GROUP_RINGS_ID = Tables.GROUP_RINGS
-				+ "." + GroupRings._ID;
+		public static final String GROUP_RINGS_ID = Tables.GROUP_RINGS + "."
+				+ GroupRings._ID;
 		public static final String BREED_RINGS_ID = Tables.BREED_RINGS + "."
 				+ BreedRings._ID;
 		public static final String BREED_RINGS_IS_VETERAN = Tables.BREED_RINGS
@@ -398,7 +392,10 @@ public class DogshowProvider extends ContentProvider {
 		public static final String BREED_RING_OVERVIEW = "SELECT "
 				+ Qualified.BREED_RINGS_ID
 				+ ", "
-				+ "CAST(" +EnteredRings.TYPE_BREED_RING +" as INTEGER )"+ " as ring_type, "
+				+ "CAST("
+				+ EnteredRings.TYPE_BREED_RING
+				+ " as INTEGER )"
+				+ " as ring_type, "
 				+ // TODO TYPE_BREED_RING to BreedRings.TYPE etc. with juniors
 				BreedRings.RING_NUMBER + ", " + BreedRings.RING_TITLE + " as "
 				+ EnteredRings.ENTERED_RINGS_TITLE + ","
@@ -421,12 +418,12 @@ public class DogshowProvider extends ContentProvider {
 				+ EnteredRings.ENTERED_RINGS_SPECIAL_BITCH_COUNT + " FROM ( "
 				+ Tables.ENTERED_BREED_RINGS_JOIN_DOGS + " )";
 		public static final String JUNIOR_RING_OVERVIEW = "SELECT "
-				+ Qualified.JUNIORS_RINGS_ID + ", "
-				+ "CAST(" +EnteredRings.TYPE_JUNIORS_RING +" as INTEGER )" + " as "
+				+ Qualified.JUNIORS_RINGS_ID + ", " + "CAST("
+				+ EnteredRings.TYPE_JUNIORS_RING + " as INTEGER )" + " as "
 				+ EnteredRings.ENTERED_RINGS_TYPE + ", "
-				+ JuniorsRings.RING_NUMBER + ", " + 
-				JuniorsRings.RING_TITLE + " || IFNULL(" + JuniorsRings.RING_JUNIOR_BREED + ", '')" + "," 
-				+ Handlers.ENTERED_JUNIOR_HANDLER_NAMES + ", "
+				+ JuniorsRings.RING_NUMBER + ", " + JuniorsRings.RING_TITLE
+				+ " || IFNULL(" + JuniorsRings.RING_JUNIOR_BREED + ", '')"
+				+ "," + Handlers.ENTERED_JUNIOR_HANDLER_NAMES + ", "
 				+ JuniorsRings.RING_BLOCK_START + ", "
 				+ JuniorsRings.RING_COUNT_AHEAD + ", "
 				+ JuniorsRings.RING_JUNIOR_COUNT + ","
@@ -439,16 +436,14 @@ public class DogshowProvider extends ContentProvider {
 				"NULL" + // s. bitch
 				" FROM " + Tables.ENTERED_JUNIORS_RINGS;
 		public static final String GROUP_RING_OVERVIEW = "SELECT "
-				+ Qualified.GROUP_RINGS_ID + ", "
-				+ "CAST(" +EnteredRings.TYPE_GROUP_RING+" as INTEGER )" + " as "+ EnteredRings.ENTERED_RINGS_TYPE + ", "
-				+ GroupRings.RING_NUMBER + ", " 
-				+ GroupRings.RING_GROUP + "," 
-				+ GroupRings.RING_JUDGE + ","
-				+ GroupRings.RING_BLOCK_START + ", "
-				+ GroupRings.RING_COUNT_AHEAD + ", " //Count Ahead
-				+ "0,"
-				+ GroupRings.RING_JUDGE_TIME + ", " + "NULL" + "," + // image
-																		// path
+				+ Qualified.GROUP_RINGS_ID + ", " + "CAST("
+				+ EnteredRings.TYPE_GROUP_RING + " as INTEGER )" + " as "
+				+ EnteredRings.ENTERED_RINGS_TYPE + ", "
+				+ GroupRings.RING_NUMBER + ", " + GroupRings.RING_GROUP + ","
+				+ GroupRings.RING_JUDGE + "," + GroupRings.RING_BLOCK_START
+				+ ", " + GroupRings.RING_COUNT_AHEAD + ", " // Count Ahead
+				+ "0," + GroupRings.RING_JUDGE_TIME + ", " + "NULL" + "," + // image
+																			// path
 				"NULL" + "," + // first class
 				"NULL" + "," + // dog
 				"NULL" + "," + // bitch

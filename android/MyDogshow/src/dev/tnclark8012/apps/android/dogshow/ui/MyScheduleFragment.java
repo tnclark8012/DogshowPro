@@ -19,8 +19,6 @@ import android.database.Cursor;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.util.SparseBooleanArray;
@@ -47,6 +45,7 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.EnteredRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.GroupRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.JuniorsRings;
+import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Rings;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.RingsQuery;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.UpcomingRingQuery;
 import dev.tnclark8012.apps.android.dogshow.ui.dialog.EditJudgeTimeDialog;
@@ -132,7 +131,7 @@ public class MyScheduleFragment extends Fragment implements
 		super.onAttach(activity);
 		Prefs.get(getActivity()).registerOnSharedPreferenceChangeListener(this);
 		activity.getContentResolver().registerContentObserver(
-				EnteredRings.CONTENT_URI, true, mObserver);
+				Rings.CONTENT_URI, true, mObserver);
 	}
 
 	@Override
@@ -487,6 +486,11 @@ public class MyScheduleFragment extends Fragment implements
 				Log.v(TAG, "updating judge time for juniors ring");
 				new PersistHelper(getActivity()).updateEntity(
 						JuniorsRings.CONTENT_URI, id, map);
+				break;
+			case EnteredRings.TYPE_GROUP_RING:
+				Log.v(TAG, "updating judge time for group ring");
+				new PersistHelper(getActivity()).updateEntity(
+						GroupRings.CONTENT_URI, id, map);
 				break;
 			}
 		}

@@ -65,7 +65,7 @@ public class DogshowContract {
 		String RING_DATE = "ring_date";
 		String RING_BLOCK_START = "ring_block_start";
 		String RING_NUMBER = "ring_number";
-		/** Custom per dog millis judging timw*/
+		/** Custom per dog millis judging timw */
 		String RING_JUDGE_TIME = "ring_judge_time";
 		String RING_JUDGE = "ring_judge";
 		String RING_SHOW_ID = "ring_show_id";
@@ -276,6 +276,11 @@ public class DogshowContract {
 		}
 	}
 
+	public static class Rings {
+		public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon()
+				.appendPath(PATH_RINGS).build();
+	}
+
 	public static class EnteredRings implements BaseColumns,
 			EnteredRingsColumns, RingColumns {// Constructed table
 		public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon()
@@ -284,8 +289,13 @@ public class DogshowContract {
 		public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.dogshow.ring";
 		public static final String DEFAULT_SORT = RING_BLOCK_START + " ASC";
 		public static final String UPCOMING_SELECTION = RING_BLOCK_START
-				+ " > ? AND " + EnteredRings.ENTERED_RINGS_TYPE + " < ? ";// TODO AND " + EnteredRings.RING_BLOCK_START + " < ?";
-		public static final String NO_GROUP_RINGS_SELECTION = EnteredRings.ENTERED_RINGS_TYPE + " < " + EnteredRings.TYPE_CAP;
+				+ " > ? AND " + EnteredRings.ENTERED_RINGS_TYPE + " < ? ";// TODO
+																			// AND
+																			// " + EnteredRings.RING_BLOCK_START + "
+																			// <
+																			// ?";
+		public static final String NO_GROUP_RINGS_SELECTION = EnteredRings.ENTERED_RINGS_TYPE
+				+ " < " + EnteredRings.TYPE_CAP;
 
 		public static String[] buildUpcomingSelectionArgs(long currTime,
 				boolean showGroups) {
