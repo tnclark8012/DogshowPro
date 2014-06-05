@@ -42,7 +42,9 @@ public class ImageChooserActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
-		super.onCreate(savedInstanceState); // To change body of overridden methods use File | Settings | File Templates.
+		super.onCreate(savedInstanceState); // To change body of overridden
+											// methods use File | Settings |
+											// File Templates.
 		// setContentView(R.layout.main);
 		String action = getIntent().getAction();
 		if (action.equals(ACTION_CHOOSE)) {
@@ -50,7 +52,8 @@ public class ImageChooserActivity extends Activity {
 		} else if (action.equals(ACTION_CAPTURE)) {
 			takePicture();
 		} else {
-			Log.w(TAG, "Unknown intent action: " + action + ". Expecting " + ACTION_CHOOSE + " or " + ACTION_CAPTURE);
+			Log.w(TAG, "Unknown intent action: " + action + ". Expecting "
+					+ ACTION_CHOOSE + " or " + ACTION_CAPTURE);
 			finish();
 		}
 
@@ -58,7 +61,8 @@ public class ImageChooserActivity extends Activity {
 
 		String state = Environment.getExternalStorageState();
 		if (Environment.MEDIA_MOUNTED.equals(state)) {
-			mFileTemp = new File(Environment.getExternalStorageDirectory(), TEMP_PHOTO_FILE_NAME);
+			mFileTemp = new File(Environment.getExternalStorageDirectory(),
+					TEMP_PHOTO_FILE_NAME);
 		} else {
 			mFileTemp = new File(getFilesDir(), TEMP_PHOTO_FILE_NAME);
 		}
@@ -82,11 +86,14 @@ public class ImageChooserActivity extends Activity {
 				mImageCaptureUri = Uri.fromFile(mFileTemp);
 			} else {
 				/*
-				 * The solution is taken from here: http://stackoverflow.com/questions/10042695/how-to-get-camera-result-as-a-uri-in-data-folder
+				 * The solution is taken from here:
+				 * http://stackoverflow.com/questions
+				 * /10042695/how-to-get-camera-result-as-a-uri-in-data-folder
 				 */
 				mImageCaptureUri = DogshowContract.BASE_CONTENT_URI;
 			}
-			intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, mImageCaptureUri);
+			intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT,
+					mImageCaptureUri);
 			intent.putExtra("return-data", true);
 			startActivityForResult(intent, REQUEST_CODE_TAKE_PICTURE);
 		} catch (ActivityNotFoundException e) {
@@ -122,6 +129,11 @@ public class ImageChooserActivity extends Activity {
 
 		if (resultCode != RESULT_OK) {
 
+			if (requestCode == REQUEST_CODE_CROP_IMAGE) {
+				openGallery();
+			} else {
+				finish();
+			}
 			return;
 		}
 
@@ -133,8 +145,10 @@ public class ImageChooserActivity extends Activity {
 
 			try {
 				//
-				// InputStream inputStream = getContentResolver().openInputStream(data.getData());
-				// FileOutputStream fileOutputStream = new FileOutputStream(mFileTemp);
+				// InputStream inputStream =
+				// getContentResolver().openInputStream(data.getData());
+				// FileOutputStream fileOutputStream = new
+				// FileOutputStream(mFileTemp);
 				// copyStream(inputStream, fileOutputStream);
 				// fileOutputStream.close();
 				// inputStream.close();
@@ -151,7 +165,8 @@ public class ImageChooserActivity extends Activity {
 			// startCropImage();
 			break;
 		case REQUEST_CODE_CROP_IMAGE:
-			bitmap = data.<Bitmap> getParcelableExtra(CropImage.RETURN_DATA_AS_BITMAP);
+			bitmap = data
+					.<Bitmap> getParcelableExtra(CropImage.RETURN_DATA_AS_BITMAP);
 			Uri uri = Utils.storeImage(this, bitmap);
 			Intent intent = new Intent();
 			intent.setData(uri);
@@ -162,7 +177,8 @@ public class ImageChooserActivity extends Activity {
 		super.onActivityResult(requestCode, resultCode, data);
 	}
 
-	public static void copyStream(InputStream input, OutputStream output) throws IOException {
+	public static void copyStream(InputStream input, OutputStream output)
+			throws IOException {
 
 		byte[] buffer = new byte[1024];
 		int bytesRead;
