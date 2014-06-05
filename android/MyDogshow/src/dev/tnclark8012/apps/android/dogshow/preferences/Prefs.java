@@ -38,11 +38,10 @@ public final class Prefs {
 	public static boolean useLocalServer(Context context) {
 		return get(context).getBoolean(KEY_LOCAL_SERVER, false);
 	}
-	
+
 	public static boolean showGroupRings(Context context) {
 		return get(context).getBoolean(KEY_SHOW_GROUPS, true);
 	}
-	
 
 	/**
 	 * Estimated judging time per dog
