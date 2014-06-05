@@ -1467,6 +1467,7 @@ dev.tnclark8012.apps.android.dogshow.R$string: int hint_password
 dev.tnclark8012.apps.android.dogshow.R$string: int hint_password_confirm
 dev.tnclark8012.apps.android.dogshow.R$string: int hint_team_name
 dev.tnclark8012.apps.android.dogshow.R$string: int img_description_handler
+dev.tnclark8012.apps.android.dogshow.R$string: int instructions_judge_time_group
 dev.tnclark8012.apps.android.dogshow.R$string: int instructions_team_create_or_join
 dev.tnclark8012.apps.android.dogshow.R$string: int location_client_powered_by_google
 dev.tnclark8012.apps.android.dogshow.R$string: int menu_delete
@@ -1602,6 +1603,7 @@ dev.tnclark8012.apps.android.dogshow.model.GroupRing: int ringNumber
 dev.tnclark8012.apps.android.dogshow.model.GroupRing: long blockStartMillis
 dev.tnclark8012.apps.android.dogshow.model.GroupRing: java.lang.String title
 dev.tnclark8012.apps.android.dogshow.model.GroupRing: java.lang.String groupName
+dev.tnclark8012.apps.android.dogshow.model.GroupRing: int countAhead
 dev.tnclark8012.apps.android.dogshow.model.GroupRing: GroupRing()
 dev.tnclark8012.apps.android.dogshow.model.Handler: java.lang.String identifier
 dev.tnclark8012.apps.android.dogshow.model.Handler: int isShowing

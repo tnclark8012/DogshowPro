@@ -8338,19 +8338,19 @@ dev.tnclark8012.apps.android.dogshow.adapters.RingListCursorWrapper -> dev.tncla
     int size -> c
     dev.tnclark8012.apps.android.dogshow.adapters.RingListCursorWrapper$Pair[] pairs -> d
     android.database.Cursor mCursor -> e
-    37:37:long getEstimatedStart() -> a
-    41:41:java.lang.String getBreedCount() -> b
-    119:129:boolean move(int) -> move
-    135:138:boolean moveToFirst() -> moveToFirst
-    143:146:boolean moveToLast() -> moveToLast
-    151:153:boolean moveToNext() -> moveToNext
-    158:161:boolean moveToPosition(int) -> moveToPosition
-    166:168:boolean moveToPrevious() -> moveToPrevious
+    36:36:long getEstimatedStart() -> a
+    40:40:java.lang.String getBreedCount() -> b
+    118:128:boolean move(int) -> move
+    134:137:boolean moveToFirst() -> moveToFirst
+    142:145:boolean moveToLast() -> moveToLast
+    150:152:boolean moveToNext() -> moveToNext
+    157:160:boolean moveToPosition(int) -> moveToPosition
+    165:167:boolean moveToPrevious() -> moveToPrevious
 dev.tnclark8012.apps.android.dogshow.adapters.RingListCursorWrapper$Pair -> dev.tnclark8012.apps.android.dogshow.a.h:
     java.lang.Long amount -> a
     int originalIndex -> b
     java.lang.String breedCount -> c
-    32:32:int compareTo(dev.tnclark8012.apps.android.dogshow.adapters.RingListCursorWrapper$Pair) -> a
+    31:31:int compareTo(dev.tnclark8012.apps.android.dogshow.adapters.RingListCursorWrapper$Pair) -> a
     1:1:int compareTo(java.lang.Object) -> compareTo
 dev.tnclark8012.apps.android.dogshow.adapters.RingListCursorWrapper$RingListCursorWrapperOptions -> dev.tnclark8012.apps.android.dogshow.a.i:
     int countAheadColumnIndex -> a
@@ -8366,9 +8366,9 @@ dev.tnclark8012.apps.android.dogshow.adapters.RingListCursorWrapper$RingListCurs
     int ringCountColumnIndex -> k
 dev.tnclark8012.apps.android.dogshow.adapters.ShowTeamDialogListAdapter -> dev.tnclark8012.apps.android.dogshow.a.j:
     java.util.ArrayList mTeamIdentifiers -> a
-    23:23:java.lang.String getIdentifierForPosition(int) -> a
-    27:28:void changeCursor(android.database.Cursor) -> a
-    31:46:void setTeams(android.database.Cursor) -> b
+    21:21:java.lang.String getIdentifierForPosition(int) -> a
+    25:26:void changeCursor(android.database.Cursor) -> a
+    29:44:void setTeams(android.database.Cursor) -> b
 dev.tnclark8012.apps.android.dogshow.adapters.SimpleCursorAdapter -> dev.tnclark8012.apps.android.dogshow.a.k:
     int mTextColumnIndex -> a
     int mTextViewResourceId -> b
@@ -8421,6 +8421,7 @@ dev.tnclark8012.apps.android.dogshow.model.GroupRing -> dev.tnclark8012.apps.and
     long blockStartMillis -> blockStartMillis
     java.lang.String title -> title
     java.lang.String groupName -> groupName
+    int countAhead -> countAhead
 dev.tnclark8012.apps.android.dogshow.model.Handler -> dev.tnclark8012.apps.android.dogshow.b.e:
     java.lang.String identifier -> identifier
     int isShowing -> isShowing
@@ -8458,9 +8459,9 @@ dev.tnclark8012.apps.android.dogshow.preferences.Prefs -> dev.tnclark8012.apps.a
     35:35:boolean isSyncEnabled(android.content.Context) -> b
     39:39:boolean useLocalServer(android.content.Context) -> c
     43:43:boolean showGroupRings(android.content.Context) -> d
-    54:56:long getEstimatedJudgingTime(android.content.Context) -> e
-    68:72:boolean setCurrentTeamIdentifier(android.content.Context,java.lang.String) -> a
-    76:76:java.lang.String getCurrentTeamIdentifier(android.content.Context) -> f
+    53:55:long getEstimatedJudgingTime(android.content.Context) -> e
+    67:71:boolean setCurrentTeamIdentifier(android.content.Context,java.lang.String) -> a
+    75:75:java.lang.String getCurrentTeamIdentifier(android.content.Context) -> f
 dev.tnclark8012.apps.android.dogshow.preferences.PrefsActivity -> dev.tnclark8012.apps.android.dogshow.preferences.PrefsActivity:
     17:17:android.app.Fragment onCreatePane() -> a
     22:24:void onCreate(android.os.Bundle) -> onCreate
@@ -8499,11 +8500,11 @@ dev.tnclark8012.apps.android.dogshow.provider.PersistHelper -> dev.tnclark8012.a
     158:165:void applyBatch(java.util.ArrayList) -> a
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract -> dev.tnclark8012.apps.android.dogshow.c.a:
     android.net.Uri BASE_CONTENT_URI -> a
-    428:428:android.net.Uri addCallerIsSyncAdapterParameter(android.net.Uri) -> a
-    435:435:boolean hasCallerIsSyncAdapterParameter(android.net.Uri) -> b
+    438:438:android.net.Uri addCallerIsSyncAdapterParameter(android.net.Uri) -> a
+    445:445:boolean hasCallerIsSyncAdapterParameter(android.net.Uri) -> b
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$BreedRings -> dev.tnclark8012.apps.android.dogshow.c.b:
     android.net.Uri CONTENT_URI -> a
-    334:334:android.net.Uri buildRingUri(java.lang.String) -> a
+    344:344:android.net.Uri buildRingUri(java.lang.String) -> a
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$Dogs -> dev.tnclark8012.apps.android.dogshow.c.c:
     android.net.Uri CONTENT_URI -> a
     175:175:int getDogClass(int,boolean) -> a
@@ -8512,10 +8513,10 @@ dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$Dogs -> dev.tnclark8012
     209:209:int getDogId(android.net.Uri) -> a
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$EnteredRings -> dev.tnclark8012.apps.android.dogshow.c.d:
     android.net.Uri CONTENT_URI -> a
-    292:292:java.lang.String[] buildUpcomingSelectionArgs(long,boolean) -> a
+    302:302:java.lang.String[] buildUpcomingSelectionArgs(long,boolean) -> a
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$GroupRings -> dev.tnclark8012.apps.android.dogshow.c.e:
     android.net.Uri CONTENT_URI -> a
-    377:377:android.net.Uri buildRingUri(java.lang.String) -> a
+    387:387:android.net.Uri buildRingUri(java.lang.String) -> a
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$Handlers -> dev.tnclark8012.apps.android.dogshow.c.f:
     android.net.Uri CONTENT_URI -> a
     233:233:android.net.Uri buildHandlerUri(java.lang.String) -> a
@@ -8523,21 +8524,23 @@ dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$Handlers -> dev.tnclark
     242:242:android.net.Uri buildEnteredJuniorsClassesUri() -> a
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$JuniorsRings -> dev.tnclark8012.apps.android.dogshow.c.g:
     android.net.Uri CONTENT_URI -> a
-    413:413:android.net.Uri buildRingUri(java.lang.String) -> a
-dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$ShowTeams -> dev.tnclark8012.apps.android.dogshow.c.h:
+    423:423:android.net.Uri buildRingUri(java.lang.String) -> a
+dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$Rings -> dev.tnclark8012.apps.android.dogshow.c.h:
+    android.net.Uri CONTENT_URI -> a
+dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$ShowTeams -> dev.tnclark8012.apps.android.dogshow.c.i:
     android.net.Uri CONTENT_URI -> a
     270:270:android.net.Uri buildShowTeamUri(java.lang.String) -> a
-dev.tnclark8012.apps.android.dogshow.sql.DogshowDatabase -> dev.tnclark8012.apps.android.dogshow.c.i:
+dev.tnclark8012.apps.android.dogshow.sql.DogshowDatabase -> dev.tnclark8012.apps.android.dogshow.c.j:
     java.lang.String TAG -> a
-    58:59:void deleteDatabase(android.content.Context) -> a
-    63:73:void onCreate(android.database.sqlite.SQLiteDatabase) -> onCreate
-    76:77:void createHandlersTable(android.database.sqlite.SQLiteDatabase) -> a
-    80:82:void createShowTeamsTable(android.database.sqlite.SQLiteDatabase) -> b
-    85:86:void createDogsTable(android.database.sqlite.SQLiteDatabase) -> c
-    89:91:void createBreedRingsTable(android.database.sqlite.SQLiteDatabase) -> d
-    94:95:void createJuniorsRingsTable(android.database.sqlite.SQLiteDatabase) -> e
-    97:109:void createGroupRingsTable(android.database.sqlite.SQLiteDatabase) -> f
-    127:173:void onUpgrade(android.database.sqlite.SQLiteDatabase,int,int) -> onUpgrade
+    91:92:void deleteDatabase(android.content.Context) -> a
+    96:106:void onCreate(android.database.sqlite.SQLiteDatabase) -> onCreate
+    109:120:void createHandlersTable(android.database.sqlite.SQLiteDatabase) -> a
+    123:137:void createShowTeamsTable(android.database.sqlite.SQLiteDatabase) -> b
+    140:156:void createDogsTable(android.database.sqlite.SQLiteDatabase) -> c
+    159:181:void createBreedRingsTable(android.database.sqlite.SQLiteDatabase) -> d
+    184:198:void createJuniorsRingsTable(android.database.sqlite.SQLiteDatabase) -> e
+    201:213:void createGroupRingsTable(android.database.sqlite.SQLiteDatabase) -> f
+    307:360:void onUpgrade(android.database.sqlite.SQLiteDatabase,int,int) -> onUpgrade
 dev.tnclark8012.apps.android.dogshow.sql.query.Query -> dev.tnclark8012.apps.android.dogshow.c.a.a:
 dev.tnclark8012.apps.android.dogshow.sql.query.Query$DogSyncQuery -> dev.tnclark8012.apps.android.dogshow.c.a.b:
     java.lang.String[] PROJECTION -> a
@@ -8606,7 +8609,7 @@ dev.tnclark8012.apps.android.dogshow.sync.GroupRingsHandler -> dev.tnclark8012.a
     boolean clearExisting -> a
     boolean hasCleared -> b
     java.lang.String TAG -> d
-    26:69:java.util.ArrayList parse(dev.tnclark8012.apps.android.dogshow.model.GroupRing[]) -> a
+    26:67:java.util.ArrayList parse(dev.tnclark8012.apps.android.dogshow.model.GroupRing[]) -> a
 dev.tnclark8012.apps.android.dogshow.sync.HandlerSyncHandler -> dev.tnclark8012.apps.android.dogshow.sync.f:
     java.lang.String TAG -> c
     android.content.Context mContext -> a
@@ -8753,8 +8756,8 @@ dev.tnclark8012.apps.android.dogshow.ui.DogEditFragment -> dev.tnclark8012.apps.
     125:129:dev.tnclark8012.apps.android.dogshow.ui.DogEditFragment newInstance(android.net.Uri) -> a
     133:133:int getSexFromRadioId(int) -> a
     137:137:int getRadioIdFromSex(int) -> b
-    145:169:void onClick(android.view.View) -> onClick
-    175:194:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    143:167:void onClick(android.view.View) -> onClick
+    173:194:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
     220:221:void onCheckedChanged(android.widget.RadioGroup,int) -> onCheckedChanged
     225:225:int getEntityIdFromUri(android.net.Uri) -> b
     230:230:int getQueryToken() -> a
@@ -9056,22 +9059,22 @@ dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment -> dev.tnclark8012.ap
     java.lang.Runnable updateUpcomingRunnable -> r
     android.database.ContentObserver mObserver -> s
     109:126:void onCreate(android.os.Bundle) -> onCreate
-    131:138:void onAttach(android.app.Activity) -> onAttach
-    142:147:void onDetach() -> onDetach
-    152:168:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
-    173:191:android.content.Loader onCreateLoader(int,android.os.Bundle) -> onCreateLoader
-    196:209:void onLoadFinished(android.content.Loader,android.database.Cursor) -> a
-    212:283:void onRingsQueryComplete(android.database.Cursor) -> a
-    286:399:void onUpcomingRingQueryComplete(android.database.Cursor) -> b
-    403:403:void onLoaderReset(android.content.Loader) -> onLoaderReset
-    407:411:void onActivityCreated(android.os.Bundle) -> onActivityCreated
-    415:415:boolean onCreateActionMode(android.view.ActionMode,android.view.Menu) -> onCreateActionMode
-    420:420:boolean onPrepareActionMode(android.view.ActionMode,android.view.Menu) -> onPrepareActionMode
-    425:425:boolean onActionItemClicked(android.view.ActionMode,android.view.MenuItem) -> onActionItemClicked
-    430:430:void onDestroyActionMode(android.view.ActionMode) -> onDestroyActionMode
-    435:443:void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
-    448:462:boolean onItemLongClick(android.widget.AdapterView,android.view.View,int,long) -> onItemLongClick
-    468:494:void onFinishEditDialog(int,long,int,float) -> a
+    131:135:void onAttach(android.app.Activity) -> onAttach
+    139:144:void onDetach() -> onDetach
+    149:165:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    170:188:android.content.Loader onCreateLoader(int,android.os.Bundle) -> onCreateLoader
+    193:206:void onLoadFinished(android.content.Loader,android.database.Cursor) -> a
+    209:280:void onRingsQueryComplete(android.database.Cursor) -> a
+    283:396:void onUpcomingRingQueryComplete(android.database.Cursor) -> b
+    400:400:void onLoaderReset(android.content.Loader) -> onLoaderReset
+    404:408:void onActivityCreated(android.os.Bundle) -> onActivityCreated
+    412:412:boolean onCreateActionMode(android.view.ActionMode,android.view.Menu) -> onCreateActionMode
+    417:417:boolean onPrepareActionMode(android.view.ActionMode,android.view.Menu) -> onPrepareActionMode
+    422:422:boolean onActionItemClicked(android.view.ActionMode,android.view.MenuItem) -> onActionItemClicked
+    427:427:void onDestroyActionMode(android.view.ActionMode) -> onDestroyActionMode
+    432:441:void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
+    446:460:boolean onItemLongClick(android.widget.AdapterView,android.view.View,int,long) -> onItemLongClick
+    466:497:void onFinishEditDialog(int,long,int,float) -> a
     1:1:void onLoadFinished(android.content.Loader,java.lang.Object) -> onLoadFinished
 dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment$1 -> dev.tnclark8012.apps.android.dogshow.ui.at:
     dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment this$0 -> a
@@ -9286,21 +9289,21 @@ dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment -> d
     android.content.CursorLoader getCursorLoader(android.app.Activity,android.net.Uri) -> a
     void onQueryComplete(android.database.Cursor) -> a
     android.net.Uri getContentUri() -> b
-    85:89:android.content.Loader onCreateLoader(int,android.os.Bundle) -> onCreateLoader
-    94:101:void onLoadFinished(android.content.Loader,android.database.Cursor) -> a
-    105:105:void onLoaderReset(android.content.Loader) -> onLoaderReset
-    109:130:void onCreate(android.os.Bundle) -> onCreate
-    134:141:void onAttach(android.app.Activity) -> onAttach
-    145:147:void onDetach() -> onDetach
-    151:153:void onResume() -> onResume
-    157:165:void onPause() -> onPause
-    169:171:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
-    175:188:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    86:90:android.content.Loader onCreateLoader(int,android.os.Bundle) -> onCreateLoader
+    95:102:void onLoadFinished(android.content.Loader,android.database.Cursor) -> a
+    106:106:void onLoaderReset(android.content.Loader) -> onLoaderReset
+    110:131:void onCreate(android.os.Bundle) -> onCreate
+    135:142:void onAttach(android.app.Activity) -> onAttach
+    146:148:void onDetach() -> onDetach
+    152:154:void onResume() -> onResume
+    158:166:void onPause() -> onPause
+    170:172:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
+    176:189:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
     1:1:void onLoadFinished(android.content.Loader,java.lang.Object) -> onLoadFinished
     32:32:int access$1(dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment) -> a
 dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment$1 -> dev.tnclark8012.apps.android.dogshow.ui.base.m:
     dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment this$0 -> a
-    71:80:void onChange(boolean) -> onChange
+    72:81:void onChange(boolean) -> onChange
 dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment$Callbacks -> dev.tnclark8012.apps.android.dogshow.ui.base.n:
     void onSave(java.util.Map) -> a
     void onCancel() -> d
@@ -9315,24 +9318,24 @@ dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment -> d
     android.content.CursorLoader getCursorLoader(android.app.Activity,android.net.Uri) -> a
     void onQueryComplete(android.database.Cursor) -> a
     android.net.Uri getContentUri() -> b
-    69:73:android.content.Loader onCreateLoader(int,android.os.Bundle) -> onCreateLoader
-    78:85:void onLoadFinished(android.content.Loader,android.database.Cursor) -> a
-    89:91:void onResume() -> onResume
-    94:94:void onLoaderReset(android.content.Loader) -> onLoaderReset
-    98:110:void onCreate(android.os.Bundle) -> onCreate
-    114:122:void onAttach(android.app.Activity) -> onAttach
-    126:128:void onDetach() -> onDetach
-    132:134:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
-    138:142:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
-    147:149:void onStart() -> onStart
-    154:156:void onStop() -> onStop
+    71:75:android.content.Loader onCreateLoader(int,android.os.Bundle) -> onCreateLoader
+    80:87:void onLoadFinished(android.content.Loader,android.database.Cursor) -> a
+    91:93:void onResume() -> onResume
+    97:97:void onLoaderReset(android.content.Loader) -> onLoaderReset
+    101:113:void onCreate(android.os.Bundle) -> onCreate
+    117:125:void onAttach(android.app.Activity) -> onAttach
+    129:131:void onDetach() -> onDetach
+    135:137:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
+    141:145:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    151:153:void onStart() -> onStart
+    158:160:void onStop() -> onStop
     1:1:void onLoadFinished(android.content.Loader,java.lang.Object) -> onLoadFinished
     23:23:int access$1(dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment) -> a
 dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment$1 -> dev.tnclark8012.apps.android.dogshow.ui.base.p:
     33:33:void onEditClick() -> e
 dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment$2 -> dev.tnclark8012.apps.android.dogshow.ui.base.q:
     dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment this$0 -> a
-    56:64:void onChange(boolean) -> onChange
+    58:66:void onChange(boolean) -> onChange
 dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment$Callbacks -> dev.tnclark8012.apps.android.dogshow.ui.base.r:
     void onEditClick() -> e
 dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListActivity -> dev.tnclark8012.apps.android.dogshow.ui.base.s:
@@ -9341,7 +9344,7 @@ dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListActivity -> dev.tncla
     23:24:void onCreate(android.os.Bundle) -> onCreate
     dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment getListFragment() -> b
     android.net.Uri getEntityUri(java.lang.String) -> a
-    35:52:void setTopMenuVisible(java.lang.String[]) -> a
+    35:51:java.lang.String setTopMenuVisible(java.lang.String[]) -> a
     56:58:android.app.Fragment onCreatePane() -> a
     63:67:void onResume() -> onResume
     89:89:boolean onEntityClick(android.net.Uri,java.lang.String) -> a
@@ -9356,6 +9359,7 @@ dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment -> dev.tncla
     dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment$Callbacks sDummyCallbacks -> d
     dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment$Callbacks mCallbacks -> e
     android.database.ContentObserver mObserver -> f
+    50:50:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
     android.net.Uri getContentUri() -> a
     android.widget.CursorAdapter getCursorAdapter(android.app.Activity) -> a
     android.content.CursorLoader getCursorLoader(android.app.Activity,android.net.Uri) -> a
@@ -9363,32 +9367,32 @@ dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment -> dev.tncla
     int getTitleColumnIndex() -> c
     java.lang.String getTitle() -> d
     android.net.Uri buildEntityUri(java.lang.String) -> a
-    99:103:void onCreate(android.os.Bundle) -> onCreate
-    107:110:void onResume() -> onResume
-    114:116:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
-    121:139:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
-    145:147:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    150:156:void reloadFromArguments(android.os.Bundle) -> a
-    160:171:void onAttach(android.app.Activity) -> onAttach
-    175:178:void onDetach() -> onDetach
-    182:188:android.content.Loader onCreateLoader(int,android.os.Bundle) -> onCreateLoader
-    193:203:void onLoadFinished(android.content.Loader,android.database.Cursor) -> a
-    207:207:void onLoaderReset(android.content.Loader) -> onLoaderReset
-    212:215:void onListItemClick(android.widget.ListView,android.view.View,int,long) -> onListItemClick
-    224:252:boolean onItemLongClick(android.widget.AdapterView,android.view.View,int,long) -> onItemLongClick
+    107:111:void onCreate(android.os.Bundle) -> onCreate
+    115:118:void onResume() -> onResume
+    122:124:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
+    129:147:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    153:155:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    158:164:void reloadFromArguments(android.os.Bundle) -> a
+    168:179:void onAttach(android.app.Activity) -> onAttach
+    183:186:void onDetach() -> onDetach
+    190:196:android.content.Loader onCreateLoader(int,android.os.Bundle) -> onCreateLoader
+    201:211:void onLoadFinished(android.content.Loader,android.database.Cursor) -> a
+    215:215:void onLoaderReset(android.content.Loader) -> onLoaderReset
+    220:223:void onListItemClick(android.widget.ListView,android.view.View,int,long) -> onListItemClick
+    232:260:boolean onItemLongClick(android.widget.AdapterView,android.view.View,int,long) -> onItemLongClick
     1:1:void onLoadFinished(android.content.Loader,java.lang.Object) -> onLoadFinished
-    64:64:int access$1(dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment) -> a
-    81:81:dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment$Callbacks access$2(dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment) -> b
+    72:72:int access$1(dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment) -> a
+    89:89:dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment$Callbacks access$2(dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment) -> b
 dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment$1 -> dev.tnclark8012.apps.android.dogshow.ui.base.u:
-    69:69:boolean onEntityClick(android.net.Uri,java.lang.String) -> a
-    73:73:boolean onAddEntityClick(android.net.Uri) -> a
-    78:78:void onDeleteEntity(android.net.Uri,java.lang.String) -> b
+    77:77:boolean onEntityClick(android.net.Uri,java.lang.String) -> a
+    81:81:boolean onAddEntityClick(android.net.Uri) -> a
+    86:86:void onDeleteEntity(android.net.Uri,java.lang.String) -> b
 dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment$2 -> dev.tnclark8012.apps.android.dogshow.ui.base.v:
     dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment this$0 -> a
-    86:94:void onChange(boolean) -> onChange
+    94:102:void onChange(boolean) -> onChange
 dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment$3 -> dev.tnclark8012.apps.android.dogshow.ui.base.w:
     dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment this$0 -> a
-    241:249:void onFinishDialog(int,android.os.Bundle) -> a
+    249:257:void onFinishDialog(int,android.os.Bundle) -> a
 dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment$Callbacks -> dev.tnclark8012.apps.android.dogshow.ui.base.x:
     boolean onEntityClick(android.net.Uri,java.lang.String) -> a
     boolean onAddEntityClick(android.net.Uri) -> a
@@ -9399,9 +9403,9 @@ dev.tnclark8012.apps.android.dogshow.ui.dialog.EditJudgeTimeDialog -> dev.tnclar
     long mId -> c
     int mRingType -> d
     dev.tnclark8012.apps.android.dogshow.ui.dialog.EditJudgeTimeDialog$Callback mCallback -> e
-    31:42:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
-    47:60:void onClick(android.view.View) -> onClick
-    63:64:void setCallback(dev.tnclark8012.apps.android.dogshow.ui.dialog.EditJudgeTimeDialog$Callback) -> a
+    35:51:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    56:72:void onClick(android.view.View) -> onClick
+    75:76:void setCallback(dev.tnclark8012.apps.android.dogshow.ui.dialog.EditJudgeTimeDialog$Callback) -> a
 dev.tnclark8012.apps.android.dogshow.ui.dialog.EditJudgeTimeDialog$Callback -> dev.tnclark8012.apps.android.dogshow.ui.a.b:
     void onFinishEditDialog(int,long,int,float) -> a
 dev.tnclark8012.apps.android.dogshow.ui.dialog.ShowTeamChooserDialog -> dev.tnclark8012.apps.android.dogshow.ui.a.c:
@@ -9644,21 +9648,23 @@ dev.tnclark8012.apps.android.dogshow.ui.phone.DogActivity -> dev.tnclark8012.app
     14:14:dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment getViewFragment() -> b
     19:19:dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment getEditFragment() -> c
 dev.tnclark8012.apps.android.dogshow.ui.phone.DogListActivity -> dev.tnclark8012.apps.android.dogshow.ui.phone.DogListActivity:
-    android.net.Uri currentDog -> b
-    dev.tnclark8012.apps.android.dogshow.ui.DogEditFragment mEditFragment -> c
-    dev.tnclark8012.apps.android.dogshow.ui.DogViewFragment mViewFragment -> d
-    dev.tnclark8012.apps.android.dogshow.ui.DogListFragment mListFragment -> e
-    32:34:void onCreate(android.os.Bundle) -> onCreate
-    38:39:dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment getListFragment() -> b
-    49:49:android.net.Uri getEntityUri(java.lang.String) -> a
-    54:57:void onNavigationDrawerItemSelected(int) -> a
-    60:64:boolean onEntityClick(android.net.Uri,java.lang.String) -> a
-    68:73:boolean onAddEntityClick(android.net.Uri) -> a
-    78:78:void onDeleteEntity(android.net.Uri,java.lang.String) -> b
-    82:85:void onEditClick() -> e
-    89:91:void onCancel() -> d
-    94:103:void onSave(java.util.Map) -> a
-    107:108:void onBackStackChanged() -> onBackStackChanged
+    android.net.Uri currentDog -> c
+    dev.tnclark8012.apps.android.dogshow.ui.DogEditFragment mEditFragment -> d
+    dev.tnclark8012.apps.android.dogshow.ui.DogViewFragment mViewFragment -> e
+    dev.tnclark8012.apps.android.dogshow.ui.DogListFragment mListFragment -> f
+    java.lang.String[] mStackTags -> g
+    boolean adding -> b
+    37:39:void onCreate(android.os.Bundle) -> onCreate
+    43:44:dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment getListFragment() -> b
+    54:54:android.net.Uri getEntityUri(java.lang.String) -> a
+    59:62:void onNavigationDrawerItemSelected(int) -> a
+    65:72:boolean onEntityClick(android.net.Uri,java.lang.String) -> a
+    78:86:boolean onAddEntityClick(android.net.Uri) -> a
+    91:91:void onDeleteEntity(android.net.Uri,java.lang.String) -> b
+    95:100:void onEditClick() -> e
+    104:107:void onCancel() -> d
+    110:120:void onSave(java.util.Map) -> a
+    124:137:void onBackStackChanged() -> onBackStackChanged
 dev.tnclark8012.apps.android.dogshow.ui.phone.FindShowActivity -> dev.tnclark8012.apps.android.dogshow.ui.phone.FindShowActivity:
     java.lang.String TAG -> a
     15:16:void onCreate(android.os.Bundle) -> onCreate
@@ -9673,17 +9679,18 @@ dev.tnclark8012.apps.android.dogshow.ui.phone.HandlerListActivity -> dev.tnclark
     dev.tnclark8012.apps.android.dogshow.ui.HandlerEditFragment mEditFragment -> c
     dev.tnclark8012.apps.android.dogshow.ui.HandlerViewFragment mViewFragment -> d
     dev.tnclark8012.apps.android.dogshow.ui.HandlerListFragment mListFragment -> e
-    35:37:void onCreate(android.os.Bundle) -> onCreate
-    41:42:dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment getListFragment() -> b
-    52:52:android.net.Uri getEntityUri(java.lang.String) -> a
-    57:60:void onNavigationDrawerItemSelected(int) -> a
-    63:68:boolean onEntityClick(android.net.Uri,java.lang.String) -> a
-    72:78:boolean onAddEntityClick(android.net.Uri) -> a
-    83:83:void onDeleteEntity(android.net.Uri,java.lang.String) -> b
-    87:91:void onEditClick() -> e
-    95:97:void onCancel() -> d
-    100:109:void onSave(java.util.Map) -> a
-    113:114:void onBackStackChanged() -> onBackStackChanged
+    java.lang.String[] mStackTags -> f
+    40:42:void onCreate(android.os.Bundle) -> onCreate
+    46:47:dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment getListFragment() -> b
+    57:57:android.net.Uri getEntityUri(java.lang.String) -> a
+    62:65:void onNavigationDrawerItemSelected(int) -> a
+    68:74:boolean onEntityClick(android.net.Uri,java.lang.String) -> a
+    78:85:boolean onAddEntityClick(android.net.Uri) -> a
+    90:90:void onDeleteEntity(android.net.Uri,java.lang.String) -> b
+    94:99:void onEditClick() -> e
+    103:105:void onCancel() -> d
+    108:117:void onSave(java.util.Map) -> a
+    121:134:void onBackStackChanged() -> onBackStackChanged
 dev.tnclark8012.apps.android.dogshow.ui.phone.HomeActivity -> dev.tnclark8012.apps.android.dogshow.ui.phone.HomeActivity:
     java.lang.String TAG -> a
     24:24:android.app.Fragment onCreatePane() -> a
@@ -9847,11 +9854,11 @@ dev.tnclark8012.apps.android.dogshow.util.Utils -> dev.tnclark8012.apps.android.
 dev.tnclark8012.apps.android.dogshow.util.image.ImageChooserActivity -> dev.tnclark8012.apps.android.dogshow.util.image.ImageChooserActivity:
     android.widget.ImageView mImageView -> a
     java.io.File mFileTemp -> b
-    45:72:void onCreate(android.os.Bundle) -> onCreate
-    76:96:void takePicture() -> a
-    100:103:void openGallery() -> b
-    107:118:void startCropImage(android.net.Uri) -> a
-    123:163:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    45:76:void onCreate(android.os.Bundle) -> onCreate
+    80:103:void takePicture() -> a
+    107:110:void openGallery() -> b
+    114:125:void startCropImage(android.net.Uri) -> a
+    130:178:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
 dev.tnclark8012.apps.android.dogshow.util.image.SimpleImageLoadingListener -> dev.tnclark8012.apps.android.dogshow.util.image.a:
     15:15:void onLoadingStarted(java.lang.String,android.view.View) -> a
     21:21:void onLoadingFailed(java.lang.String,android.view.View,com.nostra13.universalimageloader.core.assist.FailReason) -> a
