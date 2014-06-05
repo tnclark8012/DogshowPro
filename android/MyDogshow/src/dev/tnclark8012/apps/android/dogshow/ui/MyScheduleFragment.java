@@ -45,6 +45,7 @@ import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.EnteredRings;
+import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.GroupRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.JuniorsRings;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.RingsQuery;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.UpcomingRingQuery;
@@ -131,10 +132,7 @@ public class MyScheduleFragment extends Fragment implements
 		super.onAttach(activity);
 		Prefs.get(getActivity()).registerOnSharedPreferenceChangeListener(this);
 		activity.getContentResolver().registerContentObserver(
-				BreedRings.CONTENT_URI, true, mObserver);
-		activity.getContentResolver().registerContentObserver(
-				JuniorsRings.CONTENT_URI, true, mObserver);
-
+				EnteredRings.CONTENT_URI, true, mObserver);
 	}
 
 	@Override
@@ -433,7 +431,8 @@ public class MyScheduleFragment extends Fragment implements
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
 			String key) {
 		Log.d(TAG, "Preference changed!");
-		if (key.equals(Prefs.KEY_JUDGE_TIME) || key.equals(Prefs.KEY_SHOW_GROUPS)) {
+		if (key.equals(Prefs.KEY_JUDGE_TIME)
+				|| key.equals(Prefs.KEY_SHOW_GROUPS)) {
 			LoaderManager manager = getLoaderManager();
 			manager.restartLoader(RingsQuery._TOKEN, getArguments(), this);
 			manager.restartLoader(UpcomingRingQuery._TOKEN, getArguments(),

@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query;
 

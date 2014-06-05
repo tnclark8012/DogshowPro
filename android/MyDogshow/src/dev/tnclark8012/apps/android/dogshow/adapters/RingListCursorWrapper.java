@@ -5,7 +5,6 @@ import java.util.Arrays;
 import android.database.Cursor;
 import android.database.CursorWrapper;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.EnteredRings;
-import dev.tnclark8012.apps.android.dogshow.sql.query.Query.RingsQuery;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 
 public class RingListCursorWrapper extends CursorWrapper {

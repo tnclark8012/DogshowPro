@@ -200,11 +200,15 @@ public class DogshowProvider extends ContentProvider {
 			db.insertOrThrow(Tables.BREED_RINGS, null, values);
 			getContext().getContentResolver().notifyChange(uri, null,
 					syncToNetwork);
+			getContext().getContentResolver().notifyChange(EnteredRings.CONTENT_URI, null,
+					syncToNetwork);
 			return BreedRings.buildRingUri(values.getAsString(BreedRings._ID));
 		}
 		case GROUP_RINGS: {
 			db.insertOrThrow(Tables.GROUP_RINGS, null, values);
 			getContext().getContentResolver().notifyChange(uri, null,
+					syncToNetwork);
+			getContext().getContentResolver().notifyChange(EnteredRings.CONTENT_URI, null,
 					syncToNetwork);
 			return GroupRings.buildRingUri(values.getAsString(GroupRings._ID));
 		}
@@ -217,6 +221,8 @@ public class DogshowProvider extends ContentProvider {
 		case JUNIORS_RINGS: {
 			db.insertOrThrow(Tables.JUNIORS_RINGS, null, values);
 			getContext().getContentResolver().notifyChange(uri, null,
+					syncToNetwork);
+			getContext().getContentResolver().notifyChange(EnteredRings.CONTENT_URI, null,
 					syncToNetwork);
 			return JuniorsRings.buildRingUri(values
 					.getAsString(JuniorsRings._ID));
