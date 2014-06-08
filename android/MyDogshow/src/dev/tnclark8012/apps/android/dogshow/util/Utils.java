@@ -25,10 +25,7 @@ public class Utils {
 
 	/**
 	 * Is API 16 or greater?
-	 * 
-	 * @return
 	 */
-	// TODO LOW: Should this be a public static final boolean?
 	public static boolean isJellybean() {
 		return android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN;
 	}
@@ -174,7 +171,6 @@ public class Utils {
 		try {
 			pictureFile.createNewFile();
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		try {

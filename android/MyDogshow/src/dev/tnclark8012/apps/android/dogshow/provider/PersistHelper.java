@@ -22,7 +22,6 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.JuniorsRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.SyncColumns;
-import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 
 public class PersistHelper {
@@ -34,7 +33,6 @@ public class PersistHelper {
 	}
 
 	public boolean createMe() {
-		// TODO call generic create
 		final ContentResolver resolver = mContext.getContentResolver();
 		String selection = Handlers.HANDLER_IS_ME + "=?";
 		String[] selectionArgs = new String[] { "1" };
@@ -78,21 +76,17 @@ public class PersistHelper {
 		Prefs.setCurrentTeamIdentifier(mContext, teamIdentifier);
 	}
 
-	// TODO use only this?
 	public void updateEntity(Uri contentUri, long id,
 			Map<String, Object> updateValues) {
-		// TODO is it safe to use this ID instead of the GUID id?
 		updateTable(contentUri, updateValues, BaseColumns._ID + "=?",
 				new String[] { String.valueOf(id) });
 	}
 
 	public void updateEntity(Uri contentUri, Map<String, Object> updateValues,
 			String selection, String[] selectionArgs) {
-		// TODO is it safe to use this ID instead of the GUID id?
 		updateTable(contentUri, updateValues, selection, selectionArgs);
 	}
 
-	// TODO use only this?
 	public void createEntity(Uri contentUri, Map<String, Object> createValues) {
 		insertIntoTable(contentUri, createValues, null, null);
 	}

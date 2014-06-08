@@ -3,7 +3,6 @@ package dev.tnclark8012.apps.android.dogshow.ui;
 import android.app.Activity;
 import android.content.CursorLoader;
 import android.net.Uri;
-import android.os.Bundle;
 import android.widget.CursorAdapter;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.adapters.HandlerListAdapter;
@@ -17,14 +16,9 @@ public class HandlerListFragment extends BaseEntityListFragment {
 
 	private static final String TAG = HandlerListFragment.class.getSimpleName();
 	private String mTitle;
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
-	}
+	
 	@Override
 	public void onAttach(Activity activity) {
-		// TODO Auto-generated method stub
 		super.onAttach(activity);
 		mTitle = getString(R.string.dashboard_handlers);
 	}
@@ -67,7 +61,6 @@ public class HandlerListFragment extends BaseEntityListFragment {
 
 	@Override
 	protected BaseEditableEntityEditFragment getEditFragment() {
-		// TODO Auto-generated method stub
 		return new HandlerEditFragment();
 	}
 

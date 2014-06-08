@@ -18,7 +18,6 @@ public abstract class ButtonBarFragment extends Fragment {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		mLeftButtonText = getArguments().getString(EXTRA_LEFT_BUTTON_TEXT,
 				getString(R.string.button_back));

@@ -76,7 +76,6 @@ public class AzureApiAccessor extends ApiAccessor {
 		try {
 			return new URL(GET_BREED_RINGS_URL, "?showId=" + encode(showId));
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
@@ -95,7 +94,6 @@ public class AzureApiAccessor extends ApiAccessor {
 			}
 			return new URL(GET_BREED_RINGS_URL, query);
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
@@ -106,7 +104,6 @@ public class AzureApiAccessor extends ApiAccessor {
 			return new URL(GET_JUNIORS_RINGS_URL, "?showId=" + encode(showId)
 					+ "&className=" + encode(juniorClass));
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
@@ -116,7 +113,6 @@ public class AzureApiAccessor extends ApiAccessor {
 		try {
 			return new URL(GET_GROUP_RINGS_URL, "?showId=" + encode(showId));
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;

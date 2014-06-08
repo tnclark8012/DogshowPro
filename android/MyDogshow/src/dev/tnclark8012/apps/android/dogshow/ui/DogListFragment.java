@@ -29,7 +29,6 @@ public class DogListFragment extends BaseEntityListFragment {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		getActivity().getActionBar().setTitle(R.string.dashboard_doghouse);
 	}

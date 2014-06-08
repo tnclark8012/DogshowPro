@@ -40,6 +40,7 @@ import eu.janmuller.android.simplecropimage.CropImage;
 public class HandlerEditFragment extends BaseEditableEntityEditFragment
 		implements OnClickListener {
 	private static final String TAG = HandlerEditFragment.class.getSimpleName();
+	private static final int REQUEST_CODE_CLASS_SELECT = 1;
 	private ViewGroup mRootView;
 	private ImageView mViewImage;
 	private EditText mViewName;
@@ -152,22 +153,18 @@ public class HandlerEditFragment extends BaseEditableEntityEditFragment
 
 	@Override
 	public Map<String, Object> getEntityValueMap() {
-		Log.d(TAG, "creating map");
-		mJuniorClass = mViewClassName.getText().toString();
-		// TODO HIGH this "None" thing is ridculous
-		mJuniorClass = (Utils.isNullOrEmpty(mJuniorClass) || mJuniorClass
-				.equalsIgnoreCase("None")) ? null : JuniorClass.parse(
-				mJuniorClass).toString();
+		JuniorClass clazz = JuniorClass.parse(mViewClassName.getText()
+				.toString());
 		mName = mViewName.getText().toString();
-
 		Map<String, Object> values = new HashMap<String, Object>();
 		if (creatingNewEntity()) {
 			values.put(Handlers.HANDLER_ID, Utils.getGuid());
 		}
-		values.put(Handlers.HANDLER_JUNIOR_CLASS, mJuniorClass);// FIXME
-																// implement a
-																// selection
+		// implement a
+		// selection
 		values.put(Handlers.HANDLER_IMAGE_PATH, mImagePath);
+		values.put(Handlers.HANDLER_JUNIOR_CLASS,
+				(clazz != null) ? clazz.toString() : clazz);
 		values.put(Handlers.HANDLER_IS_SHOWING, 0);
 		values.put(Handlers.HANDLER_IS_SHOWING_JUNIORS, 0);
 		values.put(Handlers.HANDLER_NAME, mName);
@@ -182,24 +179,7 @@ public class HandlerEditFragment extends BaseEditableEntityEditFragment
 		case TAG_CLASS: {
 			Intent selectIntent = new Intent(getActivity(),
 					JuniorClassSelectActivity.class);
-			startActivityForResult(selectIntent,
-					JuniorClassSelectActivity.REQUEST_CODE_CLASS_SELECT);// TODO
-																			// search.
-																			// all
-																			// request
-																			// codes
-																			// should
-																			// be
-																			// in
-																			// the
-																			// start
-																			// class,
-																			// not
-																			// the
-																			// class
-																			// being
-																			// started.
-																			// DUH
+			startActivityForResult(selectIntent, REQUEST_CODE_CLASS_SELECT);
 		}
 			break;
 		case TAG_IMAGE: {
@@ -219,8 +199,7 @@ public class HandlerEditFragment extends BaseEditableEntityEditFragment
 		}
 	}
 
-	@SuppressWarnings("deprecation")
-	@SuppressLint("NewApi")
+
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		switch (requestCode) {

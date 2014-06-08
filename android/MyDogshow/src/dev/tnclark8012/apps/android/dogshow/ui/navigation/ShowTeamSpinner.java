@@ -3,13 +3,9 @@ package dev.tnclark8012.apps.android.dogshow.ui.navigation;
 import android.app.Activity;
 import android.database.Cursor;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.CursorAdapter;
 import android.widget.Spinner;
-import android.widget.Toast;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 
@@ -18,15 +14,13 @@ public class ShowTeamSpinner extends NonNavigationDrawerItem {
 	private Activity mActivity;
 	private Spinner mSpinner;
 
-	public ShowTeamSpinner(Activity activity,
-			OnClickListener spinnerClickListener) {
-		super(R.layout.drawer_item_spinner, IGNORE_RESOURCE, null,
-				spinnerClickListener);
+	public ShowTeamSpinner(Activity activity) {
+		super(R.layout.drawer_item_spinner, IGNORE_RESOURCE, null);
 		mActivity = activity;
 	}
 
 	public ShowTeamSpinner() {
-		this(null, null);
+		this(null);
 	}
 
 	@Override

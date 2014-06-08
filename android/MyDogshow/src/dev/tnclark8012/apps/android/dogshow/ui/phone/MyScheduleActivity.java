@@ -18,7 +18,6 @@ package dev.tnclark8012.apps.android.dogshow.ui.phone;
 
 import android.app.Fragment;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -31,12 +30,6 @@ import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 public class MyScheduleActivity extends NavigatableActivity {
 
 	private static final String TAG = MyScheduleActivity.class.getSimpleName();
-
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
-	}
 
 	@Override
 	protected Fragment onCreatePane() {

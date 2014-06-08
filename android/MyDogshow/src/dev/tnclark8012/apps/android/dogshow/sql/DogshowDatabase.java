@@ -305,7 +305,6 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		Log.d(TAG, "onUpgrade() from " + oldVersion + " to " + newVersion);
-		// TODO implement upgrade logic
 		// Switch statement designed to handle cascading database
 		// updates, starting at the current version and falling through to all
 		// future upgrade cases. Only use "break;" when you want to drop and
@@ -340,7 +339,6 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 			case VER_GROUPS:
 				db.execSQL("UPDATE " + Tables.GROUP_RINGS + " SET "
 						+ GroupRings.RING_JUDGE_TIME + " = 600000");
-				// createGroupRingsTable(db);
 				version++;
 			}
 		} catch (Exception e) {

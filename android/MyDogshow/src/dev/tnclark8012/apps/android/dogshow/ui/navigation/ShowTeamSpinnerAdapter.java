@@ -77,7 +77,6 @@ public class ShowTeamSpinnerAdapter extends CursorAdapter implements
 				dialog.changeCursor(mCursor);
 				dialog.show(mActivity.getFragmentManager(), "tag");// TODO real
 																	// // tag
-				// Prefs.setCurrentTeamIdentifier(context, identifier);
 			}
 		});
 	}

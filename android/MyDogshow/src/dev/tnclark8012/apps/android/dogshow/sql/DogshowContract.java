@@ -289,11 +289,7 @@ public class DogshowContract {
 		public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.dogshow.ring";
 		public static final String DEFAULT_SORT = RING_BLOCK_START + " ASC";
 		public static final String UPCOMING_SELECTION = RING_BLOCK_START
-				+ " > ? AND " + EnteredRings.ENTERED_RINGS_TYPE + " < ? ";// TODO
-																			// AND
-																			// " + EnteredRings.RING_BLOCK_START + "
-																			// <
-																			// ?";
+				+ " > ? AND " + EnteredRings.ENTERED_RINGS_TYPE + " < ? ";
 		public static final String NO_GROUP_RINGS_SELECTION = EnteredRings.ENTERED_RINGS_TYPE
 				+ " < " + EnteredRings.TYPE_CAP;
 
@@ -309,8 +305,6 @@ public class DogshowContract {
 		public static final int TYPE_JUNIORS_RING = 1;
 		public static final int TYPE_GROUP_RING = 2;
 		private static final int TYPE_CAP = 3;// Update if adding another group
-
-		// TODO upcomming selection
 	}
 
 	/**
@@ -335,7 +329,7 @@ public class DogshowContract {
 				+ " ASC";
 
 		public static final String UPCOMING_SELECTION = BreedRings.RING_BLOCK_START
-				+ " > ? ";// TODO AND " + BreedRings.RING_BLOCK_START + " < ?";
+				+ " > ? ";
 
 		public static final String CONCAT_CALL_NAME = "group_concat(dogs.dog_call_name, \", \" ) as group_concat_call_name";
 
@@ -380,7 +374,7 @@ public class DogshowContract {
 				+ " ASC";
 
 		public static final String UPCOMING_SELECTION = GroupRings.RING_BLOCK_START
-				+ " > ? ";// TODO AND " + GroupRings.RING_BLOCK_START + " < ?";
+				+ " > ? ";
 
 		/** Build {@link Uri} for requested Ring ID. */
 		public static Uri buildRingUri(String RingId) {
@@ -416,7 +410,7 @@ public class DogshowContract {
 		public static final String DEFAULT_SORT = RING_BLOCK_START + " ASC";
 
 		public static final String UPCOMING_SELECTION = RING_BLOCK_START
-				+ " > ? ";// TODO AND " + BreedRings.RING_BLOCK_START + " < ?";
+				+ " > ? ";
 
 		/** Build {@link Uri} for requested Ring ID. */
 		public static Uri buildRingUri(String RingId) {

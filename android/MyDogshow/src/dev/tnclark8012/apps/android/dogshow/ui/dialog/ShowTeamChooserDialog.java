@@ -11,12 +11,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import android.widget.Toast;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.adapters.ShowTeamDialogListAdapter;
-import dev.tnclark8012.apps.android.dogshow.adapters.SimpleCursorAdapter;
-import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
-import dev.tnclark8012.apps.android.dogshow.sql.query.Query;
 
 public class ShowTeamChooserDialog extends DialogFragment implements
 		OnClickListener {
@@ -93,7 +89,6 @@ public class ShowTeamChooserDialog extends DialogFragment implements
 
 	@Override
 	public void onAttach(Activity activity) {
-		// TODO Auto-generated method stub
 		super.onAttach(activity);
 		if (mAdapter == null) {
 			mAdapter = new ShowTeamDialogListAdapter(activity, mCursor);

@@ -20,7 +20,6 @@ public class HomeActivity extends NavigatableActivity implements
 
 	@Override
 	protected Fragment onCreatePane() {
-		// TODO Auto-generated method stub
 		return IncompleteFragment.newInstance("Home pane");
 	}
 

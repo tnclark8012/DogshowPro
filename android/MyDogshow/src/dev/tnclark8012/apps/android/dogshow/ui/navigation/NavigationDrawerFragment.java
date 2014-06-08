@@ -2,7 +2,7 @@ package dev.tnclark8012.apps.android.dogshow.ui.navigation;
 
 import java.util.ArrayList;
 import java.util.List;
-import android.annotation.TargetApi;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
@@ -14,8 +14,6 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.database.ContentObserver;
 import android.database.Cursor;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -106,8 +104,8 @@ public class NavigationDrawerFragment extends Fragment implements
 			mCurrentSelectedPosition = savedInstanceState
 					.getInt(STATE_SELECTED_POSITION);
 			mFromSavedInstanceState = true;
-			getLoaderManager().initLoader(
-					Query.ShowTeamsQuery._TOKEN, null, this);
+			getLoaderManager().initLoader(Query.ShowTeamsQuery._TOKEN, null,
+					this);
 		}
 
 		// Select either the default item (0) or the last selected item.
@@ -123,13 +121,7 @@ public class NavigationDrawerFragment extends Fragment implements
 		mDrawerListView = (ListView) view.findViewById(R.id.left_drawer);
 		mDrawerItems = new ArrayList<DrawerItem>();
 		// Add Drawer Item to dataList
-		showTeamSpinner = new ShowTeamSpinner(getActivity(),
-				new OnClickListener() {
-					@Override
-					public void onClick(View v) {// TODO not required in
-													// constructor
-					}
-				});
+		showTeamSpinner = new ShowTeamSpinner(getActivity());
 		mDrawerItems.add(showTeamSpinner);
 
 		mDrawerItems.add(new DrawerItemNavigation("Show Day",
@@ -198,7 +190,8 @@ public class NavigationDrawerFragment extends Fragment implements
 	 * @param drawerLayout
 	 *            The DrawerLayout containing this fragment's UI.
 	 */
-	public void setUp(boolean fromLaunch, int fragmentId, DrawerLayout drawerLayout) {
+	public void setUp(boolean fromLaunch, int fragmentId,
+			DrawerLayout drawerLayout) {
 		mFragmentContainerView = getActivity().findViewById(fragmentId);
 		mDrawerLayout = drawerLayout;
 
@@ -219,7 +212,7 @@ public class NavigationDrawerFragment extends Fragment implements
 			@Override
 			public void onDrawerClosed(View drawerView) {
 				super.onDrawerClosed(drawerView);
-				if (!isAdded()) { 
+				if (!isAdded()) {
 					return;
 				}
 				getActionBar().setTitle(oldTitle);
@@ -344,7 +337,6 @@ public class NavigationDrawerFragment extends Fragment implements
 		actionBar.setTitle(R.string.app_name);
 	}
 
-	
 	private ActionBar getActionBar() {
 		return getActivity().getActionBar();
 	}
@@ -366,8 +358,7 @@ public class NavigationDrawerFragment extends Fragment implements
 		// Indicate that this fragment would like to influence the set of
 		// actions in the action bar.
 		setHasOptionsMenu(true);
-		getLoaderManager().initLoader(
-				Query.ShowTeamsQuery._TOKEN, null, this);
+		getLoaderManager().initLoader(Query.ShowTeamsQuery._TOKEN, null, this);
 	}
 
 	private final ContentObserver mObserver = new ContentObserver(new Handler()) {
@@ -418,9 +409,6 @@ public class NavigationDrawerFragment extends Fragment implements
 	@Override
 	public void onResume() {
 		super.onResume();
-		// getActivity().getLoaderManager().restartLoader(
-		// Query.ShowTeamsQuery._TOKEN, null, this); TODO readd? Debugging
-		// loader manager
 		getActivity().getContentResolver().registerContentObserver(
 				ShowTeams.CONTENT_URI, true, mObserver);
 	}

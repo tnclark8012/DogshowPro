@@ -41,15 +41,13 @@ public class FindShowFragment extends ListFragment {
 	private static final String TAG = FindShowFragment.class.getSimpleName();
 	private ShowListAdapter mAdapter;
 	private View mRootView;
-	private String mSelectedShowId = "[not set]";
+	private AsyncTask<Void, Void, Show[]> mGetShowsTask;
 
 	public interface Callbacks {
 		void onShowSelected(Show show);
 
 		void onShowSynced();
 	}
-
-	private AsyncTask<Void, Void, Show[]> getShowsTask;// TODO = createGetShowsTask();
 
 	@Override
 	public void setEmptyText(CharSequence text) {
@@ -77,7 +75,8 @@ public class FindShowFragment extends ListFragment {
 				} else {
 					// TextView empty = new TextView(getActivity());
 					setEmptyText("No shows found");
-					// Toast.makeText(getActivity(), "No Shows Found.", Toast.LENGTH_LONG).show();
+					// Toast.makeText(getActivity(), "No Shows Found.",
+					// Toast.LENGTH_LONG).show();
 				}
 			}
 
@@ -94,8 +93,8 @@ public class FindShowFragment extends ListFragment {
 	@Override
 	public void onPause() {
 		super.onPause();
-		if (getShowsTask != null) {
-			getShowsTask.cancel(true);
+		if (mGetShowsTask != null) {
+			mGetShowsTask.cancel(true);
 		}
 	}
 
@@ -103,7 +102,8 @@ public class FindShowFragment extends ListFragment {
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
 		if (!(activity instanceof Callbacks)) {
-			throw new ClassCastException("Activity must implement fragment's callbacks.");
+			throw new ClassCastException(
+					"Activity must implement fragment's callbacks.");
 		}
 		mCallbacks = (Callbacks) activity;
 	}
@@ -111,7 +111,7 @@ public class FindShowFragment extends ListFragment {
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		setEmptyText("Finding shows near you...");
-		(getShowsTask = createGetShowsTask()).execute();
+		(mGetShowsTask = createGetShowsTask()).execute();
 
 		super.onActivityCreated(savedInstanceState);
 	}
@@ -123,25 +123,25 @@ public class FindShowFragment extends ListFragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		mRootView = inflater.inflate(R.layout.fragment_find_show, container, false);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		mRootView = inflater.inflate(R.layout.fragment_find_show, container,
+				false);
 		return mRootView;
 	}
 
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		Show show = mAdapter.getItem(position);
-		mSelectedShowId = show.showId;
 		mCallbacks.onShowSelected(show);
 	}
 
 	private class ShowListAdapter extends ArrayAdapter<Show> {
-		int mResource;
-		int mTextViewResourceId;
 		Show[] mArray;
 
 		public ShowListAdapter(Context context, Show[] result) {
-			super(context, android.R.layout.simple_list_item_2, android.R.id.text1);
+			super(context, android.R.layout.simple_list_item_2,
+					android.R.id.text1);
 			mArray = result;
 		}
 
@@ -165,8 +165,10 @@ public class FindShowFragment extends ListFragment {
 			// Checking if it has a name first prevents try catch from failing
 			// (expensively)
 			if (obj != null) {
-				((TextView) convertView.findViewById(android.R.id.text1)).setText(obj.showName);
-				((TextView) convertView.findViewById(android.R.id.text2)).setText(obj.city + ", " + obj.state);
+				((TextView) convertView.findViewById(android.R.id.text1))
+						.setText(obj.showName);
+				((TextView) convertView.findViewById(android.R.id.text2))
+						.setText(obj.city + ", " + obj.state);
 			}
 			return convertView;
 		}

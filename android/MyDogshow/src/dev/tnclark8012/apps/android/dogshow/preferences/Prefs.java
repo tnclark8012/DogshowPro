@@ -73,10 +73,6 @@ public final class Prefs {
 
 	public static String getCurrentTeamIdentifier(Context context) {
 		return get(context).getString(KEY_CURRENT_TEAM_ID,
-				AccountUtils.getUserIdentifier(context));// FIXME should be user
-															// identifier, but
-															// intellisense
-															// isn't working
-															// right now
+				AccountUtils.getUserIdentifier(context));
 	}
 }

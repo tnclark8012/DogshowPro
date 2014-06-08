@@ -12,12 +12,9 @@ import java.net.URLEncoder;
 import java.util.zip.GZIPInputStream;
 
 import org.apache.http.Header;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.BasicHttpEntity;
 import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.BasicResponseHandler;
-import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.content.Context;
 import android.util.Log;
@@ -103,13 +100,8 @@ public abstract class ApiAccessor implements Config.IApiAccessor {
 			}
 		}
 	}
-	
-	protected String makePostRequest(URL url, JsonObject json) {
-		return finalPost(url, json);
-	}
 
-	private String finalPost(URL url, JsonObject json) {
-		
+	protected String makePostRequest(URL url, JsonObject json) {
 		HttpURLConnection urlConnection = null;
 		HttpPost post = new HttpPost(url.toString());
 		try {
@@ -119,7 +111,6 @@ public abstract class ApiAccessor implements Config.IApiAccessor {
 		try {
 			urlConnection = (HttpURLConnection) url.openConnection();
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		if (urlConnection != null) {
@@ -169,7 +160,6 @@ public abstract class ApiAccessor implements Config.IApiAccessor {
 				Log.v(TAG, responseStr);
 				return responseStr;
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} finally {
 				urlConnection.disconnect();

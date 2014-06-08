@@ -4,7 +4,6 @@ import java.util.Random;
 
 import android.app.Activity;
 import android.app.DialogFragment;
-import android.app.Fragment;
 import android.app.ListFragment;
 import android.app.LoaderManager;
 import android.content.CursorLoader;
@@ -34,7 +33,6 @@ import dev.tnclark8012.apps.android.dogshow.util.Utils;
 
 public abstract class BaseEntityListFragment extends ListFragment implements
 		LoaderManager.LoaderCallbacks<Cursor>, OnItemLongClickListener {
-	// TODO HIGH
 	public interface Callbacks {
 		public boolean onEntityClick(Uri uri, String entityId);
 
@@ -46,7 +44,6 @@ public abstract class BaseEntityListFragment extends ListFragment implements
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		return super.onCreateView(inflater, container, savedInstanceState);
 	}
 	protected abstract Uri getContentUri();
@@ -128,20 +125,6 @@ public abstract class BaseEntityListFragment extends ListFragment implements
 
 		if (item.getItemId() == R.id.menu_list_entity_add) {
 			mCallbacks.onAddEntityClick(getContentUri());
-			// Fragment f = getEditFragment();
-			// if (f != null) {
-			// Bundle b = new Bundle();
-			// b.putBoolean(
-			// BaseEditableEntityEditFragment.INTENT_EXTRA_NEW_ENTITY,
-			// true);
-			// f.setArguments(b);
-			// f.setTargetFragment(this, 0);
-			// getFragmentManager().beginTransaction()
-			// .addToBackStack("add_entity")
-			// .add(R.id.root_container, f, "add_entity").commit();
-			// setMenuVisibility(false);
-			// }
-			// startActivity(new Intent(Intent.ACTION_INSERT, getContentUri()));
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
@@ -149,7 +132,6 @@ public abstract class BaseEntityListFragment extends ListFragment implements
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
 		setMenuVisibility(true);
 	}
@@ -170,9 +152,6 @@ public abstract class BaseEntityListFragment extends ListFragment implements
 			mCallbacks = (Callbacks) activity;
 		} else if (this instanceof Callbacks) {
 			mCallbacks = (Callbacks) this;
-		} else {
-			// throw new
-			// ClassCastException("Activity or fragment must implement fragment's callbacks.");
 		}
 		activity.getContentResolver().registerContentObserver(getContentUri(),
 				true, mObserver);

@@ -16,8 +16,6 @@ public class ShowTeamAddActivity extends SimpleSinglePaneActivity implements
 		ShowTeamAddFragment.Callback {
 	private static final String TAG = ShowTeamAddActivity.class.getSimpleName();
 	private ShowTeamAddFragment mAddFragment;
-	private ShowTeamJoinFragment mJoinFragment;
-	private ShowTeamCreateFragment mCreateFragment;
 	private int mStep = STEP_CREATE_OR_JOIN;
 	private static final int STEP_CREATE_OR_JOIN = 0;
 	private static final int STEP_CREATE = 1;
@@ -44,7 +42,7 @@ public class ShowTeamAddActivity extends SimpleSinglePaneActivity implements
 	@Override
 	public void onCreateFinish(int status, String teamName,
 			String teamIdentifier) {
-		handleJoinCreateResult(status, teamName, teamIdentifier);
+		handleJoinCreateResult(status, teamIdentifier);
 	}
 
 	@Override
@@ -59,14 +57,7 @@ public class ShowTeamAddActivity extends SimpleSinglePaneActivity implements
 		showFragment(mStep);
 	}
 
-	private void handleJoinCreateResult(int status, String teamName,
-			String teamIdentifier) {
-		// TODO
-		// lose
-		// teamName
-		// param.
-		// Not
-		// used
+	private void handleJoinCreateResult(int status, String teamIdentifier) {
 		if (status == ShowTeamJoinFragment.STATUS_SUCCESS) {
 			new PersistHelper(this).setActiveTeam(teamIdentifier);
 			finish();
@@ -85,7 +76,7 @@ public class ShowTeamAddActivity extends SimpleSinglePaneActivity implements
 
 	@Override
 	public void onJoinFinish(int status, String teamName, String teamIdentifier) {
-		handleJoinCreateResult(status, teamName, teamIdentifier);
+		handleJoinCreateResult(status, teamIdentifier);
 	}
 
 	private void showFragment(int step) {

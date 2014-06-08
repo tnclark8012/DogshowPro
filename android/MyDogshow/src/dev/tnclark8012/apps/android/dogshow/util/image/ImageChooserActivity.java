@@ -1,7 +1,6 @@
 package dev.tnclark8012.apps.android.dogshow.util.image;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -16,8 +15,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
-import android.widget.ImageView;
-import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 import eu.janmuller.android.simplecropimage.CropImage;
@@ -36,16 +33,12 @@ public class ImageChooserActivity extends Activity {
 
 	public static final String ACTION_CHOOSE = "choose";
 	public static final String ACTION_CAPTURE = "capture";
-	private ImageView mImageView;
 	private File mFileTemp;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
-		super.onCreate(savedInstanceState); // To change body of overridden
-											// methods use File | Settings |
-											// File Templates.
-		// setContentView(R.layout.main);
+		super.onCreate(savedInstanceState); 
 		String action = getIntent().getAction();
 		if (action.equals(ACTION_CHOOSE)) {
 			openGallery();
@@ -57,8 +50,6 @@ public class ImageChooserActivity extends Activity {
 			finish();
 		}
 
-		mImageView = (ImageView) findViewById(R.id.image);
-
 		String state = Environment.getExternalStorageState();
 		if (Environment.MEDIA_MOUNTED.equals(state)) {
 			mFileTemp = new File(Environment.getExternalStorageDirectory(),
@@ -69,7 +60,6 @@ public class ImageChooserActivity extends Activity {
 		try {
 			mFileTemp.createNewFile();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

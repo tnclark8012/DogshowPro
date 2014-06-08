@@ -16,35 +16,23 @@
 
 package dev.tnclark8012.apps.android.dogshow.ui.phone;
 
-import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.LOGD;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import android.accounts.Account;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.ContentResolver;
-import android.content.SyncStatusObserver;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
+import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
-import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.ui.ExploreFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.IncompleteFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseActivity;
-import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
-import dev.tnclark8012.apps.android.dogshow.R;
 
 /**
  * The landing screen for the app, once the user has logged in.
@@ -140,24 +128,11 @@ public class ScheduleActivity extends BaseActivity implements ActionBar.TabListe
 			break;
 		}
 
-		String title = getString(titleId);
 		setTitle(titleId);
 	}
-
-	@Override
-	protected void onRestoreInstanceState(Bundle savedInstanceState) {
-		super.onRestoreInstanceState(savedInstanceState);
-		// if (mSocialStreamFragment == null) {
-		// mSocialStreamFragment = (SocialStreamFragment)
-		// getFragmentManager()
-		// .getFragment(savedInstanceState, "stream_fragment");
-		// }
-	}
-
 	private class HomePagerAdapter extends FragmentPagerAdapter {
 		public HomePagerAdapter(FragmentManager fm) {
 			super(fm);
-			// TODO Auto-generated constructor stub
 		}
 
 		MyScheduleFragment mMyScheduleFragment;
@@ -187,7 +162,7 @@ public class ScheduleActivity extends BaseActivity implements ActionBar.TabListe
 
 		@Override
 		public int getCount() {
-			return 1;// TODO HIGH: 3
+			return 1;
 		}
 	}
 
@@ -209,7 +184,6 @@ public class ScheduleActivity extends BaseActivity implements ActionBar.TabListe
 
 	@Override
 	public void onPageScrollStateChanged(int arg0) {
-		// TODO Auto-generated method stub
 
 	}
 }

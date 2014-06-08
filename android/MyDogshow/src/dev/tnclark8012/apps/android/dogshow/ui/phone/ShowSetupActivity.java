@@ -99,8 +99,6 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 
 	@Override
 	public void onShowSynced() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override

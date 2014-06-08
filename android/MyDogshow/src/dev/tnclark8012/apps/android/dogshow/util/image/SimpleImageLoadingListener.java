@@ -10,14 +10,11 @@ public abstract class SimpleImageLoadingListener implements ImageLoadingListener
 	 
 	@Override
 	public void onLoadingStarted(String imageUri, View view) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -25,8 +22,6 @@ public abstract class SimpleImageLoadingListener implements ImageLoadingListener
 
 	@Override
 	public void onLoadingCancelled(String imageUri, View view) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

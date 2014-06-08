@@ -15,7 +15,6 @@ import dev.tnclark8012.apps.android.dogshow.sync.ApiAccessor;
 import dev.tnclark8012.apps.android.dogshow.sync.GroupRingsHandler;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 
-//TODO HIGH all juniors rings request into a single request following standard model
 public class GroupRingsRequest extends AsyncTask<String, Void, Void> {
 	private Context mContext;
 	private IApiAccessor mAccessor;
@@ -39,10 +38,8 @@ public class GroupRingsRequest extends AsyncTask<String, Void, Void> {
 		try {
 			resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY, batch);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (OperationApplicationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;

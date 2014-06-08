@@ -198,19 +198,14 @@ public class AccountUtils {
 
 		} catch (GoogleAuthException authEx) {
 			// This is likely unrecoverable.
-			Toast.makeText(context, "Unrecoverable: " + authEx.getMessage(),
-					Toast.LENGTH_LONG).show();
 			Log.e(TAG,
 					"Unrecoverable authentication exception: "
 							+ authEx.getMessage(), authEx);
 		} catch (IOException ioEx) {
-			Toast.makeText(context, "Transient: " + ioEx.getMessage(),
-					Toast.LENGTH_LONG).show();
 			Log.i(TAG, "transient error encountered: " + ioEx.getMessage());
 			// doExponentialBackoff();
 		} catch (Exception e) {
-			Toast.makeText(context, "Oh, darn: " + e.getMessage(),
-					Toast.LENGTH_LONG).show();// TODO HIGH HIGH HIGH
+			Log.i(TAG, "Authentication exception: " + e.getMessage());
 		}
 		return token;
 	}
@@ -239,7 +234,7 @@ public class AccountUtils {
 
 		@Override
 		protected String doInBackground(Void... params) {
-		
+
 			if (mCallback.shouldCancelAuthentication())
 				return null;
 			//
@@ -250,7 +245,7 @@ public class AccountUtils {
 			String token = tryAuthenticateWithErrorNotification(mActivity,
 					null, mAccountName);
 
-//			publishProgress(mAccountName, installId, token);
+			// publishProgress(mAccountName, installId, token);
 			register(mActivity, mAccountName, token, installId);
 			// Persists auth token.
 			setAuthToken(mActivity, token);
@@ -275,16 +270,18 @@ public class AccountUtils {
 	public static void register(final Context context,
 			final String accountName, final String token, String installId) {
 		String id = ApiAccessor.getInstance(context).register(accountName,
-				token, "PLUS", installId, NotificationHandler.getHandle());// TODO Facebook and/or nothing
+				token, "PLUS", installId, NotificationHandler.getHandle());// TODO
+																			// Facebook
+																			// and/or
+																			// nothing
 		setUserId(context, id);
 		new PersistHelper(context).createMe();
-		
 
 	}
 
 	public static void signOut(final Context context) {
 		// Sign out of GCM message router
-		// ServerUtilities.onSignOut(context); TODO
+		// ServerUtilities.onSignOut(context); TODO Sever sign out?
 
 		// Destroy auth tokens
 		invalidateAuthToken(context);

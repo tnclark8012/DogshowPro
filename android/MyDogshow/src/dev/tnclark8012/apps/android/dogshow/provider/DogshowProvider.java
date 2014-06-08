@@ -106,7 +106,6 @@ public class DogshowProvider extends ContentProvider {
 	}
 
 	private void deleteDatabase() {
-		// TODO: wait for content provider operations to finish, then tear down
 		mOpenHelper.close();
 		Context context = getContext();
 		DogshowDatabase.deleteDatabase(context);
@@ -396,8 +395,8 @@ public class DogshowProvider extends ContentProvider {
 				+ EnteredRings.TYPE_BREED_RING
 				+ " as INTEGER )"
 				+ " as ring_type, "
-				+ // TODO TYPE_BREED_RING to BreedRings.TYPE etc. with juniors
-				BreedRings.RING_NUMBER + ", " + BreedRings.RING_TITLE + " as "
+				+ BreedRings.RING_NUMBER + ", " 
+				+ BreedRings.RING_TITLE + " as "
 				+ EnteredRings.ENTERED_RINGS_TITLE + ","
 				+ Dogs.ENTERED_DOGS_NAMES + " as "
 				+ EnteredRings.ENTERED_RINGS_SUBTITLE + ", "

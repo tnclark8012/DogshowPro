@@ -35,14 +35,16 @@ import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
-public class DogEntryFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
+public class DogEntryFragment extends Fragment implements
+		LoaderManager.LoaderCallbacks<Cursor> {
 
 	private static final String TAG = DogEntryFragment.class.getSimpleName();
 	private CursorAdapter mAdapter;
 	private int mDogQueryToken;
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
 		View root = inflater.inflate(R.layout.fragment_entry_dogs, null);
 		Button back = (Button) root.findViewById(R.id.button_bar_button_left);
 		back.setOnClickListener(new OnClickListener() {
@@ -63,7 +65,8 @@ public class DogEntryFragment extends Fragment implements LoaderManager.LoaderCa
 
 	public interface Callbacks {
 		/**
-		 * Return true to select (activate) the dog in the list, false otherwise.
+		 * Return true to select (activate) the dog in the list, false
+		 * otherwise.
 		 */
 		public boolean onDogSelected(int dogId, boolean checked);
 
@@ -81,19 +84,16 @@ public class DogEntryFragment extends Fragment implements LoaderManager.LoaderCa
 
 		@Override
 		public boolean onDogSelected(int dogId, boolean checked) {
-			// TODO Auto-generated method stub
 			return false;
 		}
 
 		@Override
 		public boolean onNextClick() {
-			// TODO Auto-generated method stub
 			return false;
 		}
 
 		@Override
 		public boolean onBackClick() {
-			// TODO Auto-generated method stub
 			return false;
 		}
 
@@ -108,7 +108,8 @@ public class DogEntryFragment extends Fragment implements LoaderManager.LoaderCa
 				return;
 			}
 
-			Loader<Cursor> loader = getLoaderManager().getLoader(mDogQueryToken);
+			Loader<Cursor> loader = getLoaderManager()
+					.getLoader(mDogQueryToken);
 			if (loader != null) {
 				loader.forceLoad();
 			}
@@ -132,17 +133,20 @@ public class DogEntryFragment extends Fragment implements LoaderManager.LoaderCa
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
 		if (!(activity instanceof Callbacks)) {
-			throw new ClassCastException("Activity must implement fragment's callbacks.");
+			throw new ClassCastException(
+					"Activity must implement fragment's callbacks.");
 		}
 
 		mCallbacks = (Callbacks) activity;
-		activity.getContentResolver().registerContentObserver(Dogs.CONTENT_URI, true, mObserver);
+		activity.getContentResolver().registerContentObserver(Dogs.CONTENT_URI,
+				true, mObserver);
 	}
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		ListView list = (ListView) getView().findViewById(R.id.fragment_entry_dogs_list);
+		ListView list = (ListView) getView().findViewById(
+				R.id.fragment_entry_dogs_list);
 		list.setAdapter(null);
 		mAdapter = new DogListAdapter(getActivity());
 		mDogQueryToken = DogsQuery._TOKEN;
@@ -161,7 +165,8 @@ public class DogEntryFragment extends Fragment implements LoaderManager.LoaderCa
 	private interface DogsQuery {
 		int _TOKEN = 0x1;
 
-		String[] PROJECTION = { BaseColumns._ID, Dogs.DOG_CALL_NAME, Dogs.DOG_BREED, Dogs.DOG_IMAGE_PATH, Dogs.DOG_IS_SHOWING };
+		String[] PROJECTION = { BaseColumns._ID, Dogs.DOG_CALL_NAME,
+				Dogs.DOG_BREED, Dogs.DOG_IMAGE_PATH, Dogs.DOG_IS_SHOWING };
 
 		int _ID = 0;
 		int DOG_CALL_NAME = 1;
@@ -176,7 +181,9 @@ public class DogEntryFragment extends Fragment implements LoaderManager.LoaderCa
 		final Uri dogsUri = Dogs.CONTENT_URI;
 		Loader<Cursor> loader = null;
 		if (id == DogsQuery._TOKEN) {
-			loader = new CursorLoader(getActivity(), dogsUri, DogsQuery.PROJECTION, null, null, DogshowContract.Dogs.DEFAULT_SORT);
+			loader = new CursorLoader(getActivity(), dogsUri,
+					DogsQuery.PROJECTION, null, null,
+					DogshowContract.Dogs.DEFAULT_SORT);
 		} else {
 			Log.w(TAG, "Couldn't create loader");
 		}
@@ -217,17 +224,23 @@ public class DogEntryFragment extends Fragment implements LoaderManager.LoaderCa
 		@Override
 		public void bindView(View view, Context context, Cursor cursor) {
 			final int id = cursor.getInt(DogsQuery._ID);
-			((TextView) view.findViewById(R.id.list_item_dog_entry_name)).setText(cursor.getString(DogsQuery.DOG_CALL_NAME));
+			((TextView) view.findViewById(R.id.list_item_dog_entry_name))
+					.setText(cursor.getString(DogsQuery.DOG_CALL_NAME));
 			String breedStr = cursor.getString(DogsQuery.DOG_BREED);
-			((TextView) view.findViewById(R.id.list_item_dog_entry_breed)).setText(Breeds.parse(breedStr).getPrimaryName());
+			((TextView) view.findViewById(R.id.list_item_dog_entry_breed))
+					.setText(Breeds.parse(breedStr).getPrimaryName());
 			String imagePath = cursor.getString(DogsQuery.DOG_IMAGE_PATH);
-			ImageView imageView = ((ImageView) view.findViewById(R.id.list_item_dog_entry_thumb));
-			boolean entered = Utils.getMaybeNull(cursor, DogsQuery.DOG_IS_SHOWING, 0) == 1;
-			CheckBox checkBox = (CheckBox) view.findViewById(R.id.list_item_dog_entry_checkbox);
+			ImageView imageView = ((ImageView) view
+					.findViewById(R.id.list_item_dog_entry_thumb));
+			boolean entered = Utils.getMaybeNull(cursor,
+					DogsQuery.DOG_IS_SHOWING, 0) == 1;
+			CheckBox checkBox = (CheckBox) view
+					.findViewById(R.id.list_item_dog_entry_checkbox);
 			Log.v(TAG, id + ":" + cursor.getString(DogsQuery.DOG_CALL_NAME));
 			checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 				@Override
-				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				public void onCheckedChanged(CompoundButton buttonView,
+						boolean isChecked) {
 					mCallbacks.onDogSelected(id, isChecked);
 				}
 			});
@@ -241,7 +254,8 @@ public class DogEntryFragment extends Fragment implements LoaderManager.LoaderCa
 
 		@Override
 		public View newView(Context context, Cursor cursor, ViewGroup parent) {
-			return getActivity().getLayoutInflater().inflate(R.layout.list_item_dog_entry, parent, false);
+			return getActivity().getLayoutInflater().inflate(
+					R.layout.list_item_dog_entry, parent, false);
 		}
 	}
 

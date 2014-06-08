@@ -123,8 +123,8 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 			mImagePath = cursor.getString(DogQuery.DOG_IMAGE_PATH);
 			mMajors = cursor.getInt(DogQuery.DOG_MAJORS);
 			mPoints = cursor.getInt(DogQuery.DOG_POINTS);
-			mSex = (cursor.getInt(DogQuery.DOG_SEX) == Dogs.MALE) ? "Male"
-					: "Female";// TODO string resource
+			mSex = (cursor.getInt(DogQuery.DOG_SEX) == Dogs.MALE) ? getString(R.string.male)
+					: getString(R.string.female);
 			mViewBreed.setText(Breeds.parse(mBreedName).getPrimaryName());
 			mViewSex.setText(mSex);
 			if (mViewName != null)

@@ -10,13 +10,10 @@ import dev.tnclark8012.apps.android.dogshow.R;
 
 public class DrawerItemSpinner extends NonNavigationDrawerItem {
 
-	private List<SpinnerItem> mItems;
-
 	public DrawerItemSpinner(List<SpinnerItem> items,
 			OnClickListener spinnerClickListener) {
 		super(R.layout.drawer_item_spinner, IGNORE_RESOURCE, null,
 				spinnerClickListener);
-		mItems = items;
 	}
 
 	public DrawerItemSpinner(List<SpinnerItem> items) {
@@ -40,28 +37,6 @@ public class DrawerItemSpinner extends NonNavigationDrawerItem {
 			holder.spinner = (Spinner) convertView
 					.findViewById(R.id.drawerSpinner);
 		}
-		CustomSpinnerAdapter adapter = new CustomSpinnerAdapter(
-				parent.getContext(), R.layout.spinner_item_team, mItems);
-
-//		holder.spinner.setAdapter(new ShowTeamSpinnerAdapter(parent
-//				.getContext(), null, false));
-//
-//		holder.spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-//
-//			@Override
-//			public void onItemSelected(AdapterView<?> adapter, View view,
-//					int position, long id) {
-//				// new
-//				// PersistHelper(view.getContext()).updateEntity(ShowTeams.CONTENT_URI,
-//				// id, updateValues);
-//			}
-//
-//			@Override
-//			public void onNothingSelected(AdapterView<?> arg0) {
-//				// TODO Auto-generated method stub
-//
-//			}
-//		});
 		return convertView;
 	}
 

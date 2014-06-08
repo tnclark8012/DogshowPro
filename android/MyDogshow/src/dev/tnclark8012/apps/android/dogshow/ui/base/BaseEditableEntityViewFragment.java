@@ -147,14 +147,12 @@ public abstract class BaseEditableEntityViewFragment extends Fragment implements
 
 	@Override
 	public void onStart() {
-		// TODO Auto-generated method stub
 		super.onStart();
 		setMenuVisibility(true);
 	}
 
 	@Override
 	public void onStop() {
-		// TODO Auto-generated method stub
 		super.onStop();
 		setMenuVisibility(false);
 	}

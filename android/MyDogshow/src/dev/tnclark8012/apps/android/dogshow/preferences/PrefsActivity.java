@@ -13,7 +13,6 @@ public class PrefsActivity extends SimpleSinglePaneActivity {
 
 	@Override
 	protected Fragment onCreatePane() {
-		// TODO Auto-generated method stub
 		return new PrefsFragment();
 	}
 	
@@ -42,10 +41,6 @@ public class PrefsActivity extends SimpleSinglePaneActivity {
 		@Override
 		public void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
-
-			// Make sure default values are applied. In a real app, you would
-			// want this in a shared function that is used to retrieve the
-			// SharedPreferences wherever they are needed.
 			addPreferencesFromResource(R.xml.developer_prefs);
 		}
 	}

@@ -72,10 +72,8 @@ public class JuniorsRingsRequest extends AsyncTask<String, Void, Void> {
 		try {
 			resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY, batch);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (OperationApplicationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;

@@ -290,11 +290,9 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements
 		int sex = getSexFromRadioId(mSexId);
 		Map<String, Object> values = new HashMap<String, Object>();
 		if (creatingNewEntity()) {
-			values.put(Dogs.DOG_ID, Utils.getGuid());// FIXME UI shouldn't have
-														// to know
+			values.put(Dogs.DOG_ID, Utils.getGuid());
 		}
-		// FIXME these should leverage @ContentValues
-		values.put(Dogs.DOG_IS_SHOWING, 1);// FIXME implement a selection
+		values.put(Dogs.DOG_IS_SHOWING, 1);
 		values.put(Dogs.DOG_BREED, DogshowEnums.Breeds.parse(mBreedName)
 				.getPrimaryName());
 		values.put(Dogs.DOG_IMAGE_PATH, mImagePath);
@@ -304,19 +302,9 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements
 		values.put(Dogs.DOG_OWNER_ID, Integer.parseInt(mOwnerId));
 		values.put(Dogs.DOG_SEX, sex);
 		values.put(Dogs.DOG_IS_VETERAN,
-				Utils.booleanToInt(mViewVeteran.isChecked()));// TODO the UI
-																// shouldn't
-																// need to know
-																// it's stored
-																// as a
-																// bool/int/etc.
+				Utils.booleanToInt(mViewVeteran.isChecked()));
 		values.put(Dogs.DOG_IS_CHAMPION,
-				Utils.booleanToInt(mViewChampion.isChecked()));// TODO the UI
-																// shouldn't
-																// need to know
-																// it's stored
-																// as a
-																// bool/int/etc.
+				Utils.booleanToInt(mViewChampion.isChecked()));
 		values.put(Dogs.DOG_CLASS,
 				Dogs.getDogClass(sex, mViewChampion.isChecked()));
 		values.put(Dogs.UPDATED, System.currentTimeMillis());

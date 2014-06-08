@@ -91,7 +91,6 @@ public class ShowTeamSyncHandler {
 				Log.w(TAG, "Error sycing teams");
 				e.printStackTrace();
 			} catch (OperationApplicationException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

@@ -40,8 +40,6 @@ public class HandlerEntryFragment extends Fragment implements LoaderManager.Load
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		// return super.onCreateView(inflater, container, savedInstanceState);
 		View root = inflater.inflate(R.layout.fragment_entry_handlers, null);
 		Button back = (Button) root.findViewById(R.id.button_bar_button_left);
 		back.setOnClickListener(new OnClickListener() {
@@ -85,25 +83,21 @@ public class HandlerEntryFragment extends Fragment implements LoaderManager.Load
 
 		@Override
 		public boolean onHandlerSelected(int handlerId, boolean checked) {
-			// TODO Auto-generated method stub
 			return false;
 		}
 
 		@Override
 		public boolean onNextClick() {
-			// TODO Auto-generated method stub
 			return false;
 		}
 
 		@Override
 		public boolean onBackClick() {
-			// TODO Auto-generated method stub
 			return false;
 		}
 
 		@Override
 		public boolean onHandlerEnteredJuniorsClicked(int handlerId, boolean checked) {
-			// TODO Auto-generated method stub
 			return false;
 		}
 

@@ -12,15 +12,12 @@ import android.database.Cursor;
 import android.os.RemoteException;
 import android.util.Log;
 import dev.tnclark8012.apps.android.dogshow.Config.IApiAccessor;
-import dev.tnclark8012.apps.android.dogshow.model.Dog;
 import dev.tnclark8012.apps.android.dogshow.model.Handler;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
-import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.HandlerSyncQuery;
-import dev.tnclark8012.apps.android.dogshow.sync.response.DogSyncResponse;
 import dev.tnclark8012.apps.android.dogshow.sync.response.HandlerSyncResponse;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 
@@ -129,7 +126,6 @@ public class HandlerSyncHandler {
 				Log.w(TAG, "Error sycing handlers");
 				e.printStackTrace();
 			} catch (OperationApplicationException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -137,11 +133,8 @@ public class HandlerSyncHandler {
 
 	public ContentValues getHandlerContentValues(Handler handler) {
 		ContentValues values = new ContentValues(12);
-		values.put(Handlers.HANDLER_ID, handler.identifier);// FIXME UI shouldn't have to
-												// know
-		// FIXME these should leverage @ContentValues
-		values.put(Handlers.HANDLER_IS_SHOWING, handler.isShowing);// FIXME implement a
-														// selection
+		values.put(Handlers.HANDLER_ID, handler.identifier);
+		values.put(Handlers.HANDLER_IS_SHOWING, handler.isShowing);
 		values.put(Handlers.HANDLER_IS_SHOWING_JUNIORS, handler.isShowingJuniors);
 		values.put(Handlers.HANDLER_JUNIOR_CLASS, handler.juniorsClassString);
 		values.put(Handlers.HANDLER_NAME, handler.name);

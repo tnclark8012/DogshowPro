@@ -56,7 +56,6 @@ public class ConformationRingsRequest extends AsyncTask<String, Void, Void> {
 					.build());
 		}
 		BreedRingsHandler handler = new BreedRingsHandler(mContext, true);
-		// TODO make this available in a single HTTP request?
 		while (breedsCursor.moveToNext()) {
 			breedName = breedsCursor.getString(0);
 			isSweepstakes = Utils.getMaybeNull(breedsCursor, 1, false);
@@ -76,15 +75,13 @@ public class ConformationRingsRequest extends AsyncTask<String, Void, Void> {
 		}
 		Log.v(TAG, "Pulled breed rings for " + numBreeds + " breeds");
 		breedsCursor.close();
-		// FIXME clear rings if no breeds and or juniors entered
+
 
 		try {
 			resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY, batch);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (OperationApplicationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
