@@ -310,13 +310,15 @@ timeblock
     @init {$json = new JsonObject(); }	
 	: (
 	    (
-		INT
-			{
-				currentBlockTime=$INT.text;
-				$json.addProperty("BlockStart", currentBlockTime);
-			} 
+		INT 
+                {
+                currentBlockTime=$INT.text + " ";
+                }
 		FOLLOWING_TIME
-	     )|
+                {
+                    currentBlockTime+= $FOLLOWING_TIME.text;
+		}
+	     ){$json.addProperty("BlockStart", currentBlockTime);}|
 	     TIME
 	     	{
 	     		currentBlockTime=$TIME.text;
@@ -584,7 +586,7 @@ group_ring
 
 group_block 
     returns [JsonObject json]
-    locals [JsonArray rings = new JsonArray();]
+    locals [JsonArray rings = new JsonArray(); int countAhead;]
     @init {$json = new JsonObject(); }
 	: 
         TIME
@@ -600,6 +602,7 @@ group_block
                     $json.addProperty("Group", arr[0]);
                     $json.addProperty("Judge",arr[1]);
                     $json.addProperty("BlockStart",currentBlockTime);
+                    $json.addProperty("CountAhead",$ctx.countAhead++);
                     mShowRings.add($json);
                 }
                 else {

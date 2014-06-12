@@ -477,7 +477,7 @@ PHONE_NUMBER
     ;
 TIME    :   INT ':' INT WS FRAG_TIME_LABEL{allowBreed=true;};
 FOLLOWING_TIME
-	:	'minutes following Best in Show';
+	:	'minutes following Best ' ('i'|'I')'n Show';
 
 DATE    :   FRAG_WEEK_DAY ',' WS FRAG_MONTH WS INT ',' WS INT {allowBreed=true;allowJudge=true;};
     
