@@ -1,8 +1,8 @@
 bin
 gen
-eclipse/configuration/org.eclipse.core.runtime
-eclipse/configuration/org.eclipse.osgi
-eclipse/configuration/org.eclipse.update
-eclipse/configuration/.settings/org.eclipse.ui.ide.prefs
+configuration/org.eclipse.core.runtime
+configuration/org.eclipse.osgi
+configuration/org.eclipse.update
+configuration/.settings/org.eclipse.ui.ide.prefs
 p2
 .manager
