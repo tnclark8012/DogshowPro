@@ -7,7 +7,7 @@ MONTH_REGEX = "January|February|March|April|May|June|July|August|September|Octob
 class Env(object):
     FORCE_ALL = False;
     OFFLINE = False;
-    DEBUG = True;
+    DEBUG = False;
     DO_DOWNLOAD = True;
     VERBOSE = False;
     LOG_VERBOSE = False;

@@ -87,6 +87,9 @@ def main(argv):
       sys.exit(2)
     showLimit = None;
     outputfile = None;
+    if len(opts) == 0:
+        print('Usage: python driver.py -v -p http://www.onofrio.com/execpgm/wbshwpg?SHOW=LAND164052 -r showpage');
+        sys.exit(0)
     for opt, arg in opts:
       if opt == '--limit':
         printv('limit option of ' + arg)

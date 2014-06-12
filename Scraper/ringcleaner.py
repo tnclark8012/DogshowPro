@@ -79,7 +79,6 @@ class RingCleaner(object):
 		text = text.encode('utf-8')
 		printd('utf-8')
 		printd(str(text))
-		#text = ''.join(filter(lambda x: x in string.printable, text))
 		printd('filtered')
 		printd(str(text))
 		text = str(text);
