@@ -4,6 +4,6 @@ configuration/org.eclipse.core.runtime
 configuration/org.eclipse.osgi
 configuration/org.eclipse.update
 configuration/.settings/org.eclipse.ui.ide.prefs
-configuration/.settings/org.eclipse.help.base
+configuration/org.eclipse.help.base
 p2
 .manager
