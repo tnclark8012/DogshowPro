@@ -31,6 +31,7 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
@@ -49,9 +50,12 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.plus.PlusClient;
 import com.google.android.gms.plus.model.people.Person;
 import com.google.android.gms.plus.model.people.PersonBuffer;
+import com.microsoft.windowsazure.messaging.NotificationHub;
+import com.microsoft.windowsazure.messaging.Registration;
 import com.microsoft.windowsazure.notifications.NotificationsManager;
 
 import dev.tnclark8012.apps.android.dogshow.NotificationHandler;
@@ -68,6 +72,8 @@ public class AccountActivity extends Activity implements
 
 	private static final String TAG = AccountActivity.class.getSimpleName();
 	public static final String SENDER_ID = "282844312315";
+	private GoogleCloudMessaging gcm;
+	private NotificationHub hub;
 	public static final String EXTRA_FINISH_INTENT = "dev.tnclark8012.apps.android.dogshow.extra.FINISH_INTENT";
 
 	private static final String KEY_CHOSEN_ACCOUNT = "chosen_account";
@@ -90,7 +96,15 @@ public class AccountActivity extends Activity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		NotificationsManager.handleNotifications(this, SENDER_ID, NotificationHandler.class);
+		NotificationsManager.handleNotifications(this, SENDER_ID,
+				NotificationHandler.class);
+		gcm = GoogleCloudMessaging.getInstance(this);
+
+		String connectionString = "Endpoint=sb://dogshowprohub-ns.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=dTX44KE214q5uyK8OWinNkyYR/Yu9Ydui5rsk8P41j4=";
+		hub = new NotificationHub("dogshowprohub",
+				connectionString, this);
+
+		registerWithNotificationHubs();
 		setContentView(R.layout.activity_singlepane_empty);
 
 		final Intent intent = getIntent();
@@ -120,6 +134,27 @@ public class AccountActivity extends Activity implements
 			}
 		}
 	}
+	
+	@SuppressWarnings("unchecked")
+	private void registerWithNotificationHubs() {
+		   new AsyncTask() {
+		      @Override
+		      protected Object doInBackground(Object... params) {
+		         try {
+		            String regid = gcm.register(SENDER_ID);
+		            Registration registration = hub.register(regid, "alpha");
+		            Log.i(TAG, "reg id: " + registration.getRegistrationId());
+		            Log.i(TAG, "PNS Handle: " + registration.getPNSHandle());
+		            Log.i(TAG, "Hub path: " + registration.getNotificationHubPath());
+		            
+		            
+		         } catch (Exception e) {
+		            return e;
+		         }
+		         return null;
+		     }
+		   }.execute(null, null, null);
+		}
 
 	@Override
 	public void onRecoverableException(final int code) {

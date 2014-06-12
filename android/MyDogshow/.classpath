@@ -11,6 +11,7 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/MyDogshow/libs/notifications-1.0.1-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="libs/notification-hubs-0.2.jar"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry kind="con" path="com.google.gdt.eclipse.managedapis.MANAGED_API_CONTAINER/plus-v1r118lv1.15.0-rc"/>
 	<classpathentry kind="output" path="bin/classes"/>
