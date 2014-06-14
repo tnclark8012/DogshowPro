@@ -190,7 +190,7 @@ public class AzureApiAccessor extends ApiAccessor {
 	@Override
 	public Show[] getShows() {
 		try {
-			String jsonStr = executeGet(getShowsUrl());
+			String jsonStr = executeGet(buildGetShowsUrl());
 			Show[] shows = mGson.fromJson(jsonStr, Show[].class);
 			Log.d(TAG, jsonStr);
 			for (Show show : shows) {
@@ -200,6 +200,16 @@ public class AzureApiAccessor extends ApiAccessor {
 			}
 			return shows;
 		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public URL buildGetShowsUrl() {
+		try {
+			return new URL(GET_SHOW_URL, "?cutoffMillis="
+					+ Utils.clientToServerTime(Utils.twelveAmToday()));
+		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 		return null;
@@ -309,8 +319,17 @@ public class AzureApiAccessor extends ApiAccessor {
 	public URL buildGetRingBlockOverviewsUrl(String showId, int ringNumber,
 			long blockStart) {
 		try {
-			return new URL(GET_RING_BLOCK_OVERVIEWS_URL, "?showId=" + encode(showId)
-					+ "&ringNumber=" + ringNumber + "&blockStart="+Utils.millisSinceAd(blockStart));//Server is .Net which uses AD, not post Epoch
+			return new URL(GET_RING_BLOCK_OVERVIEWS_URL, "?showId="
+					+ encode(showId) + "&ringNumber=" + ringNumber
+					+ "&blockStart=" + Utils.millisSinceAd(blockStart));// Server
+																		// is
+																		// .Net
+																		// which
+																		// uses
+																		// AD,
+																		// not
+																		// post
+																		// Epoch
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -321,11 +340,12 @@ public class AzureApiAccessor extends ApiAccessor {
 	public RingBlockOverview[] getRingBlockOverviews(String showId,
 			int ringNumber, long blockStart) {
 		try {
-			String jsonStr = executeGet(buildGetRingBlockOverviewsUrl(showId, ringNumber, blockStart));
-			RingBlockOverview[] rings = mGson.fromJson(jsonStr, RingBlockOverview[].class);
-			for (RingBlockOverview ring: rings) {
-				ring.blockStart = Utils
-						.millisSinceEpoch(ring.blockStart);
+			String jsonStr = executeGet(buildGetRingBlockOverviewsUrl(showId,
+					ringNumber, blockStart));
+			RingBlockOverview[] rings = mGson.fromJson(jsonStr,
+					RingBlockOverview[].class);
+			for (RingBlockOverview ring : rings) {
+				ring.blockStart = Utils.millisSinceEpoch(ring.blockStart);
 			}
 			Log.i(TAG, "pulled overview containing " + rings.length + " rings");
 			return rings;

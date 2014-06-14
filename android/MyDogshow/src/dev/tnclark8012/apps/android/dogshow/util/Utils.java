@@ -159,11 +159,21 @@ public class Utils {
 		return cal.getTimeInMillis();
 	}
 
-	private static final long EPOCH_IN_MILLISECONDS = 62135596800000l;
+	private static final long EPOCH_IN_MILLISECONDS = 62135596800000L;
 
+	// TODO kill this method and similar one
 	public static long millisSinceEpoch(long millisSinceAD) {
 		return millisSinceAD - EPOCH_IN_MILLISECONDS;
 	}
+
+	public static long clientToServerTime(long millisecondsSinceEpoch) {
+		return millisSinceAd(millisecondsSinceEpoch);
+	}
+
+	public static long serverToClientTime(long millisecondsSinceAd) {
+		return millisSinceEpoch(millisecondsSinceAd);
+	}
+
 	public static long millisSinceAd(long millisSinceEpoch) {
 		return millisSinceEpoch + EPOCH_IN_MILLISECONDS;
 	}
