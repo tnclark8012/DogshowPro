@@ -164,6 +164,9 @@ public class Utils {
 	public static long millisSinceEpoch(long millisSinceAD) {
 		return millisSinceAD - EPOCH_IN_MILLISECONDS;
 	}
+	public static long millisSinceAd(long millisSinceEpoch) {
+		return millisSinceEpoch + EPOCH_IN_MILLISECONDS;
+	}
 
 	public static Uri storeImage(Context context, Bitmap image) {
 		File pictureFile = new File(context.getFilesDir(),

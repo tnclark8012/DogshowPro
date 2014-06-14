@@ -33,6 +33,7 @@ import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.util.Log;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
+import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.RingBlocks;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.EnteredRings;
@@ -68,8 +69,12 @@ public class DogshowProvider extends ContentProvider {
 	private static final int JUNIORS_RINGS = 400;
 
 	private static final int ALL_RINGS_ENTERED = 500;
+	private static final int ALL_RINGS_ENTERED_BLOCKS = 501;
+	
 	private static final int SHOW_TEAMS = 600;
 	private static final int GROUP_RINGS = 700;
+	
+	private static final int BLOCK_RINGS = 800;
 
 	/**
 	 * Build and return a {@link UriMatcher} that catches all {@link Uri}
@@ -94,7 +99,9 @@ public class DogshowProvider extends ContentProvider {
 		matcher.addURI(authority, "handlers/*", HANDLERS_ID);
 		matcher.addURI(authority, "rings/juniors", JUNIORS_RINGS);
 		matcher.addURI(authority, "rings/entered", ALL_RINGS_ENTERED);
+		matcher.addURI(authority, "rings/entered/block", ALL_RINGS_ENTERED_BLOCKS);
 		matcher.addURI(authority, "teams", SHOW_TEAMS);
+		matcher.addURI(authority, "rings/block", BLOCK_RINGS);
 
 		return matcher;
 	}
@@ -125,6 +132,8 @@ public class DogshowProvider extends ContentProvider {
 			return BreedRings.CONTENT_TYPE;
 		case GROUP_RINGS:
 			return GroupRings.CONTENT_TYPE;
+		case BLOCK_RINGS:
+			return RingBlocks.CONTENT_TYPE;
 		case HANDLERS:
 			return Handlers.CONTENT_TYPE;
 		case HANDLERS_ID:
@@ -132,6 +141,8 @@ public class DogshowProvider extends ContentProvider {
 		case JUNIORS_RINGS:
 			return JuniorsRings.CONTENT_TYPE;
 		case ALL_RINGS_ENTERED:
+			return EnteredRings.CONTENT_TYPE;
+		case ALL_RINGS_ENTERED_BLOCKS:
 			return EnteredRings.CONTENT_TYPE;
 		default:
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
@@ -171,6 +182,13 @@ public class DogshowProvider extends ContentProvider {
 			return exBuilder.where(selection, selectionArgs).query(db,
 					projection, groupBy, null, sortOrder, null);
 		}
+		case ALL_RINGS_ENTERED_BLOCKS:
+		{
+			final SelectionBuilder exBuilder = buildSimpleSelection(uri);
+			String groupBy = EnteredRings.RING_BLOCK_START + ", " + EnteredRings.RING_JUDGE_TIME;
+			return exBuilder.where(selection, selectionArgs).query(db,
+					projection, groupBy, null, sortOrder, null);
+		}
 		default: {
 			// Most cases are handled with simple SelectionBuilder
 			final SelectionBuilder builder = buildSimpleSelection(uri);
@@ -206,6 +224,12 @@ public class DogshowProvider extends ContentProvider {
 			getContext().getContentResolver().notifyChange(uri, null,
 					syncToNetwork);
 			return GroupRings.buildRingUri(values.getAsString(GroupRings._ID));
+		}
+		case BLOCK_RINGS: {
+			db.insertOrThrow(Tables.BLOCK_RINGS, null, values);
+			getContext().getContentResolver().notifyChange(uri, null,
+					syncToNetwork);
+			return RingBlocks.buildRingUri(values.getAsString(RingBlocks._ID));
 		}
 		case HANDLERS: {
 			db.insertOrThrow(Tables.HANDLERS, null, values);
@@ -309,6 +333,8 @@ public class DogshowProvider extends ContentProvider {
 		case GROUP_RINGS: {
 			return builder.table(Tables.GROUP_RINGS);
 		}
+		case BLOCK_RINGS:
+			return builder.table(Tables.BLOCK_RINGS);
 		case DOGS: {
 			return builder.table(Tables.DOGS);
 		}
@@ -332,6 +358,8 @@ public class DogshowProvider extends ContentProvider {
 			return builder.table(Tables.ALL_ENTERED_RINGS);// TODO FIXME this
 															// should be
 															// Tables.All_Rings
+		case ALL_RINGS_ENTERED_BLOCKS:
+			return builder.table(Tables.ALL_ENTERED_RINGS);
 		case SHOW_TEAMS:
 			return builder.table(Tables.SHOW_TEAMS);
 		default: {

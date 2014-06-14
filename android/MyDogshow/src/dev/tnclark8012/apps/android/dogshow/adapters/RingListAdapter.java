@@ -62,7 +62,6 @@ public class RingListAdapter extends CursorAdapter implements
 			holder.ringNumberView.setVisibility(View.VISIBLE);
 			holder.ringStartView.setVisibility(View.VISIBLE);
 		}
-
 		holder.ringNumberView.setText(mActivity.getString(
 				R.string.template_ring_number,
 				cursor.getInt(RingsQuery.RING_NUMBER)));

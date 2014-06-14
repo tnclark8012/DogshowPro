@@ -23,6 +23,7 @@ import dev.tnclark8012.apps.android.dogshow.model.Dog;
 import dev.tnclark8012.apps.android.dogshow.model.GroupRing;
 import dev.tnclark8012.apps.android.dogshow.model.Handler;
 import dev.tnclark8012.apps.android.dogshow.model.JuniorsRing;
+import dev.tnclark8012.apps.android.dogshow.model.RingBlockOverview;
 import dev.tnclark8012.apps.android.dogshow.model.Show;
 import dev.tnclark8012.apps.android.dogshow.sync.response.DogSyncResponse;
 import dev.tnclark8012.apps.android.dogshow.sync.response.HandlerSyncResponse;
@@ -38,6 +39,7 @@ public class Config {
 				Boolean sweepstakes);
 
 		URL buildGetJuniorRingsUrl(String showId, String juniorClass);
+		URL buildGetRingBlockOverviewsUrl(String showId, int ringNumber, long blockStart);
 
 		URL getBaseUrl();
 
@@ -77,6 +79,7 @@ public class Config {
 				String password);
 
 		GroupRing[] getGroupRings(String showId);
+		RingBlockOverview[] getRingBlockOverviews(String showId, int ringNumber, long blockStart);
 	}
 
 	public static final boolean DEBUG_OFFLINE = false;// TODO implement

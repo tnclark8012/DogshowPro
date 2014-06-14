@@ -8,6 +8,7 @@ import android.util.Log;
 import dev.tnclark8012.apps.android.dogshow.BuildConfig;
 import dev.tnclark8012.apps.android.dogshow.provider.DogshowProvider.Qualified;
 import dev.tnclark8012.apps.android.dogshow.provider.DogshowProvider.Subquery;
+import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.BlockRingsColumns;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.BreedRingsColumns;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.DogsColumns;
@@ -39,13 +40,15 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 																// judge time of
 																// 10 minutes
 																// per group
+	private static final int VER_RING_BLOCKS = 12;//Added RING_BLOCK table for storing "overviews" of all rings in a timeblock
 
-	private static final int DATABASE_VERSION = VER_GROUP_DEFAULT_JUDGE_TIME;
+	private static final int DATABASE_VERSION = VER_RING_BLOCKS;
 
 	public interface Tables {
 		String DOGS = "dogs";
 		String BREED_RINGS = "breed_rings";
 		String GROUP_RINGS = "group_rings";
+		String BLOCK_RINGS = "block_rings";
 		String HANDLERS = "handlers";
 		String JUNIORS_RINGS = "juniors_rings";
 		String SHOW_TEAMS = "show_teams";
@@ -99,10 +102,22 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 		createJuniorsRingsTable(db);
 		createShowTeamsTable(db);
 		createGroupRingsTable(db);
+		createBlockRingsTable(db);
 		if (BuildConfig.DEBUG) {
 			// insertDebugEntities(db);
 		}
 
+	}
+
+	private void createBlockRingsTable(SQLiteDatabase db) {
+		db.execSQL("CREATE TABLE " + Tables.BLOCK_RINGS+ " ("
+				+ BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+				+ BlockRingsColumns.BLOCK_START+ " LONG NOT NULL,"//TODO all time columns should be longs
+				+ BlockRingsColumns.COUNT_AHEAD + " INTEGER,"
+				+ BlockRingsColumns.JUDGE_NAME + " TEXT,"
+				+ BlockRingsColumns.RING_NUMBER + " INTEGER NOT NULL,"
+				+ BlockRingsColumns.TITLE + " TEXT,"
+				+ SyncColumns.UPDATED + " LONG DEFAULT 0)");
 	}
 
 	private void createHandlersTable(SQLiteDatabase db) {
@@ -340,6 +355,9 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				db.execSQL("UPDATE " + Tables.GROUP_RINGS + " SET "
 						+ GroupRings.RING_JUDGE_TIME + " = 600000");
 				version++;
+			case VER_GROUP_DEFAULT_JUDGE_TIME:
+				createBlockRingsTable(db);
+				version++;
 			}
 		} catch (Exception e) {
 			version = -1;
@@ -353,6 +371,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 			db.execSQL("DROP TABLE IF EXISTS " + Tables.BREED_RINGS);
 			db.execSQL("DROP TABLE IF EXISTS " + Tables.SHOW_TEAMS);
 			db.execSQL("DROP TABLE IF EXISTS " + Tables.GROUP_RINGS);
+			db.execSQL("DROP TABLE IF EXISTS " + Tables.BLOCK_RINGS);
 			onCreate(db);
 		}
 	}

@@ -41,6 +41,7 @@ public class DogshowContract {
 	private static final String PATH_HANDLERS_JUNIORS = "juniors";
 	private static final String PATH_HANDLERS_BY_JUNIORS_CLASS = "by_class";
 	private static final String PATH_RINGS = "rings";
+	private static final String PATH_RINGS_BLOCK = "block";
 	private static final String PATH_SHOW_TEAMS = "teams";
 
 	/**
@@ -122,6 +123,13 @@ public class DogshowContract {
 
 	interface GroupRingsColumns {
 		String RING_GROUP = "group_ring_goup";
+	}
+	interface BlockRingsColumns {
+		String BLOCK_START = "block_ring_block_start";
+		String COUNT_AHEAD = "block_ring_count_ahead";
+		String JUDGE_NAME = "block_ring_judge_name";
+		String RING_NUMBER = "block_ring_ring_number";
+		String TITLE = "block_ring_title";
 	}
 
 	interface BreedRingsColumns {
@@ -285,6 +293,7 @@ public class DogshowContract {
 			EnteredRingsColumns, RingColumns {// Constructed table
 		public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon()
 				.appendPath(PATH_RINGS).appendPath(PATH_ENTERED).build();
+		public static final Uri ENTERED_RING_BLOCKS = CONTENT_URI.buildUpon().appendPath("blocks").build();
 		public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.dogshow.ring";
 		public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.dogshow.ring";
 		public static final String DEFAULT_SORT = RING_BLOCK_START + " ASC";
@@ -385,6 +394,40 @@ public class DogshowContract {
 		public static String[] buildUpcomingSelectionArgs(long currTime) {
 			return new String[] { String.valueOf((BuildConfig.DEBUG) ? 0
 					: currTime) };
+		}
+
+		/** Read _ID from {@link GroupRings} {@link Uri}. */
+		public static String getRingId(Uri uri) {
+			return uri.getPathSegments().get(1);
+		}
+
+	}
+	
+	/**
+	 * Each Ring is a show ring that consists of multiple timeblocks and group
+	 * rings
+	 */
+	public static class RingBlocks implements BlockRingsColumns,
+			SyncColumns, BaseColumns {
+
+		public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon()
+				.appendPath(PATH_RINGS).appendPath(PATH_RINGS_BLOCK).build();
+
+		public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.dogshow.ring.block";
+		public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.dogshow.ring.block";
+		/** Default "ORDER BY" clause. */
+		public static final String DEFAULT_SORT = RingBlocks.COUNT_AHEAD
+				+ " ASC";
+
+		/** Build {@link Uri} for requested Ring ID. */
+		public static Uri buildRingUri(String ringId) {
+			return CONTENT_URI.buildUpon().appendPath(ringId).build();
+		}
+
+		public static final String SELECTION_RING_BLOCK = RingBlocks.RING_NUMBER + " =? AND " + RingBlocks.BLOCK_START + "=?";
+		// Builds selectionArgs for {@link PATH_GROUP_RINGS_UPCOMING}
+		public static String[] buildBlockSelectionArgs(int ringNumber, long blockStart) {
+			return new String[] { String.valueOf(ringNumber), String.valueOf(blockStart) };
 		}
 
 		/** Read _ID from {@link GroupRings} {@link Uri}. */

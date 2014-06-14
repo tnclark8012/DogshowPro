@@ -18,10 +18,12 @@ package dev.tnclark8012.apps.android.dogshow.ui.phone;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import dev.tnclark8012.apps.android.dogshow.R;
+import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigatableActivity;
 import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigationDrawerFragment;
@@ -56,6 +58,16 @@ public class MyScheduleActivity extends NavigatableActivity {
 		switch (item.getItemId()) {
 		case R.id.menu_find_show:
 			startActivity(new Intent(this, ShowSetupActivity.class));
+			return true;
+		case R.id.menu_sync:
+			new AsyncTask<Void, Void, Void>() {
+				@Override
+				protected Void doInBackground(Void... params) {
+					new SyncHelper(MyScheduleActivity.this)
+							.getRingOverviews("KEYO1");
+					return null;
+				}
+			}.execute();
 			return true;
 		case R.id.menu_sign_out:
 			AccountUtils.signOut(this);

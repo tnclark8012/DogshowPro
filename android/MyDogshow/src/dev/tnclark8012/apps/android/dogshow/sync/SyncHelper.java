@@ -1,17 +1,24 @@
 package dev.tnclark8012.apps.android.dogshow.sync;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import android.accounts.Account;
+import android.content.ContentProviderOperation;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.OperationApplicationException;
 import android.content.SyncResult;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.os.RemoteException;
 import android.util.Log;
 import dev.tnclark8012.apps.android.dogshow.Config.IApiAccessor;
 import dev.tnclark8012.apps.android.dogshow.model.Show;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
+import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.EnteredRings;
+import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.RingBlocks;
 import dev.tnclark8012.apps.android.dogshow.sync.request.ConformationRingsRequest;
 import dev.tnclark8012.apps.android.dogshow.sync.request.GroupRingsRequest;
 import dev.tnclark8012.apps.android.dogshow.sync.request.JuniorsRingsRequest;
@@ -61,12 +68,58 @@ public class SyncHelper {
 				mContext);
 		JuniorsRingsRequest juniorsRingsRequest = new JuniorsRingsRequest(
 				mContext);
-		GroupRingsRequest groupRingsRequest = new GroupRingsRequest(
-				mContext);
+		GroupRingsRequest groupRingsRequest = new GroupRingsRequest(mContext);
 		confRingsRequest.execute(show.showId);
 		juniorsRingsRequest.execute(show.showId);
 		groupRingsRequest.execute(show.showId);
 		// TODO callbacks for completion?
+	}
+
+	//TODO high this should be private
+	public void getRingOverviews(String showId) {
+		final ContentResolver resolver = mContext.getContentResolver();
+		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
+		Cursor enteredBlocksCursor = resolver.query(
+				DogshowContract.EnteredRings.CONTENT_URI,
+				new String[] { EnteredRings.RING_BLOCK_START,
+						EnteredRings.RING_NUMBER },
+				EnteredRings.ENTERED_RINGS_TYPE + "<> ?",
+				new String[] { String.valueOf(EnteredRings.TYPE_GROUP_RING) },
+				null);
+		Log.i(TAG,
+				"Syncing ring block overviews for "
+						+ enteredBlocksCursor.getCount() + " breeds");
+		int numBlocks = 0;
+		if (enteredBlocksCursor.getCount() == 0) {
+			batch.add(ContentProviderOperation
+					.newDelete(
+							DogshowContract
+									.addCallerIsSyncAdapterParameter(RingBlocks.CONTENT_URI))
+					.build());
+		}
+		RingBlockOverviewHandler handler = new RingBlockOverviewHandler(
+				mContext, true);
+		int ringNumber;
+		long blockStart;
+		while (enteredBlocksCursor.moveToNext()) {
+			blockStart = enteredBlocksCursor.getLong(0);
+			ringNumber = enteredBlocksCursor.getInt(1);
+			Log.v(TAG, "Requesting ring " + ringNumber + " overview for "
+					+ blockStart);
+			batch.addAll(handler.parse(mAccessor.getRingBlockOverviews(showId,
+					ringNumber, blockStart)));
+			numBlocks++;
+		}
+		Log.v(TAG, "Pulled overviews for " + numBlocks + " rings");
+		enteredBlocksCursor.close();
+
+		try {
+			resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY, batch);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		} catch (OperationApplicationException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static void requestManualSync(Context context,
