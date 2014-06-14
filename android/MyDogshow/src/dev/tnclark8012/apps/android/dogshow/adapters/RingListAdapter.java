@@ -125,6 +125,7 @@ public class RingListAdapter extends CursorAdapter implements
 		return mSectionIndices[section];
 	}
 
+	//TODO isn't there a better data structure for this?
 	@Override
 	public int getSectionForPosition(int position) {
 		for (int i = 0; i < mSectionIndices.length; i++) {

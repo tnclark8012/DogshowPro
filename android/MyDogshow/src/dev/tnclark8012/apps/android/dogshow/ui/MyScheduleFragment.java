@@ -29,6 +29,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -49,13 +50,14 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Rings;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.RingsQuery;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.UpcomingRingQuery;
 import dev.tnclark8012.apps.android.dogshow.ui.dialog.EditJudgeTimeDialog;
+import dev.tnclark8012.apps.android.dogshow.ui.dialog.RingBlockOverviewDialogFragment;
 import dev.tnclark8012.apps.android.dogshow.util.Lists;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 
 public class MyScheduleFragment extends Fragment implements
 		LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback,
-		OnSharedPreferenceChangeListener, OnItemLongClickListener,
+		OnSharedPreferenceChangeListener, OnItemLongClickListener, OnItemClickListener,
 		EditJudgeTimeDialog.Callback {
 	private long upcomingBreedRingStart = 0;
 	private static final String TAG = MyScheduleFragment.class.getSimpleName();
@@ -403,6 +405,7 @@ public class MyScheduleFragment extends Fragment implements
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		stickyList.setOnItemLongClickListener(this);
+		stickyList.setOnItemClickListener(this);
 		stickyList.setEmptyView(getActivity().getLayoutInflater().inflate(
 				R.layout.empty_waiting_for_sync, null));
 	}
@@ -494,5 +497,14 @@ public class MyScheduleFragment extends Fragment implements
 				break;
 			}
 		}
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
+		Cursor cursor = (Cursor) mAdapter.getItem(position);
+		RingBlockOverviewDialogFragment d = RingBlockOverviewDialogFragment.newInstance(cursor.getInt(RingsQuery.RING_NUMBER), 
+				cursor.getLong(RingsQuery.BLOCK_START), 
+				cursor.getInt(RingsQuery.COUNT_AHEAD));
+		d.show(getFragmentManager(), "overview_dialog");
 	}
 }

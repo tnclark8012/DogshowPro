@@ -3,6 +3,7 @@ package dev.tnclark8012.apps.android.dogshow.sql.query;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.EnteredRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
+import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.RingBlocks;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 
 public class Query {
@@ -20,7 +21,7 @@ public class Query {
 				EnteredRings.ENTERED_RINGS_BITCH_COUNT,
 				EnteredRings.ENTERED_RINGS_SPECIAL_DOG_COUNT,
 				EnteredRings.ENTERED_RINGS_SPECIAL_BITCH_COUNT,
-				EnteredRings.ENTERED_RINGS_RING_COUNT};
+				EnteredRings.ENTERED_RINGS_RING_COUNT };
 		int _ID = 0;
 		int BLOCK_START = 1;
 		int COUNT_AHEAD = 2;
@@ -150,6 +151,20 @@ public class Query {
 		int HANDLER_NAME = 4;
 		int HANDLER_UPDATED = 5;
 		int HANDLER_IDENTIFIER = 6;
+	}
+
+	public interface RingBlockOverviewQuery {
+		int _TOKEN = 0x9;
+
+		String[] PROJECTION = { RingBlocks._ID, RingBlocks.BLOCK_START,
+				RingBlocks.JUDGE_NAME, RingBlocks.RING_NUMBER,
+				RingBlocks.TITLE, RingBlocks.COUNT_AHEAD };
+		int _ID = 0;
+		int BLOCK_START = 1;
+		int JUDGE_NAME = 2;
+		int RING_NUMBER = 3;
+		int TITLE = 4;
+		int COUNT_AHEAD = 5;
 	}
 
 }

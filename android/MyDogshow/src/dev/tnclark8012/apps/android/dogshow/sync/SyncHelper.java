@@ -63,7 +63,7 @@ public class SyncHelper {
 
 	// TODO move this to a service
 	public void enterShow(Show show) {
-
+		Prefs.setCurrentShowId(mContext, show.showId);
 		ConformationRingsRequest confRingsRequest = new ConformationRingsRequest(
 				mContext);
 		JuniorsRingsRequest juniorsRingsRequest = new JuniorsRingsRequest(
@@ -75,28 +75,27 @@ public class SyncHelper {
 		// TODO callbacks for completion?
 	}
 
-	//TODO high this should be private
+	// TODO high this should be private
 	public void getRingOverviews(String showId) {
 		final ContentResolver resolver = mContext.getContentResolver();
 		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
 		Cursor enteredBlocksCursor = resolver.query(
-				DogshowContract.EnteredRings.CONTENT_URI,
+				EnteredRings.ENTERED_RING_BLOCKS,
 				new String[] { EnteredRings.RING_BLOCK_START,
-						EnteredRings.RING_NUMBER },
-				EnteredRings.ENTERED_RINGS_TYPE + "<> ?",
-				new String[] { String.valueOf(EnteredRings.TYPE_GROUP_RING) },
+						EnteredRings.RING_NUMBER }, null, null,
+				// EnteredRings.ENTERED_RINGS_TYPE + "<> ?",
+				// new String[] { String.valueOf(EnteredRings.TYPE_GROUP_RING)
+				// },
 				null);
 		Log.i(TAG,
 				"Syncing ring block overviews for "
 						+ enteredBlocksCursor.getCount() + " breeds");
 		int numBlocks = 0;
-		if (enteredBlocksCursor.getCount() == 0) {
-			batch.add(ContentProviderOperation
-					.newDelete(
-							DogshowContract
-									.addCallerIsSyncAdapterParameter(RingBlocks.CONTENT_URI))
-					.build());
-		}
+		batch.add(ContentProviderOperation
+				.newDelete(
+						DogshowContract
+								.addCallerIsSyncAdapterParameter(RingBlocks.CONTENT_URI))
+				.build());
 		RingBlockOverviewHandler handler = new RingBlockOverviewHandler(
 				mContext, true);
 		int ringNumber;

@@ -26,6 +26,7 @@ public final class Prefs {
 	public static final String KEY_CURRENT_TEAM_ID = "dev.tclark8012.dogshow.android.dogshow.prefs.key.CURRENT_TEAM_ID";
 	public static final String KEY_LOCAL_SERVER = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.LOCAL_SERVER";
 	public static final String KEY_SHOW_GROUPS = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.SHOW_GROUPS";
+	public static final String KEY_CURRENT_SHOW_ID = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.CURRENT_SHOW_ID";
 
 	public static SharedPreferences get(Context context) {
 		return PreferenceManager.getDefaultSharedPreferences(context);
@@ -74,5 +75,13 @@ public final class Prefs {
 	public static String getCurrentTeamIdentifier(Context context) {
 		return get(context).getString(KEY_CURRENT_TEAM_ID,
 				AccountUtils.getUserIdentifier(context));
+	}
+
+	public static void setCurrentShowId(Context context, String showId) {
+		get(context).edit().putString(KEY_CURRENT_SHOW_ID, showId).commit();
+	}
+
+	public static String getCurrentShowId(Context context) {
+		return get(context).getString(KEY_CURRENT_SHOW_ID, null);
 	}
 }

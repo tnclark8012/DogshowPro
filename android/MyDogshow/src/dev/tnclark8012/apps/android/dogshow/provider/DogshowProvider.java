@@ -99,7 +99,7 @@ public class DogshowProvider extends ContentProvider {
 		matcher.addURI(authority, "handlers/*", HANDLERS_ID);
 		matcher.addURI(authority, "rings/juniors", JUNIORS_RINGS);
 		matcher.addURI(authority, "rings/entered", ALL_RINGS_ENTERED);
-		matcher.addURI(authority, "rings/entered/block", ALL_RINGS_ENTERED_BLOCKS);
+		matcher.addURI(authority, "rings/entered/blocks", ALL_RINGS_ENTERED_BLOCKS);
 		matcher.addURI(authority, "teams", SHOW_TEAMS);
 		matcher.addURI(authority, "rings/block", BLOCK_RINGS);
 

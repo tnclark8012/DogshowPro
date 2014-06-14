@@ -23,6 +23,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import dev.tnclark8012.apps.android.dogshow.R;
+import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigatableActivity;
@@ -64,7 +65,8 @@ public class MyScheduleActivity extends NavigatableActivity {
 				@Override
 				protected Void doInBackground(Void... params) {
 					new SyncHelper(MyScheduleActivity.this)
-							.getRingOverviews("KEYO1");
+							.getRingOverviews(Prefs
+									.getCurrentShowId(MyScheduleActivity.this));
 					return null;
 				}
 			}.execute();

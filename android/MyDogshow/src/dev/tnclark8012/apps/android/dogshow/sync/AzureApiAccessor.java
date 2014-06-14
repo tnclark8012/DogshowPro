@@ -309,7 +309,7 @@ public class AzureApiAccessor extends ApiAccessor {
 	public URL buildGetRingBlockOverviewsUrl(String showId, int ringNumber,
 			long blockStart) {
 		try {
-			return new URL(GET_JUNIORS_RINGS_URL, "?showId=" + encode(showId)
+			return new URL(GET_RING_BLOCK_OVERVIEWS_URL, "?showId=" + encode(showId)
 					+ "&ringNumber=" + ringNumber + "&blockStart="+Utils.millisSinceAd(blockStart));//Server is .Net which uses AD, not post Epoch
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
