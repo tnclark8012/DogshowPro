@@ -1,13 +1,13 @@
 package dev.tnclark8012.apps.android.dogshow.sync.request;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import android.content.ContentProviderOperation;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.OperationApplicationException;
 import android.database.Cursor;
-import android.os.AsyncTask;
 import android.os.RemoteException;
 import android.util.Log;
 import dev.tnclark8012.apps.android.dogshow.Config.IApiAccessor;
@@ -18,20 +18,19 @@ import dev.tnclark8012.apps.android.dogshow.sync.BreedRingsHandler;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums;
 
-//TODO HIGH all juniors rings request into a single request following standard model
-public class ConformationRingsRequest extends AsyncTask<String, Void, Void> {
+//TODO HIGH all breed rings request into a single request following standard model
+public class ConformationRingsRequest {
 	private Context mContext;
 	private IApiAccessor mAccessor;
-	public static final String TAG = ConformationRingsRequest.class.getSimpleName();
+	public static final String TAG = ConformationRingsRequest.class
+			.getSimpleName();
 
 	public ConformationRingsRequest(Context context) {
 		mContext = context;
 		mAccessor = ApiAccessor.getInstance(mContext);
 	}
 
-	@Override
-	protected Void doInBackground(String... params) {
-		String showId = params[0];
+	public List<ContentProviderOperation> getRings(String showId) {
 		final ContentResolver resolver = mContext.getContentResolver();
 		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
 		Cursor breedsCursor = resolver
@@ -75,15 +74,6 @@ public class ConformationRingsRequest extends AsyncTask<String, Void, Void> {
 		}
 		Log.v(TAG, "Pulled breed rings for " + numBreeds + " breeds");
 		breedsCursor.close();
-
-
-		try {
-			resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY, batch);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		} catch (OperationApplicationException e) {
-			e.printStackTrace();
-		}
-		return null;
+		return batch;
 	}
 }

@@ -1,13 +1,13 @@
 package dev.tnclark8012.apps.android.dogshow.sync.request;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import android.content.ContentProviderOperation;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.OperationApplicationException;
 import android.database.Cursor;
-import android.os.AsyncTask;
 import android.os.RemoteException;
 import android.util.Log;
 import dev.tnclark8012.apps.android.dogshow.Config.IApiAccessor;
@@ -20,7 +20,7 @@ import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums;
 
 //TODO HIGH all juniors rings request into a single request following standard model
-public class JuniorsRingsRequest extends AsyncTask<String, Void, Void> {
+public class JuniorsRingsRequest {
 	private Context mContext;
 	private IApiAccessor mAccessor;
 	public static final String TAG = JuniorsRingsRequest.class.getSimpleName();
@@ -30,8 +30,7 @@ public class JuniorsRingsRequest extends AsyncTask<String, Void, Void> {
 		mAccessor = ApiAccessor.getInstance(mContext);
 	}
 
-	@Override
-	protected Void doInBackground(String... params) {
+	public List<ContentProviderOperation> getRings(String showId) {
 
 		final ContentResolver resolver = mContext.getContentResolver();
 		ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
@@ -60,7 +59,7 @@ public class JuniorsRingsRequest extends AsyncTask<String, Void, Void> {
 			className = juniorsCursor.getString(0);
 			if (className != null) {
 				Log.v(TAG, "Requesting juniors ring: " + className);
-				batch.addAll(handler.parse(mAccessor.getJuniorsRings(params[0],
+				batch.addAll(handler.parse(mAccessor.getJuniorsRings(showId,
 						DogshowEnums.JuniorClass.parse(className)
 								.getPrimaryName())));
 				numClasses++;
@@ -68,14 +67,6 @@ public class JuniorsRingsRequest extends AsyncTask<String, Void, Void> {
 		}
 		Log.v(TAG, "Pulled juniors rings for " + numClasses + " classes");
 		juniorsCursor.close();
-
-		try {
-			resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY, batch);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		} catch (OperationApplicationException e) {
-			e.printStackTrace();
-		}
-		return null;
+		return batch;
 	}
 }

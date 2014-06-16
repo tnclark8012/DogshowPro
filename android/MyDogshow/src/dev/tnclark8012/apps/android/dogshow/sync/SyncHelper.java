@@ -2,6 +2,8 @@ package dev.tnclark8012.apps.android.dogshow.sync;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 import android.accounts.Account;
 import android.content.ContentProviderOperation;
@@ -62,16 +64,29 @@ public class SyncHelper {
 	}
 
 	// TODO move this to a service
-	public void enterShow(Show show) {
+	public void enterShow(final Show show) {
 		Prefs.setCurrentShowId(mContext, show.showId);
+		ArrayList<ContentProviderOperation> ringBatch = new ArrayList<ContentProviderOperation>();
+
 		ConformationRingsRequest confRingsRequest = new ConformationRingsRequest(
 				mContext);
+		GroupRingsRequest groupRingsRequest = new GroupRingsRequest(mContext);
 		JuniorsRingsRequest juniorsRingsRequest = new JuniorsRingsRequest(
 				mContext);
-		GroupRingsRequest groupRingsRequest = new GroupRingsRequest(mContext);
-		confRingsRequest.execute(show.showId);
-		juniorsRingsRequest.execute(show.showId);
-		groupRingsRequest.execute(show.showId);
+
+		ringBatch.addAll(confRingsRequest.getRings(show.showId));
+		ringBatch.addAll(juniorsRingsRequest.getRings(show.showId));
+		ringBatch.addAll(groupRingsRequest.getRings(show.showId));
+
+		try {
+			mContext.getContentResolver().applyBatch(
+					DogshowContract.CONTENT_AUTHORITY, ringBatch);
+			getRingOverviews(show.showId);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		} catch (OperationApplicationException e) {
+			e.printStackTrace();
+		}
 		// TODO callbacks for completion?
 	}
 
@@ -82,11 +97,7 @@ public class SyncHelper {
 		Cursor enteredBlocksCursor = resolver.query(
 				EnteredRings.ENTERED_RING_BLOCKS,
 				new String[] { EnteredRings.RING_BLOCK_START,
-						EnteredRings.RING_NUMBER }, null, null,
-				// EnteredRings.ENTERED_RINGS_TYPE + "<> ?",
-				// new String[] { String.valueOf(EnteredRings.TYPE_GROUP_RING)
-				// },
-				null);
+						EnteredRings.RING_NUMBER }, null, null, null);
 		Log.i(TAG,
 				"Syncing ring block overviews for "
 						+ enteredBlocksCursor.getCount() + " breeds");

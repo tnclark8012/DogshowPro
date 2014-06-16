@@ -5,6 +5,11 @@ Version Notes
 2;0.3a - Added breed counts, better ring estimates, image choosing and cropping. 
 	* Rings are sorted on estimated time instead of block start.
 
+vNext
+------
+* Clicking a ring shows other rings in the block
+* Find show only includes recent + upcomming shows
+
 6/4 0.5.2a
 ----------------
 * Fixed ImageChooser bug w/ activity not being closed
