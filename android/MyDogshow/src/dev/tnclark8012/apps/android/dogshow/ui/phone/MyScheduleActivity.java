@@ -60,17 +60,6 @@ public class MyScheduleActivity extends NavigatableActivity {
 		case R.id.menu_find_show:
 			startActivity(new Intent(this, ShowSetupActivity.class));
 			return true;
-		case R.id.menu_sync:
-			new AsyncTask<Void, Void, Void>() {
-				@Override
-				protected Void doInBackground(Void... params) {
-					new SyncHelper(MyScheduleActivity.this)
-							.getRingOverviews(Prefs
-									.getCurrentShowId(MyScheduleActivity.this));
-					return null;
-				}
-			}.execute();
-			return true;
 		case R.id.menu_sign_out:
 			AccountUtils.signOut(this);
 			finish();
