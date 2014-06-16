@@ -6293,10 +6293,10 @@ dev.tnclark8012.apps.android.dogshow.util.UIUtils:
     211:211:public static boolean hasJellyBean()
     215:215:public static boolean isTablet(android.content.Context)
     219:219:public static boolean isHoneycombTablet(android.content.Context)
+    225:228:public static android.graphics.Bitmap loadBitmap(java.lang.String,int,int)
     320:321:public static void displayImage(android.content.Context,android.widget.ImageView,android.net.Uri)
     350:351:public static void loadImage(android.content.Context,com.nostra13.universalimageloader.core.DisplayImageOptions,com.nostra13.universalimageloader.core.assist.ImageLoadingListener,android.net.Uri)
-dev.tnclark8012.apps.android.dogshow.util.UIUtils$BitmapLoader:
-    231:231:private UIUtils$BitmapLoader()
+dev.tnclark8012.apps.android.dogshow.util.UIUtils$BitmapLoader
 dev.tnclark8012.apps.android.dogshow.util.Utils:
     private static final long EPOCH_IN_MILLISECONDS
     34:36:public static boolean isOnline(android.content.Context)

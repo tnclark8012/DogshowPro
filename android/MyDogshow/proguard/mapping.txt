@@ -9271,7 +9271,7 @@ dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment -> dev.tnclark8012.ap
     android.widget.TextView mViewTitle -> e
     android.widget.TextView mViewTime -> f
     android.widget.TextView mViewRing -> g
-    android.widget.RelativeLayout mBreedImage -> h
+    android.widget.ImageView mBreedImage -> h
     android.widget.RelativeLayout mViewUpcomingHeader -> i
     android.widget.RelativeLayout mViewNoUpcomingHeader -> j
     android.widget.TextView mViewNoUpcomingHeaderText -> k
@@ -9283,31 +9283,31 @@ dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment -> dev.tnclark8012.ap
     com.nostra13.universalimageloader.core.DisplayImageOptions mImageOptions -> q
     java.lang.Runnable updateUpcomingRunnable -> r
     android.database.ContentObserver mObserver -> s
-    111:128:void onCreate(android.os.Bundle) -> onCreate
-    133:137:void onAttach(android.app.Activity) -> onAttach
-    141:146:void onDetach() -> onDetach
-    151:167:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
-    172:190:android.content.Loader onCreateLoader(int,android.os.Bundle) -> onCreateLoader
-    195:208:void onLoadFinished(android.content.Loader,android.database.Cursor) -> a
-    211:282:void onRingsQueryComplete(android.database.Cursor) -> a
-    285:398:void onUpcomingRingQueryComplete(android.database.Cursor) -> b
-    402:402:void onLoaderReset(android.content.Loader) -> onLoaderReset
-    406:411:void onActivityCreated(android.os.Bundle) -> onActivityCreated
-    415:415:boolean onCreateActionMode(android.view.ActionMode,android.view.Menu) -> onCreateActionMode
-    420:420:boolean onPrepareActionMode(android.view.ActionMode,android.view.Menu) -> onPrepareActionMode
-    425:425:boolean onActionItemClicked(android.view.ActionMode,android.view.MenuItem) -> onActionItemClicked
-    430:430:void onDestroyActionMode(android.view.ActionMode) -> onDestroyActionMode
-    435:444:void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
-    449:463:boolean onItemLongClick(android.widget.AdapterView,android.view.View,int,long) -> onItemLongClick
-    469:500:void onFinishEditDialog(int,long,int,float) -> a
-    504:509:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    112:129:void onCreate(android.os.Bundle) -> onCreate
+    134:138:void onAttach(android.app.Activity) -> onAttach
+    142:147:void onDetach() -> onDetach
+    152:168:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    173:191:android.content.Loader onCreateLoader(int,android.os.Bundle) -> onCreateLoader
+    196:209:void onLoadFinished(android.content.Loader,android.database.Cursor) -> a
+    212:283:void onRingsQueryComplete(android.database.Cursor) -> a
+    286:384:void onUpcomingRingQueryComplete(android.database.Cursor) -> b
+    388:388:void onLoaderReset(android.content.Loader) -> onLoaderReset
+    392:397:void onActivityCreated(android.os.Bundle) -> onActivityCreated
+    401:401:boolean onCreateActionMode(android.view.ActionMode,android.view.Menu) -> onCreateActionMode
+    406:406:boolean onPrepareActionMode(android.view.ActionMode,android.view.Menu) -> onPrepareActionMode
+    411:411:boolean onActionItemClicked(android.view.ActionMode,android.view.MenuItem) -> onActionItemClicked
+    416:416:void onDestroyActionMode(android.view.ActionMode) -> onDestroyActionMode
+    421:430:void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
+    435:449:boolean onItemLongClick(android.widget.AdapterView,android.view.View,int,long) -> onItemLongClick
+    455:486:void onFinishEditDialog(int,long,int,float) -> a
+    491:497:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
     1:1:void onLoadFinished(android.content.Loader,java.lang.Object) -> onLoadFinished
 dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment$1 -> dev.tnclark8012.apps.android.dogshow.ui.at:
     dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment this$0 -> a
-    84:89:void run() -> run
+    85:90:void run() -> run
 dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment$2 -> dev.tnclark8012.apps.android.dogshow.ui.au:
     dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment this$0 -> a
-    94:106:void onChange(boolean) -> onChange
+    95:107:void onChange(boolean) -> onChange
 dev.tnclark8012.apps.android.dogshow.ui.ShowTeamAddFragment -> dev.tnclark8012.apps.android.dogshow.ui.av:
     java.lang.String TAG -> a
     dev.tnclark8012.apps.android.dogshow.ui.ShowTeamAddFragment$Callback mCallback -> b
@@ -10059,7 +10059,6 @@ dev.tnclark8012.apps.android.dogshow.util.UIUtils -> dev.tnclark8012.apps.androi
     com.nostra13.universalimageloader.core.ImageLoader mLoader -> g
     java.text.SimpleDateFormat standardTimeFormatAmPm -> h
     java.text.SimpleDateFormat standardTimeFormat -> i
-    225:228:android.graphics.Bitmap loadBitmap(java.lang.String,int,int) -> a
     296:301:java.lang.String timeStringFromMillis(long,boolean) -> a
     306:310:java.lang.String timeAmPmFromMillis(long) -> a
     315:316:void displayImage(android.content.Context,android.widget.ImageView,java.lang.String) -> a
@@ -10070,10 +10069,7 @@ dev.tnclark8012.apps.android.dogshow.util.UIUtils -> dev.tnclark8012.apps.androi
     355:361:void loadImage(android.content.Context,com.nostra13.universalimageloader.core.DisplayImageOptions,com.nostra13.universalimageloader.core.assist.ImageLoadingListener,java.lang.String) -> a
     364:372:com.nostra13.universalimageloader.core.ImageLoader getImageLoaderInstance(android.content.Context) -> a
     376:388:java.lang.String stripQuotes(java.lang.String) -> a
-dev.tnclark8012.apps.android.dogshow.util.UIUtils$BitmapLoader -> dev.tnclark8012.apps.android.dogshow.util.k:
-    236:251:int getScale(int,int,int,int) -> a
-    257:280:android.graphics.BitmapFactory$Options getOptions(java.lang.String,int,int) -> a
-dev.tnclark8012.apps.android.dogshow.util.Utils -> dev.tnclark8012.apps.android.dogshow.util.l:
+dev.tnclark8012.apps.android.dogshow.util.Utils -> dev.tnclark8012.apps.android.dogshow.util.k:
     java.lang.String TAG -> a
     23:23:java.lang.String getGuid() -> a
     30:30:boolean isJellybean() -> b
