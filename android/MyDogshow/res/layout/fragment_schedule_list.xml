@@ -30,14 +30,15 @@
         android:background="@color/header_color"
         android:visibility="gone" >
 
-        <RelativeLayout
+        <ImageView
             android:id="@+id/schedule_breed_image"
             android:layout_width="@dimen/header_icon_width"
             android:layout_height="fill_parent"
-            android:background="@drawable/dog"
+            android:src="@drawable/dog"
+            android:scaleType="centerCrop"
             android:maxHeight="@dimen/element_section_height_normal"
             android:maxWidth="@dimen/header_icon_width" >
-        </RelativeLayout>
+        </ImageView>
 
         <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
             xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
