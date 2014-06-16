@@ -31,6 +31,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -57,8 +58,8 @@ import dev.tnclark8012.apps.android.dogshow.util.Utils;
 
 public class MyScheduleFragment extends Fragment implements
 		LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback,
-		OnSharedPreferenceChangeListener, OnItemLongClickListener, OnItemClickListener,
-		EditJudgeTimeDialog.Callback {
+		OnSharedPreferenceChangeListener, OnItemLongClickListener,
+		OnItemClickListener, EditJudgeTimeDialog.Callback {
 	private long upcomingBreedRingStart = 0;
 	private static final String TAG = MyScheduleFragment.class.getSimpleName();
 	private RingListAdapter mAdapter;
@@ -66,7 +67,7 @@ public class MyScheduleFragment extends Fragment implements
 	private TextView mViewTitle;
 	private TextView mViewTime;
 	private TextView mViewRing;
-	private RelativeLayout mBreedImage;
+	private ImageView mBreedImage;
 	private RelativeLayout mViewUpcomingHeader;
 	private RelativeLayout mViewNoUpcomingHeader;
 	private TextView mViewNoUpcomingHeaderText;
@@ -153,7 +154,7 @@ public class MyScheduleFragment extends Fragment implements
 		mViewTitle = (TextView) mRootView.findViewById(R.id.schedule_breed);
 		mViewRing = (TextView) mRootView.findViewById(R.id.schedule_ring);
 		mViewTime = (TextView) mRootView.findViewById(R.id.schedule_ring_time);
-		mBreedImage = (RelativeLayout) mRootView
+		mBreedImage = (ImageView) mRootView
 				.findViewById(R.id.schedule_breed_image);
 		mViewUpcomingHeader = (RelativeLayout) mRootView
 				.findViewById(R.id.schedule_upcoming_header);
@@ -344,26 +345,11 @@ public class MyScheduleFragment extends Fragment implements
 					.timeStringFromMillis(estimatedStart, true));
 			String imagePath = cursor
 					.getString(UpcomingRingQuery.DOG_IMAGE_PATH);
-			// if (imagePath != null) {//TODO changed breed view to imageview
-			// then swap this with current impl.
-			// UIUtils.displayImage(getActivity(), mImageOptions, mBreedImage,
-			// imagePath);
-			// } else {
-			// holder.image.setImageResource(R.drawable.dog);
-			// }
 			if (imagePath != null) {
-				Resources res = getResources();
-				int height = res
-						.getDimensionPixelSize(R.dimen.header_icon_height);
-				int width = res
-						.getDimensionPixelSize(R.dimen.header_icon_width);
-
-				BitmapDrawable image = new BitmapDrawable(res,
-						UIUtils.loadBitmap(imagePath, width, height));
-				mBreedImage.setBackgroundDrawable(image);
+				UIUtils.displayImage(getActivity(), mImageOptions, mBreedImage,
+						imagePath);
 			} else {
-				Log.w(TAG, "Image path was null");
-				mBreedImage.setBackgroundResource(R.drawable.dog);
+				mBreedImage.setImageResource(R.drawable.dog);
 			}
 			long currentStart = estimatedStart;
 			// Setup the refresh to update upcoming
@@ -500,11 +486,13 @@ public class MyScheduleFragment extends Fragment implements
 	}
 
 	@Override
-	public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
+	public void onItemClick(AdapterView<?> adapter, View view, int position,
+			long id) {
 		Cursor cursor = (Cursor) mAdapter.getItem(position);
-		RingBlockOverviewDialogFragment d = RingBlockOverviewDialogFragment.newInstance(cursor.getInt(RingsQuery.RING_NUMBER), 
-				cursor.getLong(RingsQuery.BLOCK_START), 
-				cursor.getInt(RingsQuery.COUNT_AHEAD));
+		RingBlockOverviewDialogFragment d = RingBlockOverviewDialogFragment
+				.newInstance(cursor.getInt(RingsQuery.RING_NUMBER),
+						cursor.getLong(RingsQuery.BLOCK_START),
+						cursor.getInt(RingsQuery.COUNT_AHEAD));
 		d.show(getFragmentManager(), "overview_dialog");
 	}
 }
