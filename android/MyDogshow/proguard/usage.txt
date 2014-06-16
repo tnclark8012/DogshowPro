@@ -261,21 +261,63 @@ android.support.v4.app.NavUtils$NavUtilsImpl
 android.support.v4.app.NavUtils$NavUtilsImplBase
 android.support.v4.app.NavUtils$NavUtilsImplJB
 android.support.v4.app.NavUtilsJB
-android.support.v4.app.NotificationCompat
-android.support.v4.app.NotificationCompat$Action
-android.support.v4.app.NotificationCompat$BigPictureStyle
-android.support.v4.app.NotificationCompat$BigTextStyle
-android.support.v4.app.NotificationCompat$Builder
-android.support.v4.app.NotificationCompat$InboxStyle
-android.support.v4.app.NotificationCompat$NotificationCompatImpl
-android.support.v4.app.NotificationCompat$NotificationCompatImplBase
-android.support.v4.app.NotificationCompat$NotificationCompatImplHoneycomb
-android.support.v4.app.NotificationCompat$NotificationCompatImplIceCreamSandwich
-android.support.v4.app.NotificationCompat$NotificationCompatImplJellybean
-android.support.v4.app.NotificationCompat$Style
-android.support.v4.app.NotificationCompatHoneycomb
-android.support.v4.app.NotificationCompatIceCreamSandwich
-android.support.v4.app.NotificationCompatJellybean
+android.support.v4.app.NotificationCompat:
+    public static final int FLAG_HIGH_PRIORITY
+    public static final int PRIORITY_DEFAULT
+    public static final int PRIORITY_LOW
+    public static final int PRIORITY_MIN
+    public static final int PRIORITY_HIGH
+    public static final int PRIORITY_MAX
+    34:819:public NotificationCompat()
+android.support.v4.app.NotificationCompat$Action:
+    824:828:public NotificationCompat$Action(int,java.lang.CharSequence,android.app.PendingIntent)
+android.support.v4.app.NotificationCompat$BigPictureStyle:
+    659:661:public NotificationCompat$BigPictureStyle(android.support.v4.app.NotificationCompat$Builder)
+    668:669:public android.support.v4.app.NotificationCompat$BigPictureStyle setBigContentTitle(java.lang.CharSequence)
+    676:678:public android.support.v4.app.NotificationCompat$BigPictureStyle setSummaryText(java.lang.CharSequence)
+    685:686:public android.support.v4.app.NotificationCompat$BigPictureStyle bigPicture(android.graphics.Bitmap)
+    693:695:public android.support.v4.app.NotificationCompat$BigPictureStyle bigLargeIcon(android.graphics.Bitmap)
+android.support.v4.app.NotificationCompat$BigTextStyle:
+    726:728:public NotificationCompat$BigTextStyle(android.support.v4.app.NotificationCompat$Builder)
+    735:736:public android.support.v4.app.NotificationCompat$BigTextStyle setBigContentTitle(java.lang.CharSequence)
+    743:745:public android.support.v4.app.NotificationCompat$BigTextStyle setSummaryText(java.lang.CharSequence)
+android.support.v4.app.NotificationCompat$Builder:
+    231:232:public android.support.v4.app.NotificationCompat$Builder setWhen(long)
+    247:248:public android.support.v4.app.NotificationCompat$Builder setUsesChronometer(boolean)
+    274:276:public android.support.v4.app.NotificationCompat$Builder setSmallIcon(int,int)
+    305:306:public android.support.v4.app.NotificationCompat$Builder setSubText(java.lang.CharSequence)
+    315:316:public android.support.v4.app.NotificationCompat$Builder setNumber(int)
+    323:324:public android.support.v4.app.NotificationCompat$Builder setContentInfo(java.lang.CharSequence)
+    332:335:public android.support.v4.app.NotificationCompat$Builder setProgress(int,int,boolean)
+    342:343:public android.support.v4.app.NotificationCompat$Builder setContent(android.widget.RemoteViews)
+    367:368:public android.support.v4.app.NotificationCompat$Builder setDeleteIntent(android.app.PendingIntent)
+    385:387:public android.support.v4.app.NotificationCompat$Builder setFullScreenIntent(android.app.PendingIntent,boolean)
+    395:396:public android.support.v4.app.NotificationCompat$Builder setTicker(java.lang.CharSequence)
+    405:407:public android.support.v4.app.NotificationCompat$Builder setTicker(java.lang.CharSequence,android.widget.RemoteViews)
+    414:415:public android.support.v4.app.NotificationCompat$Builder setLargeIcon(android.graphics.Bitmap)
+    422:424:public android.support.v4.app.NotificationCompat$Builder setSound(android.net.Uri)
+    434:436:public android.support.v4.app.NotificationCompat$Builder setSound(android.net.Uri,int)
+    446:447:public android.support.v4.app.NotificationCompat$Builder setVibrate(long[])
+    456:462:public android.support.v4.app.NotificationCompat$Builder setLights(int,int,int)
+    477:478:public android.support.v4.app.NotificationCompat$Builder setOngoing(boolean)
+    486:487:public android.support.v4.app.NotificationCompat$Builder setOnlyAlertOnce(boolean)
+    497:498:public android.support.v4.app.NotificationCompat$Builder setAutoCancel(boolean)
+    512:516:public android.support.v4.app.NotificationCompat$Builder setDefaults(int)
+    520:525:private void setFlag(int,boolean)
+    539:540:public android.support.v4.app.NotificationCompat$Builder setPriority(int)
+    560:561:public android.support.v4.app.NotificationCompat$Builder addAction(int,java.lang.CharSequence,android.app.PendingIntent)
+    587:587:public android.app.Notification getNotification()
+android.support.v4.app.NotificationCompat$InboxStyle:
+    788:790:public NotificationCompat$InboxStyle(android.support.v4.app.NotificationCompat$Builder)
+    797:798:public android.support.v4.app.NotificationCompat$InboxStyle setBigContentTitle(java.lang.CharSequence)
+    805:807:public android.support.v4.app.NotificationCompat$InboxStyle setSummaryText(java.lang.CharSequence)
+    814:815:public android.support.v4.app.NotificationCompat$InboxStyle addLine(java.lang.CharSequence)
+android.support.v4.app.NotificationCompat$Style:
+    623:627:public android.app.Notification build()
+android.support.v4.app.NotificationCompatHoneycomb:
+    25:25:NotificationCompatHoneycomb()
+android.support.v4.app.NotificationCompatIceCreamSandwich:
+    25:25:NotificationCompatIceCreamSandwich()
 android.support.v4.app.ServiceCompat
 android.support.v4.app.ShareCompat
 android.support.v4.app.ShareCompat$IntentBuilder
@@ -5291,6 +5333,73 @@ com.j256.ormlite.table.DatabaseTableConfig
 com.j256.ormlite.table.DatabaseTableConfigLoader
 com.j256.ormlite.table.TableInfo
 com.j256.ormlite.table.TableUtils
+com.microsoft.windowsazure.messaging.AdmNativeRegistration:
+    private static final java.lang.String ADM_NATIVE_REGISTRATION_CUSTOM_NODE
+    static final java.lang.String ADM_HANDLE_NODE
+com.microsoft.windowsazure.messaging.AdmTemplateRegistration:
+    static final java.lang.String ADM_TEMPLATE_REGISTRATION_CUSTOM_NODE
+    private static final java.lang.String ADM_HANDLE_NODE
+com.microsoft.windowsazure.messaging.Connection:
+    private static final java.lang.String SHARED_ACCESS_KEY_NAME
+    private static final java.lang.String SHARED_ACCESS_KEY
+    private static final java.lang.String AUTHORIZATION_HEADER
+    private static final java.lang.String UTC_TIME_ZONE
+    private static final java.lang.String UTF8_ENCODING
+    private static final java.lang.String ENDPOINT_KEY
+    private static final int EXPIRE_MINUTES
+    private static final java.lang.String SDK_VERSION
+    private static final java.lang.String API_VERSION_KEY
+    private static final java.lang.String API_VERSION
+com.microsoft.windowsazure.messaging.ConnectionString
+com.microsoft.windowsazure.messaging.GcmNativeRegistration:
+    private static final java.lang.String GCM_NATIVE_REGISTRATION_CUSTOM_NODE
+    static final java.lang.String GCM_HANDLE_NODE
+com.microsoft.windowsazure.messaging.GcmTemplateRegistration:
+    static final java.lang.String GCM_TEMPLATE_REGISTRATION_CUSTOM_NODE
+    private static final java.lang.String GCM_HANDLE_NODE
+com.microsoft.windowsazure.messaging.NotificationHub:
+    private static final java.lang.String STORAGE_PREFIX
+    private static final java.lang.String REGISTRATION_NAME_STORAGE_KEY
+    private static final java.lang.String XML_CONTENT_TYPE
+    private static final java.lang.String STORAGE_VERSION_KEY
+    private static final java.lang.String STORAGE_VERSION
+    private static final java.lang.String PNS_HANDLE_KEY
+    private static final java.lang.String NEW_REGISTRATION_LOCATION_HEADER
+    153:171:public varargs com.microsoft.windowsazure.messaging.TemplateRegistration registerTemplate(java.lang.String,java.lang.String,java.lang.String,java.lang.String[])
+    179:180:public void unregister()
+    188:193:public void unregisterTemplate(java.lang.String)
+    201:213:public void unregisterAll(java.lang.String)
+    277:277:public java.lang.String getConnectionString()
+    302:302:public java.lang.String getNotificationHubPath()
+    360:365:private void unregisterInternal(java.lang.String)
+    414:422:private void deleteRegistrationInternal(java.lang.String,java.lang.String)
+    459:464:private void removeRegistrationId(java.lang.String)
+com.microsoft.windowsazure.messaging.NotificationHubException:
+    private static final long serialVersionUID
+    45:45:public int getStatusCode()
+com.microsoft.windowsazure.messaging.NotificationHubResourceNotFoundException:
+    private static final long serialVersionUID
+com.microsoft.windowsazure.messaging.NotificationHubUnauthorizedException:
+    private static final long serialVersionUID
+com.microsoft.windowsazure.messaging.Registration:
+    static final java.lang.String DEFAULT_REGISTRATION_NAME
+    static final java.lang.String REGISTRATIONID_JSON_PROPERTY
+    static final java.lang.String REGISTRATION_NAME_JSON_PROPERTY
+    300:301:void setNotificationHubPath(java.lang.String)
+    342:343:void setETag(java.lang.String)
+    354:368:private static java.util.Date UTCDateStringToDate(java.lang.String)
+    377:377:java.util.Date getUpdated()
+    391:392:void setUpdatedString(java.lang.String)
+    413:413:public java.util.Date getExpirationTime()
+    427:428:void setExpirationTimeString(java.lang.String)
+    448:452:org.json.JSONObject getRegistrationInformation()
+com.microsoft.windowsazure.messaging.RegistrationGoneException:
+    private static final long serialVersionUID
+com.microsoft.windowsazure.messaging.TemplateRegistration:
+    96:97:void setBodyTemplate(java.lang.String)
+    103:103:public java.lang.String getTemplateName()
+com.microsoft.windowsazure.messaging.Utils:
+    33:33:Utils()
 com.microsoft.windowsazure.notifications.BuildConfig
 com.microsoft.windowsazure.notifications.NotificationsHandler:
     25:25:public void onUnregistered(android.content.Context,java.lang.String)
@@ -5600,10 +5709,14 @@ dev.tnclark8012.apps.android.dogshow.Config$IApiAccessor:
     public abstract java.net.URL buildGetBreedRingsUrl(java.lang.String)
     public abstract java.net.URL buildGetBreedRingsUrl(java.lang.String,java.lang.String,java.lang.Boolean,java.lang.Boolean)
     public abstract java.net.URL buildGetJuniorRingsUrl(java.lang.String,java.lang.String)
+    public abstract java.net.URL buildGetRingBlockOverviewsUrl(java.lang.String,int,long)
     public abstract java.net.URL getBaseUrl()
     public abstract java.net.URL getRegistrationUrl()
 dev.tnclark8012.apps.android.dogshow.Manifest
 dev.tnclark8012.apps.android.dogshow.Manifest$permission
+dev.tnclark8012.apps.android.dogshow.NotificationHandler:
+    public static final int NOTIFICATION_ID
+    android.support.v4.app.NotificationCompat$Builder builder
 dev.tnclark8012.apps.android.dogshow.QueryHelper
 dev.tnclark8012.apps.android.dogshow.R:
     10:10:public R()
@@ -5620,10 +5733,12 @@ dev.tnclark8012.apps.android.dogshow.R$plurals
 dev.tnclark8012.apps.android.dogshow.R$string
 dev.tnclark8012.apps.android.dogshow.R$style
 dev.tnclark8012.apps.android.dogshow.R$styleable:
-    873:873:public R$styleable()
+    879:879:public R$styleable()
 dev.tnclark8012.apps.android.dogshow.R$xml
 dev.tnclark8012.apps.android.dogshow.adapters.BreedAdapter
 dev.tnclark8012.apps.android.dogshow.adapters.NavigationDrawerCursorAdapter
+dev.tnclark8012.apps.android.dogshow.adapters.RingBlockOverviewListAdapter:
+    18:20:public RingBlockOverviewListAdapter(android.app.Activity,android.database.Cursor)
 dev.tnclark8012.apps.android.dogshow.model.Location
 dev.tnclark8012.apps.android.dogshow.model.ShowRing
 dev.tnclark8012.apps.android.dogshow.model.TimeBlock
@@ -5641,7 +5756,9 @@ dev.tnclark8012.apps.android.dogshow.preferences.Prefs:
     public static final java.lang.String KEY_CURRENT_TEAM_ID
     public static final java.lang.String KEY_LOCAL_SERVER
     public static final java.lang.String KEY_SHOW_GROUPS
+    public static final java.lang.String KEY_CURRENT_SHOW_ID
     12:12:public Prefs()
+    85:85:public static java.lang.String getCurrentShowId(android.content.Context)
 dev.tnclark8012.apps.android.dogshow.preferences.PrefsActivity$DeveloperPrefsFragment
 dev.tnclark8012.apps.android.dogshow.preferences.PrefsActivity$DogshowPrefsFragment
 dev.tnclark8012.apps.android.dogshow.provider.DogshowProvider:
@@ -5656,14 +5773,16 @@ dev.tnclark8012.apps.android.dogshow.provider.DogshowProvider:
     private static final int HANDLERS_BY_JUNIORS_CLASS
     private static final int JUNIORS_RINGS
     private static final int ALL_RINGS_ENTERED
+    private static final int ALL_RINGS_ENTERED_BLOCKS
     private static final int SHOW_TEAMS
     private static final int GROUP_RINGS
+    private static final int BLOCK_RINGS
 dev.tnclark8012.apps.android.dogshow.provider.DogshowProvider$Qualified
 dev.tnclark8012.apps.android.dogshow.provider.DogshowProvider$Subquery
 dev.tnclark8012.apps.android.dogshow.provider.PersistHelper:
-    92:93:public void updateEntity(android.net.Uri,java.util.Map,java.lang.String,java.lang.String[])
-    101:102:public void updateBreedRing(long,java.util.Map)
-    105:106:public void updateJuniorsRing(long,java.util.Map)
+    87:88:public void updateEntity(android.net.Uri,java.util.Map,java.lang.String,java.lang.String[])
+    95:96:public void updateBreedRing(long,java.util.Map)
+    99:100:public void updateJuniorsRing(long,java.util.Map)
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract:
     public static final java.lang.String CONTENT_AUTHORITY
     private static final java.lang.String PATH_DOGS
@@ -5677,10 +5796,12 @@ dev.tnclark8012.apps.android.dogshow.sql.DogshowContract:
     private static final java.lang.String PATH_HANDLERS_JUNIORS
     private static final java.lang.String PATH_HANDLERS_BY_JUNIORS_CLASS
     private static final java.lang.String PATH_RINGS
+    private static final java.lang.String PATH_RINGS_BLOCK
     private static final java.lang.String PATH_SHOW_TEAMS
     public static final long UPDATED_NEVER
     public static final long UPDATED_UNKNOWN
     26:26:public DogshowContract()
+dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$BlockRingsColumns
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$BreedRings:
     public static final java.lang.String CONTENT_TYPE
     public static final java.lang.String CONTENT_ITEM_TYPE
@@ -5688,10 +5809,10 @@ dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$BreedRings:
     public static final java.lang.String DEFAULT_SORT
     public static final java.lang.String UPCOMING_SELECTION
     public static final java.lang.String CONCAT_CALL_NAME
-    320:320:public DogshowContract$BreedRings()
-    348:348:public static android.net.Uri buildEnteredRingsUri()
-    355:355:public static java.lang.String[] buildUpcomingSelectionArgs(long)
-    361:361:public static java.lang.String getRingId(android.net.Uri)
+    323:323:public DogshowContract$BreedRings()
+    351:351:public static android.net.Uri buildEnteredRingsUri()
+    358:358:public static java.lang.String[] buildUpcomingSelectionArgs(long)
+    364:364:public static java.lang.String getRingId(android.net.Uri)
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$BreedRingsColumns
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$Dogs:
     public static final java.lang.String CONTENT_TYPE
@@ -5707,9 +5828,9 @@ dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$Dogs:
     public static final java.lang.String ENTERED_DOGS_FIRST_CLASS
     public static final java.lang.String DEFAULT_SORT
     public static final java.lang.String SORT_NEWEST_FIRST
-    161:161:public DogshowContract$Dogs()
-    193:194:public static java.lang.String[] buildAtTimeSelectionArgs(long)
-    199:199:public static java.lang.String[] buildUpcomingSelectionArgs(long)
+    169:169:public DogshowContract$Dogs()
+    201:202:public static java.lang.String[] buildAtTimeSelectionArgs(long)
+    207:207:public static java.lang.String[] buildUpcomingSelectionArgs(long)
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$DogsColumns
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$EnteredRings:
     public static final java.lang.String CONTENT_TYPE
@@ -5721,16 +5842,16 @@ dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$EnteredRings:
     public static final int TYPE_JUNIORS_RING
     public static final int TYPE_GROUP_RING
     private static final int TYPE_CAP
-    284:284:public DogshowContract$EnteredRings()
+    292:292:public DogshowContract$EnteredRings()
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$EnteredRingsColumns
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$GroupRings:
     public static final java.lang.String CONTENT_TYPE
     public static final java.lang.String CONTENT_ITEM_TYPE
     public static final java.lang.String DEFAULT_SORT
     public static final java.lang.String UPCOMING_SELECTION
-    370:370:public DogshowContract$GroupRings()
-    392:392:public static java.lang.String[] buildUpcomingSelectionArgs(long)
-    398:398:public static java.lang.String getRingId(android.net.Uri)
+    373:373:public DogshowContract$GroupRings()
+    395:395:public static java.lang.String[] buildUpcomingSelectionArgs(long)
+    401:401:public static java.lang.String getRingId(android.net.Uri)
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$GroupRingsColumns
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$Handlers:
     public static final java.lang.String CONTENT_TYPE
@@ -5738,28 +5859,35 @@ dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$Handlers:
     public static final java.lang.String ENTERED_JUNIOR_HANDLER_NAMES
     public static final java.lang.String DEFAULT_SORT
     public static final java.lang.String SORT_NEWEST_FIRST
-    216:216:public DogshowContract$Handlers()
+    224:224:public DogshowContract$Handlers()
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$HandlersColumns
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$JuniorsRings:
     public static final java.lang.String CONTENT_TYPE
     public static final java.lang.String CONTENT_ITEM_TYPE
     public static final java.lang.String DEFAULT_SORT
     public static final java.lang.String UPCOMING_SELECTION
-    407:407:public DogshowContract$JuniorsRings()
-    427:427:public static java.lang.String[] buildUpcomingSelectionArgs(long)
-    432:432:public static java.lang.String getRingId(android.net.Uri)
+    444:444:public DogshowContract$JuniorsRings()
+    464:464:public static java.lang.String[] buildUpcomingSelectionArgs(long)
+    469:469:public static java.lang.String getRingId(android.net.Uri)
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$JuniorsRingsColumns
+dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$RingBlocks:
+    public static final java.lang.String CONTENT_TYPE
+    public static final java.lang.String CONTENT_ITEM_TYPE
+    public static final java.lang.String DEFAULT_SORT
+    public static final java.lang.String SELECTION_RING_BLOCK
+    410:410:public DogshowContract$RingBlocks()
+    435:435:public static java.lang.String getRingId(android.net.Uri)
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$RingColumns
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$Rings:
-    279:279:public DogshowContract$Rings()
+    287:287:public DogshowContract$Rings()
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$ShowTeams:
     public static final java.lang.String CONTENT_TYPE
     public static final java.lang.String CONTENT_ITEM_TYPE
     public static final java.lang.String DEFAULT_SORT
     public static final java.lang.String ACTIVE_FIRST_SORT
     public static final java.lang.String NOT_ME_SELECTION
-    250:250:public DogshowContract$ShowTeams()
-    275:275:public static int getTeamId(android.net.Uri)
+    258:258:public DogshowContract$ShowTeams()
+    283:283:public static int getTeamId(android.net.Uri)
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$ShowTeamsColumns
 dev.tnclark8012.apps.android.dogshow.sql.DogshowContract$SyncColumns
 dev.tnclark8012.apps.android.dogshow.sql.DogshowDatabase:
@@ -5773,12 +5901,13 @@ dev.tnclark8012.apps.android.dogshow.sql.DogshowDatabase:
     private static final int VER_SYNC_UPDATE
     private static final int VER_GROUPS
     private static final int VER_GROUP_DEFAULT_JUDGE_TIME
+    private static final int VER_RING_BLOCKS
     private static final int DATABASE_VERSION
-    216:303:private void insertDebugEntities(android.database.sqlite.SQLiteDatabase)
+    231:318:private void insertDebugEntities(android.database.sqlite.SQLiteDatabase)
 dev.tnclark8012.apps.android.dogshow.sql.DogshowDatabase$Tables
 dev.tnclark8012.apps.android.dogshow.sql.SimpleCursorLoader
 dev.tnclark8012.apps.android.dogshow.sql.query.Query:
-    8:8:public Query()
+    9:9:public Query()
 dev.tnclark8012.apps.android.dogshow.sql.query.Query$DogSyncQuery:
     public static final int _TOKEN
     public static final int _ID
@@ -5817,6 +5946,14 @@ dev.tnclark8012.apps.android.dogshow.sql.query.Query$HandlersQuery:
     public static final int HANDLER_NAME
     public static final int HANDLER_JUNIOR_LEVEL
     public static final int HANDLER_IMAGE_PATH
+dev.tnclark8012.apps.android.dogshow.sql.query.Query$RingBlockOverviewQuery:
+    public static final int _TOKEN
+    public static final int _ID
+    public static final int BLOCK_START
+    public static final int JUDGE_NAME
+    public static final int RING_NUMBER
+    public static final int TITLE
+    public static final int COUNT_AHEAD
 dev.tnclark8012.apps.android.dogshow.sql.query.Query$RingsQuery:
     public static final int _TOKEN
     public static final int _ID
@@ -5859,11 +5996,11 @@ dev.tnclark8012.apps.android.dogshow.sql.query.Query$UpcomingRingQuery:
 dev.tnclark8012.apps.android.dogshow.sync.ApiAccessor:
     protected static final java.lang.String DUMMY_BREEDS
     protected static final java.lang.String DUMMY_SHOWS
-    71:71:protected java.lang.String executeGet(java.lang.String)
+    68:68:protected java.lang.String executeGet(java.lang.String)
 dev.tnclark8012.apps.android.dogshow.sync.AzureApiAccessor:
-    77:82:public final java.net.URL buildGetBreedRingsUrl(java.lang.String)
-    126:126:public java.net.URL getBaseUrl()
-    208:208:public java.net.URL getRegistrationUrl()
+    81:85:public final java.net.URL buildGetBreedRingsUrl(java.lang.String)
+    127:127:public java.net.URL getBaseUrl()
+    220:220:public java.net.URL getRegistrationUrl()
 dev.tnclark8012.apps.android.dogshow.sync.BreedRingsHandler:
     1:1:public bridge synthetic java.util.ArrayList parse(java.lang.Object[])
 dev.tnclark8012.apps.android.dogshow.sync.EntityJsonHandler
@@ -5873,6 +6010,8 @@ dev.tnclark8012.apps.android.dogshow.sync.GroupRingsHandler:
 dev.tnclark8012.apps.android.dogshow.sync.JsonHandler:
     public abstract java.util.ArrayList parse(java.lang.Object[])
 dev.tnclark8012.apps.android.dogshow.sync.JuniorsRingsHandler:
+    1:1:public bridge synthetic java.util.ArrayList parse(java.lang.Object[])
+dev.tnclark8012.apps.android.dogshow.sync.RingBlockOverviewHandler:
     1:1:public bridge synthetic java.util.ArrayList parse(java.lang.Object[])
 dev.tnclark8012.apps.android.dogshow.sync.SyncAdapter:
     public static final java.lang.String SYNC_EXTRAS_FLAGS
@@ -5923,18 +6062,17 @@ dev.tnclark8012.apps.android.dogshow.ui.DogViewFragment$DogQuery:
     public static final int DOG_CLASS
 dev.tnclark8012.apps.android.dogshow.ui.ExploreFragment
 dev.tnclark8012.apps.android.dogshow.ui.FindShowFragment$1:
-    67:67:public void onShowSynced()
+    65:65:public void onShowSynced()
 dev.tnclark8012.apps.android.dogshow.ui.FindShowFragment$Callbacks:
     public abstract void onShowSynced()
-dev.tnclark8012.apps.android.dogshow.ui.FindShowFragment$ShowListAdapter:
-    int mResource
-    int mTextViewResourceId
 dev.tnclark8012.apps.android.dogshow.ui.FullShowFragment
 dev.tnclark8012.apps.android.dogshow.ui.FullShowFragment$1
 dev.tnclark8012.apps.android.dogshow.ui.FullShowFragment$2
 dev.tnclark8012.apps.android.dogshow.ui.FullShowFragment$BreedRingsQuery
 dev.tnclark8012.apps.android.dogshow.ui.FullShowFragment$RingListAdapter
 dev.tnclark8012.apps.android.dogshow.ui.FullShowFragment$UpcomingBreedRingQuery
+dev.tnclark8012.apps.android.dogshow.ui.HandlerEditFragment:
+    private static final int REQUEST_CODE_CLASS_SELECT
 dev.tnclark8012.apps.android.dogshow.ui.HandlerEditFragment$HandlerQuery:
     public static final int _TOKEN
     public static final int HANDLER_ID
@@ -5950,8 +6088,8 @@ dev.tnclark8012.apps.android.dogshow.ui.HandlerEntryFragment$HandlersQuery:
     public static final int HANDLER_IMAGE_PATH
     public static final int HANDLER_JUNIOR_CLASS
 dev.tnclark8012.apps.android.dogshow.ui.HandlerListFragment:
-    65:65:protected dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment getViewFragment()
-    71:71:protected dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment getEditFragment()
+    59:59:protected dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment getViewFragment()
+    64:64:protected dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment getEditFragment()
 dev.tnclark8012.apps.android.dogshow.ui.HandlerViewFragment$HandlerQuery:
     public static final int _TOKEN
     public static final int HANDLER_ID
@@ -5960,7 +6098,6 @@ dev.tnclark8012.apps.android.dogshow.ui.HandlerViewFragment$HandlerQuery:
     public static final int HANDLER_IMAGE_PATH
 dev.tnclark8012.apps.android.dogshow.ui.IndeterminateProgressFragment
 dev.tnclark8012.apps.android.dogshow.ui.MapFragment
-dev.tnclark8012.apps.android.dogshow.ui.ShowEntryFragment
 dev.tnclark8012.apps.android.dogshow.ui.ShowTeamCreateFragment:
     public static final int STATUS_BACK
     public static final int STATUS_FAIL
@@ -5985,9 +6122,9 @@ dev.tnclark8012.apps.android.dogshow.ui.base.AccountActivity:
     private static final int REQUEST_RECOVER_FROM_PLAY_SERVICES_ERROR
     private static final int REQUEST_PLAY_SERVICES_ERROR_DIALOG
     private static final java.lang.String POST_AUTH_CATEGORY
-    126:135:public void onRecoverableException(int)
-    139:141:public void onUnRecoverableException(java.lang.String)
-dev.tnclark8012.apps.android.dogshow.ui.base.AccountActivity$1
+    161:170:public void onRecoverableException(int)
+    174:176:public void onUnRecoverableException(java.lang.String)
+dev.tnclark8012.apps.android.dogshow.ui.base.AccountActivity$2
 dev.tnclark8012.apps.android.dogshow.ui.base.AccountActivity$AuthProgressFragment:
     private static final int TRY_AGAIN_DELAY_MILLIS
 dev.tnclark8012.apps.android.dogshow.ui.base.AccountActivity$ChooseAccountFragment$AccountListAdapter:
@@ -6004,7 +6141,7 @@ dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListActivity:
 dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment:
     protected abstract dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment getViewFragment()
     protected abstract dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment getEditFragment()
-    226:226:protected android.widget.CursorAdapter getAdapter()
+    205:205:protected android.widget.CursorAdapter getAdapter()
 dev.tnclark8012.apps.android.dogshow.ui.base.ButtonBarFragment
 dev.tnclark8012.apps.android.dogshow.ui.base.ButtonBarFragment$1
 dev.tnclark8012.apps.android.dogshow.ui.base.ButtonBarFragment$2
@@ -6015,11 +6152,13 @@ dev.tnclark8012.apps.android.dogshow.ui.dialog.EditJudgeTimeDialog:
     public static final int STATUS_CANCELLED
     public static final int STATUS_SAVE
     80:86:public static dev.tnclark8012.apps.android.dogshow.ui.dialog.EditJudgeTimeDialog newInstance(long,float,dev.tnclark8012.apps.android.dogshow.ui.dialog.EditJudgeTimeDialog$Callback)
+dev.tnclark8012.apps.android.dogshow.ui.dialog.RingBlockOverviewDialogFragment:
+    33:38:public static dev.tnclark8012.apps.android.dogshow.ui.dialog.RingBlockOverviewDialogFragment newInstance(int,long)
 dev.tnclark8012.apps.android.dogshow.ui.dialog.ShowTeamChooserDialog:
     public static final int STATUS_CANCELLED
     public static final int STATUS_SELECT
     public static final int STATUS_ADD
-    120:124:public static dev.tnclark8012.apps.android.dogshow.ui.dialog.ShowTeamChooserDialog newInstance(java.lang.String,dev.tnclark8012.apps.android.dogshow.ui.dialog.ShowTeamChooserDialog$Callback)
+    115:119:public static dev.tnclark8012.apps.android.dogshow.ui.dialog.ShowTeamChooserDialog newInstance(java.lang.String,dev.tnclark8012.apps.android.dogshow.ui.dialog.ShowTeamChooserDialog$Callback)
 dev.tnclark8012.apps.android.dogshow.ui.dialog.ShowTeamDialog:
     public static final int STATUS_CANCELLED
     public static final int STATUS_FAIL
@@ -6065,8 +6204,6 @@ dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigationDrawerFragment:
     public static final int NAVIGATION_HISTORY
     public static final int NAVIGATION_SETTINGS
     public static final int NAVIGATION_SHOW_TEAM
-dev.tnclark8012.apps.android.dogshow.ui.navigation.NonNavigationDrawerItem:
-    13:14:public NonNavigationDrawerItem(int,int,java.lang.String)
 dev.tnclark8012.apps.android.dogshow.ui.navigation.SpinnerItem
 dev.tnclark8012.apps.android.dogshow.ui.phone.BreedSelectActivity:
     public static final java.lang.String EXTRA_BREED_GROUP
@@ -6091,10 +6228,8 @@ dev.tnclark8012.apps.android.dogshow.ui.phone.JuniorClassSelectActivity:
 dev.tnclark8012.apps.android.dogshow.ui.phone.ScheduleActivity
 dev.tnclark8012.apps.android.dogshow.ui.phone.ScheduleActivity$HomePagerAdapter
 dev.tnclark8012.apps.android.dogshow.ui.phone.ShowSetupActivity:
-    104:104:public void onShowSynced()
+    102:102:public void onShowSynced()
 dev.tnclark8012.apps.android.dogshow.ui.phone.ShowTeamAddActivity:
-    private dev.tnclark8012.apps.android.dogshow.ui.ShowTeamJoinFragment mJoinFragment
-    private dev.tnclark8012.apps.android.dogshow.ui.ShowTeamCreateFragment mCreateFragment
     private static final int STEP_CREATE_OR_JOIN
     private static final int STEP_CREATE
     private static final int STEP_JOIN
@@ -6164,10 +6299,11 @@ dev.tnclark8012.apps.android.dogshow.util.UIUtils$BitmapLoader:
     231:231:private UIUtils$BitmapLoader()
 dev.tnclark8012.apps.android.dogshow.util.Utils:
     private static final long EPOCH_IN_MILLISECONDS
-    37:39:public static boolean isOnline(android.content.Context)
-    119:119:public static float getMaybeNull(android.database.Cursor,int,float)
-    130:130:public static long minutesToMillis(float)
-    145:145:public static long estimateBlockStart(int,long,float)
+    34:36:public static boolean isOnline(android.content.Context)
+    116:116:public static float getMaybeNull(android.database.Cursor,int,float)
+    127:127:public static long minutesToMillis(float)
+    142:142:public static long estimateBlockStart(int,long,float)
+    174:174:public static long serverToClientTime(long)
 dev.tnclark8012.apps.android.dogshow.util.image.ImageChooserActivity:
     public static final java.lang.String TAG
     public static final java.lang.String TEMP_PHOTO_FILE_NAME
@@ -6178,7 +6314,7 @@ dev.tnclark8012.apps.android.dogshow.util.image.ImageChooserActivity:
     public static final java.lang.String EXTRA_RESULT_IMAGE_URI
     public static final java.lang.String ACTION_CHOOSE
     public static final java.lang.String ACTION_CAPTURE
-    183:188:public static void copyStream(java.io.InputStream,java.io.OutputStream)
+    173:178:public static void copyStream(java.io.InputStream,java.io.OutputStream)
 dev.tnclark8012.apps.android.dogshow.util.image.SimpleImageLoadingListener:
     public abstract void onLoadingComplete(java.lang.String,android.view.View,android.graphics.Bitmap)
 dev.tnclark8012.apps.android.dogshow.widget.DashboardLayout:
