@@ -18,6 +18,7 @@ public final class Prefs {
 	public static final String KEY_AUTH_TOKEN = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.AUTH_TOKEN";
 	public static final String KEY_DEVICE_ID = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.DEVICE_ID";
 	public static final String KEY_JUDGE_TIME = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.JUDGE_TIME";
+	public static final String KEY_GROUP_DEFAULT_TIME = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.GROUP_DEFAULT_TIME";
 	public static final String KEY_SETUP_COMPLETE = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.SETUP_COMPLETE";
 	public static final String KEY_INSTALL_ID = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.INSTALL_ID";
 	public static final String KEY_USER_ID = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.USER_ID";
@@ -50,10 +51,22 @@ public final class Prefs {
 	 * @param context
 	 * @return milliseconds per dog
 	 */
-	public static long getEstimatedJudgingTime(Context context) {
+	public static long getEstimatedDogJudgingTime(Context context) {
 		String number = PreferenceManager.getDefaultSharedPreferences(context)
 				.getString(KEY_JUDGE_TIME, "2.5");
 		return (long) (Utils.parseSafely(number, 2.5f) * 60000);// 2.5 minutes
+	}
+
+	/**
+	 * Estimated judging time per group ring
+	 * 
+	 * @param context
+	 * @return milliseconds per ring
+	 */
+	public static long getEstimatedGroupJudgingTime(Context context) {
+		String number = PreferenceManager.getDefaultSharedPreferences(context)
+				.getString(KEY_GROUP_DEFAULT_TIME, "10");
+		return (long) (Utils.parseSafely(number, 10f) * 60000);// 10 minutes
 	}
 
 	/**

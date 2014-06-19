@@ -217,14 +217,16 @@ public class MyScheduleFragment extends Fragment implements
 			mEnteredRingsOptions.countAheadColumnIndex = RingsQuery.COUNT_AHEAD;
 			mEnteredRingsOptions.dogCountColumnIndex = RingsQuery.DOG_COUNT;
 			mEnteredRingsOptions.firstClassColumnIndex = RingsQuery.FIRST_CLASS;
-			mEnteredRingsOptions.perDogJudgeMillsColumnIndex = RingsQuery.JUDGE_TIME;
+			mEnteredRingsOptions.perAheadJudgeMillsColumnIndex = RingsQuery.JUDGE_TIME;
 			mEnteredRingsOptions.ringTypeColumnIndex = RingsQuery.RING_TYPE;
 			mEnteredRingsOptions.specialBitchCountColumnIndex = RingsQuery.SPECIAL_BITCH_COUNT;
 			mEnteredRingsOptions.specialDogCountColumnIndex = RingsQuery.SPECIAL_DOG_COUNT;
 		}
 		// Default could change async, so don't cache
 		mEnteredRingsOptions.defaultPerDogJudgeMillis = Prefs
-				.getEstimatedJudgingTime(getActivity());
+				.getEstimatedDogJudgingTime(getActivity());
+		mEnteredRingsOptions.defaultPerGroupJudgeMillis = Prefs
+				.getEstimatedGroupJudgingTime(getActivity());
 		int cursorSize = cursor.getCount();
 		ArrayList<Integer> newPositions = new ArrayList<Integer>();
 		ArrayList<Integer> sectionIndices = new ArrayList<Integer>();
@@ -291,13 +293,15 @@ public class MyScheduleFragment extends Fragment implements
 			mUpcommingRingsOptions.countAheadColumnIndex = UpcomingRingQuery.BREED_COUNT_AHEAD;
 			mUpcommingRingsOptions.dogCountColumnIndex = UpcomingRingQuery.DOG_COUNT;
 			mUpcommingRingsOptions.firstClassColumnIndex = UpcomingRingQuery.FIRST_CLASS;
-			mUpcommingRingsOptions.perDogJudgeMillsColumnIndex = UpcomingRingQuery.RING_JUDGE_TIME;
+			mUpcommingRingsOptions.perAheadJudgeMillsColumnIndex = UpcomingRingQuery.RING_JUDGE_TIME;
 			mUpcommingRingsOptions.ringTypeColumnIndex = UpcomingRingQuery.RING_TYPE;
 			mUpcommingRingsOptions.specialBitchCountColumnIndex = UpcomingRingQuery.SPECIAL_BITCH_COUNT;
 			mUpcommingRingsOptions.specialDogCountColumnIndex = UpcomingRingQuery.SPECIAL_DOG_COUNT;
 		}
 		mUpcommingRingsOptions.defaultPerDogJudgeMillis = Prefs
-				.getEstimatedJudgingTime(getActivity());
+				.getEstimatedDogJudgingTime(getActivity());
+		mUpcommingRingsOptions.defaultPerGroupJudgeMillis = Prefs
+				.getEstimatedGroupJudgingTime(getActivity());
 		RingListCursorWrapper cursor = new RingListCursorWrapper(
 				orignialCursor, mUpcommingRingsOptions);
 
@@ -337,7 +341,7 @@ public class MyScheduleFragment extends Fragment implements
 
 			long judgeMinutesPerDog = Utils.getMaybeNull(cursor,
 					UpcomingRingQuery.RING_JUDGE_TIME,
-					Prefs.getEstimatedJudgingTime(getActivity()));
+					Prefs.getEstimatedDogJudgingTime(getActivity()));
 			long estimatedStart = Utils.estimateBlockStart(countAhead,
 					upcomingBreedRingStart, judgeMinutesPerDog);
 
@@ -357,7 +361,7 @@ public class MyScheduleFragment extends Fragment implements
 				countAhead = cursor.getInt(UpcomingRingQuery.BREED_COUNT_AHEAD);
 				judgeMinutesPerDog = Utils.getMaybeNull(cursor,
 						UpcomingRingQuery.RING_JUDGE_TIME,
-						Prefs.getEstimatedJudgingTime(getActivity()));
+						Prefs.getEstimatedDogJudgingTime(getActivity()));
 				upcomingBreedRingStart = cursor
 						.getLong(UpcomingRingQuery.RING_BLOCK_START);
 				estimatedStart = Utils.estimateBlockStart(countAhead,
@@ -435,7 +439,7 @@ public class MyScheduleFragment extends Fragment implements
 		Cursor cursor = (Cursor) mAdapter.getItem(position);
 		Bundle b = new Bundle();
 		float minutes = Utils.getMaybeNull(cursor, RingsQuery.JUDGE_TIME,
-				Prefs.getEstimatedJudgingTime(getActivity())) / 60000f;
+				Prefs.getEstimatedDogJudgingTime(getActivity())) / 60000f;
 		int ringType = cursor.getInt(RingsQuery.RING_TYPE);
 		long dogId = Utils.getMaybeNull(cursor, RingsQuery._ID, -1);
 		b.putLong(EditJudgeTimeDialog.BUNDLE_KEY_ID, dogId);
@@ -457,7 +461,7 @@ public class MyScheduleFragment extends Fragment implements
 			Log.d(TAG, "Setting minutes to " + minutes);
 			long value = (long) (minutes * 60000);
 			map.put(EnteredRings.RING_JUDGE_TIME, (value != Prefs
-					.getEstimatedJudgingTime(getActivity())) ? value : null);// if
+					.getEstimatedDogJudgingTime(getActivity())) ? value : null);// if
 																				// set
 																				// to
 																				// default,

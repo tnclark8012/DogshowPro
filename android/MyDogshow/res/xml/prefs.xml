@@ -10,7 +10,14 @@
             android:inputType="numberDecimal"
             android:key="dev.tnclark8012.dogshow.android.dogshow.prefs.key.JUDGE_TIME"
             android:summary="Estimated minutes to judge one dog"
-            android:title="Judging Time" />
+            android:title="Ring Judging Time" />
+        <EditTextPreference
+            android:defaultValue="10"
+            android:hint="minutes"
+            android:inputType="numberDecimal"
+            android:key="dev.tnclark8012.dogshow.android.dogshow.prefs.key.GROUP_DEFAULT_TIME"
+            android:summary="Estimated minutes to judge one group ring"
+            android:title="Group Ring Judging Time" />
         <SwitchPreference
             android:defaultValue="true"
             android:key="dev.tnclark8012.dogshow.android.dogshow.prefs.key.SHOW_GROUPS"
