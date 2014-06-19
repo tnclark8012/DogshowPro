@@ -8866,11 +8866,7 @@ dev.tnclark8012.apps.android.dogshow.sync.SyncAdapter -> dev.tnclark8012.apps.an
     android.content.Context mContext -> c
     dev.tnclark8012.apps.android.dogshow.sync.SyncHelper mSyncHelper -> d
     66:108:void onPerformSync(android.accounts.Account,android.os.Bundle,java.lang.String,android.content.ContentProviderClient,android.content.SyncResult) -> onPerformSync
-    39:39:java.lang.String access$0() -> a
-dev.tnclark8012.apps.android.dogshow.sync.SyncAdapter$1 -> dev.tnclark8012.apps.android.dogshow.sync.l:
-    dev.tnclark8012.apps.android.dogshow.sync.SyncAdapter this$0 -> a
-    56:58:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
-dev.tnclark8012.apps.android.dogshow.sync.SyncHelper -> dev.tnclark8012.apps.android.dogshow.sync.m:
+dev.tnclark8012.apps.android.dogshow.sync.SyncHelper -> dev.tnclark8012.apps.android.dogshow.sync.l:
     java.lang.String TAG -> a
     dev.tnclark8012.apps.android.dogshow.Config$IApiAccessor mAccessor -> b
     android.content.Context mContext -> c
@@ -9289,31 +9285,31 @@ dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment -> dev.tnclark8012.ap
     com.nostra13.universalimageloader.core.DisplayImageOptions mImageOptions -> q
     java.lang.Runnable updateUpcomingRunnable -> r
     android.database.ContentObserver mObserver -> s
-    112:129:void onCreate(android.os.Bundle) -> onCreate
-    134:138:void onAttach(android.app.Activity) -> onAttach
-    142:147:void onDetach() -> onDetach
-    152:168:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
-    173:191:android.content.Loader onCreateLoader(int,android.os.Bundle) -> onCreateLoader
-    196:209:void onLoadFinished(android.content.Loader,android.database.Cursor) -> a
-    212:285:void onRingsQueryComplete(android.database.Cursor) -> a
-    288:388:void onUpcomingRingQueryComplete(android.database.Cursor) -> b
-    392:392:void onLoaderReset(android.content.Loader) -> onLoaderReset
-    396:401:void onActivityCreated(android.os.Bundle) -> onActivityCreated
-    405:405:boolean onCreateActionMode(android.view.ActionMode,android.view.Menu) -> onCreateActionMode
-    410:410:boolean onPrepareActionMode(android.view.ActionMode,android.view.Menu) -> onPrepareActionMode
-    415:415:boolean onActionItemClicked(android.view.ActionMode,android.view.MenuItem) -> onActionItemClicked
-    420:420:void onDestroyActionMode(android.view.ActionMode) -> onDestroyActionMode
-    425:434:void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
-    439:453:boolean onItemLongClick(android.widget.AdapterView,android.view.View,int,long) -> onItemLongClick
-    459:490:void onFinishEditDialog(int,long,int,float) -> a
-    495:501:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    113:130:void onCreate(android.os.Bundle) -> onCreate
+    135:139:void onAttach(android.app.Activity) -> onAttach
+    143:148:void onDetach() -> onDetach
+    153:169:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    174:192:android.content.Loader onCreateLoader(int,android.os.Bundle) -> onCreateLoader
+    197:210:void onLoadFinished(android.content.Loader,android.database.Cursor) -> a
+    213:286:void onRingsQueryComplete(android.database.Cursor) -> a
+    289:391:void onUpcomingRingQueryComplete(android.database.Cursor) -> b
+    395:395:void onLoaderReset(android.content.Loader) -> onLoaderReset
+    399:404:void onActivityCreated(android.os.Bundle) -> onActivityCreated
+    408:408:boolean onCreateActionMode(android.view.ActionMode,android.view.Menu) -> onCreateActionMode
+    413:413:boolean onPrepareActionMode(android.view.ActionMode,android.view.Menu) -> onPrepareActionMode
+    418:418:boolean onActionItemClicked(android.view.ActionMode,android.view.MenuItem) -> onActionItemClicked
+    423:423:void onDestroyActionMode(android.view.ActionMode) -> onDestroyActionMode
+    428:437:void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
+    442:456:boolean onItemLongClick(android.widget.AdapterView,android.view.View,int,long) -> onItemLongClick
+    462:493:void onFinishEditDialog(int,long,int,float) -> a
+    498:504:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
     1:1:void onLoadFinished(android.content.Loader,java.lang.Object) -> onLoadFinished
 dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment$1 -> dev.tnclark8012.apps.android.dogshow.ui.at:
     dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment this$0 -> a
-    85:90:void run() -> run
+    86:91:void run() -> run
 dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment$2 -> dev.tnclark8012.apps.android.dogshow.ui.au:
     dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment this$0 -> a
-    95:107:void onChange(boolean) -> onChange
+    96:108:void onChange(boolean) -> onChange
 dev.tnclark8012.apps.android.dogshow.ui.ShowTeamAddFragment -> dev.tnclark8012.apps.android.dogshow.ui.av:
     java.lang.String TAG -> a
     dev.tnclark8012.apps.android.dogshow.ui.ShowTeamAddFragment$Callback mCallback -> b
