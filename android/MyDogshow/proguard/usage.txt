@@ -5748,6 +5748,7 @@ dev.tnclark8012.apps.android.dogshow.preferences.Prefs:
     public static final java.lang.String KEY_AUTH_TOKEN
     public static final java.lang.String KEY_DEVICE_ID
     public static final java.lang.String KEY_JUDGE_TIME
+    public static final java.lang.String KEY_GROUP_DEFAULT_TIME
     public static final java.lang.String KEY_SETUP_COMPLETE
     public static final java.lang.String KEY_INSTALL_ID
     public static final java.lang.String KEY_USER_ID
@@ -5758,7 +5759,7 @@ dev.tnclark8012.apps.android.dogshow.preferences.Prefs:
     public static final java.lang.String KEY_SHOW_GROUPS
     public static final java.lang.String KEY_CURRENT_SHOW_ID
     12:12:public Prefs()
-    85:85:public static java.lang.String getCurrentShowId(android.content.Context)
+    98:98:public static java.lang.String getCurrentShowId(android.content.Context)
 dev.tnclark8012.apps.android.dogshow.preferences.PrefsActivity$DeveloperPrefsFragment
 dev.tnclark8012.apps.android.dogshow.preferences.PrefsActivity$DogshowPrefsFragment
 dev.tnclark8012.apps.android.dogshow.provider.DogshowProvider:
@@ -6022,7 +6023,6 @@ dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamJoinRequest
 dev.tnclark8012.apps.android.dogshow.ui.DashboardFragment
 dev.tnclark8012.apps.android.dogshow.ui.DashboardFragment$1
 dev.tnclark8012.apps.android.dogshow.ui.DashboardFragment$2
-dev.tnclark8012.apps.android.dogshow.ui.DashboardFragment$3
 dev.tnclark8012.apps.android.dogshow.ui.DogEditFragment:
     private android.widget.TextView mViewOwner
 dev.tnclark8012.apps.android.dogshow.ui.DogEditFragment$DogQuery:
