@@ -185,7 +185,7 @@ public class DogshowProvider extends ContentProvider {
 		case ALL_RINGS_ENTERED_BLOCKS:
 		{
 			final SelectionBuilder exBuilder = buildSimpleSelection(uri);
-			String groupBy = EnteredRings.RING_BLOCK_START + ", " + EnteredRings.RING_JUDGE_TIME;
+			String groupBy = EnteredRings.RING_BLOCK_START + ", " + EnteredRings.RING_NUMBER;
 			return exBuilder.where(selection, selectionArgs).query(db,
 					projection, groupBy, null, sortOrder, null);
 		}
