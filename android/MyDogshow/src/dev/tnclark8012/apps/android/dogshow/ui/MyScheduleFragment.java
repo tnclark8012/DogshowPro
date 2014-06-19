@@ -34,6 +34,7 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 
@@ -367,15 +368,17 @@ public class MyScheduleFragment extends Fragment implements
 				estimatedStart = Utils.estimateBlockStart(countAhead,
 						upcomingBreedRingStart, judgeMinutesPerDog);
 				if (estimatedStart > currentStart) {
-					long delay = estimatedStart - System.currentTimeMillis();
+					long delay = estimatedStart - Utils.currentTimeUtc();
 					Log.i(TAG,
 							"Closest ring is "
 									+ cursor.getString(UpcomingRingQuery.RING_TITLE)
 									+ " at "
-									+ new Date(estimatedStart).toGMTString());
+									+ UIUtils
+									.timeStringFromMillis(estimatedStart,true));
 					delay = (delay > 0) ? delay : 0;
 					handler.postDelayed(updateUpcomingRunnable, delay);
 					Log.i(TAG, "Updating in " + (delay / 1000) + " seconds.");
+//					Toast.makeText(getActivity(), "Update in " + (delay/1000), Toast.LENGTH_SHORT).show();;
 					break;
 				}
 			}

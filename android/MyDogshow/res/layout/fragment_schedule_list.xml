@@ -34,7 +34,6 @@
             android:id="@+id/schedule_breed_image"
             android:layout_width="@dimen/header_icon_width"
             android:layout_height="fill_parent"
-            android:src="@drawable/dog"
             android:scaleType="centerCrop"
             android:maxHeight="@dimen/element_section_height_normal"
             android:maxWidth="@dimen/header_icon_width" >
