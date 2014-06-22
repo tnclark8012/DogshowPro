@@ -107,13 +107,12 @@ public class FindShowFragment extends ListFragment {
 		}
 		mCallbacks = (Callbacks) activity;
 	}
-
+	
 	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
+	public void onResume() {
+		super.onResume();
 		setEmptyText("Finding shows near you...");
 		(mGetShowsTask = createGetShowsTask()).execute();
-
-		super.onActivityCreated(savedInstanceState);
 	}
 
 	@Override
