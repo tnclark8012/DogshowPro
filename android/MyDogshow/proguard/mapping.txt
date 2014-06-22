@@ -8853,7 +8853,7 @@ dev.tnclark8012.apps.android.dogshow.sync.RingBlockOverviewHandler -> dev.tnclar
     boolean clearExisting -> a
     boolean hasCleared -> b
     java.lang.String TAG -> d
-    25:63:java.util.ArrayList parse(dev.tnclark8012.apps.android.dogshow.model.RingBlockOverview[]) -> a
+    26:64:java.util.ArrayList parse(dev.tnclark8012.apps.android.dogshow.model.RingBlockOverview[]) -> a
 dev.tnclark8012.apps.android.dogshow.sync.ShowTeamSyncHandler -> dev.tnclark8012.apps.android.dogshow.sync.j:
     java.lang.String TAG -> c
     android.content.Context mContext -> a
@@ -9106,10 +9106,10 @@ dev.tnclark8012.apps.android.dogshow.ui.FindShowFragment -> dev.tnclark8012.apps
     69:69:android.os.AsyncTask createGetShowsTask() -> a
     95:99:void onPause() -> onPause
     103:109:void onAttach(android.app.Activity) -> onAttach
-    113:117:void onActivityCreated(android.os.Bundle) -> onActivityCreated
-    121:123:void onDetach() -> onDetach
-    128:130:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
-    135:137:void onListItemClick(android.widget.ListView,android.view.View,int,long) -> onListItemClick
+    113:116:void onResume() -> onResume
+    120:122:void onDetach() -> onDetach
+    127:129:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    134:136:void onListItemClick(android.widget.ListView,android.view.View,int,long) -> onListItemClick
     42:42:void access$0(dev.tnclark8012.apps.android.dogshow.ui.FindShowFragment,dev.tnclark8012.apps.android.dogshow.ui.FindShowFragment$ShowListAdapter) -> a
     42:42:dev.tnclark8012.apps.android.dogshow.ui.FindShowFragment$ShowListAdapter access$1(dev.tnclark8012.apps.android.dogshow.ui.FindShowFragment) -> a
 dev.tnclark8012.apps.android.dogshow.ui.FindShowFragment$1 -> dev.tnclark8012.apps.android.dogshow.ui.t:
@@ -9125,9 +9125,9 @@ dev.tnclark8012.apps.android.dogshow.ui.FindShowFragment$Callbacks -> dev.tnclar
 dev.tnclark8012.apps.android.dogshow.ui.FindShowFragment$ShowListAdapter -> dev.tnclark8012.apps.android.dogshow.ui.w:
     dev.tnclark8012.apps.android.dogshow.model.Show[] mArray -> a
     dev.tnclark8012.apps.android.dogshow.ui.FindShowFragment this$0 -> b
-    150:150:dev.tnclark8012.apps.android.dogshow.model.Show getItem(int) -> a
-    155:158:int getCount() -> getCount
-    163:173:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    149:149:dev.tnclark8012.apps.android.dogshow.model.Show getItem(int) -> a
+    154:157:int getCount() -> getCount
+    162:172:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
     1:1:java.lang.Object getItem(int) -> getItem
 dev.tnclark8012.apps.android.dogshow.ui.HandlerEditFragment -> dev.tnclark8012.apps.android.dogshow.ui.x:
     java.lang.String TAG -> b
