@@ -236,7 +236,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				+ DogsColumns.DOG_UPDATED + ","
 				+ DogsColumns.DOG_IS_SHOWING_SWEEPSTAKES + ","
 				+ DogsColumns.DOG_IS_VETERAN + ")" + " VALUES (\""
-				+ Utils.getGuid() + "\"," + "\"Papillon\"," + "\"Lotta\","
+				+ Utils.getGuid() + "\"," + "\"Papillon\"," + "\"Papillon\","
 				+ "2," + "0," + "15," + "0," + "1,"
 				+ System.currentTimeMillis() + ", 0,0)");
 

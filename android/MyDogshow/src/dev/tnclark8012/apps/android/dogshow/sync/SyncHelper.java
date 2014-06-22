@@ -108,7 +108,7 @@ public class SyncHelper {
 								.addCallerIsSyncAdapterParameter(RingBlocks.CONTENT_URI))
 				.build());
 		RingBlockOverviewHandler handler = new RingBlockOverviewHandler(
-				mContext, true);
+				mContext, false);
 		int ringNumber;
 		long blockStart;
 		while (enteredBlocksCursor.moveToNext()) {

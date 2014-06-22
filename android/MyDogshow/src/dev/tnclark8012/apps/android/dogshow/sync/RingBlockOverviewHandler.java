@@ -9,6 +9,7 @@ import dev.tnclark8012.apps.android.dogshow.model.RingBlockOverview;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.RingBlocks;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.SyncColumns;
+import dev.tnclark8012.apps.android.dogshow.util.Utils;
 
 public class RingBlockOverviewHandler extends JsonHandler<RingBlockOverview> {
 	boolean clearExisting = false;
@@ -29,7 +30,7 @@ public class RingBlockOverviewHandler extends JsonHandler<RingBlockOverview> {
 
 		if (ringBlockOverviews != null) {
 			numRings = ringBlockOverviews.length;
-			Log.d(TAG, "response contained " + numRings + " group rings");
+			Log.d(TAG, "response contained " + numRings + " ring overviews");
 
 			if (clearExisting && !hasCleared) {
 				batch.add(ContentProviderOperation
@@ -40,7 +41,7 @@ public class RingBlockOverviewHandler extends JsonHandler<RingBlockOverview> {
 				hasCleared = true;
 			}
 			if (numRings > 0) {
-				Log.i(TAG, "Updating group rings");
+				Log.i(TAG, "Updating ring overviews");
 
 				for (RingBlockOverview ring : ringBlockOverviews) {
 					// Insert rings info
@@ -49,7 +50,7 @@ public class RingBlockOverviewHandler extends JsonHandler<RingBlockOverview> {
 									DogshowContract
 											.addCallerIsSyncAdapterParameter(RingBlocks.CONTENT_URI))
 							.withValue(SyncColumns.UPDATED,
-									System.currentTimeMillis())
+									Utils.currentTimeUtc())
 							.withValue(RingBlocks.BLOCK_START,
 									ring.blockStart)
 							.withValue(RingBlocks.JUDGE_NAME, ring.judge)
