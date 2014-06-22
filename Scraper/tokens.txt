@@ -1,0 +1,2688 @@
+1 | COMMENT: JUDGING
+1 | COMMENT: PROGRAMS
+2 | COMMENT: All
+2 | COMMENT: Breed
+2 | COMMENT: Dog
+2 | COMMENT: Shows
+2 | FallThrough: �
+2 | COMMENT: Unbenched
+3 | COMMENT: Licensed
+3 | COMMENT: by
+3 | COMMENT: the
+3 | COMMENT: American
+3 | COMMENT: Kennel
+3 | COMMENT: Club
+4 | COMMENT: http:
+4 | FallThrough: /
+4 | FallThrough: /
+4 | COMMENT: www.brazoriakennelclub.org
+5 | DATE: SATURDAY, NOVEMBER 16, 2013
+5 | '-': -
+5 | INT: 2013044401
+5 | FallThrough: �
+5 | COMMENT: Pages
+5 | NON_CONFORMATION_SECOND_LINE: 5-6
+6 | DATE: SUNDAY, NOVEMBER 17, 2013
+6 | '-': -
+6 | INT: 2013044402
+6 | FallThrough: �
+6 | COMMENT: Pages
+6 | NON_CONFORMATION_SECOND_LINE: 7-8
+7 | COMMENT: HUMBLE
+7 | COMMENT: CIVIC
+7 | COMMENT: CENTER
+7 | COMMENT: ARENA
+8 | INT: 8233
+8 | COMMENT: Will
+8 | COMMENT: Clayton
+8 | COMMENT: Parkway,
+8 | COMMENT: Humble,
+8 | COMMENT: Texas
+8 | INT: 77338
+9 | COMMENT: SHOW
+9 | COMMENT: HOURS
+9 | TIME: 6:00 am
+9 | COMMENT: to
+9 | TIME: 10:00 pm
+10 | COMMENT: THESE
+10 | COMMENT: SHOWS
+10 | COMMENT: WILL
+10 | COMMENT: BE
+10 | COMMENT: HELD
+10 | COMMENT: OUTDOORS
+10 | COMMENT: UNDER
+10 | COMMENT: COVER
+11 | COMMENT: THESE
+11 | COMMENT: SHOWS
+11 | COMMENT: ARE
+11 | COMMENT: BEING
+11 | COMMENT: HELD
+11 | COMMENT: UNDER
+12 | COMMENT: AMERICAN
+12 | COMMENT: KENNEL
+12 | CLUB_INDICATOR: CLUB
+13 | COMMENT: RULES
+13 | COMMENT: AND
+13 | COMMENT: REGULATIONS
+14 | COMMENT: Member:
+14 | COMMENT: Dog
+14 | COMMENT: Show
+14 | COMMENT: Superintendents
+14 | COMMENT: Association
+15 | COMMENT: American
+16 | COMMENT: Kennel
+16 | COMMENT: Club
+17 | COMMENT: Annually
+17 | COMMENT: Licensed
+18 | COMMENT: Superintendents
+19 | COMMENT: Tiffany
+19 | COMMENT: R
+19 | COMMENT: Fields
+19 | FallThrough: �
+19 | COMMENT: Nancy
+19 | COMMENT: E
+19 | COMMENT: Gines
+19 | FallThrough: �
+19 | COMMENT: John
+19 | COMMENT: Goosen
+19 | FallThrough: �
+19 | COMMENT: Candy
+19 | COMMENT: E
+19 | COMMENT: James
+20 | COMMENT: Christopher
+20 | COMMENT: L
+20 | COMMENT: James
+20 | FallThrough: �
+20 | COMMENT: H
+20 | COMMENT: T
+20 | PARENTHETICAL: (Terry)
+20 | COMMENT: James
+20 | FallThrough: �
+20 | COMMENT: Mary
+20 | COMMENT: Beth
+20 | COMMENT: James
+21 | COMMENT: Tim
+21 | COMMENT: E
+21 | COMMENT: James
+21 | FallThrough: �
+21 | COMMENT: Dorothy
+21 | COMMENT: Lippincott
+21 | FallThrough: �
+21 | COMMENT: John
+21 | COMMENT: McDonald
+21 | FallThrough: �
+21 | COMMENT: Sandra
+21 | COMMENT: McDonald
+22 | COMMENT: Antony
+22 | COMMENT: M
+22 | COMMENT: Onofrio
+22 | FallThrough: �
+22 | COMMENT: Jack
+22 | COMMENT: David
+22 | COMMENT: Onofrio
+22 | FallThrough: �
+22 | COMMENT: Patricia
+22 | COMMENT: Onofrio
+22 | FallThrough: �
+22 | COMMENT: Sue
+22 | COMMENT: Onofrio
+23 | COMMENT: Glen
+23 | COMMENT: Power
+23 | FallThrough: �
+23 | COMMENT: Jo
+23 | COMMENT: Nell
+23 | COMMENT: Rogers
+23 | FallThrough: �
+23 | COMMENT: Michael
+23 | COMMENT: C
+23 | COMMENT: Schmitt
+23 | FallThrough: �
+23 | COMMENT: Reggie
+23 | COMMENT: Turner
+24 | COMMENT: Sharon
+24 | COMMENT: Turner
+24 | FallThrough: �
+24 | COMMENT: Greg
+24 | COMMENT: S
+24 | COMMENT: Wetmore
+25 | COMMENT: PO
+25 | COMMENT: Box
+25 | INT: 25764
+25 | COMMENT: PO
+25 | COMMENT: Box
+25 | INT: 4660
+26 | COMMENT: Oklahoma
+26 | COMMENT: City,
+26 | COMMENT: Oklahoma
+26 | NON_CONFORMATION_SECOND_LINE: 73125-0764
+26 | COMMENT: Portland,
+26 | COMMENT: Oregon
+26 | NON_CONFORMATION_SECOND_LINE: 97208-4660
+27 | COMMENT: Phone:
+27 | PHONE_NUMBER: (405) 427-8181
+27 | FallThrough: �
+27 | COMMENT: www.onofrio.com
+27 | COMMENT: Phone:
+27 | PHONE_NUMBER: (503) 239-1080
+28 | COMMENT: 2SHOW
+28 | COMMENT: VETERINARIAN
+28 | PARENTHETICAL: (ON CALL)
+29 | COMMENT: Animal
+29 | COMMENT: Emergency
+29 | COMMENT: Clinic
+29 | COMMENT: North
+29 | COMMENT: East
+30 | INT: 10205
+30 | COMMENT: Birchridge,
+30 | COMMENT: Humble
+30 | COMMENT: TX
+30 | FallThrough: �
+30 | PHONE_NUMBER: (281) 446-4900
+31 | COMMENT: DIRECTIONS
+31 | COMMENT: TO
+31 | COMMENT: ANIMAL
+31 | COMMENT: EMERGENCY
+31 | COMMENT: CLINIC
+31 | COMMENT: NORTH
+31 | COMMENT: EAST:
+31 | COMMENT: Turn
+31 | COMMENT: right
+31 | PARENTHETICAL: (west)
+31 | COMMENT: on
+31 | COMMENT: Will
+31 | COMMENT: Clayton
+32 | COMMENT: Pkwy
+32 | COMMENT: toward
+32 | COMMENT: Eastex
+32 | COMMENT: Frwy
+32 | FallThrough: /
+32 | COMMENT: US
+32 | COMMENT: 59.
+32 | COMMENT: Turn
+32 | COMMENT: right
+32 | PARENTHETICAL: (north)
+32 | COMMENT: on
+32 | COMMENT: the
+32 | COMMENT: feeder
+32 | COMMENT: street
+32 | COMMENT: &
+32 | COMMENT: enter
+32 | COMMENT: Frwy
+32 | COMMENT: northbound.
+33 | COMMENT: Exit
+33 | COMMENT: Townsend
+33 | COMMENT: Blvd.
+33 | COMMENT: Go
+33 | COMMENT: left
+33 | PARENTHETICAL: (west)
+33 | COMMENT: over
+33 | COMMENT: the
+33 | COMMENT: Frwy.
+33 | COMMENT: Turn
+33 | COMMENT: left
+33 | PARENTHETICAL: (south)
+33 | COMMENT: on
+33 | COMMENT: the
+33 | COMMENT: feeder
+33 | COMMENT: street.
+33 | COMMENT: Birchridge
+34 | COMMENT: is
+34 | COMMENT: located
+34 | COMMENT: between
+34 | COMMENT: Chair
+34 | COMMENT: King
+34 | COMMENT: &
+34 | COMMENT: Hobby
+34 | COMMENT: Lobby.
+34 | COMMENT: Turn
+34 | COMMENT: right
+34 | PARENTHETICAL: (west)
+34 | COMMENT: onto
+34 | COMMENT: Birchridge.
+34 | COMMENT: Travel
+34 | COMMENT: to
+34 | COMMENT: the
+34 | COMMENT: end
+35 | COMMENT: of
+35 | COMMENT: the
+35 | COMMENT: street.
+35 | COMMENT: The
+35 | COMMENT: clinic
+35 | COMMENT: is
+35 | COMMENT: on
+35 | COMMENT: the
+35 | COMMENT: right.
+36 | COMMENT: THERE
+36 | COMMENT: WILL
+36 | COMMENT: BE
+36 | COMMENT: AN
+36 | COMMENT: EMT
+36 | COMMENT: ON
+36 | COMMENT: THE
+36 | COMMENT: GROUNDS
+36 | COMMENT: SATURDAY
+36 | COMMENT: &
+36 | COMMENT: SUNDAY
+37 | COMMENT: ROUTES
+37 | COMMENT: TO
+37 | COMMENT: THE
+37 | COMMENT: SHOW
+38 | COMMENT: North
+38 | COMMENT: or
+38 | COMMENT: southbound
+38 | COMMENT: on
+38 | COMMENT: Hwy
+38 | INT: 59
+38 | COMMENT: exit
+38 | COMMENT: Will
+38 | COMMENT: Clayton
+38 | COMMENT: Parkway.
+38 | COMMENT: Go
+38 | COMMENT: east
+38 | COMMENT: on
+38 | COMMENT: Will
+38 | COMMENT: Clayton
+38 | COMMENT: Parkway,
+39 | COMMENT: approximately
+39 | INT: 1
+39 | COMMENT: mile,
+39 | COMMENT: to
+39 | COMMENT: traffic
+39 | COMMENT: light.
+39 | COMMENT: The
+39 | COMMENT: Humble
+39 | COMMENT: Civic
+39 | COMMENT: Center
+39 | COMMENT: and
+39 | COMMENT: Arena
+39 | COMMENT: Complex
+39 | COMMENT: is
+39 | COMMENT: on
+39 | COMMENT: the
+39 | COMMENT: north-
+40 | COMMENT: east
+40 | COMMENT: corner
+40 | COMMENT: of
+40 | COMMENT: the
+40 | COMMENT: intersection
+40 | COMMENT: of
+40 | COMMENT: Will
+40 | COMMENT: Clayton
+40 | COMMENT: Parkway
+40 | COMMENT: and
+40 | COMMENT: Old
+40 | COMMENT: Humble
+40 | COMMENT: Road.
+41 | COMMENT: HOTELS
+41 | COMMENT: &
+41 | COMMENT: MOTELS
+41 | COMMENT: IN
+41 | COMMENT: THE
+41 | COMMENT: HUMBLE
+41 | COMMENT: AREA
+41 | COMMENT: THAT
+41 | COMMENT: WILL
+41 | COMMENT: ACCEPT
+41 | COMMENT: DOGS
+42 | COMMENT: La
+42 | COMMENT: Quinta
+42 | COMMENT: Inn
+42 | COMMENT: &
+42 | COMMENT: Suites
+42 | COMMENT: Kingwood..................................................................................................(281)
+42 | NON_CONFORMATION_SECOND_LINE: 359-6611
+43 | INT: 22790
+43 | COMMENT: US
+43 | COMMENT: 59,
+43 | COMMENT: Kingwood
+43 | COMMENT: TX
+43 | INT: 77339
+44 | COMMENT: Yes
+44 | COMMENT: to
+44 | COMMENT: pets
+44 | FallThrough: �
+44 | COMMENT: Must
+44 | COMMENT: pay
+44 | COMMENT: with
+44 | COMMENT: credit
+44 | COMMENT: card
+44 | FallThrough: �
+44 | COMMENT: They
+44 | COMMENT: check
+44 | COMMENT: your
+44 | COMMENT: room
+44 | COMMENT: before
+44 | COMMENT: you
+44 | COMMENT: leave
+44 | FallThrough: �
+44 | COMMENT: No
+44 | COMMENT: deposit
+45 | COMMENT: Sheraton
+45 | COMMENT: North
+45 | COMMENT: Houston
+45 | COMMENT: at
+45 | COMMENT: George
+45 | COMMENT: Bush
+45 | COMMENT: Intercontinental.................................................(281)
+45 | NON_CONFORMATION_SECOND_LINE: 442-5100
+46 | INT: 15700
+46 | COMMENT: John
+46 | COMMENT: F
+46 | COMMENT: Kennedy
+46 | COMMENT: Blvd,
+46 | COMMENT: Houston
+46 | COMMENT: TX
+46 | INT: 77032
+47 | COMMENT: Holiday
+47 | COMMENT: Inn
+47 | COMMENT: Houston
+47 | '-': -
+47 | COMMENT: Intercontinental
+47 | COMMENT: Airport.......................................................................(281)
+47 | NON_CONFORMATION_SECOND_LINE: 449-2311
+48 | INT: 15700
+48 | COMMENT: John
+48 | COMMENT: F
+48 | COMMENT: Kennedy
+48 | COMMENT: Blvd,
+48 | COMMENT: Houston
+48 | COMMENT: TX
+48 | INT: 77032
+49 | COMMENT: Pets
+49 | COMMENT: OK
+49 | FallThrough: �
+49 | FallThrough: $
+49 | COMMENT: 125.00
+49 | COMMENT: deposit
+49 | FallThrough: /
+49 | FallThrough: $
+49 | COMMENT: 25.00
+49 | COMMENT: non
+49 | COMMENT: refundable
+50 | COMMENT: La
+50 | COMMENT: Quinta
+50 | COMMENT: Inn
+50 | COMMENT: &
+50 | COMMENT: Suites
+50 | COMMENT: Houston
+50 | COMMENT: Bush
+50 | COMMENT: Intercontinental
+50 | COMMENT: Airport
+50 | COMMENT: .........................................(281)
+50 | NON_CONFORMATION_SECOND_LINE: 219-2000
+51 | INT: 15510
+51 | COMMENT: John
+51 | COMMENT: F
+51 | COMMENT: Kennedy
+51 | COMMENT: Blvd,
+51 | COMMENT: Houston
+51 | COMMENT: TX
+52 | COMMENT: Yes
+52 | COMMENT: to
+52 | COMMENT: pets
+52 | FallThrough: �
+52 | COMMENT: Must
+52 | COMMENT: pay
+52 | COMMENT: with
+52 | COMMENT: credit
+52 | COMMENT: card
+52 | FallThrough: �
+52 | COMMENT: They
+52 | COMMENT: check
+52 | COMMENT: your
+52 | COMMENT: room
+52 | COMMENT: before
+52 | COMMENT: you
+52 | COMMENT: leave
+52 | FallThrough: �
+52 | COMMENT: No
+52 | COMMENT: deposit
+53 | COMMENT: La
+53 | COMMENT: Quinta
+53 | COMMENT: Inn
+53 | COMMENT: Houston
+53 | COMMENT: Bush
+53 | COMMENT: Intercontinental
+53 | COMMENT: Airport
+53 | COMMENT: ..........................................................(281)
+53 | NON_CONFORMATION_SECOND_LINE: 446-1300
+54 | INT: 18021
+54 | COMMENT: Kenswick
+54 | COMMENT: (Kenswick & Will Clayton Dr),
+54 | COMMENT: Humble
+54 | COMMENT: TX
+54 | INT: 77338
+55 | COMMENT: Call
+55 | COMMENT: for
+55 | COMMENT: Rate
+55 | '-': -
+55 | COMMENT: Might
+55 | COMMENT: be
+55 | COMMENT: a
+55 | COMMENT: pet
+55 | COMMENT: fee
+55 | COMMENT: over
+55 | INT: 1
+55 | COMMENT: pet
+56 | COMMENT: Regency
+56 | COMMENT: Inn
+56 | COMMENT: &
+56 | COMMENT: Suites..........................................................................................................................(281)
+56 | NON_CONFORMATION_SECOND_LINE: 812-3000
+57 | INT: 7700
+57 | COMMENT: Will
+57 | COMMENT: Clayton
+57 | COMMENT: Pkwy,
+57 | COMMENT: Humble
+57 | COMMENT: TX
+57 | INT: 77338
+58 | COMMENT: Let
+58 | COMMENT: them
+58 | COMMENT: know
+58 | COMMENT: that
+58 | COMMENT: you
+58 | COMMENT: are
+58 | COMMENT: here
+58 | COMMENT: for
+58 | COMMENT: the
+58 | COMMENT: Dog
+58 | COMMENT: Shows
+58 | COMMENT: to
+58 | COMMENT: get
+58 | COMMENT: the
+58 | COMMENT: best
+58 | COMMENT: rate.
+59 | COMMENT: Motel
+59 | INT: 6
+59 | COMMENT: Houston
+59 | FallThrough: /
+59 | COMMENT: Humble
+59 | COMMENT: ................................................................................................................(281)
+59 | NON_CONFORMATION_SECOND_LINE: 441-7887
+60 | INT: 15319
+60 | COMMENT: Eastex
+60 | COMMENT: Frwy,
+60 | COMMENT: Humble
+60 | COMMENT: TX
+60 | INT: 77396
+61 | COMMENT: Motel
+61 | INT: 6
+61 | COMMENT: Humble
+61 | COMMENT: ...................................................................................................................................(281)
+61 | NON_CONFORMATION_SECOND_LINE: 446-4300
+62 | INT: 20145
+62 | COMMENT: Eastway
+62 | COMMENT: Village
+62 | COMMENT: Dr,
+62 | COMMENT: Humble
+62 | COMMENT: TX
+62 | INT: 77338
+63 | COMMENT: ABUSE
+63 | COMMENT: IT
+63 | COMMENT: AND
+63 | COMMENT: LOSE
+63 | COMMENT: IT!
+63 | FallThrough: !
+63 | FallThrough: !
+64 | COMMENT: Notice:
+64 | COMMENT: Hotels,
+64 | COMMENT: motels,
+64 | COMMENT: RV
+64 | COMMENT: parks,
+64 | COMMENT: etc.
+64 | COMMENT: are
+64 | COMMENT: considered
+64 | COMMENT: a
+64 | COMMENT: part
+64 | COMMENT: of
+64 | COMMENT: the
+64 | COMMENT: show
+64 | COMMENT: site
+64 | COMMENT: &
+64 | COMMENT: should
+65 | COMMENT: be
+65 | COMMENT: treated
+65 | COMMENT: as
+65 | COMMENT: such.
+65 | COMMENT: Please
+65 | COMMENT: keep
+65 | COMMENT: your
+65 | COMMENT: room
+65 | COMMENT: and
+65 | FallThrough: /
+65 | COMMENT: or
+65 | COMMENT: area
+65 | COMMENT: clean
+65 | COMMENT: so
+65 | COMMENT: that
+65 | COMMENT: the
+65 | COMMENT: rest
+65 | COMMENT: of
+65 | COMMENT: us
+65 | COMMENT: can
+66 | COMMENT: enjoy
+66 | COMMENT: the
+66 | COMMENT: facilities
+66 | COMMENT: again.
+67 | COMMENT: Damage
+67 | COMMENT: to
+67 | COMMENT: hotel
+67 | FallThrough: /
+67 | COMMENT: motel
+67 | COMMENT: property
+67 | COMMENT: will
+67 | COMMENT: be
+67 | COMMENT: subject
+67 | COMMENT: to
+67 | COMMENT: show
+67 | COMMENT: committee
+67 | COMMENT: hearing
+67 | COMMENT: and
+68 | COMMENT: action.
+69 | COMMENT: AKC
+69 | FallThrough: �
+69 | COMMENT: s
+69 | COMMENT: Event
+69 | COMMENT: Cancellation
+69 | COMMENT: Hotline:
+69 | COMMENT: call
+69 | PHONE_NUMBER: (877) 252-3229
+69 | COMMENT: or
+69 | COMMENT: visit
+70 | COMMENT: akc.org
+70 | COMMENT: to
+70 | COMMENT: find
+70 | COMMENT: information
+70 | COMMENT: about
+70 | COMMENT: cancellation
+70 | COMMENT: of
+70 | COMMENT: AKC
+70 | COMMENT: Events.
+71 | COMMENT: 3JUDGING
+71 | COMMENT: PROGRAM
+71 | COMMENT: BY
+71 | COMMENT: ALPHABETICAL
+71 | COMMENT: ORDER
+72 | COMMENT: SAT
+72 | COMMENT: SUN
+73 | COMMENT: BREED
+73 | 'RING': RING
+73 | COMMENT: TIME
+73 | 'RING': RING
+73 | COMMENT: TIME
+74 | COMMENT: AFGHAN
+74 | INT: 3
+74 | TIME: 1:50 pm
+74 | INT: 3
+74 | TIME: 10:45 am
+75 | BREED_NAME: AKITA 
+75 | INT: 1
+75 | TIME: 10:15 am
+75 | INT: 5
+75 | TIME: 1:05 pm
+76 | COMMENT: ALAS
+76 | COMMENT: MAL
+76 | INT: 1
+76 | TIME: 11:15 am
+76 | INT: 4
+76 | TIME: 12:35 pm
+77 | COMMENT: AM
+77 | COMMENT: STAFF
+77 | INT: 1
+77 | TIME: 11:45 am
+77 | INT: 4
+77 | TIME: 8:30 am
+78 | COMMENT: AMER
+78 | COMMENT: ESK
+78 | COMMENT: DOG
+78 | INT: 2
+78 | TIME: 10:40 am
+78 | INT: 2
+78 | TIME: 9:55 am
+79 | COMMENT: AUST
+79 | COMMENT: SHEP
+79 | INT: 3
+79 | TIME: 9:00 am
+79 | INT: 4
+79 | TIME: 12:35 pm
+80 | COMMENT: AUSTR
+80 | COMMENT: CATTDOG
+80 | INT: 3
+80 | TIME: 10:40 am
+80 | INT: 4
+80 | TIME: 9:40 am
+81 | BREED_NAME: BASENJI 
+81 | INT: 3
+81 | TIME: 1:50 pm
+81 | INT: 3
+81 | TIME: 9:30 am
+82 | COMMENT: BASSET
+82 | INT: 3
+82 | TIME: 1:50 pm
+82 | INT: 3
+82 | TIME: 8:30 am
+83 | COMMENT: BEAGLE-13
+83 | COMMENT: IN
+83 | INT: 3
+83 | TIME: 1:50 pm
+83 | INT: 3
+83 | TIME: 8:30 am
+84 | COMMENT: BEAGLE-15
+84 | COMMENT: IN
+84 | INT: 3
+84 | TIME: 1:50 pm
+84 | INT: 3
+84 | TIME: 9:30 am
+85 | COMMENT: BEDLINGTON
+85 | INT: 1
+85 | TIME: 12:45 pm
+85 | INT: 5
+85 | TIME: 12:35 pm
+86 | COMMENT: BEL
+86 | COMMENT: MAL
+86 | INT: 1
+86 | TIME: 8:30 am
+87 | COMMENT: BEL
+87 | COMMENT: SHP
+87 | INT: 3
+87 | TIME: 12:40 pm
+87 | INT: 1
+87 | TIME: 12:40 pm
+88 | COMMENT: BICHON
+88 | INT: 2
+88 | TIME: 10:40 am
+88 | INT: 2
+88 | TIME: 11:00 am
+89 | COMMENT: BORDER
+89 | COMMENT: COLL
+89 | INT: 3
+89 | TIME: 10:40 am
+89 | INT: 4
+89 | TIME: 12:35 pm
+90 | BREED_NAME: BORZOI 
+90 | INT: 3
+90 | TIME: 1:50 pm
+90 | INT: 3
+90 | TIME: 9:30 am
+91 | COMMENT: BOSTON
+91 | COMMENT: TERR
+91 | INT: 2
+91 | TIME: 9:00 am
+91 | INT: 2
+91 | TIME: 8:30 am
+92 | COMMENT: BOUV
+92 | COMMENT: DES
+92 | COMMENT: FLAN
+92 | INT: 3
+92 | TIME: 12:40 pm
+92 | INT: 1
+92 | TIME: 10:40 am
+93 | BREED_NAME: BOXER 
+93 | INT: 1
+93 | TIME: 10:15 am
+93 | INT: 4
+93 | TIME: 10:45 am
+94 | COMMENT: BOYKIN
+94 | INT: 5
+94 | TIME: 10:05 am
+94 | INT: 1
+94 | TIME: 8:30 am
+95 | BREED_NAME: BRITTANY 
+95 | INT: 5
+95 | TIME: 10:05 am
+95 | INT: 3
+95 | TIME: 11:15 am
+96 | COMMENT: BRUSS
+96 | COMMENT: GRIF
+96 | INT: 4
+96 | TIME: 10:05 am
+96 | INT: 5
+96 | TIME: 9:30 am
+97 | BREED_NAME: BULLDOG 
+97 | INT: 2
+97 | TIME: 9:00 am
+97 | INT: 2
+97 | TIME: 8:30 am
+98 | BREED_NAME: BULLMASTIFF 
+98 | INT: 1
+98 | TIME: 9:00 am
+98 | INT: 5
+98 | TIME: 1:05 pm
+99 | COMMENT: CANAAN
+99 | INT: 3
+99 | TIME: 10:40 am
+99 | INT: 4
+99 | TIME: 9:40 am
+100 | COMMENT: CARD
+100 | COMMENT: WELSH
+100 | COMMENT: CORG
+100 | INT: 3
+100 | TIME: 12:40 pm
+100 | INT: 1
+100 | TIME: 10:40 am
+101 | COMMENT: CAV
+101 | COMMENT: KING
+101 | COMMENT: CH
+101 | INT: 4
+101 | TIME: 11:10 am
+101 | INT: 3
+101 | TIME: 12:35 pm
+102 | COMMENT: CHES
+102 | COMMENT: BAY
+102 | COMMENT: RET
+102 | INT: 5
+102 | TIME: 10:05 am
+102 | INT: 1
+102 | TIME: 9:35 am
+103 | COMMENT: CHIHUA
+103 | COMMENT: LONG
+103 | INT: 4
+103 | TIME: 10:05 am
+103 | INT: 5
+103 | TIME: 9:30 am
+104 | COMMENT: CHIHUA
+104 | COMMENT: SMOOTH
+104 | INT: 4
+104 | TIME: 9:00 am
+104 | INT: 5
+104 | TIME: 8:30 am
+105 | COMMENT: CHIN
+105 | COMMENT: CREST
+105 | INT: 4
+105 | TIME: 11:10 am
+105 | INT: 3
+105 | TIME: 12:35 pm
+106 | COMMENT: CHIN
+106 | COMMENT: SHAR-PEI
+106 | INT: 2
+106 | TIME: 12:45 pm
+106 | INT: 2
+106 | TIME: 11:00 am
+107 | COMMENT: CHOW
+107 | INT: 2
+107 | TIME: 12:45 pm
+107 | INT: 2
+107 | TIME: 11:00 am
+108 | COMMENT: CKR
+108 | COMMENT: SPN
+108 | COMMENT: ASCOB
+108 | INT: 5
+108 | TIME: 12:40 pm
+108 | INT: 1
+108 | TIME: 12:40 pm
+109 | COMMENT: CKR
+109 | COMMENT: SPN
+109 | COMMENT: BLACK
+109 | INT: 5
+109 | TIME: 12:40 pm
+109 | INT: 1
+109 | TIME: 10:40 am
+110 | COMMENT: CKR
+110 | COMMENT: SPN
+110 | COMMENT: PARTI
+110 | INT: 5
+110 | TIME: 12:40 pm
+110 | INT: 1
+110 | TIME: 12:40 pm
+111 | COMMENT: COLL
+111 | COMMENT: SMOOTH
+111 | INT: 3
+111 | TIME: 10:40 am
+111 | INT: 4
+111 | TIME: 10:45 am
+112 | COMMENT: DACH
+112 | COMMENT: LONG
+112 | INT: 3
+112 | TIME: 1:50 pm
+112 | INT: 3
+112 | TIME: 8:30 am
+113 | COMMENT: DACH
+113 | COMMENT: SMOOTH
+113 | INT: 3
+113 | TIME: 1:50 pm
+113 | INT: 3
+113 | TIME: 8:30 am
+114 | COMMENT: DACH
+114 | COMMENT: WIRE
+114 | INT: 3
+114 | TIME: 1:50 pm
+115 | BREED_NAME: DALMATIAN 
+115 | INT: 2
+115 | TIME: 12:45 pm
+115 | INT: 2
+115 | TIME: 11:00 am
+116 | COMMENT: DANDIE
+116 | COMMENT: DIN
+116 | INT: 1
+116 | TIME: 12:45 pm
+116 | INT: 5
+116 | TIME: 12:35 pm
+117 | COMMENT: DOBERMAN
+117 | INT: 1
+117 | TIME: 9:00 am
+117 | INT: 4
+117 | TIME: 9:40 am
+118 | COMMENT: ENG
+118 | COMMENT: SETT
+118 | INT: 5
+118 | TIME: 10:05 am
+118 | INT: 1
+118 | TIME: 9:35 am
+119 | COMMENT: ENG
+119 | COMMENT: SPRINGER
+119 | INT: 5
+119 | TIME: 10:05 am
+119 | INT: 1
+119 | TIME: 10:40 am
+120 | COMMENT: ENGLISH
+120 | COMMENT: COCKER
+120 | INT: 5
+120 | TIME: 12:40 pm
+120 | INT: 1
+120 | TIME: 12:40 pm
+121 | COMMENT: FLAT
+121 | COMMENT: COAT
+121 | COMMENT: RET
+121 | INT: 5
+121 | TIME: 10:05 am
+121 | INT: 1
+121 | TIME: 8:30 am
+122 | COMMENT: FRENCH
+122 | COMMENT: BULL
+122 | INT: 2
+122 | TIME: 9:00 am
+122 | INT: 5
+122 | TIME: 11:20 am
+123 | COMMENT: GERM
+123 | COMMENT: PIN
+123 | INT: 1
+123 | TIME: 11:15 am
+123 | INT: 5
+123 | TIME: 1:05 pm
+124 | COMMENT: GERM
+124 | COMMENT: SHEPHERD
+124 | INT: 3
+124 | TIME: 9:00 am
+124 | INT: 4
+124 | TIME: 8:30 am
+125 | COMMENT: GERM
+125 | COMMENT: SHT
+125 | COMMENT: PNT
+125 | INT: 5
+125 | TIME: 9:00 am
+125 | INT: 1
+125 | TIME: 8:30 am
+126 | COMMENT: GOLD
+126 | COMMENT: RET
+126 | INT: 5
+126 | TIME: 10:05 am
+126 | INT: 1
+126 | TIME: 9:35 am
+127 | BREED_NAME: GREAT DANE 
+127 | INT: 1
+127 | TIME: 9:00 am
+127 | INT: 5
+127 | TIME: 1:05 pm
+128 | COMMENT: GRT
+128 | COMMENT: PYRENEES
+128 | INT: 1
+128 | TIME: 11:15 am
+128 | INT: 5
+128 | TIME: 1:05 pm
+129 | COMMENT: GRT
+129 | COMMENT: SWISS
+129 | COMMENT: MTN
+129 | INT: 1
+129 | TIME: 11:15 am
+129 | INT: 5
+129 | TIME: 1:05 pm
+130 | COMMENT: SAT
+130 | COMMENT: SUN
+131 | COMMENT: BREED
+131 | 'RING': RING
+131 | COMMENT: TIME
+131 | 'RING': RING
+131 | COMMENT: TIME
+132 | BREED_NAME: HAVANESE 
+132 | INT: 4
+132 | TIME: 11:10 am
+132 | INT: 5
+132 | TIME: 10:40 am
+133 | COMMENT: IBIZAN
+133 | COMMENT: HND
+133 | INT: 3
+133 | TIME: 1:50 pm
+133 | INT: 3
+133 | TIME: 10:45 am
+134 | COMMENT: IRISH
+134 | COMMENT: SETT
+134 | INT: 5
+134 | TIME: 12:40 pm
+134 | INT: 1
+134 | TIME: 10:40 am
+135 | COMMENT: IRISH
+135 | COMMENT: TER
+135 | INT: 1
+135 | TIME: 12:45 pm
+136 | COMMENT: ITAL
+136 | COMMENT: GRYHND
+136 | INT: 4
+136 | TIME: 12:35 pm
+136 | INT: 5
+136 | TIME: 10:40 am
+137 | COMMENT: JAP
+137 | COMMENT: CHIN
+137 | INT: 5
+137 | TIME: 12:40 pm
+137 | INT: 2
+137 | TIME: 12:10 pm
+138 | COMMENT: JR
+138 | COMMENT: SHOW
+138 | COMMENT: NV
+138 | COMMENT: IN
+138 | INT: 5
+138 | TIME: 12:40 pm
+138 | INT: 2
+138 | TIME: 9:55 am
+139 | COMMENT: JR
+139 | COMMENT: SHOW
+139 | COMMENT: NV
+139 | COMMENT: JR
+139 | INT: 5
+139 | TIME: 12:40 pm
+139 | INT: 2
+139 | TIME: 9:55 am
+140 | COMMENT: JR
+140 | COMMENT: SHOW
+140 | COMMENT: OP
+140 | COMMENT: IN
+140 | INT: 5
+140 | TIME: 12:40 pm
+140 | INT: 2
+140 | TIME: 9:55 am
+141 | COMMENT: JR
+141 | COMMENT: SHOW
+141 | COMMENT: OP
+141 | COMMENT: JR
+141 | INT: 2
+141 | TIME: 9:55 am
+142 | COMMENT: JR
+142 | COMMENT: SHOW
+142 | COMMENT: OP
+142 | COMMENT: SR
+142 | INT: 5
+142 | TIME: 12:40 pm
+142 | INT: 2
+142 | TIME: 9:55 am
+143 | BREED_NAME: KEESHOND 
+143 | INT: 2
+143 | TIME: 12:45 pm
+143 | INT: 2
+143 | TIME: 11:00 am
+144 | COMMENT: KERRY
+144 | COMMENT: BLUE
+144 | INT: 1
+144 | TIME: 11:45 am
+144 | INT: 5
+144 | TIME: 12:35 pm
+145 | COMMENT: LABRADOR
+145 | INT: 5
+145 | TIME: 9:00 am
+145 | INT: 3
+145 | TIME: 11:15 am
+146 | COMMENT: LAKELND
+146 | COMMENT: TERR
+146 | INT: 1
+146 | TIME: 11:45 am
+146 | INT: 4
+146 | TIME: 10:45 am
+147 | COMMENT: LHASA
+147 | INT: 2
+147 | TIME: 12:45 pm
+147 | INT: 2
+147 | TIME: 11:00 am
+148 | BREED_NAME: LOWCHEN 
+148 | INT: 2
+148 | TIME: 10:40 am
+148 | INT: 2
+148 | TIME: 11:00 am
+149 | BREED_NAME: MALTESE 
+149 | INT: 4
+149 | TIME: 12:35 pm
+149 | INT: 5
+149 | TIME: 10:40 am
+150 | COMMENT: MANCH
+150 | COMMENT: TERR-TOY
+150 | INT: 4
+150 | TIME: 11:10 am
+150 | INT: 5
+150 | TIME: 10:40 am
+151 | COMMENT: MIN
+151 | COMMENT: AM
+151 | COMMENT: SHEPHERD
+151 | INT: 3
+151 | TIME: 1:50 pm
+151 | INT: 5
+151 | TIME: 11:20 am
+152 | COMMENT: MIN
+152 | COMMENT: PIN
+152 | INT: 4
+152 | TIME: 9:00 am
+152 | INT: 5
+152 | TIME: 9:30 am
+153 | COMMENT: MIN
+153 | COMMENT: SCHN
+153 | INT: 1
+153 | TIME: 12:45 pm
+153 | INT: 5
+153 | TIME: 11:20 am
+154 | COMMENT: NOR
+154 | COMMENT: ELK
+154 | COMMENT: HND
+154 | INT: 3
+154 | TIME: 1:50 pm
+154 | INT: 3
+154 | TIME: 10:45 am
+155 | COMMENT: NORWICH
+155 | COMMENT: TERR
+155 | INT: 1
+155 | TIME: 11:45 am
+155 | INT: 4
+155 | TIME: 10:45 am
+156 | COMMENT: OLD
+156 | COMMENT: ENGLISH
+156 | COMMENT: SHP
+156 | INT: 3
+156 | TIME: 12:40 pm
+156 | INT: 1
+156 | TIME: 12:40 pm
+157 | BREED_NAME: PAPILLON 
+157 | INT: 4
+157 | TIME: 10:05 am
+157 | INT: 5
+157 | TIME: 9:30 am
+158 | COMMENT: PEMB
+158 | COMMENT: WELSH
+158 | COMMENT: CORG
+158 | INT: 3
+158 | TIME: 12:40 pm
+158 | INT: 3
+158 | TIME: 8:30 am
+159 | COMMENT: PET
+159 | COMMENT: BAS
+159 | COMMENT: GRI
+159 | COMMENT: VEN
+159 | INT: 3
+159 | TIME: 1:50 pm
+159 | INT: 3
+159 | TIME: 9:30 am
+160 | COMMENT: POM
+160 | INT: 4
+160 | TIME: 12:35 pm
+160 | INT: 2
+160 | TIME: 12:10 pm
+161 | COMMENT: POOD
+161 | COMMENT: MIN
+161 | INT: 2
+161 | TIME: 10:40 am
+161 | INT: 3
+161 | TIME: 12:35 pm
+162 | COMMENT: POOD
+162 | COMMENT: STD
+162 | INT: 2
+162 | TIME: 12:45 pm
+162 | INT: 3
+162 | TIME: 11:15 am
+163 | COMMENT: POOD
+163 | GROUP_NAME: TOY
+163 | INT: 4
+163 | TIME: 12:35 pm
+163 | INT: 3
+163 | TIME: 12:35 pm
+164 | BREED_NAME: PUG 
+164 | INT: 4
+164 | TIME: 9:00 am
+164 | INT: 5
+164 | TIME: 8:30 am
+165 | BREED_NAME: PULIK 
+165 | INT: 3
+165 | TIME: 12:40 pm
+165 | INT: 1
+165 | TIME: 10:40 am
+166 | COMMENT: RHORIDGE
+166 | INT: 3
+166 | TIME: 1:50 pm
+166 | INT: 3
+166 | TIME: 10:45 am
+167 | BREED_NAME: ROTTWEILER 
+167 | INT: 1
+167 | TIME: 10:15 am
+167 | INT: 5
+167 | TIME: 1:05 pm
+168 | BREED_NAME: SALUKI 
+168 | INT: 3
+168 | TIME: 1:50 pm
+168 | INT: 3
+168 | TIME: 9:30 am
+169 | BREED_NAME: SAMOYED 
+169 | INT: 3
+169 | TIME: 12:40 pm
+169 | INT: 5
+169 | TIME: 1:05 pm
+170 | BREED_NAME: SCHIPPERKE 
+170 | INT: 2
+170 | TIME: 10:40 am
+170 | INT: 2
+170 | TIME: 9:55 am
+171 | COMMENT: SCOTTISH
+171 | COMMENT: TERR
+171 | INT: 1
+171 | TIME: 12:45 pm
+171 | INT: 5
+171 | TIME: 11:20 am
+172 | COMMENT: SHETLD
+172 | COMMENT: SHEEP
+172 | INT: 3
+172 | TIME: 10:40 am
+172 | INT: 4
+172 | TIME: 12:35 pm
+173 | COMMENT: SKYE
+173 | COMMENT: TERR
+173 | INT: 1
+173 | TIME: 12:45 pm
+173 | INT: 5
+173 | TIME: 12:35 pm
+174 | COMMENT: STAF
+174 | COMMENT: BULL
+174 | INT: 1
+174 | TIME: 11:45 am
+174 | INT: 5
+174 | TIME: 12:35 pm
+175 | COMMENT: STD
+175 | COMMENT: SCHN
+175 | INT: 1
+175 | TIME: 11:15 am
+175 | INT: 5
+175 | TIME: 1:05 pm
+176 | COMMENT: SWEDISH
+176 | COMMENT: VALL
+176 | INT: 3
+176 | TIME: 12:40 pm
+176 | INT: 1
+176 | TIME: 12:40 pm
+177 | COMMENT: TIB
+177 | BREED_NAME: MASTIFF 
+177 | INT: 1
+177 | TIME: 11:15 am
+177 | INT: 5
+177 | TIME: 1:05 pm
+178 | COMMENT: TIB
+178 | COMMENT: SPAN
+178 | INT: 2
+178 | TIME: 10:40 am
+178 | INT: 2
+178 | TIME: 9:55 am
+179 | COMMENT: TIB
+179 | COMMENT: TERR
+179 | INT: 2
+179 | TIME: 10:40 am
+179 | INT: 2
+179 | TIME: 11:00 am
+180 | GROUP_NAME: TOY
+180 | COMMENT: FOX
+180 | INT: 4
+180 | TIME: 10:05 am
+180 | INT: 5
+180 | TIME: 8:30 am
+181 | COMMENT: TREE
+181 | COMMENT: WLKCOONHND
+181 | INT: 3
+181 | TIME: 1:50 pm
+181 | INT: 3
+181 | TIME: 10:45 am
+182 | BREED_NAME: VIZSLA 
+182 | INT: 5
+182 | TIME: 9:00 am
+182 | INT: 1
+182 | TIME: 8:30 am
+183 | COMMENT: WEIM
+183 | INT: 5
+183 | TIME: 10:05 am
+183 | INT: 1
+183 | TIME: 8:30 am
+184 | COMMENT: WEST
+184 | COMMENT: HIGHLND
+184 | INT: 1
+184 | TIME: 11:45 am
+184 | INT: 5
+184 | TIME: 11:20 am
+185 | BREED_NAME: WHIPPET 
+185 | INT: 3
+185 | TIME: 1:50 pm
+185 | INT: 3
+185 | TIME: 9:30 am
+186 | COMMENT: YORKSH
+186 | COMMENT: TERR
+186 | INT: 4
+186 | TIME: 12:35 pm
+186 | INT: 5
+186 | TIME: 10:40 am
+187 | COMMENT: 4NEW
+187 | COMMENT: EXHIBITOR
+187 | COMMENT: BRIEFING
+188 | COMMENT: A
+188 | COMMENT: new
+188 | COMMENT: Exhibitor
+188 | COMMENT: Briefing
+188 | COMMENT: will
+188 | COMMENT: be
+188 | COMMENT: held
+188 | INT: 30
+188 | COMMENT: minutes
+188 | COMMENT: prior
+188 | COMMENT: to
+188 | COMMENT: the
+188 | COMMENT: published
+188 | COMMENT: start
+188 | COMMENT: of
+189 | COMMENT: judging
+189 | COMMENT: on
+189 | COMMENT: Saturday.
+189 | COMMENT: The
+189 | COMMENT: briefing
+189 | COMMENT: location
+189 | COMMENT: will
+189 | COMMENT: be
+189 | COMMENT: posted
+189 | COMMENT: at
+189 | COMMENT: the
+189 | COMMENT: Superintendent
+189 | FallThrough: �
+189 | COMMENT: s
+190 | COMMENT: table.
+190 | COMMENT: Spectators
+190 | COMMENT: are
+190 | COMMENT: welcome
+190 | COMMENT: to
+190 | COMMENT: attend.
+191 | COMMENT: JUDGES
+192 | COMMENT: Mrs
+192 | COMMENT: Vicki
+192 | COMMENT: L
+192 | COMMENT: Abbott
+192 | COMMENT: .......................................................................................1060
+192 | COMMENT: Pecan
+192 | COMMENT: Dr,
+192 | COMMENT: McKinney
+192 | COMMENT: TX
+192 | INT: 75069
+193 | COMMENT: Mr
+193 | COMMENT: Larry
+193 | COMMENT: C
+193 | COMMENT: Abbott........................................................................................1060
+193 | COMMENT: Pecan
+193 | COMMENT: Dr,
+193 | COMMENT: McKinney
+193 | COMMENT: TX
+193 | INT: 75069
+194 | COMMENT: Mr
+194 | COMMENT: George
+194 | COMMENT: D
+194 | COMMENT: Boulton.........................................................................11470
+194 | COMMENT: E
+194 | COMMENT: Escalante
+194 | COMMENT: Rd,
+194 | COMMENT: Tucson
+194 | COMMENT: AZ
+194 | INT: 85730
+195 | COMMENT: Mrs
+195 | COMMENT: Judith
+195 | COMMENT: A
+195 | COMMENT: Brown
+195 | COMMENT: ..................................................................................7415
+195 | COMMENT: Lacy
+195 | COMMENT: Hill
+195 | COMMENT: Dr,
+195 | COMMENT: Houston
+195 | COMMENT: TX
+195 | INT: 77036
+196 | COMMENT: Ms
+196 | COMMENT: Minna-Liisa
+196 | COMMENT: Koltes
+196 | COMMENT: .....................................................................367
+196 | COMMENT: Hounds
+196 | COMMENT: Hollow
+196 | COMMENT: Ln,
+196 | COMMENT: Ennice
+196 | COMMENT: NC
+196 | INT: 28623
+197 | COMMENT: James
+197 | COMMENT: A
+197 | COMMENT: Moses...........................................................................................249
+197 | COMMENT: Lake
+197 | COMMENT: Circle,
+197 | COMMENT: Carrollton
+197 | COMMENT: GA
+197 | INT: 30116
+198 | COMMENT: Mr
+198 | COMMENT: Allen
+198 | COMMENT: L
+198 | COMMENT: Odom........................................................................................5511
+198 | COMMENT: Kittredge
+198 | COMMENT: St,
+198 | COMMENT: Denver
+198 | COMMENT: CO
+198 | INT: 80239
+199 | COMMENT: Mr
+199 | COMMENT: Robert
+199 | COMMENT: Paust
+199 | COMMENT: ................................................................................................PO
+199 | COMMENT: Box
+199 | COMMENT: 902,
+199 | COMMENT: Carthage
+199 | COMMENT: MO
+199 | INT: 64835
+200 | COMMENT: Mr
+200 | COMMENT: Robin
+200 | COMMENT: L
+200 | COMMENT: Stansell
+200 | COMMENT: ...........................................................................2199
+200 | COMMENT: Government
+200 | COMMENT: Rd,
+200 | COMMENT: Clayton
+200 | COMMENT: NC
+200 | INT: 27520
+201 | COMMENT: Mr
+201 | COMMENT: Darryl
+201 | COMMENT: Vice..................................................................................22075
+201 | COMMENT: Skyview
+201 | COMMENT: Dr,
+201 | COMMENT: Palm
+201 | COMMENT: Springs
+201 | COMMENT: CA
+201 | INT: 92262
+202 | COMMENT: ATTENTION
+202 | COMMENT: EXHIBITORS
+203 | COMMENT: The
+203 | COMMENT: Show
+203 | COMMENT: Site
+203 | COMMENT: will
+203 | COMMENT: be
+203 | COMMENT: available
+203 | COMMENT: to
+203 | COMMENT: exhibitors
+203 | COMMENT: at
+203 | TIME: 5:00 pm
+203 | COMMENT: ,
+203 | DATE: Friday, November 15,
+2013
+204 | ELLIPSIS: .
+204 | COMMENT: Dogs
+204 | COMMENT: &
+204 | COMMENT: vendors
+204 | COMMENT: must
+204 | COMMENT: be
+204 | COMMENT: removed
+204 | COMMENT: from
+204 | COMMENT: the
+204 | COMMENT: show
+204 | COMMENT: site
+204 | COMMENT: by
+204 | TIME: 6:00 pm
+204 | COMMENT: on
+204 | DATE: Sunday,
+November 17, 2013
+205 | ELLIPSIS: .
+206 | BREED_CLASSIFIER: Working 
+206 | COMMENT: club
+206 | COMMENT: members
+206 | COMMENT: will
+206 | COMMENT: be
+206 | COMMENT: allowed
+206 | COMMENT: to
+206 | COMMENT: set
+206 | COMMENT: up
+206 | COMMENT: earlier.
+206 | COMMENT: PARKING
+206 | COMMENT: PASSES
+206 | COMMENT: WILL
+206 | COMMENT: BE
+206 | COMMENT: REQUIRED
+207 | COMMENT: FOR
+207 | COMMENT: PARKING
+207 | COMMENT: BEHIND
+207 | COMMENT: THE
+207 | COMMENT: SHOW
+207 | COMMENT: SITE
+207 | COMMENT: IN
+207 | COMMENT: DESIGNATED
+207 | CLUB_INDICATOR: CLUB
+207 | COMMENT: JUDGE
+207 | COMMENT: PARKING.
+208 | COMMENT: Only
+208 | COMMENT: dogs
+208 | COMMENT: that
+208 | COMMENT: are
+208 | COMMENT: eligible
+208 | COMMENT: to
+208 | COMMENT: be
+208 | COMMENT: shown
+208 | COMMENT: under
+208 | COMMENT: American
+208 | COMMENT: Kennel
+208 | COMMENT: Club
+208 | COMMENT: rules
+208 | COMMENT: shall
+208 | COMMENT: be
+208 | COMMENT: allowed
+208 | COMMENT: with-
+209 | COMMENT: in
+209 | COMMENT: the
+209 | COMMENT: show
+209 | COMMENT: grounds.
+209 | COMMENT: Puppies
+209 | COMMENT: under
+209 | COMMENT: the
+209 | COMMENT: age
+209 | COMMENT: of
+209 | COMMENT: six
+209 | COMMENT: months
+209 | COMMENT: are
+209 | COMMENT: strictly
+209 | COMMENT: prohibited
+209 | COMMENT: from
+209 | COMMENT: the
+209 | COMMENT: show
+210 | COMMENT: grounds.
+211 | COMMENT: There
+211 | COMMENT: will
+211 | COMMENT: be
+211 | COMMENT: ample
+211 | COMMENT: covered
+211 | COMMENT: grooming
+211 | COMMENT: &
+211 | COMMENT: crating
+211 | COMMENT: space
+211 | COMMENT: available
+211 | COMMENT: on
+211 | COMMENT: a
+211 | COMMENT: first-come
+211 | COMMENT: basis.
+211 | COMMENT: NO
+211 | COMMENT: space
+212 | COMMENT: may
+212 | COMMENT: be
+212 | COMMENT: saved
+212 | COMMENT: or
+212 | COMMENT: roped
+212 | COMMENT: off.
+213 | COMMENT: No
+213 | COMMENT: dogs
+213 | COMMENT: in
+213 | COMMENT: restrooms,
+213 | COMMENT: concession
+213 | COMMENT: area,
+213 | COMMENT: or
+213 | COMMENT: other
+213 | COMMENT: designated
+213 | COMMENT: areas.
+214 | COMMENT: The
+214 | COMMENT: Show
+214 | COMMENT: Committee
+214 | COMMENT: reserves
+214 | COMMENT: the
+214 | COMMENT: right
+214 | COMMENT: to
+214 | COMMENT: require
+214 | COMMENT: the
+214 | COMMENT: stacking
+214 | COMMENT: of
+214 | COMMENT: crates,
+214 | COMMENT: controlling
+214 | COMMENT: the
+214 | COMMENT: use
+214 | COMMENT: of
+214 | COMMENT: x-
+215 | COMMENT: pens,
+215 | COMMENT: and
+215 | COMMENT: any
+215 | COMMENT: other
+215 | COMMENT: remedies
+215 | COMMENT: it
+215 | COMMENT: deems
+215 | COMMENT: necessary
+215 | COMMENT: for
+215 | COMMENT: consolidating
+215 | COMMENT: space.
+216 | COMMENT: NO
+216 | COMMENT: GLASS
+216 | COMMENT: CONTAINERS
+216 | COMMENT: ALLOWED
+216 | COMMENT: ON
+216 | COMMENT: PREMISES.
+217 | COMMENT: ALCOHOLIC
+217 | COMMENT: BEVERAGES
+217 | COMMENT: MAY
+217 | COMMENT: NOT
+217 | COMMENT: BE
+217 | COMMENT: BROUGHT
+217 | COMMENT: ON
+217 | COMMENT: PREMISES.
+218 | COMMENT: All
+218 | COMMENT: fire
+218 | COMMENT: exits,
+218 | COMMENT: doors,
+218 | COMMENT: &
+218 | COMMENT: passageways
+218 | COMMENT: must
+218 | COMMENT: be
+218 | COMMENT: kept
+218 | COMMENT: free
+218 | COMMENT: and
+218 | COMMENT: clear.
+219 | COMMENT: Aisles
+219 | COMMENT: must
+219 | COMMENT: be
+219 | COMMENT: kept
+219 | COMMENT: open
+219 | COMMENT: both
+219 | COMMENT: in
+219 | COMMENT: grooming
+219 | COMMENT: areas
+219 | COMMENT: &
+219 | COMMENT: ring
+219 | COMMENT: areas.
+220 | COMMENT: No
+220 | COMMENT: smoking
+220 | COMMENT: in
+220 | COMMENT: any
+220 | COMMENT: covered
+220 | COMMENT: area.
+220 | COMMENT: This
+220 | COMMENT: will
+220 | COMMENT: be
+220 | COMMENT: strictly
+220 | COMMENT: enforced.
+221 | COMMENT: Exhibitors
+221 | COMMENT: must
+221 | COMMENT: keep
+221 | COMMENT: grooming
+221 | COMMENT: areas
+221 | COMMENT: clean.
+222 | COMMENT: No
+222 | COMMENT: RV
+222 | COMMENT: hookups.
+223 | COMMENT: All
+223 | COMMENT: rights
+223 | COMMENT: to
+223 | COMMENT: TELEVISE,
+223 | COMMENT: VIDEOTAPE,
+223 | COMMENT: ADVERTISE,
+223 | COMMENT: PHOTOGRAPH,
+223 | COMMENT: PROMOTE
+223 | COMMENT: or
+223 | COMMENT: otherwise
+223 | COMMENT: exploit
+223 | COMMENT: this
+224 | COMMENT: event
+224 | COMMENT: are
+224 | COMMENT: vested
+224 | COMMENT: in
+224 | COMMENT: the
+224 | COMMENT: Club,
+224 | COMMENT: or
+224 | COMMENT: in
+224 | COMMENT: persons
+224 | COMMENT: to
+224 | COMMENT: whom
+224 | COMMENT: assignments
+224 | COMMENT: of
+224 | COMMENT: such
+224 | COMMENT: rights
+224 | COMMENT: have
+224 | COMMENT: been
+224 | COMMENT: made
+225 | COMMENT: in
+225 | COMMENT: writing
+225 | COMMENT: by
+225 | COMMENT: the
+225 | COMMENT: Club.
+225 | COMMENT: All
+225 | COMMENT: persons
+225 | COMMENT: &
+225 | COMMENT: animals
+225 | COMMENT: on
+225 | COMMENT: the
+225 | COMMENT: showgrounds
+225 | COMMENT: at
+225 | COMMENT: any
+225 | COMMENT: time
+225 | COMMENT: while
+225 | COMMENT: the
+225 | COMMENT: show
+225 | COMMENT: is
+225 | COMMENT: in
+226 | COMMENT: progress,
+226 | COMMENT: do
+226 | COMMENT: by
+226 | COMMENT: attending
+226 | COMMENT: this
+226 | COMMENT: show
+226 | COMMENT: or
+226 | COMMENT: participating
+226 | COMMENT: therein,
+226 | COMMENT: grant
+226 | COMMENT: to
+226 | COMMENT: the
+226 | COMMENT: Club
+226 | COMMENT: the
+226 | COMMENT: right
+226 | COMMENT: to
+226 | COMMENT: photo-
+227 | COMMENT: graph,
+227 | COMMENT: televise,
+227 | COMMENT: videotape,
+227 | COMMENT: audiotape
+227 | COMMENT: or
+227 | COMMENT: otherwise
+227 | COMMENT: use
+227 | COMMENT: their
+227 | COMMENT: likeness
+227 | COMMENT: &
+227 | COMMENT: voice
+227 | COMMENT: in
+227 | COMMENT: any
+227 | COMMENT: manner
+227 | COMMENT: with-
+228 | COMMENT: out
+228 | COMMENT: further
+228 | COMMENT: release
+228 | COMMENT: or
+228 | COMMENT: consent.
+229 | COMMENT: The
+229 | COMMENT: Kennel
+229 | COMMENT: Club
+229 | COMMENT: is
+229 | COMMENT: not
+229 | COMMENT: responsible
+229 | COMMENT: for
+229 | COMMENT: the
+229 | COMMENT: actions
+229 | COMMENT: or
+229 | COMMENT: products
+229 | COMMENT: of
+229 | COMMENT: the
+229 | COMMENT: commercial
+229 | COMMENT: vendors
+229 | COMMENT: at
+229 | COMMENT: this
+230 | COMMENT: show.
+231 | 'RING': RING
+231 | INT: 1
+232 | JUDGE_NAME: MRS JUDITH A BROWN (68)
+233 | TIME: 9:00 am
+234 | INT: 4
+234 | BREED_NAME: Bullmastiffs 
+234 | BREED_COUNT: 1-2-1-0
+235 | INT: 11
+235 | BREED_NAME: Great Danes 
+235 | BREED_COUNT: 2-3-3-3
+236 | INT: 16
+236 | BREED_NAME: Doberman Pinschers 
+236 | BREED_COUNT: 4-7-2-3
+237 | TIME: 10:15 am
+238 | INT: 6
+238 | BREED_NAME: Rottweilers 
+238 | BREED_COUNT: 2-2-2-0
+239 | INT: 14
+239 | BREED_NAME: Boxers 
+239 | BREED_COUNT: 7-7-0-0
+240 | INT: 6
+240 | BREED_NAME: Akitas 
+240 | BREED_COUNT: 0-4-1-1
+241 | TIME: 11:15 am
+242 | INT: 6
+242 | BREED_NAME: Alaskan Malamutes 
+242 | BREED_COUNT: 2-1-2-1
+243 | INT: 1
+243 | BREED_NAME: Greater Swiss Mountain Dogs 
+243 | BREED_COUNT: 0-0-1-0
+244 | INT: 1
+244 | BREED_NAME: German Pinschers 
+244 | BREED_COUNT: 0-0-1-0
+245 | INT: 1
+245 | BREED_NAME: Great Pyrenees 
+245 | BREED_COUNT: 0-0-1-0
+246 | INT: 1
+246 | BREED_NAME: Standard Schnauzers 
+246 | BREED_COUNT: 0-0-0-1
+247 | INT: 1
+247 | BREED_NAME: Tibetan Mastiffs 
+247 | BREED_COUNT: 0-0-1-0
+248 | 'RING': RING
+248 | INT: 1
+249 | JUDGE_NAME: MR ROBERT PAUST (49)
+250 | TIME: 11:45 am
+251 | INT: 2
+251 | BREED_NAME: Staffordshire Bull Terriers 
+251 | BREED_COUNT: 2-0-0-0
+252 | INT: 4
+252 | BREED_NAME: American Staffordshire Terriers 
+252 | BREED_COUNT: 2-1-1-0
+253 | INT: 3
+253 | BREED_NAME: Kerry Blue Terriers 
+253 | BREED_COUNT: 2-0-1-0
+254 | INT: 5
+254 | BREED_NAME: Norwich Terriers 
+254 | BREED_COUNT: 0-4-0-1
+255 | INT: 8
+255 | BREED_NAME: West Highland White Terriers 
+255 | BREED_COUNT: 0-5-1-1
+256 | INT: 1
+256 | BREED_CLASSIFIER: Veteran Dog
+257 | INT: 3
+257 | BREED_NAME: Lakeland Terriers 
+257 | BREED_COUNT: 1-2-0-0
+258 | TIME: 12:45 pm
+259 | INT: 7
+259 | BREED_NAME: Miniature Schnauzers 
+259 | BREED_COUNT: 2-3-2-0
+260 | INT: 4
+260 | BREED_NAME: Skye Terriers 
+260 | BREED_COUNT: 0-1-1-2
+261 | INT: 10
+261 | BREED_NAME: Scottish Terriers 
+261 | BREED_COUNT: 5-3-1-1
+262 | INT: 1
+262 | BREED_NAME: Dandie Dinmont Terriers 
+262 | BREED_COUNT: 0-0-1-0
+263 | INT: 1
+263 | BREED_NAME: Bedlington Terriers 
+263 | BREED_COUNT: 0-0-0-1
+264 | INT: 1
+264 | BREED_NAME: Irish Terriers 
+264 | BREED_COUNT: 0-0-1-0
+265 | 'RING': RING
+265 | INT: 2
+266 | JUDGE_NAME: MR ROBIN L STANSELL (109)
+267 | TIME: 9:00 am
+268 | INT: 19
+268 | BREED_NAME: Bulldogs 
+268 | BREED_COUNT: 7-9-2-1
+269 | INT: 4
+269 | BREED_NAME: French Bulldogs 
+269 | BREED_COUNT: 1-2-0-1
+270 | INT: 18
+270 | BREED_NAME: Boston Terriers 
+270 | BREED_COUNT: 4-8-1-5
+271 | TIME: 10:40 am
+272 | INT: 2
+272 | BREED_NAME: Schipperkes 
+272 | BREED_COUNT: 0-1-0-1
+273 | INT: 5
+273 | BREED_NAME: Tibetan Spaniels 
+273 | BREED_COUNT: 3-0-1-1
+274 | INT: 4
+274 | BREED_NAME: American Eskimo Dogs 
+274 | BREED_COUNT: 1-1-2-0
+275 | INT: 3
+275 | BREED_NAME: Tibetan Terriers 
+275 | BREED_COUNT: 1-0-2-0
+276 | INT: 3
+276 | BREED_NAME: Lowchen 
+276 | BREED_COUNT: 0-2-0-1
+277 | INT: 9
+277 | BREED_NAME: Bichons Frises 
+277 | BREED_COUNT: 1-5-2-1
+278 | INT: 8
+278 | BREED_NAME: Poodles (Miniature) 
+278 | BREED_COUNT: 0-7-1-0
+279 | TIME: 12:00 pm
+280 | 'LUNCH': LUNCH
+281 | TIME: 12:45 pm
+282 | INT: 7
+282 | BREED_NAME: Lhasa Apsos 
+282 | BREED_COUNT: 0-5-1-1
+283 | INT: 2
+283 | BREED_NAME: Dalmatians 
+283 | BREED_COUNT: 0-1-1-0
+284 | INT: 3
+284 | BREED_NAME: Keeshonden 
+284 | BREED_COUNT: 0-0-3-0
+285 | INT: 3
+285 | BREED_NAME: Chow Chows 
+285 | BREED_COUNT: 2-0-1-0
+286 | INT: 1
+286 | BREED_NAME: Chinese Shar-Pei 
+286 | BREED_COUNT: 0-0-0-1
+287 | INT: 18
+287 | BREED_NAME: Poodles (Standard) 
+287 | BREED_COUNT: 6-9-1-2
+288 | 'RING': RING
+288 | INT: 3
+289 | COMMENT: JAMES
+289 | COMMENT: A
+289 | COMMENT: MOSES
+289 | PARENTHETICAL_INT: (121)
+290 | TIME: 9:00 am
+291 | INT: 29
+291 | BREED_NAME: German Shepherd Dogs 
+291 | BREED_COUNT: 11-12-3-2
+292 | INT: 1
+292 | BREED_CLASSIFIER: Veteran Bitch
+293 | INT: 21
+293 | BREED_NAME: Australian Shepherds 
+293 | BREED_COUNT: 7-8-3-3
+294 | TIME: 10:40 am
+295 | INT: 7
+295 | BREED_NAME: Australian Cattle Dogs 
+295 | BREED_COUNT: 3-1-2-1
+296 | INT: 2
+296 | BREED_NAME: Collies (Smooth) 
+296 | BREED_COUNT: 1-0-0-1
+297 | INT: 4
+297 | BREED_NAME: Canaan Dogs 
+297 | BREED_COUNT: 3-0-1-0
+298 | INT: 3
+298 | BREED_NAME: Border Collies 
+298 | BREED_COUNT: 0-0-3-0
+299 | INT: 20
+299 | BREED_NAME: Shetland Sheepdogs 
+299 | BREED_COUNT: 6-10-3-1
+300 | TIME: 11:55 am
+301 | 'LUNCH': LUNCH
+302 | TIME: 12:40 pm
+303 | INT: 8
+303 | BREED_NAME: Pembroke Welsh Corgis 
+303 | BREED_COUNT: 3-4-0-1
+304 | INT: 5
+304 | BREED_NAME: Pulik 
+304 | BREED_COUNT: 3-0-0-1
+305 | INT: 8
+305 | BREED_NAME: Cardigan Welsh Corgis 
+305 | BREED_COUNT: 1-3-2-2
+306 | INT: 1
+306 | BREED_NAME: Swedish Vallhunds 
+306 | BREED_COUNT: 0-0-1-0
+307 | INT: 1
+307 | BREED_NAME: Samoyeds 
+307 | BREED_COUNT: 0-1-0-0
+308 | INT: 4
+308 | BREED_NAME: Bouviers des Flandres 
+308 | BREED_COUNT: 1-0-3-0
+309 | INT: 7
+309 | BREED_NAME: Old English Sheepdogs 
+309 | BREED_COUNT: 0-3-2-2
+310 | INT: 1
+310 | BREED_NAME: Belgian Sheepdogs 
+310 | BREED_COUNT: 0-1-0-0
+311 | 'RING': RING
+311 | INT: 3
+312 | JUDGE_NAME: MR GEORGE D BOULTON (57)
+313 | TIME: 1:50 pm
+314 | INT: 3
+314 | BREED_NAME: Dachshunds (Smooth) 
+314 | BREED_COUNT: 1-1-0-1
+315 | INT: 5
+315 | BREED_NAME: Whippets 
+315 | BREED_COUNT: 1-1-1-2
+316 | INT: 4
+316 | BREED_NAME: Dachshunds (Longhaired) 
+316 | BREED_COUNT: 1-2-1-0
+317 | INT: 4
+317 | BREED_NAME: Beagles (13 Inch) 
+317 | BREED_COUNT: 1-1-1-1
+318 | INT: 3
+318 | BREED_NAME: Basenjis 
+318 | BREED_COUNT: 1-1-1-0
+319 | INT: 5
+319 | BREED_NAME: Beagles (15 Inch) 
+319 | BREED_COUNT: 3-0-2-0
+320 | INT: 7
+320 | BREED_NAME: Petits Bassets Griffons Vendeens 
+320 | BREED_COUNT: 1-2-2-2
+321 | INT: 1
+321 | BREED_NAME: Dachshunds (Wirehaired) 
+321 | BREED_COUNT: 0-1-0-0
+322 | INT: 1
+322 | BREED_NAME: Miniature American Shepherds (Misc. Bitch)
+323 | INT: 3
+323 | BREED_NAME: Salukis 
+323 | BREED_COUNT: 0-2-0-1
+324 | INT: 2
+324 | BREED_NAME: Norwegian Elkhounds 
+324 | BREED_COUNT: 1-0-1-0
+325 | INT: 8
+325 | BREED_NAME: Borzois 
+325 | BREED_COUNT: 3-2-2-1
+326 | INT: 2
+326 | BREED_NAME: Rhodesian Ridgebacks 
+326 | BREED_COUNT: 1-0-1-0
+327 | INT: 2
+327 | BREED_NAME: Afghan Hounds 
+327 | BREED_COUNT: 1-0-1-0
+328 | INT: 1
+328 | BREED_NAME: Treeing Walker Coonhounds 
+328 | BREED_COUNT: 0-0-0-1
+329 | INT: 1
+329 | BREED_NAME: Ibizan Hounds 
+329 | BREED_COUNT: 0-0-0-1
+330 | INT: 5
+330 | BREED_NAME: Basset Hounds 
+330 | BREED_COUNT: 0-1-2-1
+331 | COMMENT: JUDGING
+331 | COMMENT: PROGRAM
+332 | COMMENT: The
+332 | COMMENT: number
+332 | COMMENT: before
+332 | COMMENT: each
+332 | COMMENT: Breed
+332 | PARENTHETICAL: (Variety)
+332 | COMMENT: indicates
+332 | COMMENT: the
+332 | COMMENT: number
+332 | COMMENT: of
+332 | COMMENT: dogs
+332 | COMMENT: entered
+332 | COMMENT: in
+332 | COMMENT: that
+332 | COMMENT: Breed
+332 | COMMENT: (Variety).
+332 | COMMENT: The
+332 | COMMENT: num-
+333 | COMMENT: bers
+333 | COMMENT: following
+333 | COMMENT: each
+333 | COMMENT: Breed
+333 | PARENTHETICAL: (Variety)
+333 | COMMENT: indicates
+333 | COMMENT: the
+333 | COMMENT: number
+333 | COMMENT: of
+333 | COMMENT: Regular
+333 | COMMENT: Class
+333 | COMMENT: Dogs,
+333 | COMMENT: Regular
+333 | COMMENT: Class
+333 | COMMENT: Bitches,
+333 | COMMENT: Best
+333 | COMMENT: of
+334 | COMMENT: Breed
+334 | PARENTHETICAL: (Variety)
+334 | COMMENT: (Dogs-Bitches).
+335 | COMMENT: There
+335 | COMMENT: are
+335 | INT: 601
+335 | COMMENT: dogs
+335 | COMMENT: entered
+335 | COMMENT: in
+335 | COMMENT: this
+335 | COMMENT: show
+335 | COMMENT: with
+335 | COMMENT: a
+335 | COMMENT: total
+335 | COMMENT: of
+335 | INT: 614
+335 | COMMENT: entries.
+336 | DATE: SATURDAY, NOVEMBER 16, 2013
+337 | 'RING': RING
+337 | INT: 4
+338 | JUDGE_NAME: MR DARRYL VICE (104)
+339 | TIME: 9:00 am
+340 | INT: 8
+340 | BREED_NAME: Pugs 
+340 | BREED_COUNT: 2-4-2-0
+341 | INT: 12
+341 | BREED_NAME: Chihuahuas (Smooth Coat) 
+341 | BREED_COUNT: 3-4-4-1
+342 | INT: 7
+342 | BREED_NAME: Miniature Pinschers 
+342 | BREED_COUNT: 4-1-1-1
+343 | TIME: 10:05 am
+344 | INT: 10
+344 | BREED_NAME: Chihuahuas (Long Coat) 
+344 | BREED_COUNT: 2-3-3-2
+345 | INT: 6
+345 | BREED_NAME: Papillons 
+345 | BREED_COUNT: 1-3-1-1
+346 | INT: 5
+346 | BREED_NAME: Brussels Griffons 
+346 | BREED_COUNT: 3-1-1-0
+347 | INT: 6
+347 | BREED_NAME: Toy Fox Terriers 
+347 | BREED_COUNT: 1-2-3-0
+348 | TIME: 11:10 am
+349 | INT: 3
+349 | BREED_NAME: Havanese 
+349 | BREED_COUNT: 0-2-1-0
+350 | INT: 6
+350 | BREED_NAME: Chinese Cresteds 
+350 | BREED_COUNT: 1-4-1-0
+351 | INT: 4
+351 | BREED_NAME: Manchester Terriers (Toy) 
+351 | BREED_COUNT: 0-3-1-0
+352 | INT: 5
+352 | BREED_NAME: Cavalier King Charles Spaniels 
+352 | BREED_COUNT: 0-4-0-1
+353 | TIME: 11:50 am
+354 | 'LUNCH': LUNCH
+355 | TIME: 12:35 pm
+356 | INT: 14
+356 | BREED_NAME: Poodles (Toy) 
+356 | BREED_COUNT: 3-8-2-1
+357 | INT: 6
+357 | BREED_NAME: Yorkshire Terriers 
+357 | BREED_COUNT: 4-2-0-0
+358 | INT: 10
+358 | BREED_NAME: Pomeranians 
+358 | BREED_COUNT: 3-4-1-2
+359 | INT: 1
+359 | BREED_NAME: Italian Greyhounds 
+359 | BREED_COUNT: 0-0-0-1
+360 | INT: 1
+360 | BREED_NAME: Maltese 
+360 | BREED_COUNT: 0-0-1-0
+361 | 'RING': RING
+361 | INT: 5
+362 | JUDGE_NAME: MRS VICKI L ABBOTT (106)
+363 | TIME: 9:00 am
+364 | INT: 2
+364 | BREED_NAME: Vizslas 
+364 | BREED_COUNT: 0-1-1-0
+365 | INT: 12
+365 | BREED_NAME: Pointers (German Shorthaired) 
+365 | BREED_COUNT: 7-4-0-1
+366 | INT: 13
+366 | BREED_NAME: Retrievers (Labrador) 
+366 | BREED_COUNT: 4-7-1-1
+367 | TIME: 10:05 am
+368 | INT: 2
+368 | BREED_NAME: Weimaraners 
+368 | BREED_COUNT: 0-0-1-1
+369 | INT: 5
+369 | BREED_NAME: Brittanys 
+369 | BREED_COUNT: 2-1-2-0
+370 | INT: 3
+370 | BREED_NAME: Spaniels (English Springer) 
+370 | BREED_COUNT: 1-0-1-1
+371 | INT: 2
+371 | BREED_NAME: Setters (English) 
+371 | BREED_COUNT: 0-2-0-0
+372 | INT: 2
+372 | BREED_NAME: Retrievers (Flat-Coated) 
+372 | BREED_COUNT: 0-0-1-1
+373 | INT: 2
+373 | BREED_NAME: Retrievers (Chesapeake Bay) 
+373 | BREED_COUNT: 0-0-1-1
+374 | INT: 8
+374 | BREED_NAME: Spaniels (Boykin) 
+374 | BREED_COUNT: 0-2-2-4
+375 | INT: 22
+375 | BREED_NAME: Retrievers (Golden) 
+375 | BREED_COUNT: 7-6-4-5
+376 | TIME: 11:55 am
+377 | 'LUNCH': LUNCH
+378 | TIME: 12:40 pm
+379 | INT: 5
+379 | BREED_NAME: Setters (Irish) 
+379 | BREED_COUNT: 1-3-1-0
+380 | INT: 5
+380 | BREED_NAME: Spaniels (Cocker) Ascob
+380 | BREED_COUNT: 1-3-1-0
+381 | INT: 2
+381 | BREED_NAME: Spaniels (English Cocker) 
+381 | BREED_COUNT: 1-0-1-0
+382 | INT: 4
+382 | BREED_NAME: Japanese Chin 
+382 | BREED_COUNT: 1-0-2-1
+383 | INT: 1
+383 | BREED_NAME: Spaniels (Cocker) Parti-Color
+383 | BREED_COUNT: 0-0-1-0
+384 | INT: 2
+384 | JUNIOR_CLASS: Open Senior
+385 | INT: 4
+385 | JUNIOR_CLASS: Open Intermediate
+386 | INT: 3
+386 | JUNIOR_CLASS: Novice Intermediate
+387 | INT: 1
+387 | JUNIOR_CLASS: Novice Junior
+388 | INT: 6
+388 | BREED_NAME: Spaniels (Cocker) Black
+388 | BREED_COUNT: 2-1-1-2
+389 | 'GROUP': GROUP
+389 | 'RING': RING
+390 | TIME: 2:00 pm
+391 | GROUP_BLOCK_TYPE: VARIETY GROUP JUDGING
+392 | GROUP_NAME: TERRIER
+392 | 'GROUP': GROUP
+392 | '-': -
+392 | JUDGE_NAME: MR ROBERT PAUST
+
+393 | GROUP_NAME: TOY
+393 | 'GROUP': GROUP
+393 | '-': -
+393 | JUDGE_NAME: MRS VICKI L ABBOTT
+
+394 | GROUP_NAME: HERDING
+394 | 'GROUP': GROUP
+394 | '-': -
+394 | COMMENT: JAMES
+394 | COMMENT: A
+394 | COMMENT: MOSES
+395 | GROUP_NAME: SPORTING
+395 | 'GROUP': GROUP
+395 | '-': -
+395 | COMMENT: MRS
+395 | COMMENT: VICKI
+395 | COMMENT: L
+395 | COMMENT: ABBOTT
+396 | GROUP_NAME: WORKING
+396 | 'GROUP': GROUP
+396 | '-': -
+396 | COMMENT: MRS
+396 | COMMENT: JUDITH
+396 | COMMENT: A
+396 | COMMENT: BROWN
+397 | GROUP_NAME: NON-SPORTING
+397 | 'GROUP': GROUP
+397 | '-': -
+397 | COMMENT: MR
+397 | COMMENT: ROBIN
+397 | COMMENT: L
+397 | COMMENT: STANSELL
+398 | GROUP_NAME: HOUND
+398 | 'GROUP': GROUP
+398 | '-': -
+398 | COMMENT: MR
+398 | COMMENT: GEORGE
+398 | COMMENT: D
+398 | COMMENT: BOULTON
+399 | GROUP_RING: BEST IN SHOW
+399 | '-': -
+399 | COMMENT: MR
+399 | COMMENT: DARRYL
+399 | COMMENT: VICE
+400 | GROUP_ENDING_ANNOUNCEMENT: Unless otherwise announced by 1:30 pm
+401 | DATE: SATURDAY, NOVEMBER 16, 2013
+402 | 'RING': RING
+402 | INT: 1
+403 | JUDGE_NAME: MRS JUDITH A BROWN (101)
+404 | TIME: 8:30 am
+405 | INT: 2
+405 | BREED_NAME: Weimaraners 
+405 | BREED_COUNT: 0-0-1-1
+406 | INT: 3
+406 | BREED_NAME: Belgian Malinois 
+406 | BREED_COUNT: 1-0-1-1
+407 | INT: 11
+407 | BREED_NAME: Pointers (German Shorthaired) 
+407 | BREED_COUNT: 7-3-0-1
+408 | INT: 2
+408 | BREED_NAME: Vizslas 
+408 | BREED_COUNT: 0-0-1-1
+409 | INT: 2
+409 | BREED_NAME: Retrievers (Flat-Coated) 
+409 | BREED_COUNT: 0-0-1-1
+410 | INT: 8
+410 | BREED_NAME: Spaniels (Boykin) 
+410 | BREED_COUNT: 0-2-2-4
+411 | TIME: 9:35 am
+412 | INT: 2
+412 | BREED_NAME: Retrievers (Chesapeake Bay) 
+412 | BREED_COUNT: 0-0-1-1
+413 | INT: 2
+413 | BREED_NAME: Setters (English) 
+413 | BREED_COUNT: 0-2-0-0
+414 | INT: 22
+414 | BREED_NAME: Retrievers (Golden) 
+414 | BREED_COUNT: 7-6-4-5
+415 | TIME: 10:40 am
+416 | INT: 3
+416 | BREED_NAME: Spaniels (English Springer) 
+416 | BREED_COUNT: 1-0-1-1
+417 | INT: 5
+417 | BREED_NAME: Setters (Irish) 
+417 | BREED_COUNT: 1-3-1-0
+418 | INT: 4
+418 | BREED_NAME: Bouviers des Flandres 
+418 | BREED_COUNT: 1-0-3-0
+419 | INT: 6
+419 | BREED_NAME: Spaniels (Cocker) Black
+419 | BREED_COUNT: 2-1-1-2
+420 | INT: 5
+420 | BREED_NAME: Pulik 
+420 | BREED_COUNT: 3-0-0-1
+421 | INT: 8
+421 | BREED_NAME: Cardigan Welsh Corgis 
+421 | BREED_COUNT: 1-3-2-2
+422 | TIME: 11:55 am
+423 | 'LUNCH': LUNCH
+424 | TIME: 12:40 pm
+425 | INT: 5
+425 | BREED_NAME: Spaniels (Cocker) Ascob
+425 | BREED_COUNT: 1-3-1-0
+426 | INT: 1
+426 | BREED_NAME: Spaniels (English Cocker) 
+426 | BREED_COUNT: 0-0-1-0
+427 | INT: 1
+427 | BREED_NAME: Swedish Vallhunds 
+427 | BREED_COUNT: 0-0-1-0
+428 | INT: 1
+428 | BREED_NAME: Spaniels (Cocker) Parti-Color
+428 | BREED_COUNT: 0-0-1-0
+429 | INT: 7
+429 | BREED_NAME: Old English Sheepdogs 
+429 | BREED_COUNT: 0-3-2-2
+430 | INT: 1
+430 | BREED_NAME: Belgian Sheepdogs 
+430 | BREED_COUNT: 0-1-0-0
+431 | 'RING': RING
+431 | INT: 2
+432 | JUDGE_NAME: MR GEORGE D BOULTON (89)
+433 | TIME: 8:30 am
+434 | INT: 18
+434 | BREED_NAME: Bulldogs 
+434 | BREED_COUNT: 6-9-2-1
+435 | INT: 18
+435 | BREED_NAME: Boston Terriers 
+435 | BREED_COUNT: 4-8-1-5
+436 | TIME: 9:55 am
+437 | INT: 2
+437 | BREED_NAME: Schipperkes 
+437 | BREED_COUNT: 0-1-0-1
+438 | INT: 7
+438 | BREED_NAME: Tibetan Spaniels 
+438 | BREED_COUNT: 4-1-1-1
+439 | INT: 4
+439 | BREED_NAME: American Eskimo Dogs 
+439 | BREED_COUNT: 1-1-2-0
+440 | INT: 2
+440 | JUNIOR_CLASS: Open Senior
+441 | INT: 4
+441 | JUNIOR_CLASS: Open Intermediate
+442 | INT: 1
+442 | JUNIOR_CLASS: Open Junior
+443 | INT: 3
+443 | JUNIOR_CLASS: Novice Intermediate
+444 | INT: 1
+444 | JUNIOR_CLASS: Novice Junior
+445 | TIME: 11:00 am
+446 | INT: 3
+446 | BREED_NAME: Keeshonden 
+446 | BREED_COUNT: 0-0-3-0
+447 | INT: 3
+447 | BREED_NAME: Chow Chows 
+447 | BREED_COUNT: 2-0-1-0
+448 | INT: 1
+448 | BREED_NAME: Chinese Shar-Pei 
+448 | BREED_COUNT: 0-0-0-1
+449 | INT: 1
+449 | BREED_NAME: Dalmatians 
+449 | BREED_COUNT: 0-0-1-0
+450 | INT: 3
+450 | BREED_NAME: Tibetan Terriers 
+450 | BREED_COUNT: 1-0-2-0
+451 | INT: 3
+451 | BREED_NAME: Lowchen 
+451 | BREED_COUNT: 0-2-0-1
+452 | INT: 9
+452 | BREED_NAME: Bichons Frises 
+452 | BREED_COUNT: 1-5-2-1
+453 | INT: 6
+453 | BREED_NAME: Lhasa Apsos 
+453 | BREED_COUNT: 0-4-1-1
+454 | 'RING': RING
+454 | INT: 2
+455 | JUDGE_NAME: MR LARRY C ABBOTT (14)
+456 | TIME: 12:10 pm
+457 | INT: 4
+457 | BREED_NAME: Japanese Chin 
+457 | BREED_COUNT: 1-0-2-1
+458 | INT: 10
+458 | BREED_NAME: Pomeranians 
+458 | BREED_COUNT: 3-4-1-2
+459 | 'RING': RING
+459 | INT: 3
+460 | JUDGE_NAME: MR ALLEN L ODOM (67)
+461 | TIME: 8:30 am
+462 | INT: 5
+462 | BREED_NAME: Basset Hounds 
+462 | BREED_COUNT: 0-1-2-1
+463 | INT: 3
+463 | BREED_NAME: Dachshunds (Smooth) 
+463 | BREED_COUNT: 1-1-0-1
+464 | INT: 8
+464 | BREED_NAME: Pembroke Welsh Corgis 
+464 | BREED_COUNT: 3-4-0-1
+465 | INT: 4
+465 | BREED_NAME: Dachshunds (Longhaired) 
+465 | BREED_COUNT: 1-2-1-0
+466 | INT: 5
+466 | BREED_NAME: Beagles (13 Inch) 
+466 | BREED_COUNT: 1-1-1-2
+467 | TIME: 9:30 am
+468 | INT: 3
+468 | BREED_NAME: Basenjis 
+468 | BREED_COUNT: 1-1-1-0
+469 | INT: 5
+469 | BREED_NAME: Beagles (15 Inch) 
+469 | BREED_COUNT: 3-0-2-0
+470 | INT: 5
+470 | BREED_NAME: Whippets 
+470 | BREED_COUNT: 1-1-1-2
+471 | INT: 7
+471 | BREED_NAME: Petits Bassets Griffons Vendeens 
+471 | BREED_COUNT: 1-2-3-1
+472 | INT: 3
+472 | BREED_NAME: Salukis 
+472 | BREED_COUNT: 0-2-0-1
+473 | INT: 9
+473 | BREED_NAME: Borzois 
+473 | BREED_COUNT: 3-2-3-1
+474 | TIME: 10:45 am
+475 | INT: 2
+475 | BREED_NAME: Norwegian Elkhounds 
+475 | BREED_COUNT: 1-0-1-0
+476 | INT: 5
+476 | BREED_NAME: Afghan Hounds 
+476 | BREED_COUNT: 2-2-1-0
+477 | INT: 1
+477 | BREED_NAME: Ibizan Hounds 
+477 | BREED_COUNT: 0-0-0-1
+478 | INT: 1
+478 | BREED_NAME: Rhodesian Ridgebacks 
+478 | BREED_COUNT: 0-0-1-0
+479 | INT: 1
+479 | BREED_NAME: Treeing Walker Coonhounds 
+479 | BREED_COUNT: 0-0-0-1
+480 | 'RING': RING
+480 | INT: 3
+481 | COMMENT: JAMES
+481 | COMMENT: A
+481 | COMMENT: MOSES
+481 | PARENTHETICAL_INT: (69)
+482 | TIME: 11:15 am
+483 | INT: 20
+483 | BREED_NAME: Poodles (Standard) 
+483 | BREED_COUNT: 7-10-1-2
+484 | INT: 5
+484 | BREED_NAME: Brittanys 
+484 | BREED_COUNT: 2-1-2-0
+485 | INT: 13
+485 | BREED_NAME: Retrievers (Labrador) 
+485 | BREED_COUNT: 4-7-1-1
+486 | TIME: 12:35 pm
+487 | INT: 8
+487 | BREED_NAME: Poodles (Miniature) 
+487 | BREED_COUNT: 0-7-1-0
+488 | INT: 4
+488 | BREED_NAME: Cavalier King Charles Spaniels 
+488 | BREED_COUNT: 0-4-0-0
+489 | INT: 5
+489 | BREED_NAME: Chinese Cresteds 
+489 | BREED_COUNT: 1-3-1-0
+490 | INT: 14
+490 | BREED_NAME: Poodles (Toy) 
+490 | BREED_COUNT: 3-8-2-1
+491 | 'RING': RING
+491 | INT: 4
+492 | JUDGE_NAME: MS MINNA-LIISA KOLTES (134)
+493 | TIME: 8:30 am
+494 | INT: 4
+494 | BREED_NAME: American Staffordshire Terriers 
+494 | BREED_COUNT: 2-1-1-0
+495 | INT: 26
+495 | BREED_NAME: German Shepherd Dogs 
+495 | BREED_COUNT: 11-10-3-1
+496 | INT: 1
+496 | BREED_CLASSIFIER: Veteran Bitch
+497 | TIME: 9:40 am
+498 | INT: 4
+498 | BREED_NAME: Canaan Dogs 
+498 | BREED_COUNT: 3-0-1-0
+499 | INT: 7
+499 | BREED_NAME: Australian Cattle Dogs 
+499 | BREED_COUNT: 3-1-2-1
+500 | INT: 16
+500 | BREED_NAME: Doberman Pinschers 
+500 | BREED_COUNT: 4-7-2-3
+501 | TIME: 10:45 am
+502 | INT: 2
+502 | BREED_NAME: Collies (Smooth) 
+502 | BREED_COUNT: 1-0-0-1
+503 | COMMENT: JUDGING
+503 | COMMENT: PROGRAM
+504 | COMMENT: The
+504 | COMMENT: number
+504 | COMMENT: before
+504 | COMMENT: each
+504 | COMMENT: Breed
+504 | PARENTHETICAL: (Variety)
+504 | COMMENT: indicates
+504 | COMMENT: the
+504 | COMMENT: number
+504 | COMMENT: of
+504 | COMMENT: dogs
+504 | COMMENT: entered
+504 | COMMENT: in
+504 | COMMENT: that
+504 | COMMENT: Breed
+504 | COMMENT: (Variety).
+504 | COMMENT: The
+504 | COMMENT: num-
+505 | COMMENT: bers
+505 | COMMENT: following
+505 | COMMENT: each
+505 | COMMENT: Breed
+505 | PARENTHETICAL: (Variety)
+505 | COMMENT: indicates
+505 | COMMENT: the
+505 | COMMENT: number
+505 | COMMENT: of
+505 | COMMENT: Regular
+505 | COMMENT: Class
+505 | COMMENT: Dogs,
+505 | COMMENT: Regular
+505 | COMMENT: Class
+505 | COMMENT: Bitches,
+505 | COMMENT: Best
+505 | COMMENT: of
+506 | COMMENT: Breed
+506 | PARENTHETICAL: (Variety)
+506 | COMMENT: (Dogs-Bitches).
+507 | COMMENT: There
+507 | COMMENT: are
+507 | INT: 606
+507 | COMMENT: dogs
+507 | COMMENT: entered
+507 | COMMENT: in
+507 | COMMENT: this
+507 | COMMENT: show
+507 | COMMENT: with
+507 | COMMENT: a
+507 | COMMENT: total
+507 | COMMENT: of
+507 | INT: 620
+507 | COMMENT: entries.
+508 | DATE: SUNDAY, NOVEMBER 17, 2013
+509 | INT: 816
+509 | BREED_NAME: Boxers 
+509 | BREED_COUNT: 8-8-0-0
+510 | INT: 3
+510 | BREED_NAME: Lakeland Terriers 
+510 | BREED_COUNT: 1-2-0-0
+511 | INT: 5
+511 | BREED_NAME: Norwich Terriers 
+511 | BREED_COUNT: 0-4-0-1
+512 | TIME: 11:50 am
+513 | 'LUNCH': LUNCH
+514 | TIME: 12:35 pm
+515 | INT: 3
+515 | BREED_NAME: Border Collies 
+515 | BREED_COUNT: 0-0-3-0
+516 | INT: 6
+516 | BREED_NAME: Alaskan Malamutes 
+516 | BREED_COUNT: 1-2-2-1
+517 | INT: 21
+517 | BREED_NAME: Australian Shepherds 
+517 | BREED_COUNT: 7-8-3-3
+518 | INT: 21
+518 | BREED_NAME: Shetland Sheepdogs 
+518 | BREED_COUNT: 6-10-3-2
+519 | 'RING': RING
+519 | INT: 5
+520 | JUDGE_NAME: MRS VICKI L ABBOTT (72)
+521 | TIME: 8:30 am
+522 | INT: 8
+522 | BREED_NAME: Pugs 
+522 | BREED_COUNT: 2-4-2-0
+523 | INT: 12
+523 | BREED_NAME: Chihuahuas (Smooth Coat) 
+523 | BREED_COUNT: 3-4-4-1
+524 | INT: 6
+524 | BREED_NAME: Toy Fox Terriers 
+524 | BREED_COUNT: 1-2-3-0
+525 | TIME: 9:30 am
+526 | INT: 10
+526 | BREED_NAME: Chihuahuas (Long Coat) 
+526 | BREED_COUNT: 2-3-3-2
+527 | INT: 7
+527 | BREED_NAME: Miniature Pinschers 
+527 | BREED_COUNT: 4-1-1-1
+528 | INT: 3
+528 | BREED_NAME: Brussels Griffons 
+528 | BREED_COUNT: 2-1-0-0
+529 | INT: 9
+529 | BREED_NAME: Papillons 
+529 | BREED_COUNT: 2-4-2-1
+530 | TIME: 10:40 am
+531 | INT: 5
+531 | BREED_NAME: Manchester Terriers (Toy) 
+531 | BREED_COUNT: 0-4-1-0
+532 | INT: 4
+532 | BREED_NAME: Havanese 
+532 | BREED_COUNT: 0-3-1-0
+533 | INT: 6
+533 | BREED_NAME: Yorkshire Terriers 
+533 | BREED_COUNT: 4-2-0-0
+534 | INT: 1
+534 | BREED_NAME: Italian Greyhounds 
+534 | BREED_COUNT: 0-0-0-1
+535 | INT: 1
+535 | BREED_NAME: Maltese 
+535 | BREED_COUNT: 0-0-1-0
+536 | 'RING': RING
+536 | INT: 5
+537 | JUDGE_NAME: MR DARRYL VICE (42)
+538 | TIME: 11:20 am
+539 | INT: 1
+539 | BREED_NAME: Miniature American Shepherds Misc. Bitch
+540 | INT: 5
+540 | BREED_NAME: French Bulldogs 
+540 | BREED_COUNT: 2-2-0-1
+541 | INT: 10
+541 | BREED_NAME: Scottish Terriers 
+541 | BREED_COUNT: 5-3-1-1
+542 | INT: 7
+542 | BREED_NAME: Miniature Schnauzers 
+542 | BREED_COUNT: 2-3-2-0
+543 | INT: 8
+543 | BREED_NAME: West Highland White Terriers 
+543 | BREED_COUNT: 0-5-1-1
+544 | INT: 1
+544 | BREED_CLASSIFIER: Veteran Dog
+545 | TIME: 12:35 pm
+546 | INT: 4
+546 | BREED_NAME: Skye Terriers 
+546 | BREED_COUNT: 0-1-1-2
+547 | INT: 1
+547 | BREED_NAME: Dandie Dinmont Terriers 
+547 | BREED_COUNT: 0-0-1-0
+548 | INT: 1
+548 | BREED_NAME: Bedlington Terriers 
+548 | BREED_COUNT: 0-0-0-1
+549 | INT: 2
+549 | BREED_NAME: Staffordshire Bull Terriers 
+549 | BREED_COUNT: 2-0-0-0
+550 | INT: 3
+550 | BREED_NAME: Kerry Blue Terriers 
+550 | BREED_COUNT: 2-0-1-0
+551 | 'RING': RING
+551 | INT: 5
+552 | JUDGE_NAME: MR ROBIN L STANSELL (32)
+553 | TIME: 1:05 pm
+554 | INT: 3
+554 | BREED_NAME: Bullmastiffs 
+554 | BREED_COUNT: 0-2-1-0
+555 | INT: 6
+555 | BREED_NAME: Rottweilers 
+555 | BREED_COUNT: 1-3-2-0
+556 | INT: 11
+556 | BREED_NAME: Great Danes 
+556 | BREED_COUNT: 2-2-4-3
+557 | INT: 6
+557 | BREED_NAME: Akitas 
+557 | BREED_COUNT: 0-4-1-1
+558 | INT: 1
+558 | BREED_NAME: German Pinschers 
+558 | BREED_COUNT: 0-0-1-0
+559 | INT: 1
+559 | BREED_NAME: Greater Swiss Mountain Dogs 
+559 | BREED_COUNT: 0-0-1-0
+560 | INT: 1
+560 | BREED_NAME: Great Pyrenees 
+560 | BREED_COUNT: 0-0-1-0
+561 | INT: 1
+561 | BREED_NAME: Samoyeds 
+561 | BREED_COUNT: 0-1-0-0
+562 | INT: 1
+562 | BREED_NAME: Standard Schnauzers 
+562 | BREED_COUNT: 0-0-0-1
+563 | INT: 1
+563 | BREED_NAME: Tibetan Mastiffs 
+563 | BREED_COUNT: 0-0-1-0
+564 | 'GROUP': GROUP
+564 | 'RING': RING
+565 | TIME: 1:15 pm
+566 | GROUP_BLOCK_TYPE: VARIETY GROUP JUDGING
+567 | GROUP_NAME: TERRIER
+567 | 'GROUP': GROUP
+567 | '-': -
+567 | JUDGE_NAME: MR DARRYL VICE
+
+568 | GROUP_NAME: HOUND
+568 | 'GROUP': GROUP
+568 | '-': -
+568 | JUDGE_NAME: MR ALLEN L ODOM
+
+569 | GROUP_NAME: TOY
+569 | 'GROUP': GROUP
+569 | '-': -
+569 | JUDGE_NAME: MR DARRYL VICE
+
+570 | GROUP_NAME: SPORTING
+570 | 'GROUP': GROUP
+570 | '-': -
+570 | JUDGE_NAME: MRS JUDITH A BROWN
+
+571 | GROUP_NAME: NON-SPORTING
+571 | 'GROUP': GROUP
+571 | '-': -
+571 | JUDGE_NAME: MR GEORGE D BOULTON
+
+572 | GROUP_NAME: WORKING
+572 | 'GROUP': GROUP
+572 | '-': -
+572 | JUDGE_NAME: MR ROBIN L STANSELL
+
+573 | GROUP_NAME: HERDING
+573 | 'GROUP': GROUP
+573 | '-': -
+573 | JUDGE_NAME: MS MINNA-LIISA KOLTES
+
+574 | GROUP_RING: BEST IN SHOW
+574 | '-': -
+574 | JUDGE_NAME: MRS VICKI L ABBOTT
+
+575 | GROUP_ENDING_ANNOUNCEMENT: Unless otherwise announced by 12:45 pm
+576 | DATE: SUNDAY, NOVEMBER 17, 2013

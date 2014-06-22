@@ -12,7 +12,7 @@ def getShowJson(showTxtPath):
         printv("****************************")
         printv("*      Running grammar     *")
         printv("****************************")
-        proc = subprocess.call(['java', '-jar', config.Grammar.GRAMMAR_JAR, showTxtPath], stdout=open(outputLocation, "w"))
+        proc = subprocess.call([config.Grammar.GRAMMAR_COMMAND, showTxtPath], stdout=open(outputLocation, "w"))
     else:
         printv("Show json already obtained from grammar. Reading JSON from file " + outputLocation)
     with open (outputLocation, "r") as jsonFile:

@@ -41,6 +41,7 @@ class Grammar(object):
     def FORCE():
         return False or Env.FORCE_ALL;
     GRAMMAR_JAR = os.getcwd() + "/bin/grammar.jar"
+    GRAMMAR_COMMAND = "C:/Users/Taylor/Source/Repos/Dogshow/AzureServer/OnofrioGrammar/bin/Debug/OnofrioGrammar.exe"
     CLEANED_PROGRAM_DIR = os.getcwd() + "/cleaned/"
     JSON_OUTPUT_DIR = os.getcwd() + "/json/"
 
