@@ -407,12 +407,6 @@
       "CountAhead": 7
     },
     {
-      "CountAhead": 24
-    },
-    {
-      "CountAhead": 41
-    },
-    {
       "Count": 4,
       "RingType": "Conformation",
       "BreedName": "Belgian Tervuren ",
@@ -420,7 +414,8 @@
       "IsSweepstakes": true,
       "BlockStart": "10:10 am",
       "Number": 2,
-      "Judge": "MRS HONEY ANNE GLENDINNING",
+      "NewJudgeRing": true,
+      "Judge": "ALLEYNE DICKENS",
       "CountAhead": 0
     },
     {
@@ -602,12 +597,6 @@
       "CountAhead": 7
     },
     {
-      "CountAhead": 9
-    },
-    {
-      "CountAhead": 11
-    },
-    {
       "Count": 3,
       "RingType": "Conformation",
       "BreedName": "Pembroke Welsh Corgis ",
@@ -615,7 +604,8 @@
       "IsSweepstakes": true,
       "BlockStart": "9:40 am",
       "Number": 3,
-      "Judge": "MR PAUL F WILLHAUCK",
+      "NewJudgeRing": true,
+      "Judge": "ALLEYNE DICKENS",
       "CountAhead": 0
     },
     {
@@ -626,7 +616,7 @@
       "IsSweepstakes": true,
       "BlockStart": "9:40 am",
       "Number": 3,
-      "Judge": "MR PAUL F WILLHAUCK",
+      "Judge": "ALLEYNE DICKENS",
       "CountAhead": 3
     },
     {
@@ -1555,7 +1545,7 @@
     {
       "Count": 1,
       "RingType": "Conformation",
-      "BreedAttribute": "Brace\n",
+      "BreedAttribute": "Brace",
       "BreedName": "Setters (Gordon) ",
       "BlockStart": "4:45 pm",
       "Number": 9,
@@ -1812,24 +1802,13 @@
       "CountAhead": 0
     },
     {
-      "CountAhead": 14
-    },
-    {
-      "CountAhead": 28
-    },
-    {
-      "CountAhead": 42
-    },
-    {
-      "CountAhead": 56
-    },
-    {
       "Count": 2,
       "RingType": "Junior",
       "ClassName": "Open Senior",
       "BlockStart": "12:20 pm",
       "Number": 11,
-      "Judge": "MR EDD EMBRY BIVIN",
+      "NewJudgeRing": true,
+      "Judge": "MRS SHILON L BEDFORD",
       "CountAhead": 0
     },
     {
@@ -1838,7 +1817,7 @@
       "ClassName": "Open Intermediate",
       "BlockStart": "12:20 pm",
       "Number": 11,
-      "Judge": "MR EDD EMBRY BIVIN",
+      "Judge": "MRS SHILON L BEDFORD",
       "CountAhead": 2
     },
     {
@@ -1847,7 +1826,7 @@
       "ClassName": "Open Junior",
       "BlockStart": "12:20 pm",
       "Number": 11,
-      "Judge": "MR EDD EMBRY BIVIN",
+      "Judge": "MRS SHILON L BEDFORD",
       "CountAhead": 10
     },
     {
@@ -1856,7 +1835,7 @@
       "ClassName": "Novice Senior",
       "BlockStart": "12:20 pm",
       "Number": 11,
-      "Judge": "MR EDD EMBRY BIVIN",
+      "Judge": "MRS SHILON L BEDFORD",
       "CountAhead": 12
     },
     {
