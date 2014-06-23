@@ -3662,8 +3662,15 @@
     },
     {
       "Count": 1,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Utility A Class",
+      "Rings": [
+        {
+          "Count": 1,
+          "ObedienceBreed": "Poodles (Miniature) ",
+          "Entrants": "18"
+        }
+      ],
       "BlockStart": "9:00 am",
       "Number": 10,
       "NewJudgeRing": true,
@@ -3672,8 +3679,20 @@
     },
     {
       "Count": 2,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Utility B Class",
+      "Rings": [
+        {
+          "Count": 1,
+          "ObedienceBreed": "Doberman Pinschers ",
+          "Entrants": "5"
+        },
+        {
+          "Count": 1,
+          "ObedienceBreed": "Poodles (Standard) ",
+          "Entrants": "8"
+        }
+      ],
       "BlockStart": "9:10 am",
       "Number": 10,
       "Judge": "MR PHILLIP D RUSTAD",
@@ -3681,8 +3700,25 @@
     },
     {
       "Count": 4,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Open B Class",
+      "Rings": [
+        {
+          "Count": 1,
+          "ObedienceBreed": "Doberman Pinschers ",
+          "Entrants": "5"
+        },
+        {
+          "Count": 1,
+          "ObedienceBreed": "Poodles (Standard) ",
+          "Entrants": "8"
+        },
+        {
+          "Count": 2,
+          "ObedienceBreed": "Poodles (Miniature) ",
+          "Entrants": "17-18"
+        }
+      ],
       "BlockStart": "9:30 am",
       "Number": 10,
       "Judge": "MR PHILLIP D RUSTAD",
@@ -3690,8 +3726,15 @@
     },
     {
       "Count": 1,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Graduate Novice Class",
+      "Rings": [
+        {
+          "Count": 1,
+          "ObedienceBreed": "Poodles (Standard) ",
+          "Entrants": "9"
+        }
+      ],
       "BlockStart": "10:00 am",
       "Number": 10,
       "Judge": "MR PHILLIP D RUSTAD",
@@ -3699,8 +3742,30 @@
     },
     {
       "Count": 6,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Novice B Class",
+      "Rings": [
+        {
+          "Count": 1,
+          "ObedienceBreed": "Doberman Pinschers ",
+          "Entrants": "7"
+        },
+        {
+          "Count": 3,
+          "ObedienceBreed": "Poodles (Standard) ",
+          "Entrants": "10-12"
+        },
+        {
+          "Count": 1,
+          "ObedienceBreed": "Chinese Shar-Pei ",
+          "Entrants": "14"
+        },
+        {
+          "Count": 1,
+          "ObedienceBreed": "Poodles (Miniature) ",
+          "Entrants": "19"
+        }
+      ],
       "BlockStart": "10:10 am",
       "Number": 10,
       "Judge": "MR PHILLIP D RUSTAD",
@@ -3708,8 +3773,15 @@
     },
     {
       "Count": 1,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Novice A Class",
+      "Rings": [
+        {
+          "Count": 1,
+          "ObedienceBreed": "Doberman Pinschers ",
+          "Entrants": "6"
+        }
+      ],
       "BlockStart": "10:50 am",
       "Number": 10,
       "Judge": "MR PHILLIP D RUSTAD",
@@ -3717,8 +3789,15 @@
     },
     {
       "Count": 3,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Beginner Novice B Class",
+      "Rings": [
+        {
+          "Count": 3,
+          "ObedienceBreed": "Chinese Shar-Pei ",
+          "Entrants": "14-16"
+        }
+      ],
       "BlockStart": "11:00 am",
       "Number": 10,
       "Judge": "MR PHILLIP D RUSTAD",

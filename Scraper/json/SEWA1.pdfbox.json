@@ -1304,7 +1304,7 @@
     },
     {
       "Count": 9,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Utility B Class",
       "Entrants": "11-17;30-31;37",
       "BlockStart": "9:00 am",
@@ -1315,7 +1315,7 @@
     },
     {
       "Count": 6,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Utility A Class",
       "Entrants": "18;33;36-38;45;54",
       "BlockStart": "10:30 am",
@@ -1325,8 +1325,9 @@
     },
     {
       "Count": 1,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Versatility Class",
+      "Entrants": "49",
       "BlockStart": "11:25 am",
       "Number": 4,
       "Judge": "MR ROBERT M BURGIN",
@@ -1334,7 +1335,7 @@
     },
     {
       "Count": 7,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Novice B Class",
       "Entrants": "7;20;28;35;39-40;46",
       "BlockStart": "11:35 am",
@@ -1344,8 +1345,9 @@
     },
     {
       "Count": 1,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Novice A Class",
+      "Entrants": "19",
       "BlockStart": "11:35 am",
       "Number": 4,
       "Judge": "MR ROBERT M BURGIN",
@@ -1353,7 +1355,7 @@
     },
     {
       "Count": 5,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Open A Class",
       "Entrants": "5-6;27;32;53",
       "BlockStart": "9:00 am",
@@ -1364,7 +1366,7 @@
     },
     {
       "Count": 11,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Open B Class",
       "Entrants": "10-17;30-31;37;48",
       "BlockStart": "9:40 am",
@@ -1374,7 +1376,7 @@
     },
     {
       "Count": 2,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Pre Novice",
       "Entrants": "47;52",
       "BlockStart": "11:10 am",
@@ -1384,7 +1386,7 @@
     },
     {
       "Count": 5,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Beginner Novice B Class",
       "Entrants": "8-9;25-26;29",
       "BlockStart": "11:35 am",
@@ -1394,7 +1396,7 @@
     },
     {
       "Count": 7,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Beginner Novice A Class",
       "Entrants": "21-24;44;50;55",
       "BlockStart": "11:35 am",
@@ -2806,7 +2808,7 @@
     },
     {
       "Count": 9,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Utility B Class",
       "Entrants": "11-17;30-31;37",
       "BlockStart": "9:00 am",
@@ -2817,7 +2819,7 @@
     },
     {
       "Count": 6,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Utility A Class",
       "Entrants": "18;33;36;45;49;54",
       "BlockStart": "10:20 am",
@@ -2827,7 +2829,7 @@
     },
     {
       "Count": 8,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Novice B Class",
       "Entrants": "7;20;28;35;39-41;46",
       "BlockStart": "11:15 am",
@@ -2837,7 +2839,7 @@
     },
     {
       "Count": 2,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Novice A Class",
       "Entrants": "19;50",
       "BlockStart": "11:15 am",
@@ -2847,8 +2849,9 @@
     },
     {
       "Count": 1,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Graduate Open Class",
+      "Entrants": "34",
       "BlockStart": "9:00 am",
       "Number": 5,
       "NewJudgeRing": true,
@@ -2857,7 +2860,7 @@
     },
     {
       "Count": 4,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Open A Class",
       "Entrants": "6;27;32;53",
       "BlockStart": "9:10 am",
@@ -2867,7 +2870,7 @@
     },
     {
       "Count": 11,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Open B Class",
       "Entrants": "10-17;30-31;37;48",
       "BlockStart": "9:40 am",
@@ -2877,7 +2880,7 @@
     },
     {
       "Count": 2,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Pre Novice",
       "Entrants": "51-52",
       "BlockStart": "11:05 am",
@@ -2887,7 +2890,7 @@
     },
     {
       "Count": 5,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Beginner Novice B Class",
       "Entrants": "8-9;25-26;29",
       "BlockStart": "11:30 am",
@@ -2897,7 +2900,7 @@
     },
     {
       "Count": 4,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Beginner Novice A Class",
       "Entrants": "23-24;42-43",
       "BlockStart": "11:30 am",

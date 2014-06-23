@@ -1699,7 +1699,7 @@
     },
     {
       "Count": 11,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Utility B Class",
       "Entrants": "6-15;21-22;29",
       "BlockStart": "9:00 am",
@@ -1710,8 +1710,9 @@
     },
     {
       "Count": 1,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Utility A Class",
+      "Entrants": "25",
       "BlockStart": "10:35 am",
       "Number": 6,
       "Judge": "MR CHRISTOPHER CORNELL",
@@ -1719,8 +1720,9 @@
     },
     {
       "Count": 1,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Graduate Open Class",
+      "Entrants": "30",
       "BlockStart": "10:45 am",
       "Number": 6,
       "Judge": "MR CHRISTOPHER CORNELL",
@@ -1728,7 +1730,7 @@
     },
     {
       "Count": 2,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Versatility Class",
       "Entrants": "37-38",
       "BlockStart": "10:55 am",
@@ -1738,7 +1740,7 @@
     },
     {
       "Count": 3,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Novice B Class",
       "Entrants": "20;26;39",
       "BlockStart": "11:15 am",
@@ -1822,7 +1824,7 @@
     },
     {
       "Count": 3,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Open A Class",
       "Entrants": "34-36",
       "BlockStart": "9:00 am",
@@ -1833,7 +1835,7 @@
     },
     {
       "Count": 12,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Open B Class",
       "Entrants": "6-15;21-22;29",
       "BlockStart": "9:25 am",
@@ -1843,7 +1845,7 @@
     },
     {
       "Count": 6,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Beginner Novice B Class",
       "Entrants": "5;18-19;27-28;33",
       "BlockStart": "10:55 am",
@@ -1853,8 +1855,9 @@
     },
     {
       "Count": 1,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Beginner Novice A Class",
+      "Entrants": "32",
       "BlockStart": "11:35 am",
       "Number": 7,
       "Judge": "CHARLES W ANDERSON",
@@ -1862,8 +1865,9 @@
     },
     {
       "Count": 1,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Novice A Class",
+      "Entrants": "40",
       "BlockStart": "9:00 am",
       "Number": 8,
       "NewJudgeRing": true,
@@ -1997,7 +2001,7 @@
       "SpecialSuffix": "Sweepstakes Entries",
       "IsSweepstakes": true,
       "RingType": "Conformation",
-      "BreedName": null,
+      "BreedName": "COCKER SPANIEL ",
       "BlockStart": "12:30 pm",
       "Number": 1,
       "NewJudgeRing": true,
@@ -2009,7 +2013,7 @@
       "SpecialSuffix": "Veterans Sweepstakes Entries",
       "IsSweepstakes": true,
       "RingType": "Conformation",
-      "BreedName": null,
+      "BreedName": "COCKER SPANIEL ",
       "BlockStart": "12:30 pm",
       "Number": 1,
       "Judge": "MS CHRIS SWILLEY",
@@ -2022,6 +2026,7 @@
       "SpecialDogCount": 4,
       "SpecialBitchCount": 8,
       "RingType": "Conformation",
+      "BreedName": "COCKER SPANIEL ",
       "BlockStart": "1:00 pm",
       "Number": 1,
       "NewJudgeRing": true,
@@ -2033,7 +2038,7 @@
       "RingType": "Conformation",
       "BreedAttribute": "Brood Bitch",
       "BitchCount": 1,
-      "BreedName": null,
+      "BreedName": "COCKER SPANIEL ",
       "BlockStart": "1:00 pm",
       "Number": 1,
       "Judge": "MR STEVEN EVANS",
@@ -2044,7 +2049,7 @@
       "SpecialSuffix": "Sweepstakes Entries",
       "IsSweepstakes": true,
       "RingType": "Conformation",
-      "BreedName": null,
+      "BreedName": "BORZOI ",
       "BlockStart": "2:15 pm",
       "Number": 2,
       "NewJudgeRing": true,
@@ -2058,6 +2063,7 @@
       "SpecialDogCount": 6,
       "SpecialBitchCount": 3,
       "RingType": "Conformation",
+      "BreedName": "BORZOI ",
       "BlockStart": "2:20 pm",
       "Number": 2,
       "NewJudgeRing": true,
@@ -2066,7 +2072,7 @@
     },
     {
       "Count": 14,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Utility B Class",
       "Entrants": "6-16;21-22;29-31",
       "BlockStart": "12:30 pm",
@@ -2077,7 +2083,7 @@
     },
     {
       "Count": 3,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Utility A Class",
       "Entrants": "24-25;30",
       "BlockStart": "12:30 pm",
@@ -2087,8 +2093,9 @@
     },
     {
       "Count": 1,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Versatility Class",
+      "Entrants": "37",
       "BlockStart": "12:30 pm",
       "Number": 6,
       "Judge": "CHARLES W ANDERSON",
@@ -2096,17 +2103,17 @@
     },
     {
       "Count": 2,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Novice B Class",
       "Entrants": "20;26",
       "BlockStart": "12:30 pm",
       "Number": 6,
       "Judge": "CHARLES W ANDERSON",
-      "CountAhead": 55
+      "CountAhead": 18
     },
     {
       "Count": 3,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Beginner Novice B Class",
       "Entrants": "19;28;33",
       "BlockStart": "12:20 pm",
@@ -2117,8 +2124,9 @@
     },
     {
       "Count": 1,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Beginner Novice A Class",
+      "Entrants": "32",
       "BlockStart": "12:20 pm",
       "Number": 7,
       "Judge": "MR CHRISTOPHER CORNELL",
@@ -2126,33 +2134,33 @@
     },
     {
       "Count": 2,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Novice A Class",
       "Entrants": "17;40",
       "BlockStart": "12:20 pm",
       "Number": 7,
       "Judge": "MR CHRISTOPHER CORNELL",
-      "CountAhead": 36
+      "CountAhead": 4
     },
     {
       "Count": 3,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Open A Class",
       "Entrants": "34-36",
       "BlockStart": "12:20 pm",
       "Number": 7,
       "Judge": "MR CHRISTOPHER CORNELL",
-      "CountAhead": 38
+      "CountAhead": 6
     },
     {
       "Count": 13,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Open B Class",
       "Entrants": "6-15;21-22;29-31",
       "BlockStart": "12:20 pm",
       "Number": 7,
       "Judge": "MR CHRISTOPHER CORNELL",
-      "CountAhead": 41
+      "CountAhead": 9
     },
     {
       "RingType": "Rally",
@@ -3892,7 +3900,7 @@
     },
     {
       "Count": 13,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Utility B Class",
       "Entrants": "6-16;22;29-31",
       "BlockStart": "8:30 am",
@@ -3903,7 +3911,7 @@
     },
     {
       "Count": 3,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Utility A Class",
       "Entrants": "24-25;30",
       "BlockStart": "10:25 am",
@@ -3913,8 +3921,9 @@
     },
     {
       "Count": 1,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Versatility Class",
+      "Entrants": "37",
       "BlockStart": "10:55 am",
       "Number": 6,
       "Judge": "CHARLES W ANDERSON",
@@ -3922,7 +3931,7 @@
     },
     {
       "Count": 3,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Beginner Novice B Class",
       "Entrants": "5;18;33",
       "BlockStart": "8:30 am",
@@ -3933,8 +3942,9 @@
     },
     {
       "Count": 1,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Beginner Novice A Class",
+      "Entrants": "32",
       "BlockStart": "8:50 am",
       "Number": 7,
       "Judge": "MRS BARBARA WEDEKIND SELTON",
@@ -3942,7 +3952,7 @@
     },
     {
       "Count": 2,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Novice B Class",
       "Entrants": "20;39",
       "BlockStart": "9:00 am",
@@ -3952,7 +3962,7 @@
     },
     {
       "Count": 4,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Open A Class",
       "Entrants": "23;34-36",
       "BlockStart": "9:15 am",
@@ -3962,7 +3972,7 @@
     },
     {
       "Count": 12,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Open B Class",
       "Entrants": "6-15;22;29-31",
       "BlockStart": "9:45 am",
@@ -4037,7 +4047,7 @@
     },
     {
       "Count": 2,
-      "RingType": "Non-conformation",
+      "RingType": "Obedience",
       "Class": "Novice A Class",
       "Entrants": "17;40",
       "BlockStart": "10:40 am",
