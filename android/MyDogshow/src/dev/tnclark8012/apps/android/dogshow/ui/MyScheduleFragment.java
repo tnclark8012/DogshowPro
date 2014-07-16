@@ -174,10 +174,15 @@ public class MyScheduleFragment extends Fragment implements
 		CursorLoader loader = null;
 		String selection = EnteredRings.UPCOMING_SELECTION;
 		boolean includeGroups = Prefs.showGroupRings(getActivity());
+		
 		String[] allSelectionArgs = EnteredRings.buildUpcomingSelectionArgs(
-				Utils.twelveAmToday(), includeGroups);
+				Utils.twelveAmToday()
+//				0
+				, includeGroups);
 		String[] upcomingArgs = EnteredRings.buildUpcomingSelectionArgs(
-				Utils.currentTimeUtc(), includeGroups);
+				Utils.currentTimeUtc()
+//				0
+				,includeGroups);
 		switch (id) {
 		case UpcomingRingQuery._TOKEN:
 			loader = new CursorLoader(getActivity(), EnteredRings.CONTENT_URI,

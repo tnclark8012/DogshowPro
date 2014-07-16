@@ -18,13 +18,14 @@ package dev.tnclark8012.apps.android.dogshow.ui.phone;
 
 import android.app.Fragment;
 import android.content.Intent;
-import android.os.AsyncTask;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 import dev.tnclark8012.apps.android.dogshow.R;
+import dev.tnclark8012.apps.android.dogshow.model.Show;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
-import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigatableActivity;
 import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigationDrawerFragment;
@@ -50,7 +51,7 @@ public class MyScheduleActivity extends NavigatableActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.home, menu);
+		inflater.inflate(R.menu.schedule, menu);
 		return true;
 	}
 
@@ -63,6 +64,18 @@ public class MyScheduleActivity extends NavigatableActivity {
 		case R.id.menu_sign_out:
 			AccountUtils.signOut(this);
 			finish();
+			return true;
+		case R.id.menu_judging_program:
+			Show show = Prefs.getCurrentShow(this);
+			if(show != null && show.judgingProgramUrl != null) {
+				Intent i = new Intent(this, GoogleDocsPdfViewer.class);
+				i.putExtra(GoogleDocsPdfViewer.EXTRA_URL, show.judgingProgramUrl);
+				startActivity(i);
+			}
+			else
+			{
+				Toast.makeText(this, "Judging program unavailable", Toast.LENGTH_SHORT).show();
+			}
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

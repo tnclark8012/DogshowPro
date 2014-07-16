@@ -3,9 +3,10 @@ package dev.tnclark8012.apps.android.dogshow.preferences;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import dev.tnclark8012.apps.android.dogshow.model.ShowTeam;
-import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
-import dev.tnclark8012.apps.android.dogshow.ui.navigation.ShowTeamSpinner;
+
+import com.google.gson.Gson;
+
+import dev.tnclark8012.apps.android.dogshow.model.Show;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 
@@ -28,6 +29,7 @@ public final class Prefs {
 	public static final String KEY_LOCAL_SERVER = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.LOCAL_SERVER";
 	public static final String KEY_SHOW_GROUPS = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.SHOW_GROUPS";
 	public static final String KEY_CURRENT_SHOW_ID = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.CURRENT_SHOW_ID";
+	public static final String KEY_CURRENT_SHOW = "dev.tnclark8012.dogshow.android.dogshow.prefs.key.CURRENT_SHOW";
 
 	public static SharedPreferences get(Context context) {
 		return PreferenceManager.getDefaultSharedPreferences(context);
@@ -90,11 +92,17 @@ public final class Prefs {
 				AccountUtils.getUserIdentifier(context));
 	}
 
-	public static void setCurrentShowId(Context context, String showId) {
-		get(context).edit().putString(KEY_CURRENT_SHOW_ID, showId).commit();
+	public static String getCurrentShowId(Context context) {
+		Show show = getCurrentShow(context);
+		return (show != null) ? show.showId : null; 
 	}
 
-	public static String getCurrentShowId(Context context) {
-		return get(context).getString(KEY_CURRENT_SHOW_ID, null);
+	public static Show getCurrentShow(Context context) {
+		String json = get(context).getString(KEY_CURRENT_SHOW, null);
+		return (json != null) ? new Gson().fromJson(json, Show.class) : null; 
+	}
+	
+	public static void setCurrentShow(Context context, Show show) {
+		get(context).edit().putString(KEY_CURRENT_SHOW, new Gson().toJson(show)).commit();
 	}
 }

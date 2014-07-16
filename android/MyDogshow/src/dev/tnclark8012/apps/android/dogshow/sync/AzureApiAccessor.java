@@ -59,7 +59,7 @@ public class AzureApiAccessor extends ApiAccessor {
 			BASE_URL = new URL(
 					(Prefs.useLocalServer(context)) ? "http://192.168.0.5:49414/api"
 							: "http://dogshow.azurewebsites.net/api");
-			GET_SHOW_URL = new URL(BASE_URL + "/Show");
+			GET_SHOW_URL = new URL(BASE_URL + "/Show/GetShows");
 			GET_BREED_RINGS_URL = new URL(BASE_URL + "/BreedRing");
 			GET_JUNIORS_RINGS_URL = new URL(BASE_URL + "/JuniorsRing");
 			GET_GROUP_RINGS_URL = new URL(BASE_URL + "/GroupRing");
@@ -78,7 +78,7 @@ public class AzureApiAccessor extends ApiAccessor {
 
 	public final URL buildGetBreedRingsUrl(String showId) {
 		try {
-			return new URL(GET_BREED_RINGS_URL, "?showId=" + encode(showId));
+			return new URL(GET_BREED_RINGS_URL, "?showId=" + urlEncode(showId));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -88,8 +88,8 @@ public class AzureApiAccessor extends ApiAccessor {
 	public final URL buildGetBreedRingsUrl(String showId, String breed,
 			Boolean veteran, Boolean sweepstakes) {
 		try {
-			String query = "?showId=" + encode(showId) + "&breedName="
-					+ encode(breed);
+			String query = "?showId=" + urlEncode(showId) + "&breedName="
+					+ urlEncode(breed);
 			if (veteran != null) {
 				query += "&veteran=" + veteran.booleanValue();
 			}
@@ -105,8 +105,8 @@ public class AzureApiAccessor extends ApiAccessor {
 
 	public final URL buildGetJuniorRingsUrl(String showId, String juniorClass) {
 		try {
-			return new URL(GET_JUNIORS_RINGS_URL, "?showId=" + encode(showId)
-					+ "&className=" + encode(juniorClass));
+			return new URL(GET_JUNIORS_RINGS_URL, "?showId=" + urlEncode(showId)
+					+ "&className=" + urlEncode(juniorClass));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -115,7 +115,7 @@ public class AzureApiAccessor extends ApiAccessor {
 
 	public final URL buildGetGroupRingsUrl(String showId) {
 		try {
-			return new URL(GET_GROUP_RINGS_URL, "?showId=" + encode(showId));
+			return new URL(GET_GROUP_RINGS_URL, "?showId=" + urlEncode(showId));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -320,7 +320,7 @@ public class AzureApiAccessor extends ApiAccessor {
 			long blockStart) {
 		try {
 			return new URL(GET_RING_BLOCK_OVERVIEWS_URL, "?showId="
-					+ encode(showId) + "&ringNumber=" + ringNumber
+					+ urlEncode(showId) + "&ringNumber=" + ringNumber
 					+ "&blockStart=" + Utils.millisSinceAd(blockStart));// Server
 																		// is
 																		// .Net

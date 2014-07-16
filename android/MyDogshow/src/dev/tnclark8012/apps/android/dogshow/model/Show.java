@@ -8,6 +8,7 @@ public class Show {
 	public String state;
 	public String showId;
 	public Club[] clubs;
+	public String judgingProgramUrl;
 
 	@Override
 	public String toString() {

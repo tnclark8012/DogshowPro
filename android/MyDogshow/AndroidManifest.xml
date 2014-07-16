@@ -241,6 +241,7 @@
                 android:value=".ui.phone.HomeActivity" />
         </activity>
         <activity android:name="eu.janmuller.android.simplecropimage.CropImage" />
+        <activity android:name="dev.tnclark8012.apps.android.dogshow.ui.phone.GoogleDocsPdfViewer" />
 
         <service
             android:name=".sync.SyncService"

@@ -2,8 +2,8 @@ package dev.tnclark8012.apps.android.dogshow.sync;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+
+import com.google.gson.Gson;
 
 import android.accounts.Account;
 import android.content.ContentProviderOperation;
@@ -65,7 +65,7 @@ public class SyncHelper {
 
 	// TODO move this to a service
 	public void enterShow(final Show show) {
-		Prefs.setCurrentShowId(mContext, show.showId);
+		Prefs.setCurrentShow(mContext, show);
 		ArrayList<ContentProviderOperation> ringBatch = new ArrayList<ContentProviderOperation>();
 
 		ConformationRingsRequest confRingsRequest = new ConformationRingsRequest(
