@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/layout_background" >
+
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+        xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
+        android:paddingTop="@dimen/element_margin_normal"
+        android:paddingLeft="@dimen/element_margin_normal"
+        android:id="@+id/header_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/element_padding_normal"
+        android:text="Entered dogs"
+        android:textColor="#999999"
+        ttv:typeface="Roboto-Medium.ttf" >
+    </dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView>
+
+    <View
+        android:layout_marginLeft="@dimen/element_margin_normal"
+        android:layout_marginRight="@dimen/element_margin_normal"
+        android:layout_below="@+id/header_text"
+        android:id="@+id/header_line"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#B7B7B7"
+         />
+
+    <ListView
+        android:layout_below="@+id/header_line"
+        android:id="@+id/fragment_entry_dogs_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="?android:attr/listDivider"
+        android:layout_above="@+id/button_bar"
+        tools:listitem="@layout/list_item_dog_entry" >
+    </ListView>
+    <View
+        android:layout_marginLeft="@dimen/element_margin_normal"
+        android:layout_marginRight="@dimen/element_margin_normal"
+        android:layout_below="@+id/fragment_entry_dogs_list"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/list_divider"
+         />
+    <LinearLayout
+        android:id="@+id/button_bar"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/button_bar_button_left"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="Back" />
+
+        <Button
+            android:id="@+id/button_bar_button_right"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="Next" />
+    </LinearLayout>
+
+</RelativeLayout>

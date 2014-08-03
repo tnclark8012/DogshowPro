@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/list_item_height"
+    android:background="@drawable/list_selector"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/element_spacing_normal"
+    android:paddingTop="@dimen/element_spacing_normal" >
+
+    <ImageView
+        android:id="@+id/list_item_handler_entry_thumb"
+        android:layout_width="@dimen/element_height_large"
+        android:layout_height="@dimen/element_width_large"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/element_margin_normal"
+        android:layout_toRightOf="@+id/list_item_handler_entry_checkbox"
+        android:contentDescription="@string/img_description_handler"
+        android:focusable="false"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_default_handler" />
+
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+        android:id="@+id/list_item_handler_entry_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/element_margin_normal"
+        android:layout_toLeftOf="@+id/list_item_handler_entry_junior_button"
+        android:layout_toRightOf="@+id/list_item_handler_entry_thumb"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="I am a really long [Name]"
+        android:textColor="#000"
+        android:textSize="@dimen/text_large" />
+
+    <CheckBox
+        android:id="@+id/list_item_handler_entry_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true" />
+
+    <CheckBox
+        android:id="@+id/list_item_handler_entry_junior_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="48dp"
+        android:button="@null"
+        android:background="@drawable/btn_handler_junior_entry"
+        android:clickable="false"
+        android:focusable="false" />
+
+</RelativeLayout><!-- From: file:/C:/Users/Taylor/Documents/GitHub/dogshow/DogshowPro/myDogshow/src/main/res/layout/list_item_handler_entry.xml -->

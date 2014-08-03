@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@id/dashboard_schedule"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/ic_home_next_showday" >
+
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="#AA000000"
+            android:padding="12dp"
+            android:text="Show Day"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/text_large"
+            ttv:typeface="Roboto-Regular.ttf" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@id/dashboard_handlers"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/ic_home_handler" >
+
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="#AA000000"
+            android:padding="12dp"
+            android:text="Handlers"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/text_large"
+            ttv:typeface="Roboto-Regular.ttf" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@id/dashboard_doghouse"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/boxer_small" >
+
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="#AA000000"
+            android:padding="12dp"
+            android:text="Doghouse"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/text_large"
+            ttv:typeface="Roboto-Regular.ttf" />
+    </LinearLayout>
+
+</LinearLayout><!-- From: file:/C:/Users/Taylor/Documents/GitHub/dogshow/DogshowPro/myDogshow/src/main/res/layout/home_next.xml -->

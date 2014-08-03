@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/list_item_height"
+    android:background="@drawable/list_selector" >
+
+    <ImageView
+        android:id="@+id/list_item_dog_thumb"
+        android:layout_width="@dimen/element_height_large"
+        android:layout_height="@dimen/element_width_large"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/element_margin_normal"
+        android:contentDescription="dog image"
+        android:focusable="false"
+        android:maxHeight="@dimen/element_height_normal"
+        android:maxWidth="@dimen/element_width_normal"
+        android:scaleType="centerCrop"
+        android:src="@drawable/dog" />
+
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+        android:id="@+id/list_item_dog_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/list_item_dog_thumb"
+        android:layout_marginLeft="@dimen/element_margin_normal"
+        android:layout_marginTop="@dimen/element_padding_normal"
+        android:layout_toRightOf="@+id/list_item_dog_thumb"
+        android:text="[Name]"
+        android:textColor="@color/accent_1"
+        android:textSize="@dimen/text_large" />
+
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+        android:id="@+id/list_item_dog_breed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/list_item_dog_name"
+        android:layout_marginLeft="@dimen/element_margin_normal"
+        android:layout_marginTop="@dimen/element_padding_normal"
+        android:layout_toRightOf="@+id/list_item_dog_thumb"
+        android:text="[breed]" />
+
+</RelativeLayout><!-- From: file:/C:/Users/Taylor/Documents/GitHub/dogshow/DogshowPro/myDogshow/src/main/res/layout/list_item_dog.xml -->

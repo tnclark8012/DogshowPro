@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+        xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
+        android:id="@+id/title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/element_padding_normal"
+        android:paddingLeft="@dimen/element_margin_normal"
+        android:paddingTop="@dimen/element_margin_normal"
+        android:text="@string/title_team_add"
+        android:textColor="@color/dark_blue"
+        android:textSize="@dimen/text_large"
+        ttv:typeface="Roboto-Medium.ttf" >
+    </dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView>
+
+    <View
+        android:id="@+id/header_line"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_below="@+id/title_text"
+        android:layout_marginLeft="@dimen/element_margin_normal"
+        android:layout_marginRight="@dimen/element_margin_normal"
+        android:background="@color/dark_blue" />
+
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+        xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
+        android:id="@+id/instructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header_line"
+        android:layout_marginLeft="@dimen/element_padding_normal"
+        android:paddingLeft="@dimen/element_margin_normal"
+        android:paddingRight="@dimen/element_margin_normal"
+        android:paddingTop="@dimen/element_margin_normal"
+        android:text="@string/instructions_team_create_or_join"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        ttv:typeface="Roboto-Medium.ttf" >
+    </dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView>
+
+    <Button
+        android:id="@+id/button_team_join"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_team_create"
+        android:layout_marginLeft="@dimen/element_margin_normal"
+        android:layout_marginRight="@dimen/element_margin_normal"
+        android:text="@string/button_join" />
+
+    <Button
+        android:id="@+id/button_team_create"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/element_margin_normal"
+        android:text="@string/button_create" />
+
+</RelativeLayout><!-- From: file:/C:/Users/Taylor/Documents/GitHub/dogshow/DogshowPro/myDogshow/src/main/res/layout/fragment_team_create_or_join.xml -->

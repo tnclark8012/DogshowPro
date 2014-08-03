@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/layout_background" >
+
+    <!-- TODO share this layout across dog and handler entry -->
+
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+        xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
+        android:id="@+id/header_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/element_padding_normal"
+        android:paddingLeft="@dimen/element_margin_normal"
+        android:paddingTop="@dimen/element_margin_normal"
+        android:text="Available handlers"
+        android:textColor="#999999"
+        ttv:typeface="Roboto-Medium.ttf" >
+    </dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView>
+
+    <View
+        android:id="@+id/header_line"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_below="@+id/header_text"
+        android:layout_marginLeft="@dimen/element_margin_normal"
+        android:layout_marginRight="@dimen/element_margin_normal"
+        android:background="#B7B7B7" />
+
+    <ListView
+        android:id="@+id/fragment_entry_handlers_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header_line"
+        android:divider="?android:attr/listDivider"
+        tools:listitem="@layout/list_item_handler_entry" >
+    </ListView>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/fragment_entry_handlers_list"
+        android:layout_marginLeft="@dimen/element_margin_normal"
+        android:layout_marginRight="@dimen/element_margin_normal"
+        android:background="@drawable/list_divider" />
+
+    <LinearLayout
+        android:id="@+id/button_bar"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/button_bar_button_left"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="Back" />
+
+        <Button
+            android:id="@+id/button_bar_button_right"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="Finish" />
+    </LinearLayout>
+
+</RelativeLayout><!-- From: file:/C:/Users/Taylor/Documents/GitHub/dogshow/DogshowPro/myDogshow/src/main/res/layout/fragment_entry_handlers.xml -->

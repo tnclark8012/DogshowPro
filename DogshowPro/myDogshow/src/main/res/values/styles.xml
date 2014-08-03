@@ -1,0 +1,41 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="DashboardButton">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:drawablePadding">2dp</item>
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/accent_2</item>
+        <item name="android:background">@null</item>
+    </style>
+    <!-- Base themes for the app -->
+    <style name="Theme.Dogshow" parent="@android:style/Theme.Holo.Light">
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:actionBarStyle">@style/DogshowActionBar</item>
+        <item name="android:windowAnimationStyle">@style/NoWindowAnimation</item>
+        <!--
+        <item name="android:actionBarTabStyle">@style/ActionBar.TabView</item>
+        <item name="actionBarTabStyle">@style/ActionBar.TabView</item>
+        <item name="android:actionBarTabBarStyle">@style/ActionBar.TabBar</item>
+        <item name="actionBarTabBarStyle">@style/ActionBar.TabBar</item>
+        <item name="android:actionBarTabTextStyle">@style/ActionBar.TabText</item>
+        <item name="actionBarTabTextStyle">@style/ActionBar.TabText</item>
+        -->
+    </style>
+
+    <style name="NoWindowAnimation">
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <style name="DogshowActionBar" parent="@android:style/Widget.ActionBar">
+        <item name="android:background">@color/action_bar_color</item>
+    </style>
+
+    <style name="Theme.Dogshow.GreyBackground" parent="Theme.Dogshow">
+        <item name="android:windowBackground">@drawable/grey_background_pattern</item>
+    </style>
+
+</resources>

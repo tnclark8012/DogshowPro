@@ -1,0 +1,50 @@
+apply plugin: 'android'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion '20.0'
+    defaultConfig {
+        applicationId 'dev.tnclark8012.apps.android.dogshow'
+        minSdkVersion 14
+        targetSdkVersion 19
+    }
+    buildTypes {
+        release {
+            runProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt', 'proguard-google-api-client.txt'
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile( project(':simplecropimagelib') )
+            {
+                exclude module: 'support-v4'
+            }
+    compile( project(':stickyheaderslibrary'))
+            {
+                exclude module: 'support-v4'
+            }
+
+    compile('com.google.http-client:google-http-client-gson:1.17.0-rc')
+            {
+                exclude module: 'gson'
+            }
+    compile 'com.google.code.gson:gson:2.1'
+    compile 'com.google.protobuf:protobuf-java:2.4.1'
+    compile('com.google.android.gms:play-services:+'){
+        exclude module: 'support-v4'
+    }
+    compile files('libs/android-support-v13.jar')
+    compile files('libs/dogshow-shared.jar')
+    compile files('libs/notification-hubs-0.2-javadoc.jar')
+    compile files('libs/notification-hubs-0.2-sources.jar')
+    compile files('libs/notification-hubs-0.2.jar')
+    compile files('libs/notifications-1.0.1-javadoc.jar')
+    compile files('libs/notifications-1.0.1-sources.jar')
+    compile files('libs/notifications-1.0.1.jar')
+    compile files('libs/universal-image-loader-1.9.1-with-sources.jar')
+    //compile 'com.android.support:support-v4:20.+'
+}

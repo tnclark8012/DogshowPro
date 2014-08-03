@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="dogshow-shared">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/myDogshow/libs/dogshow-shared.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

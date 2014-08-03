@@ -1,0 +1,172 @@
+# view res/layout/activity_breed_select.xml #generated:21
+# view res/layout/activity_schedule.xml #generated:21
+-keep class android.support.v4.view.ViewPager { <init>(...); }
+
+# view res/layout/activity_home.xml #generated:2
+# view res/layout/activity_navigation.xml #generated:2
+-keep class android.support.v4.widget.DrawerLayout { <init>(...); }
+
+# view res/layout/fragment_login_main.xml #generated:38
+-keep class com.google.android.gms.common.SignInButton { <init>(...); }
+
+# view AndroidManifest.xml #generated:40
+-keep class com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:236
+-keep class dev.tnclark8012.apps.android.dogshow.preferences.PrefsActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:258
+-keep class dev.tnclark8012.apps.android.dogshow.provider.DogshowProvider { <init>(...); }
+
+# view AndroidManifest.xml #generated:246
+-keep class dev.tnclark8012.apps.android.dogshow.sync.SyncService { <init>(...); }
+
+# view AndroidManifest.xml #generated:65
+-keep class dev.tnclark8012.apps.android.dogshow.ui.base.AccountActivity { <init>(...); }
+
+# view res/layout/activity_home.xml #generated:15
+# view res/layout/activity_navigation.xml #generated:15
+-keep class dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigationDrawerFragment { <init>(...); }
+
+# view AndroidManifest.xml #generated:69
+-keep class dev.tnclark8012.apps.android.dogshow.ui.phone.BreedSelectActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:82
+-keep class dev.tnclark8012.apps.android.dogshow.ui.phone.DogActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:108
+-keep class dev.tnclark8012.apps.android.dogshow.ui.phone.DogListActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:123
+-keep class dev.tnclark8012.apps.android.dogshow.ui.phone.FindShowActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:244
+-keep class dev.tnclark8012.apps.android.dogshow.ui.phone.GoogleDocsPdfViewer { <init>(...); }
+
+# view AndroidManifest.xml #generated:130
+-keep class dev.tnclark8012.apps.android.dogshow.ui.phone.HandlerActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:153
+-keep class dev.tnclark8012.apps.android.dogshow.ui.phone.HandlerListActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:54
+-keep class dev.tnclark8012.apps.android.dogshow.ui.phone.HomeActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:187
+-keep class dev.tnclark8012.apps.android.dogshow.ui.phone.JuniorClassSelectActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:213
+-keep class dev.tnclark8012.apps.android.dogshow.ui.phone.MyScheduleActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:229
+-keep class dev.tnclark8012.apps.android.dogshow.ui.phone.ShowSetupActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:77
+-keep class dev.tnclark8012.apps.android.dogshow.ui.phone.ShowTeamAddActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:170
+-keep class dev.tnclark8012.apps.android.dogshow.ui.phone.ShowTeamListActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:105
+-keep class dev.tnclark8012.apps.android.dogshow.util.image.ImageChooserActivity { <init>(...); }
+
+# view res/layout/dashboard.xml #generated:16
+-keep class dev.tnclark8012.apps.android.dogshow.widget.DashboardLayout { <init>(...); }
+
+# view res/layout/dashboard.xml #generated:21
+# view res/layout/dashboard.xml #generated:27
+# view res/layout/dashboard.xml #generated:34
+# view res/layout/dashboard.xml #generated:42
+-keep class dev.tnclark8012.apps.android.dogshow.widget.TypefacedButton { <init>(...); }
+
+# view res/layout/fragment_dog_edit.xml #generated:161
+# view res/layout/fragment_dog_edit.xml #generated:184
+# view res/layout/fragment_dog_edit.xml #generated:33
+# view res/layout/fragment_handler_edit.xml #generated:31
+# view res/layout/fragment_team_create.xml #generated:31
+# view res/layout/fragment_team_create.xml #generated:45
+# view res/layout/fragment_team_create.xml #generated:60
+# view res/layout/fragment_team_join.xml #generated:31
+# view res/layout/fragment_team_join.xml #generated:45
+-keep class dev.tnclark8012.apps.android.dogshow.widget.TypefacedEditText { <init>(...); }
+
+# view land\res/layout-land/home_next.xml #generated:14
+# view land\res/layout-land/home_next.xml #generated:34
+# view land\res/layout-land/home_next.xml #generated:54
+# view res/layout/fragment_dog_edit.xml #generated:107
+# view res/layout/fragment_dog_edit.xml #generated:129
+# view res/layout/fragment_dog_edit.xml #generated:141
+# view res/layout/fragment_dog_edit.xml #generated:206
+# view res/layout/fragment_dog_edit.xml #generated:57
+# view res/layout/fragment_dog_view.xml #generated:108
+# view res/layout/fragment_dog_view.xml #generated:128
+# view res/layout/fragment_dog_view.xml #generated:147
+# view res/layout/fragment_dog_view.xml #generated:28
+# view res/layout/fragment_dog_view.xml #generated:48
+# view res/layout/fragment_dog_view.xml #generated:68
+# view res/layout/fragment_dog_view.xml #generated:78
+# view res/layout/fragment_dog_view.xml #generated:98
+# view res/layout/fragment_dog_view_next.xml #generated:116
+# view res/layout/fragment_dog_view_next.xml #generated:127
+# view res/layout/fragment_dog_view_next.xml #generated:149
+# view res/layout/fragment_dog_view_next.xml #generated:16
+# view res/layout/fragment_dog_view_next.xml #generated:36
+# view res/layout/fragment_dog_view_next.xml #generated:46
+# view res/layout/fragment_dog_view_next.xml #generated:66
+# view res/layout/fragment_dog_view_next.xml #generated:76
+# view res/layout/fragment_dog_view_next.xml #generated:96
+# view res/layout/fragment_entry_dogs.xml #generated:8
+# view res/layout/fragment_entry_handlers.xml #generated:10
+# view res/layout/fragment_handler_edit.xml #generated:54
+# view res/layout/fragment_handler_edit.xml #generated:74
+# view res/layout/fragment_handler_view.xml #generated:18
+# view res/layout/fragment_handler_view.xml #generated:38
+# view res/layout/fragment_incomplete.xml #generated:5
+# view res/layout/fragment_indeterminate_progress.xml #generated:29
+# view res/layout/fragment_indeterminate_progress.xml #generated:6
+# view res/layout/fragment_schedule_list.xml #generated:15
+# view res/layout/fragment_schedule_list.xml #generated:42
+# view res/layout/fragment_schedule_list.xml #generated:56
+# view res/layout/fragment_schedule_list.xml #generated:72
+# view res/layout/fragment_schedule_list.xml #generated:88
+# view res/layout/fragment_team_create.xml #generated:8
+# view res/layout/fragment_team_create.xml #generated:81
+# view res/layout/fragment_team_create_or_join.xml #generated:28
+# view res/layout/fragment_team_create_or_join.xml #generated:5
+# view res/layout/fragment_team_join.xml #generated:66
+# view res/layout/fragment_team_join.xml #generated:8
+# view res/layout/home_next.xml #generated:14
+# view res/layout/home_next.xml #generated:34
+# view res/layout/home_next.xml #generated:54
+# view res/layout/indeterminate_progress.xml #generated:30
+# view res/layout/indeterminate_progress.xml #generated:8
+# view res/layout/list_item_dog.xml #generated:21
+# view res/layout/list_item_dog.xml #generated:33
+# view res/layout/list_item_dog_entry.xml #generated:22
+# view res/layout/list_item_dog_entry.xml #generated:34
+# view res/layout/list_item_handler.xml #generated:21
+# view res/layout/list_item_handler_entry.xml #generated:22
+# view res/layout/list_item_ring.xml #generated:13
+# view res/layout/list_item_ring.xml #generated:34
+# view res/layout/list_item_ring.xml #generated:44
+# view res/layout/list_item_ring.xml #generated:54
+# view res/layout/list_item_ring.xml #generated:64
+# view res/layout/list_item_ring_block_overview.xml #generated:10
+# view res/layout/list_item_ring_block_overview.xml #generated:19
+# view res/layout/list_item_ring_header.xml #generated:10
+# view res/layout/list_item_ring_with_header.xml #generated:24
+# view res/layout/list_item_ring_with_header.xml #generated:45
+# view res/layout/list_item_ring_with_header.xml #generated:55
+# view res/layout/list_item_ring_with_header.xml #generated:65
+# view res/layout/list_item_ring_with_header.xml #generated:75
+-keep class dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView { <init>(...); }
+
+# view AndroidManifest.xml #generated:243
+-keep class eu.janmuller.android.simplecropimage.CropImage { <init>(...); }
+
+# view res/layout/cropimage.xml #generated:6
+-keep class eu.janmuller.android.simplecropimage.CropImageView { <init>(...); }
+
+# view res/layout/fragment_schedule_list.xml #generated:104
+-keep class se.emilsjolander.stickylistheaders.StickyListHeadersListView { <init>(...); }
+

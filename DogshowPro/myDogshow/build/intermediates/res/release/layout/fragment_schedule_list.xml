@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/schedule_no_upcoming_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_item_height"
+        android:background="@color/header_color"
+        android:gravity="center" 
+        >
+
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
+            android:id="@+id/schedule_no_upcoming_header_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Upcoming Show Rings"
+            android:textColor="@color/header_title"
+            ttv:typeface="Roboto-Medium.ttf" 
+            android:visibility="invisible"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/schedule_upcoming_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_item_height"
+        android:background="@color/header_color"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/schedule_breed_image"
+            android:layout_width="@dimen/header_icon_width"
+            android:layout_height="fill_parent"
+            android:scaleType="centerCrop"
+            android:maxHeight="@dimen/element_section_height_normal"
+            android:maxWidth="@dimen/header_icon_width" >
+        </ImageView>
+
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
+            android:id="@+id/schedule_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/element_spacing_normal"
+            android:layout_marginTop="@dimen/element_spacing_normal"
+            android:layout_toRightOf="@+id/schedule_breed_image"
+            android:text=""
+            android:visibility="gone"
+            android:textColor="@color/header_title"
+            android:textSize="@dimen/text_large"
+            ttv:typeface="Roboto-Medium.ttf" />
+
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
+            android:id="@+id/schedule_breed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/element_spacing_normal"
+            android:layout_marginTop="@dimen/element_spacing_normal"
+            android:layout_toRightOf="@+id/schedule_next"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:text="Bulldogs are the best... not"
+            android:textColor="@color/header_title"
+            android:textSize="@dimen/text_large"
+            ttv:typeface="Roboto-Medium.ttf" />
+
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
+            android:id="@+id/schedule_ring"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/schedule_next"
+            android:layout_marginBottom="@dimen/element_margin_normal"
+            android:layout_marginLeft="@dimen/element_spacing_normal"
+            android:layout_toRightOf="@+id/schedule_breed_image"
+            android:gravity="bottom"
+            android:text="Ring 2"
+            android:textColor="@color/header_title"
+            android:textSize="@dimen/text_medium"
+            ttv:typeface="Roboto-Medium.ttf" />
+
+        <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+            xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
+            android:id="@+id/schedule_ring_time"
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/schedule_next"
+            android:layout_marginBottom="@dimen/element_margin_normal"
+            android:layout_marginLeft="@dimen/element_spacing_normal"
+            android:layout_toRightOf="@+id/schedule_ring"
+            android:gravity="bottom"
+            android:text="12:45pm"
+            android:textColor="@color/header_title"
+            android:textSize="@dimen/text_medium"
+            ttv:typeface="Roboto-Medium.ttf" />
+    </RelativeLayout>
+<se.emilsjolander.stickylistheaders.StickyListHeadersListView
+                android:id="@+id/ring_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:drawSelectorOnTop="true"
+                android:fastScrollEnabled="true"/>
+    
+   <!-- <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/transparent"
+        android:drawSelectorOnTop="false"
+        android:fastScrollEnabled="true"
+        android:textFilterEnabled="true" 
+        >     
+    </ListView>
+ --> 
+</LinearLayout><!-- From: file:/C:/Users/Taylor/Documents/GitHub/dogshow/DogshowPro/myDogshow/src/main/res/layout/fragment_schedule_list.xml -->

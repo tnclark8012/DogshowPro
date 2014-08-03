@@ -1,0 +1,48 @@
+<!--
+  Copyright 2011 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<dev.tnclark8012.apps.android.dogshow.widget.DashboardLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/layout_background" >
+
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedButton
+        android:id="@id/dashboard_schedule"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/home_schedule"
+        android:text="@string/dashboard_schedule" />
+
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedButton
+        android:id="@id/dashboard_doghouse"
+        style="@style/DashboardButton"
+        android:clickable="true"
+        android:drawableTop="@drawable/home_doghouse"
+        android:text="@string/dashboard_doghouse" />
+
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedButton
+        android:id="@id/dashboard_handlers"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/home_handler"
+        android:visibility="gone"
+        android:text="@string/dashboard_handlers" />
+
+    
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedButton
+        android:id="@id/dashboard_find_show"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/home_find"
+        android:text="Find Your Show" />
+
+</dev.tnclark8012.apps.android.dogshow.widget.DashboardLayout><!-- From: file:/C:/Users/Taylor/Documents/GitHub/dogshow/DogshowPro/myDogshow/src/main/res/layout/dashboard.xml -->

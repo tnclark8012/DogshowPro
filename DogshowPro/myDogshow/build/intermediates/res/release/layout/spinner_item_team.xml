@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/spinner_team_icon"
+        android:layout_width="@dimen/element_width_normal"
+        android:layout_height="@dimen/element_height_normal"
+        android:layout_marginTop="5dp"
+        android:background="#000"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFF" />
+
+    <TextView
+        android:id="@+id/spinner_team_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="0dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/spinner_team_icon"
+        android:padding="0dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#1d97dd"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/spinner_team_owner"
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner_team_name"
+        android:layout_marginLeft="5dip"
+        android:layout_toRightOf="@+id/spinner_team_icon"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#777777" />
+
+</RelativeLayout><!-- From: file:/C:/Users/Taylor/Documents/GitHub/dogshow/DogshowPro/myDogshow/src/main/res/layout/spinner_item_team.xml -->

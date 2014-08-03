@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <!--
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedEditText
+        xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
+        android:id="@+id/find_show_search_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/element_spacing_normal"
+        android:layout_marginTop="@dimen/element_spacing_normal"
+        android:ems="10"
+        android:hint="Search closed shows"
+        android:textSize="@dimen/text_large"
+        ttv:typeface="Roboto-Medium.ttf"
+        >
+
+        <requestFocus />
+    </dev.tnclark8012.apps.android.dogshow.widget.TypefacedEditText>
+    -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/accent_1" >
+    </RelativeLayout>
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/transparent"
+        android:drawSelectorOnTop="false"
+        android:fastScrollEnabled="true"
+        android:textFilterEnabled="true" >
+    </ListView>
+
+    <TextView
+        android:id="@id/android:empty"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Loading..." />
+
+</LinearLayout>

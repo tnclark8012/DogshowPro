@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/layout_background"
+    android:orientation="vertical" >
+
+    <include layout="@layout/header_image"
+        android:id="@+id/handler_view_image"/>
+
+        
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/accent_1" />
+
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+        xmlns:ttv="http://schemas.android.com/apk/res/dev.tnclark8012.apps.android.dogshow"
+        android:id="@+id/handler_view_section_juniors_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:paddingLeft="@dimen/element_padding_normal"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:text="JUNIORS CLASS"
+        android:textColor="@color/accent_1"
+        android:textSize="@dimen/text_small"
+        ttv:typeface="Roboto-Bold.ttf" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:background="@drawable/accent_bar" />
+
+    <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView
+        android:id="@+id/handler_view_section_juniors_text"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/element_inner_height"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/element_spacing_normal"
+        android:paddingLeft="@dimen/element_padding_normal"
+        android:text="None"
+        android:textSize="@dimen/text_medium" />
+
+</LinearLayout>

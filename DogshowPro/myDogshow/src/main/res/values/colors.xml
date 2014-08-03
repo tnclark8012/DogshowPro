@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="action_bar_color">#0099CC</color>
+    <color name="accent_1">#33b5e5</color>
+    <color name="accent_2">#0099CC</color>
+    <color name="header_color">#000000</color>
+    <color name="cadet_blue2">#8EE5EE</color>
+    <color name="cadet_blue3">#0EBFE9</color>
+    <color name="list_item_activated">#0EBFE9</color>
+    <color name="list_divider_bottom">#FFFFFF</color>
+    <color name="list_divider_top">#D7D7D7</color>
+    <color name="transparent">#80FFFFFF</color>
+	<color name="white">#FFFFFF</color>
+	<color name="header_title">#FFFFFF</color>
+	<color name="layout_background">#F6F6F6</color>
+	<color name="dark_grey">#999999</color>
+	<color name="black">#000</color>
+	<color name="light_blue">#33B5E5</color>
+	<color name="dark_blue">#0099CC</color>
+	<color name="light_purple">#AA66CC</color>
+	<color name="dark_purple">#9933CC</color>
+	<color name="light_green">#99CC00</color>
+	<color name="dark_green">#669900</color>
+	<color name="light_orange">#FFBB33</color>
+	<color name="dark_orange">#FF8800</color>
+	<color name="light_red">#FF4444</color>
+	<color name="dark_red">#CC0000</color>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="2" >
+
+    <dataSet config="main" >
+        <source path="C:\Users\Taylor\Documents\GitHub\dogshow\DogshowPro\simplecropimagelib\src\main\assets" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="C:\Users\Taylor\Documents\GitHub\dogshow\DogshowPro\simplecropimagelib\src\debug\assets" />
+    </dataSet>
+
+</merger>
