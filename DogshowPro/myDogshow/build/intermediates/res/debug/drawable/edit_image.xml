@@ -1,4 +1,0 @@
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/dog" />
-    <item android:drawable="@drawable/spinner_default_holo_dark" android:bottom="0dp" android:right="0dp"/>
-</layer-list><!-- From: file:/C:/Users/Taylor/Documents/GitHub/dogshow/DogshowPro/myDogshow/src/main/res/drawable/edit_image.xml -->

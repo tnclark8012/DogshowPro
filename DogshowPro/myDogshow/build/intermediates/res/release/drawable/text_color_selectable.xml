@@ -1,4 +1,0 @@
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_selected="true" android:color="@color/accent_1" android:textStyle="bold" />
-    <item android:color="@color/black" android:textStyle="normal"/>
-</selector><!-- From: file:/C:/Users/Taylor/Documents/GitHub/dogshow/DogshowPro/myDogshow/src/main/res/drawable/text_color_selectable.xml -->

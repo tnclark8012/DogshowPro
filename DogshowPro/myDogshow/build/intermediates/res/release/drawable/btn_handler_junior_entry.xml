@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_checked="false" android:drawable="@drawable/ic_junior_entry_off" />
-    <item android:state_checked="true" android:drawable="@drawable/ic_junior_entry_on" />
-    <item android:state_pressed="true" android:drawable="@drawable/ic_junior_entry_pressed"/>
-</selector>
-<!-- From: file:/C:/Users/Taylor/Documents/GitHub/dogshow/DogshowPro/myDogshow/src/main/res/drawable/btn_handler_junior_entry.xml -->
