@@ -73,8 +73,8 @@
     <orderEntry type="library" exported="" name="notification-hubs-0.2-sources" level="project" />
     <orderEntry type="library" exported="" name="gson-2.1" level="project" />
     <orderEntry type="library" exported="" name="notification-hubs-0.2-javadoc" level="project" />
-    <orderEntry type="library" exported="" name="android-support-v13" level="project" />
     <orderEntry type="library" exported="" name="notifications-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="android-support-v13" level="project" />
     <orderEntry type="library" exported="" name="notifications-1.0.1-javadoc" level="project" />
     <orderEntry type="module" module-name="stickyheaderslibrary" exported="" />
     <orderEntry type="module" module-name="simplecropimagelib" exported="" />
