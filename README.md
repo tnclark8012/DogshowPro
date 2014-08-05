@@ -1,4 +1,5 @@
 Dog Show Pro
+-------------
 
 This is a repository for a mobile application for dog show handlers. The app allows handlers to manage their assignments, ring times, and conflicts. Simply add your dogs to the app, enter the show, then sit back as Dog Show Pro provides you with your schedule for the day, and accurate ring-time estimates to help manage your day!
 
