@@ -247,6 +247,7 @@ public class NavigationDrawerFragment extends Fragment implements
 		// them to the drawer,
 		// per the navigation drawer design guidelines.
 		if (!mUserLearnedDrawer && !mFromSavedInstanceState && fromLaunch) {
+            oldTitle = getActionBar().getTitle();
 			mDrawerLayout.openDrawer(mFragmentContainerView);
 		}
 
