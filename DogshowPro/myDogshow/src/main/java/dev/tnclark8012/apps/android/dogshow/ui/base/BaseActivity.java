@@ -30,6 +30,8 @@ import dev.tnclark8012.apps.android.dogshow.preferences.PrefsActivity;
 import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.ui.phone.HomeActivity;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
+import dev.tnclark8012.apps.android.dogshow.util.LPreviewUtilsBase;
+
 
 /**
  * A base activity that handles common functionality in the app.
@@ -37,7 +39,22 @@ import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 public abstract class BaseActivity extends Activity {
 	private static final String TAG = BaseActivity.class.getSimpleName();
 	public static final String EXTRA_URI = "_uri";
+    private LPreviewUtilsBase.ActionBarDrawerToggleWrapper mDrawerToggle;
 
+    // allows access to L-Preview APIs through an abstract interface so we can compile with
+    // both the L Preview SDK and with the API 19 SDK
+    private LPreviewUtilsBase mLPreviewUtils;
+    public LPreviewUtilsBase getLPreviewUtils() {
+        return mLPreviewUtils;
+    }
+
+
+
+
+
+    /*
+    Original implementation
+     */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -47,7 +64,9 @@ public abstract class BaseActivity extends Activity {
 		} else {
 			Log.i(TAG, "Is authenticated");
 		}
+        // TODO LPreviewUtils needs to be imported to project... mLPreviewUtils = LPreviewUtils.getInstance(this);
 	}
+
 
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
@@ -123,5 +142,7 @@ public abstract class BaseActivity extends Activity {
 		intent.removeExtra("_uri");
 		return intent;
 	}
+
+
 
 }

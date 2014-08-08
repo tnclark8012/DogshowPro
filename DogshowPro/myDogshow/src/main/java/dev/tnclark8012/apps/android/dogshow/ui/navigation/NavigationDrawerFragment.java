@@ -29,6 +29,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ListView;
+
+import dev.tnclark8012.apps.android.dogshow.BuildConfig;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.preferences.PrefsActivity;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
@@ -81,7 +83,7 @@ public class NavigationDrawerFragment extends Fragment implements
 	public static final int NAVIGATION_SHOW = 1;
 	public static final int NAVIGATION_DOGS = 2;
 	public static final int NAVIGATION_HANDLERS = 3;
-	public static final int NAVIGATION_HISTORY = 4;
+	public static final int NAVIGATION_DEBUG = 4;
 	public static final int NAVIGATION_SETTINGS = 5;
 	public static final int NAVIGATION_SHOW_TEAM = 6;
 	private CharSequence oldTitle;
@@ -145,7 +147,16 @@ public class NavigationDrawerFragment extends Fragment implements
 						selectItem(NAVIGATION_HANDLERS);
 					}
 				}));
-		mDrawerItems.add(new DrawerItemNavigation("History"));
+        if(BuildConfig.DEBUG) {
+            mDrawerItems.add(new DrawerItemNavigation("Debug",
+                    new OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            selectItem(NAVIGATION_DEBUG);
+                        }
+                    }
+            ));
+        }
 		mDrawerItems.add(new DrawerItemOption("Settings",
 				new OnClickListener() {
 					@Override
@@ -247,6 +258,7 @@ public class NavigationDrawerFragment extends Fragment implements
 		// them to the drawer,
 		// per the navigation drawer design guidelines.
 		if (!mUserLearnedDrawer && !mFromSavedInstanceState && fromLaunch) {
+
 			mDrawerLayout.openDrawer(mFragmentContainerView);
 		}
 
