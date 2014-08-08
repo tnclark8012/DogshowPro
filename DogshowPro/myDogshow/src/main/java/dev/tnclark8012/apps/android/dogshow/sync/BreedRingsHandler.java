@@ -51,6 +51,7 @@ public class BreedRingsHandler extends JsonHandler<BreedRing> {
 					builder.withValue(BreedRings.RING_DOG_COUNT, ring.dogCount);
 					builder.withValue(BreedRings.RING_JUDGE, ring.judge);
 					builder.withValue(BreedRings.RING_NUMBER, ring.ringNumber);
+                    builder.withValue(BreedRings.RING_IDENTIFIER, ring.identifier);
 					builder.withValue(BreedRings.RING_SHOW_ID, ring.showId);
 					builder.withValue(BreedRings.RING_SPECIAL_BITCH_COUNT, ring.specialBitchCount);
 					builder.withValue(BreedRings.RING_SPECIAL_DOG_COUNT, ring.specialDogCount);

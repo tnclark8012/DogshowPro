@@ -17,6 +17,7 @@ public class BreedRing {
 	public boolean isVeteran;
 	public String attribute;
 	public String title;
+    public String identifier;
 
 	@Override
 	public String toString() {

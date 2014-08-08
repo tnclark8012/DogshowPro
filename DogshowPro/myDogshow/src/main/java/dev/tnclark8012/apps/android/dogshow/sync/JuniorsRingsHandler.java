@@ -53,6 +53,7 @@ public class JuniorsRingsHandler extends JsonHandler<JuniorsRing> {
 									System.currentTimeMillis())
 							.withValue(JuniorsRings.RING_BLOCK_START,
 									ring.blockStartMillis)
+                            .withValue(JuniorsRings.RING_IDENTIFIER, ring.identifier)
 							.withValue(
 									JuniorsRings.RING_JUNIOR_CLASS_NAME,
 									DogshowEnums.JuniorClass.parse(

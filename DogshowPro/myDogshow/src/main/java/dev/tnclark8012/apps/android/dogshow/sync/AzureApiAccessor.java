@@ -60,7 +60,7 @@ public class AzureApiAccessor extends ApiAccessor {
 					(Prefs.useLocalServer(context)) ? "http://192.168.0.5:49414/api"
 							: "http://dogshow.azurewebsites.net/api");
 			GET_SHOW_URL = new URL(BASE_URL + "/Show/GetShows");
-			GET_BREED_RINGS_URL = new URL(BASE_URL + "/BreedRing");
+			GET_BREED_RINGS_URL = new URL(BASE_URL + "/BreedRing/GetAssigments");
 			GET_JUNIORS_RINGS_URL = new URL(BASE_URL + "/JuniorsRing");
 			GET_GROUP_RINGS_URL = new URL(BASE_URL + "/GroupRing");
 			GET_RING_BLOCK_OVERVIEWS_URL = new URL(BASE_URL

@@ -4,6 +4,7 @@ package dev.tnclark8012.apps.android.dogshow.model;
 public class JuniorsRing{
 	public String showId;
 	public long dateMillis;
+    public String identifier;
 	public String judge;
 	public int ringNumber;
 	public long blockStartMillis;

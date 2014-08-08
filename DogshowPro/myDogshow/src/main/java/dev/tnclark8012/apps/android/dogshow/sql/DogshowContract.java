@@ -41,6 +41,7 @@ public class DogshowContract {
 	private static final String PATH_HANDLERS_JUNIORS = "juniors";
 	private static final String PATH_HANDLERS_BY_JUNIORS_CLASS = "by_class";
 	private static final String PATH_RINGS = "rings";
+    private static final String PATH_RINGS_ASSIGNMENTS = "assignments";
 	private static final String PATH_RINGS_BLOCK = "block";
 	private static final String PATH_SHOW_TEAMS = "teams";
 
@@ -71,6 +72,7 @@ public class DogshowContract {
 		String RING_JUDGE = "ring_judge";
 		String RING_SHOW_ID = "ring_show_id";
 		String RING_TITLE = "ring_title";
+        String RING_IDENTIFIER = "ring_identifier";
 	}
 
 	interface DogsColumns {
@@ -124,6 +126,7 @@ public class DogshowContract {
 	interface GroupRingsColumns {
 		String RING_GROUP = "group_ring_goup";
 	}
+
 	interface BlockRingsColumns {
 		String BLOCK_START = "block_ring_block_start";
 		String COUNT_AHEAD = "block_ring_count_ahead";
@@ -143,6 +146,11 @@ public class DogshowContract {
 		String RING_BREED_IS_SWEEPSTAKES = "breed_ring_is_sweepstakes";
 		String RING_BREED_ATTRIBUTE = "breed_ring_attribute";
 	}
+
+    interface RingDogAssigmentsColumns {
+        String DOG_IDENTIFIER = "breed_ring_dog_assignment_dog";
+        String RING_IDENTIFIER  = "breed_ring_dog_assignment_ring_ident";
+    }
 
 	interface EnteredRingsColumns {
 		public static final String ENTERED_RINGS_IMAGE_PATH = "image_path";
@@ -179,6 +187,13 @@ public class DogshowContract {
 		public static final int CLASS_SPECIAL_DOG = 2;
 		public static final int CLASS_SPECIAL_BITCH = 3;
 
+        /**
+         * Get the class for this dog. This is the index in a standard breed count.
+         * Ex: 12 Papillons 5-3-2-2
+         * @param sex 0 for male, 1 for female
+         * @param isChampion champion ("special")
+         * @return 0 for dog, 1 for bitch, 2 for special dog, 3 for special bitch
+         */
 		public static final int getDogClass(int sex, boolean isChampion) {
 			return (isChampion) ? sex + 2 : sex;
 		}
@@ -207,12 +222,12 @@ public class DogshowContract {
 			return new String[] { String.valueOf(minTime) };
 		}
 
-		/** Build {@link Uri} for requested {@link #SESSION_ID}. */
+		/** Build {@link Uri} for requested {@link #DOG_ID}. */
 		public static Uri buildDogUri(String dogId) {
 			return CONTENT_URI.buildUpon().appendPath(dogId).build();
 		}
 
-		/** Read {@link #SESSION_ID} from {@link Sessions} {@link Uri}. */
+		/** Read {@link #DOG_ID} from {@link Dogs} {@link Uri}. */
 		public static int getDogId(Uri uri) {
 			return Utils.parseSafely(uri.getPathSegments().get(1), -1);
 		}
@@ -278,7 +293,7 @@ public class DogshowContract {
 			return CONTENT_URI.buildUpon().appendPath(teamId).build();
 		}
 
-		/** Read _ID from {@link Team} {@link Uri}. */
+		/** Read _ID from {@link ShowTeams} {@link Uri}. */
 		public static int getTeamId(Uri uri) {
 			return Utils.parseSafely(uri.getPathSegments().get(1), -1);
 		}
@@ -316,7 +331,21 @@ public class DogshowContract {
 		private static final int TYPE_CAP = 3;// Update if adding another group
 	}
 
-	/**
+
+    /**
+     * Bridge table between dogs and BreedRings
+     */
+    public static class RingDogAssigments implements RingDogAssigmentsColumns,
+            SyncColumns, BaseColumns {
+
+        public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon()
+                .appendPath(PATH_RINGS).appendPath(PATH_RINGS_ASSIGNMENTS).build();
+
+        /** Default "ORDER BY" clause. */
+        public static final String DEFAULT_SORT = BaseColumns._ID
+                + " ASC";
+    }
+    /**
 	 * Each Ring is a show ring that consists of multiple timeblocks and breed
 	 * rings
 	 */
