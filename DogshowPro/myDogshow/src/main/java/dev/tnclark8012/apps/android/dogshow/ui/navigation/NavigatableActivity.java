@@ -14,6 +14,7 @@ import dev.tnclark8012.apps.android.dogshow.ui.IncompleteFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.SimpleSinglePaneActivity;
 import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigationDrawerFragment.NavigationDrawerCallbacks;
+import dev.tnclark8012.apps.android.dogshow.ui.phone.DebugActivity;
 import dev.tnclark8012.apps.android.dogshow.ui.phone.DogListActivity;
 import dev.tnclark8012.apps.android.dogshow.ui.phone.HandlerListActivity;
 import dev.tnclark8012.apps.android.dogshow.ui.phone.MyScheduleActivity;
@@ -103,6 +104,8 @@ public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 		case NavigationDrawerFragment.NAVIGATION_HANDLERS:
 			i = new Intent(this, HandlerListActivity.class);// TODO use actions?
 			break;
+        case NavigationDrawerFragment.NAVIGATION_DEBUG:
+            i = new Intent(this, DebugActivity.class);
 		}
 		if (i != null) {
 			i.putExtra(EXTRA_SELECTED_NAVIGATION, navigationPostion);

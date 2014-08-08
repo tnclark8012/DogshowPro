@@ -78,4 +78,6 @@
     <string name="title_show_day">Show Day</string>
 	<string name="female">Female</string>
 	<string name="male">Male</string>
+    <string name="drawer_open">@string/app_name</string>
+    <string name="drawer_close"></string>
 </resources>
