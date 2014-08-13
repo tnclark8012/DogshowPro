@@ -335,15 +335,22 @@ public class DogshowContract {
     /**
      * Bridge table between dogs and BreedRings
      */
-    public static class RingDogAssigments implements RingDogAssigmentsColumns,
+    public static class RingAssigments implements RingDogAssigmentsColumns,
             SyncColumns, BaseColumns {
 
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon()
                 .appendPath(PATH_RINGS).appendPath(PATH_RINGS_ASSIGNMENTS).build();
+        public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.dogshow.ringAssignment";
+        public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.dogshow.ringAssignment";
 
         /** Default "ORDER BY" clause. */
         public static final String DEFAULT_SORT = BaseColumns._ID
                 + " ASC";
+
+        /** Build {@link Uri} for requested Ring ID. */
+        public static Uri buildRingAssigmentUri(String RingId) {
+            return CONTENT_URI.buildUpon().appendPath(RingId).build();
+        }
     }
     /**
 	 * Each Ring is a show ring that consists of multiple timeblocks and breed

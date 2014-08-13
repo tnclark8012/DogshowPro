@@ -43,8 +43,6 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.JuniorsRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowDatabase;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowDatabase.Tables;
-import dev.tnclark8012.apps.android.dogshow.sync.request.JuniorsRingsRequest;
-import dev.tnclark8012.apps.android.dogshow.util.DebugUtils;
 import dev.tnclark8012.apps.android.dogshow.util.SelectionBuilder;
 
 public class DogshowProvider extends ContentProvider {
@@ -76,6 +74,8 @@ public class DogshowProvider extends ContentProvider {
 	
 	private static final int BLOCK_RINGS = 800;
 
+    private static final int RING_ASSIGNMENTS = 900;
+
 	/**
 	 * Build and return a {@link UriMatcher} that catches all {@link Uri}
 	 * variations supported by this {@link ContentProvider}.
@@ -87,6 +87,7 @@ public class DogshowProvider extends ContentProvider {
 		matcher.addURI(authority, "dogs", DOGS);
 		matcher.addURI(authority, "dogs/entered", DOGS_ENTERED);
 		matcher.addURI(authority, "dogs/*", DOGS_ID);
+        matcher.addURI(authority, "rings/assignments", RING_ASSIGNMENTS);
 		matcher.addURI(authority, "rings/breed", BREED_RINGS);
 		matcher.addURI(authority, "rings/group", GROUP_RINGS);
 		matcher.addURI(authority, "rings/breed/with_dogs",
@@ -144,6 +145,8 @@ public class DogshowProvider extends ContentProvider {
 			return EnteredRings.CONTENT_TYPE;
 		case ALL_RINGS_ENTERED_BLOCKS:
 			return EnteredRings.CONTENT_TYPE;
+        case RING_ASSIGNMENTS:
+            return DogshowContract.RingAssigments.CONTENT_TYPE;
 		default:
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
 		}
@@ -251,6 +254,13 @@ public class DogshowProvider extends ContentProvider {
 			return ShowTeams
 					.buildShowTeamUri(values.getAsString(ShowTeams._ID));
 		}
+        case RING_ASSIGNMENTS: {
+            db.insertOrThrow(Tables.RING_ASSIGMENTS, null, values);
+            getContext().getContentResolver().notifyChange(uri, null,
+                    syncToNetwork);
+            return DogshowContract.RingAssigments.
+                    buildRingAssigmentUri(values.getAsString(DogshowContract.RingAssigments._ID));
+        }
 		default: {
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
 		}
@@ -290,7 +300,7 @@ public class DogshowProvider extends ContentProvider {
 		final SelectionBuilder builder = buildSimpleSelection(uri);
 		int retVal = builder.where(selection, selectionArgs).delete(db);
 		getContext().getContentResolver().notifyChange(uri, null,
-				!DogshowContract.hasCallerIsSyncAdapterParameter(uri));
+                !DogshowContract.hasCallerIsSyncAdapterParameter(uri));
 		return retVal;
 	}
 
@@ -362,6 +372,8 @@ public class DogshowProvider extends ContentProvider {
 			return builder.table(Tables.ALL_ENTERED_RINGS);
 		case SHOW_TEAMS:
 			return builder.table(Tables.SHOW_TEAMS);
+        case RING_ASSIGNMENTS:
+            return builder.table(Tables.RING_ASSIGMENTS);
 		default: {
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
 		}

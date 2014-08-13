@@ -19,6 +19,7 @@ package dev.tnclark8012.apps.android.dogshow;
 import java.net.URL;
 
 import dev.tnclark8012.apps.android.dogshow.model.BreedRing;
+import dev.tnclark8012.apps.android.dogshow.model.ConformationRingAssignment;
 import dev.tnclark8012.apps.android.dogshow.model.Dog;
 import dev.tnclark8012.apps.android.dogshow.model.GroupRing;
 import dev.tnclark8012.apps.android.dogshow.model.Handler;
@@ -47,6 +48,7 @@ public class Config {
 
 		BreedRing[] getBreedRings(String showId, String breed, Boolean veteran,
 				Boolean sweepstakes);
+        ConformationRingAssignment[] getBreedRingAssigments(String showId, Dog[] dogs);
 
 		JuniorsRing[] getJuniorsRings(String showId, String className);
 

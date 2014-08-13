@@ -14,6 +14,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 
 import dev.tnclark8012.apps.android.dogshow.model.BreedRing;
+import dev.tnclark8012.apps.android.dogshow.model.ConformationRingAssignment;
 import dev.tnclark8012.apps.android.dogshow.model.Dog;
 import dev.tnclark8012.apps.android.dogshow.model.GroupRing;
 import dev.tnclark8012.apps.android.dogshow.model.Handler;
@@ -39,6 +40,7 @@ public class AzureApiAccessor extends ApiAccessor {
 	private URL BASE_URL;
 	public URL GET_SHOW_URL;
 	public URL GET_BREED_RINGS_URL;
+    public URL GET_BREED_RING_ASSIGNMENTS_URL;
 	public URL GET_JUNIORS_RINGS_URL;
 	public URL GET_GROUP_RINGS_URL;
 	public URL GET_RING_BLOCK_OVERVIEWS_URL;
@@ -51,6 +53,7 @@ public class AzureApiAccessor extends ApiAccessor {
 	private Gson mGson;
 	private Context mContext;
 
+    //TODO static init block for URLs
 	public AzureApiAccessor(Context context) {
 		mContext = context;
 		mGson = new GsonBuilder().setFieldNamingPolicy(
@@ -60,7 +63,8 @@ public class AzureApiAccessor extends ApiAccessor {
 					(Prefs.useLocalServer(context)) ? "http://192.168.0.5:49414/api"
 							: "http://dogshow.azurewebsites.net/api");
 			GET_SHOW_URL = new URL(BASE_URL + "/Show/GetShows");
-			GET_BREED_RINGS_URL = new URL(BASE_URL + "/BreedRing/GetAssigments");
+			GET_BREED_RINGS_URL = new URL(BASE_URL + "/BreedRing");
+            GET_BREED_RING_ASSIGNMENTS_URL = new URL(BASE_URL + "/BreedRing/GetAssigments");
 			GET_JUNIORS_RINGS_URL = new URL(BASE_URL + "/JuniorsRing");
 			GET_GROUP_RINGS_URL = new URL(BASE_URL + "/GroupRing");
 			GET_RING_BLOCK_OVERVIEWS_URL = new URL(BASE_URL
@@ -151,6 +155,13 @@ public class AzureApiAccessor extends ApiAccessor {
 		}
 		return null;
 	}
+
+    @Override
+    public ConformationRingAssignment[] getBreedRingAssigments(String showId, Dog[] dogs) {
+            String jsonStr = makeGetRequest(GET_BREED_RING_ASSIGNMENTS_URL, mGson.toJson(dogs, Dog[].class));
+            ConformationRingAssignment[] rings = mGson.fromJson(jsonStr, ConformationRingAssignment[].class);
+            return rings;
+    }
 
 	@Override
 	public JuniorsRing[] getJuniorsRings(String showId, String className) {

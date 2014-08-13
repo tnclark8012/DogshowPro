@@ -41,14 +41,14 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 																// 10 minutes
 																// per group
 	private static final int VER_RING_BLOCKS = 12;//Added RING_BLOCK table for storing "overviews" of all rings in a timeblock
-    private static final int VER_BREED_RING_ASSIGNMENTS = 13;//Added BREED_RING_DOG_ASSIGNMENTS table as junction table; ring identifiers
+    private static final int VER_RING_ASSIGNMENTS = 13;//Added RING_ASSIGMENTS table as junction table; ring identifiers
 
-	private static final int DATABASE_VERSION = VER_BREED_RING_ASSIGNMENTS;
+	private static final int DATABASE_VERSION = VER_RING_ASSIGNMENTS;
 
 	public interface Tables {
 		String DOGS = "dogs";
 		String BREED_RINGS = "breed_rings";
-        String BREED_RING_DOG_ASSIGNMENTS = "breed_ring_dog_assigments";
+        String RING_ASSIGMENTS = "ring_assigments";
 		String GROUP_RINGS = "group_rings";
 		String BLOCK_RINGS = "block_rings";
 		String HANDLERS = "handlers";
@@ -122,7 +122,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 	}
 
     private void createBreedRingDogAssigmentsTable(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + Tables.BREED_RING_DOG_ASSIGNMENTS+ " ("
+        db.execSQL("CREATE TABLE " + Tables.RING_ASSIGMENTS + " ("
                 + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + DogshowContract.RingDogAssigmentsColumns.DOG_IDENTIFIER + " TEXT, "//Could have no dogs assigned. Ex: best in show
                 + DogshowContract.RingDogAssigmentsColumns.RING_IDENTIFIER + " TEXT NOT NULL, "

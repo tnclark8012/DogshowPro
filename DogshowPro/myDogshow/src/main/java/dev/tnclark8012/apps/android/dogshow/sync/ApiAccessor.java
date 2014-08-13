@@ -68,6 +68,47 @@ public abstract class ApiAccessor implements Config.IApiAccessor {
 		return executeGet(new URL(urlString));
 	}
 
+    protected String makeGetRequest(URL url, Object entity)
+    {
+        String response = null;
+        HttpURLConnection urlConnection = null;
+        HttpPost post = new HttpPost(url.toString());
+        try {
+            post.setEntity(new StringEntity(entity.toString()));
+        } catch (UnsupportedEncodingException uee) {
+        }
+        try {
+            urlConnection = (HttpURLConnection) url.openConnection();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        Log.v(TAG, "request to " + url.toString());
+        Log.v(TAG, "request content: " + entity.toString());
+        try {
+            urlConnection.setDoOutput(true);
+            urlConnection.setDoInput(true);
+            urlConnection.setRequestMethod("POST");
+            urlConnection.setRequestProperty("Content-Type",
+                    "application/json");
+            urlConnection.setChunkedStreamingMode(0);
+            DataOutputStream wr = new DataOutputStream(
+                    urlConnection.getOutputStream());
+            post.getEntity().writeTo(wr);
+            wr.flush();
+            wr.close();
+            // check for response message
+            String statusLine = urlConnection.getResponseMessage();
+            // check for response status
+            int statusCode = urlConnection.getResponseCode();
+            urlConnection.connect();
+            throwErrors(urlConnection);
+            response = readInputStream(urlConnection.getInputStream());
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return response;
+    }
 	protected String executeGet(URL url) throws IOException {
 		Log.d(TAG, "Requesting URL: " + url);
 		String response = null;
