@@ -201,7 +201,8 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				+ BreedRingsColumns.RING_BREED_IS_VETERAN + " INTEGER,"
 				+ BreedRingsColumns.RING_BREED_IS_SWEEPSTAKES + " INTEGER,"
 				+ BreedRingsColumns.RING_BREED_ATTRIBUTE + " TEXT,"
-				+ SyncColumns.UPDATED + " LONG DEFAULT 0)");
+                + DogshowContract.BreedRings.RING_IDENTIFIER + " TEXT NOT NULL,"
+                + SyncColumns.UPDATED + " LONG DEFAULT 0)");
 	}
 
 	private void createJuniorsRingsTable(SQLiteDatabase db) {
@@ -218,6 +219,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				+ RingColumns.RING_SHOW_ID + " TEXT NOT NULL,"
 				+ RingColumns.RING_TITLE + " TEXT,"
 				+ JuniorsRingsColumns.RING_JUNIOR_BREED + " TEXT, "
+                + JuniorsRings.RING_IDENTIFIER + " TEXT NOT NULL,"
 				+ SyncColumns.UPDATED + " LONG DEFAULT 0)");
 	}
 
@@ -233,6 +235,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				+ RingColumns.RING_SHOW_ID + " TEXT NOT NULL,"
 				+ RingColumns.RING_TITLE + " TEXT,"
 				+ GroupRingsColumns.RING_GROUP + " TEXT, "
+                + GroupRings.RING_IDENTIFIER + " TEXT NOT NULL,"
 				+ SyncColumns.UPDATED + " LONG DEFAULT 0)");
 	}
 
