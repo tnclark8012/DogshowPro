@@ -52,13 +52,14 @@ public class ConformationRingAssigmnentsRequest {
 					.build());
 		}
 		RingAssigmentHandler handler = new RingAssigmentHandler(mContext, true);
-        Dog[] dogs = new Dog[enteredDogCursor.getColumnCount()];
+        Dog[] dogs = new Dog[enteredDogCursor.getCount()];
 		while (enteredDogCursor.moveToNext()) {
 			Dog d = new Dog();
             d.identifier = enteredDogCursor.getString(0);
             d.breedString = enteredDogCursor.getString(1);
             d.showing = enteredDogCursor.getInt(2);
             d.veteran = enteredDogCursor.getInt(3);
+            dogs[numDogs] = d;
 			numDogs++;
 		}
         batch.addAll(handler.parse(mAccessor.getBreedRingAssigments(showId, dogs)));
