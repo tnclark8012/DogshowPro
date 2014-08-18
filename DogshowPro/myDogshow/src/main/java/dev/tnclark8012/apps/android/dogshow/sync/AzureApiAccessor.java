@@ -23,6 +23,7 @@ import dev.tnclark8012.apps.android.dogshow.model.RingBlockOverview;
 import dev.tnclark8012.apps.android.dogshow.model.Show;
 import dev.tnclark8012.apps.android.dogshow.model.ShowTeam;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
+import dev.tnclark8012.apps.android.dogshow.sync.request.ConformationRingAssignmentRequestModel;
 import dev.tnclark8012.apps.android.dogshow.sync.request.DogSyncRequest;
 import dev.tnclark8012.apps.android.dogshow.sync.request.HandlerSyncRequest;
 import dev.tnclark8012.apps.android.dogshow.sync.request.RegistrationRequest;
@@ -60,11 +61,11 @@ public class AzureApiAccessor extends ApiAccessor {
 				FieldNamingPolicy.UPPER_CAMEL_CASE).create();
 		try {
 			BASE_URL = new URL(
-					(Prefs.useLocalServer(context)) ? "http://192.168.0.5:49414/api"
+					(Prefs.useLocalServer(context)) ? /*"http://10.0.2.2:49414/api"*/"http://192.168.0.5:49414/api"
 							: "http://dogshow.azurewebsites.net/api");
 			GET_SHOW_URL = new URL(BASE_URL + "/Show/GetShows");
 			GET_BREED_RINGS_URL = new URL(BASE_URL + "/BreedRing");
-            GET_BREED_RING_ASSIGNMENTS_URL = new URL(BASE_URL + "/BreedRing/GetAssigments");
+            GET_BREED_RING_ASSIGNMENTS_URL = new URL(BASE_URL + "/BreedRing/GetAssignments");
 			GET_JUNIORS_RINGS_URL = new URL(BASE_URL + "/JuniorsRing");
 			GET_GROUP_RINGS_URL = new URL(BASE_URL + "/GroupRing");
 			GET_RING_BLOCK_OVERVIEWS_URL = new URL(BASE_URL
@@ -107,7 +108,18 @@ public class AzureApiAccessor extends ApiAccessor {
 		return null;
 	}
 
-	public final URL buildGetJuniorRingsUrl(String showId, String juniorClass) {
+    @Override
+    public URL buildGetRingAssignmentsUrl(String showId) {
+//        try {
+            return  GET_BREED_RING_ASSIGNMENTS_URL;//new URL(GET_BREED_RING_ASSIGNMENTS_URL, "?showId=" + urlEncode(showId));
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        }
+//
+//        return null;
+    }
+
+    public final URL buildGetJuniorRingsUrl(String showId, String juniorClass) {
 		try {
 			return new URL(GET_JUNIORS_RINGS_URL, "?showId=" + urlEncode(showId)
 					+ "&className=" + urlEncode(juniorClass));
@@ -158,9 +170,14 @@ public class AzureApiAccessor extends ApiAccessor {
 
     @Override
     public ConformationRingAssignment[] getBreedRingAssigments(String showId, Dog[] dogs) {
-            String jsonStr = makeGetRequest(GET_BREED_RING_ASSIGNMENTS_URL, mGson.toJson(dogs, Dog[].class));
-            ConformationRingAssignment[] rings = mGson.fromJson(jsonStr, ConformationRingAssignment[].class);
-            return rings;
+        ConformationRingAssignmentRequestModel request = new ConformationRingAssignmentRequestModel();
+        request.dogs = dogs;
+        request.showId = showId;
+        JsonObject json = mGson.toJsonTree(request, ConformationRingAssignmentRequestModel.class)
+                .getAsJsonObject();
+        String jsonStr = makePostRequest(buildGetRingAssignmentsUrl(showId),json);
+        ConformationRingAssignment[] rings = mGson.fromJson(jsonStr, ConformationRingAssignment[].class);
+        return rings;
     }
 
 	@Override

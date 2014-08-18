@@ -38,6 +38,7 @@ public class Config {
 
 		URL buildGetBreedRingsUrl(String showId, String breed, Boolean veteran,
 				Boolean sweepstakes);
+        URL buildGetRingAssignmentsUrl( String showId );
 
 		URL buildGetJuniorRingsUrl(String showId, String juniorClass);
 		URL buildGetRingBlockOverviewsUrl(String showId, int ringNumber, long blockStart);
