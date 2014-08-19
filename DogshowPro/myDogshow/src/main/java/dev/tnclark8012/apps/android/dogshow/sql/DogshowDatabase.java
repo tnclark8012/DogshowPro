@@ -41,14 +41,14 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 																// 10 minutes
 																// per group
 	private static final int VER_RING_BLOCKS = 12;//Added RING_BLOCK table for storing "overviews" of all rings in a timeblock
-    private static final int VER_RING_ASSIGNMENTS = 13;//Added RING_ASSIGMENTS table as junction table; ring identifiers
+    private static final int VER_RING_ASSIGNMENTS = 13;//Added RING_ASSIGNMENTS table as junction table; ring identifiers
 
 	private static final int DATABASE_VERSION = VER_RING_ASSIGNMENTS;
 
 	public interface Tables {
 		String DOGS = "dogs";
 		String BREED_RINGS = "breed_rings";
-        String RING_ASSIGMENTS = "ring_assigments";
+        String RING_ASSIGNMENTS = "ring_assignments";
 		String GROUP_RINGS = "group_rings";
 		String BLOCK_RINGS = "block_rings";
 		String HANDLERS = "handlers";
@@ -105,6 +105,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 		createShowTeamsTable(db);
 		createGroupRingsTable(db);
 		createBlockRingsTable(db);
+        createBreedRingDogAssigmentsTable(db);
 		if (BuildConfig.DEBUG) {
 			insertDebugEntities(db);
 		}
@@ -122,7 +123,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 	}
 
     private void createBreedRingDogAssigmentsTable(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + Tables.RING_ASSIGMENTS + " ("
+        db.execSQL("CREATE TABLE " + Tables.RING_ASSIGNMENTS + " ("
                 + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + DogshowContract.RingDogAssigmentsColumns.DOG_IDENTIFIER + " TEXT, "//Could have no dogs assigned. Ex: best in show
                 + DogshowContract.RingDogAssigmentsColumns.RING_IDENTIFIER + " TEXT NOT NULL, "
@@ -370,14 +371,14 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 			case VER_GROUP_DEFAULT_JUDGE_TIME:
 				createBlockRingsTable(db);
 				version++;
-                case VER_RING_BLOCKS:
-                    db.execSQL("ALTER TABLE " + Tables.BREED_RINGS + " ADD COLUMN "
-                            + RingColumns.RING_IDENTIFIER + " TEXT");
-                    db.execSQL("ALTER TABLE " + Tables.JUNIORS_RINGS + " ADD COLUMN "
-                            + RingColumns.RING_IDENTIFIER + " TEXT");
-                    db.execSQL("ALTER TABLE " + Tables.GROUP_RINGS + " ADD COLUMN "
-                            + RingColumns.RING_IDENTIFIER + " TEXT");
-                    createBreedRingDogAssigmentsTable(db);
+            case VER_RING_BLOCKS:
+                db.execSQL("ALTER TABLE " + Tables.BREED_RINGS + " ADD COLUMN "
+                        + RingColumns.RING_IDENTIFIER + " TEXT");
+                db.execSQL("ALTER TABLE " + Tables.JUNIORS_RINGS + " ADD COLUMN "
+                        + RingColumns.RING_IDENTIFIER + " TEXT");
+                db.execSQL("ALTER TABLE " + Tables.GROUP_RINGS + " ADD COLUMN "
+                        + RingColumns.RING_IDENTIFIER + " TEXT");
+                createBreedRingDogAssigmentsTable(db);
 			}
 		} catch (Exception e) {
 			version = -1;
@@ -392,6 +393,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 			db.execSQL("DROP TABLE IF EXISTS " + Tables.SHOW_TEAMS);
 			db.execSQL("DROP TABLE IF EXISTS " + Tables.GROUP_RINGS);
 			db.execSQL("DROP TABLE IF EXISTS " + Tables.BLOCK_RINGS);
+            db.execSQL("DROP TABLE IF EXISTS " + Tables.RING_ASSIGNMENTS);
 			onCreate(db);
 		}
 	}

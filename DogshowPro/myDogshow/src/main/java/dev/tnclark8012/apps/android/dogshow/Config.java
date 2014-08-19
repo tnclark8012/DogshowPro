@@ -49,7 +49,7 @@ public class Config {
 
 		BreedRing[] getBreedRings(String showId, String breed, Boolean veteran,
 				Boolean sweepstakes);
-        ConformationRingAssignment[] getBreedRingAssigments(String showId, Dog[] dogs);
+        ConformationRingAssignment[] getBreedRingAssignments(String showId, Dog[] dogs);
 
 		JuniorsRing[] getJuniorsRings(String showId, String className);
 

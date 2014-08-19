@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import dev.tnclark8012.apps.android.dogshow.BuildConfig;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 import android.app.Activity;
 import android.app.Fragment;
@@ -176,12 +177,10 @@ public class MyScheduleFragment extends Fragment implements
 		boolean includeGroups = Prefs.showGroupRings(getActivity());
 		
 		String[] allSelectionArgs = EnteredRings.buildUpcomingSelectionArgs(
-				Utils.twelveAmToday()
-//				0
+                (BuildConfig.DEBUG) ? 0 : Utils.twelveAmToday()
 				, includeGroups);
 		String[] upcomingArgs = EnteredRings.buildUpcomingSelectionArgs(
-				Utils.currentTimeUtc()
-//				0
+                (BuildConfig.DEBUG) ? 0 :Utils.currentTimeUtc()
 				,includeGroups);
 		switch (id) {
 		case UpcomingRingQuery._TOKEN:
@@ -363,30 +362,32 @@ public class MyScheduleFragment extends Fragment implements
 			}
 			long currentStart = estimatedStart;
 			// Setup the refresh to update upcoming
-			while (cursor.moveToNext()) {
-				countAhead = cursor.getInt(UpcomingRingQuery.BREED_COUNT_AHEAD);
-				judgeMinutesPerDog = Utils.getMaybeNull(cursor,
-						UpcomingRingQuery.RING_JUDGE_TIME,
-						Prefs.getEstimatedDogJudgingTime(getActivity()));
-				upcomingBreedRingStart = cursor
-						.getLong(UpcomingRingQuery.RING_BLOCK_START);
-				estimatedStart = Utils.estimateBlockStart(countAhead,
-						upcomingBreedRingStart, judgeMinutesPerDog);
-				if (estimatedStart > currentStart) {
-					long delay = estimatedStart - Utils.currentTimeUtc();
-					Log.i(TAG,
-							"Closest ring is "
-									+ cursor.getString(UpcomingRingQuery.RING_TITLE)
-									+ " at "
-									+ UIUtils
-									.timeStringFromMillis(estimatedStart,true));
-					delay = (delay > 0) ? delay : 0;
-					handler.postDelayed(updateUpcomingRunnable, delay);
-					Log.i(TAG, "Updating in " + (delay / 1000) + " seconds.");
+            if(!BuildConfig.DEBUG) {
+                while (cursor.moveToNext()) {
+                    countAhead = cursor.getInt(UpcomingRingQuery.BREED_COUNT_AHEAD);
+                    judgeMinutesPerDog = Utils.getMaybeNull(cursor,
+                            UpcomingRingQuery.RING_JUDGE_TIME,
+                            Prefs.getEstimatedDogJudgingTime(getActivity()));
+                    upcomingBreedRingStart = cursor
+                            .getLong(UpcomingRingQuery.RING_BLOCK_START);
+                    estimatedStart = Utils.estimateBlockStart(countAhead,
+                            upcomingBreedRingStart, judgeMinutesPerDog);
+                    if (estimatedStart > currentStart) {
+                        long delay = estimatedStart - Utils.currentTimeUtc();
+                        Log.i(TAG,
+                                "Closest ring is "
+                                        + cursor.getString(UpcomingRingQuery.RING_TITLE)
+                                        + " at "
+                                        + UIUtils
+                                        .timeStringFromMillis(estimatedStart, true));
+                        delay = (delay > 0) ? delay : 0;
+                        handler.postDelayed(updateUpcomingRunnable, delay);
+                        Log.i(TAG, "Updating in " + (delay / 1000) + " seconds.");
 //					Toast.makeText(getActivity(), "Update in " + (delay/1000), Toast.LENGTH_SHORT).show();;
-					break;
-				}
-			}
+                        break;
+                    }
+                }
+            }
 		} else {
 			Log.v(TAG, "No upcoming breed rings found");
 			mViewUpcomingHeader.setVisibility(View.GONE);

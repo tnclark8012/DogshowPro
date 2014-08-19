@@ -9,19 +9,18 @@ import java.util.ArrayList;
 
 import dev.tnclark8012.apps.android.dogshow.model.ConformationRingAssignment;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
-import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.SyncColumns;
 
-public class RingAssigmentHandler extends JsonHandler<ConformationRingAssignment> {
+public class RingAssignmentHandler extends JsonHandler<ConformationRingAssignment> {
 	boolean clearExisting = false;
 	boolean hasCleared = false;
 
-	public RingAssigmentHandler(Context context, boolean clearExisting) {
+	public RingAssignmentHandler(Context context, boolean clearExisting) {
 		super(context);
 		this.clearExisting = clearExisting;
 	}
 
-	private static final String TAG = RingAssigmentHandler.class.getSimpleName();
+	private static final String TAG = RingAssignmentHandler.class.getSimpleName();
 
 	public ArrayList<ContentProviderOperation> parse(ConformationRingAssignment[] assignments) {
 		final ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
@@ -32,7 +31,7 @@ public class RingAssigmentHandler extends JsonHandler<ConformationRingAssignment
 		if (assignments != null) {
 				numRings = assignments.length;
 			if (clearExisting && !hasCleared) {
-				batch.add(ContentProviderOperation.newDelete(DogshowContract.addCallerIsSyncAdapterParameter(BreedRings.CONTENT_URI)).build());
+				batch.add(ContentProviderOperation.newDelete(DogshowContract.addCallerIsSyncAdapterParameter(DogshowContract.RingAssigments.CONTENT_URI)).build());
 				hasCleared = true;
 			}
 			if (numRings > 0) {

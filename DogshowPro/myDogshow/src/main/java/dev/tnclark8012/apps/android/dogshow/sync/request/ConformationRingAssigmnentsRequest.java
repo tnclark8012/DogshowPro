@@ -15,7 +15,7 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.sync.ApiAccessor;
-import dev.tnclark8012.apps.android.dogshow.sync.RingAssigmentHandler;
+import dev.tnclark8012.apps.android.dogshow.sync.RingAssignmentHandler;
 
 public class ConformationRingAssigmnentsRequest {
 	private Context mContext;
@@ -51,7 +51,7 @@ public class ConformationRingAssigmnentsRequest {
 									.addCallerIsSyncAdapterParameter(BreedRings.CONTENT_URI))
 					.build());
 		}
-		RingAssigmentHandler handler = new RingAssigmentHandler(mContext, true);
+		RingAssignmentHandler handler = new RingAssignmentHandler(mContext, true);
         Dog[] dogs = new Dog[enteredDogCursor.getCount()];
 		while (enteredDogCursor.moveToNext()) {
 			Dog d = new Dog();
@@ -62,7 +62,7 @@ public class ConformationRingAssigmnentsRequest {
             dogs[numDogs] = d;
 			numDogs++;
 		}
-        batch.addAll(handler.parse(mAccessor.getBreedRingAssigments(showId, dogs)));
+        batch.addAll(handler.parse(mAccessor.getBreedRingAssignments(showId, dogs)));
 		Log.v(TAG, "Pulled breed rings for " + numDogs + " breeds");
 		enteredDogCursor.close();
 		return batch;

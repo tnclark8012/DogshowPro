@@ -255,7 +255,7 @@ public class DogshowProvider extends ContentProvider {
 					.buildShowTeamUri(values.getAsString(ShowTeams._ID));
 		}
         case RING_ASSIGNMENTS: {
-            db.insertOrThrow(Tables.RING_ASSIGMENTS, null, values);
+            db.insertOrThrow(Tables.RING_ASSIGNMENTS, null, values);
             getContext().getContentResolver().notifyChange(uri, null,
                     syncToNetwork);
             return DogshowContract.RingAssigments.
@@ -373,7 +373,7 @@ public class DogshowProvider extends ContentProvider {
 		case SHOW_TEAMS:
 			return builder.table(Tables.SHOW_TEAMS);
         case RING_ASSIGNMENTS:
-            return builder.table(Tables.RING_ASSIGMENTS);
+            return builder.table(Tables.RING_ASSIGNMENTS);
 		default: {
 			throw new UnsupportedOperationException("Unknown uri: " + uri);
 		}
