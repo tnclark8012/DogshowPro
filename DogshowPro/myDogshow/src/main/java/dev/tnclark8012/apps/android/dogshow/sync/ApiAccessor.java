@@ -15,6 +15,7 @@ import org.apache.http.Header;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.BasicHttpEntity;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.content.Context;
 import android.util.Log;
@@ -143,7 +144,20 @@ public abstract class ApiAccessor implements Config.IApiAccessor {
 	}
 
 	protected String makePostRequest(URL url, JsonObject json) {
-		HttpURLConnection urlConnection = null;
+
+        try {
+            HttpPost httpPost = new HttpPost(url.toURI());
+            httpPost.setEntity(new StringEntity(json.toString()));
+            httpPost.setHeader("Accept", "application/json");
+            httpPost.setHeader("Content-type", "application/json");
+            new DefaultHttpClient().execute(httpPost);
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        if(true) return "";
+
+        HttpURLConnection urlConnection = null;
 		HttpPost post = new HttpPost(url.toString());
 		try {
 			post.setEntity(new StringEntity(json.toString()));

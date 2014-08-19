@@ -61,7 +61,7 @@ public class AzureApiAccessor extends ApiAccessor {
 				FieldNamingPolicy.UPPER_CAMEL_CASE).create();
 		try {
 			BASE_URL = new URL(
-					(Prefs.useLocalServer(context)) ? /*"http://10.0.2.2:49414/api"*/"http://192.168.0.5:49414/api"
+					(Prefs.useLocalServer(context)) ? /*"http://10.0.2.2:49414/api"*/"http://192.168.0.7:49414/api"
 							: "http://dogshow.azurewebsites.net/api");
 			GET_SHOW_URL = new URL(BASE_URL + "/Show/GetShows");
 			GET_BREED_RINGS_URL = new URL(BASE_URL + "/BreedRing");
