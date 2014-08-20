@@ -20,8 +20,7 @@ import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.EnteredRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.RingBlocks;
-import dev.tnclark8012.apps.android.dogshow.sync.request.ConformationRingAssigmnentsRequest;
-import dev.tnclark8012.apps.android.dogshow.sync.request.ConformationRingsRequest;
+import dev.tnclark8012.apps.android.dogshow.sync.request.ConformationRingAssignmentsRequest;
 import dev.tnclark8012.apps.android.dogshow.sync.request.GroupRingsRequest;
 import dev.tnclark8012.apps.android.dogshow.sync.request.JuniorsRingsRequest;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
@@ -81,16 +80,13 @@ public class SyncHelper {
         Prefs.setCurrentShow(mContext, show);
         ArrayList<ContentProviderOperation> ringBatch = new ArrayList<ContentProviderOperation>();
 
-		ConformationRingsRequest confRingsRequest = new ConformationRingsRequest(
-				mContext);
 		GroupRingsRequest groupRingsRequest = new GroupRingsRequest(mContext);
 		JuniorsRingsRequest juniorsRingsRequest = new JuniorsRingsRequest(
 				mContext);
-        ConformationRingAssigmnentsRequest assigmentsRequest = new ConformationRingAssigmnentsRequest(mContext);
-		ringBatch.addAll(confRingsRequest.getRings(show.showId));
+        ConformationRingAssignmentsRequest assignmentsRequest = new ConformationRingAssignmentsRequest(mContext);
 		ringBatch.addAll(juniorsRingsRequest.getRings(show.showId));
 		ringBatch.addAll(groupRingsRequest.getRings(show.showId));
-        ringBatch.addAll(assigmentsRequest.getRings(show.showId));
+        ringBatch.addAll(assignmentsRequest.getRings(show.showId));
 
 		try {
 			mContext.getContentResolver().applyBatch(
@@ -170,7 +166,7 @@ public class SyncHelper {
 		final long lastSync = getLastSync(mContext);
 
 		// Bulk of sync work, performed by executing several fetches from
-		// local and online sources.
+		// app server.
 		final ContentResolver resolver = mContext.getContentResolver();
 		ShowTeamSyncHandler teamHelper = new ShowTeamSyncHandler(mContext,
 				mAccessor);

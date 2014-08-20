@@ -26,6 +26,7 @@ import dev.tnclark8012.apps.android.dogshow.model.Handler;
 import dev.tnclark8012.apps.android.dogshow.model.JuniorsRing;
 import dev.tnclark8012.apps.android.dogshow.model.RingBlockOverview;
 import dev.tnclark8012.apps.android.dogshow.model.Show;
+import dev.tnclark8012.apps.android.dogshow.sync.response.ConformationRingAssignmentResponse;
 import dev.tnclark8012.apps.android.dogshow.sync.response.DogSyncResponse;
 import dev.tnclark8012.apps.android.dogshow.sync.response.HandlerSyncResponse;
 import dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamResponse;
@@ -49,7 +50,7 @@ public class Config {
 
 		BreedRing[] getBreedRings(String showId, String breed, Boolean veteran,
 				Boolean sweepstakes);
-        ConformationRingAssignment[] getBreedRingAssignments(String showId, Dog[] dogs);
+        ConformationRingAssignmentResponse[] getBreedRingAssignments(String showId, Dog[] dogs);
 
 		JuniorsRing[] getJuniorsRings(String showId, String className);
 

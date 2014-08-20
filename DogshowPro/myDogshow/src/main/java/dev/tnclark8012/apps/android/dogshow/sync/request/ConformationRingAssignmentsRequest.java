@@ -16,14 +16,15 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.sync.ApiAccessor;
 import dev.tnclark8012.apps.android.dogshow.sync.RingAssignmentHandler;
+import dev.tnclark8012.apps.android.dogshow.sync.response.ConformationRingAssignmentResponse;
 
-public class ConformationRingAssigmnentsRequest {
+public class ConformationRingAssignmentsRequest {
 	private Context mContext;
 	private IApiAccessor mAccessor;
-	public static final String TAG = ConformationRingAssigmnentsRequest.class
+	public static final String TAG = ConformationRingAssignmentsRequest.class
 			.getSimpleName();
 
-	public ConformationRingAssigmnentsRequest(Context context) {
+	public ConformationRingAssignmentsRequest(Context context) {
 		mContext = context;
 		mAccessor = ApiAccessor.getInstance(mContext);
 	}
@@ -39,7 +40,6 @@ public class ConformationRingAssigmnentsRequest {
 								Dogs.DOG_IS_SHOWING_SWEEPSTAKES,
 								Dogs.DOG_IS_VETERAN }, Dogs.DOG_IS_SHOWING + "=1",
 						null, null);
-		batch = new ArrayList<ContentProviderOperation>();
 		Log.i(TAG, "Syncing breed rings for " + enteredDogCursor.getCount()
 				+ " dogs");
 		int numDogs = 0;
@@ -62,8 +62,9 @@ public class ConformationRingAssigmnentsRequest {
             dogs[numDogs] = d;
 			numDogs++;
 		}
-        batch.addAll(handler.parse(mAccessor.getBreedRingAssignments(showId, dogs)));
-		Log.v(TAG, "Pulled breed rings for " + numDogs + " breeds");
+        ConformationRingAssignmentResponse[] assignmentsAndRings = mAccessor.getBreedRingAssignments(showId, dogs);
+        batch.addAll(handler.parse(assignmentsAndRings));
+		Log.v(TAG, "Pulled breed rings for " + numDogs + " dogs");
 		enteredDogCursor.close();
 		return batch;
 	}

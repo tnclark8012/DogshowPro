@@ -29,6 +29,7 @@ import dev.tnclark8012.apps.android.dogshow.sync.request.HandlerSyncRequest;
 import dev.tnclark8012.apps.android.dogshow.sync.request.RegistrationRequest;
 import dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamCreateRequest;
 import dev.tnclark8012.apps.android.dogshow.sync.request.ShowTeamSyncRequest;
+import dev.tnclark8012.apps.android.dogshow.sync.response.ConformationRingAssignmentResponse;
 import dev.tnclark8012.apps.android.dogshow.sync.response.DogSyncResponse;
 import dev.tnclark8012.apps.android.dogshow.sync.response.HandlerSyncResponse;
 import dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamResponse;
@@ -171,14 +172,14 @@ public class AzureApiAccessor extends ApiAccessor {
 	}
 
     @Override
-    public ConformationRingAssignment[] getBreedRingAssignments(String showId, Dog[] dogs) {
+    public ConformationRingAssignmentResponse[] getBreedRingAssignments(String showId, Dog[] dogs) {
         ConformationRingAssignmentRequestModel request = new ConformationRingAssignmentRequestModel();
         request.dogs = dogs;
         request.showId = showId;
         JsonObject json = mGson.toJsonTree(request, ConformationRingAssignmentRequestModel.class)
                 .getAsJsonObject();
         String jsonStr = makePostRequest(buildGetRingAssignmentsUrl(showId),json);
-        ConformationRingAssignment[] rings = mGson.fromJson(jsonStr, ConformationRingAssignment[].class);
+        ConformationRingAssignmentResponse[] rings = mGson.fromJson(jsonStr, ConformationRingAssignmentResponse[].class);
         return rings;
     }
 
