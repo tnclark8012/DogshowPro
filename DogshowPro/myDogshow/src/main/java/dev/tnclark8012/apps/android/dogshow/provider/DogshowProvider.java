@@ -439,7 +439,7 @@ public class DogshowProvider extends ContentProvider {
         public static final String DOG_RING_ASSIGNMENTS = "SELECT " +
                 Qualified.RING_ASSIGNMENTS_RING_IDENTIFIER + ","
                 + "group_concat(" + Qualified.DOG_CALL_NAME + ", \", \" ) as "+ Dogs.ENTERED_DOGS_NAMES + ","
-                + "MIN(" + Dogs.DOG_CLASS + ") as " + Dogs.ENTERED_DOGS_FIRST_CLASS
+                + "MIN(" + Dogs.DOG_CLASS + ") as " + Dogs.ENTERED_DOGS_FIRST_CLASS + ","
                 + "MIN(" + Dogs.DOG_IMAGE_PATH + ") as image_path"
                 + " FROM " + Tables.DOGS + " JOIN " + Tables.RING_ASSIGNMENTS + " ON " + Qualified.RING_ASSIGNMENTS_DOG_IDENTIFIER + "=" + Qualified.DOGS_IDENTIFIER + " GROUP BY " + Qualified.RING_ASSIGNMENTS_RING_IDENTIFIER;
         /** Future replacement for {#BREED_RING_OVERVIEW} */

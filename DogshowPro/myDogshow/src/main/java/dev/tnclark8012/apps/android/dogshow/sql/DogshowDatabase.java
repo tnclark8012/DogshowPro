@@ -86,11 +86,11 @@ public class DogshowDatabase extends SQLiteOpenHelper {
         String BREED_RINGS_JOIN_DOG_ASSIGNMENTS =
                 "("
                         + BREED_RINGS + " "
-                        + "JOIN " + Subquery.DOG_RING_ASSIGNMENTS + " as dog_assignments ON "
+                        + "JOIN (" + Subquery.DOG_RING_ASSIGNMENTS + ") as dog_assignments ON "
                         + Qualified.BREED_RINGS_IDENTIFIER + "= dog_assignments." + RingAssigments.RING_IDENTIFIER
                 + ")";
 		String ALL_ENTERED_RINGS = "(select * from ("
-				+ Subquery.BREED_RING_OVERVIEW + " UNION ALL "
+				+ Subquery.BREED_RING_OVERVIEW2 + " UNION ALL "
 				+ Subquery.JUNIOR_RING_OVERVIEW + " UNION ALL "
 				+ Subquery.GROUP_RING_OVERVIEW + " )) as all_entered_rings";
 	}
