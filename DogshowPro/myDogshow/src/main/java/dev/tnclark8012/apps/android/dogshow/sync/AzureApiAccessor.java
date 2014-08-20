@@ -238,7 +238,7 @@ public class AzureApiAccessor extends ApiAccessor {
 	public URL buildGetShowsUrl() {
 		try {
 			return new URL(GET_SHOW_URL, "?cutoffMillis="
-					+ Utils.clientToServerTime(Utils.twelveAmToday()));
+					+ ((Prefs.useLocalServer(mContext)) ? 0 : Utils.clientToServerTime(Utils.twelveAmToday())));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
