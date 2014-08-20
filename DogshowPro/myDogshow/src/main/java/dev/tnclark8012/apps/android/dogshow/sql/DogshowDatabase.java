@@ -90,7 +90,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
                         + Qualified.BREED_RINGS_IDENTIFIER + "= dog_assignments." + RingAssigments.RING_IDENTIFIER
                 + ")";
 		String ALL_ENTERED_RINGS = "(select * from ("
-				+ Subquery.BREED_RING_OVERVIEW2 + " UNION ALL "
+				+ Subquery.BREED_RING_OVERVIEW + " UNION ALL "
 				+ Subquery.JUNIOR_RING_OVERVIEW + " UNION ALL "
 				+ Subquery.GROUP_RING_OVERVIEW + " )) as all_entered_rings";
 	}

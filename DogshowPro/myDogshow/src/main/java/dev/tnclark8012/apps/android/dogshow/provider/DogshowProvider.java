@@ -443,7 +443,7 @@ public class DogshowProvider extends ContentProvider {
                 + "MIN(" + Dogs.DOG_IMAGE_PATH + ") as image_path"
                 + " FROM " + Tables.DOGS + " JOIN " + Tables.RING_ASSIGNMENTS + " ON " + Qualified.RING_ASSIGNMENTS_DOG_IDENTIFIER + "=" + Qualified.DOGS_IDENTIFIER + " GROUP BY " + Qualified.RING_ASSIGNMENTS_RING_IDENTIFIER;
         /** Future replacement for {#BREED_RING_OVERVIEW} */
-        public static final String BREED_RING_OVERVIEW2 = "SELECT "
+        public static final String BREED_RING_OVERVIEW = "SELECT "
                 + Qualified.BREED_RINGS_ID+ ", "
                 + "CAST(" + EnteredRings.TYPE_BREED_RING + " as INTEGER )"+ " as ring_type, "//TODO ring_type should be a const somewhere
                 + "image_path, "//TODO image_path should be a const somewhere
@@ -461,28 +461,7 @@ public class DogshowProvider extends ContentProvider {
                 + BreedRings.RING_SPECIAL_BITCH_COUNT + " as "+ EnteredRings.ENTERED_RINGS_SPECIAL_BITCH_COUNT
                 + " FROM ( "
                 + Tables.BREED_RINGS_JOIN_DOG_ASSIGNMENTS + " )";
-        public static final String BREED_RING_OVERVIEW = "SELECT "
-				+ Qualified.BREED_RINGS_ID
-				+ ", "
-				+ "CAST("
-				+ EnteredRings.TYPE_BREED_RING
-				+ " as INTEGER )"
-				+ " as ring_type, "
-				+ BreedRings.RING_NUMBER + ", "
-                + BreedRings.RING_TITLE + " as "+ EnteredRings.ENTERED_RINGS_TITLE + ","
-				+ Dogs.ENTERED_DOGS_NAMES + " as "+ EnteredRings.ENTERED_RINGS_SUBTITLE + ", "
-				+ BreedRings.RING_BLOCK_START + ", "
-				+ BreedRings.RING_COUNT_AHEAD + ", "
-				+ BreedRings.RING_BREED_COUNT + " as "+ EnteredRings.ENTERED_RINGS_RING_COUNT + ","
-				+ BreedRings.RING_JUDGE_TIME + "," + Dogs.DOG_IMAGE_PATH+ " as image_path, "
-                + Dogs.ENTERED_DOGS_FIRST_CLASS + " as "+ EnteredRings.ENTERED_RINGS_FIRST_CLASS + ","
-				+ BreedRings.RING_DOG_COUNT + " as "+ EnteredRings.ENTERED_RINGS_DOG_COUNT + ","
-                + BreedRings.RING_BITCH_COUNT + " as "+ EnteredRings.ENTERED_RINGS_BITCH_COUNT + ","
-				+ BreedRings.RING_SPECIAL_DOG_COUNT + " as "+ EnteredRings.ENTERED_RINGS_SPECIAL_DOG_COUNT + ","
-				+ BreedRings.RING_SPECIAL_BITCH_COUNT + " as "+ EnteredRings.ENTERED_RINGS_SPECIAL_BITCH_COUNT
 
-                + " FROM ( "
-				+ Tables.ENTERED_BREED_RINGS_JOIN_DOGS + " )";
 		public static final String JUNIOR_RING_OVERVIEW = "SELECT "
 				+ Qualified.JUNIORS_RINGS_ID + ", " + "CAST("
 				+ EnteredRings.TYPE_JUNIORS_RING + " as INTEGER )" + " as "
