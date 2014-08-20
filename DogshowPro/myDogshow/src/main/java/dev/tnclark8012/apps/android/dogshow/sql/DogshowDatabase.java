@@ -18,6 +18,7 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.HandlersColumns;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.JuniorsRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.JuniorsRingsColumns;
+import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.RingAssigments;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.RingColumns;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeamsColumns;
@@ -54,12 +55,12 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 		String HANDLERS = "handlers";
 		String JUNIORS_RINGS = "juniors_rings";
 		String SHOW_TEAMS = "show_teams";
-		String ENTERED_DOGS_BY_BREED = "(SELECT *, " + Dogs.DOG_BREED + " as "
-				+ Dogs.ENTERED_DOGS_BREED + ", group_concat("
-				+ Qualified.DOG_CALL_NAME + ", \", \" ) as "
-				+ Dogs.ENTERED_DOGS_NAMES + ", MIN(" + Dogs.DOG_CLASS + ") as "
-				+ Dogs.ENTERED_DOGS_FIRST_CLASS + " FROM " + Tables.DOGS
-				+ " WHERE " + Dogs.DOG_IS_SHOWING + "=1" + " GROUP BY "
+		String ENTERED_DOGS_BY_BREED = "(SELECT *, "
+                + Dogs.DOG_BREED + " as "+ Dogs.ENTERED_DOGS_BREED
+                + ", group_concat(" + Qualified.DOG_CALL_NAME + ", \", \" ) as "+ Dogs.ENTERED_DOGS_NAMES
+                + ", MIN(" + Dogs.DOG_CLASS + ") as " + Dogs.ENTERED_DOGS_FIRST_CLASS + " FROM " + Tables.DOGS
+
+                + " WHERE " + Dogs.DOG_IS_SHOWING + "=1" + " GROUP BY "
 				+ Dogs.DOG_BREED + "," + Dogs.DOG_IS_SHOWING_SWEEPSTAKES + ", "
 				+ Dogs.DOG_IS_VETERAN + ")";
 		String ENTERED_JUNIORS_RINGS = "(" + JUNIORS_RINGS + " JOIN "
@@ -82,6 +83,12 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 				+ "JOIN " + ENTERED_DOGS_BY_BREED
 				+ " as entered_breed_rings_dogs ON "
 				+ ENTERED_BREED_RINGS_JOIN_DOGS_JOIN_ON + ")";
+        String BREED_RINGS_JOIN_DOG_ASSIGNMENTS =
+                "("
+                        + BREED_RINGS + " "
+                        + "JOIN " + Subquery.DOG_RING_ASSIGNMENTS + " as dog_assignments ON "
+                        + Qualified.BREED_RINGS_IDENTIFIER + "= dog_assignments." + RingAssigments.RING_IDENTIFIER
+                + ")";
 		String ALL_ENTERED_RINGS = "(select * from ("
 				+ Subquery.BREED_RING_OVERVIEW + " UNION ALL "
 				+ Subquery.JUNIOR_RING_OVERVIEW + " UNION ALL "
