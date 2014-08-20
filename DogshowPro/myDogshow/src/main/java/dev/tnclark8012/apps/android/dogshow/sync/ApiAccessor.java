@@ -24,18 +24,12 @@ import dev.tnclark8012.apps.android.dogshow.Config.IApiAccessor;
 
 public abstract class ApiAccessor implements Config.IApiAccessor {
     public static final String TAG = ApiAccessor.class.getSimpleName();
-    private static IApiAccessor mAccessor;
 
     public ApiAccessor() {
     }
 
     public static IApiAccessor getInstance(Context context) {
-        // if (mAccessor != null) {
-        // return mAccessor;
-        // } else {
-        mAccessor = new AzureApiAccessor(context);
-        return mAccessor;
-        // }
+        return new AzureApiAccessor(context);
     }
 
     protected String readInputStream(InputStream inputStream)
