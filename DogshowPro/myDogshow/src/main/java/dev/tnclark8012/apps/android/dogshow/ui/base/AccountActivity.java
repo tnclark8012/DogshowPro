@@ -176,7 +176,7 @@ public class AccountActivity extends Activity implements
 	}
 
 	@Override
-	protected void onSaveInstanceState(@NonNull Bundle outState) {
+	protected void onSaveInstanceState(Bundle outState) {
 		if (mChosenAccount != null && outState != null)
 			outState.putString(KEY_CHOSEN_ACCOUNT, mChosenAccount.name);
 		super.onSaveInstanceState(outState);
