@@ -101,7 +101,6 @@
             android:id="@+id/dog_edit_section_breed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/dog_edit_sex_radio"
             android:layout_marginTop="@dimen/element_padding_normal" >
 
             <dev.tnclark8012.apps.android.dogshow.widget.TypefacedTextView

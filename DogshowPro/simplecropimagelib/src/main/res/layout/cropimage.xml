@@ -8,7 +8,6 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_x="0dip"
-        android:layout_y="0dip"
         class="eu.janmuller.android.simplecropimage.CropImageView"
         android:background="#55000000" />
 

@@ -24,7 +24,7 @@
         android:padding="16dp" />
 
     <include layout="@layout/accent_bar"
-        android:layout_width="match_parent"/>
+        />
 
     <ListView android:id="@android:id/list"
         android:layout_width="match_parent"

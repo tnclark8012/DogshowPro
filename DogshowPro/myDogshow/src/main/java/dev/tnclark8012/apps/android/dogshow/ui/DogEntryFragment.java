@@ -45,7 +45,7 @@ public class DogEntryFragment extends Fragment implements
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View root = inflater.inflate(R.layout.fragment_entry_dogs, null);
+		View root = inflater.inflate(R.layout.fragment_entry_dogs, container, false);
 		Button back = (Button) root.findViewById(R.id.button_bar_button_left);
 		back.setOnClickListener(new OnClickListener() {
 			@Override

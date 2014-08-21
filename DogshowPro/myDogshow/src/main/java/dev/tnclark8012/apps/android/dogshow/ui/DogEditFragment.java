@@ -88,7 +88,7 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		mRootView = (ViewGroup) inflater.inflate(R.layout.fragment_dog_edit,
-				null);
+				container,false);
 		mViewImage = (ImageView) mRootView.findViewById(R.id.dog_edit_image);
 		mViewName = (EditText) mRootView.findViewById(R.id.dog_edit_name);
 		mViewBreed = (TextView) mRootView

@@ -40,7 +40,7 @@ public class HandlerEntryFragment extends Fragment implements LoaderManager.Load
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View root = inflater.inflate(R.layout.fragment_entry_handlers, null);
+		View root = inflater.inflate(R.layout.fragment_entry_handlers, container, false);
 		Button back = (Button) root.findViewById(R.id.button_bar_button_left);
 		back.setOnClickListener(new OnClickListener() {
 

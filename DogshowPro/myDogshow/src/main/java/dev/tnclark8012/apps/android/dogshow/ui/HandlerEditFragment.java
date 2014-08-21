@@ -87,7 +87,7 @@ public class HandlerEditFragment extends BaseEditableEntityEditFragment
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		mRootView = (ViewGroup) inflater.inflate(
-				R.layout.fragment_handler_edit, null);
+				R.layout.fragment_handler_edit, container, false);
 		mViewImage = (ImageView) mRootView
 				.findViewById(R.id.handler_edit_image);
 		mViewName = (EditText) mRootView.findViewById(R.id.handler_edit_name);

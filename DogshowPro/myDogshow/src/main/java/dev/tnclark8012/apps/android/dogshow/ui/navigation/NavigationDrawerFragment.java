@@ -246,7 +246,7 @@ public class NavigationDrawerFragment extends Fragment implements
 					SharedPreferences sp = PreferenceManager
 							.getDefaultSharedPreferences(getActivity());
 					sp.edit().putBoolean(PREF_USER_LEARNED_DRAWER, true)
-							.commit();
+							.apply();
 				}
 				oldTitle = getActionBar().getTitle();
 				getActivity().invalidateOptionsMenu(); // calls

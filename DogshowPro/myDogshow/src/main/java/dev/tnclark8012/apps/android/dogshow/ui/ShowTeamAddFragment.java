@@ -23,7 +23,7 @@ public class ShowTeamAddFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_team_create_or_join,
-				null);
+                container, false);
 		((Button) view.findViewById(R.id.button_team_create))
 				.setOnClickListener(new OnClickListener() {
 					@Override

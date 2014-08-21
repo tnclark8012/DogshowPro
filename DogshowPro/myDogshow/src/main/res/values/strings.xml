@@ -31,7 +31,7 @@
 <![CDATA[
         Welcome to Dog Show Pro, a companion app for Onofrio dog shows.<br>
         <br>
-        You\'re just a few steps away from from becoming a true pro! Press the &quot;Sign-in&quot; button
+        You\'re just a few steps away from becoming a true pro! Press the &quot;Sign-in&quot; button
         to get started.
     ]]>
     </string>
@@ -80,4 +80,9 @@
 	<string name="male">Male</string>
     <string name="drawer_open">@string/app_name</string>
     <string name="drawer_close"></string>
+
+    <!-- Image content descriptions-->
+    <string name="image_description_drawer_icon">drawer icon</string>
+    <string name="image_description_upcoming_breed">image of next dog to show</string>
+    <string name="image_description_header">image header</string>
 </resources>

@@ -83,8 +83,8 @@ public class FindShowFragment extends ListFragment {
 			@Override
 			protected Show[] doInBackground(Void... params) {
 				return new SyncHelper(getActivity()).getShows();
-			};
-		};
+			}
+        };
 
 	}
 

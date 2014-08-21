@@ -98,7 +98,7 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		mRootView = (ViewGroup) inflater.inflate(
-				R.layout.fragment_dog_view_next, null);
+				R.layout.fragment_dog_view_next, container, false);
 		mViewName = (TextView) mRootView.findViewById(R.id.dog_view_name);
 		mViewBreed = (TextView) mRootView
 				.findViewById(R.id.dog_view_section_breed_text);

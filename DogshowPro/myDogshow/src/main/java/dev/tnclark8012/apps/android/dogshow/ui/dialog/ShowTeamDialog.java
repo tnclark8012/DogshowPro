@@ -104,8 +104,8 @@ public class ShowTeamDialog extends DialogFragment implements OnClickListener {
 							if (status == STATUS_SUCCESS) {
 								dismiss();
 							}
-						};
-					}.execute(teamName, password);
+						}
+                    }.execute(teamName, password);
 				}
 			}
 			break;

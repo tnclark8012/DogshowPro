@@ -194,7 +194,7 @@ public class DogshowContract {
          * @param isChampion champion ("special")
          * @return 0 for dog, 1 for bitch, 2 for special dog, 3 for special bitch
          */
-		public static final int getDogClass(int sex, boolean isChampion) {
+		public static int getDogClass(int sex, boolean isChampion) {
 			return (isChampion) ? sex + 2 : sex;
 		}
 
