@@ -79,7 +79,7 @@
 	<string name="female">Female</string>
 	<string name="male">Male</string>
     <string name="drawer_open">@string/app_name</string>
-    <string name="drawer_close"></string>
+    <string name="drawer_close"/>
 
     <!-- Image content descriptions-->
     <string name="image_description_drawer_icon">drawer icon</string>

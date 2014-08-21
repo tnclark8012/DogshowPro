@@ -10,6 +10,6 @@
 	    android:textColor="#999999"
 	    android:layout_width="wrap_content"
 	    android:layout_marginLeft="@dimen/element_padding_normal"
-	    android:text="Entered dogs"></TextView>
+	    android:text="Entered dogs"/>
 	<View android:layout_width="fill_parent" android:layout_height="2dip" android:background="#B7B7B7" />
 </LinearLayout>
