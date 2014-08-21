@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.widget.EditText;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 
 public class TypefacedEditText extends EditText {

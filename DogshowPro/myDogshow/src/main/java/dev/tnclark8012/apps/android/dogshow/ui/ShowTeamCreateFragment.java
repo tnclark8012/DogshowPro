@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import dev.tnclark8012.apps.android.dogshow.Config.IApiAccessor;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
@@ -42,20 +43,20 @@ public class ShowTeamCreateFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_team_create, container, false);
-		((Button) view.findViewById(R.id.button_bar_button_right))
+		view.findViewById(R.id.button_bar_button_right)
 				.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						verifyInput();
-					}
-				});
-		((Button) view.findViewById(R.id.button_bar_button_left))
+                    @Override
+                    public void onClick(View v) {
+                        verifyInput();
+                    }
+                });
+		view.findViewById(R.id.button_bar_button_left)
 				.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						mCallback.onCreateFinish(STATUS_BACK, null, null);
-					}
-				});
+                    @Override
+                    public void onClick(View v) {
+                        mCallback.onCreateFinish(STATUS_BACK, null, null);
+                    }
+                });
 		mNameEditText = (EditText) view.findViewById(R.id.edit_show_team_name);
 		mPasswordText = (EditText) view
 				.findViewById(R.id.edit_show_team_password);
@@ -115,16 +116,16 @@ public class ShowTeamCreateFragment extends Fragment {
 						if (status != STATUS_SUCCESS) {
 							cancel(true);
 						}
-					};
+					}
 
-					protected void onPostExecute(ShowTeamResponse response) {
+                    protected void onPostExecute(ShowTeamResponse response) {
 						mProgressLayout.setVisibility(View.GONE);
 						if (mCallback != null) {
 							mCallback.onCreateFinish(STATUS_SUCCESS,
 									response.teamName, response.identifier);
 						}
-					};
-				}.execute(teamName, password);
+					}
+                }.execute(teamName, password);
 			}
 		}
 	}

@@ -6,6 +6,9 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.RingBlocks;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 
+/**
+ * Contains interfaces for queries used in the UI
+ */
 public class Query {
 
 	public interface RingsQuery {

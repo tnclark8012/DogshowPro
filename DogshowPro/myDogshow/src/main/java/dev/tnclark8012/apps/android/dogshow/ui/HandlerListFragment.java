@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.CursorLoader;
 import android.net.Uri;
 import android.widget.CursorAdapter;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.adapters.HandlerListAdapter;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;

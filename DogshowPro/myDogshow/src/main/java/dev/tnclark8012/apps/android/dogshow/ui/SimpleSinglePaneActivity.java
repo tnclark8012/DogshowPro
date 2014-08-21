@@ -19,8 +19,9 @@ package dev.tnclark8012.apps.android.dogshow.ui;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
-import dev.tnclark8012.apps.android.dogshow.ui.base.BaseActivity;
+
 import dev.tnclark8012.apps.android.dogshow.R;
+import dev.tnclark8012.apps.android.dogshow.ui.base.BaseActivity;
 
 /**
  * A {@link BaseActivity} that simply contains a single fragment. The intent

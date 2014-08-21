@@ -18,6 +18,7 @@ package dev.tnclark8012.apps.android.dogshow.ui.phone;
 
 import android.app.Fragment;
 import android.content.Intent;
+
 import dev.tnclark8012.apps.android.dogshow.ui.JuniorClassSelectFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.SimpleSinglePaneActivity;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.JuniorClass;

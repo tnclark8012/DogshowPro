@@ -1,10 +1,10 @@
 package dev.tnclark8012.apps.android.dogshow.sync;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
 import android.content.ContentProviderOperation;
 import android.content.Context;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 public abstract class JsonHandler<ModelObject> {
     protected static Context mContext;
@@ -13,6 +13,6 @@ public abstract class JsonHandler<ModelObject> {
         mContext = context;
     }
 
-    public abstract ArrayList<ContentProviderOperation> parse(ModelObject[] objs) throws IOException;
+    public abstract ArrayList<ContentProviderOperation> parse(ModelObject[] objs);
 
 }

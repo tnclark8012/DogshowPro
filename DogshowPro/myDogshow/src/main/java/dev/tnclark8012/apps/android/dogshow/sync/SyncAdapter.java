@@ -16,9 +16,6 @@
 
 package dev.tnclark8012.apps.android.dogshow.sync;
 
-import java.io.IOException;
-import java.util.regex.Pattern;
-
 import android.accounts.Account;
 import android.content.AbstractThreadedSyncAdapter;
 import android.content.ContentProviderClient;
@@ -28,6 +25,10 @@ import android.content.SyncResult;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+
+import java.io.IOException;
+import java.util.regex.Pattern;
+
 import dev.tnclark8012.apps.android.dogshow.BuildConfig;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 

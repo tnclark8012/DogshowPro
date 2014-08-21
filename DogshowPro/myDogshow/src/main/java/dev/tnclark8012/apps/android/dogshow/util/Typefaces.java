@@ -1,8 +1,8 @@
 package dev.tnclark8012.apps.android.dogshow.util;
 
-import java.util.Hashtable;
-
 import android.graphics.Typeface;
+
+import java.util.Hashtable;
 
 public class Typefaces {
 	private static final String TAG = "Typefaces";

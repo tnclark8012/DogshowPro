@@ -1,21 +1,23 @@
 package dev.tnclark8012.apps.android.dogshow.adapters;
 
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.DogsQuery;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
-public class DogListAdapter extends BaseEntityCursorAdapter {
+public class DogListAdapter extends CursorAdapter {
 	private Activity mActivity;
 	private DisplayImageOptions options = new DisplayImageOptions.Builder().resetViewBeforeLoading(true).build();
 

@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.widget.TextView;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 
 public class TypefacedTextView extends TextView {

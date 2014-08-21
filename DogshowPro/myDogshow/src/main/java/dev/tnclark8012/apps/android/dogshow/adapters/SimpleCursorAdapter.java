@@ -5,9 +5,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CursorAdapter;
 import android.widget.TextView;
 
-public class SimpleCursorAdapter extends BaseEntityCursorAdapter {
+/**
+ * Simple text view cursor adapter
+ */
+public class SimpleCursorAdapter extends CursorAdapter {
 	private int mTextColumnIndex;
 	private int mTextViewResourceId;
 	private int mLayoutId;

@@ -6,18 +6,21 @@ import android.database.Cursor;
 import android.graphics.Typeface;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CursorAdapter;
 import android.widget.TextView;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.RingBlockOverviewQuery;
 
-public class RingBlockOverviewListAdapter extends BaseEntityCursorAdapter {
+/**
+ * List adapter for ring block overviews. Use with {@link RingBlockOverviewQuery}. Because {@link RingBlockOverviewQuery.COUNT_AHEAD} is monotonically increasing,
+ * you can pass a selectedCountAhead to highlight as bold. Rings are grouped by their judges.
+ * {@inheritDoc}
+ *
+ */
+public class RingBlockOverviewListAdapter extends CursorAdapter {
 	private Activity mActivity;
 	private int mSelectedCountAhead = -1;
-
-	public RingBlockOverviewListAdapter(Activity activity, Cursor cursor) {
-		super(activity, cursor, false);
-		mActivity = activity;
-	}
 
 	public RingBlockOverviewListAdapter(Activity activity, Cursor cursor,
 			int selectedCountAhead) {
@@ -30,6 +33,7 @@ public class RingBlockOverviewListAdapter extends BaseEntityCursorAdapter {
 		TextView judgeView;
 		TextView titleView;
 	}
+
 
 	@Override
 	public void bindView(View view, Context context, Cursor cursor) {

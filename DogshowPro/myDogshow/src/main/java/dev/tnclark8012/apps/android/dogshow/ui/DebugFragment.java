@@ -1,7 +1,6 @@
 package dev.tnclark8012.apps.android.dogshow.ui;
 
 import android.app.Fragment;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +12,7 @@ import dev.tnclark8012.apps.android.dogshow.ui.base.BaseActivity;
 import dev.tnclark8012.apps.android.dogshow.ui.widget.CheckableFrameLayout;
 
 /**
+ * Simple fragment used for debugging purposes only
  * Created by taylorc on 8/7/2014.
  */
 public class DebugFragment extends Fragment {

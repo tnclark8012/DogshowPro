@@ -16,9 +16,6 @@
 
 package dev.tnclark8012.apps.android.dogshow.ui;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-
 import android.app.Activity;
 import android.app.ListFragment;
 import android.app.LoaderManager;
@@ -42,10 +39,14 @@ import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
-import dev.tnclark8012.apps.android.dogshow.R;
 /**
  * Schedule Similar to {@link MyScheduleFragment} but does not remove past rings
  * @author Taylor

@@ -1,9 +1,5 @@
 package dev.tnclark8012.apps.android.dogshow.sync;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-
 import android.accounts.Account;
 import android.content.ContentProviderOperation;
 import android.content.ContentResolver;
@@ -14,6 +10,11 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.util.Log;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
 import dev.tnclark8012.apps.android.dogshow.Config.IApiAccessor;
 import dev.tnclark8012.apps.android.dogshow.model.Show;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
@@ -59,8 +60,7 @@ public class SyncHelper {
 
 	public Show[] getShows() {
 		Log.v(TAG, "getShows using base url, " + mAccessor.getShowsUrl());
-		Show[] response = mAccessor.getShows();
-		return response;
+		return mAccessor.getShows();
 	}
 
 	// TODO move this to a service
@@ -160,8 +160,7 @@ public class SyncHelper {
 		}
 	}
 
-	public void performSync(SyncResult syncResult, int flags)
-			throws IOException {
+	public void performSync(SyncResult syncResult, int flags) {
 
 		final long lastSync = getLastSync(mContext);
 

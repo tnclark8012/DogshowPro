@@ -16,13 +16,8 @@
 
 package dev.tnclark8012.apps.android.dogshow.util;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Formatter;
-import java.util.Locale;
-import java.util.TimeZone;
-
 import android.annotation.TargetApi;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -46,6 +41,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -53,25 +49,22 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration.Builder;
 import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Formatter;
+import java.util.Locale;
+import java.util.TimeZone;
+
 /**
  * An assortment of UI helpers.
  */
 public class UIUtils {
 	private static final String TAG = UIUtils.class.getSimpleName();
-	/**
-	 * Time zone to use when formatting all session times. To always use the
-	 * phone local time, use {@link TimeZone#getDefault()}.
-	 */
-	public static final TimeZone CONFERENCE_TIME_ZONE = TimeZone
-			.getTimeZone("America/Los_Angeles");
-
-	public static final String CONFERENCE_HASHTAG = "#io12";
 
 	private static final int SECOND_MILLIS = 1000;
 	private static final int MINUTE_MILLIS = 60 * SECOND_MILLIS;
 	private static final int HOUR_MILLIS = 60 * MINUTE_MILLIS;
 	private static final int DAY_MILLIS = 24 * HOUR_MILLIS;
-	public static int NAVIGATION_POSITION = 0;
 
 	/** Flags used with {@link DateUtils#formatDateRange}. */
 	private static final int TIME_FLAGS = DateUtils.FORMAT_SHOW_TIME
@@ -161,21 +154,15 @@ public class UIUtils {
 		}
 	}
 
-	// public static void safeOpenLink(Context context, Intent linkIntent) {
-	// try {
-	// context.startActivity(linkIntent);
-	// } catch (ActivityNotFoundException e) {
-	// Toast.makeText(context, "Couldn't open link", Toast.LENGTH_SHORT)
-	// .show();
-	// }
-	//
-	// public static Class getMapActivityClass(Context context) {
-	// if (UIUtils.isHoneycombTablet(context)) {
-	// return MapMultiPaneActivity.class;
-	// }
-	//
-	// return MapActivity.class;
-	// }
+	public static void safeOpenLink(Context context, Intent linkIntent) {
+        try {
+            context.startActivity(linkIntent);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(context, "Couldn't open link", Toast.LENGTH_SHORT)
+                    .show();
+        }
+    }
+
 
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	public static void setActivatedCompat(View view, boolean activated) {

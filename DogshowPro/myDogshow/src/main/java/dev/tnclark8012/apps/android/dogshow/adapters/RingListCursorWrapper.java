@@ -1,12 +1,18 @@
 package dev.tnclark8012.apps.android.dogshow.adapters;
 
-import java.util.Arrays;
-
 import android.database.Cursor;
 import android.database.CursorWrapper;
+
+import java.util.Arrays;
+
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.EnteredRings;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 
+/**
+ * Wrapper for a ring list. Dynamically returns rings based on custom ring judging times.
+ * It's not enough to simply sort the list based on ring block start because there may be a  different number of entries before 2 rings that have the same
+ * block start time. This class accounts for the number of entries before a particular ring
+ */
 public class RingListCursorWrapper extends CursorWrapper {
 
 	int[] originalPositions;
@@ -57,11 +63,8 @@ public class RingListCursorWrapper extends CursorWrapper {
 
 	public RingListCursorWrapper(Cursor cursor,
 			RingListCursorWrapperOptions options) {
-
 		super(cursor);
-
 		int count = cursor.getCount();
-		size = count;
 		originalPositions = new int[count];
 		pairs = new Pair[count];
 		int i = 0;
@@ -76,7 +79,6 @@ public class RingListCursorWrapper extends CursorWrapper {
 		while (cursor.moveToNext()) {
 			countAhead = cursor.getInt(options.countAheadColumnIndex);
 			type = cursor.getInt(options.ringTypeColumnIndex);
-			breedCount = null;
 			if (type == EnteredRings.TYPE_BREED_RING) {
 				breedCount = new int[] {
 						cursor.getInt(options.dogCountColumnIndex),
@@ -109,8 +111,6 @@ public class RingListCursorWrapper extends CursorWrapper {
 						options.perAheadJudgeMillsColumnIndex,
 						options.defaultPerGroupJudgeMillis);
 			}
-			int ringNumber = cursor.getInt(cursor
-					.getColumnIndex(EnteredRings.RING_NUMBER));
 			
 			estMillis = Utils
 					.estimateBlockStart(countAhead,

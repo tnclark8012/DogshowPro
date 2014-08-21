@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
 import dev.tnclark8012.apps.android.dogshow.sync.ApiAccessor;
 
 public class GoogleDocsPdfViewer extends Activity {

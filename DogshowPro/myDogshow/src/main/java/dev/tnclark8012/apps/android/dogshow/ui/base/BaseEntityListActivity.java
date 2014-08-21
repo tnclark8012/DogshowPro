@@ -1,12 +1,13 @@
 package dev.tnclark8012.apps.android.dogshow.ui.base;
 
-import java.util.Map;
-
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+
+import java.util.Map;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
 import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigatableActivity;
@@ -33,7 +34,7 @@ public abstract class BaseEntityListActivity extends NavigatableActivity
 
 	protected String setTopMenuVisible(String[] tags) {
 		FragmentManager manager = getFragmentManager();
-		Fragment f = null;
+		Fragment f;
 		String tag;
 		boolean visible = true;
 		int top = 0;

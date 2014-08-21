@@ -1,10 +1,11 @@
 package dev.tnclark8012.apps.android.dogshow.adapters;
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.database.Cursor;
 import android.widget.ArrayAdapter;
+
+import java.util.ArrayList;
+
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query;
 
 public class ShowTeamDialogListAdapter extends ArrayAdapter<String> {

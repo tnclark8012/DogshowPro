@@ -2,8 +2,8 @@ package dev.tnclark8012.apps.android.dogshow.ui.navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Checkable;
 import android.widget.TextView;
 

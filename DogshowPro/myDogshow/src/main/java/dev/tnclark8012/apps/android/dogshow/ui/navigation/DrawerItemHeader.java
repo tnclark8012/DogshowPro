@@ -2,6 +2,7 @@ package dev.tnclark8012.apps.android.dogshow.ui.navigation;
 
 import android.view.View;
 import android.view.ViewGroup;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 
 public class DrawerItemHeader extends NonNavigationDrawerItem{

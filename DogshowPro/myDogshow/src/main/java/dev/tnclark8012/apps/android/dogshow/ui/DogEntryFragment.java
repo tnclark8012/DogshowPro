@@ -27,6 +27,7 @@ import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
@@ -120,13 +121,6 @@ public class DogEntryFragment extends Fragment implements
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);
-		if (savedInstanceState != null) {
-		}
-
-		reloadFromArguments(getArguments());
-	}
-
-	protected void reloadFromArguments(Bundle arguments) {
 	}
 
 	@Override

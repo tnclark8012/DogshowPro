@@ -1,9 +1,9 @@
 package dev.tnclark8012.apps.android.dogshow.ui.dialog;
 
 import android.app.Dialog;
-import android.support.v4.app.DialogFragment;
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 
 public class WaitDialogFragment extends DialogFragment
 {

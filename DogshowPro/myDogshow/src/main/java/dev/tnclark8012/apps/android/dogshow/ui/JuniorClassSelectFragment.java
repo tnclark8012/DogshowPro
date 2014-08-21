@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
 import dev.tnclark8012.dogshow.shared.DogshowEnums.JuniorClass;
 
 public class JuniorClassSelectFragment extends ListFragment {

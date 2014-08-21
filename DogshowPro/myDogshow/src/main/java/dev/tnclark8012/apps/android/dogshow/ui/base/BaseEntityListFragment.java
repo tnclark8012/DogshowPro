@@ -1,7 +1,5 @@
 package dev.tnclark8012.apps.android.dogshow.ui.base;
 
-import java.util.Random;
-
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.app.ListFragment;
@@ -25,6 +23,9 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
+
+import java.util.Random;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
 import dev.tnclark8012.apps.android.dogshow.ui.dialog.YesNoDialog;
@@ -41,12 +42,7 @@ public abstract class BaseEntityListFragment extends ListFragment implements
 		public void onDeleteEntity(Uri uri, String entityId);
 	}
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		return super.onCreateView(inflater, container, savedInstanceState);
-	}
-	protected abstract Uri getContentUri();
+    protected abstract Uri getContentUri();
 
 	protected abstract CursorAdapter getCursorAdapter(Activity activity);
 

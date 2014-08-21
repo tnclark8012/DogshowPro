@@ -80,9 +80,10 @@ public final class Prefs {
 	 */
 	public static boolean setCurrentTeamIdentifier(Context context,
 			String currentTeam) {
-		if (currentTeam != getCurrentTeamIdentifier(context)) {
+		if (!currentTeam.equals(getCurrentTeamIdentifier(context))) {
 			get(context).edit().putString(KEY_CURRENT_TEAM_ID, currentTeam)
 					.commit();
+            return true;
 		}
 		return false;
 	}

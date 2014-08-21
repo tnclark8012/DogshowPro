@@ -16,8 +16,6 @@
 
 package dev.tnclark8012.apps.android.dogshow.ui.widget;
 
-import android.animation.Animator;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
@@ -30,9 +28,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import dev.tnclark8012.apps.android.dogshow.R;
-import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 
-import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.LOGD;
 import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.LOGW;
 import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.makeLogTag;
 

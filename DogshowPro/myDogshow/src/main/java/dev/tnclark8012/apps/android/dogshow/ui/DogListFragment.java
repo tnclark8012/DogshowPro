@@ -5,6 +5,7 @@ import android.content.CursorLoader;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.CursorAdapter;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.adapters.DogListAdapter;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;

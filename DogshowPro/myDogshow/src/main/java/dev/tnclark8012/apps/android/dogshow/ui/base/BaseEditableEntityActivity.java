@@ -1,11 +1,12 @@
 package dev.tnclark8012.apps.android.dogshow.ui.base;
 
-import java.util.Map;
-
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+
+import java.util.Map;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigatableActivity;
 

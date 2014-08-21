@@ -1,6 +1,5 @@
 package dev.tnclark8012.apps.android.dogshow.adapters;
 
-import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
@@ -10,10 +9,12 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.SectionIndexer;
 import android.widget.TextView;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.EnteredRings;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.RingsQuery;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
+import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 
 public class RingListAdapter extends CursorAdapter implements
 		StickyListHeadersAdapter, SectionIndexer {

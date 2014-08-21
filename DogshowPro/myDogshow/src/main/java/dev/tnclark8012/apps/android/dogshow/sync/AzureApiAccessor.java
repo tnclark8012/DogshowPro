@@ -1,10 +1,5 @@
 package dev.tnclark8012.apps.android.dogshow.sync;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Date;
-
 import android.content.Context;
 import android.util.Log;
 
@@ -13,8 +8,12 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Date;
+
 import dev.tnclark8012.apps.android.dogshow.model.BreedRing;
-import dev.tnclark8012.apps.android.dogshow.model.ConformationRingAssignment;
 import dev.tnclark8012.apps.android.dogshow.model.Dog;
 import dev.tnclark8012.apps.android.dogshow.model.GroupRing;
 import dev.tnclark8012.apps.android.dogshow.model.Handler;
@@ -62,9 +61,10 @@ public class AzureApiAccessor extends ApiAccessor {
 				FieldNamingPolicy.UPPER_CAMEL_CASE).create();
 		try {
 			BASE_URL = new URL(
-					(Prefs.useLocalServer(context)) ? /*"http://10.0.2.2:49414/api"*/
-                            //"http://192.168.0.7:49414/api"
-                            "http://10.121.217.227:49414/api"
+					(Prefs.useLocalServer(context)) ?
+					        //"http://10.0.2.2:49414/api" //Emulator localhost loopback
+                            //"http://192.168.0.7:49414/api" //local IP 1
+                            "http://10.121.217.227:49414/api" //local IP 2
 							: "http://dogshow.azurewebsites.net/api");
 			GET_SHOW_URL = new URL(BASE_URL + "/Show/GetShows");
 			GET_BREED_RINGS_URL = new URL(BASE_URL + "/BreedRing");
@@ -99,10 +99,10 @@ public class AzureApiAccessor extends ApiAccessor {
 			String query = "?showId=" + urlEncode(showId) + "&breedName="
 					+ urlEncode(breed);
 			if (veteran != null) {
-				query += "&veteran=" + veteran.booleanValue();
+				query += "&veteran=" + veteran;
 			}
 			if (sweepstakes != null) {
-				query += "&sweepstakes=" + sweepstakes.booleanValue();
+				query += "&sweepstakes=" + sweepstakes;
 			}
 			return new URL(GET_BREED_RINGS_URL, query);
 		} catch (MalformedURLException e) {
@@ -179,8 +179,7 @@ public class AzureApiAccessor extends ApiAccessor {
         JsonObject json = mGson.toJsonTree(request, ConformationRingAssignmentRequestModel.class)
                 .getAsJsonObject();
         String jsonStr = makePostRequest(buildGetRingAssignmentsUrl(showId),json);
-        ConformationRingAssignmentResponse[] rings = mGson.fromJson(jsonStr, ConformationRingAssignmentResponse[].class);
-        return rings;
+        return mGson.fromJson(jsonStr, ConformationRingAssignmentResponse[].class);
     }
 
 	@Override

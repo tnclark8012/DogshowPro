@@ -2,8 +2,9 @@ package dev.tnclark8012.apps.android.dogshow.ui.navigation;
 
 import android.graphics.Typeface;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+
 import dev.tnclark8012.apps.android.dogshow.util.Typefaces;
 
 public abstract class NavigationDrawerItem extends DrawerItem {

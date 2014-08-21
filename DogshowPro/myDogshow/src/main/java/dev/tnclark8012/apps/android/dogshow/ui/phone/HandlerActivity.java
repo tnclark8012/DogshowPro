@@ -1,8 +1,5 @@
 package dev.tnclark8012.apps.android.dogshow.ui.phone;
 
-import android.os.Bundle;
-import android.support.v4.app.NavUtils;
-import android.view.MenuItem;
 import dev.tnclark8012.apps.android.dogshow.ui.HandlerEditFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.HandlerViewFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityActivity;

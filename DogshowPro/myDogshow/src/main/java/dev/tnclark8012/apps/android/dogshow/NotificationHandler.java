@@ -24,7 +24,7 @@ public class NotificationHandler extends NotificationsHandler {
 	    return mHandle;
 	}
 
-	public static final void setHandle(String handle) {
+	public static void setHandle(String handle) {
 	    mHandle = handle;
 	}
 	

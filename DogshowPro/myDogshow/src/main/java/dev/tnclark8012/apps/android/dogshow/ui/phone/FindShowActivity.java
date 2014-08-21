@@ -3,6 +3,7 @@ package dev.tnclark8012.apps.android.dogshow.ui.phone;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
+
 import dev.tnclark8012.apps.android.dogshow.model.Show;
 import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.ui.FindShowFragment;

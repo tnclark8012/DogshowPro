@@ -13,10 +13,8 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   -->
-<dev.tnclark8012.apps.android.dogshow.ui.widget.ObservableScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<dev.tnclark8012.apps.android.dogshow.ui.widget.ObservableScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:iosched="http://schemas.android.com/apk/res-auto"
-    xmlns:plus="http://schemas.android.com/apk/lib/com.google.android.gms.plus"
     android:id="@+id/scroll_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"

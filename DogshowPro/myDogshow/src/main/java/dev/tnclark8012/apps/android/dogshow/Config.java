@@ -19,7 +19,6 @@ package dev.tnclark8012.apps.android.dogshow;
 import java.net.URL;
 
 import dev.tnclark8012.apps.android.dogshow.model.BreedRing;
-import dev.tnclark8012.apps.android.dogshow.model.ConformationRingAssignment;
 import dev.tnclark8012.apps.android.dogshow.model.Dog;
 import dev.tnclark8012.apps.android.dogshow.model.GroupRing;
 import dev.tnclark8012.apps.android.dogshow.model.Handler;

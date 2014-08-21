@@ -1,17 +1,15 @@
 package dev.tnclark8012.apps.android.dogshow.ui.phone;
 
-import java.util.Map;
-
 import android.app.FragmentManager;
 import android.app.FragmentManager.OnBackStackChangedListener;
 import android.net.Uri;
 import android.os.Bundle;
+
+import java.util.Map;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
-import dev.tnclark8012.apps.android.dogshow.ui.DogEditFragment;
-import dev.tnclark8012.apps.android.dogshow.ui.DogListFragment;
-import dev.tnclark8012.apps.android.dogshow.ui.DogViewFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.HandlerEditFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.HandlerListFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.HandlerViewFragment;

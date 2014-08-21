@@ -2,6 +2,7 @@ package dev.tnclark8012.apps.android.dogshow.util;
 
 import android.content.Context;
 import android.util.Log;
+
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 
 public class DebugUtils {

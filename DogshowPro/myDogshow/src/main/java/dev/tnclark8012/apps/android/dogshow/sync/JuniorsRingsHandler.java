@@ -1,10 +1,11 @@
 package dev.tnclark8012.apps.android.dogshow.sync;
 
-import java.util.ArrayList;
-
 import android.content.ContentProviderOperation;
 import android.content.Context;
 import android.util.Log;
+
+import java.util.ArrayList;
+
 import dev.tnclark8012.apps.android.dogshow.model.JuniorsRing;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.JuniorsRings;

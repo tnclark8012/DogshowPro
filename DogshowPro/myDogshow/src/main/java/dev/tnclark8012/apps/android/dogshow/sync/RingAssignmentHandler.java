@@ -7,7 +7,6 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-import dev.tnclark8012.apps.android.dogshow.model.ConformationRingAssignment;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.SyncColumns;
 import dev.tnclark8012.apps.android.dogshow.sync.response.ConformationRingAssignmentResponse;

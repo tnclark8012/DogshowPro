@@ -55,12 +55,12 @@ public abstract class ApiAccessor implements Config.IApiAccessor {
 
     protected String executeGet(URL url) throws IOException {
         Log.d(TAG, "Requesting URL: " + url);
-        String response = null;
+
         HttpURLConnection urlConnection = (HttpURLConnection) url
                 .openConnection();
         urlConnection.connect();
         throwErrors(urlConnection);
-        response = readInputStream(urlConnection.getInputStream());
+        String response = readInputStream(urlConnection.getInputStream());
 
         Log.v(TAG, "HTTP response: " + response);
         return response;
@@ -87,8 +87,7 @@ public abstract class ApiAccessor implements Config.IApiAccessor {
             httpPost.setEntity(new StringEntity(json.toString()));
             httpPost.setHeader("Accept", "application/json");
             httpPost.setHeader("Content-type", "application/json");
-            String response = EntityUtils.toString(new DefaultHttpClient().execute(httpPost).getEntity());
-            return response;
+            return  EntityUtils.toString(new DefaultHttpClient().execute(httpPost).getEntity());
         } catch (Exception e) {
             e.printStackTrace();
         }

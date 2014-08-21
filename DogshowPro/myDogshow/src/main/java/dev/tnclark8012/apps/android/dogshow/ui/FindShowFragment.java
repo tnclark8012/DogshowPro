@@ -27,9 +27,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.model.Show;
 import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
-import dev.tnclark8012.apps.android.dogshow.R;
 
 /**
  * Schedule Similar to {@link MyScheduleFragment} but does not remove past rings

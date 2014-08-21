@@ -1,12 +1,13 @@
 package dev.tnclark8012.apps.android.dogshow.ui.phone;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import android.app.Fragment;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.model.Show;
 import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;

@@ -1,12 +1,5 @@
 package dev.tnclark8012.apps.android.dogshow.ui;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-
-import dev.tnclark8012.apps.android.dogshow.BuildConfig;
-import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.LoaderManager;
@@ -14,10 +7,8 @@ import android.content.CursorLoader;
 import android.content.Loader;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
-import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.database.Cursor;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.format.DateUtils;
@@ -35,10 +26,14 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import dev.tnclark8012.apps.android.dogshow.BuildConfig;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.adapters.RingListAdapter;
 import dev.tnclark8012.apps.android.dogshow.adapters.RingListCursorWrapper;
@@ -57,6 +52,7 @@ import dev.tnclark8012.apps.android.dogshow.ui.dialog.RingBlockOverviewDialogFra
 import dev.tnclark8012.apps.android.dogshow.util.Lists;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
+import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
 public class MyScheduleFragment extends Fragment implements
 		LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback,
@@ -340,8 +336,6 @@ public class MyScheduleFragment extends Fragment implements
 					currentColumn++;
 					firstClass--;
 				}
-			} else if (type == EnteredRings.TYPE_JUNIORS_RING) {
-
 			}
 
 			long judgeMinutesPerDog = Utils.getMaybeNull(cursor,

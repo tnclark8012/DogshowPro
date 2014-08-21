@@ -2,8 +2,12 @@ package dev.tnclark8012.apps.android.dogshow.adapters;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;
+
 import dev.tnclark8012.dogshow.shared.DogshowEnums.BreedGroup;
 
+/**
+ * Simple array adapter displaying the breed names in a breed group
+ */
 public class BreedAdapter extends ArrayAdapter<String> {
 	private static final String TAG = BreedAdapter.class.getSimpleName();
 

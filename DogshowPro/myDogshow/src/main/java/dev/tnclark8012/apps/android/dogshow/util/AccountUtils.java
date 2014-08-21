@@ -16,9 +16,6 @@
 
 package dev.tnclark8012.apps.android.dogshow.util;
 
-import java.io.IOException;
-import java.util.UUID;
-
 import android.accounts.Account;
 import android.app.Activity;
 import android.content.Context;
@@ -28,12 +25,14 @@ import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.android.gms.auth.GoogleAuthException;
 import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.auth.UserRecoverableNotifiedException;
 import com.google.android.gms.common.Scopes;
+
+import java.io.IOException;
+import java.util.UUID;
 
 import dev.tnclark8012.apps.android.dogshow.NotificationHandler;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;

@@ -3,7 +3,6 @@ package dev.tnclark8012.apps.android.dogshow.ui.dialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.LoaderManager.LoaderCallbacks;
-import android.app.ProgressDialog;
 import android.content.CursorLoader;
 import android.content.Loader;
 import android.database.Cursor;
@@ -12,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.adapters.RingBlockOverviewListAdapter;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.RingBlocks;

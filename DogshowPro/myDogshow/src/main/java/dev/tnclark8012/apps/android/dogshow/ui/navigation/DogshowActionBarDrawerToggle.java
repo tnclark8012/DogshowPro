@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 
 public class DogshowActionBarDrawerToggle extends ActionBarDrawerToggle {

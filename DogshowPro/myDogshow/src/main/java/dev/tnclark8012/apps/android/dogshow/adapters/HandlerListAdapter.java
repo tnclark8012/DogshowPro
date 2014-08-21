@@ -1,22 +1,23 @@
 package dev.tnclark8012.apps.android.dogshow.adapters;
 
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-
 import android.app.Activity;
 import android.content.Context;
-import android.content.res.Resources;
 import android.database.Cursor;
-import android.graphics.drawable.BitmapDrawable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.HandlersQuery;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
-import dev.tnclark8012.apps.android.dogshow.util.Utils;
 
+/**
+ * Adapter for a list of Handlers. Displays name and image. Use with {@link HandlersQuery}
+ */
 public class HandlerListAdapter extends CursorAdapter {
 	private Activity mActivity;
 	private DisplayImageOptions options = new DisplayImageOptions.Builder().resetViewBeforeLoading(true).build();

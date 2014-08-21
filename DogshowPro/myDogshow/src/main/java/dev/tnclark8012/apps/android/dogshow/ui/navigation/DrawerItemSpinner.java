@@ -1,11 +1,12 @@
 package dev.tnclark8012.apps.android.dogshow.ui.navigation;
 
-import java.util.List;
-
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Spinner;
+
+import java.util.List;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 
 public class DrawerItemSpinner extends NonNavigationDrawerItem {

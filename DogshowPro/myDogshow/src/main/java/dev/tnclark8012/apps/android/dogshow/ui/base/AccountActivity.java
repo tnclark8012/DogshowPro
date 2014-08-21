@@ -16,9 +16,6 @@
 
 package dev.tnclark8012.apps.android.dogshow.ui.base;
 
-import java.util.Arrays;
-import java.util.List;
-
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.Activity;
@@ -58,6 +55,9 @@ import com.microsoft.windowsazure.messaging.NotificationHub;
 import com.microsoft.windowsazure.messaging.Registration;
 import com.microsoft.windowsazure.notifications.NotificationsManager;
 
+import java.util.Arrays;
+import java.util.List;
+
 import dev.tnclark8012.apps.android.dogshow.NotificationHandler;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
@@ -71,7 +71,7 @@ public class AccountActivity extends Activity implements
 		PlusClient.OnPeopleLoadedListener {
 
 	private static final String TAG = AccountActivity.class.getSimpleName();
-	public static final String SENDER_ID = "282844312315";
+	private static final String SENDER_ID = "282844312315";
 	private GoogleCloudMessaging gcm;
 	private NotificationHub hub;
 	public static final String EXTRA_FINISH_INTENT = "dev.tnclark8012.apps.android.dogshow.extra.FINISH_INTENT";
@@ -176,8 +176,8 @@ public class AccountActivity extends Activity implements
 	}
 
 	@Override
-	protected void onSaveInstanceState(Bundle outState) {
-		if (mChosenAccount != null)
+	protected void onSaveInstanceState(@NonNull Bundle outState) {
+		if (mChosenAccount != null && outState != null)
 			outState.putString(KEY_CHOSEN_ACCOUNT, mChosenAccount.name);
 		super.onSaveInstanceState(outState);
 	}
@@ -229,14 +229,6 @@ public class AccountActivity extends Activity implements
 				Person person = personBuffer.get(0);
 				AccountUtils.setPlusProfileId(this, person.getId());
 				AccountUtils.setProfileName(this, person.getDisplayName());
-
-				// TODO image
-				String name = person.getDisplayName();
-				if (person.hasImage()) {
-					String imageUrl = personBuffer.get(0).getImage().getUrl();
-					// imageUrl.concat("?sz=" +
-					// this.getResources().getInteger(R.dimen.header_icon_height));
-				}
 			}
 		} else {
 			Log.e(TAG, "Got " + status.getErrorCode()
@@ -566,7 +558,7 @@ public class AccountActivity extends Activity implements
 		}
 	}
 
-	public void makeToast(Context context, String message) {
+	void makeToast(Context context, String message) {
 		Toast.makeText(context, message, Toast.LENGTH_LONG).show();
 	}
 }

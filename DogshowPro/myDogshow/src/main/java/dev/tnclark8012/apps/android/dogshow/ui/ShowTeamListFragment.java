@@ -1,7 +1,6 @@
 package dev.tnclark8012.apps.android.dogshow.ui;
 
 import android.app.Activity;
-import android.app.FragmentManager;
 import android.content.CursorLoader;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.adapters.SimpleCursorAdapter;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;

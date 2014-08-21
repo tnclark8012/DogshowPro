@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 
 public class ShowTeamAddFragment extends Fragment {
@@ -24,20 +25,20 @@ public class ShowTeamAddFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_team_create_or_join,
                 container, false);
-		((Button) view.findViewById(R.id.button_team_create))
+		view.findViewById(R.id.button_team_create)
 				.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						mCallback.onCreate();
-					}
-				});
-		((Button) view.findViewById(R.id.button_team_join))
+                    @Override
+                    public void onClick(View v) {
+                        mCallback.onCreate();
+                    }
+                });
+		view.findViewById(R.id.button_team_join)
 				.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						mCallback.onJoin();
-					}
-				});
+                    @Override
+                    public void onClick(View v) {
+                        mCallback.onJoin();
+                    }
+                });
 		return view;
 	}
 

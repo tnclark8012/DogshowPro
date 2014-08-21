@@ -1,5 +1,16 @@
 package dev.tnclark8012.apps.android.dogshow.util;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.net.ConnectivityManager;
+import android.net.Uri;
+import android.os.Environment;
+import android.util.Log;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -13,17 +24,6 @@ import java.util.Locale;
 import java.util.TimeZone;
 import java.util.UUID;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.net.ConnectivityManager;
-import android.net.Uri;
-import android.os.Environment;
-import android.util.Log;
-
 public class Utils {
 	private static final String TAG = Utils.class.getSimpleName();
 
@@ -32,7 +32,7 @@ public class Utils {
 	}
 
     public static File downloadFile(String dwnload_file_path) {
-        File file = null;
+        File file;
         try {
 
             URL url = new URL(dwnload_file_path);

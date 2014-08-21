@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 
 public abstract class BaseEditableEntityViewFragment extends Fragment implements

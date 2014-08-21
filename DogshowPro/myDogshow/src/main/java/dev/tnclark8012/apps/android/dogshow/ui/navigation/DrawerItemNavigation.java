@@ -1,6 +1,7 @@
 package dev.tnclark8012.apps.android.dogshow.ui.navigation;
 
 import android.view.View.OnClickListener;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 
 public class DrawerItemNavigation extends NavigationDrawerItem {

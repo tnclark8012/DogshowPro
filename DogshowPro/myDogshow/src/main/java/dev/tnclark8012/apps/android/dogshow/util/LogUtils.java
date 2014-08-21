@@ -17,6 +17,7 @@
 package dev.tnclark8012.apps.android.dogshow.util;
 
 import android.util.Log;
+
 import dev.tnclark8012.apps.android.dogshow.BuildConfig;
 
 /**

@@ -1,10 +1,5 @@
 package dev.tnclark8012.apps.android.dogshow.util.image;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -15,6 +10,12 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 import eu.janmuller.android.simplecropimage.CropImage;
@@ -156,7 +157,7 @@ public class ImageChooserActivity extends Activity {
 			break;
 		case REQUEST_CODE_CROP_IMAGE:
 			bitmap = data
-					.<Bitmap> getParcelableExtra(CropImage.RETURN_DATA_AS_BITMAP);
+					.getParcelableExtra(CropImage.RETURN_DATA_AS_BITMAP);
 			Uri uri = Utils.storeImage(this, bitmap);
 			Intent intent = new Intent();
 			intent.setData(uri);

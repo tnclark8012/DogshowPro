@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 
 public abstract class ButtonBarFragment extends Fragment {

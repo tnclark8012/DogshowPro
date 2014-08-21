@@ -1,15 +1,15 @@
 package dev.tnclark8012.apps.android.dogshow.sync;
 
-import java.util.ArrayList;
-
 import android.content.ContentProviderOperation;
 import android.content.Context;
 import android.util.Log;
+
+import java.util.ArrayList;
+
 import dev.tnclark8012.apps.android.dogshow.model.GroupRing;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.GroupRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.SyncColumns;
-import dev.tnclark8012.dogshow.shared.DogshowEnums;
 
 public class GroupRingsHandler extends JsonHandler<GroupRing> {
 	boolean clearExisting = false;

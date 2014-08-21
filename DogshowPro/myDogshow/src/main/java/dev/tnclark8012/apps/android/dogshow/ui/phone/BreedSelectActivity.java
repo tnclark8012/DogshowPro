@@ -24,10 +24,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+
+import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.ui.BreedSelectFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.BreedSelectFragment.BreedSelectListener;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseActivity;
-import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.BreedGroup;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 
@@ -90,11 +91,6 @@ public class BreedSelectActivity extends BaseActivity implements
 
         }
         getActionBar().setHomeButtonEnabled(true);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
     }
 
     @Override

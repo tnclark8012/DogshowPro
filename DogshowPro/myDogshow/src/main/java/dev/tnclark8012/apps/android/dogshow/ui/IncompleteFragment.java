@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import dev.tnclark8012.apps.android.dogshow.R;
 
 public class IncompleteFragment extends Fragment {
