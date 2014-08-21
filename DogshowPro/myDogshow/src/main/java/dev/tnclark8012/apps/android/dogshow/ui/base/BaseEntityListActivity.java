@@ -11,13 +11,12 @@ import java.util.Map;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
 import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigatableActivity;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public abstract class BaseEntityListActivity extends NavigatableActivity
 		implements BaseEntityListFragment.Callbacks,
 		BaseEditableEntityEditFragment.Callbacks {
 	BaseEntityListFragment mListFragment;
-	private static final String TAG = BaseEntityListActivity.class
-			.getSimpleName();
+	private static final String TAG = makeLogTag(BaseEntityListActivity.class);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

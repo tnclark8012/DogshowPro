@@ -12,8 +12,9 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.SyncColumns;
 import dev.tnclark8012.dogshow.shared.DogshowEnums;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class BreedRingsHandler extends JsonHandler<BreedRing> {
+    private static final String TAG = makeLogTag(BreedRingsHandler.class);
 	boolean clearExisting = false;
 	boolean hasCleared = false;
 
@@ -22,7 +23,7 @@ public class BreedRingsHandler extends JsonHandler<BreedRing> {
 		this.clearExisting = clearExisting;
 	}
 
-	private static final String TAG = BreedRingsHandler.class.getSimpleName();
+
 
 	public ArrayList<ContentProviderOperation> parse(BreedRing[] breedRings) {
 		final ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();

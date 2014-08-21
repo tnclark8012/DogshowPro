@@ -40,13 +40,13 @@ import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sync.ApiAccessor;
 import dev.tnclark8012.apps.android.dogshow.ui.base.AccountActivity;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 /**
  * An assortment of authentication and Login helper utilities.
  */
 public class AccountUtils {
 
-	private static final String TAG = AccountUtils.class.getSimpleName();
+	private static final String TAG = makeLogTag(AccountUtils.class);
 
 	private static final String PREF_CHOSEN_ACCOUNT = "chosen_account";
 	private static final String PREF_AUTH_TOKEN = "auth_token";

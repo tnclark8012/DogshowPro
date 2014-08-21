@@ -63,14 +63,14 @@ import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class AccountActivity extends Activity implements
 		AccountUtils.AuthenticateCallback,
 		GooglePlayServicesClient.ConnectionCallbacks,
 		GooglePlayServicesClient.OnConnectionFailedListener,
 		PlusClient.OnPeopleLoadedListener {
 
-	private static final String TAG = AccountActivity.class.getSimpleName();
+	private static final String TAG = makeLogTag(AccountActivity.class);
 	private static final String SENDER_ID = "282844312315";
 	private GoogleCloudMessaging gcm;
 	private NotificationHub hub;

@@ -21,9 +21,9 @@ import java.net.URLEncoder;
 
 import dev.tnclark8012.apps.android.dogshow.Config;
 import dev.tnclark8012.apps.android.dogshow.Config.IApiAccessor;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public abstract class ApiAccessor implements Config.IApiAccessor {
-    public static final String TAG = ApiAccessor.class.getSimpleName();
+    public static final String TAG = makeLogTag(ApiAccessor.class);
 
     public ApiAccessor() {
     }

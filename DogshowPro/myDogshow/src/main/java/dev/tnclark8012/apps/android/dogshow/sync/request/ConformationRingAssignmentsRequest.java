@@ -17,12 +17,11 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Dogs;
 import dev.tnclark8012.apps.android.dogshow.sync.ApiAccessor;
 import dev.tnclark8012.apps.android.dogshow.sync.RingAssignmentHandler;
 import dev.tnclark8012.apps.android.dogshow.sync.response.ConformationRingAssignmentResponse;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class ConformationRingAssignmentsRequest {
 	private Context mContext;
 	private IApiAccessor mAccessor;
-	public static final String TAG = ConformationRingAssignmentsRequest.class
-			.getSimpleName();
+	public static final String TAG = makeLogTag(ConformationRingAssignmentsRequest.class);
 
 	public ConformationRingAssignmentsRequest(Context context) {
 		mContext = context;

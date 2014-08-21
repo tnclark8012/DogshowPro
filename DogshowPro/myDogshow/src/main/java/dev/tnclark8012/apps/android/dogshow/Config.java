@@ -30,9 +30,13 @@ import dev.tnclark8012.apps.android.dogshow.sync.response.DogSyncResponse;
 import dev.tnclark8012.apps.android.dogshow.sync.response.HandlerSyncResponse;
 import dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamResponse;
 import dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamSyncResponse;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class Config {
 
+    public static final boolean DEBUG_OFFLINE = false;// TODO implement
+    public static final boolean SYNC_ENABLED = true;// TODO implement
+
+    public static final String TAG = makeLogTag(Config.class);
 	public interface IApiAccessor {
 		URL buildGetBreedRingsUrl(String showId);
 
@@ -84,9 +88,4 @@ public class Config {
 		GroupRing[] getGroupRings(String showId);
 		RingBlockOverview[] getRingBlockOverviews(String showId, int ringNumber, long blockStart);
 	}
-
-	public static final boolean DEBUG_OFFLINE = false;// TODO implement
-	public static final boolean SYNC_ENABLED = true;// TODO implement
-
-	public static final String TAG = Config.class.getName();
 }

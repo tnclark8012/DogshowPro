@@ -31,7 +31,7 @@ import dev.tnclark8012.apps.android.dogshow.provider.PersistHelper;
 import dev.tnclark8012.apps.android.dogshow.ui.dialog.YesNoDialog;
 import dev.tnclark8012.apps.android.dogshow.ui.dialog.YesNoDialog.Callback;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public abstract class BaseEntityListFragment extends ListFragment implements
 		LoaderManager.LoaderCallbacks<Cursor>, OnItemLongClickListener {
 	public interface Callbacks {
@@ -60,8 +60,7 @@ public abstract class BaseEntityListFragment extends ListFragment implements
 
 	protected abstract BaseEditableEntityEditFragment getEditFragment();
 
-	private static final String TAG = BaseEntityListFragment.class
-			.getSimpleName();
+	private static final String TAG = makeLogTag(BaseEntityListFragment.class);
 	private final int mQueryToken = new Random().nextInt();
 	private CursorAdapter mAdapter;
 	private static Callbacks sDummyCallbacks = new Callbacks() {

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 
 import dev.tnclark8012.apps.android.dogshow.R;
 
@@ -17,7 +18,7 @@ public class ShowTeamAddFragment extends Fragment {
 		void onJoin();
 	}
 
-	private static final String TAG = ShowTeamAddFragment.class.getSimpleName();
+	private static final String TAG = makeLogTag(ShowTeamAddFragment.class);
 	private Callback mCallback = null;
 
 	@Override

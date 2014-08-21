@@ -19,14 +19,14 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.ResultReceiver;
 import android.util.Log;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 /**
  * Proxy {@link ResultReceiver} that offers a listener interface that can be
  * detached. Useful for when sending callbacks to a {@link Service} where a
  * listening {@link Activity} can be swapped out during configuration changes.
  */
 public class DetachableResultReceiver extends ResultReceiver {
-    private static final String TAG = "DetachableResultReceiver";
+    private static final String TAG = makeLogTag(DetachableResultReceiver.class);
 
     private Receiver mReceiver;
 

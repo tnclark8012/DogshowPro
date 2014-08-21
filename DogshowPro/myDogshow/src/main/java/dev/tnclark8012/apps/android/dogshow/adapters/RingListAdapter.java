@@ -15,10 +15,10 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.EnteredRings;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.RingsQuery;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class RingListAdapter extends CursorAdapter implements
 		StickyListHeadersAdapter, SectionIndexer {
-	public static final String TAG = RingListAdapter.class.getName();
+	public static final String TAG = makeLogTag(RingListAdapter.class);
 	private int[] mSectionIndices;
 	private String[] mSectionHeaders;
 	private int[] mSectionIds;

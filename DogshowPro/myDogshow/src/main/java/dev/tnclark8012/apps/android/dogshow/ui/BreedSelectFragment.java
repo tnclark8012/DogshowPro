@@ -12,9 +12,9 @@ import android.widget.ListView;
 import dev.tnclark8012.apps.android.dogshow.ui.phone.BreedSelectActivity;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.BreedGroup;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class BreedSelectFragment extends ListFragment {
-	private static final String TAG = BreedSelectFragment.class.getSimpleName();
+	private static final String TAG = makeLogTag(BreedSelectFragment.class);
 
 	public interface BreedSelectListener {
 		public void onBreedSelected(Breeds breed);

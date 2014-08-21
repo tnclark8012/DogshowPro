@@ -30,13 +30,13 @@ import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
 import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 import dev.tnclark8012.apps.android.dogshow.util.LPreviewUtilsBase;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 
 /**
  * A base activity that handles common functionality in the app.
  */
 public abstract class BaseActivity extends Activity {
-	private static final String TAG = BaseActivity.class.getSimpleName();
+	public static final String TAG = makeLogTag(BaseActivity.class);
 	public static final String EXTRA_URI = "_uri";
     private LPreviewUtilsBase.ActionBarDrawerToggleWrapper mDrawerToggle;
 

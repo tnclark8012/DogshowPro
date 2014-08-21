@@ -9,12 +9,11 @@ import java.util.Map;
 
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigatableActivity;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public abstract class BaseEditableEntityActivity extends NavigatableActivity
 		implements BaseEditableEntityViewFragment.Callbacks,
 		BaseEditableEntityEditFragment.Callbacks {
-	private static final String TAG = BaseEditableEntityActivity.class
-			.getSimpleName();
+	private static final String TAG = makeLogTag(BaseEditableEntityActivity.class);
 	private boolean isEditing = false;
 	private Bundle mIntentBundle;
 	private BaseEditableEntityViewFragment mViewFragment;

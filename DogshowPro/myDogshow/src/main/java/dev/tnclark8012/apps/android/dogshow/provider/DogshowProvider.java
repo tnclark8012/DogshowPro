@@ -46,9 +46,9 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowDatabase;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowDatabase.Tables;
 import dev.tnclark8012.apps.android.dogshow.util.SelectionBuilder;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class DogshowProvider extends ContentProvider {
-	private static final String TAG = DogshowProvider.class.getSimpleName();
+	private static final String TAG = makeLogTag(DogshowProvider.class);
 
 	private DogshowDatabase mOpenHelper;
 

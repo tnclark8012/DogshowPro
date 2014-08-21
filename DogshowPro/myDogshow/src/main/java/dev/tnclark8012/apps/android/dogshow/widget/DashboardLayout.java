@@ -18,13 +18,13 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 /**
  * Custom layout that arranges children in a grid-like manner, optimizing for even horizontal and
  * vertical whitespace.
  */
 public class DashboardLayout extends ViewGroup {
-	public static final String TAG = "DashboardLayout";
+	public static final String TAG = makeLogTag(DashboardLayout.class);
     private static final int UNEVEN_GRID_PENALTY_MULTIPLIER = 10;
 
     private int mMaxChildWidth = 0;

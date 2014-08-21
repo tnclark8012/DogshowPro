@@ -16,7 +16,7 @@ import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.DogsQuery;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class DogListAdapter extends CursorAdapter {
 	private Activity mActivity;
 	private DisplayImageOptions options = new DisplayImageOptions.Builder().resetViewBeforeLoading(true).build();

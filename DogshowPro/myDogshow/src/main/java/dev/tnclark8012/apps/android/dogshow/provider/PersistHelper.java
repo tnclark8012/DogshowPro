@@ -24,9 +24,9 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.JuniorsRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.SyncColumns;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class PersistHelper {
-	private final static String TAG = PersistHelper.class.getSimpleName();
+	private final static String TAG = makeLogTag(PersistHelper.class);
 	private Context mContext;
 
 	public PersistHelper(Context context) {
