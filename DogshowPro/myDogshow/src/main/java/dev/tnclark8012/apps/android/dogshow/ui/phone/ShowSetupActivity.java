@@ -19,9 +19,9 @@ import dev.tnclark8012.apps.android.dogshow.ui.FindShowFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.HandlerEntryFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.SimpleSinglePaneActivity;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEntryFragment.Callbacks, FindShowFragment.Callbacks, HandlerEntryFragment.Callbacks {
-	private static final String TAG = ShowSetupActivity.class.getSimpleName();
+	private static final String TAG = makeLogTag(ShowSetupActivity.class);
 	DogEntryFragment mDogsFragment;
 	HandlerEntryFragment mHandlerFragment;
 	FindShowFragment mFindShowFragment;
@@ -104,7 +104,7 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 
 	@Override
 	public boolean onDogSelected(int dogId, boolean isChecked) {
-		Log.v(TAG, "dog ID " + dogId + ((isChecked) ? " is Showing" : " NOT showing"));
+		LOGV(TAG, "dog ID " + dogId + ((isChecked) ? " is Showing" : " NOT showing"));
 		Map<String, Object> values = new HashMap<String, Object>();
 		values.put(Dogs.DOG_IS_SHOWING, Utils.booleanToInt(isChecked));
 		helper.updateDog(dogId, values);

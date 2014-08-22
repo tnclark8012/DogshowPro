@@ -53,13 +53,13 @@ import dev.tnclark8012.apps.android.dogshow.util.Lists;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class MyScheduleFragment extends Fragment implements
 		LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback,
 		OnSharedPreferenceChangeListener, OnItemLongClickListener,
 		OnItemClickListener, EditJudgeTimeDialog.Callback {
 	private long upcomingBreedRingStart = 0;
-	private static final String TAG = MyScheduleFragment.class.getSimpleName();
+	private static final String TAG = makeLogTag(MyScheduleFragment.class);
 	private RingListAdapter mAdapter;
 	private View mRootView;
 	private TextView mViewTitle;
@@ -198,13 +198,13 @@ public class MyScheduleFragment extends Fragment implements
 			return;
 		}
 		int token = loader.getId();
-		Log.v(TAG, "loader id " + token + " finished");
+		LOGV(TAG, "loader id " + token + " finished");
 		if (token == UpcomingRingQuery._TOKEN) {
 			onUpcomingRingQueryComplete(cursor);
 		} else if (token == RingsQuery._TOKEN) {
 			onRingsQueryComplete(cursor);
 		} else {
-			Log.d(TAG, "Query complete, Not Actionable: " + token);
+			LOGD(TAG, "Query complete, Not Actionable: " + token);
 			cursor.close();
 		}
 	}
@@ -368,7 +368,7 @@ public class MyScheduleFragment extends Fragment implements
                             upcomingBreedRingStart, judgeMinutesPerDog);
                     if (estimatedStart > currentStart) {
                         long delay = estimatedStart - Utils.currentTimeUtc();
-                        Log.i(TAG,
+                        LOGI(TAG,
                                 "Closest ring is "
                                         + cursor.getString(UpcomingRingQuery.RING_TITLE)
                                         + " at "
@@ -376,14 +376,14 @@ public class MyScheduleFragment extends Fragment implements
                                         .timeStringFromMillis(estimatedStart, true));
                         delay = (delay > 0) ? delay : 0;
                         handler.postDelayed(updateUpcomingRunnable, delay);
-                        Log.i(TAG, "Updating in " + (delay / 1000) + " seconds.");
+                        LOGI(TAG, "Updating in " + (delay / 1000) + " seconds.");
 //					Toast.makeText(getActivity(), "Update in " + (delay/1000), Toast.LENGTH_SHORT).show();;
                         break;
                     }
                 }
             }
 		} else {
-			Log.v(TAG, "No upcoming breed rings found");
+			LOGV(TAG, "No upcoming breed rings found");
 			mViewUpcomingHeader.setVisibility(View.GONE);
 			mViewNoUpcomingHeader.setVisibility(View.VISIBLE);
 			mViewNoUpcomingHeaderText.setVisibility(View.VISIBLE);
@@ -425,7 +425,7 @@ public class MyScheduleFragment extends Fragment implements
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
 			String key) {
-		Log.d(TAG, "Preference changed!");
+		LOGD(TAG, "Preference changed!");
 		if (key.equals(Prefs.KEY_JUDGE_TIME)
 				|| key.equals(Prefs.KEY_SHOW_GROUPS)) {
 			LoaderManager manager = getLoaderManager();
@@ -461,7 +461,7 @@ public class MyScheduleFragment extends Fragment implements
 			float minutes) {
 		if (status == EditJudgeTimeDialog.STATUS_SAVE) {
 			Map<String, Object> map = new HashMap<String, Object>();
-			Log.d(TAG, "Setting minutes to " + minutes);
+			LOGD(TAG, "Setting minutes to " + minutes);
 			long value = (long) (minutes * 60000);
 			map.put(EnteredRings.RING_JUDGE_TIME, (value != Prefs
 					.getEstimatedDogJudgingTime(getActivity())) ? value : null);// if
@@ -474,17 +474,17 @@ public class MyScheduleFragment extends Fragment implements
 																				// "customized"
 			switch (ringType) {
 			case EnteredRings.TYPE_BREED_RING:
-				Log.v(TAG, "updating judge time for breed ring");
+				LOGV(TAG, "updating judge time for breed ring");
 				new PersistHelper(getActivity()).updateEntity(
 						BreedRings.CONTENT_URI, id, map);
 				break;
 			case EnteredRings.TYPE_JUNIORS_RING:
-				Log.v(TAG, "updating judge time for juniors ring");
+				LOGV(TAG, "updating judge time for juniors ring");
 				new PersistHelper(getActivity()).updateEntity(
 						JuniorsRings.CONTENT_URI, id, map);
 				break;
 			case EnteredRings.TYPE_GROUP_RING:
-				Log.v(TAG, "updating judge time for group ring");
+				LOGV(TAG, "updating judge time for group ring");
 				new PersistHelper(getActivity()).updateEntity(
 						GroupRings.CONTENT_URI, id, map);
 				break;

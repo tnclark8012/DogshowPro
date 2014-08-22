@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class DebugUtils {
 	public static String log = "";
 
@@ -20,7 +20,7 @@ public class DebugUtils {
 
 	public static <T> void logArray(String tag, T... objects) {
 		for (Object o : objects) {
-			Log.d(tag, "" + o);
+			LOGD(tag, "" + o);
 		}
 	}
 }

@@ -37,7 +37,7 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.ShowTeamsQuery;
 import dev.tnclark8012.apps.android.dogshow.ui.phone.ShowTeamListActivity;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 /**
  * Fragment used for managing interactions for and presentation of a navigation
  * drawer. See the <a href=
@@ -48,8 +48,7 @@ import dev.tnclark8012.apps.android.dogshow.ui.phone.ShowTeamListActivity;
 public class NavigationDrawerFragment extends Fragment implements
 		LoaderCallbacks<Cursor> {
 
-	public static final String TAG = NavigationDrawerFragment.class
-			.getSimpleName();
+	public static final String TAG = makeLogTag(NavigationDrawerFragment.class);
 	/**
 	 * Remember the position of the selected item.
 	 */
@@ -391,7 +390,7 @@ public class NavigationDrawerFragment extends Fragment implements
 					ShowTeamsQuery.PROJECTION, null, null,
 					ShowTeams.ACTIVE_FIRST_SORT);
 		} else {
-			Log.w(TAG, "Couldn't create loader");
+			LOGW(TAG, "Couldn't create loader");
 			return null;
 		}
 	}
@@ -402,14 +401,14 @@ public class NavigationDrawerFragment extends Fragment implements
 		if (token == ShowTeamsQuery._TOKEN) {
 			showTeamSpinner.changeCursor(cursor);
 		} else {
-			Log.d(TAG, "Query complete, Not Actionable: " + token);
+			LOGD(TAG, "Query complete, Not Actionable: " + token);
 			cursor.close();
 		}
 	}
 
 	@Override
 	public void onLoaderReset(Loader<Cursor> arg0) {
-		Log.v(TAG, "onLoaderReset");
+		LOGV(TAG, "onLoaderReset");
 	}
 
 	@Override

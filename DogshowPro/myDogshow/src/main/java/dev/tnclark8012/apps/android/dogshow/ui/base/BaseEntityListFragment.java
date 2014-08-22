@@ -60,7 +60,7 @@ public abstract class BaseEntityListFragment extends ListFragment implements
 
 	protected abstract BaseEditableEntityEditFragment getEditFragment();
 
-	private static final String TAG = makeLogTag(BaseEntityListFragment.class);
+	private static final String TAG =  makeLogTag(BaseEntityListFragment.class);
 	private final int mQueryToken = new Random().nextInt();
 	private CursorAdapter mAdapter;
 	private static Callbacks sDummyCallbacks = new Callbacks() {
@@ -165,7 +165,7 @@ public abstract class BaseEntityListFragment extends ListFragment implements
 		if (id == mQueryToken) {
 			loader = getCursorLoader(getActivity(), getContentUri());
 		} else {
-			Log.w(TAG, "Couldn't create loader");
+			LOGW(TAG, "Couldn't create loader");
 		}
 		return loader;
 	}
@@ -179,7 +179,7 @@ public abstract class BaseEntityListFragment extends ListFragment implements
 		if (token == mQueryToken) {
 			mAdapter.changeCursor(cursor);
 		} else {
-			Log.d(TAG, "Query complete, Not Actionable: " + token);
+			LOGD(TAG, "Query complete, Not Actionable: " + token);
 			cursor.close();
 		}
 	}

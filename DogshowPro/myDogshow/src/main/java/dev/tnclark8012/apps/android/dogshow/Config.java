@@ -36,7 +36,7 @@ public class Config {
     public static final boolean DEBUG_OFFLINE = false;// TODO implement
     public static final boolean SYNC_ENABLED = true;// TODO implement
 
-    public static final String TAG = makeLogTag(Config.class);
+    public static final String TAG =  makeLogTag(Config.class);
 	public interface IApiAccessor {
 		URL buildGetBreedRingsUrl(String showId);
 

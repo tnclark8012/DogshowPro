@@ -45,52 +45,52 @@ public class LogUtils {
 
     public static void LOGD(final String tag, String message) {
         if (Log.isLoggable(tag, Log.DEBUG)) {
-            Log.d(tag, message);
+            LOGD(tag, message);
         }
     }
 
     public static void LOGD(final String tag, String message, Throwable cause) {
         if (Log.isLoggable(tag, Log.DEBUG)) {
-            Log.d(tag, message, cause);
+            LOGD(tag, message, cause);
         }
     }
 
     public static void LOGV(final String tag, String message) {
         //noinspection PointlessBooleanExpression,ConstantConditions
         if (BuildConfig.DEBUG && Log.isLoggable(tag, Log.VERBOSE)) {
-            Log.v(tag, message);
+            LOGV(tag, message);
         }
     }
 
     public static void LOGV(final String tag, String message, Throwable cause) {
         //noinspection PointlessBooleanExpression,ConstantConditions
         if (BuildConfig.DEBUG && Log.isLoggable(tag, Log.VERBOSE)) {
-            Log.v(tag, message, cause);
+            LOGV(tag, message, cause);
         }
     }
 
     public static void LOGI(final String tag, String message) {
-        Log.i(tag, message);
+        LOGI(tag, message);
     }
 
     public static void LOGI(final String tag, String message, Throwable cause) {
-        Log.i(tag, message, cause);
+        LOGI(tag, message, cause);
     }
 
     public static void LOGW(final String tag, String message) {
-        Log.w(tag, message);
+        LOGW(tag, message);
     }
 
     public static void LOGW(final String tag, String message, Throwable cause) {
-        Log.w(tag, message, cause);
+        LOGW(tag, message, cause);
     }
 
     public static void LOGE(final String tag, String message) {
-        Log.e(tag, message);
+        LOGE(tag, message);
     }
 
     public static void LOGE(final String tag, String message, Throwable cause) {
-        Log.e(tag, message, cause);
+        LOGE(tag, message, cause);
     }
 
     private LogUtils() {

@@ -34,10 +34,10 @@ import dev.tnclark8012.apps.android.dogshow.util.image.ImageChooserActivity;
 import dev.tnclark8012.apps.android.dogshow.util.image.SimpleImageLoadingListener;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.JuniorClass;
 import eu.janmuller.android.simplecropimage.CropImage;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class HandlerEditFragment extends BaseEditableEntityEditFragment
 		implements OnClickListener {
-	private static final String TAG = HandlerEditFragment.class.getSimpleName();
+	private static final String TAG = makeLogTag(HandlerEditFragment.class);
 	private static final int REQUEST_CODE_CLASS_SELECT = 1;
 	private ViewGroup mRootView;
 	private ImageView mViewImage;
@@ -59,7 +59,7 @@ public class HandlerEditFragment extends BaseEditableEntityEditFragment
 				Bitmap loadedImage) {
             mViewImage.setImageURI(Uri.parse(imageUri));
 			mImagePath = imageUri;
-			Log.v(TAG, "done");
+			LOGV(TAG, "done");
 		}
 	};
 
@@ -119,7 +119,7 @@ public class HandlerEditFragment extends BaseEditableEntityEditFragment
 	@Override
 	protected void onQueryComplete(Cursor cursor) {
 		cursor.moveToFirst();
-		Log.v(TAG, "onDogQueryComplete() called from thread "
+		LOGV(TAG, "onDogQueryComplete() called from thread "
 				+ Thread.currentThread().getName());
 
 		mName = cursor.getString(HandlerQuery.HANDLER_NAME);

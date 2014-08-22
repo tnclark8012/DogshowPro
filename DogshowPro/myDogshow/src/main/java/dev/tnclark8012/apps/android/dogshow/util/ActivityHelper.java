@@ -92,15 +92,15 @@ public class ActivityHelper
 	 */
 //	public void goTrash()
 //	{
-//		Log.d(TAG, "goTrash()");
+//		LOGD(TAG, "goTrash()");
 //		if ( mActivity instanceof TrashCanActivity )
 //		{
-//			Log.i(TAG, "already in trash. Returning");
+//			LOGI(TAG, "already in trash. Returning");
 //			return;
 //		}
 //		else
 //		{
-//			Log.i(TAG, "Current Activity (" + this.mActivity.getClass().getName() + ") is opening trash");
+//			LOGI(TAG, "Current Activity (" + this.mActivity.getClass().getName() + ") is opening trash");
 //		}
 //		Intent intent;
 //		
@@ -179,7 +179,7 @@ public class ActivityHelper
 //		}
 //		else
 //		{
-//			Log.e(TAG, "Could not show progress on a non-intialized menu");
+//			LOGE(TAG, "Could not show progress on a non-intialized menu");
 //		}
 	}
 

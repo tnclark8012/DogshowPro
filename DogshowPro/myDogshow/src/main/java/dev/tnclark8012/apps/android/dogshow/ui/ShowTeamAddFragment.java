@@ -18,7 +18,7 @@ public class ShowTeamAddFragment extends Fragment {
 		void onJoin();
 	}
 
-	private static final String TAG = makeLogTag(ShowTeamAddFragment.class);
+	private static final String TAG =  makeLogTag(ShowTeamAddFragment.class);
 	private Callback mCallback = null;
 
 	@Override

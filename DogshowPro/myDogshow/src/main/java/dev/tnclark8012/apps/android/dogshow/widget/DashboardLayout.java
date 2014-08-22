@@ -24,7 +24,7 @@ import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
  * vertical whitespace.
  */
 public class DashboardLayout extends ViewGroup {
-	public static final String TAG = makeLogTag(DashboardLayout.class);
+	public static final String TAG =  makeLogTag(DashboardLayout.class);
     private static final int UNEVEN_GRID_PENALTY_MULTIPLIER = 10;
 
     private int mMaxChildWidth = 0;

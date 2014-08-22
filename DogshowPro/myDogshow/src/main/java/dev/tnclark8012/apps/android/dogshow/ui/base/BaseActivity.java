@@ -36,7 +36,7 @@ import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
  * A base activity that handles common functionality in the app.
  */
 public abstract class BaseActivity extends Activity {
-	public static final String TAG = makeLogTag(BaseActivity.class);
+	public static final String TAG =  makeLogTag(BaseActivity.class);
 	public static final String EXTRA_URI = "_uri";
     private LPreviewUtilsBase.ActionBarDrawerToggleWrapper mDrawerToggle;
 
@@ -61,7 +61,7 @@ public abstract class BaseActivity extends Activity {
 			AccountUtils.startAuthenticationFlow(this, getIntent());
 			finish();
 		} else {
-			Log.i(TAG, "Is authenticated");
+			LOGI(TAG, "Is authenticated");
 		}
         // TODO LPreviewUtils needs to be imported to project... mLPreviewUtils = LPreviewUtils.getInstance(this);
 	}

@@ -25,9 +25,9 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeamsColumns;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.SyncColumns;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class DogshowDatabase extends SQLiteOpenHelper {
-	private static final String TAG = DogshowDatabase.class.getSimpleName();
+	private static final String TAG = makeLogTag(DogshowDatabase.class);
 	private static final String DATABASE_NAME = "mydogshow.db";
 	private static final int VER_LAUNCH = 3;
 	private static final int VER_BREED_BREAKDOWN = 4;
@@ -340,7 +340,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		Log.d(TAG, "onUpgrade() from " + oldVersion + " to " + newVersion);
+		LOGD(TAG, "onUpgrade() from " + oldVersion + " to " + newVersion);
 		// Switch statement designed to handle cascading database
 		// updates, starting at the current version and falling through to all
 		// future upgrade cases. Only use "break;" when you want to drop and
@@ -393,7 +393,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 		}
 
 		if (version != DATABASE_VERSION) {
-			Log.w(TAG, "Destroying old data during upgrade");
+			LOGW(TAG, "Destroying old data during upgrade");
 			db.execSQL("DROP TABLE IF EXISTS " + Tables.DOGS);
 			db.execSQL("DROP TABLE IF EXISTS " + Tables.HANDLERS);
 			db.execSQL("DROP TABLE IF EXISTS " + Tables.JUNIORS_RINGS);

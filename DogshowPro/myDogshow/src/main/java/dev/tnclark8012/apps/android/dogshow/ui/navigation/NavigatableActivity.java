@@ -19,20 +19,20 @@ import dev.tnclark8012.apps.android.dogshow.ui.phone.DebugActivity;
 import dev.tnclark8012.apps.android.dogshow.ui.phone.DogListActivity;
 import dev.tnclark8012.apps.android.dogshow.ui.phone.HandlerListActivity;
 import dev.tnclark8012.apps.android.dogshow.ui.phone.MyScheduleActivity;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 /**
  * The landing screen for the app, once the user has logged in.
  */
 public abstract class NavigatableActivity extends SimpleSinglePaneActivity
 		implements NavigationDrawerCallbacks {
-	private static final String TAG = NavigatableActivity.class.getSimpleName();
+	private static final String TAG = makeLogTag(NavigatableActivity.class);
 	public static final String EXTRA_SELECTED_NAVIGATION = "selected_navigation";
 	public static final String EXTRA_FROM_LAUNCH = "from_launch";
 	private NavigationDrawerFragment mNavigationDrawerFragment;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		Log.d(TAG, "onCreate");
+		LOGD(TAG, "onCreate");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_navigation);
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager()

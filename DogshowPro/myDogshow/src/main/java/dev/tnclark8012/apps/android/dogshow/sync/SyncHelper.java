@@ -25,9 +25,9 @@ import dev.tnclark8012.apps.android.dogshow.sync.request.ConformationRingAssignm
 import dev.tnclark8012.apps.android.dogshow.sync.request.GroupRingsRequest;
 import dev.tnclark8012.apps.android.dogshow.sync.request.JuniorsRingsRequest;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class SyncHelper {
-	private final static String TAG = SyncHelper.class.getSimpleName();
+	private final static String TAG = makeLogTag(SyncHelper.class);
 	private IApiAccessor mAccessor;
 	private Context mContext;
 	/**
@@ -59,7 +59,7 @@ public class SyncHelper {
 	}
 
 	public Show[] getShows() {
-		Log.v(TAG, "getShows using base url, " + mAccessor.getShowsUrl());
+		LOGV(TAG, "getShows using base url, " + mAccessor.getShowsUrl());
 		return mAccessor.getShows();
 	}
 
@@ -108,7 +108,7 @@ public class SyncHelper {
 				EnteredRings.ENTERED_RING_BLOCKS,
 				new String[] { EnteredRings.RING_BLOCK_START,
 						EnteredRings.RING_NUMBER }, null, null, null);
-		Log.i(TAG,
+		LOGI(TAG,
 				"Syncing ring block overviews for "
 						+ enteredBlocksCursor.getCount() + " breeds");
 		int numBlocks = 0;
@@ -124,13 +124,13 @@ public class SyncHelper {
 		while (enteredBlocksCursor.moveToNext()) {
 			blockStart = enteredBlocksCursor.getLong(0);
 			ringNumber = enteredBlocksCursor.getInt(1);
-			Log.v(TAG, "Requesting ring " + ringNumber + " overview for "
+			LOGV(TAG, "Requesting ring " + ringNumber + " overview for "
 					+ blockStart);
 			batch.addAll(handler.parse(mAccessor.getRingBlockOverviews(showId,
 					ringNumber, blockStart)));
 			numBlocks++;
 		}
-		Log.v(TAG, "Pulled overviews for " + numBlocks + " rings");
+		LOGV(TAG, "Pulled overviews for " + numBlocks + " rings");
 		enteredBlocksCursor.close();
 
 		try {
@@ -170,14 +170,14 @@ public class SyncHelper {
 		ShowTeamSyncHandler teamHelper = new ShowTeamSyncHandler(mContext,
 				mAccessor);
 		teamHelper.sync(resolver, lastSync, flags);
-		Log.i(TAG, "Completed team sync");
+		LOGI(TAG, "Completed team sync");
 		HandlerSyncHandler handlerHelper = new HandlerSyncHandler(mContext,
 				mAccessor);
 		handlerHelper.sync(resolver, lastSync, flags);
-		Log.i(TAG, "Completed handler sync");
+		LOGI(TAG, "Completed handler sync");
 		DogSyncHandler dogHelper = new DogSyncHandler(mContext, mAccessor);
 		dogHelper.sync(resolver, lastSync, flags);
-		Log.i(TAG, "Completed dog sync");
+		LOGI(TAG, "Completed dog sync");
 		setLastSync(mContext, System.currentTimeMillis());
 
 		if (syncResult != null) {
@@ -185,6 +185,6 @@ public class SyncHelper {
 											// progress?
 			++syncResult.stats.numEntries;
 		}
-		Log.i(TAG, "Sync complete");
+		LOGI(TAG, "Sync complete");
 	}
 }

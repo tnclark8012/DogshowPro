@@ -11,11 +11,11 @@ import dev.tnclark8012.apps.android.dogshow.ui.ShowTeamAddFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.ShowTeamCreateFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.ShowTeamJoinFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.SimpleSinglePaneActivity;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class ShowTeamAddActivity extends SimpleSinglePaneActivity implements
 		ShowTeamCreateFragment.Callback, ShowTeamJoinFragment.Callback,
 		ShowTeamAddFragment.Callback {
-	private static final String TAG = ShowTeamAddActivity.class.getSimpleName();
+	private static final String TAG = makeLogTag(ShowTeamAddActivity.class);
 	private ShowTeamAddFragment mAddFragment;
 	private int mStep = STEP_CREATE_OR_JOIN;
 	private static final int STEP_CREATE_OR_JOIN = 0;

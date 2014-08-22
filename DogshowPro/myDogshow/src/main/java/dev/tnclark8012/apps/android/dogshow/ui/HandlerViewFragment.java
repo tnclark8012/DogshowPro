@@ -25,9 +25,9 @@ import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 import dev.tnclark8012.apps.android.dogshow.util.image.SimpleImageLoadingListener;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.JuniorClass;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class HandlerViewFragment extends BaseEditableEntityViewFragment {
-	private static final String TAG = HandlerViewFragment.class.getSimpleName();
+	private static final String TAG = makeLogTag(HandlerViewFragment.class);
 
 	private interface HandlerQuery {
 		int _TOKEN = 0x1;
@@ -61,7 +61,7 @@ public class HandlerViewFragment extends BaseEditableEntityViewFragment {
 						getResources(), loadedImage));
 			}
 			mImagePath = imageUri;
-			Log.v(TAG, "done");
+			LOGV(TAG, "done");
 		}
 	};
 
@@ -97,7 +97,7 @@ public class HandlerViewFragment extends BaseEditableEntityViewFragment {
 		if (mImagePath != null) {
 			UIUtils.loadImage(getActivity(), mImageLoadingListener, mImagePath);
 		} else {
-			Log.w(TAG, "Image path was null");
+			LOGW(TAG, "Image path was null");
 			mViewImage.setBackgroundResource(R.drawable.ic_default_handler);
 		}
 

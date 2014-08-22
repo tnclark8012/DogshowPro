@@ -35,11 +35,11 @@ import dev.tnclark8012.apps.android.dogshow.ui.base.BaseActivity;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class DogEntryFragment extends Fragment implements
 		LoaderManager.LoaderCallbacks<Cursor> {
 
-	private static final String TAG = DogEntryFragment.class.getSimpleName();
+	private static final String TAG = makeLogTag(DogEntryFragment.class);
 	private CursorAdapter mAdapter;
 	private int mDogQueryToken;
 
@@ -179,7 +179,7 @@ public class DogEntryFragment extends Fragment implements
 					DogsQuery.PROJECTION, null, null,
 					DogshowContract.Dogs.DEFAULT_SORT);
 		} else {
-			Log.w(TAG, "Couldn't create loader");
+			LOGW(TAG, "Couldn't create loader");
 		}
 		return loader;
 	}
@@ -199,7 +199,7 @@ public class DogEntryFragment extends Fragment implements
 				String uri = arguments.get("_uri").toString();
 			}
 		} else {
-			Log.d(TAG, "Query complete, Not Actionable: " + token);
+			LOGD(TAG, "Query complete, Not Actionable: " + token);
 			cursor.close();
 		}
 	}
@@ -230,7 +230,7 @@ public class DogEntryFragment extends Fragment implements
 					DogsQuery.DOG_IS_SHOWING, 0) == 1;
 			CheckBox checkBox = (CheckBox) view
 					.findViewById(R.id.list_item_dog_entry_checkbox);
-			Log.v(TAG, id + ":" + cursor.getString(DogsQuery.DOG_CALL_NAME));
+			LOGV(TAG, id + ":" + cursor.getString(DogsQuery.DOG_CALL_NAME));
 			checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 				@Override
 				public void onCheckedChanged(CompoundButton buttonView,

@@ -10,7 +10,7 @@ import dev.tnclark8012.apps.android.dogshow.model.GroupRing;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.GroupRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.SyncColumns;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class GroupRingsHandler extends JsonHandler<GroupRing> {
 	boolean clearExisting = false;
 	boolean hasCleared = false;
@@ -20,7 +20,7 @@ public class GroupRingsHandler extends JsonHandler<GroupRing> {
 		this.clearExisting = clearExisting;
 	}
 
-	private static final String TAG = GroupRingsHandler.class.getSimpleName();
+	private static final String TAG = makeLogTag(GroupRingsHandler.class);
 
 	public ArrayList<ContentProviderOperation> parse(GroupRing[] groupRings) {
 		final ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
@@ -30,7 +30,7 @@ public class GroupRingsHandler extends JsonHandler<GroupRing> {
 
 		if (groupRings != null) {
 			numRings = groupRings.length;
-			Log.d(TAG, "response contained " + numRings + " group rings");
+			LOGD(TAG, "response contained " + numRings + " group rings");
 
 			if (clearExisting && !hasCleared) {
 				batch.add(ContentProviderOperation
@@ -41,7 +41,7 @@ public class GroupRingsHandler extends JsonHandler<GroupRing> {
 				hasCleared = true;
 			}
 			if (numRings > 0) {
-				Log.i(TAG, "Updating group rings");
+				LOGI(TAG, "Updating group rings");
 
 				for (GroupRing ring : groupRings) {
 					// Insert rings info

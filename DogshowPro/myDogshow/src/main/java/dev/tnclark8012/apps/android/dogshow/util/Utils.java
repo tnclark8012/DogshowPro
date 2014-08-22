@@ -23,9 +23,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.UUID;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class Utils {
-	private static final String TAG = Utils.class.getSimpleName();
+	private static final String TAG = makeLogTag(Utils.class);
 
 	public static String getGuid() {
 		return UUID.randomUUID().toString();
@@ -257,9 +257,9 @@ public class Utils {
 			fos.close();
 			return Uri.fromFile(pictureFile);
 		} catch (FileNotFoundException e) {
-			Log.d(TAG, "File not found: " + e.getMessage());
+			LOGD(TAG, "File not found: " + e.getMessage());
 		} catch (IOException e) {
-			Log.d(TAG, "Error accessing file: " + e.getMessage());
+			LOGD(TAG, "Error accessing file: " + e.getMessage());
 		}
 		return null;
 	}

@@ -19,9 +19,9 @@ import java.io.OutputStream;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 import eu.janmuller.android.simplecropimage.CropImage;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class ImageChooserActivity extends Activity {
-	public static final String TAG = "MainActivity";
+	public static final String TAG = makeLogTag(ImageChooserActivity.class);
 
 	public static final String TEMP_PHOTO_FILE_NAME = "temp_photo.jpg";
 
@@ -46,7 +46,7 @@ public class ImageChooserActivity extends Activity {
 		} else if (action.equals(ACTION_CAPTURE)) {
 			takePicture();
 		} else {
-			Log.w(TAG, "Unknown intent action: " + action + ". Expecting "
+			LOGW(TAG, "Unknown intent action: " + action + ". Expecting "
 					+ ACTION_CHOOSE + " or " + ACTION_CAPTURE);
 			finish();
 		}
@@ -89,7 +89,7 @@ public class ImageChooserActivity extends Activity {
 			startActivityForResult(intent, REQUEST_CODE_TAKE_PICTURE);
 		} catch (ActivityNotFoundException e) {
 
-			Log.d(TAG, "cannot take picture", e);
+			LOGD(TAG, "cannot take picture", e);
 		}
 	}
 
@@ -148,7 +148,7 @@ public class ImageChooserActivity extends Activity {
 
 			} catch (Exception e) {
 
-				Log.e(TAG, "Error while creating temp file", e);
+				LOGE(TAG, "Error while creating temp file", e);
 			}
 
 			break;

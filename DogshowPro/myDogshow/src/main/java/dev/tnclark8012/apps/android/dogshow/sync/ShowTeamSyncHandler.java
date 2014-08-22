@@ -19,9 +19,9 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.ShowTeams;
 import dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamSyncResponse;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class ShowTeamSyncHandler {
-	private static final String TAG = ShowTeamSyncHandler.class.getSimpleName();
+	private static final String TAG = makeLogTag(ShowTeamSyncHandler.class);
 	Context mContext;
 	IApiAccessor mAccessor;
 
@@ -57,7 +57,7 @@ public class ShowTeamSyncHandler {
 				SyncHelper.getLastSync(mContext), allTeamIds);
 		if (actionable != null) {
 			Builder builder = null;
-			Log.d(TAG, "Taking sync action on " + actionable.length + " teams.");
+			LOGD(TAG, "Taking sync action on " + actionable.length + " teams.");
 			for (ShowTeamSyncResponse response : actionable) {
 				switch (response.action) {
 				case ShowTeamSyncResponse.ACTION_ADD:
@@ -89,7 +89,7 @@ public class ShowTeamSyncHandler {
 			try {
 				resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY, batch);
 			} catch (RemoteException e) {
-				Log.w(TAG, "Error sycing teams");
+				LOGW(TAG, "Error sycing teams");
 				e.printStackTrace();
 			} catch (OperationApplicationException e) {
 				e.printStackTrace();

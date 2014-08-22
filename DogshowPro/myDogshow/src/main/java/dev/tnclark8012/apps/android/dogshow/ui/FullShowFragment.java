@@ -47,6 +47,7 @@ import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.BreedRings;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 /**
  * Schedule Similar to {@link MyScheduleFragment} but does not remove past rings
  * @author Taylor
@@ -56,7 +57,7 @@ public class FullShowFragment extends ListFragment implements
 		LoaderManager.LoaderCallbacks<Cursor>, ActionMode.Callback {
 	private final long upcomingAllowedWindow = 1 * 60 * 1000;
 	private long upcomingBreedRingStart = 0;
-	private static final String TAG = FullShowFragment.class.getSimpleName();
+	private static final String TAG = makeLogTag(FullShowFragment.class);
 	private CursorAdapter mAdapter;
 	private int mRingQueryToken;
 	private View mRootView;
@@ -174,7 +175,7 @@ public class FullShowFragment extends ListFragment implements
 		} else if (token == UpcomingBreedRingQuery._TOKEN) {
 			onBreedRingUpommingQueryComplete(cursor);
 		} else {
-			Log.d(TAG, "Query complete, Not Actionable: " + token);
+			LOGD(TAG, "Query complete, Not Actionable: " + token);
 			cursor.close();
 		}
 	}
@@ -206,12 +207,12 @@ public class FullShowFragment extends ListFragment implements
 						UIUtils.loadBitmap(imagePath, width, height));
 				mViewBreedImage.setBackgroundDrawable(image);
 			} else {
-				Log.w(TAG, "Image path was null");
+				LOGW(TAG, "Image path was null");
 				mViewBreedImage.setBackgroundResource(R.drawable.dog);
 
 			}
 		} else {
-			Log.w(TAG, "No upcoming breed rings found");
+			LOGW(TAG, "No upcoming breed rings found");
 			mViewUpcomingHeader.setVisibility(View.GONE);
 			mViewNoUpcomingHeader.setVisibility(View.VISIBLE);
 		}

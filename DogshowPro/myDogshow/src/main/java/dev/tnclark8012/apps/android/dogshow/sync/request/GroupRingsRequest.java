@@ -12,11 +12,11 @@ import dev.tnclark8012.apps.android.dogshow.Config.IApiAccessor;
 import dev.tnclark8012.apps.android.dogshow.sync.ApiAccessor;
 import dev.tnclark8012.apps.android.dogshow.sync.GroupRingsHandler;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class GroupRingsRequest {
 	private Context mContext;
 	private IApiAccessor mAccessor;
-	public static final String TAG = GroupRingsRequest.class.getSimpleName();
+	public static final String TAG = makeLogTag(GroupRingsRequest.class);
 
 	public GroupRingsRequest(Context context) {
 		mContext = context;
@@ -30,7 +30,7 @@ public class GroupRingsRequest {
 		GroupRingsHandler handler = new GroupRingsHandler(mContext, true);
 		batch = new ArrayList<ContentProviderOperation>();
 		batch.addAll(handler.parse(mAccessor.getGroupRings(showId)));
-		Log.v(TAG, "Pulled group rings.");
+		LOGV(TAG, "Pulled group rings.");
 		return batch;
 	}
 }

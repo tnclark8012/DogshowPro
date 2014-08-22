@@ -14,7 +14,7 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.SyncColumns;
 import dev.tnclark8012.dogshow.shared.DogshowEnums;
 import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class BreedRingsHandler extends JsonHandler<BreedRing> {
-    private static final String TAG = makeLogTag(BreedRingsHandler.class);
+    private static final String TAG =  makeLogTag(BreedRingsHandler.class);
 	boolean clearExisting = false;
 	boolean hasCleared = false;
 
@@ -38,7 +38,7 @@ public class BreedRingsHandler extends JsonHandler<BreedRing> {
 				hasCleared = true;
 			}
 			if (numRings > 0) {
-				Log.i(TAG, "Updating breed rings");
+				LOGI(TAG, "Updating breed rings");
 
 				for (BreedRing ring : breedRings) {
 					// Insert rings info

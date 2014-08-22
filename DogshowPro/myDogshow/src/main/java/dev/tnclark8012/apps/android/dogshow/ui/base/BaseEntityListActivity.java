@@ -16,7 +16,7 @@ public abstract class BaseEntityListActivity extends NavigatableActivity
 		implements BaseEntityListFragment.Callbacks,
 		BaseEditableEntityEditFragment.Callbacks {
 	BaseEntityListFragment mListFragment;
-	private static final String TAG = makeLogTag(BaseEntityListActivity.class);
+	private static final String TAG =  makeLogTag(BaseEntityListActivity.class);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,6 @@ public abstract class BaseEntityListActivity extends NavigatableActivity
 
 	protected abstract Uri getEntityUri(String entityId);
 
-	// protected abstract String getTitleForTag(String tag);
 
 	protected String setTopMenuVisible(String[] tags) {
 		FragmentManager manager = getFragmentManager();
@@ -108,7 +107,7 @@ public abstract class BaseEntityListActivity extends NavigatableActivity
 
 	@Override
 	public void onDeleteEntity(Uri uri, String entityId) {
-		Log.d(TAG, "Delete request for entity Id: " + entityId);
+		LOGD(TAG, "Delete request for entity Id: " + entityId);
 		PersistHelper helper = new PersistHelper(this);
 		helper.deleteEntity(getEntityUri(entityId));
 	}

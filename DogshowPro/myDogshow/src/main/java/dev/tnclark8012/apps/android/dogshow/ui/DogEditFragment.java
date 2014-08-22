@@ -42,11 +42,11 @@ import dev.tnclark8012.apps.android.dogshow.util.image.SimpleImageLoadingListene
 import dev.tnclark8012.dogshow.shared.DogshowEnums;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 import eu.janmuller.android.simplecropimage.CropImage;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class DogEditFragment extends BaseEditableEntityEditFragment implements
 		LoaderManager.LoaderCallbacks<Cursor>, OnClickListener,
 		OnCheckedChangeListener {
-	private static final String TAG = DogEditFragment.class.getSimpleName();
+	private static final String TAG = makeLogTag(DogEditFragment.class);
 
 	private String mCallName;
 	private String mBreedName;
@@ -79,7 +79,7 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements
 				Bitmap loadedImage) {
             mViewImage.setImageURI(Uri.parse(imageUri));
 			mImagePath = imageUri;
-			Log.v(TAG, "done");
+			LOGV(TAG, "done");
 		}
 	};
 
@@ -235,7 +235,7 @@ public class DogEditFragment extends BaseEditableEntityEditFragment implements
 	@Override
 	protected void onQueryComplete(Cursor cursor) {
 		cursor.moveToFirst();
-		Log.v(TAG, "onDogQueryComplete() called from thread "
+		LOGV(TAG, "onDogQueryComplete() called from thread "
 				+ Thread.currentThread().getName());
 		mBreedName = cursor.getString(DogQuery.DOG_BREED);
 		mCallName = cursor.getString(DogQuery.DOG_CALL_NAME);

@@ -21,9 +21,9 @@ import dev.tnclark8012.apps.android.dogshow.sql.query.Query;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.HandlerSyncQuery;
 import dev.tnclark8012.apps.android.dogshow.sync.response.HandlerSyncResponse;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class HandlerSyncHandler {
-	private static final String TAG = HandlerSyncHandler.class.getSimpleName();
+	private static final String TAG = makeLogTag(HandlerSyncHandler.class);
 	Context mContext;
 	IApiAccessor mAccessor;
 
@@ -92,7 +92,7 @@ public class HandlerSyncHandler {
 		}
 		if (actionable != null) {
 			Builder builder = null;
-			Log.d(TAG, "Taking sync action on " + actionable.length + " dogs.");
+			LOGD(TAG, "Taking sync action on " + actionable.length + " dogs.");
 			for (HandlerSyncResponse response : actionable) {
 				switch (response.action) {
 				case HandlerSyncResponse.ACTION_ADD:
@@ -124,7 +124,7 @@ public class HandlerSyncHandler {
 			try {
 				resolver.applyBatch(DogshowContract.CONTENT_AUTHORITY, batch);
 			} catch (RemoteException e) {
-				Log.w(TAG, "Error sycing handlers");
+				LOGW(TAG, "Error sycing handlers");
 				e.printStackTrace();
 			} catch (OperationApplicationException e) {
 				e.printStackTrace();

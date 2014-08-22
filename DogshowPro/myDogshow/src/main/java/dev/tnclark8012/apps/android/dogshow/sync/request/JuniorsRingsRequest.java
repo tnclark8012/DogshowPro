@@ -17,12 +17,12 @@ import dev.tnclark8012.apps.android.dogshow.sync.ApiAccessor;
 import dev.tnclark8012.apps.android.dogshow.sync.JuniorsRingsHandler;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 import dev.tnclark8012.dogshow.shared.DogshowEnums;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 //TODO HIGH all juniors rings request into a single request following standard model
 public class JuniorsRingsRequest {
 	private Context mContext;
 	private IApiAccessor mAccessor;
-	public static final String TAG = JuniorsRingsRequest.class.getSimpleName();
+	public static final String TAG = makeLogTag(JuniorsRingsRequest.class);
 
 	public JuniorsRingsRequest(Context context) {
 		mContext = context;
@@ -43,7 +43,7 @@ public class JuniorsRingsRequest {
 				selectionArgs, null);
 		batch = new ArrayList<ContentProviderOperation>();
 		String className = null;
-		Log.i(TAG, "Syncing junior rings for " + juniorsCursor.getCount()
+		LOGI(TAG, "Syncing junior rings for " + juniorsCursor.getCount()
 				+ " classes");
 		if (juniorsCursor.getCount() == 0) {
 			batch.add(ContentProviderOperation
@@ -57,14 +57,14 @@ public class JuniorsRingsRequest {
 		while (juniorsCursor.moveToNext()) {
 			className = juniorsCursor.getString(0);
 			if (className != null) {
-				Log.v(TAG, "Requesting juniors ring: " + className);
+				LOGV(TAG, "Requesting juniors ring: " + className);
 				batch.addAll(handler.parse(mAccessor.getJuniorsRings(showId,
 						DogshowEnums.JuniorClass.parse(className)
 								.getPrimaryName())));
 				numClasses++;
 			}
 		}
-		Log.v(TAG, "Pulled juniors rings for " + numClasses + " classes");
+		LOGV(TAG, "Pulled juniors rings for " + numClasses + " classes");
 		juniorsCursor.close();
 		return batch;
 	}

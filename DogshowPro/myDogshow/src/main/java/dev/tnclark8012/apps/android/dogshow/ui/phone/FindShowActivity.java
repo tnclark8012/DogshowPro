@@ -8,9 +8,9 @@ import dev.tnclark8012.apps.android.dogshow.model.Show;
 import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.ui.FindShowFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.SimpleSinglePaneActivity;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class FindShowActivity extends SimpleSinglePaneActivity implements FindShowFragment.Callbacks{
-	private static final String TAG = FindShowActivity.class.getSimpleName();
+	private static final String TAG = makeLogTag(FindShowActivity.class);
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -21,7 +21,7 @@ public class FindShowActivity extends SimpleSinglePaneActivity implements FindSh
 	}
 	@Override
 	public void onShowSelected(Show show) {
-		Log.v(TAG, "selected show. id: " + show.showId);
+		LOGV(TAG, "selected show. id: " + show.showId);
 		new SyncHelper(this).enterShow(show);
 		finish();
 	}

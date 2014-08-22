@@ -26,7 +26,7 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.SyncColumns;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class PersistHelper {
-	private final static String TAG = makeLogTag(PersistHelper.class);
+	private final static String TAG =  makeLogTag(PersistHelper.class);
 	private Context mContext;
 
 	public PersistHelper(Context context) {
@@ -41,7 +41,7 @@ public class PersistHelper {
 				new String[] { Handlers.HANDLER_IS_ME }, selection,
 				selectionArgs, null);
 		if (meCursor.getCount() == 0) {
-			Log.v(TAG, "Creating Me");
+			LOGV(TAG, "Creating Me");
 			Map<String, Object> values = new HashMap<String, Object>();
 			values.put(Handlers.HANDLER_ID,
 					AccountUtils.getUserIdentifier(mContext));

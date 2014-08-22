@@ -18,7 +18,7 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class RingListAdapter extends CursorAdapter implements
 		StickyListHeadersAdapter, SectionIndexer {
-	public static final String TAG = makeLogTag(RingListAdapter.class);
+	public static final String TAG =  makeLogTag(RingListAdapter.class);
 	private int[] mSectionIndices;
 	private String[] mSectionHeaders;
 	private int[] mSectionIds;

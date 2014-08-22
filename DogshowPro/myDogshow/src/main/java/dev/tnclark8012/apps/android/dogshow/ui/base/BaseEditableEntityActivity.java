@@ -13,7 +13,7 @@ import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public abstract class BaseEditableEntityActivity extends NavigatableActivity
 		implements BaseEditableEntityViewFragment.Callbacks,
 		BaseEditableEntityEditFragment.Callbacks {
-	private static final String TAG = makeLogTag(BaseEditableEntityActivity.class);
+	private static final String TAG =  makeLogTag(BaseEditableEntityActivity.class);
 	private boolean isEditing = false;
 	private Bundle mIntentBundle;
 	private BaseEditableEntityViewFragment mViewFragment;

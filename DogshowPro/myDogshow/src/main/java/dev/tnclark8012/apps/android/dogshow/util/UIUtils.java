@@ -54,12 +54,12 @@ import java.util.Calendar;
 import java.util.Formatter;
 import java.util.Locale;
 import java.util.TimeZone;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 /**
  * An assortment of UI helpers.
  */
 public class UIUtils {
-	private static final String TAG = UIUtils.class.getSimpleName();
+	private static final String TAG = makeLogTag(UIUtils.class);
 
 	private static final int SECOND_MILLIS = 1000;
 	private static final int MINUTE_MILLIS = 60 * SECOND_MILLIS;
@@ -150,7 +150,7 @@ public class UIUtils {
 
 	public static void logBundle(String tag, Bundle bundle) {
 		for (String k : bundle.keySet()) {
-			Log.v(tag, k + ": " + bundle.get(k));
+			LOGV(tag, k + ": " + bundle.get(k));
 		}
 	}
 

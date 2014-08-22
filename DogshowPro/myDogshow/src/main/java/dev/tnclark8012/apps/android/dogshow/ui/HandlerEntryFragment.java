@@ -32,10 +32,10 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.Handlers;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseActivity;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class HandlerEntryFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
-	private static final String TAG = HandlerEntryFragment.class.getSimpleName();
+	private static final String TAG = makeLogTag(HandlerEntryFragment.class);
 	private CursorAdapter mAdapter;
 	private int mHandlerQueryToken;
 
@@ -177,7 +177,7 @@ public class HandlerEntryFragment extends Fragment implements LoaderManager.Load
 		if (id == HandlersQuery._TOKEN) {
 			loader = new CursorLoader(getActivity(), handlersUri, HandlersQuery.PROJECTION, null, null, Handlers.DEFAULT_SORT);
 		} else {
-			Log.w(TAG, "Couldn't create loader");
+			LOGW(TAG, "Couldn't create loader");
 		}
 		return loader;
 	}
@@ -197,7 +197,7 @@ public class HandlerEntryFragment extends Fragment implements LoaderManager.Load
 				String uri = arguments.get("_uri").toString();
 			}
 		} else {
-			Log.d(TAG, "Query complete, Not Actionable: " + token);
+			LOGD(TAG, "Query complete, Not Actionable: " + token);
 			cursor.close();
 		}
 	}

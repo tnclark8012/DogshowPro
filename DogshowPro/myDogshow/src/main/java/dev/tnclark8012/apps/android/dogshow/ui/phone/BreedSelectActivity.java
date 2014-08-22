@@ -31,12 +31,12 @@ import dev.tnclark8012.apps.android.dogshow.ui.BreedSelectFragment.BreedSelectLi
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseActivity;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.BreedGroup;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class BreedSelectActivity extends BaseActivity implements
         ActionBar.TabListener, ViewPager.OnPageChangeListener,
         BreedSelectListener {
 
-    private static final String TAG = BreedSelectActivity.class.getSimpleName();
+    private static final String TAG =  makeLogTag(BreedSelectActivity.class);
     public final static String EXTRA_BREED_GROUP = "dev.tnclark8012.apps.android.dogshow.extra.BreedSelectActivity.EXTRA_BREED_GROUP";
     public final static int REQUEST_CODE_BREED_SELECT = 0x1;
     private ViewPager mViewPager;

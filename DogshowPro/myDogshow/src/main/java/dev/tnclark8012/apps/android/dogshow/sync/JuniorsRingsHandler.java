@@ -11,7 +11,7 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.JuniorsRings;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.SyncColumns;
 import dev.tnclark8012.dogshow.shared.DogshowEnums;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class JuniorsRingsHandler extends JsonHandler<JuniorsRing> {
 	boolean clearExisting = false;
 	boolean hasCleared = false;
@@ -21,7 +21,7 @@ public class JuniorsRingsHandler extends JsonHandler<JuniorsRing> {
 		this.clearExisting = clearExisting;
 	}
 
-	private static final String TAG = JuniorsRingsHandler.class.getSimpleName();
+	private static final String TAG = makeLogTag(JuniorsRingsHandler.class);
 
 	public ArrayList<ContentProviderOperation> parse(JuniorsRing[] juniorsRings) {
 		final ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
@@ -31,7 +31,7 @@ public class JuniorsRingsHandler extends JsonHandler<JuniorsRing> {
 
 		if (juniorsRings != null) {
 			numRings = juniorsRings.length;
-			Log.d(TAG, "response contained " + numRings + " juniors rings");
+			LOGD(TAG, "response contained " + numRings + " juniors rings");
 
 			if (clearExisting && !hasCleared) {
 				batch.add(ContentProviderOperation
@@ -42,7 +42,7 @@ public class JuniorsRingsHandler extends JsonHandler<JuniorsRing> {
 				hasCleared = true;
 			}
 			if (numRings > 0) {
-				Log.i(TAG, "Updating juniors rings");
+				LOGI(TAG, "Updating juniors rings");
 
 				for (JuniorsRing ring : juniorsRings) {
 					// Insert rings info

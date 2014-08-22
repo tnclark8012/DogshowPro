@@ -12,10 +12,10 @@ import dev.tnclark8012.apps.android.dogshow.sql.query.Query.HandlersQuery;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class HandlerListFragment extends BaseEntityListFragment {
 
-	private static final String TAG = HandlerListFragment.class.getSimpleName();
+	private static final String TAG = makeLogTag(HandlerListFragment.class);
 	private String mTitle;
 	
 	@Override

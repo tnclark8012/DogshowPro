@@ -33,14 +33,15 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 /**
  * Helper for building selection clauses for {@link SQLiteDatabase}. Each
  * appended clause is combined using {@code AND}. This class is <em>not</em>
  * thread safe.
  */
 public class SelectionBuilder {
-	private static final String TAG = SelectionBuilder.class.getSimpleName();
+	private static final String TAG = makeLogTag(SelectionBuilder.class);
 
 	private String mTable = null;
 	private Map<String, String> mProjectionMap = new HashMap<String, String>();
@@ -154,10 +155,10 @@ public class SelectionBuilder {
 		assertTable();
 		if (columns != null)
 			mapColumns(columns);
-		Log.v(TAG, "query(columns=" + Arrays.toString(columns) + ") " + this);
+		LOGV(TAG, "query(columns=" + Arrays.toString(columns) + ") " + this);
 		Cursor c = db.query(mTable, columns, getSelection(),
 				getSelectionArgs(), groupBy, having, orderBy, limit);
-		Log.v(TAG, c.getCount() + " rows returned");
+		LOGV(TAG, c.getCount() + " rows returned");
 		return c;
 	}
 
@@ -166,10 +167,10 @@ public class SelectionBuilder {
 	 */
 	public int update(SQLiteDatabase db, ContentValues values) {
 		assertTable();
-		Log.v(TAG, "update() " + this);
+		LOGV(TAG, "update() " + this);
 		int affected = db.update(mTable, values, getSelection(),
 				getSelectionArgs());
-		Log.v(TAG, affected + " rows affected");
+		LOGV(TAG, affected + " rows affected");
 		return affected;
 	}
 
@@ -178,9 +179,9 @@ public class SelectionBuilder {
 	 */
 	public int delete(SQLiteDatabase db) {
 		assertTable();
-		Log.v(TAG, "delete() " + this);
+		LOGV(TAG, "delete() " + this);
 		int affected = db.delete(mTable, getSelection(), getSelectionArgs());
-		Log.v(TAG, affected + " rows deleted (0 may be all)");
+		LOGV(TAG, affected + " rows deleted (0 may be all)");
 		return affected;
 	}
 }

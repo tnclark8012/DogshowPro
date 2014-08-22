@@ -8,9 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import dev.tnclark8012.dogshow.shared.DogshowEnums.JuniorClass;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class JuniorClassSelectFragment extends ListFragment {
-	private static final String TAG = JuniorClassSelectFragment.class.getSimpleName();
+	private static final String TAG = makeLogTag(JuniorClassSelectFragment.class);
 
 	public interface Callback {
 		public void onJuniorClassSelected(JuniorClass juniorClass);
@@ -33,7 +33,7 @@ public class JuniorClassSelectFragment extends ListFragment {
 
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
-		Log.v(TAG, "clicked position " + position);
+		LOGV(TAG, "clicked position " + position);
 		if (mListener != null) {
 			mListener.onJuniorClassSelected((position == 0) ? null : classes[position-1]);
 			

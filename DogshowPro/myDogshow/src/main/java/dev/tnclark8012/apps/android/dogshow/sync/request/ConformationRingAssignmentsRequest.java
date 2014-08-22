@@ -21,7 +21,7 @@ import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class ConformationRingAssignmentsRequest {
 	private Context mContext;
 	private IApiAccessor mAccessor;
-	public static final String TAG = makeLogTag(ConformationRingAssignmentsRequest.class);
+	public static final String TAG =  makeLogTag(ConformationRingAssignmentsRequest.class);
 
 	public ConformationRingAssignmentsRequest(Context context) {
 		mContext = context;
@@ -39,7 +39,7 @@ public class ConformationRingAssignmentsRequest {
 								Dogs.DOG_IS_SHOWING_SWEEPSTAKES,
 								Dogs.DOG_IS_VETERAN }, Dogs.DOG_IS_SHOWING + "=1",
 						null, null);
-		Log.i(TAG, "Syncing breed rings for " + enteredDogCursor.getCount()
+		LOGI(TAG, "Syncing breed rings for " + enteredDogCursor.getCount()
 				+ " dogs");
 		int numDogs = 0;
         //If there are not entered dogs, clear any existing data.
@@ -63,7 +63,7 @@ public class ConformationRingAssignmentsRequest {
 		}
         ConformationRingAssignmentResponse[] assignmentsAndRings = mAccessor.getBreedRingAssignments(showId, dogs);
         batch.addAll(handler.parse(assignmentsAndRings));
-		Log.v(TAG, "Pulled breed rings for " + numDogs + " dogs");
+		LOGV(TAG, "Pulled breed rings for " + numDogs + " dogs");
 		enteredDogCursor.close();
 		return batch;
 	}

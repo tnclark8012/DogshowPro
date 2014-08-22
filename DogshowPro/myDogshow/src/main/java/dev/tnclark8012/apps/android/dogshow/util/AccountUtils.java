@@ -46,7 +46,7 @@ import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
  */
 public class AccountUtils {
 
-	private static final String TAG = makeLogTag(AccountUtils.class);
+	private static final String TAG =  makeLogTag(AccountUtils.class);
 
 	private static final String PREF_CHOSEN_ACCOUNT = "chosen_account";
 	private static final String PREF_AUTH_TOKEN = "auth_token";
@@ -98,7 +98,7 @@ public class AccountUtils {
 
 	static void setChosenAccountName(final Context context,
 			final String accountName) {
-		Log.d(TAG, "Chose account " + accountName);
+		LOGD(TAG, "Chose account " + accountName);
 		SharedPreferences sp = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		sp.edit().putString(PREF_CHOSEN_ACCOUNT, accountName).commit();
@@ -112,12 +112,12 @@ public class AccountUtils {
 
 	private static void setAuthToken(final Context context,
 			final String authToken) {
-		Log.i(TAG, "Auth token of length "
+		LOGI(TAG, "Auth token of length "
 				+ (TextUtils.isEmpty(authToken) ? 0 : authToken.length()));
 		SharedPreferences sp = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		sp.edit().putString(PREF_AUTH_TOKEN, authToken).commit();
-		Log.d(TAG, "Auth Token: " + authToken);
+		LOGD(TAG, "Auth Token: " + authToken);
 	}
 
 	static void invalidateAuthToken(final Context context) {
@@ -186,7 +186,7 @@ public class AccountUtils {
 			String syncAuthority, String accountName) {
 		String token = null;
 		try {
-			Log.i(TAG, "Requesting new auth token (with notification)");
+			LOGI(TAG, "Requesting new auth token (with notification)");
 			token = GoogleAuthUtil.getTokenWithNotification(context,
 					accountName, AUTH_TOKEN_TYPE, null);
 			// context, accountName, AUTH_TOKEN_TYPE, null, syncAuthority,
@@ -197,14 +197,14 @@ public class AccountUtils {
 
 		} catch (GoogleAuthException authEx) {
 			// This is likely unrecoverable.
-			Log.e(TAG,
+			LOGE(TAG,
 					"Unrecoverable authentication exception: "
 							+ authEx.getMessage(), authEx);
 		} catch (IOException ioEx) {
-			Log.i(TAG, "transient error encountered: " + ioEx.getMessage());
+			LOGI(TAG, "transient error encountered: " + ioEx.getMessage());
 			// doExponentialBackoff();
 		} catch (Exception e) {
-			Log.i(TAG, "Authentication exception: " + e.getMessage());
+			LOGI(TAG, "Authentication exception: " + e.getMessage());
 		}
 		return token;
 	}

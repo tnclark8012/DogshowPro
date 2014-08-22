@@ -9,7 +9,7 @@ import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
  * Simple array adapter displaying the breed names in a breed group
  */
 public class BreedAdapter extends ArrayAdapter<String> {
-	public static final String TAG = makeLogTag(BreedAdapter.class);
+	public static final String TAG =  makeLogTag(BreedAdapter.class);
 
 	public BreedAdapter(Context context, BreedGroup group) {
 		super(context, android.R.layout.simple_list_item_1, android.R.id.text1,

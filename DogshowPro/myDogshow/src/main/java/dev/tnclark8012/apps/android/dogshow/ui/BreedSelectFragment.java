@@ -14,7 +14,7 @@ import dev.tnclark8012.dogshow.shared.DogshowEnums.BreedGroup;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
 import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class BreedSelectFragment extends ListFragment {
-	private static final String TAG = makeLogTag(BreedSelectFragment.class);
+	private static final String TAG =  makeLogTag(BreedSelectFragment.class);
 
 	public interface BreedSelectListener {
 		public void onBreedSelected(Breeds breed);
@@ -34,20 +34,20 @@ public class BreedSelectFragment extends ListFragment {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		String[] breeds = mGroup.getBreedNames();
-		Log.d(TAG, "Group: " + mGroup);
+		LOGD(TAG, "Group: " + mGroup);
 		setListAdapter(new ArrayAdapter<String>(getActivity(),
 				android.R.layout.simple_list_item_1, android.R.id.text1, breeds));
 	}
 
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
-		Log.v(TAG,"clicked position " + position);
+		LOGV(TAG,"clicked position " + position);
         if (mListener != null) {
 			mListener.onBreedSelected(mGroup.getBreeds()[position]);
 		}
         else
         {
-            Log.w(TAG, "No listener!");
+            LOGW(TAG, "No listener!");
         }
 	}
 

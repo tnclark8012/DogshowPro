@@ -48,7 +48,7 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowDatabase.Tables;
 import dev.tnclark8012.apps.android.dogshow.util.SelectionBuilder;
 import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class DogshowProvider extends ContentProvider {
-	private static final String TAG = makeLogTag(DogshowProvider.class);
+	private static final String TAG =  makeLogTag(DogshowProvider.class);
 
 	private DogshowDatabase mOpenHelper;
 
@@ -158,7 +158,7 @@ public class DogshowProvider extends ContentProvider {
 	@Override
 	public Cursor query(Uri uri, String[] projection, String selection,
 			String[] selectionArgs, String sortOrder) {
-		Log.v(TAG, "query(uri=" + uri + ", proj=" + Arrays.toString(projection)
+		LOGV(TAG, "query(uri=" + uri + ", proj=" + Arrays.toString(projection)
 				+ ")");// TODO FIXME DogsFragment seems to make several queries
 						// to
 						// start
@@ -206,7 +206,7 @@ public class DogshowProvider extends ContentProvider {
 	/** {@inheritDoc} */
 	@Override
 	public Uri insert(Uri uri, ContentValues values) {
-		Log.v(TAG, "insert(uri=" + uri + ", values=" + values.toString() + ")");
+		LOGV(TAG, "insert(uri=" + uri + ", values=" + values.toString() + ")");
 		final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 		final int match = sUriMatcher.match(uri);
 		boolean syncToNetwork = !DogshowContract
@@ -273,25 +273,25 @@ public class DogshowProvider extends ContentProvider {
 	@Override
 	public int update(Uri uri, ContentValues values, String selection,
 			String[] selectionArgs) {
-		Log.v(TAG, "update(uri=" + uri + ", values=" + values.toString()
+		LOGV(TAG, "update(uri=" + uri + ", values=" + values.toString()
 				+ ") selection " + selection + ", selectionArgs: "
 				+ selectionArgs[0]);
 		final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 		final SelectionBuilder builder = buildSimpleSelection(uri);
 		int retVal = builder.where(selection, selectionArgs).update(db, values);
-		Log.v(TAG, retVal + " row affected.");
+		LOGV(TAG, retVal + " row affected.");
 		boolean syncToNetwork = !DogshowContract
 				.hasCallerIsSyncAdapterParameter(uri);
 		getContext().getContentResolver()
 				.notifyChange(uri, null, syncToNetwork);
-		Log.d(TAG, "return val of update: " + retVal);
+		LOGD(TAG, "return val of update: " + retVal);
 		return retVal;
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public int delete(Uri uri, String selection, String[] selectionArgs) {
-		Log.v(TAG, "delete(uri=" + uri + ")");
+		LOGV(TAG, "delete(uri=" + uri + ")");
 		if (uri == DogshowContract.BASE_CONTENT_URI) {
 			// Handle whole database deletes (e.g. when signing out)
 			deleteDatabase();

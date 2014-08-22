@@ -34,10 +34,10 @@ import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigatableActivity;
 import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigationDrawerFragment;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class MyScheduleActivity extends NavigatableActivity {
 
-	private static final String TAG = MyScheduleActivity.class.getSimpleName();
+	private static final String TAG = makeLogTag(MyScheduleActivity.class);
 
 	@Override
 	protected Fragment onCreatePane() {

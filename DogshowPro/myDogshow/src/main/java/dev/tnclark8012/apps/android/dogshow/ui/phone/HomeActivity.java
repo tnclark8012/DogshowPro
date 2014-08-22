@@ -11,13 +11,13 @@ import dev.tnclark8012.apps.android.dogshow.ui.IncompleteFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigatableActivity;
 import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigationDrawerFragment.NavigationDrawerCallbacks;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 /**
  * The landing screen for the app, once the user has logged in.
  */
 public class HomeActivity extends NavigatableActivity implements
 		NavigationDrawerCallbacks {
-	private static final String TAG = HomeActivity.class.getSimpleName();
+	private static final String TAG = makeLogTag(HomeActivity.class);
 
 	@Override
 	protected Fragment onCreatePane() {

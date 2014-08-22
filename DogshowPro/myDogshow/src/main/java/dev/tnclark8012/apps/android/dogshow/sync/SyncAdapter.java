@@ -31,13 +31,13 @@ import java.util.regex.Pattern;
 
 import dev.tnclark8012.apps.android.dogshow.BuildConfig;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 /**
  * Sync adapter for dog show
  */
 public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
-    private static final String TAG = SyncAdapter.class.getSimpleName();
+    private static final String TAG = makeLogTag(SyncAdapter.class);
 
     private static final Pattern sSanitizeAccountNamePattern = Pattern.compile("(.).*?(.?)@");
 
@@ -54,7 +54,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
             Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
                 @Override
                 public void uncaughtException(Thread thread, Throwable throwable) {
-                    Log.e(TAG, "Uncaught sync exception, suppressing UI in release build.",
+                    LOGE(TAG, "Uncaught sync exception, suppressing UI in release build.",
                             throwable);
                 }
             });
@@ -75,7 +75,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
             return;
         }
 
-        Log.i(TAG, "Beginning sync for account " + logSanitizedAccountName + "," +
+        LOGI(TAG, "Beginning sync for account " + logSanitizedAccountName + "," +
                 " uploadOnly=" + uploadOnly +
                 " manualSync=" + manualSync +
                 " initialize=" + initialize);
@@ -87,7 +87,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
             ContentResolver.setIsSyncable(account, authority, isChosenAccount ? 1 : 0);
         }
         if (!isChosenAccount) {
-            Log.w(TAG, "Tried to sync account " + logSanitizedAccountName + " but the chosen " +
+            LOGW(TAG, "Tried to sync account " + logSanitizedAccountName + " but the chosen " +
                     "account is actually " + chosenAccountName);
             ++syncResult.stats.numAuthExceptions;
             return;
@@ -97,14 +97,8 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         if (mSyncHelper == null) {
             mSyncHelper = new SyncHelper(mContext);
         }
-
-        try {
             mSyncHelper.performSync(syncResult,
                     flags);
 
-        } catch (IOException e) {
-            ++syncResult.stats.numIoExceptions;
-            Log.e(TAG, "Error syncing data for Dog Show Pro.", e);
-        }
     }
 }

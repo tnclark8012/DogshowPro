@@ -11,7 +11,7 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.SyncColumns;
 import dev.tnclark8012.apps.android.dogshow.sync.response.ConformationRingAssignmentResponse;
 import dev.tnclark8012.dogshow.shared.DogshowEnums;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class RingAssignmentHandler extends JsonHandler<ConformationRingAssignmentResponse> {
 	boolean clearExisting = false;
 	boolean hasCleared = false;
@@ -21,7 +21,7 @@ public class RingAssignmentHandler extends JsonHandler<ConformationRingAssignmen
 		this.clearExisting = clearExisting;
 	}
 
-	private static final String TAG = RingAssignmentHandler.class.getSimpleName();
+	private static final String TAG = makeLogTag(RingAssignmentHandler.class);
 
 	public ArrayList<ContentProviderOperation> parse(ConformationRingAssignmentResponse[] assignments) {
 		final ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
@@ -37,7 +37,7 @@ public class RingAssignmentHandler extends JsonHandler<ConformationRingAssignmen
 				hasCleared = true;
 			}
 			if (numRingAssignments > 0) {
-				Log.i(TAG, "Updating ring assignments");
+				LOGI(TAG, "Updating ring assignments");
                 Builder builder;
                 for (ConformationRingAssignmentResponse assignment : assignments) {
                     //Insert ring-dog assignments

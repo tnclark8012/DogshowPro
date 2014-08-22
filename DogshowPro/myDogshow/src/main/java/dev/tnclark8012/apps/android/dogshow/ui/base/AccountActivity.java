@@ -70,7 +70,7 @@ public class AccountActivity extends Activity implements
 		GooglePlayServicesClient.OnConnectionFailedListener,
 		PlusClient.OnPeopleLoadedListener {
 
-	private static final String TAG = makeLogTag(AccountActivity.class);
+	private static final String TAG =  makeLogTag(AccountActivity.class);
 	private static final String SENDER_ID = "282844312315";
 	private GoogleCloudMessaging gcm;
 	private NotificationHub hub;
@@ -143,9 +143,9 @@ public class AccountActivity extends Activity implements
 		         try {
 		            String regid = gcm.register(SENDER_ID);
 		            Registration registration = hub.register(regid, "alpha");
-		            Log.i(TAG, "reg id: " + registration.getRegistrationId());
-		            Log.i(TAG, "PNS Handle: " + registration.getPNSHandle());
-		            Log.i(TAG, "Hub path: " + registration.getNotificationHubPath());
+		            LOGI(TAG, "reg id: " + registration.getRegistrationId());
+		            LOGI(TAG, "PNS Handle: " + registration.getPNSHandle());
+		            LOGI(TAG, "Hub path: " + registration.getNotificationHubPath());
 		            
 		            
 		         } catch (Exception e) {
@@ -172,7 +172,7 @@ public class AccountActivity extends Activity implements
 	@Override
 	public void onUnRecoverableException(final String errorMessage) {
 		makeToast(this, "Unrecoverable: " + errorMessage);
-		Log.w(TAG, "Encountered unrecoverable exception: " + errorMessage);
+		LOGW(TAG, "Encountered unrecoverable exception: " + errorMessage);
 	}
 
 	@Override
@@ -231,7 +231,7 @@ public class AccountActivity extends Activity implements
 				AccountUtils.setProfileName(this, person.getDisplayName());
 			}
 		} else {
-			Log.e(TAG, "Got " + status.getErrorCode()
+			LOGE(TAG, "Got " + status.getErrorCode()
 					+ ". Could not load plus profile.");
 		}
 	}
@@ -545,7 +545,7 @@ public class AccountActivity extends Activity implements
 				connectionResult.startResolutionForResult(this,
 						REQUEST_RECOVER_FROM_AUTH_ERROR);
 			} catch (IntentSender.SendIntentException e) {
-				Log.e(TAG, "Internal error encountered: " + e.getMessage());
+				LOGE(TAG, "Internal error encountered: " + e.getMessage());
 				makeToast(this, "Internal error occured: " + e.getMessage());
 			}
 			return;

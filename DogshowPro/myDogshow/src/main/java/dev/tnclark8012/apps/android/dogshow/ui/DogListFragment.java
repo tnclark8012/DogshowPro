@@ -13,9 +13,9 @@ import dev.tnclark8012.apps.android.dogshow.sql.query.Query.DogsQuery;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEntityListFragment;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class DogListFragment extends BaseEntityListFragment {
-	private static final String TAG = DogListFragment.class.getSimpleName();
+	private static final String TAG = makeLogTag(DogListFragment.class);
 	private String mTitle;
 
 	@Override

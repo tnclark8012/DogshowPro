@@ -26,7 +26,7 @@ import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
  * listening {@link Activity} can be swapped out during configuration changes.
  */
 public class DetachableResultReceiver extends ResultReceiver {
-    private static final String TAG = makeLogTag(DetachableResultReceiver.class);
+    private static final String TAG =  makeLogTag(DetachableResultReceiver.class);
 
     private Receiver mReceiver;
 
@@ -51,7 +51,7 @@ public class DetachableResultReceiver extends ResultReceiver {
         if (mReceiver != null) {
             mReceiver.onReceiveResult(resultCode, resultData);
         } else {
-            Log.w(TAG, "Dropping result on floor for code " + resultCode + ": "
+            LOGW(TAG, "Dropping result on floor for code " + resultCode + ": "
                     + resultData.toString());
         }
     }

@@ -10,10 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import java.util.List;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class NavigationDrawerAdapter extends ArrayAdapter<DrawerItem> {
-	public static final String TAG = NavigationDrawerAdapter.class
-			.getSimpleName();
+	public static final String TAG = makeLogTag(NavigationDrawerAdapter.class);
 	Context context;
 	List<DrawerItem> drawerItemList;
 	int layoutResID;

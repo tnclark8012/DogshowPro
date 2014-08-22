@@ -19,15 +19,14 @@ import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamResponse;
 import dev.tnclark8012.apps.android.dogshow.util.AccountUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class ShowTeamCreateFragment extends Fragment {
 	public interface Callback {
 		void onCreateFinish(int status, String teamName, String teamIdentifier);
 	}
 
 	private Callback mCallback = null;
-	private static final String TAG = ShowTeamCreateFragment.class
-			.getSimpleName();
+	private static final String TAG = makeLogTag(ShowTeamCreateFragment.class);
 
 	private EditText mNameEditText;
 	private EditText mPasswordText;

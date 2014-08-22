@@ -33,7 +33,7 @@ import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.LOGW;
 import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.makeLogTag;
 
 public class MessageCardView extends FrameLayout implements View.OnClickListener {
-    private static final String TAG = makeLogTag("MessageCardView");
+    private static final String TAG =  makeLogTag("MessageCardView");
     private TextView mTitleView;
     private TextView mMessageView;
     private Button[] mButtons;

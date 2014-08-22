@@ -22,9 +22,9 @@ import android.content.Intent;
 import dev.tnclark8012.apps.android.dogshow.ui.JuniorClassSelectFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.SimpleSinglePaneActivity;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.JuniorClass;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class JuniorClassSelectActivity extends SimpleSinglePaneActivity implements JuniorClassSelectFragment.Callback{
-    private static final String TAG = JuniorClassSelectActivity.class.getSimpleName();
+    private static final String TAG = makeLogTag(JuniorClassSelectActivity.class);
     public final static String EXTRA_JUNIOR_CLASS = "dev.tnclark8012.apps.android.dogshow.intent.extra.EXTRA_JUNIOR_CLASS";
     public final static int REQUEST_CODE_CLASS_SELECT = 0x1;
 

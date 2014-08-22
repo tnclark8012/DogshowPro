@@ -27,9 +27,9 @@ import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 import dev.tnclark8012.apps.android.dogshow.util.image.SimpleImageLoadingListener;
 import dev.tnclark8012.dogshow.shared.DogshowEnums.Breeds;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class DogViewFragment extends BaseEditableEntityViewFragment {
-	private static final String TAG = DogViewFragment.class.getSimpleName();
+	private static final String TAG = makeLogTag(DogViewFragment.class);
 
 	private interface DogQuery {
 		int _TOKEN = 0x1;
@@ -82,7 +82,7 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 						getResources(), loadedImage));
 			}
 			mImagePath = imageUri;
-			Log.v(TAG, "done");
+			LOGV(TAG, "done");
 		}
 	};
 
@@ -129,20 +129,20 @@ public class DogViewFragment extends BaseEditableEntityViewFragment {
 			mViewSex.setText(mSex);
 			if (mViewName != null)
 				mViewName.setText(mCallName);
-			Log.v(TAG,
+			LOGV(TAG,
 					"DOG_IS_SHOWING: " + cursor.getInt(DogQuery.DOG_IS_SHOWING));
 			if (mImagePath != null) {
 				UIUtils.loadImage(getActivity(), mImageLoadingListener,
 						mImagePath);
 			} else {
-				Log.w(TAG, "Image path was null");
+				LOGW(TAG, "Image path was null");
 				mViewImage.setBackgroundResource(R.drawable.dog);
 			}
 			// String majorsTemplate = ;
 			Resources res = getResources();
 			mViewMajors.setText(res.getQuantityString(
 					R.plurals.template_majors, mMajors, mMajors));
-			Log.d(TAG, "Points: " + mPoints);
+			LOGD(TAG, "Points: " + mPoints);
 			if (mPoints >= 15) {
 				mViewPoints.setText(res.getString(
 						R.string.template_points_finished, mPoints));

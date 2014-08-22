@@ -35,7 +35,7 @@ import dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamResponse;
 import dev.tnclark8012.apps.android.dogshow.sync.response.ShowTeamSyncResponse;
 import dev.tnclark8012.apps.android.dogshow.util.DebugUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class AzureApiAccessor extends ApiAccessor {
 	// TODO implement required parameters? User ID or some such things?
 	private URL BASE_URL;
@@ -159,10 +159,10 @@ public class AzureApiAccessor extends ApiAccessor {
 					veteran, sweepstakes));
 			BreedRing[] rings = mGson.fromJson(jsonStr, BreedRing[].class);
 			for (BreedRing ring : rings) {
-				Log.d(TAG, "From " + new Date(ring.blockStartMillis));
+				LOGD(TAG, "From " + new Date(ring.blockStartMillis));
 				ring.blockStartMillis = Utils
 						.millisSinceEpoch(ring.blockStartMillis);
-				Log.d(TAG, "To " + new Date(ring.blockStartMillis));
+				LOGD(TAG, "To " + new Date(ring.blockStartMillis));
 			}
 			return rings;
 		} catch (IOException e) {
@@ -222,9 +222,9 @@ public class AzureApiAccessor extends ApiAccessor {
 		try {
 			String jsonStr = executeGet(buildGetShowsUrl());
 			Show[] shows = mGson.fromJson(jsonStr, Show[].class);
-			Log.d(TAG, jsonStr);
+			LOGD(TAG, jsonStr);
 			for (Show show : shows) {
-				Log.d(TAG, show.toString());
+				LOGD(TAG, show.toString());
 				show.startDateMillis = Utils
 						.millisSinceEpoch(show.startDateMillis);
 			}
@@ -377,7 +377,7 @@ public class AzureApiAccessor extends ApiAccessor {
 			for (RingBlockOverview ring : rings) {
 				ring.blockStart = Utils.millisSinceEpoch(ring.blockStart);
 			}
-			Log.i(TAG, "pulled overview containing " + rings.length + " rings");
+			LOGI(TAG, "pulled overview containing " + rings.length + " rings");
 			return rings;
 		} catch (IOException e) {
 			e.printStackTrace();

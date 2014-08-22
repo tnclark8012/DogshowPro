@@ -23,7 +23,7 @@ import dev.tnclark8012.apps.android.dogshow.Config;
 import dev.tnclark8012.apps.android.dogshow.Config.IApiAccessor;
 import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public abstract class ApiAccessor implements Config.IApiAccessor {
-    public static final String TAG = makeLogTag(ApiAccessor.class);
+    public static final String TAG =  makeLogTag(ApiAccessor.class);
 
     public ApiAccessor() {
     }
@@ -48,13 +48,13 @@ public abstract class ApiAccessor implements Config.IApiAccessor {
         try {
             return URLEncoder.encode(str, "UTF-8");
         } catch (UnsupportedEncodingException e) {
-            Log.e(Config.TAG, "Invalid encoding: " + str);
+            LOGE(Config.TAG, "Invalid encoding: " + str);
             return str;
         }
     }
 
     protected String executeGet(URL url) throws IOException {
-        Log.d(TAG, "Requesting URL: " + url);
+        LOGD(TAG, "Requesting URL: " + url);
 
         HttpURLConnection urlConnection = (HttpURLConnection) url
                 .openConnection();
@@ -62,7 +62,7 @@ public abstract class ApiAccessor implements Config.IApiAccessor {
         throwErrors(urlConnection);
         String response = readInputStream(urlConnection.getInputStream());
 
-        Log.v(TAG, "HTTP response: " + response);
+        LOGV(TAG, "HTTP response: " + response);
         return response;
     }
 
@@ -74,7 +74,7 @@ public abstract class ApiAccessor implements Config.IApiAccessor {
             try {
                 String errorContent = readInputStream(urlConnection
                         .getErrorStream());
-                Log.v(TAG, "Error content: " + errorContent);
+                LOGV(TAG, "Error content: " + errorContent);
             } catch (IOException ignored) {
             }
         }

@@ -31,7 +31,7 @@ import android.widget.TextView;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.model.Show;
 import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 /**
  * Schedule Similar to {@link MyScheduleFragment} but does not remove past rings
  * 
@@ -39,7 +39,7 @@ import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
  * 
  */
 public class FindShowFragment extends ListFragment {
-	private static final String TAG = FindShowFragment.class.getSimpleName();
+	private static final String TAG = makeLogTag(FindShowFragment.class);
 	private ShowListAdapter mAdapter;
 	private View mRootView;
 	private AsyncTask<Void, Void, Show[]> mGetShowsTask;

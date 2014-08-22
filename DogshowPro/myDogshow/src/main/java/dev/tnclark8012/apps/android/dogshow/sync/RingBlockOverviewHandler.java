@@ -11,7 +11,7 @@ import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.RingBlocks;
 import dev.tnclark8012.apps.android.dogshow.sql.DogshowContract.SyncColumns;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
-
+import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class RingBlockOverviewHandler extends JsonHandler<RingBlockOverview> {
 	boolean clearExisting = false;
 	boolean hasCleared = false;
@@ -21,7 +21,7 @@ public class RingBlockOverviewHandler extends JsonHandler<RingBlockOverview> {
 		this.clearExisting = clearExisting;
 	}
 
-	private static final String TAG = RingBlockOverviewHandler.class.getSimpleName();
+	private static final String TAG = makeLogTag(RingBlockOverviewHandler.class);
 
 	public ArrayList<ContentProviderOperation> parse(RingBlockOverview[] ringBlockOverviews) {
 		final ArrayList<ContentProviderOperation> batch = new ArrayList<ContentProviderOperation>();
@@ -31,7 +31,7 @@ public class RingBlockOverviewHandler extends JsonHandler<RingBlockOverview> {
 
 		if (ringBlockOverviews != null) {
 			numRings = ringBlockOverviews.length;
-			Log.d(TAG, "response contained " + numRings + " ring overviews");
+			LOGD(TAG, "response contained " + numRings + " ring overviews");
 
 			if (clearExisting && !hasCleared) {
 				batch.add(ContentProviderOperation
@@ -42,7 +42,7 @@ public class RingBlockOverviewHandler extends JsonHandler<RingBlockOverview> {
 				hasCleared = true;
 			}
 			if (numRings > 0) {
-				Log.i(TAG, "Updating ring overviews");
+				LOGI(TAG, "Updating ring overviews");
 
 				for (RingBlockOverview ring : ringBlockOverviews) {
 					// Insert rings info

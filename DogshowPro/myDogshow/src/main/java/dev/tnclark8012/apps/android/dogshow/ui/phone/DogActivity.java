@@ -7,7 +7,7 @@ import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityEditFragme
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseEditableEntityViewFragment;
 import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class DogActivity extends BaseEditableEntityActivity {
-	private static final String TAG = makeLogTag(DogActivity.class);
+	private static final String TAG =  makeLogTag(DogActivity.class);
 
 	@Override
 	protected BaseEditableEntityViewFragment getViewFragment() {
@@ -18,6 +18,4 @@ public class DogActivity extends BaseEditableEntityActivity {
 	protected BaseEditableEntityEditFragment getEditFragment() {
 		return new DogEditFragment();
 	}
-
-	
 }

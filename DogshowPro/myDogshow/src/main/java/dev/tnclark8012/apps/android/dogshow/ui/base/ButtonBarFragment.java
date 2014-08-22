@@ -11,7 +11,7 @@ import dev.tnclark8012.apps.android.dogshow.R;
 import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public abstract class ButtonBarFragment extends Fragment {
 
-	private static final String TAG = makeLogTag(ButtonBarFragment.class);
+	private static final String TAG =  makeLogTag(ButtonBarFragment.class);
 	public static final String EXTRA_LEFT_BUTTON_TEXT = "left_button_text";
 	public static final String EXTRA_RIGHT_BUTTON_TEXT = "right_button_text";
 	private String mLeftButtonText;
