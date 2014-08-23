@@ -34,7 +34,6 @@ public class Utils {
     public static File downloadFile(String dwnload_file_path) {
         File file;
         try {
-
             URL url = new URL(dwnload_file_path);
             HttpURLConnection urlConnection = (HttpURLConnection) url
                     .openConnection();
@@ -49,36 +48,42 @@ public class Utils {
             File SDCardRoot = Environment.getExternalStorageDirectory();
             // create a new file, to save the downloaded file
             file = new File(SDCardRoot, url.getFile());
-            if(file.exists())
-            {
+            if (file.exists()) {
                 file.delete();
             }
             file.getParentFile().mkdirs();
-            FileOutputStream fileOutput = new FileOutputStream(file);
+            if (file.canWrite()) {
+                FileOutputStream fileOutput = new FileOutputStream(file);
 
-            // Stream used for reading the data from the internet
-            InputStream inputStream = urlConnection.getInputStream();
+                // Stream used for reading the data from the internet
+                InputStream inputStream = urlConnection.getInputStream();
 
 //            // this is the total size of the file which we are
 //            // downloading
 //            totalsize = urlConnection.getContentLength();
 
-            // create a buffer...
-            byte[] buffer = new byte[1024 * 1024];
-            int bufferLength = 0;
+                // create a buffer...
+                byte[] buffer = new byte[1024 * 1024];
+                int bufferLength = 0;
 
-            while ((bufferLength = inputStream.read(buffer)) > 0) {
-                fileOutput.write(buffer, 0, bufferLength);
+                while ((bufferLength = inputStream.read(buffer)) > 0) {
+                    fileOutput.write(buffer, 0, bufferLength);
 //                downloadedSize += bufferLength;
 //                per = ((float) downloadedSize / totalsize) * 100;
+                }
+                // close the output stream when complete //
+                fileOutput.close();
+                return file;
             }
-            // close the output stream when complete //
-            fileOutput.close();
-        } catch (final Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-        return file;
+            else
+            {
+                LOGW(TAG, "No permissions to write file");
+                return null;
+            }
+            }catch( final Exception e){
+                e.printStackTrace();
+                return null;
+            }
     }
 
     public static boolean canIntentBeHandled(Context context, Intent intent)

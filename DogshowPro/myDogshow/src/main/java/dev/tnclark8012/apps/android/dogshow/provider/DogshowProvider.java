@@ -464,23 +464,22 @@ public class DogshowProvider extends ContentProvider {
                 + Tables.BREED_RINGS_JOIN_DOG_ASSIGNMENTS + " )";
 
 		public static final String JUNIOR_RING_OVERVIEW = "SELECT "
-				+ Qualified.JUNIORS_RINGS_ID + ", " + "CAST("
-				+ EnteredRings.TYPE_JUNIORS_RING + " as INTEGER )" + " as "
-				+ EnteredRings.ENTERED_RINGS_TYPE + ", "
-				+ JuniorsRings.RING_NUMBER + ", " + JuniorsRings.RING_TITLE
-				+ " || IFNULL(" + JuniorsRings.RING_JUNIOR_BREED + ", '')"
-				+ "," + Handlers.ENTERED_JUNIOR_HANDLER_NAMES + ", "
+				+ Qualified.JUNIORS_RINGS_ID + ", "
+                + "CAST(" + EnteredRings.TYPE_JUNIORS_RING + " as INTEGER )" + " as "+ EnteredRings.ENTERED_RINGS_TYPE + ", "
+				+ " NULL," //image_path
+				+ " NULL," //first class
+                + Handlers.ENTERED_JUNIOR_HANDLER_NAMES + " as "+ EnteredRings.ENTERED_RINGS_SUBTITLE + ", "//subtitle
+                + JuniorsRings.RING_NUMBER + ", "//number
+                + JuniorsRings.RING_TITLE+ " || IFNULL(" + JuniorsRings.RING_JUNIOR_BREED + ", '')" + " as " + EnteredRings.ENTERED_RINGS_TITLE +  ","//title
 				+ JuniorsRings.RING_BLOCK_START + ", "
 				+ JuniorsRings.RING_COUNT_AHEAD + ", "
 				+ JuniorsRings.RING_JUNIOR_COUNT + ","
-				+ JuniorsRings.RING_JUDGE_TIME + ", " + "NULL" + "," + // image
-																		// path
-				"NULL" + "," + // first class
-				"NULL" + "," + // dog
-				"NULL" + "," + // bitch
-				"NULL" + "," + // s. dog
-				"NULL" + // s. bitch
-				" FROM " + Tables.ENTERED_JUNIORS_RINGS;
+				+ JuniorsRings.RING_JUDGE_TIME + ", "
+				+ "NULL" + "," // dog count
+				+ "NULL" + "," // bitch count
+				+ "NULL" + "," // s. dog count
+			    + "NULL" // s. bitch count
+				+ " FROM " + Tables.ENTERED_JUNIORS_RINGS;
 		public static final String GROUP_RING_OVERVIEW = "SELECT "
 				+ Qualified.GROUP_RINGS_ID + ", " + "CAST("
 				+ EnteredRings.TYPE_GROUP_RING + " as INTEGER )" + " as "

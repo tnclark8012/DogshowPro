@@ -68,7 +68,7 @@ public class DogListActivity extends BaseEntityListActivity implements
 		adding = false;
 		getFragmentManager().beginTransaction()
 				.addToBackStack(FRAGMENT_TAG_VIEW)
-				.add(R.id.root_container, mViewFragment, FRAGMENT_TAG_VIEW)
+				.replace(R.id.root_container, mViewFragment, FRAGMENT_TAG_VIEW)
 				.commit();
 		return true;
 	}
@@ -82,7 +82,7 @@ public class DogListActivity extends BaseEntityListActivity implements
 
 		getFragmentManager().beginTransaction()
 				.addToBackStack(FRAGMENT_TAG_EDIT)
-				.add(R.id.root_container, mEditFragment, FRAGMENT_TAG_EDIT)
+				.replace(R.id.root_container, mEditFragment, FRAGMENT_TAG_EDIT)
 				.commit();
 		return true;
 	}
@@ -96,7 +96,7 @@ public class DogListActivity extends BaseEntityListActivity implements
 		mEditFragment = DogEditFragment.newInstance(currentDog);
 		getFragmentManager().beginTransaction()
 				.addToBackStack(FRAGMENT_TAG_EDIT)
-				.add(R.id.root_container, mEditFragment, FRAGMENT_TAG_EDIT)
+				.replace(R.id.root_container, mEditFragment, FRAGMENT_TAG_EDIT)
 				.commit();
 	}
 

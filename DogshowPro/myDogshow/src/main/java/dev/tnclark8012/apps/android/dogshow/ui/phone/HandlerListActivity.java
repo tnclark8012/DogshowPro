@@ -67,7 +67,7 @@ public class HandlerListActivity extends BaseEntityListActivity implements
 		mViewFragment = HandlerViewFragment.newInstance(currentHandler);
 		getFragmentManager().beginTransaction()
 				.addToBackStack(FRAGMENT_TAG_VIEW)
-				.add(R.id.root_container, mViewFragment, FRAGMENT_TAG_VIEW)
+				.replace(R.id.root_container, mViewFragment, FRAGMENT_TAG_VIEW)
 				.commit();
 		return true;
 	}
@@ -78,7 +78,7 @@ public class HandlerListActivity extends BaseEntityListActivity implements
 
 		getFragmentManager().beginTransaction()
 				.addToBackStack(FRAGMENT_TAG_EDIT)
-				.add(R.id.root_container, mEditFragment, FRAGMENT_TAG_EDIT)
+				.replace(R.id.root_container, mEditFragment, FRAGMENT_TAG_EDIT)
 				.commit();
 		return true;
 	}
@@ -92,7 +92,7 @@ public class HandlerListActivity extends BaseEntityListActivity implements
 		mEditFragment = HandlerEditFragment.newInstance(currentHandler);
 		getFragmentManager().beginTransaction()
 				.addToBackStack(FRAGMENT_TAG_EDIT)
-				.add(R.id.root_container, mEditFragment, FRAGMENT_TAG_EDIT)
+				.replace(R.id.root_container, mEditFragment, FRAGMENT_TAG_EDIT)
 				.commit();
 	}
 

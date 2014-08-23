@@ -179,7 +179,13 @@ public class AzureApiAccessor extends ApiAccessor {
         JsonObject json = mGson.toJsonTree(request, ConformationRingAssignmentRequestModel.class)
                 .getAsJsonObject();
         String jsonStr = makePostRequest(buildGetRingAssignmentsUrl(showId),json);
-        return mGson.fromJson(jsonStr, ConformationRingAssignmentResponse[].class);
+        ConformationRingAssignmentResponse[] assignmentResponses =  mGson.fromJson(jsonStr, ConformationRingAssignmentResponse[].class);
+        for(ConformationRingAssignmentResponse response : assignmentResponses)
+        {
+            response.ring.blockStartMillis = Utils
+                        .millisSinceEpoch(response.ring.blockStartMillis);
+        }
+        return assignmentResponses;
     }
 
 	@Override

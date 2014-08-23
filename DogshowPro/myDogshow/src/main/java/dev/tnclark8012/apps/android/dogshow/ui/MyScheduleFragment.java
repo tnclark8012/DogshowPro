@@ -247,8 +247,8 @@ public class MyScheduleFragment extends Fragment implements
 			long prevBlockMillis = cursor.getLong(RingsQuery.BLOCK_START);
 			String dateStr = DateUtils.formatDateTime(getActivity(),
 					prevBlockMillis, DateUtils.FORMAT_SHOW_WEEKDAY
-							| DateUtils.FORMAT_SHOW_DATE
-							| DateUtils.FORMAT_NO_YEAR);
+							| DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR
+            );
 			sectionHeaders.add(dateStr);
 			sectionIds.add(sectionIndex);
 
@@ -265,7 +265,7 @@ public class MyScheduleFragment extends Fragment implements
 								currentBlockMillis,
 								DateUtils.FORMAT_SHOW_WEEKDAY
 										| DateUtils.FORMAT_SHOW_DATE
-										| DateUtils.FORMAT_NO_YEAR);
+										| DateUtils.FORMAT_SHOW_YEAR);
 						sectionHeaders.add(dateStr);
 						sectionIndex++;
 					}

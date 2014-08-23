@@ -15,10 +15,10 @@ import dev.tnclark8012.apps.android.dogshow.util.Utils;
  */
 public class RingListCursorWrapper extends CursorWrapper {
 
-	int[] originalPositions;
-	int currentPosition = -1;
-	int size;
-	Pair[] pairs;
+	int[] mOriginalPositions;
+	int mCurrentPosition = -1;
+	int mSize;
+	Pair[] mPairs;
 	Cursor mCursor;
 
 	static class Pair implements Comparable<Pair> {
@@ -39,11 +39,11 @@ public class RingListCursorWrapper extends CursorWrapper {
 	}
 
 	public long getEstimatedStart() {
-		return pairs[currentPosition].amount;
+		return mPairs[mCurrentPosition].amount;
 	}
 
 	public String getBreedCount() {
-		return pairs[currentPosition].breedCount;
+		return mPairs[mCurrentPosition].breedCount;
 	}
 
 	public static class RingListCursorWrapperOptions {
@@ -64,9 +64,9 @@ public class RingListCursorWrapper extends CursorWrapper {
 	public RingListCursorWrapper(Cursor cursor,
 			RingListCursorWrapperOptions options) {
 		super(cursor);
-		int count = cursor.getCount();
-		originalPositions = new int[count];
-		pairs = new Pair[count];
+		mSize = cursor.getCount();
+		mOriginalPositions = new int[mSize];
+		mPairs = new Pair[mSize];
 		int i = 0;
 		int countAhead;
 		int type;
@@ -117,65 +117,65 @@ public class RingListCursorWrapper extends CursorWrapper {
 							cursor.getLong(options.blockStartColumnIndex),
 							perAheadMillis);
 
-			pairs[i] = new Pair(i, estMillis, countString);
+			mPairs[i] = new Pair(i, estMillis, countString);
 			i++;
 		}
-		Arrays.sort(pairs);
+		Arrays.sort(mPairs);
 		cursor.moveToPosition(-1);
 		mCursor = cursor;
 	}
 
 	@Override
 	public boolean move(int offset) {
-		currentPosition += offset;
-		if (currentPosition > -1 && currentPosition <= size) {
-			return mCursor.moveToPosition(pairs[currentPosition].originalIndex);
+		mCurrentPosition += offset;
+		if (mCurrentPosition > -1 && mCurrentPosition <= mSize) {
+			return mCursor.moveToPosition(mPairs[mCurrentPosition].originalIndex);
 		} else {
-			if (currentPosition <= -1) {
-				currentPosition = -1;
+			if (mCurrentPosition <= -1) {
+				mCurrentPosition = -1;
 			}
-			if (currentPosition > size) {
-				currentPosition = size;
+			if (mCurrentPosition > mSize) {
+				mCurrentPosition = mSize;
 			}
-			return mCursor.moveToPosition(currentPosition);
+			return mCursor.moveToPosition(mCurrentPosition);
 		}
 	}
 
 	@Override
 	public boolean moveToFirst() {
-		currentPosition = 0;
-		if (size == 0)
+		mCurrentPosition = 0;
+		if (mSize == 0)
 			return false;
-		return mCursor.moveToPosition(pairs[0].originalIndex);
+		return mCursor.moveToPosition(mPairs[0].originalIndex);
 	}
 
 	@Override
 	public boolean moveToLast() {
-		if (size == 0)
+		if (mSize == 0)
 			return false;
-		currentPosition = size - 1;
-		return mCursor.moveToPosition(pairs[size - 1].originalIndex);
+		mCurrentPosition = mSize - 1;
+		return mCursor.moveToPosition(mPairs[mSize - 1].originalIndex);
 	}
 
 	@Override
 	public boolean moveToNext() {
-		if (size == 0 || currentPosition == size - 1)
+		if (mSize == 0 || mCurrentPosition == mSize - 1)
 			return false;
-		return mCursor.moveToPosition(pairs[++currentPosition].originalIndex);
+		return mCursor.moveToPosition(mPairs[++mCurrentPosition].originalIndex);
 	}
 
 	@Override
 	public boolean moveToPosition(int position) {
-		if (size == 0 || position > size - 1)
+		if (mSize == 0 || position > mSize - 1)
 			return false;
-		currentPosition = position;
-		return mCursor.moveToPosition(pairs[currentPosition].originalIndex);
+		mCurrentPosition = position;
+		return mCursor.moveToPosition(mPairs[mCurrentPosition].originalIndex);
 	}
 
 	@Override
 	public boolean moveToPrevious() {
-		if (size == 0)
+		if (mSize == 0)
 			return false;
-		return mCursor.moveToPosition(pairs[--currentPosition].originalIndex);
+		return mCursor.moveToPosition(mPairs[--mCurrentPosition].originalIndex);
 	}
 }
