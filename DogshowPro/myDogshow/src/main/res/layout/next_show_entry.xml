@@ -268,7 +268,8 @@
         </FrameLayout>
 
         <!-- FAB -->
-        <include layout="@layout/include_add_schedule_fab" />
+        <include layout="@layout/include_add_schedule_fab"
+            android:id="@+id/" />
 
     </FrameLayout>
 

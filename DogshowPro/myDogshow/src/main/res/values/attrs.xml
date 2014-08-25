@@ -35,6 +35,7 @@
     <declare-styleable name="BezelImageView">
         <attr name="maskDrawable" format="reference" />
         <attr name="borderDrawable" format="reference" />
+        <attr name="desaturateOnPress" format="boolean" />
     </declare-styleable>
 
     <!-- Google IO -->
@@ -49,4 +50,5 @@
         <attr name="button2emphasis" format="boolean" />
         <attr name="emphasisColor" format="color" />
     </declare-styleable>
+
 </resources>
