@@ -76,13 +76,15 @@
     <string name="title_dogs">Dogs</string>
     <string name="title_handlers">Handlers</string>
     <string name="title_show_day">Show Day</string>
-	<string name="female">Female</string>
-	<string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
     <string name="drawer_open">@string/app_name</string>
-    <string name="drawer_close"/>
+    <string name="drawer_close"></string>
 
-    <!-- Image content descriptions-->
+    <!-- Image content descriptions -->
     <string name="image_description_drawer_icon">drawer icon</string>
     <string name="image_description_upcoming_breed">image of next dog to show</string>
     <string name="image_description_header">image header</string>
+    <string name="title_activity_find_show_map">Upcoming Shows</string>
+
 </resources>

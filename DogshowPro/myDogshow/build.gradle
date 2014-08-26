@@ -19,24 +19,15 @@ android {
 }
 
 dependencies {
-    compile( project(':simplecropimagelib') )
+    compile(project(':simplecropimagelib'))
             {
                 exclude module: 'support-v4'
             }
-    compile( project(':stickyheaderslibrary'))
+    compile(project(':stickyheaderslibrary'))
             {
                 exclude module: 'support-v4'
             }
 
-    compile('com.google.http-client:google-http-client-gson:1.17.0-rc')
-            {
-                exclude module: 'gson'
-            }
-    compile 'com.google.code.gson:gson:2.2.4'
-    compile 'com.google.protobuf:protobuf-java:2.4.1'
-    compile('com.google.android.gms:play-services:+'){
-        exclude module: 'support-v4'
-    }
     compile files('libs/android-support-v13.jar')
     compile files('libs/dogshow-shared.jar')
     compile files('libs/notification-hubs-0.2-javadoc.jar')
@@ -47,4 +38,15 @@ dependencies {
     compile files('libs/notifications-1.0.1.jar')
     compile files('libs/universal-image-loader-1.9.1-with-sources.jar')
     //compile 'com.android.support:support-v4:20.+'
+    compile 'com.google.http-client:google-http-client-gson:1.17.0-rc'
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.google.protobuf:protobuf-java:2.4.1'
+    compile( 'com.google.android.gms:play-services:4.2.42')
+    {
+        exclude module: 'support-v4'
+    }
+    compile('com.android.support:appcompat-v7:19.+')
+    {
+        exclude module: 'support-v4'
+    }
 }

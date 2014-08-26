@@ -1,6 +1,7 @@
 package dev.tnclark8012.apps.android.dogshow.ui;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.ui.base.BaseActivity;
+import dev.tnclark8012.apps.android.dogshow.ui.phone.FindShowMapActivity;
 import dev.tnclark8012.apps.android.dogshow.ui.widget.CheckableFrameLayout;
 
 /**
@@ -28,6 +30,7 @@ public class DebugFragment extends Fragment {
         mAddScheduleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(getActivity(), FindShowMapActivity.class));
                 boolean starred = !mStarred;
                 showStarred(starred, true);
             }
@@ -37,12 +40,12 @@ public class DebugFragment extends Fragment {
     }
 
     private void showStarred(boolean starred, boolean allowAnimate) {
-        mStarred = starred;
-
-        mAddScheduleButton.setChecked(mStarred, allowAnimate);
-
-        ImageView iconView = (ImageView) mAddScheduleButton.findViewById(R.id.add_schedule_icon);
-        ((BaseActivity) getActivity()).getLPreviewUtils().setOrAnimatePlusCheckIcon(
-                iconView, starred, allowAnimate);
+//        mStarred = starred;
+//
+//        mAddScheduleButton.setChecked(mStarred, allowAnimate);
+//
+//        ImageView iconView = (ImageView) mAddScheduleButton.findViewById(R.id.add_schedule_icon);
+//        ((BaseActivity) getActivity()).getLPreviewUtils().setOrAnimatePlusCheckIcon(
+//                iconView, starred, allowAnimate);
     }
 }
