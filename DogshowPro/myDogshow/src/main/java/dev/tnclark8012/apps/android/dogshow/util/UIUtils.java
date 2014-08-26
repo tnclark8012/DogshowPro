@@ -60,7 +60,12 @@ import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
  */
 public class UIUtils {
 	private static final String TAG = makeLogTag(UIUtils.class);
-
+    /**
+     * Factor applied to session color to derive the background color on panels and when
+     * a session photo could not be downloaded (or while it is being downloaded)
+     */
+    public static final float SESSION_BG_COLOR_SCALE_FACTOR = 0.65f;
+    public static final float SESSION_PHOTO_SCRIM_ALPHA = 0.75f;
 	private static final int SECOND_MILLIS = 1000;
 	private static final int MINUTE_MILLIS = 60 * SECOND_MILLIS;
 	private static final int HOUR_MILLIS = 60 * MINUTE_MILLIS;
@@ -375,5 +380,19 @@ public class UIUtils {
 			return str;
 		}
 	}
+    public static int scaleColor(int color, float factor, boolean scaleAlpha) {
+        return Color.argb(scaleAlpha ? (Math.round(Color.alpha(color) * factor)) : Color.alpha(color),
+                Math.round(Color.red(color) * factor), Math.round(Color.green(color) * factor),
+                Math.round(Color.blue(color) * factor));
+    }
+
+    public static int scaleSessionColorToDefaultBG(int color) {
+        return scaleColor(color, SESSION_BG_COLOR_SCALE_FACTOR, false);
+    }
+    public static int setColorAlpha(int color, float alpha) {
+        int alpha_int = Math.min(Math.max((int)(alpha * 255.0f), 0), 255);
+        return Color.argb(alpha_int, Color.red(color), Color.green(color), Color.blue(color));
+    }
+
 
 }

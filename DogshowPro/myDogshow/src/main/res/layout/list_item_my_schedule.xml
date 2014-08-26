@@ -20,7 +20,7 @@
     android:paddingLeft="@dimen/keyline_1"
     android:paddingRight="@dimen/keyline_1"
     android:orientation="horizontal"
-    android:layout_height="180dp"
+    android:layout_height="136dp"
     android:layout_width="match_parent">
 
     <!-- Start and end times -->
@@ -75,6 +75,7 @@
         <dev.tnclark8012.apps.android.dogshow.widget.BezelImageView
             app:maskDrawable="@drawable/schedule_background_mask"
             android:id="@+id/session_image"
+
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:scaleType="centerCrop" />
