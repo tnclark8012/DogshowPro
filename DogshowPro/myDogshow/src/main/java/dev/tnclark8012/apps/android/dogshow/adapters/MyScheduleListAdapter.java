@@ -173,8 +173,7 @@ public class MyScheduleListAdapter implements ListAdapter {
         int itemViewType = getItemViewType(position);
         boolean isNowPlaying = false;
         boolean isPastDuringConference = false;
-        int layoutResId = R.layout.list_item_my_schedule
-;
+        int layoutResId = R.layout.list_item_my_schedule;
         if (view == null || !MY_VIEW_TAG.equals(view.getTag())
               ) {
             view = ((LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE))
@@ -195,19 +194,14 @@ public class MyScheduleListAdapter implements ListAdapter {
         FrameLayout boxView = (FrameLayout) view.findViewById(R.id.box);
         TextView slotTitleView = (TextView) view.findViewById(R.id.slot_title);
         TextView slotSubtitleView = (TextView) view.findViewById(R.id.slot_subtitle);
-//        ImageButton giveFeedbackButton = (ImageButton) view.findViewById(R.id.give_feedback_button);
-//        int heightNormal = 180;//res.getDimensionPixelSize(R.dimen.my_schedule_item_height);
-
-        long now = Utils.currentTimeUtc();//.getCurrentTime(view.getContext());
+        long now = Utils.currentTimeUtc();
         boolean showEndTime = false;
         boolean isBlockNow = false;
 
 
         View conflictWarning =  view.findViewById(R.id.conflict_warning);
 
-//            view.getLayoutParams().height =  heightNormal;
             boxView.setBackgroundResource(R.drawable.schedule_item_session);
-//            boxView.setForeground(res.getDrawable(R.drawable.schedule_item_touchoverlay));
             bgImageView.setVisibility(View.VISIBLE);
             sessionImageView.setVisibility(View.VISIBLE);
             int colorToUse = mDefaultSessionColor;
@@ -216,7 +210,6 @@ public class MyScheduleListAdapter implements ListAdapter {
             case 0: colorToUse = mContext.getResources().getColor(R.color.dark_green); break;
             case 1: colorToUse = mContext.getResources().getColor(R.color.dark_red); break;
             case 2: colorToUse = mContext.getResources().getColor(R.color.white); break;
-
         }
                        int color = UIUtils.scaleSessionColorToDefaultBG(
                 colorToUse );
