@@ -52,6 +52,7 @@ public class Utils {
                 file.delete();
             }
             file.getParentFile().mkdirs();
+            file.createNewFile();
             if (file.canWrite()) {
                 FileOutputStream fileOutput = new FileOutputStream(file);
 

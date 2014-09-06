@@ -49,6 +49,8 @@
     <string name="menu_delete">Delete</string>
     <string name="progress_title_joining_team">Joining team</string>
     <string name="progress_message_joining_team_sync">Syncing team data</string>
+    <string name="progress_title_syncing_show">Getting schedule</string>
+    <string name="progress_message_syncing_show">Downloading show information and estimating ring times...</string>
     <string name="progress_title_creating_team">Creating team</string>
     <string name="template_ring_number">Ring %1$d</string>
 

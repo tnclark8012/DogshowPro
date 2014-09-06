@@ -17,6 +17,7 @@ import dev.tnclark8012.apps.android.dogshow.sync.SyncHelper;
 import dev.tnclark8012.apps.android.dogshow.ui.DogEntryFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.FindShowFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.HandlerEntryFragment;
+import dev.tnclark8012.apps.android.dogshow.ui.IndeterminateProgressFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.SimpleSinglePaneActivity;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
 import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
@@ -61,14 +62,25 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 		case 3:
 			new AsyncTask<Show, Void, Void>() {
 
-				@Override
+                @Override
+                protected void onPreExecute() {
+                    super.onPreExecute();
+                    getFragmentManager().beginTransaction().replace(R.id.root_container, IndeterminateProgressFragment.newInstance(R.string.progress_title_syncing_show, R.string.progress_message_syncing_show), "single_pane").commit();
+                }
+
+                @Override
 				protected Void doInBackground(Show... params) {
 					new SyncHelper(ShowSetupActivity.this).enterShow(params[0]);
 					return null;
 				}
-			}.execute(show);
-			// new SyncHelper(this).executeSync(showId);
-			finish();
+
+                @Override
+                protected void onPostExecute(Void aVoid) {
+                    super.onPostExecute(aVoid);
+                    finish();
+                }
+
+            }.execute(show);
 			break;
 		}
 		active++;

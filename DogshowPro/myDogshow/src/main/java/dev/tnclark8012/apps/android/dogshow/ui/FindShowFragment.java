@@ -52,7 +52,7 @@ public class FindShowFragment extends ListFragment {
 
 	@Override
 	public void setEmptyText(CharSequence text) {
-		TextView empty = (TextView) mRootView.findViewById(android.R.id.empty);
+		TextView empty = (TextView) mRootView.findViewById(R.id.empty_text);
 		empty.setText(text);
 	}
 
@@ -112,7 +112,7 @@ public class FindShowFragment extends ListFragment {
 	@Override
 	public void onResume() {
 		super.onResume();
-		setEmptyText("Finding shows near you...");
+//		setEmptyText("Finding shows near you...");
 		(mGetShowsTask = createGetShowsTask()).execute();
 	}
 
