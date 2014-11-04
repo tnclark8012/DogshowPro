@@ -44,7 +44,7 @@ public class DogshowDatabase extends SQLiteOpenHelper {
 																// per group
 	private static final int VER_RING_BLOCKS = 12;//Added RING_BLOCK table for storing "overviews" of all rings in a timeblock
     private static final int VER_RING_ASSIGNMENTS = 13;//Added RING_ASSIGNMENTS table as junction table; ring identifiers
-
+    private static final int VER_GROUP_ATTRIBUTE = 14; // Group rings have an Attribute property similar to Variety or Owner_Handled
 	private static final int DATABASE_VERSION = VER_RING_ASSIGNMENTS;
 
 	public interface Tables {

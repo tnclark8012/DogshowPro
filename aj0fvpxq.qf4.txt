@@ -1,0 +1,53 @@
+﻿pick 91e84eb Update README.md
+pick ce928f8 Update README.md
+pick ffd2bdd Fixed issue #13
+pick 64b1b39 Added Debug fragment
+pick 6157c91 Wiring up Join table between dogs and show rings. Added contract and db table
+pick db2b509 Added request for Conformation ring assignments
+pick 68ab332 Added RING_IDENTIFIER columns to database tables
+pick 7135332 removed local.properties from source control
+pick 72d3edd removing imls from source control since they're on the gitignore
+pick 65b1e2f Changed HttGetWithEntity
+pick 39250b4 Assemble dogs for assignments
+pick 61b2027 Model for ring assignment request
+pick 58b07d7 [InProg] RingAssignments
+pick fb6a141 [In-prog] Fixing makePostRequest to properly send JSON to server. Old impl wasn't getting bound
+pick b58ee3d Refactor + RingAssignment request working
+pick 3ffc829 code cleanup of unused items
+pick 0b485f4 Added queries for overviews using new breed ring assignments. Not yet used.
+pick 333ff0d Fixed SQL typos and connected new BreedRingOverview query
+pick 7fd4de6 removed old BreedRingOverview query
+pick a36c4a9 If debugging local, request all shows on server
+pick 86c1318 Conformation rings & assigns requested in batch
+pick 41ea6b4 Addressing lint errors
+pick 8024e06 [lint] replaced empty xml body with end tag
+pick b2a8dbb [lint] fixed errors and added a few javadocs
+pick 3906f30 [hotfix] fixed build breaking non-imported annotation
+pick 4381946 moving logging to central class to prevent logging in release builds
+pick 5f09349 Updated all logging to LogUtils
+pick f01956b Fxd: incorrect fragment trans + datetimes
+pick bc5cd18 New FindShowMap Activity
+pick bdd2fd0 New assets for upcoming redesign
+pick de0167f New assets for upcoming redesign
+pick e0d9e27 playing around with Google IO style list view and schedule
+pick 0f134bf Removed comments
+pick 85d70fd Added progress to find show and show sync
+
+# Rebase 0203902..85d70fd onto 0203902
+#
+# Commands:
+#  p, pick = use commit
+#  r, reword = use commit, but edit the commit message
+#  e, edit = use commit, but stop for amending
+#  s, squash = use commit, but meld into previous commit
+#  f, fixup = like "squash", but discard this commit's log message
+#  x, exec = run command (the rest of the line) using shell
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+# Note that empty commits are commented out
+

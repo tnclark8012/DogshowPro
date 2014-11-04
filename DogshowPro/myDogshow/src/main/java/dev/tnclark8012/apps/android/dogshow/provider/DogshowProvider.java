@@ -460,8 +460,7 @@ public class DogshowProvider extends ContentProvider {
                 + BreedRings.RING_BITCH_COUNT + " as "+ EnteredRings.ENTERED_RINGS_BITCH_COUNT + ","
                 + BreedRings.RING_SPECIAL_DOG_COUNT + " as "+ EnteredRings.ENTERED_RINGS_SPECIAL_DOG_COUNT + ","
                 + BreedRings.RING_SPECIAL_BITCH_COUNT + " as "+ EnteredRings.ENTERED_RINGS_SPECIAL_BITCH_COUNT
-                + " FROM ( "
-                + Tables.BREED_RINGS_JOIN_DOG_ASSIGNMENTS + " )";
+                + " FROM ( " + Tables.BREED_RINGS_JOIN_DOG_ASSIGNMENTS + " )";
 
 		public static final String JUNIOR_RING_OVERVIEW = "SELECT "
 				+ Qualified.JUNIORS_RINGS_ID + ", "
@@ -481,20 +480,23 @@ public class DogshowProvider extends ContentProvider {
 			    + "NULL" // s. bitch count
 				+ " FROM " + Tables.ENTERED_JUNIORS_RINGS;
 		public static final String GROUP_RING_OVERVIEW = "SELECT "
-				+ Qualified.GROUP_RINGS_ID + ", " + "CAST("
-				+ EnteredRings.TYPE_GROUP_RING + " as INTEGER )" + " as "
-				+ EnteredRings.ENTERED_RINGS_TYPE + ", "
-				+ GroupRings.RING_NUMBER + ", " + GroupRings.RING_GROUP + ","
-				+ GroupRings.RING_JUDGE + "," + GroupRings.RING_BLOCK_START
-				+ ", " + GroupRings.RING_COUNT_AHEAD + ", " // Count Ahead
-				+ "0," + GroupRings.RING_JUDGE_TIME + ", " + "NULL" + "," + // image
-																			// path
-				"NULL" + "," + // first class
-				"NULL" + "," + // dog
-				"NULL" + "," + // bitch
-				"NULL" + "," + // s. dog
-				"NULL" + // s. bitch
-				" FROM " + Tables.GROUP_RINGS;
+				+ Qualified.GROUP_RINGS_ID + ", "
+                + "CAST("+ EnteredRings.TYPE_GROUP_RING + " as INTEGER )" + " as " + EnteredRings.ENTERED_RINGS_TYPE + ", "
+                + " NULL," //image_path
+                + " NULL," //first class
+                + GroupRings.RING_JUDGE + "," // subtitle
+                + GroupRings.RING_NUMBER + ", " // ring number
+                + GroupRings.RING_GROUP + "," // title
+                + GroupRings.RING_BLOCK_START + ", "
+                + GroupRings.RING_COUNT_AHEAD + ", " // Count Ahead
+                + "1," // entry count
+                + GroupRings.RING_JUDGE_TIME + ","
+                + "NULL" + "," // dog count
+                + "NULL" + "," // bitch count
+                + "NULL" + "," // s. dog count
+                + "NULL" // s. bitch count
+				+ " FROM " + Tables.GROUP_RINGS;
+
 		public static final String ENTERED_JUNIOR_HANDLERS = "(SELECT *,group_concat("
 				+ Handlers.HANDLER_NAME
 				+ ", \", \" ) as "

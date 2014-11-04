@@ -165,10 +165,10 @@ public class FindShowFragment extends ListFragment {
 			// Checking if it has a name first prevents try catch from failing
 			// (expensively)
 			if (obj != null) {
-				((TextView) convertView.findViewById(android.R.id.text1))
+                ((TextView) convertView.findViewById(android.R.id.text1))
+                        .setText(obj.city + ", " + obj.state);
+                ((TextView) convertView.findViewById(android.R.id.text2))
 						.setText(obj.showName);
-				((TextView) convertView.findViewById(android.R.id.text2))
-						.setText(obj.city + ", " + obj.state);
 			}
 			return convertView;
 		}
