@@ -88,5 +88,6 @@
     <string name="image_description_upcoming_breed">image of next dog to show</string>
     <string name="image_description_header">image header</string>
     <string name="title_activity_find_show_map">Upcoming Shows</string>
+    <string name="show_location_pdf_only">%1$s (PDF only)</string>
 
 </resources>

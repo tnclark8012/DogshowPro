@@ -36,25 +36,4 @@
         android:fastScrollEnabled="true"
         android:textFilterEnabled="true" >
     </ListView>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:id="@id/android:empty"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="center">
-        <ProgressBar
-            android:id="@+id/progressBar1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:indeterminate="true" />
-        <TextView
-        android:gravity="center"
-            android:id="@+id/empty_text"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="Finding shows..." />
-
-    </LinearLayout>
-
 </LinearLayout>

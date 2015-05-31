@@ -29,6 +29,7 @@ import java.io.File;
 import dev.tnclark8012.apps.android.dogshow.R;
 import dev.tnclark8012.apps.android.dogshow.model.Show;
 import dev.tnclark8012.apps.android.dogshow.preferences.Prefs;
+import dev.tnclark8012.apps.android.dogshow.ui.GoogleDocsPdfViewerFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.MyScheduleFragment;
 import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigatableActivity;
 import dev.tnclark8012.apps.android.dogshow.ui.navigation.NavigationDrawerFragment;
@@ -38,9 +39,27 @@ import static dev.tnclark8012.apps.android.dogshow.util.LogUtils.*;
 public class MyScheduleActivity extends NavigatableActivity {
 
 	private static final String TAG = makeLogTag(MyScheduleActivity.class);
+	private static final int REQUEST_SHOW_SETUP = 10;
+	private GoogleDocsPdfViewerFragment pdfViewer;
 
 	@Override
 	protected Fragment onCreatePane() {
+		Show show = Prefs.getCurrentShow(this);
+		if(show == null || show.hasEnded())
+		{
+			startActivity(new Intent(this, ShowSetupActivity.class));
+		}
+		else if(!show.hasSchedule)
+		{
+			if(this.pdfViewer == null) {
+				this.pdfViewer = GoogleDocsPdfViewerFragment.newInstance(show.judgingProgramUrl);
+			}
+			else
+			{
+				this.pdfViewer.setPdfUrl(show.judgingProgramUrl);
+			}
+			return this.pdfViewer;
+		}
 		return new MyScheduleFragment();
 	}
 
@@ -63,7 +82,7 @@ public class MyScheduleActivity extends NavigatableActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.menu_find_show:
-			startActivity(new Intent(this, ShowSetupActivity.class));
+			startActivityForResult(new Intent(this, ShowSetupActivity.class), REQUEST_SHOW_SETUP);
 			return true;
 		case R.id.menu_sign_out:
 			AccountUtils.signOut(this);
@@ -81,6 +100,7 @@ public class MyScheduleActivity extends NavigatableActivity {
                 }
                 else
                 {
+
                     Intent i = new Intent(this, GoogleDocsPdfViewer.class);
 				    i.putExtra(GoogleDocsPdfViewer.EXTRA_URL, show.judgingProgramUrl);
                     startActivity(i);
@@ -92,5 +112,24 @@ public class MyScheduleActivity extends NavigatableActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if(requestCode == REQUEST_SHOW_SETUP && resultCode == RESULT_OK)
+		{
+			Show show = Prefs.getCurrentShow(this);
+			if(!show.hasSchedule)
+			{
+				if(this.pdfViewer == null) {
+					this.pdfViewer = GoogleDocsPdfViewerFragment.newInstance(show.judgingProgramUrl);
+				}
+				else
+				{
+					this.pdfViewer.setPdfUrl(show.judgingProgramUrl);
+				}
+				this.changeRootFragment(this.pdfViewer);
+			}
+		}
 	}
 }

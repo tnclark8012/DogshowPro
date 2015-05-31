@@ -17,6 +17,7 @@
 package dev.tnclark8012.apps.android.dogshow.ui;
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -46,15 +47,28 @@ public abstract class SimpleSinglePaneActivity extends BaseActivity {
 		setTitle(customTitle != null ? customTitle : getTitle());
 
 		if (savedInstanceState == null) {
-			mFragment = onCreatePane();
-			mFragment.setArguments(intentToFragmentArguments(getIntent(),
-					mFragment.getArguments()));
-			getFragmentManager().beginTransaction()
-					.add(R.id.root_container, mFragment, "single_pane")
-					.commit();
+			this.setFragment(onCreatePane());
 		} else {
-			mFragment = getFragmentManager().findFragmentByTag("single_pane");
+			mFragment = this.getFragmentManager().findFragmentByTag("single_pane");
 		}
+	}
+
+	protected void setFragment(Fragment fragment)
+	{
+		fragment.setArguments(intentToFragmentArguments(getIntent(), fragment != null ? fragment.getArguments() : null));
+
+		FragmentTransaction transaction = getFragmentManager().beginTransaction();
+		if(mFragment == null)
+		{
+			mFragment = fragment;
+			transaction.add(R.id.root_container, mFragment, "single_pane");
+		}
+		else
+		{
+			mFragment = fragment;
+			transaction.replace(R.id.root_container, mFragment, "single_pane");
+		}
+		transaction.commit();
 	}
 
 	/**

@@ -232,7 +232,8 @@ public class AzureApiAccessor extends ApiAccessor {
 			for (Show show : shows) {
 				LOGD(TAG, show.toString());
 				show.startDateMillis = Utils
-						.millisSinceEpoch(show.startDateMillis);
+						.serverToClientTime(show.startDateMillis);
+				show.endDateMillis = Utils.serverToClientTime(show.endDateMillis);
 			}
 			return shows;
 		} catch (IOException e) {

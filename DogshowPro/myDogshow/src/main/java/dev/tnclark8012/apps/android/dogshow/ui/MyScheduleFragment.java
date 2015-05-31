@@ -49,6 +49,7 @@ import dev.tnclark8012.apps.android.dogshow.sql.query.Query.RingsQuery;
 import dev.tnclark8012.apps.android.dogshow.sql.query.Query.UpcomingRingQuery;
 import dev.tnclark8012.apps.android.dogshow.ui.dialog.EditJudgeTimeDialog;
 import dev.tnclark8012.apps.android.dogshow.ui.dialog.RingBlockOverviewDialogFragment;
+import dev.tnclark8012.apps.android.dogshow.ui.widget.EmptyView;
 import dev.tnclark8012.apps.android.dogshow.util.Lists;
 import dev.tnclark8012.apps.android.dogshow.util.UIUtils;
 import dev.tnclark8012.apps.android.dogshow.util.Utils;
@@ -399,8 +400,7 @@ public class MyScheduleFragment extends Fragment implements
 		super.onActivityCreated(savedInstanceState);
 		stickyList.setOnItemLongClickListener(this);
 		stickyList.setOnItemClickListener(this);
-		stickyList.setEmptyView(getActivity().getLayoutInflater().inflate(
-				R.layout.empty_waiting_for_sync, null));
+		stickyList.setEmptyView(EmptyView.getEmptySyncView(getActivity(), null));
 	}
 
 	@Override

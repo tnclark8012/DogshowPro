@@ -1,15 +1,14 @@
 apply plugin: 'android-library'
 android {
     compileSdkVersion 19
-    buildToolsVersion '20.0'
+    buildToolsVersion '22.0.1'
     defaultConfig {
-        applicationId 'se.emilsjolander.stickylistheaders'
         minSdkVersion 7
         targetSdkVersion 18
     }
     buildTypes {
         release {
-            runProguard false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }

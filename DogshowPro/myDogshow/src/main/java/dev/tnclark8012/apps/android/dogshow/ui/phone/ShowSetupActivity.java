@@ -60,27 +60,7 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 
 			break;
 		case 3:
-			new AsyncTask<Show, Void, Void>() {
-
-                @Override
-                protected void onPreExecute() {
-                    super.onPreExecute();
-                    getFragmentManager().beginTransaction().replace(R.id.root_container, IndeterminateProgressFragment.newInstance(R.string.progress_title_syncing_show, R.string.progress_message_syncing_show), "single_pane").commit();
-                }
-
-                @Override
-				protected Void doInBackground(Show... params) {
-					new SyncHelper(ShowSetupActivity.this).enterShow(params[0]);
-					return null;
-				}
-
-                @Override
-                protected void onPostExecute(Void aVoid) {
-                    super.onPostExecute(aVoid);
-                    finish();
-                }
-
-            }.execute(show);
+			this.syncShow();
 			break;
 		}
 		active++;
@@ -91,6 +71,7 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 	public boolean onBackClick() {
 		switch (active) {
 		case 1:
+			ShowSetupActivity.this.setResult(RESULT_CANCELED);
 			finish();
 			break;
 		case 2:
@@ -107,7 +88,15 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 	@Override
 	public void onShowSelected(Show show) {
 		this.show = show;
-		onNextClick();
+		if(!this.show.hasSchedule)
+		{
+			this.active = 3;
+			this.syncShow();
+		}
+		else
+		{
+			this.onNextClick();
+		}
 	}
 
 	@Override
@@ -138,6 +127,32 @@ public class ShowSetupActivity extends SimpleSinglePaneActivity implements DogEn
 		values.put(Handlers.HANDLER_IS_SHOWING_JUNIORS, Utils.booleanToInt(checked));
 		helper.updateEntity(Handlers.CONTENT_URI, handlerId, values);
 		return true;
+	}
+
+	private void syncShow()
+	{
+		new AsyncTask<Show, Void, Void>() {
+
+			@Override
+			protected void onPreExecute() {
+				super.onPreExecute();
+				getFragmentManager().beginTransaction().replace(R.id.root_container, IndeterminateProgressFragment.newInstance(R.string.progress_title_syncing_show, R.string.progress_message_syncing_show), "single_pane").commit();
+			}
+
+			@Override
+			protected Void doInBackground(Show... params) {
+				new SyncHelper(ShowSetupActivity.this).enterShow(params[0]);
+				return null;
+			}
+
+			@Override
+			protected void onPostExecute(Void aVoid) {
+				super.onPostExecute(aVoid);
+				ShowSetupActivity.this.setResult(RESULT_OK);
+				finish();
+			}
+
+		}.execute(show);
 	}
 
 }

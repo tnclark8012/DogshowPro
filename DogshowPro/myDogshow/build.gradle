@@ -1,16 +1,16 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion '20.0'
+    compileSdkVersion 22
+    buildToolsVersion '22.0.1'
     defaultConfig {
         applicationId 'dev.tnclark8012.apps.android.dogshow'
         minSdkVersion 14
-        targetSdkVersion 19
+        targetSdkVersion 22
     }
     buildTypes {
         release {
-            runProguard true
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt', 'proguard-google-api-client.txt'
         }
     }
@@ -19,16 +19,13 @@ android {
 }
 
 dependencies {
-    compile(project(':simplecropimagelib'))
-            {
-                exclude module: 'support-v4'
-            }
-    compile(project(':stickyheaderslibrary'))
-            {
-                exclude module: 'support-v4'
-            }
+    compile(project(':simplecropimagelib')) {
+        exclude module: 'support-v4'
+    }
+    compile(project(':stickyheaderslibrary')) {
+        exclude module: 'support-v4'
+    }
 
-    compile files('libs/android-support-v13.jar')
     compile files('libs/dogshow-shared.jar')
     compile files('libs/notification-hubs-0.2-javadoc.jar')
     compile files('libs/notification-hubs-0.2-sources.jar')
@@ -37,16 +34,19 @@ dependencies {
     compile files('libs/notifications-1.0.1-sources.jar')
     compile files('libs/notifications-1.0.1.jar')
     compile files('libs/universal-image-loader-1.9.1-with-sources.jar')
-    //compile 'com.android.support:support-v4:20.+'
     compile 'com.google.http-client:google-http-client-gson:1.17.0-rc'
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'com.google.protobuf:protobuf-java:2.4.1'
-    compile( 'com.google.android.gms:play-services:4.2.42')
-    {
+    compile('com.google.android.gms:play-services:4.2.42') {
         exclude module: 'support-v4'
     }
-    compile('com.android.support:appcompat-v7:19.+')
-    {
-        exclude module: 'support-v4'
-    }
+    compile 'com.android.support:design:22.2.0'
+    compile 'com.android.support:appcompat-v7:22.2.0'
+    compile 'com.android.support:appcompat-v13:22.2.0'
+//    compile 'com.android.support:appcompat-v7:22.2.0'
+//    compile 'com.android.support:support-v4:22.2.0'
+//    compile 'com.android.support:design:22.2.0'
+//    compile('com.android.support:support-v13:22.2.0') {
+//        exclude module: 'support-v4'
+//    }
 }

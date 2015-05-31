@@ -5,19 +5,19 @@ import android.util.Log;
 
 import com.google.gson.JsonObject;
 
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
-
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+
+import javax.net.ssl.HttpsURLConnection;
 
 import dev.tnclark8012.apps.android.dogshow.Config;
 import dev.tnclark8012.apps.android.dogshow.Config.IApiAccessor;
@@ -80,18 +80,44 @@ public abstract class ApiAccessor implements Config.IApiAccessor {
         }
     }
 
-    protected String makePostRequest(URL url, JsonObject json) {
+    protected String  makePostRequest(URL url, JsonObject json) {
 
+        String response = "";
         try {
-            HttpPost httpPost = new HttpPost(url.toURI());
-            httpPost.setEntity(new StringEntity(json.toString()));
-            httpPost.setHeader("Accept", "application/json");
-            httpPost.setHeader("Content-type", "application/json");
-            return  EntityUtils.toString(new DefaultHttpClient().execute(httpPost).getEntity());
+
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setReadTimeout(15000);
+            conn.setConnectTimeout(15000);
+            conn.setRequestMethod("POST");
+            conn.setDoInput(true);
+            conn.setDoOutput(true);
+
+
+            OutputStream os = conn.getOutputStream();
+            BufferedWriter writer = new BufferedWriter(
+                    new OutputStreamWriter(os, "UTF-8"));
+            writer.write(json.toString());
+
+            writer.flush();
+            writer.close();
+            os.close();
+            int responseCode=conn.getResponseCode();
+
+            if (responseCode == HttpsURLConnection.HTTP_OK) {
+                String line;
+                BufferedReader br=new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                while ((line=br.readLine()) != null) {
+                    response+=line;
+                }
+            }
+            else {
+                response="";
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+
+        return response;
     }
 
 }

@@ -36,5 +36,4 @@ public class GoogleDocsPdfViewer extends Activity {
 			return (false);
 		}
 	}
-
 }

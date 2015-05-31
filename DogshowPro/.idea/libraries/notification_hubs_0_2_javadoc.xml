@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="notification-hubs-0.2-javadoc">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/myDogshow/libs/notification-hubs-0.2-javadoc.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

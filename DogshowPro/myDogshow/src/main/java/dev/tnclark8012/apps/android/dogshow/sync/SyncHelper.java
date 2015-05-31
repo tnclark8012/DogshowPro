@@ -78,26 +78,28 @@ public class SyncHelper {
         }
 
         Prefs.setCurrentShow(mContext, show);
-        ArrayList<ContentProviderOperation> ringBatch = new ArrayList<ContentProviderOperation>();
+		if(show.hasSchedule) {
+			ArrayList<ContentProviderOperation> ringBatch = new ArrayList<ContentProviderOperation>();
 
-		GroupRingsRequest groupRingsRequest = new GroupRingsRequest(mContext);
-		JuniorsRingsRequest juniorsRingsRequest = new JuniorsRingsRequest(
-				mContext);
-        ConformationRingAssignmentsRequest assignmentsRequest = new ConformationRingAssignmentsRequest(mContext);
-		ringBatch.addAll(juniorsRingsRequest.getRings(show.showId));
-		ringBatch.addAll(groupRingsRequest.getRings(show.showId));
-        ringBatch.addAll(assignmentsRequest.getRings(show.showId));
+			GroupRingsRequest groupRingsRequest = new GroupRingsRequest(mContext);
+			JuniorsRingsRequest juniorsRingsRequest = new JuniorsRingsRequest(
+					mContext);
+			ConformationRingAssignmentsRequest assignmentsRequest = new ConformationRingAssignmentsRequest(mContext);
+			ringBatch.addAll(juniorsRingsRequest.getRings(show.showId));
+			ringBatch.addAll(groupRingsRequest.getRings(show.showId));
+			ringBatch.addAll(assignmentsRequest.getRings(show.showId));
 
-		try {
-			mContext.getContentResolver().applyBatch(
-					DogshowContract.CONTENT_AUTHORITY, ringBatch);
-			getRingOverviews(show.showId);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		} catch (OperationApplicationException e) {
-			e.printStackTrace();
+			try {
+				mContext.getContentResolver().applyBatch(
+						DogshowContract.CONTENT_AUTHORITY, ringBatch);
+				getRingOverviews(show.showId);
+			} catch (RemoteException e) {
+				e.printStackTrace();
+			} catch (OperationApplicationException e) {
+				e.printStackTrace();
+			}
+			// TODO callbacks for completion?
 		}
-		// TODO callbacks for completion?
 	}
 
 	// TODO high this should be private
