@@ -1,5 +1,6 @@
-package tnclark8012.dev.woof;
+package dev.tnclark8012.woof;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -20,6 +21,9 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
+import dev.tnclark8012.woof.ui.schedule.RingListFragment;
+import dev.tnclark8012.woof.ui.TitledFragmentPagerAdapter;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         final ActionBar ab = getSupportActionBar();
         ab.setHomeAsUpIndicator(R.drawable.ic_menu);
         ab.setDisplayHomeAsUpEnabled(true);
+        ab.setTitle("My Schedule");
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -72,8 +77,16 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void onFragmentInteraction(Uri uri)
+    {
+
+    }
+
     private void setupViewPager(ViewPager viewPager) {
-        Adapter adapter = new Adapter(getSupportFragmentManager());
+        TitledFragmentPagerAdapter adapter = new TitledFragmentPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(RingListFragment.newInstance(), "Friday");
+        adapter.addFragment(RingListFragment.newInstance(), "Saturday");
+        adapter.addFragment(RingListFragment.newInstance(), "Sunday");
         viewPager.setAdapter(adapter);
     }
 
@@ -87,34 +100,5 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                 });
-    }
-
-    static class Adapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragments = new ArrayList<>();
-        private final List<String> mFragmentTitles = new ArrayList<>();
-
-        public Adapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        public void addFragment(Fragment fragment, String title) {
-            mFragments.add(fragment);
-            mFragmentTitles.add(title);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return mFragments.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return mFragments.size();
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return mFragmentTitles.get(position);
-        }
     }
 }

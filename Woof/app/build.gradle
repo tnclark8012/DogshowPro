@@ -5,7 +5,7 @@ android {
     buildToolsVersion '22.0.1'
 
     defaultConfig {
-        applicationId "tnclark8012.dev.dev.tnclark8012.woof"
+        applicationId "dev.tnclark8012.woof"
         minSdkVersion 15
         targetSdkVersion 22
         versionCode 1

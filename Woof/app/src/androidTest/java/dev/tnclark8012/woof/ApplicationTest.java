@@ -1,4 +1,4 @@
-package tnclark8012.dev.woof;
+package dev.tnclark8012.woof;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
