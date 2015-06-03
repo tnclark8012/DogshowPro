@@ -9,11 +9,7 @@
     <color name="secondary_text">#727272</color>
     <color name="icons">#FFFFFF</color>
     <color name="background_primary">#FFFFFF</color>
-    <color name="divider">#B6B6B6</color>
-
-
-
-
-
+    <color name="divider_top">#B6B6B6</color>
+    <color name="divider_bottom">#FFFFFF</color>
     <color name="window_background">#FFF5F5F5</color>
 </resources>

@@ -22,6 +22,7 @@ import java.util.Random;
 import dev.tnclark8012.woof.R;
 import dev.tnclark8012.woof.ui.ITitledFragment;
 import dev.tnclark8012.woof.ui.PlaceholderFragment;
+import dev.tnclark8012.woof.ui.widget.SimpleDividerItemDecoration;
 
 /**
  * Created by taylorc on 5/31/2015.
@@ -47,6 +48,7 @@ public class RingListFragment extends Fragment {
 
     private void setupRecyclerView(RecyclerView recyclerView) {
         recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
+        recyclerView.addItemDecoration(new SimpleDividerItemDecoration(getResources()));
         recyclerView.setAdapter(new SimpleStringRecyclerViewAdapter(getActivity(),
                 getRandomSublist(new String[] {"Lorem ipsum dolor set"}, 30)));
     }
