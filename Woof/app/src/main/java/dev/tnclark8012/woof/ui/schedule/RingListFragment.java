@@ -1,18 +1,15 @@
 package dev.tnclark8012.woof.ui.schedule;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.ListFragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -20,13 +17,8 @@ import java.util.List;
 import java.util.Random;
 
 import dev.tnclark8012.woof.R;
-import dev.tnclark8012.woof.ui.ITitledFragment;
-import dev.tnclark8012.woof.ui.PlaceholderFragment;
 import dev.tnclark8012.woof.ui.widget.SimpleDividerItemDecoration;
 
-/**
- * Created by taylorc on 5/31/2015.
- */
 public class RingListFragment extends Fragment {
 
     public RingListFragment()
@@ -41,7 +33,9 @@ public class RingListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         RecyclerView rv = (RecyclerView) inflater.inflate(
-                R.layout.fragment_ring_list, container, false);
+                R.layout.fragment_ring_list,
+                container,
+                false);
         setupRecyclerView(rv);
         return rv;
     }
@@ -85,10 +79,6 @@ public class RingListFragment extends Fragment {
             public String toString() {
                 return super.toString() + " '" + mTextView.getText();
             }
-        }
-
-        public String getValueAt(int position) {
-            return mValues.get(position);
         }
 
         public SimpleStringRecyclerViewAdapter(Context context, List<String> items) {
