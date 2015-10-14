@@ -13,3 +13,4 @@
 #.manager
 *.apk
 Woof/.idea/compiler.xml
+Woof/app/src/main/res/values/config.xml
