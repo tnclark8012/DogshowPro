@@ -11,3 +11,5 @@
 #eclipse/configuration/.settings/org.eclipse.ui.ide.prefs
 #p2
 #.manager
+*.apk
+Woof/.idea/compiler.xml
