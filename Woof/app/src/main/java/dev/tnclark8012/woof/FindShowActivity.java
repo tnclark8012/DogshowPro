@@ -1,14 +1,37 @@
 package dev.tnclark8012.woof;
 
+import android.location.Address;
+import android.location.Geocoder;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.ViewTreeObserver;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import dev.tnclark8012.woof.model.Show;
+import dev.tnclark8012.woof.util.LogUtils;
+import dev.tnclark8012.woof.web.Api;
+
+import static dev.tnclark8012.woof.util.LogUtils.LOGE;
+
 public class FindShowActivity extends FragmentActivity {
+    private static LatLngBounds USA = new LatLngBounds(
+            new LatLng(24.787382, -80.291890), // NW Tip of Washington
+            new LatLng(48.359859, -124.624869));// SE Tip of Florida
+
+    private static String LOG_TAG = LogUtils.makeLogTag(FindShowActivity.class);
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
 
@@ -44,12 +67,27 @@ public class FindShowActivity extends FragmentActivity {
         // Do a null check to confirm that we have not already instantiated the map.
         if (mMap == null) {
             // Try to obtain the map from the SupportMapFragment.
-            mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map))
-                    .getMap();
-            // Check if we were successful in obtaining the map.
-            if (mMap != null) {
-                setUpMap();
-            }
+            final SupportMapFragment mapFragment =  ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map));
+            mapFragment.getMapAsync(new OnMapReadyCallback() {
+                @Override
+                public void onMapReady(GoogleMap googleMap) {
+                    mMap = googleMap;
+                    final ViewTreeObserver mapTreeObserver = mapFragment.getView().getViewTreeObserver();
+                    if (mapTreeObserver.isAlive()) {
+                        mapTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                            @Override
+                            public void onGlobalLayout() {
+                                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+                                    mapFragment.getView().getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                                } else {
+                                    mapFragment.getView().getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                                }
+                                setUpMap();
+                            }
+                        });
+                    }
+                }
+            });
         }
     }
 
@@ -60,6 +98,47 @@ public class FindShowActivity extends FragmentActivity {
      * This should only be called once and when we are sure that {@link #mMap} is not null.
      */
     private void setUpMap() {
-        mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
+        populateMap();
+    }
+
+    private void populateMap() {
+        AsyncTask<Void, Void, MarkerOptions[]> asyncTask = new AsyncTask<Void, Void, MarkerOptions[]>() {
+            @Override
+            protected MarkerOptions[] doInBackground(Void... params) {
+                Show[] shows = Api.GetAllShows();
+                List<MarkerOptions> markers = new ArrayList<>(shows.length);
+                Geocoder geocoder = new Geocoder(FindShowActivity.this);
+                List<Address> addresses;
+                Address bestMatch;
+
+                for (int i = 0; i < shows.length; i++) {
+                    try {
+                        addresses = geocoder.getFromLocationName(shows[i].location, 1);
+                        if (!addresses.isEmpty()) {
+                            bestMatch = addresses.get(0);
+                            markers.add(new MarkerOptions().position(new LatLng(bestMatch.getLatitude(), bestMatch.getLongitude())));
+                        }
+                    } catch (IOException ex) {
+                        LOGE(LOG_TAG, "Exception while resolving location " + shows[i].location + ": " + ex);
+                    }
+                }
+
+                return markers.toArray(new MarkerOptions[markers.size()]);
+            }
+
+            @Override
+            protected void onPostExecute(MarkerOptions[] markerOptions) {
+                LatLngBounds.Builder boundsBuilder = LatLngBounds.builder();
+
+                for(MarkerOptions options : markerOptions)
+                {
+                    boundsBuilder.include(options.getPosition());
+                    mMap.addMarker(options);
+                }
+
+                mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 20));
+            }
+        };
+        asyncTask.execute();
     }
 }

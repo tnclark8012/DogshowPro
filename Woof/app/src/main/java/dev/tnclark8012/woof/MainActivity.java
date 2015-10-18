@@ -1,5 +1,6 @@
 package dev.tnclark8012.woof;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -47,6 +48,12 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         if (navigationView != null) {
             setupDrawerContent(navigationView);
+            navigationView.findViewById(R.id.nav_header).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    MainActivity.this.startActivity(new Intent(MainActivity.this, FindShowActivity.class));
+                }
+            });
         }
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
