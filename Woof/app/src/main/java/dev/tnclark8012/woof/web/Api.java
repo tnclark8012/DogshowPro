@@ -9,7 +9,7 @@ public class Api {
     public static Show[] GetAllShows(){
         return new Show[] {
                 Show.fromLocation("Redmond", "WA"),
-                Show.fromLocation("Omaha", "NE"),
+                Show.fromLocation("Omaha", "NE", false),
                 Show.fromLocation("Phoenix", "AZ")
         };
     }

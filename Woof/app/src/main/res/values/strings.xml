@@ -9,4 +9,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_menu_nav_show_day">Show Day</string>
     <string name="title_activity_find_show">Map</string>
+
+    <string name="warning_no_schedule">Only PDF program available</string>
 </resources>

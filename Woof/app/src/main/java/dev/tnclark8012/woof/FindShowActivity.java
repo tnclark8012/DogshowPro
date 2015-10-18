@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dev.tnclark8012.woof.model.Show;
+import dev.tnclark8012.woof.ui.widget.FindShowInfoWindowAdapter;
 import dev.tnclark8012.woof.util.LogUtils;
 import dev.tnclark8012.woof.web.Api;
 
@@ -98,6 +99,7 @@ public class FindShowActivity extends FragmentActivity {
      * This should only be called once and when we are sure that {@link #mMap} is not null.
      */
     private void setUpMap() {
+        mMap.setInfoWindowAdapter(new FindShowInfoWindowAdapter(this));
         populateMap();
     }
 
@@ -110,13 +112,21 @@ public class FindShowActivity extends FragmentActivity {
                 Geocoder geocoder = new Geocoder(FindShowActivity.this);
                 List<Address> addresses;
                 Address bestMatch;
-
+                MarkerOptions marker;
                 for (int i = 0; i < shows.length; i++) {
                     try {
                         addresses = geocoder.getFromLocationName(shows[i].location, 1);
                         if (!addresses.isEmpty()) {
                             bestMatch = addresses.get(0);
-                            markers.add(new MarkerOptions().position(new LatLng(bestMatch.getLatitude(), bestMatch.getLongitude())));
+                            marker = new MarkerOptions()
+                                    .position(new LatLng(bestMatch.getLatitude(), bestMatch.getLongitude()))
+                                    .title(shows[i].location);
+
+                            if(!shows[i].hasSchedule)
+                            {
+                                marker.snippet(getString(R.string.warning_no_schedule));
+                            }
+                            markers.add(marker);
                         }
                     } catch (IOException ex) {
                         LOGE(LOG_TAG, "Exception while resolving location " + shows[i].location + ": " + ex);
@@ -136,7 +146,7 @@ public class FindShowActivity extends FragmentActivity {
                     mMap.addMarker(options);
                 }
 
-                mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 20));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 100));
             }
         };
         asyncTask.execute();
