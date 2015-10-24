@@ -3,6 +3,7 @@ package dev.tnclark8012.woof.ui.widget;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.Marker;
@@ -23,9 +24,12 @@ public class FindShowInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
         View view = LayoutInflater.from(this.context).inflate(R.layout.choose_show_marker_window, null);
 
         if(marker.getSnippet() != null) {
-            View noSchedule = view.findViewById(R.id.choose_show_marker_window_no_schedule);
+            View noSchedule = view.findViewById(R.id.choose_show_marker_window_snippet);
             noSchedule.setVisibility(View.VISIBLE);
         }
+
+        TextView locationText = (TextView)view.findViewById(R.id.choose_show_marker_window_title);
+        locationText.setText(marker.getTitle());
 
         return view;
     }

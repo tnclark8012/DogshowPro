@@ -4,6 +4,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.ViewTreeObserver;
@@ -14,10 +15,12 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import dev.tnclark8012.woof.model.Show;
@@ -27,7 +30,7 @@ import dev.tnclark8012.woof.web.Api;
 
 import static dev.tnclark8012.woof.util.LogUtils.LOGE;
 
-public class FindShowActivity extends FragmentActivity {
+public class FindShowActivity extends FragmentActivity implements GoogleMap.OnInfoWindowClickListener {
     private static LatLngBounds USA = new LatLngBounds(
             new LatLng(24.787382, -80.291890), // NW Tip of Washington
             new LatLng(48.359859, -124.624869));// SE Tip of Florida
@@ -35,6 +38,7 @@ public class FindShowActivity extends FragmentActivity {
     private static String LOG_TAG = LogUtils.makeLogTag(FindShowActivity.class);
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
+    private HashMap<LatLng, Show> positionShowMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,12 @@ public class FindShowActivity extends FragmentActivity {
         setUpMapIfNeeded();
     }
 
+    public void onInfoWindowClick(Marker marker)
+    {
+        Show selectedShow = this.positionShowMap.get(marker.getPosition());
+        Snackbar.make(findViewById(android.R.id.content), "Entering " + selectedShow.location, Snackbar.LENGTH_LONG)
+                .setAction("Undo", null).show();
+    }
     /**
      * Sets up the map if it is possible to do so (i.e., the Google Play services APK is correctly
      * installed) and the map has not already been instantiated.. This will ensure that we only ever
@@ -100,6 +110,8 @@ public class FindShowActivity extends FragmentActivity {
      */
     private void setUpMap() {
         mMap.setInfoWindowAdapter(new FindShowInfoWindowAdapter(this));
+        mMap.setOnInfoWindowClickListener(this);
+        this.positionShowMap = new HashMap<>();
         populateMap();
     }
 
@@ -112,14 +124,17 @@ public class FindShowActivity extends FragmentActivity {
                 Geocoder geocoder = new Geocoder(FindShowActivity.this);
                 List<Address> addresses;
                 Address bestMatch;
+                LatLng position;
                 MarkerOptions marker;
                 for (int i = 0; i < shows.length; i++) {
                     try {
                         addresses = geocoder.getFromLocationName(shows[i].location, 1);
                         if (!addresses.isEmpty()) {
                             bestMatch = addresses.get(0);
+                            position = new LatLng(bestMatch.getLatitude(), bestMatch.getLongitude());
+                            positionShowMap.put(position, shows[i]);
                             marker = new MarkerOptions()
-                                    .position(new LatLng(bestMatch.getLatitude(), bestMatch.getLongitude()))
+                                    .position(position)
                                     .title(shows[i].location);
 
                             if(!shows[i].hasSchedule)
