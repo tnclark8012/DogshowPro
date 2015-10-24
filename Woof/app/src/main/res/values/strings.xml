@@ -11,4 +11,8 @@
     <string name="title_activity_find_show">Map</string>
 
     <string name="warning_no_schedule">Only PDF program available</string>
+
+    <string name="nav_title_doghouse">Doghouse</string>
+    <string name="nav_title_handlers">Handlers</string>
+    <string name="nav_title_settings">Settings</string>
 </resources>
