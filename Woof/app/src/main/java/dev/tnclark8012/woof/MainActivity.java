@@ -104,6 +104,10 @@ public class MainActivity extends AppCompatActivity {
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
                         menuItem.setChecked(true);
                         mDrawerLayout.closeDrawers();
+                        if(menuItem.getItemId() == R.id.nav_settings)
+                        {
+                            MainActivity.this.startActivity(new Intent(MainActivity.this, PreferencesActivity.class));
+                        }
                         return true;
                     }
                 });

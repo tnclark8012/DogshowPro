@@ -27,6 +27,7 @@ import dev.tnclark8012.woof.model.Show;
 import dev.tnclark8012.woof.ui.widget.FindShowInfoWindowAdapter;
 import dev.tnclark8012.woof.util.LogUtils;
 import dev.tnclark8012.woof.web.Api;
+import dev.tnclark8012.woof.web.MockApi;
 
 import static dev.tnclark8012.woof.util.LogUtils.LOGE;
 
@@ -103,8 +104,7 @@ public class FindShowActivity extends FragmentActivity implements GoogleMap.OnIn
     }
 
     /**
-     * This is where we can add markers or lines, add listeners or move the camera. In this case, we
-     * just add a marker near Africa.
+     * This is where we can add markers or lines, add listeners or move the camera.
      * <p/>
      * This should only be called once and when we are sure that {@link #mMap} is not null.
      */
@@ -119,7 +119,7 @@ public class FindShowActivity extends FragmentActivity implements GoogleMap.OnIn
         AsyncTask<Void, Void, MarkerOptions[]> asyncTask = new AsyncTask<Void, Void, MarkerOptions[]>() {
             @Override
             protected MarkerOptions[] doInBackground(Void... params) {
-                Show[] shows = Api.GetAllShows();
+                Show[] shows = Api.get(FindShowActivity.this).GetAllShows();
                 List<MarkerOptions> markers = new ArrayList<>(shows.length);
                 Geocoder geocoder = new Geocoder(FindShowActivity.this);
                 List<Address> addresses;

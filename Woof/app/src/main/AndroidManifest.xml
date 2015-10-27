@@ -42,6 +42,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="dev.tnclark8012.woof.MainActivity" />
         </activity>
+
+        <activity
+            android:name=".PreferencesActivity"
+            android:label="@string/title_activity_preferences" >
+        </activity>
     </application>
 
 </manifest>

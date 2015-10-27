@@ -1,0 +1,7 @@
+<preference-headers
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <header android:fragment="dev.tnclark8012.woof.PreferencesActivity$DeveloperPreferences"
+        android:title="Developer Settings"
+        android:summary="Change data and simulate responses." />
+</preference-headers>
