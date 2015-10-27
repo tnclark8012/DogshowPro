@@ -13,18 +13,21 @@ public class Query {
 
     public interface RingsQuery {
         int _TOKEN = 0x1;
-        String[] PROJECTION = { EnteredRings._ID,
-                EnteredRings.RING_BLOCK_START, EnteredRings.RING_COUNT_AHEAD,
-                EnteredRings.ENTERED_RINGS_IMAGE_PATH,
-                EnteredRings.RING_NUMBER, EnteredRings.ENTERED_RINGS_SUBTITLE,
-                EnteredRings.ENTERED_RINGS_TITLE, EnteredRings.RING_JUDGE_TIME,
-                EnteredRings.ENTERED_RINGS_TYPE,
-                EnteredRings.ENTERED_RINGS_FIRST_CLASS,
-                EnteredRings.ENTERED_RINGS_DOG_COUNT,
-                EnteredRings.ENTERED_RINGS_BITCH_COUNT,
-                EnteredRings.ENTERED_RINGS_SPECIAL_DOG_COUNT,
-                EnteredRings.ENTERED_RINGS_SPECIAL_BITCH_COUNT,
-                EnteredRings.ENTERED_RINGS_RING_COUNT };
+        String[] PROJECTION = {
+            EnteredRings._ID,
+            EnteredRings.RING_BLOCK_START, EnteredRings.RING_COUNT_AHEAD,
+            EnteredRings.ENTERED_RINGS_IMAGE_PATH,
+            EnteredRings.RING_NUMBER, EnteredRings.ENTERED_RINGS_SUBTITLE,
+            EnteredRings.ENTERED_RINGS_TITLE, EnteredRings.RING_JUDGE_TIME,
+            EnteredRings.ENTERED_RINGS_TYPE,
+            EnteredRings.ENTERED_RINGS_FIRST_CLASS,
+            EnteredRings.ENTERED_RINGS_DOG_COUNT,
+            EnteredRings.ENTERED_RINGS_BITCH_COUNT,
+            EnteredRings.ENTERED_RINGS_SPECIAL_DOG_COUNT,
+            EnteredRings.ENTERED_RINGS_SPECIAL_BITCH_COUNT,
+            EnteredRings.ENTERED_RINGS_RING_COUNT
+        };
+
         int _ID = 0;
         int BLOCK_START = 1;
         int COUNT_AHEAD = 2;
@@ -44,7 +47,8 @@ public class Query {
 
     public interface UpcomingRingQuery {
         int _TOKEN = 0x2;
-        String[] PROJECTION = { EnteredRings._ID,
+        String[] PROJECTION = {
+                EnteredRings._ID,
                 EnteredRings.ENTERED_RINGS_TITLE,
                 EnteredRings.RING_BLOCK_START, EnteredRings.RING_NUMBER,
                 EnteredRings.ENTERED_RINGS_IMAGE_PATH,
